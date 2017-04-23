@@ -1,0 +1,72 @@
+#main {
+  border: solid 1px #000;
+  padding: 20px;
+  width: 550px;
+  min-height: 500px;
+  margin: 0 auto;
+}
+
+h5#scenario_title {
+  font-size: small;
+  text-align: right;
+}
+
+table.enemy {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+table.enemy,
+table.enemy th,
+table.enemy td {
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.5;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.scenebtn {
+  display: block;
+  text-align: center;
+  margin: 3px;
+  padding: 5px;
+  color: black;
+  text-decoration: none;
+  border: 1px solid #000;
+  background-color: #eee;
+}
+
+.scenepic {
+  width: 350px;
+}
+
+#dialog_body input[type="number"] {
+  width: 40px;
+}
+
+#dialog_body .delta {
+  color: Red;
+  font-weight: bold;
+}
+
+#dialog_body th {
+  padding-right: 5px;
+  text-align: right;
+}
+
+#dialog_body #state_desc {
+  color: Red;
+  font-weight: bold;
+  font-size: small;
+}
+
+#dialog_body textarea {
+  width: 95%;
+}
+
+#dialog_body {
+  background-image: url(dialog_back.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
