@@ -468,9 +468,23 @@
         e.preventDefault();
       });
 
+      // ダイス回転音を準備
+      var ad = new Audio(ROOT + COMMON + 'dice.mp3');
+
+      // ダイスの回転
+      var rotate_count;
+      var rotateCube = function() {
+        rotate_count++;
+        $('#cubes').html(Util.cube(2));
+        if(rotate_count > 20) { return; }
+        setTimeout(rotateCube, 50);
+      };
+        
       // サイコロをリロード
       target.on('click', '#cubes', function(e) {
-        $(this).html(Util.cube(2));
+        ad.play();
+        rotate_count = 1;
+        rotateCube(this);
       });
 
       // 右クリック時にステータスダイアログを表示
