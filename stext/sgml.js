@@ -517,6 +517,7 @@
       $(document).on('click', '#dialog_body #magic_run', function(e) {
         var magic = Common.magic[
           $('#dialog_body #magic option:selected').val()];
+        if (!magic) { return; }
         if($('#dialog_body #s_mon').val() < magic[0] ||
            $('#dialog_body #s_tue').val() < magic[1] ||
            $('#dialog_body #s_wed').val() < magic[2] ||
