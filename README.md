@@ -10,8 +10,8 @@ Automatically generate game books from scenario data
 
 ## Example
 
-`
+```
 $(function() {
   $('#main').startGame('ramidia');
 });
-`
+```
