@@ -4,9 +4,9 @@ Automatically generate game books from scenario data
 
 ## Dependencies
 
--jQuery
--jQuery Markdown
--Zoombox
+- jQuery
+- jQuery Markdown
+- Zoombox
 
 ## Example
 
