@@ -493,6 +493,18 @@
         e.preventDefault();
       });
 
+      // BGMオンオフ ※別途、スピーカーアイコン設置
+      var bgm;
+      target.on('click', '#scenario_title', function(e) {
+        if(bgm) {
+          if(bgm.paused) {
+            bgm.play();
+          } else {
+            bgm.pause();
+          }
+        }
+      })
+
       // ステータス保存（ステータスダイアログ）
       $(document).on('click', '#dialog_body #status_save', function(e) {
         save_data.chara.hp = $('#dialog_body #hp').val();
@@ -556,6 +568,14 @@
         Util.createScene(e.originalEvent.state);
       });
       /** EventListener **/
+
+      // bgm.mp3が存在したら、再生開始
+      var audio_path = ROOT + scenario_code + '/bgm.mp3';
+      $.get(audio_path).then(function() {
+        bgm = new Audio(audio_path);
+        bgm.loop = true;
+        bgm.play();
+      });
 
       // 初期化処理
       $.get(ROOT + scenario_code + '/scenario.xml')
