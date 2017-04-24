@@ -72,7 +72,7 @@ table.enemy td {
 }
 
 #dialog_body {
-  background-image: url(dialog_back.png);
+  background-image: url(common/dialog_back.png);
   background-repeat: no-repeat;
   background-position: center;
 }

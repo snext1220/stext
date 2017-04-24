@@ -1,6 +1,6 @@
 (function($) {
   // ルートパス
-  var ROOT = 'gb/';
+  var ROOT = 'stext/';
   var COMMON  = 'common/'
   var CAPTURE  = 'capture/'
 
