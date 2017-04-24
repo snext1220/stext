@@ -65,8 +65,15 @@ table.enemy td {
   width: 95%;
 }
 
+#dialog_body #chara_face {
+  position: absolute;
+  top: 40px;
+  left: 500px;
+}
+
 #dialog_body {
   background-image: url(dialog_back.png);
   background-repeat: no-repeat;
   background-position: center;
 }
+
