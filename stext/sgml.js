@@ -174,7 +174,9 @@
         // 現在のシーン番号
         scene: 0,
         // 経過シーン
-        ellapsed_scene: 0
+        ellapsed_scene: 0,
+        // BGMを鳴らすか
+        bgm: false
       };
       this.saveStorage();
     },
