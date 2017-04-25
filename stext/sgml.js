@@ -176,7 +176,7 @@
         // 経過シーン
         ellapsed_scene: 0,
         // BGMを鳴らすか
-        bgm: false
+        bgm: true
       };
       this.saveStorage();
     },
@@ -392,7 +392,10 @@
 
       $('<h5 id="scenario_title">' + 
         $('scenario', scenario_data).attr('title') +
-        '　【' + scene_num + '】' + '</h5>').prependTo(target);
+          '　【' + scene_num + '】' + 
+          '<img id="audio_onoff" src="' + ROOT + COMMON + 'audio_' +
+          (save_data.bgm ? 'on' : 'off') + '.png" /></h5>')
+        .prependTo(target);
 
       // サイコロの表示
       target.append('<center id="cubes">' + Util.cube(2) + '</center>');
@@ -499,17 +502,22 @@
         e.preventDefault();
       });
 
-      // BGMオンオフ ※別途、スピーカーアイコン設置
+      // BGMオンオフ（未検証）
       var bgm;
-      target.on('click', '#scenario_title', function(e) {
+      target.on('click', '#audio_onoff', function(e) {
         if(bgm) {
-          if(bgm.paused) {
-            bgm.play();
-          } else {
+          if (save_data.bgm) {
+            save_data.bgm = false;
+            $(this).attr('src', ROOT + COMMON + 'audio_off.png');
             bgm.pause();
+          } else {
+            save_data.bgm = true;
+            $(this).attr('src', ROOT + COMMON + 'audio_on.png');
+            bgm.play();
           }
+          Util.saveStorage();
         }
-      })
+      });
 
       // ステータス保存（ステータスダイアログ）
       $(document).on('click', '#dialog_body #status_save', function(e) {
@@ -580,7 +588,7 @@
       $.get(audio_path).then(function() {
         bgm = new Audio(audio_path);
         bgm.loop = true;
-        bgm.play();
+        if(save_data.bgm) { bgm.play(); }
       });
 
       // 初期化処理
@@ -661,6 +669,33 @@
         .fail(function(xhr, status, error) {
           throw new Error('scenario code is invalid.');
         });
+    },
+
+    // ゲームクリア時にグローバルアイテムを入手
+    guildItems: function() {
+      // ・月の欠片を****所有した状態で冒険を開始
+      // ・火星の欠片を****所有した状態で冒険を開始
+      // ・水星の欠片を****所有した状態で冒険を開始
+      // ・木星の欠片を****所有した状態で冒険を開始
+      // ・金星の欠片を****所有した状態で冒険を開始
+      // ・土星の欠片を****所有した状態で冒険を開始
+      // ・太陽の欠片を****所有した状態で冒険を開始
+      // ・シーンごとにHPを1回復（サイコロ****）
+      // ・シーンごとにMPを1回復（サイコロ****）
+      // ・戦闘ダメージを1減算
+      // ・罠ダメージを1減算
+      // ・一度だけHPを半分回復できる
+      // ・一度だけMPを半分回復できる
+      // ・HPダメージを1減算
+      // ・MPダメージを1減算
+      // ・戦闘回避（サイコロ****の場合）
+      // ・罠回避（サイコロ****の場合）
+      // ・毒耐性
+      // ・呪い耐性
+      // ・凍結耐性
+      // ・石化耐性
+      // ・忘却耐性
+      // ・すべての星の欠片をひとつずつ所有した状態で冒険を開始
     }
   });
 })(jQuery);
