@@ -254,7 +254,9 @@
         // 現在のシーン番号
         scene: 0,
         // 経過シーン
-        ellapsed_scene: 0
+        ellapsed_scene: 0,
+        // ボーナス（グローバルアイテム）
+        bonus: this.randomArray(global_save_data.items)
       };
       this.saveStorage();
     },
@@ -393,6 +395,14 @@
             ROOT + COMMON + String(save_data.chara.sex).toLowerCase() + '_' +
               String(save_data.chara.age).toLowerCase() + '_' + 
               String(save_data.chara.race).toLowerCase() + '.png');
+          if(save_data.bonus) {
+            if(save_data.bonus.indexOf('bgi') === 0) {
+              var b = Common.global_items.bad[save_data.bonus];
+            } else {
+              var b = Common.global_items.happy[save_data.bonus];
+            }
+            $('#bonus', dialog).text(b.desc + '（' + b.name + '）');
+          }
        });
     },
 

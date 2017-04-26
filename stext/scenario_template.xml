@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scenario title="シナリオタイトル" author="著者名">
+<items>
+  <item id="ixx" name="アイテム名">アイテム説明</item>
+  <item id="ixx" name="アイテム名">アイテム説明</item>
+</items>
+<flags>
+  <flag id="fxx">フラグ説明</flag>
+  <flag id="fxx">フラグ説明</flag>
+</flags>
+<enemies>
+  <enemy id="mxx" name="モンスター／罠名" element="地火水風霊"
+    attack="物理魔法毒凍結石化呪い忘却" func="式／回避条件">モンスター説明</enemy>
+  <enemy id="mxx" name="モンスター／罠名" element="地火水風霊"
+    attack="物理魔法毒凍結石化呪い忘却" func="式／回避条件">モンスター説明</enemy>
+</enemies>
+<scene id="0">
+プロローグ
+</scene>
+<scene id="1" items="ixx,-ixx" flags="fxx,fxx" enemies="mxx,mxx">
+本文
+</scene>
+</scenario>
