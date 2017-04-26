@@ -193,7 +193,7 @@
       save_data = JSON.parse(localStorage[scenario_code]);
     },
 
-    // グローバルセーブるデータをストレージに保存
+    // グローバルセーブデータをストレージに保存
     saveStorageGlobal: function() {
       localStorage[GLOBAL_SAVE_DATA_KEY] = JSON.stringify(global_save_data);
     },
