@@ -114,13 +114,15 @@
     },
 
     // セーブデータをストレージに保存
-    saveStorage: function() {
-      localStorage[scenario_code] = JSON.stringify(save_data);
+    saveStorage: function(key) {
+      if (key === undefined) { key = scenario_code; }
+      localStorage[key] = JSON.stringify(save_data);
     },
 
     // セーブデータをストレージから取得
     loadStorage: function() {
-      save_data = JSON.parse(localStorage[scenario_code]);
+      if (key === undefined) { key = scenario_code; }
+      save_data = JSON.parse(localStorage[key]);
     },
 
     // セーブデータの初期化

@@ -1,6 +1,7 @@
 # jQuery SGML（Sorcerian Gamebook Markup Language）plugin
 
-Automatically generate game books from scenario data
+Automatically generate game books from scenario data.
+People called this Plugin.....**Sorcerian Text**.
 
 ## Dependencies
 
