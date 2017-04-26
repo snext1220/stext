@@ -22,6 +22,10 @@
   // セーブデータ
   var save_data;
 
+  // グローバルセーブデータ
+  var global_save_data;
+  var GLOBAL_SAVE_DATA_KEY = 'sorcerian_text';
+
   // ターゲット要素（ゲームブックの表示先）
   var target;
 
@@ -71,6 +75,72 @@
       'DESTROY.A':   [ 1, 0, 4, 0, 0, 0, 0, '風属性の敵を全滅' ],
       'LIGHT CROSS': [ 0, 2, 0, 2, 0, 1, 0, '霊属性の敵を全滅' ],
       'NOILA-TEM':   [ 1, 1, 1, 1, 1, 1, 1, 'すべての属性の敵を全滅' ],
+    },
+
+    // シナリオクリア時に入手できるアイテム
+    global_items: {
+      'happy' : {
+        'gi01' : { name: '金の卵', desc: '月の欠片を5個所有した状態で冒険を開始' },
+        'gi02' : { name: 'ガラティーン', desc: '火星の欠片を5個所有した状態で冒険を開始' },
+        'gi03' : { name: '五元素のマント', desc: '水星の欠片を****所有した状態で冒険を開始' },
+        'gi04' : { name: 'アマゾンの剣', desc: '木星の欠片を****所有した状態で冒険を開始' },
+        'gi05' : { name: '幸福のコイン', desc: '金星の欠片を****所有した状態で冒険を開始' },
+        'gi06' : { name: 'ムラサメブレード', desc: '土星の欠片を****所有した状態で冒険を開始' },
+        'gi07' : { name: 'ジャイアントスレイヤー', desc: '太陽の欠片を****所有した状態で冒険を開始' },
+        'gi08' : { name: '水晶の剣', desc: 'シーンごとにHPを1回復' },
+        'gi09' : { name: '王様の杖', desc: 'シーンごとにMPを1回復（サイコロ****）' },
+        'gi10' : { name: 'ブルーリボン', desc: '戦闘ダメージを1減算' },
+        'gi11' : { name: '王家のダイヤモンド', desc: '罠ダメージを1減算' },
+        'gi12' : { name: '不老長寿の水', desc: '一度だけHPを半分回復できる' },
+        'gi13' : { name: 'タリスマン', desc: '一度だけMPを半分回復できる' },
+        'gi14' : { name: '鏡の盾', desc: 'HPダメージを1減算' },
+        'gi15' : { name: '銀の竪琴', desc: 'MPダメージを1減算' },
+        'gi16' : { name: 'パンドラの箱', desc: '戦闘回避（サイコロ****の場合）' },
+        'gi17' : { name: '魔法の絨毯', desc: '罠回避（サイコロ****の場合）' },
+        'gi18' : { name: '中和剤', desc: '毒耐性' },
+        'gi19' : { name: '聖水', desc: '呪い耐性' },
+        'gi20' : { name: 'チルドの実', desc: '凍結耐性' },
+        'gi21' : { name: '銀のハーモニカ', desc: '石化耐性' },
+        'gi22' : { name: '真実の鏡', desc: '忘却耐性' },
+        'gi23' : { name: 'ドラゴンスレイヤー', desc: 'すべての星の欠片をひとつずつ所有した状態で冒険を開始' },
+      },
+      'bad' : {
+        'bgi01' : { name: '塩酸', desc: 'シーンごとにHPを1減算' },
+        'bgi02' : { name: '紅玉', desc: 'シーンごとにMPを1減算' },
+        'bgi03' : { name: '血まみれの斧', desc: '呪い状態を解除できなくなる' },
+        'bgi04' : { name: 'ファクトの書', desc: '******************' },
+        'bgi05' : { name: 'ギャルのパンティー', desc: '忘却状態を解除できなくなる' },
+      }
+      // 金の卵・月の欠片を****所有した状態で冒険を開始
+      // ガラティーン・火星の欠片を****所有した状態で冒険を開始
+      // 五元素のマント・水星の欠片を****所有した状態で冒険を開始
+      // アマゾンの剣・木星の欠片を****所有した状態で冒険を開始
+      // 幸福のコイン・金星の欠片を****所有した状態で冒険を開始
+      // ムラサメブレード・土星の欠片を****所有した状態で冒険を開始
+      // ジャイアントスレイヤー・太陽の欠片を****所有した状態で冒険を開始
+      // 水晶の剣・シーンごとにHPを1回復（サイコロ****）
+      // 王様の杖・シーンごとにMPを1回復（サイコロ****）
+      // ブルーリボン・戦闘ダメージを1減算
+      // 王家のダイヤモンド・罠ダメージを1減算
+      // 不老長寿の水・一度だけHPを半分回復できる
+      // タリスマン・一度だけMPを半分回復できる
+      // 鏡の盾・HPダメージを1減算
+      // 銀の竪琴・MPダメージを1減算
+      // パンドラの箱・戦闘回避（サイコロ****の場合）
+      // 魔法の絨毯・罠回避（サイコロ****の場合）
+      // 中和剤・毒耐性
+      // 聖水・呪い耐性
+      // チルドの実・凍結耐性
+      // 銀のハーモニカ・石化耐性
+      // 真実の鏡・忘却耐性
+      // ドラゴンスレイヤー・すべての星の欠片をひとつずつ所有した状態で冒険を開始
+
+      // ・ファクトの書
+      // ・塩酸
+      // ・紅玉
+      // ・血まみれの斧
+      // ・キタブ・アル・アジフ
+      // ・ギャルのパンティー
     }
   };
 
@@ -114,15 +184,23 @@
     },
 
     // セーブデータをストレージに保存
-    saveStorage: function(key) {
-      if (key === undefined) { key = scenario_code; }
-      localStorage[key] = JSON.stringify(save_data);
+    saveStorage: function() {
+      localStorage[scenario_code] = JSON.stringify(save_data);
     },
 
     // セーブデータをストレージから取得
     loadStorage: function() {
-      if (key === undefined) { key = scenario_code; }
-      save_data = JSON.parse(localStorage[key]);
+      save_data = JSON.parse(localStorage[scenario_code]);
+    },
+
+    // グローバルセーブるデータをストレージに保存
+    saveStorageGlobal: function() {
+      localStorage[GLOBAL_SAVE_DATA_KEY] = JSON.stringify(global_save_data);
+    },
+
+    // グローバルセーブデータをストレージから取得
+    loadStorageGlobal: function() {
+      global_save_data = JSON.parse(localStorage[GLOBAL_SAVE_DATA_KEY]);
     },
 
     // セーブデータの初期化
@@ -176,14 +254,21 @@
         // 現在のシーン番号
         scene: 0,
         // 経過シーン
-        ellapsed_scene: 0,
-        // BGMを鳴らすか
-        bgm: true
+        ellapsed_scene: 0
       };
       this.saveStorage();
     },
 
-    // @items属性（at_items）の値に応じて、セーブデータのitemsプロパティを更新
+    // グローバルなセーブデータを初期化（未検証）
+    initGlobalSaveData: function() {
+      global_save_data = {
+        items: [],
+        bgm: true
+      };
+      this.saveStorageGlobal(GLOBAL_SAVE_DATA_KEY);
+    },
+
+    // @items属性（at_items）の値に応じて、セーブデータのitemsプロパティを更新 ※未検証
     updateItems: function(at_items) {
       if(!at_items) { return; }
       var items = save_data.items;
@@ -194,11 +279,12 @@
 
         if (item.indexOf('-') === 0) {
           item = this.ltrim(item);
-          this.shiftUnique(items, item);
+          items = this.shiftUnique(items, item);
         } else {
           this.pushUnique(items, item);
         }
       }
+      save_data.items = items;
     },
 
     // @flags属性（at_flags）の値に応じて、セーブデータのflagsプロパティを更新
@@ -384,6 +470,23 @@
       );
     },
 
+    // エンディングの処理（resultはhappy／bad）
+    endScenario: function(result) {
+      if(!result) { return; }
+
+      var bonus_item;
+      switch(result) {
+        case 'happy' :
+          bonus_item = Util.randomArray(Object.keys(Common.global_items.happy));
+          break;
+        case 'bad' :
+          bonus_item = Util.randomArray(Object.keys(Common.global_items.bad));
+          break;
+      }
+      Util.pushUnique(global_save_data.items, bonus_item);
+      Util.saveStorageGlobal();
+    },
+
     // 現在のシーン情報を取得＆画面の生成
     createScene: function(scene_num) { 
       var scene = $('scene[id="' + scene_num + '"]', scenario_data);
@@ -396,7 +499,7 @@
         $('scenario', scenario_data).attr('title') +
           '　【' + scene_num + '】' + 
           '<img id="audio_onoff" src="' + ROOT + COMMON + 'audio_' +
-          (save_data.bgm ? 'on' : 'off') + '.png" /></h5>')
+          (global_save_data.bgm ? 'on' : 'off') + '.png" /></h5>')
         .prependTo(target);
 
       // サイコロの表示
@@ -442,11 +545,11 @@
 
       // 指定のフラグを所持している場合にだけボタンだけを表示
       for (var i = 0; i < flags.length; i++) {
-        $('a[title="f' + flags[i] + '"]', target).show();
+        $('a[title="' + flags[i] + '"]', target).show();
       }
       // 指定のアイテムを所有している場合にだけボタンを表示
       for (var i = 0; i < items.length; i++) {
-        $('a[title="i' + items[i] + '"]', target).show();
+        $('a[title="' + items[i] + '"]', target).show();
       }
 
       // 現在のシーンのフラグ情報／アイテム情報を反映
@@ -459,6 +562,9 @@
 
       // ストレージに反映
       Util.saveStorage();
+
+      // エンディング処理
+      Util.endScenario(scene.attr('end'));
 
       console.log(save_data);
     }
@@ -508,16 +614,16 @@
       var bgm;
       target.on('click', '#audio_onoff', function(e) {
         if(bgm) {
-          if (save_data.bgm) {
-            save_data.bgm = false;
+          if (global_save_data.bgm) {
+            global_save_data.bgm = false;
             $(this).attr('src', ROOT + COMMON + 'audio_off.png');
             bgm.pause();
           } else {
-            save_data.bgm = true;
+            global_save_data.bgm = true;
             $(this).attr('src', ROOT + COMMON + 'audio_on.png');
             bgm.play();
           }
-          Util.saveStorage();
+          Util.saveStorageGlobal();
         }
       });
 
@@ -590,8 +696,15 @@
       $.get(audio_path).then(function() {
         bgm = new Audio(audio_path);
         bgm.loop = true;
-        if(save_data.bgm) { bgm.play(); }
+        if(global_save_data.bgm) { bgm.play(); }
       });
+
+      // グローバルセーブデータが存在しない場合は初期化
+      if(localStorage[GLOBAL_SAVE_DATA_KEY]) {
+        Util.loadStorageGlobal();
+      } else {
+        Util.initGlobalSaveData();
+      }
 
       // 初期化処理
       $.get(ROOT + scenario_code + '/scenario.xml')
@@ -645,7 +758,7 @@
           if (localStorage[scenario_code]) {
             if (confirm('以前のデータが残っています。' +
               '\r続きから開始しますか？')) {
-              Util.loadStorage(scenario_code);
+              Util.loadStorage();
               Util.initDialog();
               // 再開時に経過日数の加算分を減算
               save_data.ellapsed_scene--;
@@ -675,29 +788,7 @@
 
     // ゲームクリア時にグローバルアイテムを入手
     guildItems: function() {
-      // ・月の欠片を****所有した状態で冒険を開始
-      // ・火星の欠片を****所有した状態で冒険を開始
-      // ・水星の欠片を****所有した状態で冒険を開始
-      // ・木星の欠片を****所有した状態で冒険を開始
-      // ・金星の欠片を****所有した状態で冒険を開始
-      // ・土星の欠片を****所有した状態で冒険を開始
-      // ・太陽の欠片を****所有した状態で冒険を開始
-      // ・シーンごとにHPを1回復（サイコロ****）
-      // ・シーンごとにMPを1回復（サイコロ****）
-      // ・戦闘ダメージを1減算
-      // ・罠ダメージを1減算
-      // ・一度だけHPを半分回復できる
-      // ・一度だけMPを半分回復できる
-      // ・HPダメージを1減算
-      // ・MPダメージを1減算
-      // ・戦闘回避（サイコロ****の場合）
-      // ・罠回避（サイコロ****の場合）
-      // ・毒耐性
-      // ・呪い耐性
-      // ・凍結耐性
-      // ・石化耐性
-      // ・忘却耐性
-      // ・すべての星の欠片をひとつずつ所有した状態で冒険を開始
+
     }
   });
 })(jQuery);
