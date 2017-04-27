@@ -17,7 +17,7 @@
 <scene id="0">
 プロローグ
 </scene>
-<scene id="1" items="ixx,-ixx" flags="fxx,fxx" enemies="mxx,mxx">
+<scene id="1" items="ixx,-ixx" flags="fxx,fxx" enemies="mxx,mxx" end="happy">
 本文
 </scene>
 </scenario>
