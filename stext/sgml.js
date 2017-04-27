@@ -379,6 +379,15 @@
       return [ str_d, int_d, dex_d, krm_d, state_desc ];
     },
 
+    // 指定されたキーでボーナスアイテムを取得
+    getBonusItem: function(bonus) {
+      if(bonus.indexOf('bgi') === 0) {
+        return Common.global_items.bad[bonus];
+      } else {
+        return Common.global_items.happy[bonus];
+      }
+    },
+
     // ステータスダイアログを初期化
     initDialog: function() {
       $.get(ROOT + COMMON + 'dialog.html')
@@ -396,11 +405,7 @@
               String(save_data.chara.age).toLowerCase() + '_' + 
               String(save_data.chara.race).toLowerCase() + '.png');
           if(save_data.bonus) {
-            if(save_data.bonus.indexOf('bgi') === 0) {
-              var b = Common.global_items.bad[save_data.bonus];
-            } else {
-              var b = Common.global_items.happy[save_data.bonus];
-            }
+            var b = Util.getBonusItem(save_data.bonus);
             $('#bonus', dialog).text(b.desc + '（' + b.name + '）');
           }
        });
@@ -484,17 +489,22 @@
     endScenario: function(result) {
       if(!result) { return; }
 
-      var bonus_item;
+      var bonus_item, o_bonus_item;
       switch(result) {
         case 'happy' :
           bonus_item = Util.randomArray(Object.keys(Common.global_items.happy));
+          o_bonus_item = Common.global_items.happy[bonus_item];
           break;
         case 'bad' :
           bonus_item = Util.randomArray(Object.keys(Common.global_items.bad));
+          o_bonus_item = Common.global_items.bad[bonus_item];
           break;
       }
       Util.pushUnique(global_save_data.items, bonus_item);
       Util.saveStorageGlobal();
+
+      window.alert('Item Get！\n' + 
+        o_bonus_item.name + '\n' + o_bonus_item.desc);
     },
 
     // 現在のシーン情報を取得＆画面の生成
