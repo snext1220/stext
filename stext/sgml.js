@@ -255,12 +255,14 @@
         // 経過シーン
         ellapsed_scene: 0,
         // ボーナス（グローバルアイテム）
-        bonus: this.randomArray(global_save_data.items)
+        bonus: this.randomArray(global_save_data.items),
+        // エンディングに到達したか
+        isEnded: false
       };
       this.saveStorage();
     },
 
-    // グローバルなセーブデータを初期化（未検証）
+    // グローバルなセーブデータを初期化
     initGlobalSaveData: function() {
       global_save_data = {
         items: [],
@@ -392,6 +394,16 @@
       }
     },
 
+    // シナリオデータを初期化
+    initScenario: function() {
+      Util.initSavedata();
+      Util.initDialog();
+
+      // 最初のシーンを取得
+      Util.createScene(0);
+      history.pushState(0, 'Scene 0');
+    },
+
     // ステータスダイアログを初期化
     initDialog: function() {
       $.get(ROOT + COMMON + 'dialog.html')
@@ -493,6 +505,11 @@
     endScenario: function(result) {
       if(!result) { return; }
 
+      // エンディングフラグ
+      save_data.isEnded = true;
+      Util.saveStorage();
+
+      // ボーナスアイテムの選択
       var bonus_item, o_bonus_item;
       switch(result) {
         case 'happy' :
@@ -512,7 +529,16 @@
     },
 
     // 現在のシーン情報を取得＆画面の生成
-    createScene: function(scene_num) { 
+    createScene: function(scene_num) {
+      // エンディングに到達している場合は初期化処理
+      if(save_data.isEnded) {
+        if(confirm('エンディングに到達しています。\r最初から冒険を始めますか？')) {
+          localStorage.removeItem[scenario_data];
+          Util.initScenario();
+        }
+        return;
+      }
+
       var scene = $('scene[id="' + scene_num + '"]', scenario_data);
 
       // シーンテキストの整形
@@ -795,12 +821,7 @@
 
           // ストレージに情報がない場合には最初からゲームを開始
           // ゲーム情報を初期化
-          Util.initSavedata();
-          Util.initDialog();
-
-          // 最初のシーンを取得
-          Util.createScene(0);
-          history.pushState(0, 'Scene 0');
+          Util.initScenario();
 
           window.alert('キャラが新規作成されました。\r' +
             'ステータスダイアログは画面右クリックで開くことができます。');
