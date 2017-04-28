@@ -517,15 +517,31 @@
           o_bonus_item = Common.global_items.happy[bonus_item];
           break;
         case 'bad' :
-          bonus_item = Util.randomArray(Object.keys(Common.global_items.bad));
-          o_bonus_item = Common.global_items.bad[bonus_item];
+          // バッドアイテムは20％未満の確率で入手
+          if(Util.random(0, 100) < 20) {
+            bonus_item = Util.randomArray(Object.keys(Common.global_items.bad));
+            o_bonus_item = Common.global_items.bad[bonus_item];
+          }
           break;
       }
-      Util.pushUnique(global_save_data.items, bonus_item);
-      Util.saveStorageGlobal();
 
-      window.alert('Item Get！\n' + 
-        o_bonus_item.name + '\n' + o_bonus_item.desc);
+      if(bonus_item) {
+        Util.pushUnique(global_save_data.items, bonus_item);
+        Util.saveStorageGlobal();
+
+        // 仮のダイアログボックス
+        window.alert('Clear Item Get！\n' + 
+          o_bonus_item.name + '\n' + o_bonus_item.desc);
+        
+        /* アイテム表示（本番）
+        $.zoombox.html(dialog.html(),
+          {
+            width: 640,
+            height: 500
+          }
+        );
+        */
+      }
     },
 
     // 現在のシーン情報を取得＆画面の生成
