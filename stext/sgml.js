@@ -269,7 +269,7 @@
       this.saveStorageGlobal(GLOBAL_SAVE_DATA_KEY);
     },
 
-    // @items属性（at_items）の値に応じて、セーブデータのitemsプロパティを更新 ※未検証
+    // @items属性（at_items）の値に応じて、セーブデータのitemsプロパティを更新
     updateItems: function(at_items) {
       if(!at_items) { return; }
       var items = save_data.items;
@@ -315,15 +315,20 @@
     dropItem: function(element) {
       if(!element) { return ''; }
       var drop = {
-        '地': [ '木星', '火星', '土星' ],
-        '火': [ '火星', '太陽', '火星' ],
-        '水': [ '水星', '月', '金星' ],
-        '風': [ '金星', '水星', '月' ],
-        '霊': [ '土星', '太陽', '月' ]
+        '地': [ '木星', '火星', '土星', '', '' ],
+        '火': [ '火星', '太陽', '火星', '', '' ],
+        '水': [ '水星', '月', '金星', '', '' ],
+        '風': [ '金星', '水星', '月', '', '' ],
+        '霊': [ '土星', '太陽', '月', '', '' ]
       };
       return this.randomArray(drop[element]);
     },
 
+    // ダメージ式／回避方法を選択
+    selectFunc: function(func) {
+      return Util.randomArray(func.split(',')).trim();
+    }
+,
     // 状態異常によるステータス補正
     deltaStatus: function(state) {
       switch(state) {
@@ -547,7 +552,7 @@
           var row = '<tr><th>' + enemy.name;
           if(enemy.element) { row += '（' + enemy.element + '）'; }
           row += '</th><td>' + enemy.attack + '</td><td>';
-          if(enemy.func) { row += enemy.func; }
+          if(enemy.func) { row += Util.selectFunc(enemy.func); }
           row += '</td><td>' + this.dropItem(enemy.element);
           row += '</td><td>' + enemy.desc + '</td></tr>';
           e_table.append(row);

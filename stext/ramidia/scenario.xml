@@ -12,10 +12,10 @@
   <enemy id="m1" name="ゴブリン" element="地" attack="物理" func="2L+R-STR">
     森に住まう凶暴な亜人
   </enemy>
-  <enemy id="m2" name="ラッド" element="水" attack="毒" func="INT>5">
+  <enemy id="m2" name="ラッド" element="水" attack="毒" func="INT>5,DEX>3,WIZARD">
     毒を持った大鼠
   </enemy>
-  <enemy id="m3" name="トロール" element="風" attack="魔法" func="R-DEX">
+  <enemy id="m3" name="トロール" element="風" attack="魔法" func="R-DEX,L+INT">
     棍棒を武器とする巨人
   </enemy>
   <enemy id="m4" name="氷の呪い" attack="凍結" func="DEX>3">
@@ -617,9 +617,11 @@
 
 </scene>
 <scene id="98" end="bad">
+バッドエンディング
 (End)
 </scene>
 <scene id="99" end="happy">
+ハッピーエンド
 (Happy End)
 </scene>
 
