@@ -505,6 +505,9 @@
     endScenario: function(result) {
       if(!result) { return; }
 
+      $('<p><a href="JavaScript: location.refresh()" class="scenebtn">' +
+        '最初から冒険に挑戦する</a></p>').insertBefore($('#cubes', target));
+
       // エンディングフラグ
       save_data.isEnded = true;
       Util.saveStorage();
