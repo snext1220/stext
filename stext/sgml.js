@@ -501,19 +501,22 @@
       if(bonus_item) {
         Util.pushUnique(global_save_data.items, bonus_item);
         Util.saveStorageGlobal();
-
-        // 仮のダイアログボックス
-        window.alert('Clear Item Get！\n' + 
-          o_bonus_item.name + '\n' + o_bonus_item.desc);
         
-        /* アイテム表示（本番）
-        $.zoombox.html(dialog.html(),
-          {
-            width: 640,
-            height: 500
-          }
-        );
-        */
+        // アイテム表示
+        $.get('stext/common/dialog_bonus.html').then(function(data) {
+          var bonus_dialog = $(data);
+          $('#bonus_item', bonus_dialog).text(o_bonus_item.name);
+          $('#bonus_item_desc', bonus_dialog).text(o_bonus_item.desc);
+
+          setTimeout(function() {
+            $.zoombox.html(bonus_dialog.html(),
+              {
+                width: 350,
+                height: 100
+              }
+            );  
+          }, 2000);
+        });
       }
     },
 
