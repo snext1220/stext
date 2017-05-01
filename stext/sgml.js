@@ -32,6 +32,9 @@
   // ダイアログ本体
   var dialog;
 
+  // 現在再生中のBGM
+  var bgm;
+
   // 基本データ
   var Common = {
     // 男性の名前
@@ -478,6 +481,12 @@
       $('<p><a href="JavaScript: location.refresh()" class="scenebtn">' +
         '最初から冒険に挑戦する</a></p>').insertBefore($('#cubes', target));
 
+      bgm.pause();
+      var audio_path = ROOT + COMMON + '/SNEXT_FU.mp3';
+      bgm = new Audio(audio_path);
+      bgm.loop = true;
+      if(global_save_data.bgm) { bgm.play(); }
+
       // エンディングフラグ
       save_data.isEnded = true;
       Util.saveStorage();
@@ -652,8 +661,7 @@
         e.preventDefault();
       });
 
-      // BGMオンオフ（未検証）
-      var bgm;
+      // BGMオンオフ
       target.on('click', '#audio_onoff', function(e) {
         if(bgm) {
           if (global_save_data.bgm) {
@@ -705,6 +713,7 @@
 
       // 魔法実行時の星消費（ステータスダイアログ）未検証
       $(document).on('click', '#dialog_body #magic_run', function(e) {
+        e.preventDefault();
         var magic = Common.magic[
           $('#dialog_body #magic option:selected').val()];
         if (!magic) { return; }
