@@ -478,7 +478,7 @@
     endScenario: function(result) {
       if(!result) { return; }
 
-      $('<p><a href="JavaScript: location.refresh()" class="scenebtn">' +
+      $('<p><a href="#" onclick="location.reload(true)" class="scenebtn">' +
         '最初から冒険に挑戦する</a></p>').insertBefore($('#cubes', target));
 
       bgm.pause();
@@ -489,7 +489,7 @@
 
       // エンディングフラグ
       save_data.isEnded = true;
-      Util.saveStorage();
+      localStorage.removeItem(scenario_code);
 
       // ボーナスアイテムの選択
       var bonus_item, o_bonus_item;
@@ -531,12 +531,9 @@
 
     // 現在のシーン情報を取得＆画面の生成
     createScene: function(scene_num) {
-      // エンディングに到達している場合は初期化処理
+      // エンディングフラグが立っている場合は、初期化処理を実行
       if(save_data.isEnded) {
-        if(confirm('エンディングに到達しています。\r最初から冒険を始めますか？')) {
-          localStorage.removeItem[scenario_data];
-          Util.initScenario();
-        }
+        location.reload(true);
         return;
       }
 
@@ -808,7 +805,7 @@
           // ストレージに情報がある場合は続きから再開
           if (localStorage[scenario_code]) {
             if (confirm('以前のデータが残っています。' +
-              '\r続きから開始しますか？')) {
+                '\r続きから開始しますか？')) {
               Util.loadStorage();
               Util.initDialog();
               // 再開時に経過日数の加算分を減算
