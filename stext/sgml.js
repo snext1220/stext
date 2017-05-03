@@ -539,6 +539,9 @@
         return;
       }
 
+      // スクロール位置をページ上部に移動
+      $(window).scrollTop(0);
+
       var scene = $('scene[id="' + scene_num + '"]', scenario_data);
 
       // シーンテキストの整形
@@ -746,7 +749,9 @@
       $.get(audio_path).then(function() {
         bgm = new Audio(audio_path);
         bgm.loop = true;
-        if(global_save_data.bgm) { bgm.play(); }
+        if(global_save_data.bgm) {
+          bgm.play();
+        }
       });
 
       // グローバルセーブデータが存在しない場合は初期化
