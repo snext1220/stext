@@ -497,9 +497,9 @@
           // バッドアイテムは20％未満の確率で入手
           if(Util.random(0, 100) < 20) {
             bonus_item = Util.randomArray(Object.keys(Common.global_items.bad));
-            o_bonus_item = Common.global_items.bad[bonus_item];
-            audio_path = ROOT + COMMON + '/end_bad.mp3';
+            o_bonus_item = Common.global_items.bad[bonus_item];            
           }
+          audio_path = ROOT + COMMON + '/end_bad.mp3';
           break;
       }
 
