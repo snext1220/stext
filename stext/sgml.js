@@ -481,31 +481,33 @@
       $('<p><a href="#" onclick="location.reload(true)" class="scenebtn">' +
         '最初から冒険に挑戦する</a></p>').insertBefore($('#cubes', target));
 
-      bgm.pause();
-      var audio_path = ROOT + COMMON + '/SNEXT_FU.mp3';
-      bgm = new Audio(audio_path);
-      bgm.loop = true;
-      if(global_save_data.bgm) { bgm.play(); }
-
       // エンディングフラグ
       save_data.isEnded = true;
       localStorage.removeItem(scenario_code);
 
       // ボーナスアイテムの選択
-      var bonus_item, o_bonus_item;
+      var bonus_item, o_bonus_item, audio_path;
       switch(result) {
         case 'happy' :
           bonus_item = Util.randomArray(Object.keys(Common.global_items.happy));
           o_bonus_item = Common.global_items.happy[bonus_item];
+          audio_path = ROOT + COMMON + '/end_happy.mp3';
           break;
         case 'bad' :
           // バッドアイテムは20％未満の確率で入手
           if(Util.random(0, 100) < 20) {
             bonus_item = Util.randomArray(Object.keys(Common.global_items.bad));
             o_bonus_item = Common.global_items.bad[bonus_item];
+            audio_path = ROOT + COMMON + '/end_bad.mp3';
           }
           break;
       }
+
+      // エンディングテーマ再生
+      bgm.pause();
+      bgm = new Audio(audio_path);
+      bgm.loop = true;
+      if(global_save_data.bgm) { bgm.play(); }
 
       if(bonus_item) {
         Util.pushUnique(global_save_data.items, bonus_item);
