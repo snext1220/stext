@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <scenario title="新・暗き沼の魔法使い" author="Rio">
 <items>
-  <item id="ixx" name="アイテム名">アイテム説明</item>
-  <item id="ixx" name="アイテム名">アイテム説明</item>
+  <item id="ixx" name="魔女の大鍋">魔法薬を調合するための鉄製の鍋</item>
+  <item id="ixx" name="トリカブト">毒性の強いアイテム説明</item>
+  <item id="ixx" name="マンドラゴラ">アイテム説明</item>
+  <item id="ixx" name="ハチの巣">ロイヤルゼリーや蜂蜜など、滋養分の高いエキスが多く含まれる</item>
+  <item id="ixx" name="ジャックの炎">アイテム説明</item>
+  <item id="ixx" name="ムーンストーン">アイテム説明</item>
+  <item id="ixx" name="ブラッドストーン">アイテム説明</item>
 </items>
 <flags>
   <flag id="fxx">フラグ説明</flag>

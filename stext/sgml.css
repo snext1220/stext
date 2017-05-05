@@ -46,11 +46,11 @@ table.enemy td {
 }
 
 #dialog_body {
-  color: #ccc;
+  color: #ccff99;
 }
 
 #dialog_body .delta {
-  color: Red;
+  color: #dc143c;
   font-weight: bold;
 }
 
