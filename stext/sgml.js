@@ -668,10 +668,12 @@
         if(bgm) {
           if (global_save_data.bgm) {
             // iOS版での不具合対応
+            /*
             if(bgm.paused) {
               bgm.play();
               return;
             }
+            */
             global_save_data.bgm = false;
             $(this).attr('src', ROOT + COMMON + 'audio_off.png');
             bgm.pause();
@@ -747,7 +749,21 @@
       $(window).on('popstate', function(e) {
         Util.createScene(e.originalEvent.state);
       });
+
+      // スプラッシュ画面クリック時に音楽を再生
+      $(document).on('touchstart', '.zoombox_mask', function() {
+        if(global_save_data.bgm && bgm.paused) {
+          bgm.play();
+        }
+      });
       /** EventListener **/
+
+      // グローバルセーブデータが存在しない場合は初期化
+      if(localStorage[GLOBAL_SAVE_DATA_KEY]) {
+        Util.loadStorageGlobal();
+      } else {
+        Util.initGlobalSaveData();
+      }
 
       // bgm.mp3が存在したら、再生開始
       var audio_path = ROOT + scenario_code + '/bgm.mp3';
@@ -759,12 +775,8 @@
         }
       });
 
-      // グローバルセーブデータが存在しない場合は初期化
-      if(localStorage[GLOBAL_SAVE_DATA_KEY]) {
-        Util.loadStorageGlobal();
-      } else {
-        Util.initGlobalSaveData();
-      }
+      // スプラッシュ画面の起動
+      $.zoombox.open(ROOT + COMMON + 'title.gif');
 
       // 初期化処理
       $.get(ROOT + scenario_code + '/scenario.xml')
