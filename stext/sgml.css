@@ -26,7 +26,7 @@ table.enemy td {
   border-bottom: 1px solid #ccc;
 }
 
-.scenebtn {
+.scenebtn, .startbtn, .restartbtn, .initbtn, .newbtn {
   display: block;
   text-align: center;
   margin: 3px;

@@ -531,6 +531,14 @@
       }
     },
 
+    // 冒険を最初から開始する時
+    confirmStart: function() {
+      target.html('<p>キャラが新規作成されました。<br />' +
+        'ステータスダイアログは画面右クリックで開くことができます。</p>' +
+        '<a href="#" class="startbtn">OK</a>'
+      );
+    },
+
     // 現在のシーン情報を取得＆画面の生成
     createScene: function(scene_num) {
       // エンディングフラグが立っている場合は、初期化処理を実行
@@ -630,8 +638,36 @@
       target = this; 
 
       /** EventListener **/
+      // 再開時に既存のセーブデータを読み込むための処理
+      target.on('click', 'a.restartbtn', function(e){
+        Util.loadStorage();
+        Util.initDialog();
+        // 再開時に経過日数の加算分を減算
+        save_data.ellapsed_scene--;
+        var num = save_data.scene;
+        Util.createScene(num);
+        history.pushState(num, 'Scene ' + num);
+        e.preventDefault();
+      });
+
+      // 再開時にセーブデータの初期化を選択した場合
+      target.on('click', 'a.newbtn', function(e){
+        Util.confirmStart();
+      });
+
+      // 冒険を開始する時
+      target.on('click', 'a.startbtn', function(e){
+        Util.initScenario();
+      });
+
+      target.on('click', 'a.initbtn', function(e){
+        target.html('<p>キャラが新規作成されました。<br />' +
+            'ステータスダイアログは画面右クリックで開くことができます。</p>' +
+            '<a href="#" class="restartbtn">セーブデータを読み込む</a>');
+      });
+
       // 移動ボタンをクリックで次のシーンに移動
-      target.on('click', 'a', function(e) {
+      target.on('click', 'a.scenebtn', function(e) {
         var num = $(this).attr('href');
         history.pushState(num, 'Scene ' + num);
         Util.createScene(num);
@@ -667,11 +703,6 @@
       target.on('click', '#audio_onoff', function(e) {
         if(bgm) {
           if (global_save_data.bgm) {
-            // iOS版での不具合対応
-            if(bgm.paused) {
-              bgm.play();
-              return;
-            }
             global_save_data.bgm = false;
             $(this).attr('src', ROOT + COMMON + 'audio_off.png');
             bgm.pause();
@@ -814,8 +845,14 @@
           });
           console.log(items_map);
 
-          // ストレージに情報がある場合は続きから再開
+          // ストレージに情報がある場合は続きから再開するかどうかを確認
           if (localStorage[scenario_code]) {
+            target.html('<p>以前のデータが残っています。続きから開始しますか？</p>' +
+                '<a href="#" class="newbtn">最初から冒険を始める</a>' + 
+                '<a href="#" class="restartbtn">セーブデータを読み込む</a>'
+            );
+            return;
+            /*
             if (confirm('以前のデータが残っています。' +
                 '\r続きから開始しますか？')) {
               Util.loadStorage();
@@ -827,14 +864,20 @@
               history.pushState(num, 'Scene ' + num);
               return;
             }
+            */
           }
 
+          // ストレージに情報がない場合には最初からゲームを開始
+          Util.confirmStart();
+
+          /*
           // ストレージに情報がない場合には最初からゲームを開始
           // ゲーム情報を初期化
           Util.initScenario();
 
           window.alert('キャラが新規作成されました。\r' +
             'ステータスダイアログは画面右クリックで開くことができます。');
+          */
         })
         .fail(function(xhr, status, error) {
           throw new Error('scenario code is invalid.');
