@@ -41,7 +41,7 @@ table.enemy td {
   width: 350px;
 }
 
-#audio_onoff {
+#audio_onoff, #status_open {
   cursor: pointer;
 }
 

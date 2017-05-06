@@ -549,8 +549,9 @@
       target.markdown();
 
       $('<h5 id="scenario_title">' + 
+        '<img id="status_open" src="' + ROOT + COMMON + 'status_open.png" /> ' + 
         $('scenario', scenario_data).attr('title') +
-          '　【' + scene_num + '】' + 
+          '【' + scene_num + '】' + 
           '<img id="audio_onoff" src="' + ROOT + COMMON + 'audio_' +
           (global_save_data.bgm ? 'on' : 'off') + '.png" /></h5>')
         .prependTo(target);
@@ -655,6 +656,12 @@
         ad.play();
         rotate_count = 1;
         rotateCube(this);
+      });
+
+      // ステータスオープンボタンでステータスダイアログを表示
+      target.on('click', '#status_open', function(e) {
+        Util.createDialog();
+        e.preventDefault();
       });
 
       // 右クリック時にステータスダイアログを表示
@@ -776,7 +783,7 @@
       });
 
       // スプラッシュ画面の起動
-      $.zoombox.open(ROOT + COMMON + 'title.gif', { animation: false });
+      $.zoombox.open(ROOT + COMMON + 'title.gif', { duration: 400 });
 
       // 初期化処理
       $.get(ROOT + scenario_code + '/scenario.xml')
