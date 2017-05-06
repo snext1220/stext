@@ -41,6 +41,16 @@ table.enemy td {
   width: 350px;
 }
 
+#audio_onoff {
+  cursor: pointer;
+}
+
+img.dice {
+  cursor: pointer;
+  width: 50px;
+}
+
+
 #dialog_body input[type="number"] {
   width: 40px;
 }
@@ -81,12 +91,14 @@ table.enemy td {
   border: solid 2px #ff9; 
   background-color: #0000cd;
   color: #fff;
+  cursor: pointer;
 }
 
 #magic_run {
   border: solid 2px #ff9; 
   background-color: #dc143c;
   color: #fff;
+  cursor: pointer;
 }
 
 #dialog_body input, #dialog_body select, #dialog_body textarea {

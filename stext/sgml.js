@@ -281,7 +281,7 @@
       var html = '';
       for (var i = 0; i < num; i++) {
         html += '<img src="' + ROOT + COMMON +'cube' + this.random(1, 6)
-          + '.png" style="width: 50px"/>';
+          + '.png" class="dice" />';
       }
       return html;
     },
