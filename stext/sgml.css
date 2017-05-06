@@ -26,7 +26,7 @@ table.enemy td {
   border-bottom: 1px solid #ccc;
 }
 
-.scenebtn, .startbtn, .restartbtn, .initbtn, .newbtn {
+.scenebtn {
   display: block;
   text-align: center;
   margin: 3px;
@@ -45,12 +45,20 @@ table.enemy td {
   width: 40px;
 }
 
+#dialog_body h3 {
+  color: #cf9;
+}
+
+#dialog_body td span, #dialog_body td label {
+  color: #ff9;
+}
+
 #dialog_body {
-  color: #ccff99;
+  color: orange;
 }
 
 #dialog_body .delta {
-  color: #dc143c;
+  color: Red;
   font-weight: bold;
 }
 
@@ -67,6 +75,22 @@ table.enemy td {
   color: Red;
   font-weight: bold;
   font-size: small;
+}
+
+#status_save {
+  border: solid 2px #ff9; 
+  background-color: #0000cd;
+  color: #fff;
+}
+
+#magic_run {
+  border: solid 2px #ff9; 
+  background-color: #dc143c;
+  color: #fff;
+}
+
+#dialog_body input, #dialog_body select, #dialog_body textarea {
+  border-radius: 3px;
 }
 
 #dialog_body textarea {
