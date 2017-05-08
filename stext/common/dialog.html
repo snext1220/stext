@@ -2,7 +2,7 @@
 <div id="dialog_body"
   style="border: 1px solid #000; background-color: #fff; padding: 20px">
 <h3>"<span id="title"></span>" <span id="name"></span>
-  <input type="button" id="status_save" value="ステータス保存" /></h3>
+  </h3>
 <img id="chara_face" />
 <form>
 <table>
@@ -21,7 +21,7 @@
       <label><input type="radio" name="state" value="stone" />石化</label>
       <label><input type="radio" name="state" value="curse" />呪い</label>
       <label><input type="radio" name="state" value="forget" />忘却</label>
-      　<span id="state_desc"></span>
+      <div id="state_desc">－－－</div>
     </td>
   </tr>
   <tr>
@@ -81,6 +81,12 @@
     <td colspan="7" nowrap>
       <span id="bonus"></span>
     </td>
+  </tr>
+  <tr>
+    <td colspan="5"></td>
+    <td colspan="2"><img id="status_save" src="stext/common/status_save.png"
+      alt="ステータス保存" title="保存" /></div>
+</td>
   </tr>
 </table>
 </form>

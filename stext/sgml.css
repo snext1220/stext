@@ -56,15 +56,18 @@ img.dice {
 }
 
 #dialog_body h3 {
-  color: #cf9;
+  color: #c08;
 }
 
 #dialog_body td span, #dialog_body td label {
-  color: #ff9;
+  color: #ffd;
 }
 
 #dialog_body {
-  color: orange;
+  color: #f90;
+  background-image: url(common/dialog_back.png);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 #dialog_body .delta {
@@ -88,10 +91,26 @@ img.dice {
 }
 
 #status_save {
+  margin-left: auto;
+  cursor: pointer;
+}
+
+/*
+#status_save {
   border: solid 2px #ff9; 
   background-color: #0000cd;
   color: #fff;
   cursor: pointer;
+}
+*/
+
+#dialog_body input[type="number"], #dialog_body select, #dialog_body textarea {
+  border-radius: 3px;
+  background-color: #cad4ff;
+}
+
+#dialog_body textarea {
+  width: 95%;
 }
 
 #magic_run {
@@ -101,23 +120,8 @@ img.dice {
   cursor: pointer;
 }
 
-#dialog_body input, #dialog_body select, #dialog_body textarea {
-  border-radius: 3px;
-}
-
-#dialog_body textarea {
-  width: 95%;
-}
-
 #dialog_body #chara_face {
   position: absolute;
   top: 40px;
   left: 500px;
 }
-
-#dialog_body {
-  background-image: url(common/dialog_back.png);
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
