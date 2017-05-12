@@ -29,8 +29,9 @@
   // ターゲット要素（ゲームブックの表示先）
   var target;
 
-  // ダイアログ本体
+  // ダイアログ本体（ステータスダイアログ／アイテムリスト）
   var dialog;
+  var dialog_item;
 
   // 現在再生中のBGM
   var bgm;
@@ -377,8 +378,9 @@
       history.pushState(0, 'Scene 0');
     },
 
-    // ステータスダイアログを初期化
+    // ダイアログを初期化
     initDialog: function() {
+      // ステータスダイアログを初期化
       $.get(ROOT + COMMON + 'dialog.html')
         .done(function(data) {
           dialog = $(data);
@@ -398,6 +400,13 @@
             $('#bonus', dialog).text(b.desc + '（' + b.name + '）');
           }
        });
+
+       // ボーナスアイテムダイアログを初期化
+       $.get(ROOT + COMMON + 'dialog_list.html')
+        .done(function(data) {
+          dialog_item = $(data);
+          // 未実装
+        });
     },
 
     // ステータスダイアログを生成
@@ -549,9 +558,10 @@
       target.markdown();
 
       $('<h5 id="scenario_title">' + 
-        '<img id="status_open" src="' + ROOT + COMMON + 'status_open.png" /> ' + 
+        '<img id="status_open" src="' + ROOT + COMMON + 'status_open.png" />　' +
+        '<span id="item_list">' +
         $('scenario', scenario_data).attr('title') +
-          '【' + scene_num + '】' + 
+          '【' + scene_num + '】</span>' + 
           '<img id="audio_onoff" src="' + ROOT + COMMON + 'audio_' +
           (global_save_data.bgm ? 'on' : 'off') + '.png" /></h5>')
         .prependTo(target);
@@ -674,13 +684,6 @@
       target.on('click', '#audio_onoff', function(e) {
         if(bgm) {
           if (global_save_data.bgm) {
-            // iOS版での不具合対応
-            /*
-            if(bgm.paused) {
-              bgm.play();
-              return;
-            }
-            */
             global_save_data.bgm = false;
             $(this).attr('src', ROOT + COMMON + 'audio_off.png');
             bgm.pause();
@@ -750,6 +753,13 @@
         useStar(magic, 4, '#s_fri');
         useStar(magic, 5, '#s_sat');
         useStar(magic, 6, '#s_sun');
+      });
+
+// 暫定：ボーナスアイテム一覧を表示
+      target.on('click', '#item_list', function(e) {
+        $.zoombox.html(dialog_item.html(), {
+          width: 650
+        });
       });
 
       // 履歴情報の復帰

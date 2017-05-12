@@ -50,7 +50,6 @@ img.dice {
   width: 50px;
 }
 
-
 #dialog_body input[type="number"] {
   width: 40px;
 }
@@ -124,4 +123,17 @@ img.dice {
   position: absolute;
   top: 40px;
   left: 500px;
+}
+
+table.item_list {
+  border-collapse:collapse; 
+}
+
+table.item_list, table.item_list td {
+  border: 1px solid #000;
+  padding: 8px;
+}
+
+table.item_list img {
+  width: 70px;
 }
