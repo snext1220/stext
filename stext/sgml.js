@@ -405,7 +405,38 @@
        $.get(ROOT + COMMON + 'dialog_list.html')
         .done(function(data) {
           dialog_item = $(data);
-          // 未実装
+          for(var i = 0; i < 24; i++) {
+            if(i < 10) {
+              num = '0' + i;
+            } else {
+              num = i;
+            }
+            num = 'gi' + num;
+            if (global_save_data.items.includes(num)) {
+              $('#' + num, dialog_item).
+                attr('src', ROOT + COMMON + num + '.png').
+                attr('class', 'bonus_item');
+            } else {
+              $('#' + num, dialog_item).
+                attr('src', ROOT + COMMON + 'gi99.png');
+            }
+          }
+          for(var i = 1; i < 6; i++) {
+            if(i < 10) {
+              num = '0' + i;
+            } else {
+              num = i;
+            }
+            num = 'bgi' + num;
+            if (global_save_data.items.includes(num)) {
+              $('#' + num, dialog_item).
+                attr('src', ROOT + COMMON + num + '.png').
+                attr('class', 'bonus_item');
+            } else {
+              $('#' + num, dialog_item).
+                attr('src', ROOT + COMMON + 'gi99.png');
+            }
+          }
         });
     },
 
@@ -868,11 +899,6 @@
         .fail(function(xhr, status, error) {
           throw new Error('scenario code is invalid.');
         });
-    },
-
-    // ゲームクリア時にグローバルアイテムを入手
-    guildItems: function() {
-
     }
   });
 })(jQuery);
