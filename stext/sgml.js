@@ -793,6 +793,19 @@
         });
       });
 
+      // ボーナスアイテムリストをクリックでアイテムの説明を表示
+      $(document).on('click', '#dialog_list img.bonus_item', function(e) {
+        var id = e.target.id;
+        var o_bonus_item;
+        if (id.startsWith('gi')) {
+          o_bonus_item = Common.global_items.happy[id];
+        } else {
+          o_bonus_item = Common.global_items.bad[id];
+        }
+        $('#dialog_list #bonus_msg').text(o_bonus_item.name + '（' +
+          o_bonus_item.desc + '）');
+      });
+
       // 履歴情報の復帰
       $(window).on('popstate', function(e) {
         Util.createScene(e.originalEvent.state);
