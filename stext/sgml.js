@@ -112,6 +112,7 @@
         'bgi01' : { name: '塩酸', desc: '左サイコロが2以下の時、そのシーンでHPを1減算' },
         'bgi02' : { name: '紅玉', desc: '右サイコロが2以下の時、そのシーンでMPを1減算' },
         'bgi03' : { name: '血まみれの斧', desc: '呪い状態で冒険を開始する' },
+        'bgi04' : { name: 'トリカブト', desc: '毒状態で冒険を開始する' },
         'bgi05' : { name: 'ギャルのパンティー', desc: '忘却状態で冒険を開始する' },
       }
     }
@@ -405,6 +406,8 @@
        $.get(ROOT + COMMON + 'dialog_list.html')
         .done(function(data) {
           dialog_item = $(data);
+
+          // グッドアイテムを一覧表示
           for(var i = 0; i < 24; i++) {
             if(i < 10) {
               num = '0' + i;
@@ -421,6 +424,8 @@
                 attr('src', ROOT + COMMON + 'gi99.png');
             }
           }
+
+          // バッドアイテムを一覧表示
           for(var i = 1; i < 6; i++) {
             if(i < 10) {
               num = '0' + i;
@@ -493,6 +498,7 @@
         option.appendTo(magic_box);
       }
 
+      // 現在所持しているアイテム一覧を表示
       var items = [];
       for(var i = 0; i < save_data.items.length; i++) {
         var item = items_map[save_data.items[i]];
@@ -500,6 +506,7 @@
       }
       $('#items', dialog).text(items.join('\r'));
 
+      // 現在所持しているフラグ一覧を表示
       var flags = [];
       for(var i = 0; i < save_data.flags.length; i++) {
         flags.push('・' + flags_map[save_data.flags[i]]);
