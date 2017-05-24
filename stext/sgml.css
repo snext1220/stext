@@ -11,6 +11,17 @@ h5#scenario_title {
   text-align: right;
 }
 
+#control_panel {
+  margin: 0 auto;
+  width: 50%;
+}
+
+#control_panel img {
+  width: 64px;
+  height: 64px;
+}
+
+
 table.enemy {
   width: 100%;
   margin-bottom: 30px;

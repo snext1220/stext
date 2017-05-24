@@ -595,6 +595,8 @@
       target.text(scene.text());
       target.markdown();
 
+      // ヘッダーテキスト／コントロールパネルの生成
+      /*
       $('<h5 id="scenario_title">' + 
         '<img id="status_open" src="' + ROOT + COMMON + 'status_open.png" />　' +
         '<span id="item_list">' +
@@ -602,6 +604,16 @@
           '【' + scene_num + '】</span>' + 
           '<img id="audio_onoff" src="' + ROOT + COMMON + 'audio_' +
           (global_save_data.bgm ? 'on' : 'off') + '.png" /></h5>')
+        .prependTo(target);
+      */
+      $('<h5 id="scenario_title">' + 
+        $('scenario', scenario_data).attr('title') +
+          '【' + scene_num + '】</span></h5>' +
+        '<div id="control_panel">' +
+        '<img id="status_open" src="' + ROOT + COMMON + 'status_open.png" />　' +
+        '<img id="item_list" src="' + ROOT + COMMON + 'bonus_item.png" />　' +
+        '<img id="audio_onoff" src="' + ROOT + COMMON + 'audio_' +
+          (global_save_data.bgm ? 'on' : 'off') + '.png" /></div>')
         .prependTo(target);
 
       // サイコロの表示
@@ -793,7 +805,7 @@
         useStar(magic, 6, '#s_sun');
       });
 
-// 暫定：ボーナスアイテム一覧を表示
+      // ボーナスアイテム一覧を表示
       target.on('click', '#item_list', function(e) {
         $.zoombox.html(dialog_item.html(), {
           width: 650
