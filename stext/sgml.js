@@ -848,7 +848,7 @@
 
       // ホームボタンでページ移動
       target.on('click', '#ctrl_home', function(e) {
-        location.href = 'http://www.web-deli.com/sorcerian/next';
+        window.open('http://www.web-deli.com/sorcerian/next');
       });
 
       // リロードボタンでページリロード
@@ -858,7 +858,7 @@
 
       // ヘルプボタンでページ移動
       target.on('click', '#ctrl_help', function(e) {
-        location.href = 'http://d.hatena.ne.jp/sorcerian/19901220';
+        window.open('http://d.hatena.ne.jp/sorcerian/19901220');
       });
 
       // 履歴情報の復帰
