@@ -13,14 +13,14 @@ h5#scenario_title {
 
 #control_panel {
   margin: 0 auto;
-  width: 50%;
+  width: 90%;
 }
 
 #control_panel img {
   width: 64px;
   height: 64px;
+  cursor: pointer;
 }
-
 
 table.enemy {
   width: 100%;
@@ -52,7 +52,7 @@ table.enemy td {
   width: 100%;
 }
 
-#audio_onoff, #status_open, #dialog_list img.bonus_item {
+#dialog_list img.bonus_item {
   cursor: pointer;
 }
 

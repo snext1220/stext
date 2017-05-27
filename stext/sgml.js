@@ -620,10 +620,14 @@
         $('scenario', scenario_data).attr('title') +
           '【' + scene_num + '】</span></h5>' +
         '<div id="control_panel">' +
+        '<img id="ctrl_home" src="' + ROOT + COMMON + 'ctrl_home.png" /></a>　' +
         '<img id="status_open" src="' + ROOT + COMMON + 'status_open.png" />　' +
         '<img id="item_list" src="' + ROOT + COMMON + 'bonus_item.png" />　' +
         '<img id="audio_onoff" src="' + ROOT + COMMON + 'audio_' +
-          (global_save_data.bgm ? 'on' : 'off') + '.png" /></div>')
+          (global_save_data.bgm ? 'on' : 'off') + '.png" />' +
+        '<img id="ctrl_reload" src="' + ROOT + COMMON + 'ctrl_reload.png" />　' +
+        '<img id="ctrl_help" src="' + ROOT + COMMON + 'ctrl_help.png" />　' +
+        '</div>')
         .prependTo(target);
 
       // サイコロの表示
@@ -840,6 +844,21 @@
         }
         $('#dialog_list #bonus_msg').text(o_bonus_item.name + '（' +
           o_bonus_item.desc + '）');
+      });
+
+      // ホームボタンでページ移動
+      target.on('click', '#ctrl_home', function(e) {
+        location.href = 'http://www.web-deli.com/sorcerian/next';
+      });
+
+      // リロードボタンでページリロード
+      target.on('click', '#ctrl_reload', function(e) {
+        location.reload();
+      });
+
+      // ヘルプボタンでページ移動
+      target.on('click', '#ctrl_help', function(e) {
+        location.href = 'http://d.hatena.ne.jp/sorcerian/19901220';
       });
 
       // 履歴情報の復帰
