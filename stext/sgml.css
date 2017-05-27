@@ -49,7 +49,7 @@ table.enemy td {
 }
 
 .scenepic {
-  width: 350px;
+  width: 100%;
 }
 
 #audio_onoff, #status_open, #dialog_list img.bonus_item {

@@ -246,6 +246,21 @@
       this.saveStorageGlobal(GLOBAL_SAVE_DATA_KEY);
     },
 
+    // 指定された魔法を利用できるかを判定（引数は個々の魔法情報配列）
+    canUseMagic: function(magic) {
+      if(save_data.stars[0] < magic[0] ||
+         save_data.stars[1] < magic[1] ||
+         save_data.stars[2] < magic[2] ||
+         save_data.stars[3] < magic[3] ||
+         save_data.stars[4] < magic[4] ||
+         save_data.stars[5] < magic[5] ||
+         save_data.stars[6] < magic[6]) {
+        return false;
+      } else {
+        return true;
+      }
+    },
+
     // @items属性（at_items）の値に応じて、セーブデータのitemsプロパティを更新
     updateItems: function(at_items) {
       if(!at_items) { return; }
@@ -304,8 +319,8 @@
     // ダメージ式／回避方法を選択
     selectFunc: function(func) {
       return Util.randomArray(func.split(',')).trim();
-    }
-,
+    },
+
     // 状態異常によるステータス補正
     deltaStatus: function(state) {
       switch(state) {
@@ -486,13 +501,8 @@
           .attr('value', key)
           .attr('title', magic[8])
           .text(key + '（' + magic[7] + '）');
-        if(save_data.stars[0] < magic[0] ||
-           save_data.stars[1] < magic[1] ||
-           save_data.stars[2] < magic[2] ||
-           save_data.stars[3] < magic[3] ||
-           save_data.stars[4] < magic[4] ||
-           save_data.stars[5] < magic[5] ||
-           save_data.stars[6] < magic[6]) {
+        // 魔法が使えなければ、オプションは無効に
+        if(!Util.canUseMagic(magic)) {
           option.attr('disabled', 'disabled');
         }
         option.appendTo(magic_box);
@@ -595,7 +605,7 @@
       target.text(scene.text());
       target.markdown();
 
-      // ヘッダーテキスト／コントロールパネルの生成
+      // ヘッダーテキスト／コントロールパネルの生成（旧コード）
       /*
       $('<h5 id="scenario_title">' + 
         '<img id="status_open" src="' + ROOT + COMMON + 'status_open.png" />　' +
@@ -664,6 +674,13 @@
       // 指定のアイテムを所有している場合にだけボタンを表示
       for (var i = 0; i < items.length; i++) {
         $('a[title="' + items[i] + '"]', target).show();
+      }
+
+      // 指定の魔法が利用できる場合にだけボタンを表示
+      for(var key in Common.magic) {
+        if (Util.canUseMagic(Common.magic[key])) {
+          $('a[title="m' + key + '"]', target).show();
+        }
       }
 
       // 現在のシーンのフラグ情報／アイテム情報を反映
