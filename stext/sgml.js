@@ -241,7 +241,8 @@
     initGlobalSaveData: function() {
       global_save_data = {
         items: [],
-        bgm: true
+        bgm: true,
+        panel: true
       };
       this.saveStorageGlobal(GLOBAL_SAVE_DATA_KEY);
     },
@@ -617,8 +618,9 @@
         .prependTo(target);
       */
       $('<h5 id="scenario_title">' + 
+        '<img id="ctrl_show" src="' + ROOT + COMMON + 'ctrl_show.png" /></a> ' +
         $('scenario', scenario_data).attr('title') +
-          '【' + scene_num + '】</span></h5>' +
+          '【' + scene_num + '】</span></h5>' + 
         '<div id="control_panel">' +
         '<img id="ctrl_home" src="' + ROOT + COMMON + 'ctrl_home.png" /></a>　' +
         '<img id="status_open" src="' + ROOT + COMMON + 'ctrl_status.png" />　' +
@@ -629,6 +631,11 @@
         '<img id="ctrl_help" src="' + ROOT + COMMON + 'ctrl_help.png" />' +
         '</div>')
         .prependTo(target);
+
+      // パネル非表示状態になっている場合、パネルを非表示に
+      if(!global_save_data.panel) {
+        $('#control_panel').hide();
+      }
 
       // サイコロの表示
       target.append('<center id="cubes">' + Util.cube(2) + '</center>');
@@ -859,6 +866,19 @@
       // ヘルプボタンでページ移動
       target.on('click', '#ctrl_help', function(e) {
         window.open('http://d.hatena.ne.jp/sorcerian/19901220');
+      });
+
+      // コントロールパネルの表示／非表示
+      target.on('click', '#scenario_title', function(e) {
+        var ctrl = $('#control_panel');
+        if(ctrl.css('display') === 'none') {
+          $('#control_panel').slideDown();
+          global_save_data.panel = true;
+        } else {
+          $('#control_panel').slideUp();
+          global_save_data.panel = false;
+        }
+        Util.saveStorageGlobal();
       });
 
       // 履歴情報の復帰
