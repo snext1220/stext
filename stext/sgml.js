@@ -621,12 +621,12 @@
           '【' + scene_num + '】</span></h5>' +
         '<div id="control_panel">' +
         '<img id="ctrl_home" src="' + ROOT + COMMON + 'ctrl_home.png" /></a>　' +
-        '<img id="status_open" src="' + ROOT + COMMON + 'status_open.png" />　' +
-        '<img id="item_list" src="' + ROOT + COMMON + 'bonus_item.png" />　' +
-        '<img id="audio_onoff" src="' + ROOT + COMMON + 'audio_' +
-          (global_save_data.bgm ? 'on' : 'off') + '.png" />' +
+        '<img id="status_open" src="' + ROOT + COMMON + 'ctrl_status.png" />　' +
+        '<img id="item_list" src="' + ROOT + COMMON + 'ctrl_bonus.png" />　' +
+        '<img id="audio_onoff" src="' + ROOT + COMMON + 'ctrl_audio_' +
+          (global_save_data.bgm ? 'on' : 'off') + '.png" />　' +
         '<img id="ctrl_reload" src="' + ROOT + COMMON + 'ctrl_reload.png" />　' +
-        '<img id="ctrl_help" src="' + ROOT + COMMON + 'ctrl_help.png" />　' +
+        '<img id="ctrl_help" src="' + ROOT + COMMON + 'ctrl_help.png" />' +
         '</div>')
         .prependTo(target);
 
@@ -756,11 +756,11 @@
         if(bgm) {
           if (global_save_data.bgm) {
             global_save_data.bgm = false;
-            $(this).attr('src', ROOT + COMMON + 'audio_off.png');
+            $(this).attr('src', ROOT + COMMON + 'ctrl_audio_off.png');
             bgm.pause();
           } else {
             global_save_data.bgm = true;
-            $(this).attr('src', ROOT + COMMON + 'audio_on.png');
+            $(this).attr('src', ROOT + COMMON + 'ctrl_audio_on.png');
             bgm.play();
           }
           Util.saveStorageGlobal();
