@@ -17,8 +17,8 @@ h5#scenario_title {
 }
 
 #control_panel img {
-  width: 64px;
-  height: 64px;
+  width: 65px;
+  height: 40px;
   cursor: pointer;
 }
 
@@ -35,6 +35,25 @@ table.enemy td {
   line-height: 1.5;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
+}
+
+input.scene_move {
+  width: 80%;
+  height: 20px;
+  background-color: #ff9;  
+}
+
+a.scene_move {
+}
+
+.scene_move {
+  text-align: center;
+  margin: 3px;
+  padding: 5px;
+  color: black;
+  text-decoration: none;
+  border: 1px solid #000;
+  background-color: #eee;  
 }
 
 .scenebtn {
@@ -134,6 +153,10 @@ img.dice {
   position: absolute;
   top: 40px;
   left: 500px;
+}
+
+#dialog_body #flags {
+  width: 95%;
 }
 
 table.item_list {

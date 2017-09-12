@@ -225,6 +225,8 @@
         items: [],
         // 所有しているフラグ
         flags: [],
+        // 冒険メモ（自由入力欄）
+        memos: '',       
         // 現在のシーン番号
         scene: 0,
         // 経過シーン
@@ -492,6 +494,7 @@
       $('#dex_d', dialog).text('（' + delta[2] + '）');
       $('#krm_d', dialog).text('（' + delta[3] + '）');
       $('#state_desc', dialog).text(delta[4]);
+      $('#memos', dialog).text(save_data.memos);
 
       // 魔法選択ボックスを生成
       var magic_box = $('#magic', dialog);
@@ -518,11 +521,21 @@
       $('#items', dialog).text(items.join('\r'));
 
       // 現在所持しているフラグ一覧を表示
-      var flags = [];
+      var flags = $('#flags', dialog);
+      flags.empty();
       for(var i = 0; i < save_data.flags.length; i++) {
-        flags.push('・' + flags_map[save_data.flags[i]]);
+        var tmp = '<option ';
+        if (i == save_data.flags.length - 1) { tmp += 'selected'; }
+        tmp += '>・' + flags_map[save_data.flags[i]] + '</option>';
+        flags.append(tmp);
       }
-      $('#flags', dialog).text(flags.join('\r'));
+
+      // 現在所持しているフラグ一覧を表示（旧コード）
+      //var flags = [];
+      //for(var i = 0; i < save_data.flags.length; i++) {
+      //  flags.push('・' + flags_map[save_data.flags[i]]);
+      //}
+      //$('#flags', dialog).text(flags.join('\r'));
 
       $.zoombox.html(dialog.html(),
         {
@@ -589,6 +602,12 @@
       }
     },
 
+    // そのシーンに直接の番号指定で移動可能かを判定
+    canSceneMove: function(scene_num) {
+      var scene = $('scene[id="' + scene_num + '"][allowMove]', scenario_data);
+      return scene.length != 0 ? true : false;
+    },
+
     // 現在のシーン情報を取得＆画面の生成
     createScene: function(scene_num) {
       // エンディングフラグが立っている場合は、初期化処理を実行
@@ -642,6 +661,15 @@
 
       // 移動ボタンの整形
       $('a', target).addClass('scenebtn');
+
+      // 移動用ボタンの整形
+      $('a[href="X"]', target)
+        .removeClass('scenebtn')
+        .addClass('scene_move')
+        .text('移動する')
+        .before('<input type="number" id="toscene" class="scene_move" />')
+        .add('#toscene')
+        .wrapAll('<div></div>');
 
       // 挿絵の整形
       var a_img = $('a:has(img)', target);
@@ -720,12 +748,25 @@
 
       /** EventListener **/
       // 移動ボタンをクリックで次のシーンに移動
-      target.on('click', 'a', function(e) {
+      target.on('click', 'a.scenebtn', function(e) {
         var num = $(this).attr('href');
         history.pushState(num, 'Scene ' + num);
         Util.createScene(num);
         e.preventDefault();
       });
+
+      // 指定シーンに移動
+      target.on('click', 'a.scene_move', function(e) {
+        var num = $('#toscene').val();
+        if(Util.canSceneMove(num)) {
+          history.pushState(num, 'Scene ' + num);
+          Util.createScene(num);
+        } else {
+          window.alert('その番号には移動できません。');
+        }
+        e.preventDefault();
+      });
+
 
       // ダイス回転音を準備
       var ad = new Audio(ROOT + COMMON + 'dice.mp3');
@@ -786,6 +827,7 @@
         save_data.stars[4] = $('#dialog_body #s_fri').val();
         save_data.stars[5] = $('#dialog_body #s_sat').val();
         save_data.stars[6] = $('#dialog_body #s_sun').val();
+        save_data.memos    = $('#dialog_body #memos').val();
         Util.saveStorage();
         $.zoombox.close()
       });
@@ -821,7 +863,7 @@
            $('#dialog_body #s_fri').val() < magic[4] ||
            $('#dialog_body #s_sat').val() < magic[5] ||
            $('#dialog_body #s_sun').val() < magic[6]) {
-          window.alert('星が不足しているため、魔法を行使できません！');
+          window.alert('星が不足しているため、魔法を発動できません！');
           return;
         }
         useStar(magic, 0, '#s_mon');
