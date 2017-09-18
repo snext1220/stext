@@ -703,12 +703,14 @@
       var flags = save_data.flags;
       var items = save_data.items;
 
-      // title属性付きのボタンを非表示
+      // title属性付きのボタンを非表示（ただし、「-～」を表示状態に）
       $('a[title]', target).hide();
+      $('a[title^="-"]', target).show();
 
-      // 指定のフラグを所持している場合にだけボタンだけを表示
+      // 指定のフラグを所持している場合にだけボタンだけを表示（「-」で所持していない場合に非表示）
       for (var i = 0; i < flags.length; i++) {
         $('a[title="' + flags[i] + '"]', target).show();
+        $('a[title="-' + flags[i] + '"]', target).hide();
       }
       // 指定のアイテムを所有している場合にだけボタンを表示
       for (var i = 0; i < items.length; i++) {
