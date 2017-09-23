@@ -4,6 +4,9 @@
   width: 550px;
   min-height: 500px;
   margin: 0 auto;
+  background-image: url(common/main_back.png);
+  background-repeat: no-repeat;
+  background-position: right center;
 }
 
 h5#scenario_title {

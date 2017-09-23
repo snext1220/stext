@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scenario title="新・暗き沼の魔法使い" author="Rio">
+<items>
+  <item id="ixx" name="魔女の大鍋">魔法薬を調合するための鉄製の鍋</item>
+  <item id="ixx" name="トリカブト">毒性の強いアイテム説明</item>
+  <item id="ixx" name="マンドラゴラ">アイテム説明</item>
+  <item id="ixx" name="ハチの巣">ロイヤルゼリーや蜂蜜など、滋養分の高いエキスが多く含まれる</item>
+  <item id="ixx" name="ジャックの炎">アイテム説明</item>
+  <item id="ixx" name="ムーンストーン">アイテム説明</item>
+  <item id="ixx" name="ブラッドストーン">アイテム説明</item>
+</items>
+<flags>
+  <flag id="fxx">フラグ説明</flag>
+  <flag id="fxx">フラグ説明</flag>
+</flags>
+<enemies>
+  <enemy id="mxx" name="バット" element="風" attack="物理"
+    func="****">ダンジョンに棲まう蝙蝠</enemy>
+  <enemy id="mxx" name="ラットジャイアント" element="地" attack="物理"
+    func="****">群れをなす大鼠</enemy>
+  <enemy id="mxx" name="オーク" element="地" attack="物理"
+    func="****">豚の顔を持つ鬼族。金や宝石が好き</enemy>
+  <enemy id="mxx" name="ヒルジャイアント" element="地" attack="物理"
+    func="****">巨大な棍棒を武器とする巨人族</enemy>
+  <enemy id="mxx" name="チャロナデーモン" element="霊" attack="魔法"
+    func="****">邪心に遣わされた下級悪魔</enemy>
+  <enemy id="mxx" name="リザードマン" element="水" attack="魔法"
+    func="****">剣技にたけた獣人</enemy>
+  <enemy id="mxx" name="オークジェリー" element="水" attack="魔法"
+    func="****">アメーバが巨大化した魔物</enemy>
+
+  <enemy id="mxx" name="スノートロール" element="水" attack="魔法"
+    func="****">氷の皮膚をまとった巨人族</enemy>
+  <enemy id="mxx" name="マッドマン" element="地" attack="魔法"
+    func="****">生きた泥の集合体</enemy>
+  <enemy id="mxx" name="バジリスク" element="地" attack="魔法"
+    func="****">蛇の王。酸性の胃液を吐き出すことも</enemy>
+  <enemy id="mxx" name="ゾンビ" element="霊" attack="魔法"
+    func="****">腐敗死体</enemy>
+  <enemy id="mxx" name="クロウ" element="風" attack="魔法"
+    func="****">凶暴化したカラス</enemy>
+  <enemy id="mxx" name="ダークエルフ" element="風" attack="魔法"
+    func="****">かつては森の住民であったエルフ</enemy>
+
+  <enemy id="mxx" name="バーサーカー" element="霊" attack="魔法"
+    func="****">魂を失った狂戦士</enemy>
+  <enemy id="mxx" name="ドッペルゲンガー" element="霊" attack="魔法"
+    func="****">変身能力を持った魔物</enemy>
+
+  <enemy id="mxx" name="スケルトン" element="霊" attack="物理"
+    func="****">悪の力で蘇った骸骨</enemy>
+
+  <enemy id="mxx" name="ヒドラ" element="火" attack="物理"
+    func="****">3本首の竜</enemy>
+  <enemy id="mxx" name="サンドマリボー" element="地" attack="物理"
+    func="****">砂中に棲まうカニのような魔物</enemy>
+  <enemy id="mxx" name="クラーケン" element="水" attack="物理"
+    func="****">巨大な蛸</enemy>
+  <enemy id="mxx" name="メデューサ" element="霊" attack="物理"
+    func="****">鬼女の上半身、蛇の下半身</enemy>
+  <enemy id="mxx" name="ファイアーエレメント" element="火" attack="物理"
+    func="****">灼熱の溶岩に住まう火の精霊</enemy>
+
+
+
+
+
+  <enemy id="mxx" name="ボガード" element="地" attack="物理"
+    func="****">小型の鬼。オークの手下で好戦的</enemy>
+
+
+
+  <enemy id="mxx" name="モンスター／罠名" element="地火水風霊"
+    attack="物理魔法毒凍結石化呪い忘却" func="式／回避条件">モンスター説明</enemy>
+  <enemy id="mxx" name="モンスター／罠名" element="地火水風霊"
+    attack="物理魔法毒凍結石化呪い忘却" func="式／回避条件">モンスター説明</enemy>
+</enemies>
+<scene id="0">
+「どうしました、お嬢さん？」
+
+その声に振り返った娘の瞳には、今まで見た事もない、美しい青年の姿が写し出された。その表情には少し翳りがあるものの、端麗な容姿は、美の神の化身としか考えられなかった。
+
+「道に迷われたのですか？」
+
+その声もまた美しく、娘はただうなずく事しかできなかった。恐ろしい魑魅魍魎が潜むと噂される、この暗き沼に迷い込んだ娘には思ってもみない出来事だった。心配そうに自分の顔を覗き込む青年に、娘はようやく口を開いた。
+
+「森へ花を摘みにいったのですが、いつの間にか沼に出てしまい、道もわからずさまよっておりました」
+
+「それは難儀でしたね。こう見えても私は沼に詳しいのです。よろしければ森まで送って差し上げましょう」
+
+青年は娘を抱きかかえ、自分の庭であるかの様に沼を進み始めた。娘は、青年のしなやかな腕の中で自分の今の状況に頬を赤らめていた。
+</scene>
+<scene id="1" items="ixx,-ixx" flags="fxx,fxx" enemies="mxx,mxx" end="happy">
+本文
+</scene>
+</scenario>
