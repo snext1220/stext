@@ -20,6 +20,7 @@ h5#scenario_title {
 }
 
 #control_panel img {
+  margin-left: 7px;
   width: 62px;
   height: 62px;
   cursor: pointer;
