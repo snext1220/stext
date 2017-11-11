@@ -103,6 +103,19 @@ img.dice {
   background-position: center;
 }
 
+#dialog_bonus {
+  background-image: url(common/dialog_bonus_back.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#dialog_list {
+  background-image: url(common/dialog_list_back.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #fff;
+}
+
 #dialog_body .delta {
   color: Red;
   font-weight: bold;
@@ -165,6 +178,7 @@ img.dice {
 
 table.item_list {
   border-collapse:collapse; 
+  background-color: #fff;
 }
 
 table.item_list, table.item_list td {

@@ -540,7 +540,7 @@
       $.zoombox.html(dialog.html(),
         {
           width: 640,
-          height: 500
+          height: 480
         }
       );
     },
@@ -587,14 +587,15 @@
         // アイテム表示
         $.get('stext/common/dialog_bonus.html').then(function(data) {
           var bonus_dialog = $(data);
+          $('#bonus_img', bonus_dialog).attr('src', ROOT + COMMON + bonus_item + '.png');
           $('#bonus_item', bonus_dialog).text(o_bonus_item.name);
           $('#bonus_item_desc', bonus_dialog).text(o_bonus_item.desc);
 
           setTimeout(function() {
             $.zoombox.html(bonus_dialog.html(),
               {
-                width: 350,
-                height: 100
+                width: 450,
+                height: 200
               }
             );  
           }, 2000);
@@ -722,6 +723,13 @@
         if (Util.canUseMagic(Common.magic[key])) {
           $('a[title="m' + key + '"]', target).show();
         }
+      }
+
+      // シーン表示時に効果音を再生（未検証）
+      if(scene.attr('se')) {
+        var se = new Audio(ROOT + scenario_code + '/' + scene.attr('se') + '.mp3');
+        se.loop = false;
+        se.play();
       }
 
       // 現在のシーンのフラグ情報／アイテム情報を反映
@@ -880,7 +888,8 @@
       // ボーナスアイテム一覧を表示
       target.on('click', '#item_list', function(e) {
         $.zoombox.html(dialog_item.html(), {
-          width: 650
+          width: 650,
+          height: 450
         });
       });
 
