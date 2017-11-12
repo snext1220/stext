@@ -594,7 +594,7 @@
           setTimeout(function() {
             $.zoombox.html(bonus_dialog.html(),
               {
-                width: 500,
+                width: 480,
                 height: 200
               }
             );  
