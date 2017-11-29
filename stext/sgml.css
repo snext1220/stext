@@ -16,11 +16,11 @@ h5#scenario_title {
 
 #control_panel {
   margin: 0 auto;
-  width: 90%;
+  width: 95%;
 }
 
 #control_panel img {
-  margin-left: 7px;
+  margin-left: 4px;
   width: 62px;
   height: 62px;
   cursor: pointer;

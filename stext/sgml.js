@@ -908,7 +908,7 @@
 
       // ホームボタンでページ移動
       target.on('click', '#ctrl_home', function(e) {
-        window.open('http://www.web-deli.com/sorcerian/next');
+        window.open('http://www.web-deli.com/sorcerian/next/stext.aspx');
       });
 
       // リロードボタンでページリロード
