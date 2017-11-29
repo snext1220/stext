@@ -965,7 +965,7 @@
       });
 
       // スプラッシュ画面の起動
-      $.zoombox.open(ROOT + COMMON + 'title.gif', { duration: 400 });
+      $.zoombox.open(ROOT + COMMON + 'title.png', { duration: 400 });
 
       // 初期化処理
       $.get(ROOT + scenario_code + '/scenario.xml')
