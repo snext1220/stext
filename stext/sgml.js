@@ -713,6 +713,42 @@
         $('a[title="' + flags[i] + '"]', target).show();
         $('a[title="-' + flags[i] + '"]', target).hide();
       }
+
+      // 指定のフラグを所持している場合にだけボタンを表示（複数フラグ対応）
+      var multi_flags = $('a[title*=","]', target);     
+      multi_flags.each(function(index, elem) {
+        var multi_ids = $(elem).attr('title');
+        if (multi_ids.indexOf('-') !== 0) {
+          // 通常のマルチフラグ処理（指定フラグを全て所有でボタン表示）
+          var show_flag = true; // ボタンを表示するか
+          var multi_ids_values = multi_ids.split(',');
+          for (var i = 0; i < multi_ids_values.length; i++) {
+            if (flags.indexOf(multi_ids_values[i].trim()) === -1) {
+              show_flag = false;
+              break;
+            }
+          }
+          // 全フラグが存在すればボタンを表示
+          if (show_flag) {
+            $(elem).show();
+          }
+        } else {
+          // 「-」付きのマルチフラグ処理
+          var hide_flag = true; // ボタンを非表示にするか
+          var multi_ids_values = multi_ids.substring(1).split(',');
+          for (var i = 0; i < multi_ids_values.length; i++) {
+            if (flags.indexOf(multi_ids_values[i].trim()) === -1) {
+              hide_flag = false;
+              break;
+            }
+          }
+          // 全フラグが存在すればボタンを非表示に
+          if (hide_flag) {
+            $(elem).hide();
+          }
+        }
+      });
+
       // 指定のアイテムを所有している場合にだけボタンを表示
       for (var i = 0; i < items.length; i++) {
         $('a[title="' + items[i] + '"]', target).show();
