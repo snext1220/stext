@@ -181,7 +181,14 @@
     initSavedata: function() {
       var pc_base = this.randomArray(Common.pc_init);
       var hp_m = this.random(pc_base[2] - 10, pc_base[2] + 10);
-      var mp_m = this.random(pc_base[3] - 10, pc_base[3] + 10)
+      var mp_m = this.random(pc_base[3] - 10, pc_base[3] + 10);
+      // 旧セーブデータからメモを取得
+      var old_data = localStorage[scenario_code];
+      var old_memo = '';
+      if(old_data) {
+        old_data = JSON.parse(old_data);
+        old_memo = old_data.memos;
+      }
 
       save_data = {
         // キャラクター情報
@@ -226,7 +233,7 @@
         // 所有しているフラグ
         flags: [],
         // 冒険メモ（自由入力欄）
-        memos: '',       
+        memos: old_memo,       
         // 現在のシーン番号
         scene: 0,
         // 経過シーン
@@ -562,7 +569,7 @@
         case 'happy' :
           bonus_item = Util.randomArray(Object.keys(Common.global_items.happy));
           o_bonus_item = Common.global_items.happy[bonus_item];
-          audio_path = ROOT + COMMON + '/end_happy.mp3';
+          audio_path = ROOT + scenario_code + '/bgm_happy.mp3';
           break;
         case 'bad' :
           // バッドアイテムは20％未満の確率で入手
@@ -570,7 +577,7 @@
             bonus_item = Util.randomArray(Object.keys(Common.global_items.bad));
             o_bonus_item = Common.global_items.bad[bonus_item];            
           }
-          audio_path = ROOT + COMMON + '/end_bad.mp3';
+          audio_path = ROOT + scenario_code + '/bgm_bad.mp3';
           break;
       }
 
@@ -954,7 +961,7 @@
 
       // ヘルプボタンでページ移動
       target.on('click', '#ctrl_help', function(e) {
-        window.open('http://d.hatena.ne.jp/sorcerian/19901220');
+        window.open('http://d.hatena.ne.jp/sorcerian/20171220');
       });
 
       // コントロールパネルの表示／非表示
