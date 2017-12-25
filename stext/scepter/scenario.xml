@@ -184,11 +184,11 @@
 <enemy id="m71" name="ニードル" element="地"
   attack="物理" func="L+R-STR+3">飛び出た仕掛け針でめった刺し！</enemy>
 <enemy id="m72" name="毒ガス" element="風"
-  attack="毒" func="DEX>L+R">猛毒を含んだ薬品が噴き出る！</enemy>
+  attack="毒" func="DEX>L+R">猛毒プシュー</enemy>
 <enemy id="m73" name="テレポーター" element="霊"
-  attack="忘却" func="DEX>L+R">記憶を一時的に吹き飛ばす。</enemy>
+  attack="忘却" func="DEX>L+R">記憶を一時的にテレポート！</enemy>
 <enemy id="m74" name="ミミック" element="地"
-  attack="物理" func="2L-STR+2">宝箱の形をした妖怪。</enemy>
+  attack="物理" func="2L-STR+2">宝箱がパクリ。</enemy>
 <enemy id="m75" name="悪魔の目玉" element="霊"
   attack="石化" func="KRM>L+R">魔力の籠ったひと睨みで…</enemy>
 <enemy id="m76" name="リッチの手" element="霊"
@@ -6477,9 +6477,10 @@ DEX＋左右の合計値が13以上ならば、
 -	「悪魔の目玉」ならば「5」を
 -	「リッチの手」ならば「6」を
 
-それぞれ選択すること。
+左／右いずれかを決めた上で、ダイスを振り給え。
 
-予想が正しかった場合には、君はトラップを回避できたことになる。
+予想がダイスの目に一致した場合には、
+君はトラップを回避できたことになる。
 
 回避できなかった場合には、
 下のダメージ式に従って、ステータスを更新すること。
@@ -6983,7 +6984,6 @@ DEX＋左右の合計値が13以上ならば、
 [さっさと冒険を再開する](3300)
 </scene>
 
-<!--以下、未チェック-->
 <!--チェックポイントによる復活（青い玉で扉を開けた）-->
 <scene id="15000" items="i03,i04,i06,i11,i12" flags="f01,f02,f03,f04,f05,f06,f11,f12,f13" allowMove="true">
 おお、誉れ高き勇者よ、
