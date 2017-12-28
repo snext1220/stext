@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>SORCERIAN Text</title>
+<link rel="stylesheet" href="./stext/zoombox.css" />
+<link rel="stylesheet" href="./stext/sgml.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="./stext/zoombox.js"></script>
+<script src="./stext/jquery.markdown.js"></script>
+<script src="./stext/sgml_playground.js"></script>
+<script>
+$(function() {
+  $('#generate').click(function(e){
+    $('#main').startGame($('#scenario').val());
+  });
+});
+</script>
+</head>
+<body>
+<div class="playground">
+  <form>
+  <input id="generate" type="button" value="シナリオ実行" />
+  <input type="reset" value="クリア" /><br />
+  <textarea id="scenario" placeholder="シナリオデータを貼り付けてください。" rows="7"></textarea>
+  </form>
+</div>
+<div id="main">
+  ここにシナリオが表示されます。
+</div>
+
+</body>
+</html>

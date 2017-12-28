@@ -1,23 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<scenario title="シナリオタイトル" author="著者名">
+<scenario title="シナリオタイトル" author="著者名"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="sgml.xsd">
+
+<!--アイテム情報-->
 <items>
-  <item id="ixx" name="アイテム名">アイテム説明</item>
-  <item id="ixx" name="アイテム名">アイテム説明</item>
+  <item id="i88" name="アイテム名">アイテム説明</item>
+  <item id="i99" name="アイテム名">アイテム説明</item>
 </items>
+
+<!--フラグ情報-->
 <flags>
-  <flag id="fxx">フラグ説明</flag>
-  <flag id="fxx">フラグ説明</flag>
+  <flag id="f88">フラグ説明</flag>
+  <flag id="f99">フラグ説明</flag>
 </flags>
+
+<!--モンスター／罠情報-->
 <enemies>
-  <enemy id="mxx" name="モンスター／罠名" element="地火水風霊"
-    attack="物理魔法毒凍結石化呪い忘却" func="式／回避条件">モンスター説明</enemy>
-  <enemy id="mxx" name="モンスター／罠名" element="地火水風霊"
-    attack="物理魔法毒凍結石化呪い忘却" func="式／回避条件">モンスター説明</enemy>
+  <enemy id="m99" name="モンスター／罠名" element="地"
+    attack="物理" func="式／回避条件">モンスター説明</enemy>
+  <enemy id="m88" name="モンスター／罠名" element="火"
+    attack="魔法" func="式／回避条件">モンスター説明</enemy>
+  <enemy id="m77" name="モンスター／罠名" element="水"
+    attack="毒" func="式／回避条件">モンスター説明</enemy>
+  <enemy id="m66" name="モンスター／罠名" element="風"
+    attack="凍結" func="式／回避条件">モンスター説明</enemy>
+  <enemy id="m55" name="モンスター／罠名" element="霊"
+    attack="石化" func="式／回避条件">モンスター説明</enemy>
+  <enemy id="m44" name="モンスター／罠名" element="霊"
+    attack="呪い" func="式／回避条件">モンスター説明</enemy>
+  <enemy id="m33" name="モンスター／罠名" element="霊"
+    attack="忘却" func="式／回避条件">モンスター説明</enemy>
 </enemies>
+
+<!--ライセンス情報-->
+<licence>
+	<work name="曲名" category="音楽" creator="作者名"
+    url="作品アドレス"></work>
+	<work name="画像名" category="画像" creator="作者名"
+    url="作品アドレス"></work>
+</licence>
+
+<!--シナリオ本体-->
 <scene id="0">
-プロローグ
+  プロローグ
 </scene>
-<scene id="1" items="ixx,-ixx" flags="fxx,fxx" enemies="mxx,mxx">
-本文
+<scene id="100" items="ixx,-ixx" flags="fxx,fxx" enemies="mxx,mxx"
+  end="happy" se="hoge" allowMove="true">
+  本文
+</scene>
+<scene id="200" items="ixx,-ixx" flags="fxx,fxx" enemies="mxx,mxx"
+  end="bad" se="hoge" allowMove="true">
+  本文
 </scene>
 </scenario>

@@ -197,14 +197,14 @@
 
 <!--ライセンス情報-->
 <licence>
-<work name="ダンジョン" category="音楽" creator="Az" />
-<work name="クリア（生還）" category="音楽" creator="Az" />
-<work name="ゲームオーバー" category="音楽" creator="Az" />
-<work name="王さまの杖" category="画像" creator="ときのじ" />
-<work name="ルー" category="画像" creator="ときのじ" />
-<work name="モンスターのトイ●" category="画像" creator="とくし" />
-<work name="これは誰" category="画像" creator="とくし" />
-<work name="その他の原作キャプチャ" category="画像" creator="Falcom" />
+<work name="ダンジョン" category="bgm" creator="Az" />
+<work name="クリア（生還）" category="bgm" creator="Az" />
+<work name="ゲームオーバー" category="bgm" creator="Az" />
+<work name="王さまの杖" category="picture" creator="ときのじ" />
+<work name="ルー" category="picture" creator="ときのじ" />
+<work name="モンスターのトイ●" category="picture" creator="とくし" />
+<work name="これは誰" category="picture" creator="とくし" />
+<work name="その他の原作キャプチャ" category="picture" creator="Falcom" />
 </licence>
 
 <!--シナリオ（プロローグ）-->
