@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <scenario title="シナリオタイトル" author="著者名"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:noNamespaceSchemaLocation="sgml.xsd">
+  xsi:noNamespaceSchemaLocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd">
 
 <!--アイテム情報-->
 <items>
