@@ -1,23 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="scenario">
+    <xs:annotation>
+      <xs:documentation>
+        ルート要素（シナリオ全体を括る）
+      </xs:documentation>
+    </xs:annotation>
     <xs:complexType>
       <xs:sequence>
         <xs:element name="items">
+          <xs:annotation>
+            <xs:documentation>
+              アイテム情報全体を括る要素
+            </xs:documentation>
+          </xs:annotation>
           <xs:complexType>
             <xs:sequence>
               <xs:element maxOccurs="unbounded" name="item">
+                <xs:annotation>
+                  <xs:documentation>
+                    個々のアイテム情報。説明は15文字程度（複数列挙可）
+                  </xs:documentation>
+                </xs:annotation>
                 <xs:complexType>
                   <xs:simpleContent>
                     <xs:extension base="xs:string">
                       <xs:attribute name="id" use="required">
+                        <xs:annotation>
+                          <xs:documentation>
+                            アイテムコード（「i99」の形式。シナリオ内で一意であること）
+                          </xs:documentation>
+                        </xs:annotation>
                         <xs:simpleType>
                           <xs:restriction base="xs:string">
                             <xs:pattern value="^i[0-9]+$" />
                           </xs:restriction>
                         </xs:simpleType>
                       </xs:attribute>
-                      <xs:attribute name="name" type="xs:string" use="required" />
+                      <xs:attribute name="name" type="xs:string" use="required">
+                        <xs:annotation>
+                          <xs:documentation>
+                            アイテムの名前
+                          </xs:documentation>
+                        </xs:annotation>
+                      </xs:attribute>
                     </xs:extension>
                   </xs:simpleContent>
                 </xs:complexType>
@@ -30,13 +56,28 @@
           </xs:unique>
         </xs:element>
         <xs:element name="flags">
+          <xs:annotation>
+            <xs:documentation>
+              フラグ情報全体を括る要素
+            </xs:documentation>
+          </xs:annotation>
           <xs:complexType>
             <xs:sequence>
               <xs:element maxOccurs="unbounded" name="flag">
+                <xs:annotation>
+                  <xs:documentation>
+                    個々のフラグ情報。説明は15文字程度（複数列挙可）
+                  </xs:documentation>
+                </xs:annotation>
                 <xs:complexType>
                   <xs:simpleContent>
                     <xs:extension base="xs:string">
                       <xs:attribute name="id" use="required">
+                        <xs:annotation>
+                          <xs:documentation>
+                            フラグコード（「f99」の形式。シナリオ内で一意であること）
+                          </xs:documentation>
+                        </xs:annotation>
                         <xs:simpleType>
                           <xs:restriction base="xs:string">
                             <xs:pattern value="^f[0-9]+$" />
@@ -55,21 +96,47 @@
           </xs:unique>
         </xs:element>
         <xs:element name="enemies">
+          <xs:annotation>
+            <xs:documentation>
+              モンスター／罠情報全体を括る要素
+            </xs:documentation>
+          </xs:annotation>
           <xs:complexType>
             <xs:sequence>
               <xs:element maxOccurs="unbounded" name="enemy">
+                <xs:annotation>
+                  <xs:documentation>
+                    モンスター／罠の情報。説明は15文字程度（複数列挙可）
+                  </xs:documentation>
+                </xs:annotation>
                 <xs:complexType>
                   <xs:simpleContent>
                     <xs:extension base="xs:string">
                       <xs:attribute name="id" use="required">
+                        <xs:annotation>
+                          <xs:documentation>
+                            モンスター／罠コード（「m99」の形式。シナリオ内で一意であること）
+                          </xs:documentation>
+                        </xs:annotation>
                         <xs:simpleType>
                           <xs:restriction base="xs:string">
                             <xs:pattern value="^m[0-9]+$" />
                           </xs:restriction>
                         </xs:simpleType>
                       </xs:attribute>
-                      <xs:attribute name="name" type="xs:string" use="required" />
+                      <xs:attribute name="name" type="xs:string" use="required">
+                        <xs:annotation>
+                          <xs:documentation>
+                            敵／罠の名前（10文字程度）
+                          </xs:documentation>
+                        </xs:annotation>
+                      </xs:attribute>
                       <xs:attribute name="element" use="required">
+                        <xs:annotation>
+                          <xs:documentation>
+                            属性（地・火・水・風・霊のいずれか）
+                          </xs:documentation>
+                        </xs:annotation>
                         <xs:simpleType>
                           <xs:restriction base="xs:string">
                             <xs:enumeration value="地" />
@@ -81,6 +148,11 @@
                         </xs:simpleType>
                       </xs:attribute>
                       <xs:attribute name="attack" use="required">
+                        <xs:annotation>
+                          <xs:documentation>
+                            攻撃の種類（物理／魔法／毒／石化／凍結／呪い／忘却）
+                          </xs:documentation>
+                        </xs:annotation>
                         <xs:simpleType>
                           <xs:restriction base="xs:string">
                             <xs:enumeration value="物理" />
@@ -93,7 +165,13 @@
                           </xs:restriction>
                         </xs:simpleType>
                       </xs:attribute>
-                      <xs:attribute name="func" type="xs:string" use="required" />
+                      <xs:attribute name="func" type="xs:string" use="required">
+                        <xs:annotation>
+                          <xs:documentation>
+                            ダメージ式（例：2L+R-STR。Lは左のサイコロ、Rは右のサイコロ）。 @attackが状態異常の時は回避条件（例：DEX>5、WIZARDなど）。カンマ区切りで複数指定も可（その場合はランダムに式を選択）
+                          </xs:documentation>
+                        </xs:annotation>
+                      </xs:attribute>
                     </xs:extension>
                   </xs:simpleContent>
                 </xs:complexType>
@@ -106,12 +184,33 @@
           </xs:unique>
         </xs:element>
         <xs:element name="licence">
+          <xs:annotation>
+            <xs:documentation>
+              シナリオで利用している画像／楽曲のライセンス情報
+            </xs:documentation>
+          </xs:annotation>
           <xs:complexType>
             <xs:sequence>
               <xs:element maxOccurs="unbounded" name="work">
+                <xs:annotation>
+                  <xs:documentation>
+                    作品情報（複数列挙可）
+                  </xs:documentation>
+                </xs:annotation>
                 <xs:complexType>
-                  <xs:attribute name="name" type="xs:string" use="required" />
+                  <xs:attribute name="name" type="xs:string" use="required">
+                    <xs:annotation>
+                      <xs:documentation>
+                        曲名（bgmの場合）、利用場所（pictureの場合。街、酒場など）
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
                   <xs:attribute name="category" use="required">
+                    <xs:annotation>
+                      <xs:documentation>
+                        分類（bgm：音楽、picture：画像）
+                      </xs:documentation>
+                    </xs:annotation>
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:enumeration value="bgm" />
@@ -119,19 +218,48 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:attribute>
-                  <xs:attribute name="creator" type="xs:string" use="required" />
-                  <xs:attribute name="url" type="xs:string" use="optional" />
+                  <xs:attribute name="creator" type="xs:string" use="required">
+                    <xs:annotation>
+                      <xs:documentation>
+                        作者 or サイト名
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="url" type="xs:string" use="optional">
+                    <xs:annotation>
+                      <xs:documentation>
+                        画像／楽曲の提供先（参照先）
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
         <xs:element maxOccurs="unbounded" name="scene">
+          <xs:annotation>
+            <xs:documentation>
+              シーン情報（複数列挙可）。シナリオは、このシーン単位に表示されます。Markdown形式で記述してください。詳細は以下参照
+              http://d.hatena.ne.jp/sorcerian/20171221
+            </xs:documentation>
+          </xs:annotation>
           <xs:complexType>
             <xs:simpleContent>
               <xs:extension base="xs:string">
-                <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+                <xs:attribute name="id" type="xs:unsignedShort" use="required">
+                  <xs:annotation>
+                  <xs:documentation>
+                     シーン番号（リンク時にも利用する番号なので一意で。スタートは0固定、プロローグであること）。あとで挿入に困らないよう、10、100単位で採番するのがお勧めです。
+                  </xs:documentation>
+                </xs:annotation>
+                </xs:attribute>
                 <xs:attribute name="flags" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      そのシーン移動時に入手できるアイテム（複数はカンマ区切り。「-i～」でアイテム喪失）
+                    </xs:documentation>
+                  </xs:annotation>
                   <xs:simpleType>
                     <xs:restriction base="xs:string">
                       <xs:pattern value="^f[0-9]+[f0-9\,]*$" />
@@ -139,6 +267,11 @@
                   </xs:simpleType>
                 </xs:attribute>
                 <xs:attribute name="enemies" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      そのシーン移動時に立つフラグ（複数はカンマ区切り）
+                    </xs:documentation>
+                  </xs:annotation>
                   <xs:simpleType>
                     <xs:restriction base="xs:string">
                       <xs:pattern value="^m[0-9]+[m0-9\,]*$" />
@@ -146,13 +279,23 @@
                   </xs:simpleType>
                 </xs:attribute>
                 <xs:attribute name="items" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      そのシーンで登場する敵情報（複数はカンマ区切り）。敵情報は、ページ下部に表整形されます。
+                    </xs:documentation>
+                  </xs:annotation>
                   <xs:simpleType>
                     <xs:restriction base="xs:string">
-                      <xs:pattern value="^(-)?i[0-9]+[i0-9\,]*$" />
+                      <xs:pattern value="^(-)?i[0-9]+[\-i0-9\,]*$" />
                     </xs:restriction>
                   </xs:simpleType>
                 </xs:attribute>
                 <xs:attribute name="end" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      エンディングシーンか（happy：ハッピーエンド、bad：バッドエンド）。end属性でセーブデータも初期化されます。ハッピーエンド、バッドエンドいずれかで入手できるボーナスは変化。
+                    </xs:documentation>
+                  </xs:annotation>
                   <xs:simpleType>
                     <xs:restriction base="xs:string">
                       <xs:enumeration value="happy" />
@@ -160,15 +303,39 @@
                     </xs:restriction>
                   </xs:simpleType>
                 </xs:attribute>
-                <xs:attribute name="allowMove" type="xs:boolean" use="optional" />
-                <xs:attribute name="se" type="xs:string" use="optional" />
+                <xs:attribute name="allowMove" type="xs:boolean" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      番号指定による移動を許可するか（値はtrue固定）
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="se" type="xs:string" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      シーン移動時に再生する効果音（se.mp3であれば、「se」と指定）
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
               </xs:extension>
             </xs:simpleContent>
           </xs:complexType>
         </xs:element>
       </xs:sequence>
-      <xs:attribute name="title" type="xs:string" use="required" />
-      <xs:attribute name="author" type="xs:string" use="required" />
+      <xs:attribute name="title" type="xs:string" use="required">
+        <xs:annotation>
+          <xs:documentation>
+            シナリオタイトル
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="author" type="xs:string" use="required">
+        <xs:annotation>
+          <xs:documentation>
+            作者名（ペンネームでも構いません）
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
     </xs:complexType>
     <xs:unique name="sceneKey">
       <xs:selector xpath="scene" />
