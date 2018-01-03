@@ -1,4 +1,3 @@
-<%@ Page EnableViewState="False" EnableSessionState="False" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -92,7 +91,7 @@ $(function() {
 
             // タイトルが「->」で終わっている場合は、次のグループに連結
             if(c_data.title.endsWith('->')) {
-                c_data.title = c_data.title.replace('->', '');
+                //c_data.title = c_data.title.replace('->', '');
                 c_data.end = '';
                 c_data.next.push(n_group[0].id);
             }
@@ -100,9 +99,19 @@ $(function() {
     }
 
     // シナリオデータへの変換
-    var result = $('<scenario title="タイトル author="作者名" ' +
+    var result = $('<scenario title="タイトル" author="作者名" ' +
       'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ' +
       'xsi:noNamespaceSchemaLocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd">\r\n' +
+      '<items>\r\n' +
+      '<item id="i88" name="アイテム名">アイテム説明</item>\r\n' +
+      '</items>\r\n' +
+      '<flags>\r\n' +
+      '<flag id="f88">フラグ説明</flag>\r\n' +
+      '</flags>\r\n' +
+      '<enemies>\r\n' +
+      '<enemy id="m99" name="モンスター／罠名" element="地" \r\n' + 
+      'attack="物理" func="式／回避条件">モンスター説明</enemy>\r\n' +
+      '</enemies>\r\n' +
       '</scenario>');
     for (var i = 0; i < flow_data.length; i++) {
         var c_group = flow_data[i];
@@ -140,13 +149,20 @@ $(function() {
                         '(' + n_scene.id + ')\r\n';
                 }
             }
+
+            // グループ跨ぎのリンクを生成
+            if (c_data.title.endsWith('->')) {
+                body += '[' + n_group[0].title + ']' +
+                    '(' + n_group[0].id + ')\r\n';
+            }
+
             scene.text(body);
             result.append(scene);
             result.append('\r\n');
         }
     }
 
-    console.log(flow_data);
+    //console.log(flow_data);
     $('#result').text('<?xml version="1.0" encoding="utf-8"?>\r\n' +
         result.get(0).outerHTML);
     $('#result').get(0).select();
@@ -159,24 +175,7 @@ $(function() {
   <form>
   <input id="generate" type="button" value="シナリオデータを生成" />
   <input type="reset" value="クリア" /><br />
-  <textarea id="flow" placeholder="フローチャートテキストをを貼り付けてください。" rows="7">プロローグ
-	ぼやき
-		凹んだ穴
-			ふんだ
-			よけた
-				杖をメモ
-				人面岩
-					諦めて立ち去る
-						斬りかかる
-							話を聞いてみる
-								やめておく
-								謎に挑む->
-						*話を聞いてみる
-					口に手を入れる
-						すると…
-							*話を聞いてみる
-					石を投げつける
-話を聞いてみる</textarea>
+  <textarea id="flow" placeholder="フローチャートテキストをを貼り付けてください。" rows="15"></textarea>
 　　　▼
   <textarea id="result" rows="25" readonly></textarea>
   </form>
