@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>SORCERIAN Text（フローチャート）</title>
+<link rel="stylesheet" href="./stext/sgml.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script>
+$(function() {
+  // タブの個数をカウント
+  var count_tab = function(str) {
+    return str.split(/\t/).length - 1;
+  };
+
+  // シナリオデータを生成
+  $('#generate').click(function(e){
+    // 行単位の生データ
+    var flow_row = $('#flow').val().split(/\r|\n|\r\n/);
+
+    var flow_data = []; // オブジェクト変換後のフロー
+    var id = 0; // 現在のid値
+    var group = -1; // 現在のグループ値
+
+    // オブジェクトの生成
+    for (var i = 0; i < flow_row.length; i++) {
+      var line = flow_row[i];
+      var tab = count_tab(line);
+
+      // タブがゼロの箇所でグループをインクリメント
+      if (tab === 0) {
+        group++;
+        flow_data[group] = [];
+      }
+
+      // 空行でなければ、現在行のデータをオブジェクト化
+      if (line.trim() !== '') {
+        flow_data[group].push({
+            id: id, // id値
+            title: line.replace(/\t/g, ''), // シーンタイトル
+            indent: tab,    // インデント
+            parent: 0, // 親シーン
+            next: [],   // 次のシーン
+            end: '' // エンドか
+        });
+      }
+
+      // id値は50単位に採番
+      id += 50;
+    }
+
+/*gomi
+    for (var i = 0; i < flow_data.length; i++) {
+        var c_group = flow_data[i];
+        var c_indent = 0;
+        for (var j = 0; j < c_group.length; j++) {
+            var c_data = c_group[j];
+            if (c_indent > c_data)
+
+        }
+    }
+*/
+
+    // フローデータを整形
+    for (var i = 0; i < flow_data.length; i++) {
+        var c_group = flow_data[i];
+        var n_group = flow_data[i + 1];
+        for (var j = 0; j < c_group.length; j++) {
+            var c_data = flow_data[i][j];
+
+            // 次のシーン（インデントがひとつ深いもの）を取得
+            var c_indent = c_data.indent;
+            var end_flag = false;
+            var next = c_group.filter(function(value, index) {
+                // 現在のidより前はカット                 
+                if (c_data.id > value.id) {
+                    return false;
+                }
+
+                if (c_data.id !== value.id && c_indent === value.indent) {
+                    end_flag = true;
+                }
+
+                if (end_flag) {
+                    return false;
+                }
+
+                return c_data.indent + 1 === value.indent;
+            });
+
+            // 次のシーンがなければ、エンド（bad固定）、さもなければnextを設定
+            if(next.length === 0) {
+                c_data.end = 'bad';
+            } else {
+                for (var k = 0; k < next.length; k++) {
+                    c_data.next.push(next[k].id);
+                }
+            }
+
+            // タイトルが「->」で終わっている場合は、次のグループに連結
+            if(c_data.title.endsWith('->')) {
+                c_data.title = c_data.title.replace('->', '');
+                c_data.end = '';
+                c_data.next.push(n_group[0].id);
+            }
+        }
+    }
+
+    // シナリオデータへの変換
+    var result = $('<scenario title="タイトル author="作者名" ' +
+      'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ' +
+      'xsi:noNamespaceSchemaLocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd">\r\n' +
+      '</scenario>');
+    for (var i = 0; i < flow_data.length; i++) {
+        var c_group = flow_data[i];
+        var n_group = flow_data[i + 1];
+        for (var j = 0; j < c_group.length; j++) {
+            var c_data = flow_data[i][j];
+            if(c_data.title.startsWith('*')) { continue; }
+
+            var scene = $('<scene></scene>')
+                .attr('id', c_data.id);
+            // end属性の追加
+            if (c_data.end !== '') {
+                scene.attr('end', c_data.end)
+            }
+            // 本文の整形
+            var body = '\r\n';
+            body += c_data.title + '\r\n\r\n';
+            for (var k = 0; k < c_data.next.length; k++) {
+                var n_id = c_data.next[k];
+                var n_scenes = c_group.filter(function(value, index) {
+                    return value.id === n_id;
+                });
+
+                for (var l = 0; l < n_scenes.length; l++) {
+                    var n_scene = n_scenes[l];
+                    if (n_scene.title.startsWith('*')) {
+                        var alias = c_group.filter(function(value, index) {
+                            return value.title === n_scene.title.substring(1);
+                        });
+                        n_scene = alias[0];
+                    }
+                    body += '[' + n_scene.title + ']' +
+                        '(' + n_scene.id + ')\r\n';
+                }
+            }
+            scene.text(body);
+            result.append(scene);
+            result.append('\r\n');
+        }
+    }
+
+    console.log(flow_data);
+    $('#result').text('<?xml version="1.0" encoding="utf-8"?>\r\n' +
+        result.get(0).outerHTML);
+    $('#result').get(0).select();
+  });
+});
+</script>
+</head>
+<body>
+<div class="playground">
+  <form>
+  <input id="generate" type="button" value="シナリオデータを生成" />
+  <input type="reset" value="クリア" /><br />
+  <textarea id="flow" placeholder="フローチャートテキストをを貼り付けてください。" rows="7">プロローグ
+	ぼやき
+		凹んだ穴
+			ふんだ
+			よけた
+				杖をメモ
+				人面岩
+					諦めて立ち去る
+						斬りかかる
+							話を聞いてみる
+								やめておく
+								謎に挑む->
+						*話を聞いてみる
+					口に手を入れる
+						すると…
+							*話を聞いてみる
+					石を投げつける
+話を聞いてみる</textarea>
+　　　▼
+  <textarea id="result" rows="25" readonly></textarea>
+  </form>
+</div>
+</body>
+</html>
