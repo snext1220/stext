@@ -1,8 +1,13 @@
+<%@ Page EnableViewState="False" EnableSessionState="False" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>SORCERIAN Text（フローチャート）</title>
+<meta name=viewport content="width=device-width, initial-scale=1" />
+<title>ソーサリアン Text（Flowchart）</title>
+<meta name="keywords" content="ソーサリアン, SORCERIAN, ゲームブック" />
+<link rel="shortcut icon" href="http://d.hatena.ne.jp/images/diary/sorcerian/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="./css/main.css" />
 <link rel="stylesheet" href="./stext/sgml.css" />
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script>
@@ -48,18 +53,6 @@ $(function() {
       id += 50;
     }
 
-/*gomi
-    for (var i = 0; i < flow_data.length; i++) {
-        var c_group = flow_data[i];
-        var c_indent = 0;
-        for (var j = 0; j < c_group.length; j++) {
-            var c_data = c_group[j];
-            if (c_indent > c_data)
-
-        }
-    }
-*/
-
     // フローデータを整形
     for (var i = 0; i < flow_data.length; i++) {
         var c_group = flow_data[i];
@@ -76,6 +69,7 @@ $(function() {
                     return false;
                 }
 
+                // 現在のidと等しくなく、インデント数が同じ箇所があれば終了
                 if (c_data.id !== value.id && c_indent === value.indent) {
                     end_flag = true;
                 }
@@ -128,6 +122,8 @@ $(function() {
             body += c_data.title + '\r\n\r\n';
             for (var k = 0; k < c_data.next.length; k++) {
                 var n_id = c_data.next[k];
+
+                // 次のシーンを取得し、本文リンクとして追加
                 var n_scenes = c_group.filter(function(value, index) {
                     return value.id === n_id;
                 });
