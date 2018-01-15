@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scenario title="サンプルシナリオ" author="Rio"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd">
+
+<!--アイテム情報-->
+<items>
+  <item id="i99" name="アイテムA">えぇアイテムですわ</item>
+</items>
+
+<!--フラグ情報-->
+<flags>
+  <flag id="f99">物語が進みました。</flag>
+</flags>
+
+<!--モンスター／罠情報-->
+<enemies>
+  <enemy id="m99" name="キングドラゴン" element="霊"
+    attack="物理" func="4L-STR">ドラゴン・オヴ・ドラゴン</enemy>
+  <enemy id="m98" name="毒矢" element="地"
+    attack="毒" func="DEX>2L">毒がたっぷりと塗られた矢</enemy>
+</enemies>
+
+<!--ライセンス情報-->
+<licence>
+	<work name="メインテーマ" category="bgm" creator="Az"
+    url="http://www.web-deli.com/sorcerian/next/stext.aspx"></work>
+	<work name="挿絵A" category="picture" creator="Tokinoji"
+    url="http://www.web-deli.com/sorcerian/next/gallery.aspx"></work>
+</licence>
+
+<!--シナリオ本体-->
+<scene id="0">
+ここにプロローグを書きます。
+
+[次へ](100)
+</scene>
+<scene id="100" items="i99" flags="f99" enemies="m99,m98">
+
+- フラグf99が立ちます（=> ステータスから確認しましょう）
+- アイテムi99を入手します（=> ステータスから確認しましょう）
+- 敵としてm98、99が登場します（=> 下に情報が表示されます）
+
+[敵に勝った](300)
+[敵に負けた（バッドエンド）](200)
+</scene>
+<scene id="200" end="bad">
+バッドエンディングです。
+セーブデータは初期化されます。
+
+(End)
+</scene>
+<scene id="300">
+以下のボタンは、それぞれ条件を満たした場合にだけ表示されます。
+
+魔法ボタンを有効にするには、あらかじめステータスから必要な星を追加します。
+
+[フラグf99がある場合に表示](400 "f99")
+[フラグf88がない場合に表示](400 "-f88")
+[アイテムi99がある場合に表示](400 "i99")
+[魔法HEALを使える場合に表示](400 "mHEAL")
+</scene>
+<scene id="400" end="Happy">
+ハッピーエンディングです。
+セーブデータは初期化されます。
+
+(End)
+</scene>
+</scenario>

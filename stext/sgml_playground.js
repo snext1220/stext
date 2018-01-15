@@ -582,7 +582,7 @@
       }
 
       // エンディングテーマ再生
-      bgm.pause();
+      if(bgm) { bgm.pause(); }
       bgm = new Audio(audio_path);
       bgm.loop = true;
       if(global_save_data.bgm) { bgm.play(); }

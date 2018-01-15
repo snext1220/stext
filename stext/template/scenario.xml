@@ -5,46 +5,53 @@
 
 <!--アイテム情報-->
 <items>
-  <item id="i88" name="アイテム名">アイテム説明</item>
+  <!--
   <item id="i99" name="アイテム名">アイテム説明</item>
+  -->
 </items>
 
 <!--フラグ情報-->
 <flags>
-  <flag id="f88">フラグ説明</flag>
+  <!--
   <flag id="f99">フラグ説明</flag>
+  -->
 </flags>
 
 <!--モンスター／罠情報-->
 <enemies>
+  <!--
   <enemy id="m99" name="モンスター／罠名" element="地"
     attack="物理" func="式／回避条件">モンスター説明</enemy>
-  <enemy id="m88" name="モンスター／罠名" element="火"
+  <enemy id="m98" name="モンスター／罠名" element="火"
     attack="魔法" func="式／回避条件">モンスター説明</enemy>
-  <enemy id="m77" name="モンスター／罠名" element="水"
+  <enemy id="m97" name="モンスター／罠名" element="水"
     attack="毒" func="式／回避条件">モンスター説明</enemy>
-  <enemy id="m66" name="モンスター／罠名" element="風"
+  <enemy id="m96" name="モンスター／罠名" element="風"
     attack="凍結" func="式／回避条件">モンスター説明</enemy>
-  <enemy id="m55" name="モンスター／罠名" element="霊"
+  <enemy id="m95" name="モンスター／罠名" element="霊"
     attack="石化" func="式／回避条件">モンスター説明</enemy>
-  <enemy id="m44" name="モンスター／罠名" element="霊"
+  <enemy id="m94" name="モンスター／罠名" element="霊"
     attack="呪い" func="式／回避条件">モンスター説明</enemy>
-  <enemy id="m33" name="モンスター／罠名" element="霊"
+  <enemy id="m93" name="モンスター／罠名" element="霊"
     attack="忘却" func="式／回避条件">モンスター説明</enemy>
+  -->
 </enemies>
 
 <!--ライセンス情報-->
 <licence>
+  <!--
 	<work name="曲名" category="bgm" creator="作者名"
     url="作品アドレス"></work>
 	<work name="画像名" category="picture" creator="作者名"
     url="作品アドレス"></work>
+  -->
 </licence>
 
 <!--シナリオ本体-->
 <scene id="0">
   プロローグ
 </scene>
+<!--
 <scene id="100" items="-i01,i02" flags="f01,f02" enemies="m01,m02"
   end="happy" se="hoge" allowMove="true">
   本文
@@ -53,4 +60,5 @@
   end="bad" se="hoge" allowMove="true">
   本文
 </scene>
+-->
 </scenario>
