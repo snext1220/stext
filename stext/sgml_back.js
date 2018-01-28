@@ -29,8 +29,9 @@
   // ターゲット要素（ゲームブックの表示先）
   var target;
 
-  // ダイアログ本体
+  // ダイアログ本体（ステータスダイアログ／アイテムリスト）
   var dialog;
+  var dialog_item;
 
   // 現在再生中のBGM
   var bgm;
@@ -42,7 +43,7 @@
     // 女性の名前
     female_name: [ 'エスター', 'クリスティ', 'アイリーン', 'フェルディナン', 'リタ', 'トーヤ', 'ノルン', 'ウィンディーネ', 'プリム', 'ピアナ', 'エメラーダ', 'エレア', 'エヴァ', 'リム', 'ビナー', 'ティファレト', 'ミラドゥ', 'パナシェ', 'ミモザ', 'リューズ', 'エレーナ', 'リーア', 'キアラ', 'オルアラ', 'クオレ', 'セーナ', 'リーザ', 'セリナ', 'リリィ', 'ピピ', 'ビヌス', 'アンナ', 'リュシエル', 'フィレン', 'カレン', 'エリン', 'ローラ', 'マーベラ', 'ジョセフィーヌ', 'アネリーナ', 'リオナ', 'ジョアンナ', 'レニッサ', 'ジェニス', 'グリンダ', 'マティナ', 'ローナ', 'コッキー', 'チェルシー', 'ネリス', 'アリーナ', 'フェリッサ', 'マリエル', 'ベララ', 'ジョゼフ', 'ニッカ', 'テキーラ', 'ソルティ', 'パイン', 'ウィズ', 'カンニバル', 'ミント', 'リーン', 'ミル', 'ディアンナ', 'レティア', 'サフィス', 'エミス', 'ヴァムリー', 'サリア', 'ナイジェス', 'ミューリア', 'エミリア', 'シャル', 'バーバラ', 'オビア', 'スチュアート', 'ベーラ', 'サマリーヌ', 'フィアネ', 'レナ', 'ソル', 'ネイラ', 'セレーネ', 'アルバ', 'ラン', 'ルー・パズス', 'シルフィ', 'ミレット', 'レフィーナ', 'モスマ', 'チブル', '鈴鈴', '明明', 'ティキ', 'サリア', 'ミュール', 'ダール', 'ミンナ', 'レーシャ', 'エレイア', 'レア', 'フィーナ', 'ジャネット', 'ナリス', 'ソチ', 'ポーラス', 'ロキア', 'フリージ', 'エスメレー', 'エレナ', 'アルティ', 'エビオラ', 'フィナ' ],
     // 称号
-    title: ['武器屋の親父', 'ペンタウァの長老', 'トラベラーズインの宿主', '人と上手に話したい', 'ペンタウァ近衛隊長', '', 'タリスマンの見張り', '瞑想中', '砂漠の飯炊き', '狂戦士', 'エレベーターの管理人', '盗賊の頭領', '暗き沼の魔法使い', 'ロマンシア国王', 'アゾルバ国王', 'ペンタウァ国王', '蚕職人', '妖精王', '暗黒の魔導士', 'クイーンマリー号船長', 'キタブ・アル・アジフの持ち主', 'メデューサハンターの弟子', 'ファルコムマン', '戦士の亡霊', '海賊の子孫', 'いけにえの神官', '東の村の村長', '麻薬中毒者', 'ヴァネルバの王', '銀の竪琴屋', '近衛隊長', '復讐の呪術師', 'ラフォーヌの森の管理人', 'リドニア王国の元兵士', '姫の教育係', '大魔王', '紫ウニの王子', 'ベララの家族', '時計塔の番人', '時計塔の魔女', 'ナルキッソス号船長', 'ディンギル王国の3神官', 'バドティビラ工場の指揮官', 'シュメール国王', 'サンサーラの山賊', '南村の村長', 'アイテム屋WIZの店主', '旅の吟遊詩人', '古代イスマリアの王', '時の神殿の書記官', '闇の王', 'ランドル村長', '魔法学校の校長', '魔法学校の用務員', 'マリオネットの王', 'ペンタウァの近衛兵', '陽の中の闇人', '赤毛の冒険者', '光の王', 'イリアスンの執政官', '魔の下僕', 'メデューサハンター', '邪神教徒', '邪神教々祖', '砂漠の王', '鍵の番人', 'ローデシア辺境司令官', '宇宙からの訪問者', '黒竜仙人', '猿大聖', '極楽寺の僧兵', 'ジャグラー族' ],
+    title: ['武器屋の親父', 'ペンタウァの長老', 'トラベラーズインの宿主', '人と上手に話したい', 'ペンタウァ近衛隊長', '', 'タリスマンの見張り', '瞑想中', '砂漠の飯炊き', '狂戦士', 'エレベーターの管理人', '盗賊の頭領', '暗き沼の魔法使い', 'ロマンシア国王', 'アゾルバ国王', 'ペンタウァ国王', '蚕職人', '妖精王', '暗黒の魔導士', 'クイーンマリー号船長', 'キタブ・アル・アジフの持ち主', 'メデューサハンターの弟子', 'ファルコムマン', '戦士の亡霊', '海賊の子孫', 'いけにえの神官', '東の村の村長', '麻薬中毒者', 'ヴァネルバの王', '銀の竪琴屋', '近衛隊長', '復讐の呪術師', 'ラフォーヌの森の管理人', 'リドニア王国の元兵士', '姫の教育係', '大魔王', '紫ウニの王子', 'ベララの家族', '時計塔の番人', '時計塔の魔女', 'ナルキッソス号船長', 'ディンギル王国の3神官', 'バドティビラ工場の指揮官', 'シュメール国王', 'サンサーラの山賊', '南村の村長', 'アイテム屋WIZの店主', '旅の吟遊詩人', '古代イスマリアの王', '時の神殿の書記官', '闇の王', 'ランドル村長', '魔法学校の校長', '魔法学校の用務員', 'マリオネットの王', 'ペンタウァの近衛兵', '陽の中の闇人', '赤毛の冒険者', '光の王', 'イリアスンの執政官', '魔の下僕', 'メデューサハンター', '邪神教徒', '邪神教々祖', '砂漠の王', '鍵の番人', 'ローデシア辺境司令官', '宇宙からの訪問者', '黒竜仙人', '猿大聖', '極楽寺の僧兵', 'ジャグラー族', '迷宮建築の第一人者', 'フリース村の村長', 'ペンタウァ一の科学者アンド予言者', '暴れザル', '魔法学校の校長', '人魚３姉妹の長女', 'マリオネットの王', '探求の学徒', '旅芸人の一座', '猛獣使い', '流れの傭兵', '氷の魔女', 'パペッテの人形遣い', 'バーテンダー', '宮仕えのシャーマン', '薬草亭の主人', '水門の管理人' ],
 
     // キャラクター初期値（種族、性別、HP、MP、STR、INT、DEX、KRM）
     pc_init: [
@@ -62,21 +63,21 @@
       'PEACE':       [ 0, 0, 1, 0, 1, 0, 0, 'MPを10回復' ],
       'CURE':        [ 0, 0, 0, 0, 1, 0, 1, '毒回復' ],
       'MELT':        [ 0, 1, 0, 0, 1, 1, 1, '凍結を回復' ],
-      'STONE FLESH': [ 0, 0, 0, 1, 1, 1, 1, '石化を回復' ],
+      'STONE-FLESH': [ 0, 0, 0, 1, 1, 1, 1, '石化を回復' ],
       'UN-CURCE':    [ 2, 0, 1, 0, 0, 1, 0, '呪いを回復' ],
       'AIR-HAND':    [ 1, 0, 1, 0, 1, 0, 1, '見えない拳の衝撃で、忘却を回復' ],
       'RESURRECT':   [ 0, 0, 0, 1, 3, 0, 1, 'HP/MP半分で復活（但し、冒険に一度だけ）' ],
-      'REDUCE LIFE': [ 0, 1, 1, 0, 1, 1, 0, '体力を犠牲に（HP-25）、すべての状態異常を回復' ],
+      'REDUCE-LIFE': [ 0, 1, 1, 0, 1, 1, 0, '体力を犠牲に（HP-25）、すべての状態異常を回復' ],
       'REJUVENATE':  [ 0, 2, 0, 1, 0, 0, 1, '時の流れを巻き戻し（現在の判定をやり直し）' ],
       'PROTECT':     [ 1, 0, 0, 1, 1, 0, 1, 'HPダメージを半減' ],
-      'HOLY WATER':  [ 0, 0, 2, 2, 0, 0, 0, 'MPダメージを半減' ],
-      'CHANGE AIR':  [ 1, 0, 0, 1, 1, 1, 0, '戦闘を回避（アイテムは得られない）' ],
-      'GIVE VIGOR':  [ 1, 1, 1, 0, 0, 1, 0, '敵の攻撃力が2倍＆取得アイテム2倍' ],
+      'HOLY-WATER':  [ 0, 0, 2, 2, 0, 0, 0, 'MPダメージを半減' ],
+      'CHANGE-AIR':  [ 1, 0, 0, 1, 1, 1, 0, '戦闘を回避（アイテムは得られない）' ],
+      'GIVE-VIGOR':  [ 1, 1, 1, 0, 0, 1, 0, '敵の攻撃力が2倍＆取得アイテム2倍' ],
       'EXPLOSION':   [ 0, 1, 0, 1, 0, 1, 2, '地属性の敵を全滅' ],
       'DELUGE':      [ 4, 0, 0, 0, 0, 1, 0, '火属性の敵を全滅' ],
       'FREEZE':      [ 0, 2, 0, 0, 0, 1, 2, '水属性の敵を全滅' ],
-      'DESTROY.A':   [ 1, 0, 4, 0, 0, 0, 0, '風属性の敵を全滅' ],
-      'LIGHT CROSS': [ 0, 2, 0, 2, 0, 1, 0, '霊属性の敵を全滅' ],
+      'DESTROY-A':   [ 1, 0, 4, 0, 0, 0, 0, '風属性の敵を全滅' ],
+      'LIGHT-CROSS': [ 0, 2, 0, 2, 0, 1, 0, '霊属性の敵を全滅' ],
       'NOILA-TEM':   [ 1, 1, 1, 1, 1, 1, 1, 'すべての属性の敵を全滅' ],
     },
 
@@ -89,7 +90,7 @@
         'gi04' : { name: 'アマゾンの剣', desc: '木星の欠片を5個所有した状態で冒険を開始' },
         'gi05' : { name: '幸福のコイン', desc: '金星の欠片を5個所有した状態で冒険を開始' },
         'gi06' : { name: 'ムラサメブレード', desc: '土星の欠片を5個所有した状態で冒険を開始' },
-        'gi07' : { name: 'ジャイアントスレイヤー', desc: '太陽の欠片を5個所有した状態で冒険を開始' },
+        'gi07' : { name: 'G・スレイヤー', desc: '太陽の欠片を5個所有した状態で冒険を開始' },
         'gi08' : { name: '水晶の剣', desc: '左サイコロが5以上の時、そのシーンでHPを1回復' },
         'gi09' : { name: '王様の杖', desc: '左サイコロが5以上の時、そのシーンでMPを1回復' },
         'gi10' : { name: 'ブルーリボン', desc: '戦闘ダメージを1減算' },
@@ -105,12 +106,13 @@
         'gi20' : { name: 'チルドの実', desc: '凍結耐性' },
         'gi21' : { name: '銀のハーモニカ', desc: '石化耐性' },
         'gi22' : { name: '真実の鏡', desc: '忘却耐性' },
-        'gi23' : { name: 'ドラゴンスレイヤー', desc: 'すべての星の欠片を1個ずつ所有した状態で冒険を開始' },
+        'gi23' : { name: 'D・スレイヤー', desc: 'すべての星を1個所有した状態で冒険を開始' },
       },
       'bad' : {
         'bgi01' : { name: '塩酸', desc: '左サイコロが2以下の時、そのシーンでHPを1減算' },
         'bgi02' : { name: '紅玉', desc: '右サイコロが2以下の時、そのシーンでMPを1減算' },
         'bgi03' : { name: '血まみれの斧', desc: '呪い状態で冒険を開始する' },
+        'bgi04' : { name: 'トリカブト', desc: '毒状態で冒険を開始する' },
         'bgi05' : { name: 'ギャルのパンティー', desc: '忘却状態で冒険を開始する' },
       }
     }
@@ -179,7 +181,14 @@
     initSavedata: function() {
       var pc_base = this.randomArray(Common.pc_init);
       var hp_m = this.random(pc_base[2] - 10, pc_base[2] + 10);
-      var mp_m = this.random(pc_base[3] - 10, pc_base[3] + 10)
+      var mp_m = this.random(pc_base[3] - 10, pc_base[3] + 10);
+      // 旧セーブデータからメモを取得
+      var old_data = localStorage[scenario_code];
+      var old_memo = '';
+      if(old_data) {
+        old_data = JSON.parse(old_data);
+        old_memo = old_data.memos;
+      }
 
       save_data = {
         // キャラクター情報
@@ -223,6 +232,8 @@
         items: [],
         // 所有しているフラグ
         flags: [],
+        // 冒険メモ（自由入力欄）
+        memos: old_memo,       
         // 現在のシーン番号
         scene: 0,
         // 経過シーン
@@ -239,9 +250,25 @@
     initGlobalSaveData: function() {
       global_save_data = {
         items: [],
-        bgm: true
+        bgm: true,
+        panel: true
       };
       this.saveStorageGlobal(GLOBAL_SAVE_DATA_KEY);
+    },
+
+    // 指定された魔法を利用できるかを判定（引数は個々の魔法情報配列）
+    canUseMagic: function(magic) {
+      if(save_data.stars[0] < magic[0] ||
+         save_data.stars[1] < magic[1] ||
+         save_data.stars[2] < magic[2] ||
+         save_data.stars[3] < magic[3] ||
+         save_data.stars[4] < magic[4] ||
+         save_data.stars[5] < magic[5] ||
+         save_data.stars[6] < magic[6]) {
+        return false;
+      } else {
+        return true;
+      }
     },
 
     // @items属性（at_items）の値に応じて、セーブデータのitemsプロパティを更新
@@ -281,7 +308,7 @@
       var html = '';
       for (var i = 0; i < num; i++) {
         html += '<img src="' + ROOT + COMMON +'cube' + this.random(1, 6)
-          + '.png" style="width: 50px"/>';
+          + '.png" class="dice" />';
       }
       return html;
     },
@@ -302,27 +329,27 @@
     // ダメージ式／回避方法を選択
     selectFunc: function(func) {
       return Util.randomArray(func.split(',')).trim();
-    }
-,
+    },
+
     // 状態異常によるステータス補正
     deltaStatus: function(state) {
       switch(state) {
         case 'frozen' :
-          var state_desc = '全ステ-2';
+          var state_desc = 'すべてのステータスを-2';
           var str_d = -2;
           var int_d = -2;
           var dex_d = -2;
           var krm_d = -2;
           break;
         case 'stone' :
-          var state_desc = '全ステ-1（10sceneで死）';
+          var state_desc = 'すべてのステータスを-1（10scene経過で死亡）';
           var str_d = -1;
           var int_d = -1;
           var dex_d = -1;
           var krm_d = -1;
           break;
         case 'forget' :
-          var state_desc = 'STR/INT高い方が0';
+          var state_desc = 'STR／INTのうち、高い方が0に';
           if(save_data.chara.str < save_data.chara.int) {
             var str_d = 0;
             var int_d = save_data.chara.int * -1;
@@ -334,21 +361,21 @@
           var krm_d = 0;
           break;
         case 'poison' :
-          var state_desc = 'HP-1/scene';
+          var state_desc = 'シーン経過ごとにHPを-1';
           var str_d = 0;
           var int_d = 0;
           var dex_d = 0;
           var krm_d = 0;
           break;
         case 'curse' :
-          var state_desc = '魔法不可（除UN-CURSE）';
+          var state_desc = '魔法の利用が不可（UN-CURSEを除く）';
           var str_d = 0;
           var int_d = 0;
           var dex_d = 0;
           var krm_d = 0;
           break;
         default : 
-          var state_desc = '';
+          var state_desc = '－';
           var str_d = 0;
           var int_d = 0;
           var dex_d = 0;
@@ -377,8 +404,9 @@
       history.pushState(0, 'Scene 0');
     },
 
-    // ステータスダイアログを初期化
+    // ダイアログを初期化
     initDialog: function() {
+      // ステータスダイアログを初期化
       $.get(ROOT + COMMON + 'dialog.html')
         .done(function(data) {
           dialog = $(data);
@@ -398,6 +426,48 @@
             $('#bonus', dialog).text(b.desc + '（' + b.name + '）');
           }
        });
+
+       // ボーナスアイテムダイアログを初期化
+       $.get(ROOT + COMMON + 'dialog_list.html')
+        .done(function(data) {
+          dialog_item = $(data);
+
+          // グッドアイテムを一覧表示
+          for(var i = 0; i < 24; i++) {
+            if(i < 10) {
+              num = '0' + i;
+            } else {
+              num = i;
+            }
+            num = 'gi' + num;
+            if (global_save_data.items.includes(num)) {
+              $('#' + num, dialog_item).
+                attr('src', ROOT + COMMON + num + '.png').
+                attr('class', 'bonus_item');
+            } else {
+              $('#' + num, dialog_item).
+                attr('src', ROOT + COMMON + 'gi99.png');
+            }
+          }
+
+          // バッドアイテムを一覧表示
+          for(var i = 1; i < 6; i++) {
+            if(i < 10) {
+              num = '0' + i;
+            } else {
+              num = i;
+            }
+            num = 'bgi' + num;
+            if (global_save_data.items.includes(num)) {
+              $('#' + num, dialog_item).
+                attr('src', ROOT + COMMON + num + '.png').
+                attr('class', 'bonus_item');
+            } else {
+              $('#' + num, dialog_item).
+                attr('src', ROOT + COMMON + 'gi99.png');
+            }
+          }
+        });
     },
 
     // ステータスダイアログを生成
@@ -431,6 +501,7 @@
       $('#dex_d', dialog).text('（' + delta[2] + '）');
       $('#krm_d', dialog).text('（' + delta[3] + '）');
       $('#state_desc', dialog).text(delta[4]);
+      $('#memos', dialog).text(save_data.memos);
 
       // 魔法選択ボックスを生成
       var magic_box = $('#magic', dialog);
@@ -441,18 +512,14 @@
           .attr('value', key)
           .attr('title', magic[8])
           .text(key + '（' + magic[7] + '）');
-        if(save_data.stars[0] < magic[0] ||
-           save_data.stars[1] < magic[1] ||
-           save_data.stars[2] < magic[2] ||
-           save_data.stars[3] < magic[3] ||
-           save_data.stars[4] < magic[4] ||
-           save_data.stars[5] < magic[5] ||
-           save_data.stars[6] < magic[6]) {
+        // 魔法が使えなければ、オプションは無効に
+        if(!Util.canUseMagic(magic)) {
           option.attr('disabled', 'disabled');
         }
         option.appendTo(magic_box);
       }
 
+      // 現在所持しているアイテム一覧を表示
       var items = [];
       for(var i = 0; i < save_data.items.length; i++) {
         var item = items_map[save_data.items[i]];
@@ -460,16 +527,27 @@
       }
       $('#items', dialog).text(items.join('\r'));
 
-      var flags = [];
+      // 現在所持しているフラグ一覧を表示
+      var flags = $('#flags', dialog);
+      flags.empty();
       for(var i = 0; i < save_data.flags.length; i++) {
-        flags.push('・' + flags_map[save_data.flags[i]]);
+        var tmp = '<option ';
+        if (i == save_data.flags.length - 1) { tmp += 'selected'; }
+        tmp += '>・' + flags_map[save_data.flags[i]] + '</option>';
+        flags.append(tmp);
       }
-      $('#flags', dialog).text(flags.join('\r'));
+
+      // 現在所持しているフラグ一覧を表示（旧コード）
+      //var flags = [];
+      //for(var i = 0; i < save_data.flags.length; i++) {
+      //  flags.push('・' + flags_map[save_data.flags[i]]);
+      //}
+      //$('#flags', dialog).text(flags.join('\r'));
 
       $.zoombox.html(dialog.html(),
         {
           width: 640,
-          height: 500
+          height: 480
         }
       );
     },
@@ -491,7 +569,7 @@
         case 'happy' :
           bonus_item = Util.randomArray(Object.keys(Common.global_items.happy));
           o_bonus_item = Common.global_items.happy[bonus_item];
-          audio_path = ROOT + COMMON + '/end_happy.mp3';
+          audio_path = ROOT + scenario_code + '/bgm_happy.mp3';
           break;
         case 'bad' :
           // バッドアイテムは20％未満の確率で入手
@@ -499,12 +577,12 @@
             bonus_item = Util.randomArray(Object.keys(Common.global_items.bad));
             o_bonus_item = Common.global_items.bad[bonus_item];            
           }
-          audio_path = ROOT + COMMON + '/end_bad.mp3';
+          audio_path = ROOT + scenario_code + '/bgm_bad.mp3';
           break;
       }
 
       // エンディングテーマ再生
-      bgm.pause();
+      if(bgm) { bgm.pause(); }
       bgm = new Audio(audio_path);
       bgm.loop = true;
       if(global_save_data.bgm) { bgm.play(); }
@@ -516,14 +594,15 @@
         // アイテム表示
         $.get('stext/common/dialog_bonus.html').then(function(data) {
           var bonus_dialog = $(data);
+          $('#bonus_img', bonus_dialog).attr('src', ROOT + COMMON + bonus_item + '.png');
           $('#bonus_item', bonus_dialog).text(o_bonus_item.name);
           $('#bonus_item_desc', bonus_dialog).text(o_bonus_item.desc);
 
           setTimeout(function() {
             $.zoombox.html(bonus_dialog.html(),
               {
-                width: 350,
-                height: 100
+                width: 480,
+                height: 200
               }
             );  
           }, 2000);
@@ -531,12 +610,10 @@
       }
     },
 
-    // 冒険を最初から開始する時
-    confirmStart: function() {
-      target.html('<p>キャラが新規作成されました。<br />' +
-        'ステータスダイアログは画面右クリックで開くことができます。</p>' +
-        '<a href="#" class="startbtn">OK</a>'
-      );
+    // そのシーンに直接の番号指定で移動可能かを判定
+    canSceneMove: function(scene_num) {
+      var scene = $('scene[id="' + scene_num + '"][allowMove]', scenario_data);
+      return scene.length != 0 ? true : false;
     },
 
     // 現在のシーン情報を取得＆画面の生成
@@ -556,18 +633,51 @@
       target.text(scene.text());
       target.markdown();
 
+      // ヘッダーテキスト／コントロールパネルの生成（旧コード）
+      /*
       $('<h5 id="scenario_title">' + 
+        '<img id="status_open" src="' + ROOT + COMMON + 'status_open.png" />　' +
+        '<span id="item_list">' +
         $('scenario', scenario_data).attr('title') +
-          '　【' + scene_num + '】' + 
+          '【' + scene_num + '】</span>' + 
           '<img id="audio_onoff" src="' + ROOT + COMMON + 'audio_' +
           (global_save_data.bgm ? 'on' : 'off') + '.png" /></h5>')
         .prependTo(target);
+      */
+      $('<h5 id="scenario_title">' + 
+        '<img id="ctrl_show" src="' + ROOT + COMMON + 'ctrl_show.png" /></a> ' +
+        $('scenario', scenario_data).attr('title') +
+          '【' + scene_num + '】</span></h5>' + 
+        '<div id="control_panel">' +
+        '<img id="ctrl_home" src="' + ROOT + COMMON + 'ctrl_home.png" /></a>　' +
+        '<img id="status_open" src="' + ROOT + COMMON + 'ctrl_status.png" />　' +
+        '<img id="item_list" src="' + ROOT + COMMON + 'ctrl_bonus.png" />　' +
+        '<img id="audio_onoff" src="' + ROOT + COMMON + 'ctrl_audio_' +
+          (global_save_data.bgm ? 'on' : 'off') + '.png" />　' +
+        '<img id="ctrl_reload" src="' + ROOT + COMMON + 'ctrl_reload.png" />　' +
+        '<img id="ctrl_help" src="' + ROOT + COMMON + 'ctrl_help.png" />' +
+        '</div>')
+        .prependTo(target);
+
+      // パネル非表示状態になっている場合、パネルを非表示に
+      if(!global_save_data.panel) {
+        $('#control_panel').hide();
+      }
 
       // サイコロの表示
       target.append('<center id="cubes">' + Util.cube(2) + '</center>');
 
       // 移動ボタンの整形
       $('a', target).addClass('scenebtn');
+
+      // 移動用ボタンの整形
+      $('a[href="X"]', target)
+        .removeClass('scenebtn')
+        .addClass('scene_move')
+        .text('移動する')
+        .before('<input type="number" id="toscene" class="scene_move" />')
+        .add('#toscene')
+        .wrapAll('<div></div>');
 
       // 挿絵の整形
       var a_img = $('a:has(img)', target);
@@ -601,16 +711,68 @@
       var flags = save_data.flags;
       var items = save_data.items;
 
-      // title属性付きのボタンを非表示
+      // title属性付きのボタンを非表示（ただし、「-～」を表示状態に）
       $('a[title]', target).hide();
+      $('a[title^="-"]', target).show();
 
-      // 指定のフラグを所持している場合にだけボタンだけを表示
+      // 指定のフラグを所持している場合にだけボタンだけを表示（「-」で所持していない場合に非表示）
       for (var i = 0; i < flags.length; i++) {
         $('a[title="' + flags[i] + '"]', target).show();
+        $('a[title="-' + flags[i] + '"]', target).hide();
       }
+
+      // 指定のフラグを所持している場合にだけボタンを表示（複数フラグ対応）
+      var multi_flags = $('a[title*=","]', target);     
+      multi_flags.each(function(index, elem) {
+        var multi_ids = $(elem).attr('title');
+        if (multi_ids.indexOf('-') !== 0) {
+          // 通常のマルチフラグ処理（指定フラグを全て所有でボタン表示）
+          var show_flag = true; // ボタンを表示するか
+          var multi_ids_values = multi_ids.split(',');
+          for (var i = 0; i < multi_ids_values.length; i++) {
+            if (flags.indexOf(multi_ids_values[i].trim()) === -1) {
+              show_flag = false;
+              break;
+            }
+          }
+          // 全フラグが存在すればボタンを表示
+          if (show_flag) {
+            $(elem).show();
+          }
+        } else {
+          // 「-」付きのマルチフラグ処理
+          var hide_flag = true; // ボタンを非表示にするか
+          var multi_ids_values = multi_ids.substring(1).split(',');
+          for (var i = 0; i < multi_ids_values.length; i++) {
+            if (flags.indexOf(multi_ids_values[i].trim()) === -1) {
+              hide_flag = false;
+              break;
+            }
+          }
+          // 全フラグが存在すればボタンを非表示に
+          if (hide_flag) {
+            $(elem).hide();
+          }
+        }
+      });
+
       // 指定のアイテムを所有している場合にだけボタンを表示
       for (var i = 0; i < items.length; i++) {
         $('a[title="' + items[i] + '"]', target).show();
+      }
+
+      // 指定の魔法が利用できる場合にだけボタンを表示
+      for(var key in Common.magic) {
+        if (Util.canUseMagic(Common.magic[key])) {
+          $('a[title="m' + key + '"]', target).show();
+        }
+      }
+
+      // シーン表示時に効果音を再生（未検証）
+      if(scene.attr('se')) {
+        var se = new Audio(ROOT + scenario_code + '/' + scene.attr('se') + '.mp3');
+        se.loop = false;
+        se.play();
       }
 
       // 現在のシーンのフラグ情報／アイテム情報を反映
@@ -638,34 +800,6 @@
       target = this; 
 
       /** EventListener **/
-      // 再開時に既存のセーブデータを読み込むための処理
-      target.on('click', 'a.restartbtn', function(e){
-        Util.loadStorage();
-        Util.initDialog();
-        // 再開時に経過日数の加算分を減算
-        save_data.ellapsed_scene--;
-        var num = save_data.scene;
-        Util.createScene(num);
-        history.pushState(num, 'Scene ' + num);
-        e.preventDefault();
-      });
-
-      // 再開時にセーブデータの初期化を選択した場合
-      target.on('click', 'a.newbtn', function(e){
-        Util.confirmStart();
-      });
-
-      // 冒険を開始する時
-      target.on('click', 'a.startbtn', function(e){
-        Util.initScenario();
-      });
-
-      target.on('click', 'a.initbtn', function(e){
-        target.html('<p>キャラが新規作成されました。<br />' +
-            'ステータスダイアログは画面右クリックで開くことができます。</p>' +
-            '<a href="#" class="restartbtn">セーブデータを読み込む</a>');
-      });
-
       // 移動ボタンをクリックで次のシーンに移動
       target.on('click', 'a.scenebtn', function(e) {
         var num = $(this).attr('href');
@@ -673,6 +807,19 @@
         Util.createScene(num);
         e.preventDefault();
       });
+
+      // 指定シーンに移動
+      target.on('click', 'a.scene_move', function(e) {
+        var num = $('#toscene').val();
+        if(Util.canSceneMove(num)) {
+          history.pushState(num, 'Scene ' + num);
+          Util.createScene(num);
+        } else {
+          window.alert('その番号には移動できません。');
+        }
+        e.preventDefault();
+      });
+
 
       // ダイス回転音を準備
       var ad = new Audio(ROOT + COMMON + 'dice.mp3');
@@ -693,6 +840,12 @@
         rotateCube(this);
       });
 
+      // ステータスオープンボタンでステータスダイアログを表示
+      target.on('click', '#status_open', function(e) {
+        Util.createDialog();
+        e.preventDefault();
+      });
+
       // 右クリック時にステータスダイアログを表示
       target.on('contextmenu', function(e) {
         Util.createDialog();
@@ -704,11 +857,11 @@
         if(bgm) {
           if (global_save_data.bgm) {
             global_save_data.bgm = false;
-            $(this).attr('src', ROOT + COMMON + 'audio_off.png');
+            $(this).attr('src', ROOT + COMMON + 'ctrl_audio_off.png');
             bgm.pause();
           } else {
             global_save_data.bgm = true;
-            $(this).attr('src', ROOT + COMMON + 'audio_on.png');
+            $(this).attr('src', ROOT + COMMON + 'ctrl_audio_on.png');
             bgm.play();
           }
           Util.saveStorageGlobal();
@@ -727,6 +880,7 @@
         save_data.stars[4] = $('#dialog_body #s_fri').val();
         save_data.stars[5] = $('#dialog_body #s_sat').val();
         save_data.stars[6] = $('#dialog_body #s_sun').val();
+        save_data.memos    = $('#dialog_body #memos').val();
         Util.saveStorage();
         $.zoombox.close()
       });
@@ -762,7 +916,7 @@
            $('#dialog_body #s_fri').val() < magic[4] ||
            $('#dialog_body #s_sat').val() < magic[5] ||
            $('#dialog_body #s_sun').val() < magic[6]) {
-          window.alert('星が不足しているため、魔法を行使できません！');
+          window.alert('星が不足しているため、魔法を発動できません！');
           return;
         }
         useStar(magic, 0, '#s_mon');
@@ -774,11 +928,74 @@
         useStar(magic, 6, '#s_sun');
       });
 
+      // ボーナスアイテム一覧を表示
+      target.on('click', '#item_list', function(e) {
+        $.zoombox.html(dialog_item.html(), {
+          width: 650,
+          height: 450
+        });
+      });
+
+      // ボーナスアイテムリストをクリックでアイテムの説明を表示
+      $(document).on('click', '#dialog_list img.bonus_item', function(e) {
+        var id = e.target.id;
+        var o_bonus_item;
+        if (id.startsWith('gi')) {
+          o_bonus_item = Common.global_items.happy[id];
+        } else {
+          o_bonus_item = Common.global_items.bad[id];
+        }
+        $('#dialog_list #bonus_msg').text(o_bonus_item.name + '（' +
+          o_bonus_item.desc + '）');
+      });
+
+      // ホームボタンでページ移動
+      target.on('click', '#ctrl_home', function(e) {
+        window.open('http://www.web-deli.com/sorcerian/next/stext.aspx');
+      });
+
+      // リロードボタンでページリロード
+      target.on('click', '#ctrl_reload', function(e) {
+        location.reload();
+      });
+
+      // ヘルプボタンでページ移動
+      target.on('click', '#ctrl_help', function(e) {
+        window.open('http://d.hatena.ne.jp/sorcerian/20171220');
+      });
+
+      // コントロールパネルの表示／非表示
+      target.on('click', '#scenario_title', function(e) {
+        var ctrl = $('#control_panel');
+        if(ctrl.css('display') === 'none') {
+          $('#control_panel').slideDown();
+          global_save_data.panel = true;
+        } else {
+          $('#control_panel').slideUp();
+          global_save_data.panel = false;
+        }
+        Util.saveStorageGlobal();
+      });
+
       // 履歴情報の復帰
       $(window).on('popstate', function(e) {
         Util.createScene(e.originalEvent.state);
       });
+
+      // スプラッシュ画面クリック時に音楽を再生
+      $(document).on('touchstart', '.zoombox_mask', function() {
+        if(global_save_data.bgm && bgm.paused) {
+          bgm.play();
+        }
+      });
       /** EventListener **/
+
+      // グローバルセーブデータが存在しない場合は初期化
+      if(localStorage[GLOBAL_SAVE_DATA_KEY]) {
+        Util.loadStorageGlobal();
+      } else {
+        Util.initGlobalSaveData();
+      }
 
       // bgm.mp3が存在したら、再生開始
       var audio_path = ROOT + scenario_code + '/bgm.mp3';
@@ -790,12 +1007,8 @@
         }
       });
 
-      // グローバルセーブデータが存在しない場合は初期化
-      if(localStorage[GLOBAL_SAVE_DATA_KEY]) {
-        Util.loadStorageGlobal();
-      } else {
-        Util.initGlobalSaveData();
-      }
+      // スプラッシュ画面の起動
+      $.zoombox.open(ROOT + COMMON + 'title.png', { duration: 400 });
 
       // 初期化処理
       $.get(ROOT + scenario_code + '/scenario.xml')
@@ -845,14 +1058,8 @@
           });
           console.log(items_map);
 
-          // ストレージに情報がある場合は続きから再開するかどうかを確認
+          // ストレージに情報がある場合は続きから再開
           if (localStorage[scenario_code]) {
-            target.html('<p>以前のデータが残っています。続きから開始しますか？</p>' +
-                '<a href="#" class="newbtn">最初から冒険を始める</a>' + 
-                '<a href="#" class="restartbtn">セーブデータを読み込む</a>'
-            );
-            return;
-            /*
             if (confirm('以前のデータが残っています。' +
                 '\r続きから開始しますか？')) {
               Util.loadStorage();
@@ -864,29 +1071,18 @@
               history.pushState(num, 'Scene ' + num);
               return;
             }
-            */
           }
 
-          // ストレージに情報がない場合には最初からゲームを開始
-          Util.confirmStart();
-
-          /*
           // ストレージに情報がない場合には最初からゲームを開始
           // ゲーム情報を初期化
           Util.initScenario();
 
           window.alert('キャラが新規作成されました。\r' +
             'ステータスダイアログは画面右クリックで開くことができます。');
-          */
         })
         .fail(function(xhr, status, error) {
           throw new Error('scenario code is invalid.');
         });
-    },
-
-    // ゲームクリア時にグローバルアイテムを入手
-    guildItems: function() {
-
     }
   });
 })(jQuery);

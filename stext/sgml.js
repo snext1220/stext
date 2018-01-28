@@ -33,8 +33,12 @@
   var dialog;
   var dialog_item;
 
+  // デバッグモードか
+  var debug_mode = false;
+
   // 現在再生中のBGM
   var bgm;
+  var bgm_name; // 名前（bgm_*.mp3の「*」のみ。メインは空）
 
   // 基本データ
   var Common = {
@@ -633,17 +637,7 @@
       target.text(scene.text());
       target.markdown();
 
-      // ヘッダーテキスト／コントロールパネルの生成（旧コード）
-      /*
-      $('<h5 id="scenario_title">' + 
-        '<img id="status_open" src="' + ROOT + COMMON + 'status_open.png" />　' +
-        '<span id="item_list">' +
-        $('scenario', scenario_data).attr('title') +
-          '【' + scene_num + '】</span>' + 
-          '<img id="audio_onoff" src="' + ROOT + COMMON + 'audio_' +
-          (global_save_data.bgm ? 'on' : 'off') + '.png" /></h5>')
-        .prependTo(target);
-      */
+      // ヘッダーテキスト／コントロールパネルの生成
       $('<h5 id="scenario_title">' + 
         '<img id="ctrl_show" src="' + ROOT + COMMON + 'ctrl_show.png" /></a> ' +
         $('scenario', scenario_data).attr('title') +
@@ -662,6 +656,31 @@
       // パネル非表示状態になっている場合、パネルを非表示に
       if(!global_save_data.panel) {
         $('#control_panel').hide();
+      }
+
+      console.log('debug:' + debug_mode);
+      // デバッグモードが有効の場合、デバッグウィンドウを表示
+      if(debug_mode) {
+        $('<div id="debug_panel"><form>' +
+        '<label>Scene：<input id="debug_id" type="text" size="5" /></label>　' +
+        '<label>Items：<input id="debug_items" type="text" size="7" /></label>　' +
+        '<label>Flags：<input id="debug_flags" type="text" size="7" /></label>　' +
+        '<input id="debug_reload" type="button" value="Reload" />' +
+        '</form></div>')
+        .prependTo(target);
+
+        // 現在の状態をデバッグウィンドウに反映
+        $('#debug_panel #debug_id').val(scene_num);
+        $('#debug_panel #debug_items').val(save_data.items.join(','));
+        $('#debug_panel #debug_flags').val(save_data.flags.join(','));
+        // セーブデータを上書きの上、ページリロード
+        $('#debug_panel #debug_reload').click(function(e) {
+          save_data.scene = $('#debug_panel #debug_id').val();
+          save_data.items = $('#debug_panel #debug_items').val().split(',');
+          save_data.flags = $('#debug_panel #debug_flags').val().split(',');
+          Util.saveStorage();
+          location.reload();
+        });
       }
 
       // サイコロの表示
@@ -768,6 +787,25 @@
         }
       }
 
+      // シーン移動時にBGMを切替
+      if(scene.attr('bgm')) {
+        new_bgm_name = scene.attr('bgm');
+        if(new_bgm_name === 'main') { new_bgm_name = ''; }
+        // 現在再生中のBGMと異なる場合にのみ切替
+        if(bgm_name !== new_bgm_name) {
+          bgm_name = new_bgm_name;
+          if(bgm) { bgm.pause(); }
+          if(bgm_name === '') {
+            var audio_path = ROOT + scenario_code + '/bgm.mp3';
+          } else {
+            var audio_path = ROOT + scenario_code + '/bgm_' + bgm_name + '.mp3';
+          }
+          bgm = new Audio(audio_path);
+          bgm.loop = true;
+          if(global_save_data.bgm) { bgm.play(); }
+        }
+      }
+
       // シーン表示時に効果音を再生（未検証）
       if(scene.attr('se')) {
         var se = new Audio(ROOT + scenario_code + '/' + scene.attr('se') + '.mp3');
@@ -794,10 +832,14 @@
   };
 
   // プラグイン本体
+  // 引数code：シナリオコード、またはシナリオ文字列
+  // 引数debug：デバッグウィンドウを表示するか（既定はfalse）
   $.fn.extend({
-    startGame: function(code) {
+    startGame: function(code, debug) {
       scenario_code = code;
-      target = this; 
+      target = this;
+      if(!debug) { debug = false; }
+      debug_mode = debug;
 
       /** EventListener **/
       // 移動ボタンをクリックで次のシーンに移動
@@ -1004,6 +1046,7 @@
         bgm.loop = true;
         if(global_save_data.bgm) {
           bgm.play();
+          //bgm.volume = 0.2;
         }
       });
 
@@ -1011,78 +1054,88 @@
       $.zoombox.open(ROOT + COMMON + 'title.png', { duration: 400 });
 
       // 初期化処理
-      $.get(ROOT + scenario_code + '/scenario.xml')
-        .done(function(result) {
-
-          // シナリオデータを取得
-          scenario_data = result;
-          console.log(scenario_data);
-
-          // 魔法の星を演算（配列末尾に「星の種類 数...」を設定）
-          for(var key in Common.magic) {
-            var magic = Common.magic[key];
-            var stars = '';
-            var star_names = [ '月', '火', '水', '木', '金', '土', '太' ];
-            for (var i = 0; i < 7; i++) {
-              if(magic[i] > 0) {
-                stars += star_names[i] + magic[i] + ' ';
-              }
-            }
-            magic.push(stars);
-          }
-
-          // フラグ一覧を取得
-          $('flags > flag', scenario_data).each(function() {
-            flags_map[$(this).attr('id')] = $(this).text().trim();
-          });
-          console.log(flags_map);
-
-          // モンスター覧を取得
-          $('enemies > enemy', scenario_data).each(function() {
-            enemies_map[$(this).attr('id')] = {
-              name: $(this).attr('name'),
-              element: $(this).attr('element'),
-              attack: $(this).attr('attack'),
-              func: $(this).attr('func'),
-              desc: $(this).text()
-            }
-          });
-          console.log(enemies_map);
-
-          // アイテム一覧を取得
-          $('items > item', scenario_data).each(function() {
-            items_map[$(this).attr('id')] = {
-              name: $(this).attr('name'),
-              desc: $(this).text().trim()
-            };
-          });
-          console.log(items_map);
-
-          // ストレージに情報がある場合は続きから再開
-          if (localStorage[scenario_code]) {
-            if (confirm('以前のデータが残っています。' +
-                '\r続きから開始しますか？')) {
-              Util.loadStorage();
-              Util.initDialog();
-              // 再開時に経過日数の加算分を減算
-              save_data.ellapsed_scene--;
-              var num = save_data.scene;
-              Util.createScene(num);
-              history.pushState(num, 'Scene ' + num);
-              return;
+      var done_read = function(result) {
+        // シナリオデータを取得
+        scenario_data = result;
+        console.log(scenario_data);
+      
+        // 魔法の星を演算（配列末尾に「星の種類 数...」を設定）
+        for(var key in Common.magic) {
+          var magic = Common.magic[key];
+          var stars = '';
+          var star_names = [ '月', '火', '水', '木', '金', '土', '太' ];
+          for (var i = 0; i < 7; i++) {
+            if(magic[i] > 0) {
+              stars += star_names[i] + magic[i] + ' ';
             }
           }
-
-          // ストレージに情報がない場合には最初からゲームを開始
-          // ゲーム情報を初期化
-          Util.initScenario();
-
-          window.alert('キャラが新規作成されました。\r' +
-            'ステータスダイアログは画面右クリックで開くことができます。');
-        })
-        .fail(function(xhr, status, error) {
-          throw new Error('scenario code is invalid.');
+          magic.push(stars);
+        }
+      
+        // フラグ一覧を取得
+        $('flags > flag', scenario_data).each(function() {
+          flags_map[$(this).attr('id')] = $(this).text().trim();
         });
+        console.log(flags_map);
+      
+        // モンスター覧を取得
+        $('enemies > enemy', scenario_data).each(function() {
+          enemies_map[$(this).attr('id')] = {
+            name: $(this).attr('name'),
+            element: $(this).attr('element'),
+            attack: $(this).attr('attack'),
+            func: $(this).attr('func'),
+            desc: $(this).text()
+          }
+        });
+        console.log(enemies_map);
+      
+        // アイテム一覧を取得
+        $('items > item', scenario_data).each(function() {
+          items_map[$(this).attr('id')] = {
+            name: $(this).attr('name'),
+            desc: $(this).text().trim()
+          };
+        });
+        console.log(items_map);
+      
+        // ストレージに情報がある場合は続きから再開
+        if (localStorage[scenario_code]) {
+          if (confirm('以前のデータが残っています。' +
+              '\r続きから開始しますか？')) {
+            Util.loadStorage();
+            Util.initDialog();
+            // 再開時に経過日数の加算分を減算
+            save_data.ellapsed_scene--;
+            var num = save_data.scene;
+            Util.createScene(num);
+            history.pushState(num, 'Scene ' + num);
+            return;
+          }
+        }
+      
+        // ストレージに情報がない場合には最初からゲームを開始
+        // ゲーム情報を初期化
+        Util.initScenario();
+      
+        window.alert('キャラが新規作成されました。\r' +
+          'ステータスダイアログは画面右クリックで開くことができます。');
+      };
+      
+      // シナリオコード
+      scenario_code = scenario_code.trim();
+      // 文字列が渡された場合には、シナリオデータとして処理
+      if (scenario_code.indexOf('<') === 0) {
+        done_read($(scenario_code));
+        scenario_code = 'playground';
+        // シナリオコードが渡された場合にはscenario.xmlを読み込み
+      } else {
+        $.get(ROOT + scenario_code + '/scenario.xml')
+          .done(done_read)
+          .fail(function(xhr, status, error) {
+            throw new Error('scenario code is invalid.');
+          });
+      }
     }
   });
 })(jQuery);
