@@ -317,6 +317,13 @@
                     </xs:documentation>
                   </xs:annotation>
                 </xs:attribute>
+                <xs:attribute name="bgm" type="xs:string" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      シーン移動時にBGMを切替（bgm_boss.mp3であれば、「boss」と指定。メインテーマbgm.mp3に戻す場合は、「main」と指定）
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
               </xs:extension>
             </xs:simpleContent>
           </xs:complexType>
