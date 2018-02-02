@@ -444,7 +444,8 @@
               num = i;
             }
             num = 'gi' + num;
-            if (global_save_data.items.includes(num)) {
+            //if (global_save_data.items.includes(num)) {
+            if ($.inArray(num, global_save_data.items) !== -1) {
               $('#' + num, dialog_item).
                 attr('src', ROOT + COMMON + num + '.png').
                 attr('class', 'bonus_item');
@@ -462,7 +463,8 @@
               num = i;
             }
             num = 'bgi' + num;
-            if (global_save_data.items.includes(num)) {
+            //if (global_save_data.items.includes(num)) {
+            if ($.inArray(num, global_save_data.items) !== -1) {
               $('#' + num, dialog_item).
                 attr('src', ROOT + COMMON + num + '.png').
                 attr('class', 'bonus_item');
