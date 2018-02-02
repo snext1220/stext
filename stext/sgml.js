@@ -634,7 +634,7 @@
       var scene = $('scene[id="' + scene_num + '"]', scenario_data);
 
       // シーンテキストの整形
-      target.html(scene.html());
+      target.text(scene.text());
       target.markdown();
 
       // ヘッダーテキスト／コントロールパネルの生成
