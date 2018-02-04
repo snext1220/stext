@@ -242,8 +242,6 @@
         scene: 0,
         // 経過シーン
         ellapsed_scene: 0,
-        // 現在再生中のBGM（メインは空文字列）
-        bgm: '',
         // ボーナス（グローバルアイテム）
         bonus: this.randomArray(global_save_data.items),
         // エンディングに到達したか
@@ -624,14 +622,6 @@
       return scene.length != 0 ? true : false;
     },
 
-    // 指定されたBGMを再生
-    playBgm: function(path) {
-      if(bgm) { bgm.pause(); }
-      bgm = new Audio(path);
-      bgm.loop = true;
-      if(global_save_data.bgm) { bgm.play(); }
-    },
-    
     // 現在のシーン情報を取得＆画面の生成
     createScene: function(scene_num) {
       // エンディングフラグが立っている場合は、初期化処理を実行
@@ -647,9 +637,6 @@
 
       // シーンテキストの整形
       target.text(scene.text());
-      // カラーリング（NG）
-      //target.text(target.text().replace(/%(blue|red|purple)%/gi, '<font color="$1">'));
-      //target.text(target.text().replace(/%\/%/gi, '</font>'));
       target.markdown();
 
       // ヘッダーテキスト／コントロールパネルの生成
@@ -808,40 +795,7 @@
         }
       }
 
-      /* BGM再生 */
-      // 再生すべきBGMのパスを生成
-      var tmp_path = '';
-      var new_bgm = scene.attr('bgm');
-      // セーブデータに保存済みのパスを取得（空の場合はメイン）
-      if (save_data.bgm) {
-        tmp_path = '/bgm_' + save_data.bgm + '.mp3';
-      } else {
-        tmp_path = '/bgm.mp3';
-      }
-      // bgm属性による上書き
-      if(new_bgm !== undefined) {
-        if(new_bgm === '') {
-          tmp_path = '/bgm.mp3';
-        } else {
-          tmp_path = '/bgm_' + new_bgm + '.mp3';
-        }
-      }
-      var audio_path = ROOT + scenario_code + tmp_path;
-
-      // 初期立ち上げ時、画面遷移時（bgm属性ありで、以前から変化した）に再生
-      if(!bgm ||
-        (bgm && new_bgm !== undefined && new_bgm !== save_data.bgm)) {
-        Util.playBgm(audio_path);
-        if (new_bgm === undefined) {
-          save_data.bgm = '';
-        } else {
-          save_data.bgm = new_bgm;
-        }
-      }
-      /* BGM再生ココマデ */
-
-      // シーン移動時にBGMを切替（旧コード）
-      /*
+      // シーン移動時にBGMを切替
       if(scene.attr('bgm')) {
         new_bgm_name = scene.attr('bgm');
         if(new_bgm_name === 'main') { new_bgm_name = ''; }
@@ -859,7 +813,6 @@
           if(global_save_data.bgm) { bgm.play(); }
         }
       }
-      */
 
       // シーン表示時に効果音を再生（未検証）
       if(scene.attr('se')) {
@@ -1094,8 +1047,7 @@
         Util.initGlobalSaveData();
       }
 
-      // bgm.mp3が存在したら、再生開始（旧コード）
-      /*
+      // bgm.mp3が存在したら、再生開始
       var audio_path = ROOT + scenario_code + '/bgm.mp3';
       $.get(audio_path).then(function() {
         bgm = new Audio(audio_path);
@@ -1105,7 +1057,6 @@
           //bgm.volume = 0.2;
         }
       });
-      */
 
       // スプラッシュ画面の起動
       $.zoombox.open(ROOT + COMMON + 'title.png', { duration: 400 });
