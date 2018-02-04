@@ -646,10 +646,11 @@
       var scene = $('scene[id="' + scene_num + '"]', scenario_data);
 
       // シーンテキストの整形
-      target.text(scene.text());
-      // カラーリング（NG）
-      //target.text(target.text().replace(/%(blue|red|purple)%/gi, '<font color="$1">'));
-      //target.text(target.text().replace(/%\/%/gi, '</font>'));
+      var tmp_scene = scene.text();
+      tmp_scene = tmp_scene.replace(/%(blue|red|purple)%/gi, '&nbsp;<span style="color:$1">');
+      tmp_scene = tmp_scene.replace(/%\/%/gi, '</span>&nbsp;');
+      target.html(tmp_scene);
+      //target.text(scene.text());
       target.markdown();
 
       // ヘッダーテキスト／コントロールパネルの生成
