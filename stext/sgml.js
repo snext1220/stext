@@ -722,12 +722,14 @@
 
       // 挿絵の整形
       var a_img = $('a:has(img)', target);
-      var img_path = ROOT + scenario_code + '/' + CAPTURE + a_img.attr('href');
-      a_img.attr('href', img_path)
-        .removeClass('scenebtn')
-        .addClass('scenepic')
-        .find('img')
-        .attr('src', img_path);
+      a_img.each(function(index, elem) {
+        var img_path = ROOT + scenario_code + '/' + CAPTURE + $(elem).attr('href');
+        $(elem).attr('href', img_path)
+          .removeClass('scenebtn')
+          .addClass('scenepic')
+          .find('img')
+          .attr('src', img_path);  
+      });
       $('a.scenepic').zoombox();
 
       // シーンのモンスター情報を取得
