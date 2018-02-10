@@ -1221,6 +1221,13 @@
           // .gbatファイルを取得
           var gbat = $(this.result);
 
+          // title／author属性を設定（最初のひとつを優先）
+          var title_author = $('title', gbat).text().trim().split('@');
+          if (!result.attr('title')) {
+            result.attr('title', title_author[0]);
+            result.attr('author', title_author[1]);
+          }
+
           // section要素を順に処理
           $('section', gbat).each(function(i, section) {
             // ヘッダーを処理中であるか
@@ -1286,11 +1293,21 @@
             body += '\n';
             // choise要素配下の分岐を順に出力
             $('choices choice', section).each(function(k, cho) {
-                var tmp = '[';
-                tmp += $('text p', cho).text();
-                tmp += '](';
-                tmp += $('destination', cho).text();
-                tmp += ')\n';
+                var caption = $('text p', cho).text().trim().split('@');
+                var dest = $('destination', cho).text();
+
+                if (dest === '999') {
+                  var tmp = '[](X)\n'
+                } else {
+                  var tmp = '[';
+                  tmp += caption[0];
+                  tmp += '](';
+                  tmp += dest;
+                  if (caption[1]) {
+                    tmp += ' "' + caption[1] + '"'
+                  }
+                  tmp += ')\n';
+                }
                 body += tmp;
             });
 
@@ -1320,7 +1337,6 @@
                 result.get(0).outerHTML;
               var blob = new Blob([ content ], { 'type': 'application/octet-stream' });
               location.href = window.URL.createObjectURL(blob);
-              console.log('Not Implemented');
             }
           } else {
             reader.readAsText(inputs[file_num], 'UTF-8');    

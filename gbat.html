@@ -12,12 +12,12 @@
 <script src="./stext/sgml.js"></script>
 <script>
 $(function() {
-  $('#gbat').gbat2stext(/*function(result) {
+  $('#gbat').gbat2stext(function(result) {
     $('#result').val(
       '<?xml version="1.0" encoding="utf-8"?>\n' +
       result.get(0).outerHTML
     );
-  }*/);
+  });
 });
 </script>
 </head>
@@ -25,7 +25,7 @@ $(function() {
     <div class="playground">
         <form>
         <font color="#fff">
-        <input id="gbat" type="file" />
+        <input id="gbat" type="file" multiple />
         ［<a href="http://d.hatena.ne.jp/sorcerian/20180131" target="_blank" style="color: #fff">ヘルプはこちら</a>］</font><br />
         <!--<a id="dl" href="#" disabled>ダウンロードの準備ができました</a>-->
         <textarea id="result" rows="25" readonly></textarea>
