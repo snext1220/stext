@@ -9,54 +9,15 @@
 <link rel="stylesheet" type="text/css" href="./css/main.css" />
 <link rel="stylesheet" href="./stext/sgml.css" />
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="./stext/sgml.js"></script>
 <script>
 $(function() {
-  $('#gbat').change(function(e) {
-    var input = $(this).get(0).files[0];
-    var reader = new FileReader();
-    $(reader).on('load', function(e) {
-      var gbat = $(this.result);
-      // シナリオデータの準備
-      var result = $('<scenario title="タイトル" author="作者名" ' +
-        'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ' +
-        'xsi:noNamespaceSchemaLocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd">\r\n' +
-        '<items>\r\n' +
-        '<item id="i88" name="アイテム名">アイテム説明</item>\r\n' +
-        '</items>\r\n' +
-        '<flags>\r\n' +
-        '<flag id="f88">フラグ説明</flag>\r\n' +
-        '</flags>\r\n' +
-        '<enemies>\r\n' +
-        '<enemy id="m99" name="モンスター／罠名" element="地" \r\n' + 
-        'attack="物理" func="式／回避条件">モンスター説明</enemy>\r\n' +
-        '</enemies>\r\n' +
-        '</scenario>');
-
-      $('section', gbat).each(function(i, elem) {
-        var body = '\n';
-        body += $('text:eq(0)', elem).text();
-            //.replace(/\n\n/g, '\n');
-        body += '\n\n';
-        $('choice', elem).each(function(j, cho){
-            var tmp = '[';
-            tmp += $('text', cho).text();
-            tmp += '](';
-            tmp += $('destination', cho).text();
-            tmp += ')\n';
-            body += tmp;
-        });
-
-        $('<scene></scene>')
-          .attr('id', $(elem).attr('number'))
-          .text(body)
-          .appendTo(result);
-      });
-      $('#result').text('<?xml version="1.0" encoding="utf-8"?>\n' +
-        result.get(0).outerHTML);
-      $('#result').get(0).select();
-    });
-    reader.readAsText(input, 'UTF-8');
-  });
+  $('#gbat').gbat2stext(/*function(result) {
+    $('#result').val(
+      '<?xml version="1.0" encoding="utf-8"?>\n' +
+      result.get(0).outerHTML
+    );
+  }*/);
 });
 </script>
 </head>
@@ -66,6 +27,7 @@ $(function() {
         <font color="#fff">
         <input id="gbat" type="file" />
         ［<a href="http://d.hatena.ne.jp/sorcerian/20180131" target="_blank" style="color: #fff">ヘルプはこちら</a>］</font><br />
+        <!--<a id="dl" href="#" disabled>ダウンロードの準備ができました</a>-->
         <textarea id="result" rows="25" readonly></textarea>
         </form>
       </div>

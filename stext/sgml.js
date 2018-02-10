@@ -1186,9 +1186,10 @@
       scenario_code = scenario_code.trim();
       // 文字列が渡された場合には、シナリオデータとして処理
       if (scenario_code.indexOf('<') === 0) {
-        done_read($(scenario_code));
+        var tmp_data = $(scenario_code);
         scenario_code = 'playground';
-        // シナリオコードが渡された場合にはscenario.xmlを読み込み
+        done_read(tmp_data);
+      // シナリオコードが渡された場合にはscenario.xmlを読み込み
       } else {
         $.get(ROOT + scenario_code + '/scenario.xml')
           .done(done_read)
@@ -1196,6 +1197,142 @@
             throw new Error('scenario code is invalid.');
           });
       }
+    },
+    // GBAT形式からSText形式への変換
+    // this：ファイル選択ボックス
+    // 引数callback：変換結果の変更方法を表す関数（引数）。無指定時はファイルダウンロード
+    gbat2stext: function(callback) {
+      $(this).change(function(e) {
+        // 現在読み取り中のファイル番号（0～inputs.length - 1）
+        var file_num = 0;
+
+        // シナリオデータの外枠を準備
+        var result = $('<scenario ' +
+        'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ' +
+        'xsi:noNamespaceSchemaLocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd">\n' +
+        '</scenario>');
+        var items = $('<items>\n</items>');
+        var flags = $('<flags>\n</flags>');
+        var enemies = $('<enemies>\n</enemies>');
+        var license = $('<license>\n</license>');
+        
+        // 個々のファイルを変換
+        var readFile = function(e) {
+          // .gbatファイルを取得
+          var gbat = $(this.result);
+
+          // section要素を順に処理
+          $('section', gbat).each(function(i, section) {
+            // ヘッダーを処理中であるか
+            var header_on = false;
+            // 各種属性を初期化
+            var attrs = { };
+
+            // id値を設定（1は強制的に0に）
+            attrs.id = Number($('number', section).text());
+            if(attrs.id === 1) { attrs.id = 0; }
+
+            // テキストを生成
+            var body = '\n';
+            // text要素配下のパラグラフを順に出力
+            $('> text p', section).each(function(j, para) {
+              var tmp_para = $(para).text();
+              if (tmp_para.trim() === '@@') {
+                header_on = !header_on;
+                return true;
+              }
+              if (header_on) {
+                if(!tmp_para) { return true; }
+                if (tmp_para.indexOf('i') === 0) {
+                  var item = tmp_para.split(':')
+                  $('<item></item>')
+                    .attr('id', item[0])
+                    .attr('name', item[1])
+                    .text(item[2])
+                    .appendTo(items);
+                    //$('<x>\n</x>').appendTo(items);
+                } else if (tmp_para.indexOf('f') === 0) {
+                  var flag = tmp_para.split(':')
+                  $('<flag></flag>')
+                    .attr('id', flag[0])
+                    .text(flag[1])
+                    .appendTo(flags);          
+                } else if (tmp_para.indexOf('m') === 0) {
+                  var enemy = tmp_para.split(':')
+                  $('<enemy></enemy>')
+                    .attr('id', enemy[0])
+                    .attr('name', enemy[1])
+                    .attr('element', enemy[2])
+                    .attr('attack', enemy[3])
+                    .attr('func', enemy[4])
+                    .text(enemy[5])
+                    .appendTo(enemies);                   
+                } else if (tmp_para.indexOf('w') === 0) {
+                  var work = tmp_para.split(':')
+                  $('<work></work>')
+                    .attr('name', work[1])
+                    .attr('category', work[2])
+                    .attr('creator', work[3])
+                    .attr('url', work[4])
+                    .appendTo(license);                    
+                } else if (tmp_para.indexOf('@') === 0) {
+                  var attr = tmp_para.substring(1).split(':');
+                  attrs[attr[0]] = attr[1];
+                }
+              } else {
+                body += tmp_para + '\n';
+              }
+            });
+            body += '\n';
+            // choise要素配下の分岐を順に出力
+            $('choices choice', section).each(function(k, cho) {
+                var tmp = '[';
+                tmp += $('text p', cho).text();
+                tmp += '](';
+                tmp += $('destination', cho).text();
+                tmp += ')\n';
+                body += tmp;
+            });
+
+            var scene = $('<scene></scene>\n')
+              .attr('id', attrs.id)
+              .text(body);
+            if (attrs.items) { scene.attr('items', attrs.items); }
+            if (attrs.flags) { scene.attr('flags', attrs.flags); }
+            if (attrs.enemies) { scene.attr('enemies', attrs.enemies); }
+            if (attrs.bgm) { scene.attr('bgm', attrs.bgm); }
+            if (attrs.se) { scene.attr('se', attrs.se); }
+            if (attrs.allowMove) { scene.attr('allowMove', attrs.allowMove); }
+            if (attrs.end) { scene.attr('end', attrs.end); }
+            scene.appendTo(result);
+          });
+          license.prependTo(result);
+          enemies.prependTo(result);
+          flags.prependTo(result);
+          items.prependTo(result);
+
+          file_num++;
+          if (file_num >= inputs.length) {
+            if (callback) {
+              callback(result);
+            } else {
+              var content = '<?xml version="1.0" encoding="utf-8"?>\n' +
+                result.get(0).outerHTML;
+              var blob = new Blob([ content ], { 'type': 'application/octet-stream' });
+              location.href = window.URL.createObjectURL(blob);
+              console.log('Not Implemented');
+            }
+          } else {
+            reader.readAsText(inputs[file_num], 'UTF-8');    
+          }
+        };
+
+        // ファイルの読み込みを開始
+        var inputs = $(this).get(0).files;
+        var reader = new FileReader();
+        $(reader).on('load', readFile);
+        reader.readAsText(inputs[file_num], 'UTF-8');
+      });
     }
   });
 })(jQuery);
