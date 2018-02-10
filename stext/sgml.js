@@ -1244,12 +1244,17 @@
             // text要素配下のパラグラフを順に出力
             $('> text p', section).each(function(j, para) {
               var tmp_para = $(para).text();
+              // 「@@」でヘッダー処理のオンオフ
               if (tmp_para.trim() === '@@') {
                 header_on = !header_on;
                 return true;
               }
+
+              // ヘッダー処理中の場合
               if (header_on) {
+                // 空行はスキップ
                 if(!tmp_para) { return true; }
+                // アイテム処理
                 if (tmp_para.indexOf('i') === 0) {
                   var item = tmp_para.split(':')
                   $('<item></item>')
@@ -1257,13 +1262,14 @@
                     .attr('name', item[1])
                     .text(item[2])
                     .appendTo(items);
-                    //$('<x>\n</x>').appendTo(items);
+                // フラグ処理
                 } else if (tmp_para.indexOf('f') === 0) {
                   var flag = tmp_para.split(':')
                   $('<flag></flag>')
                     .attr('id', flag[0])
                     .text(flag[1])
                     .appendTo(flags);          
+                // 敵／罠の処理
                 } else if (tmp_para.indexOf('m') === 0) {
                   var enemy = tmp_para.split(':')
                   $('<enemy></enemy>')
@@ -1273,7 +1279,8 @@
                     .attr('attack', enemy[3])
                     .attr('func', enemy[4])
                     .text(enemy[5])
-                    .appendTo(enemies);                   
+                    .appendTo(enemies);
+                // ライセンス処理 
                 } else if (tmp_para.indexOf('w') === 0) {
                   var work = tmp_para.split(':')
                   $('<work></work>')
@@ -1282,10 +1289,12 @@
                     .attr('creator', work[3])
                     .attr('url', work[4])
                     .appendTo(license);                    
+                // シーン個別の属性を処理
                 } else if (tmp_para.indexOf('@') === 0) {
                   var attr = tmp_para.substring(1).split(':');
                   attrs[attr[0]] = attr[1];
                 }
+              // ヘッダー処理オフの場合、本文として追加
               } else {
                 body += tmp_para + '\n';
               }
@@ -1296,8 +1305,9 @@
                 var caption = $('text p', cho).text().trim().split('@');
                 var dest = $('destination', cho).text();
 
+                // 「999」は自由移動ボックス、それ以外はリンクボタン
                 if (dest === '999') {
-                  var tmp = '[](X)\n'
+                  var tmp = '[](X)\n';
                 } else {
                   var tmp = '[';
                   tmp += caption[0];
@@ -1311,6 +1321,7 @@
                 body += tmp;
             });
 
+            // scene要素を組み立て
             var scene = $('<scene></scene>\n')
               .attr('id', attrs.id)
               .text(body);
@@ -1323,21 +1334,31 @@
             if (attrs.end) { scene.attr('end', attrs.end); }
             scene.appendTo(result);
           });
+
+          // 共通情報を追加
           license.prependTo(result);
           enemies.prependTo(result);
           flags.prependTo(result);
           items.prependTo(result);
 
+          // 未処理のファイルがなくなったら出力処理
           file_num++;
           if (file_num >= inputs.length) {
+            // コールバックが指定されていたら、それで処理
             if (callback) {
               callback(result);
+            // さもなければ、ダウンロード処理
             } else {
               var content = '<?xml version="1.0" encoding="utf-8"?>\n' +
                 result.get(0).outerHTML;
               var blob = new Blob([ content ], { 'type': 'application/octet-stream' });
-              location.href = window.URL.createObjectURL(blob);
+              //location.href = window.URL.createObjectURL(blob);
+              var anchor = document.createElement('a');
+              anchor.href = window.URL.createObjectURL(blob);
+              anchor.download = 'scenario.xml';
+              anchor.click();
             }
+          // 未処理のファイルがある場合は処理継続
           } else {
             reader.readAsText(inputs[file_num], 'UTF-8');    
           }
