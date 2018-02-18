@@ -23,6 +23,10 @@ h5#scenario_title {
   text-align: right;
 }
 
+#debug_panel {
+  margin-top: 10px;
+}
+
 #control_panel {
   margin: 0 auto;
   width: 95%;

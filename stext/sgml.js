@@ -262,6 +262,16 @@
       this.saveStorageGlobal(GLOBAL_SAVE_DATA_KEY);
     },
 
+    // シナリオデータが有効であるか（開発中）
+    /*
+    validateScenario: function() {
+      $('scene', scenario_data)
+
+      scenario_data
+      return true;
+    },
+    */
+
     // 指定された魔法を利用できるかを判定（引数は個々の魔法情報配列）
     canUseMagic: function(magic) {
       if(save_data.stars[0] < magic[0] ||
@@ -689,9 +699,8 @@
         $('#debug_panel #debug_id').val(scene_num);
         $('#debug_panel #debug_items').val(save_data.items.join(','));
         $('#debug_panel #debug_flags').val(save_data.flags.join(','));
-        // セーブデータを上書きの上、ページリロード
+        // セーブデータを上書きの上、シーン移動
         $('#debug_panel #debug_reload').click(function(e) {
-          save_data.scene = $('#debug_panel #debug_id').val();
           var debug_items = $('#debug_panel #debug_items').val().trim();
           var debug_flags = $('#debug_panel #debug_items').val().trim();
           if(debug_items !== '') {
@@ -701,7 +710,7 @@
             save_data.flags = debug_flags.val().split(',');
           }
           Util.saveStorage();
-          location.reload();
+          Util.createScene($('#debug_panel #debug_id').val());
         });
       }
 
