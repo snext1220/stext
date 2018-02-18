@@ -702,12 +702,12 @@
         // セーブデータを上書きの上、シーン移動
         $('#debug_panel #debug_reload').click(function(e) {
           var debug_items = $('#debug_panel #debug_items').val().trim();
-          var debug_flags = $('#debug_panel #debug_items').val().trim();
+          var debug_flags = $('#debug_panel #debug_flags').val().trim();
           if(debug_items !== '') {
-            save_data.items = debug_items.val().split(',');
+            save_data.items = debug_items.split(',');
           }
           if(debug_flags !== '') {
-            save_data.flags = debug_flags.val().split(',');
+            save_data.flags = debug_flags.split(',');
           }
           Util.saveStorage();
           Util.createScene($('#debug_panel #debug_id').val());
