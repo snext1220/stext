@@ -41,7 +41,7 @@
 </licence>
 
 <!--シナリオ（プロローグ）-->
-<scene id="0">
+<scene id="0"><!--items="i10" flags="f50" enemies="m20"-->
 **プロローグ**
 
 　ここはペンタウァの道場。

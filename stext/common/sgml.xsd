@@ -33,7 +33,7 @@
                         </xs:annotation>
                         <xs:simpleType>
                           <xs:restriction base="xs:string">
-                            <xs:pattern value="^i[0-9]+$" />
+                            <xs:pattern value="i[0-9]+" />
                           </xs:restriction>
                         </xs:simpleType>
                       </xs:attribute>
@@ -80,7 +80,7 @@
                         </xs:annotation>
                         <xs:simpleType>
                           <xs:restriction base="xs:string">
-                            <xs:pattern value="^f[0-9]+$" />
+                            <xs:pattern value="f[0-9]+" />
                           </xs:restriction>
                         </xs:simpleType>
                       </xs:attribute>
@@ -120,7 +120,7 @@
                         </xs:annotation>
                         <xs:simpleType>
                           <xs:restriction base="xs:string">
-                            <xs:pattern value="^m[0-9]+$" />
+                            <xs:pattern value="m[0-9]+" />
                           </xs:restriction>
                         </xs:simpleType>
                       </xs:attribute>
@@ -262,7 +262,7 @@
                   </xs:annotation>
                   <xs:simpleType>
                     <xs:restriction base="xs:string">
-                      <xs:pattern value="^f[0-9]+[f0-9\,]*$" />
+                      <xs:pattern value="f[0-9]+[f0-9\,]*" />
                     </xs:restriction>
                   </xs:simpleType>
                 </xs:attribute>
@@ -274,7 +274,7 @@
                   </xs:annotation>
                   <xs:simpleType>
                     <xs:restriction base="xs:string">
-                      <xs:pattern value="^m[0-9]+[m0-9\,]*$" />
+                      <xs:pattern value="m[0-9]+[m0-9\,]*" />
                     </xs:restriction>
                   </xs:simpleType>
                 </xs:attribute>
@@ -286,7 +286,7 @@
                   </xs:annotation>
                   <xs:simpleType>
                     <xs:restriction base="xs:string">
-                      <xs:pattern value="^(-)?i[0-9]+[\-i0-9\,]*$" />
+                      <xs:pattern value="(-)?i[0-9]+[\-i0-9\,]*" />
                     </xs:restriction>
                   </xs:simpleType>
                 </xs:attribute>

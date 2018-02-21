@@ -265,9 +265,30 @@
     // シナリオデータが有効であるか（開発中）
     validateScenario: function() {
       var error_messages = [];
-      var tmp_scenes = [];
+      var tmp_scenes = [];  // シーンidのリスト
+      // id値が指定された配列内に存在するか
+      // org：idリスト、value：チェックする値（カンマ区切り）
+      var checkId = function(org, value, scene_id) {
+        if (value === undefined || value === '') { return; }
+        var ids = value.trim().replace('-', '').split(',');
+        var keys = Object.keys(org);
+        ids.forEach(function(id) {
+          if(keys.indexOf(id) === -1) {
+            error_messages.push({
+              scene_id: scene_id,
+              message: id.startsWith('i') ?
+                'アイテムコード' + id + 'が未登録です。' :
+                  (id.startsWith('f') ? 'フラグコード' + id + 'が未登録です。' :
+                    '敵コード' + id + 'が未登録です。')
+            });
+          }
+        });
+      };
+
+      // scene要素を順に処理
       $('scene', scenario_data).each(function(index, scene){
         var tmp_s = $(scene);
+        // 重複するidがあればエラー（さもなくばリストに追加）
         if (tmp_scenes.indexOf(tmp_s.attr('id')) === -1) {
           tmp_scenes.push(tmp_s.attr('id'));
         } else {
@@ -276,6 +297,10 @@
             message: 'scene－idが重複しています。'
           });
         }
+        // 各種id値をチェック
+        checkId(items_map, tmp_s.attr('items'), tmp_s.attr('id'));
+        checkId(flags_map, tmp_s.attr('flags'), tmp_s.attr('id'));
+        checkId(enemies_map, tmp_s.attr('enemies'), tmp_s.attr('id'));
       });
       return error_messages;
     },
@@ -1180,7 +1205,8 @@
           var errors = Util.validateScenario();
           console.log('検証結果' + errors);
           if (errors.length !== 0) {
-            var msgs = '<ul>';
+            var msgs = '<h3>scenario.xmlでエラーが検出されました。</h3>';
+            msgs += '<ul class="errorlist">';
             errors.forEach(function(err) {
               msgs += '<li>Scene ' + err.scene_id + ': ' + err.message + '</li>';
             });
