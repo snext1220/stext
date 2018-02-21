@@ -263,14 +263,22 @@
     },
 
     // シナリオデータが有効であるか（開発中）
-    /*
     validateScenario: function() {
-      $('scene', scenario_data)
-
-      scenario_data
-      return true;
+      var error_messages = [];
+      var tmp_scenes = [];
+      $('scene', scenario_data).each(function(index, scene){
+        var tmp_s = $(scene);
+        if (tmp_scenes.indexOf(tmp_s.attr('id')) === -1) {
+          tmp_scenes.push(tmp_s.attr('id'));
+        } else {
+          error_messages.push({
+            scene_id: tmp_s.attr('id'),
+            message: 'scene－idが重複しています。'
+          });
+        }
+      });
+      return error_messages;
     },
-    */
 
     // 指定された魔法を利用できるかを判定（引数は個々の魔法情報配列）
     canUseMagic: function(magic) {
@@ -929,7 +937,6 @@
         e.preventDefault();
       });
 
-
       // ダイス回転音を準備
       var ad = new Audio(ROOT + COMMON + 'dice.mp3');
 
@@ -1167,6 +1174,21 @@
           };
         });
         console.log(items_map);
+
+        // デバッグモードではシナリオのデータ検証
+        if (debug_mode === true) {
+          var errors = Util.validateScenario();
+          console.log('検証結果' + errors);
+          if (errors.length !== 0) {
+            var msgs = '<ul>';
+            errors.forEach(function(err) {
+              msgs += '<li>Scene ' + err.scene_id + ': ' + err.message + '</li>';
+            });
+            msgs += '</ul>';
+            target.html(msgs);
+            return;
+          }
+        }
       
         // ストレージに情報がある場合は続きから再開
         if (localStorage[scenario_code]) {
