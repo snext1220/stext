@@ -19,9 +19,9 @@
 				<p order="10"/>
 				<p order="11">w:ダンジョン:bgm:Az:venusaz.seesaa.net/</p>
 				<p order="12"/>
-				<p order="13">@items:i10,i11</p>
-				<p order="14">@flags:f6,f5</p>
-				<p order="15">@enemies:m5,m4</p>
+				<p order="13">@items:i01,i02</p>
+				<p order="14">@flags:f01,f02</p>
+				<p order="15">@enemies:m01,m02</p>
 				<p order="16">@bgm:boss</p>
 				<p order="17">@se:mom</p>
 				<p order="18">@allowMove:true</p>
@@ -46,9 +46,9 @@
 			<summary>先へ進む</summary>
 			<text>
 				<p order="1">@@</p>
-				<p order="2">@items:i10,i11</p>
-				<p order="3">@flags:f6,f5</p>
-				<p order="4">@enemies:m5,m4</p>
+				<p order="2">@items:i01,i02</p>
+				<p order="3">@flags:f01,f02</p>
+				<p order="4">@enemies:m01,m02</p>
 				<p order="5">@bgm:boss</p>
 				<p order="6">@se:mom</p>
 				<p order="7">@allowMove:true</p>

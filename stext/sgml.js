@@ -1174,12 +1174,14 @@
         }
       
         // フラグ一覧を取得
+        flags_map = {};
         $('flags > flag', scenario_data).each(function() {
           flags_map[$(this).attr('id')] = $(this).text().trim();
         });
         console.log(flags_map);
       
         // モンスター覧を取得
+        enemies_map = {};
         $('enemies > enemy', scenario_data).each(function() {
           enemies_map[$(this).attr('id')] = {
             name: $(this).attr('name'),
@@ -1192,6 +1194,7 @@
         console.log(enemies_map);
       
         // アイテム一覧を取得
+        items_map = {};
         $('items > item', scenario_data).each(function() {
           items_map[$(this).attr('id')] = {
             name: $(this).attr('name'),

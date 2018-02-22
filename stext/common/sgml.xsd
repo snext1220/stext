@@ -257,7 +257,7 @@
                 <xs:attribute name="flags" use="optional">
                   <xs:annotation>
                     <xs:documentation>
-                      そのシーン移動時に入手できるアイテム（複数はカンマ区切り。「-i～」でアイテム喪失）
+                      そのシーン移動時に立つフラグ（複数はカンマ区切り）
                     </xs:documentation>
                   </xs:annotation>
                   <xs:simpleType>
@@ -269,7 +269,7 @@
                 <xs:attribute name="enemies" use="optional">
                   <xs:annotation>
                     <xs:documentation>
-                      そのシーン移動時に立つフラグ（複数はカンマ区切り）
+                      そのシーンで登場する敵情報（複数はカンマ区切り）。敵情報は、ページ下部に表整形されます。
                     </xs:documentation>
                   </xs:annotation>
                   <xs:simpleType>
@@ -281,7 +281,7 @@
                 <xs:attribute name="items" use="optional">
                   <xs:annotation>
                     <xs:documentation>
-                      そのシーンで登場する敵情報（複数はカンマ区切り）。敵情報は、ページ下部に表整形されます。
+                      そのシーン移動時に入手できるアイテム（複数はカンマ区切り。「-i～」でアイテム喪失）
                     </xs:documentation>
                   </xs:annotation>
                   <xs:simpleType>
