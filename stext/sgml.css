@@ -169,7 +169,7 @@ img.dice {
 }
 
 #dialog_body textarea {
-  width: 95%;
+  width: 500px;
 }
 
 #magic_run {
@@ -186,7 +186,7 @@ img.dice {
 }
 
 #dialog_body #flags {
-  width: 95%;
+  width: 500px;
 }
 
 table.item_list {

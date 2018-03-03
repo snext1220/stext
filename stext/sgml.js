@@ -51,14 +51,14 @@
 
     // キャラクター初期値（種族、性別、HP、MP、STR、INT、DEX、KRM）
     pc_init: [
-      ['FIGHTER', 'MALE',   90, 50,  7,  3,  6, 4],
-      ['FIGHTER', 'FEMALE', 85, 55,  6,  4,  6, 4],
-      ['WIZARD',  'MALE',   90, 50,  4, 10,  4, 2],
-      ['WIZARD',  'FEMALE', 90, 50,  3,  9,  5, 3],
-      ['DWARF',   'MALE',   90, 50, 10,  0,  9, 1],
-      ['DWARF',   'FEMALE', 90, 50,  9,  1, 10, 0],
-      ['ELF',     'MALE',   90, 50,  3,  6,  6, 5],
-      ['ELF',     'FEMALE', 90, 50,  1,  7,  6, 6]
+      ['FIGHTER', 'MALE',   85, 55, 7, 3, 6, 4],
+      ['FIGHTER', 'FEMALE', 80, 60, 6, 4, 6, 4],
+      ['WIZARD',  'MALE',   55, 85, 4, 8, 5, 3],
+      ['WIZARD',  'FEMALE', 50, 90, 3, 8, 5, 4],
+      ['DWARF',   'MALE',   90, 50, 8, 2, 8, 2],
+      ['DWARF',   'FEMALE', 85, 55, 7, 3, 8, 2],
+      ['ELF',     'MALE',   65, 75, 4, 6, 5, 5],
+      ['ELF',     'FEMALE', 60, 80, 2, 7, 5, 6]
     ],
 
     // 魔法
@@ -113,11 +113,11 @@
         'gi23' : { name: 'D・スレイヤー', desc: 'すべての星を1個所有した状態で冒険を開始' },
       },
       'bad' : {
-        'bgi01' : { name: '塩酸', desc: '左サイコロが2以下の時、そのシーンでHPを1減算' },
-        'bgi02' : { name: '紅玉', desc: '右サイコロが2以下の時、そのシーンでMPを1減算' },
-        'bgi03' : { name: '血まみれの斧', desc: '呪い状態で冒険を開始する' },
-        'bgi04' : { name: 'トリカブト', desc: '毒状態で冒険を開始する' },
-        'bgi05' : { name: 'ギャルのパンティー', desc: '忘却状態で冒険を開始する' },
+        'bgi01' : { name: '塩酸', desc: 'シーン毎にダイス合計が5未満でHPを1減算、5以上でMPを1回復' },
+        'bgi02' : { name: '紅玉', desc: 'シーン毎にダイス合計が5未満でMPを1減算、5以上でHPを1回復' },
+        'bgi03' : { name: '血まみれの斧', desc: '冒険開始時に呪い。解除で3回まで星消費せず魔法発動可' },
+        'bgi04' : { name: 'トリカブト', desc: '冒険開始時に毒。但し、解除までシーン毎にMPを1回復' },
+        'bgi05' : { name: 'ギャルのパンティー', desc: '冒険開始時に忘却。但し、解除までSTR/INT0でない方を10' },
       }
     }
   };
@@ -184,8 +184,12 @@
     // セーブデータの初期化
     initSavedata: function() {
       var pc_base = this.randomArray(Common.pc_init);
-      var hp_m = this.random(pc_base[2] - 10, pc_base[2] + 10);
-      var mp_m = this.random(pc_base[3] - 10, pc_base[3] + 10);
+      var hp_m = this.random(pc_base[2], pc_base[2] + 10);
+      var mp_m = this.random(pc_base[3], pc_base[3] + 10);
+      var str_i = this.minMaxGuard(this.random(pc_base[4], pc_base[4] + 2));
+      var int_i = this.minMaxGuard(this.random(pc_base[5], pc_base[5] + 2));
+      var dex_i = this.minMaxGuard(this.random(pc_base[6], pc_base[6] + 2));
+      var krm_i = this.minMaxGuard(this.random(pc_base[7], pc_base[7] + 2));
       // 旧セーブデータからメモを取得
       var old_data = localStorage[scenario_code];
       var old_memo = '';
@@ -221,14 +225,25 @@
           mp_m: mp_m,
           // MP最小値
           mp: mp_m,
-          // 強さ（0～10）
-          str: this.minMaxGuard(this.random(pc_base[4] - 2, pc_base[4] + 2)),
-          // 賢さ（0～10）
-          int: this.minMaxGuard(this.random(pc_base[5] - 2, pc_base[5] + 2)),
-          // 器用さ（0～10）
-          dex: this.minMaxGuard(this.random(pc_base[6] - 2, pc_base[6] + 2)),
-          // 魅力（0～10）
-          krm: this.minMaxGuard(this.random(pc_base[7] - 2, pc_base[7] + 2)),
+          // 強さの初期値（0～10）
+          str_i: str_i,
+          // 強さの現在値（0～10）
+          str: str_i,
+          // 賢さの初期値（0～10）
+          int_i: int_i,
+          // 賢さの現在値（0～10）
+          int: int_i,
+          // 器用さの初期値（0～10）
+          dex_i: dex_i,
+          // 器用さの現在値（0～10）
+          dex: dex_i,
+          // 魅力の初期値（0～10）
+          krm_i: krm_i,
+          // 魅力の現在値（0～10）
+          krm: krm_i,
+          // 自由ステータス
+          free1: 0,
+          free2: 0
         },
         // 所有している七惑星の欠片（月、火星、水星、木星、金星、土星、太陽）
         stars: [0, 0, 0, 0, 0, 0, 0],
@@ -381,6 +396,7 @@
     },
 
     // 状態異常によるステータス補正
+    // 補正値の反映は現在では無効（どこかで修正を）
     deltaStatus: function(state) {
       switch(state) {
         case 'frozen' :
@@ -391,14 +407,14 @@
           var krm_d = -2;
           break;
         case 'stone' :
-          var state_desc = 'すべてのステータスを-1（10scene経過で死亡）';
+          var state_desc = 'すべてのステータスを-1（30scene経過で死亡）';
           var str_d = -1;
           var int_d = -1;
           var dex_d = -1;
           var krm_d = -1;
           break;
         case 'forget' :
-          var state_desc = 'STR／INTのうち、高い方が0に';
+          var state_desc = 'STR／INTのうち、高い方が0に（20scene経過で解除）';
           if(save_data.chara.str < save_data.chara.int) {
             var str_d = 0;
             var int_d = save_data.chara.int * -1;
@@ -465,6 +481,10 @@
           $('#sex', dialog).text(save_data.chara.sex);
           $('#hp_m', dialog).text(save_data.chara.hp_m);
           $('#mp_m', dialog).text(save_data.chara.mp_m);
+          $('#str_i', dialog).text(save_data.chara.str_i);
+          $('#int_i', dialog).text(save_data.chara.int_i);
+          $('#dex_i', dialog).text(save_data.chara.dex_i);
+          $('#krm_i', dialog).text(save_data.chara.krm_i);
           $('#age',  dialog).text(save_data.chara.age);
           $('#chara_face', dialog).attr('src',
             ROOT + COMMON + String(save_data.chara.sex).toLowerCase() + '_' +
@@ -534,10 +554,12 @@
         }
       });
       $('#ellapsed_scene', dialog).text(save_data.ellapsed_scene + ' scene');
-      $('#str', dialog).text(save_data.chara.str);
-      $('#int', dialog).text(save_data.chara.int);
-      $('#dex', dialog).text(save_data.chara.dex);
-      $('#krm', dialog).text(save_data.chara.krm);
+      $('#free1', dialog).attr('value', save_data.chara.free1);
+      $('#free2', dialog).attr('value', save_data.chara.free2);
+      $('#str', dialog).attr('value', save_data.chara.str);
+      $('#int', dialog).attr('value', save_data.chara.int);
+      $('#dex', dialog).attr('value', save_data.chara.dex);
+      $('#krm', dialog).attr('value', save_data.chara.krm);
       $('#s_mon', dialog).attr('value', save_data.stars[0]);
       $('#s_tue', dialog).attr('value', save_data.stars[1]);
       $('#s_wed', dialog).attr('value', save_data.stars[2]);
@@ -1013,6 +1035,12 @@
       $(document).on('click', '#dialog_body #status_save', function(e) {
         save_data.chara.hp = $('#dialog_body #hp').val();
         save_data.chara.mp = $('#dialog_body #mp').val();
+        save_data.chara.free1 = $('#dialog_body #free1').val();
+        save_data.chara.free2 = $('#dialog_body #free2').val();
+        save_data.chara.str = $('#dialog_body #str').val();
+        save_data.chara.int = $('#dialog_body #int').val();
+        save_data.chara.dex = $('#dialog_body #dex').val();
+        save_data.chara.krm = $('#dialog_body #krm').val();
         save_data.chara.state = $('#dialog_body [name="state"]:checked').val();
         save_data.stars[0] = $('#dialog_body #s_mon').val();
         save_data.stars[1] = $('#dialog_body #s_tue').val();

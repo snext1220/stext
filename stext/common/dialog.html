@@ -5,7 +5,7 @@
   </h3>
 <img id="chara_face" />
 <form>
-<table>
+<table style="width:95%">
   <tr>
     <th>CLASS</th>
     <td colspan="3"><span id="race"></span>　<span id="sex"></span></td>
@@ -25,25 +25,28 @@
     </td>
   </tr>
   <tr>
-    <th>HP</th><td colspan="2"><input type="number" id="hp" />/
-      <span id="hp_m"></span></td>
-    <th>MP</th><td colspan="2"><input type="number" id="mp" />/
-      <span id="mp_m"></span></td>
-    <td colspan="2"><i><span id="ellapsed_scene"></span></i></td>
+    <th>HP</th>
+    <td nowrap><input type="number" id="hp" />/<span id="hp_m"></span></td>
+    <th>MP</th>
+    <td nowrap><input type="number" id="mp" />/<span id="mp_m"></span></td>
+    <th>FREE</th>
+    <td colspan="4" nowrap><input type="number" id="free1" />
+      <input type="number" id="free2" />　　
+      <i><span id="ellapsed_scene"></span></i></td>
   </tr>
   <tr>
-    <th style="width:10%">STR</th>
-    <td style="width:15%" nowrap><span id="str"></span>
-      <span id="str_d" class="delta"></span></td>
-    <th style="width:10%">INT</th>
-    <td style="width:15%" nowrap><span id="int"></span>
-      <span id="int_d" class="delta"></span></td>
-    <th style="width:10%">DEX</th>
-    <td style="width:15%" nowrap><span id="dex"></span>
-      <span id="dex_d" class="delta"></span></td>
-    <th style="width:10%">KRM</th>
-    <td style="width:15%" nowrap><span id="krm"></span>
-      <span id="krm_d" class="delta"></span></td>
+    <th style="width:40px">STR</th>
+    <td style="width:80px" nowrap>
+      <input type="number" id="str" />/<span id="str_i"></span></td>
+    <th style="width:40px">INT</th>
+    <td style="width:80px" nowrap>
+      <input type="number" id="int" />/<span id="int_i"></span></td>
+    <th style="width:40px">DEX</th>
+    <td style="width:80px" nowrap>
+      <input type="number" id="dex" />/<span id="dex_i"></span>
+    <th style="width:40px">KRM</th>
+    <td style="width:80px" nowrap>
+      <input type="number" id="krm" />/<span id="krm_i"></span></td>
   </tr>
   <tr>
     <th>MAGIC</th>
@@ -85,7 +88,7 @@
   <tr>
     <th>BONUS?</th>
     <td colspan="7" nowrap>
-      <span id="bonus"></span>
+      <small id="bonus"></small>
     </td>
   </tr>
   <tr>
