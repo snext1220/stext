@@ -494,8 +494,6 @@
             var b = Util.getBonusItem(save_data.bonus);
             $('#bonus', dialog).text(b.desc + '（' + b.name + '）');
           }
-          // ★mobile★
-          dialog.insertBefore(target).hide();
        });
 
        // ボーナスアイテムダイアログを初期化
@@ -619,15 +617,12 @@
       //}
       //$('#flags', dialog).text(flags.join('\r'));
 
-      // ★mobile★
-      dialog.slideDown(500);
-      target.slideUp(500);
-      //$.zoombox.html(dialog.html(),
-      //   {
-      //     width: 640,
-      //     height: 480
-      //   }
-      // );
+      $.zoombox.html(dialog.html(),
+        {
+          width: 640,
+          height: 480
+        }
+      );
     },
 
     // エンディングの処理（resultはhappy／bad）
@@ -1056,10 +1051,7 @@
         save_data.stars[6] = $('#dialog_body #s_sun').val();
         save_data.memos    = $('#dialog_body #memos').val();
         Util.saveStorage();
-        // ★mobile★
-        dialog.slideUp(500);
-        target.slideDown(500);
-        //$.zoombox.close()
+        $.zoombox.close()
       });
 
       // 状態異常のステータスへの反映（ステータスダイアログ）
