@@ -1,20 +1,50 @@
-<div id="dialog_body"
-  style="border: 1px solid #000; background-color: #fff; padding: 20px;
-    width: 550px;  margin: 0 auto;">
-<h3>"<span id="title"></span>" <span id="name"></span>
-  </h3>
-<img id="chara_face" />
-<form>
-<table style="width:95%">
+<div id="dialog_body">
+<table border="0" style="width:90%">
   <tr>
-    <th>CLASS</th>
-    <td colspan="3"><span id="race"></span>　<span id="sex"></span></td>
-    <th>AGE</th>
-    <td colspan="3"><span id="age"></span></td>
+    <td colspan="3">
+      <h3>"<span id="title"></span>" <span id="name"></span></h3>
+    </td>
+    <td rowspan="2">
+      <img id="chara_face" />
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <i><span id="ellapsed_scene"></span></i>
+    </td>
+    <td>
+      <input type="button" id="status_change" value="Equipment" />
+    </td>
+  </tr>
+  <tr>
+      <th>CLASS</th>
+      <td><span id="race"></span>　<span id="sex"></span></td>
+      <th>AGE</th>
+      <td><span id="age"></span></td>
+  </tr>  
+</table>
+<hr />
+<form>
+  <div id="status_basic">
+  <table style="width:90%">
+  <tr>
+    <th>HP</th>
+    <td nowrap>
+      <input type="button" class="spinner_down" value="-" />
+      <input id="hp" type="number" />
+      <input type="button" class="spinner_up" value="+" />
+      ／<span id="hp_m"></span>
+    </td>
+    <th>MP</th>
+    <td nowrap>
+      <input type="button" class="spinner_down" value="-" />
+      <input type="number" id="mp" />
+      <input type="button" class="spinner_up" value="+" />
+      ／<span id="mp_m"></span></td>
   </tr>
   <tr>
     <th>STATE</th>
-    <td colspan="7" nowrap>
+    <td colspan="4" nowrap>
       <label><input type="radio" name="state" value="" />正常</label>
       <label><input type="radio" name="state" value="poison" />毒</label>
       <label><input type="radio" name="state" value="frozen" />凍結</label>
@@ -25,78 +55,127 @@
     </td>
   </tr>
   <tr>
-    <th>HP</th>
-    <td nowrap><input type="number" id="hp" />/<span id="hp_m"></span></td>
-    <th>MP</th>
-    <td nowrap><input type="number" id="mp" />/<span id="mp_m"></span></td>
-    <th>FREE</th>
-    <td colspan="4" nowrap><input type="number" id="free1" />
-      <input type="number" id="free2" />　　
-      <i><span id="ellapsed_scene"></span></i></td>
+    <th>STR</th>
+    <td nowrap>
+      <input type="button" class="spinner_down" value="-" />
+      <input type="number" id="str" />
+      <input type="button" class="spinner_up" value="+" />
+      ／<span id="str_i"></span></td>
+    <th>INT</th>
+    <td nowrap>
+      <input type="button" class="spinner_down" value="-" />
+      <input type="number" id="int" />
+      <input type="button" class="spinner_up" value="+" />
+      ／<span id="int_i"></span></td>   
   </tr>
   <tr>
-    <th style="width:40px">STR</th>
-    <td style="width:80px" nowrap>
-      <input type="number" id="str" />/<span id="str_i"></span></td>
-    <th style="width:40px">INT</th>
-    <td style="width:80px" nowrap>
-      <input type="number" id="int" />/<span id="int_i"></span></td>
-    <th style="width:40px">DEX</th>
-    <td style="width:80px" nowrap>
-      <input type="number" id="dex" />/<span id="dex_i"></span>
-    <th style="width:40px">KRM</th>
-    <td style="width:80px" nowrap>
-      <input type="number" id="krm" />/<span id="krm_i"></span></td>
+    <th>DEX</th>
+    <td nowrap>
+      <input type="button" class="spinner_down" value="-" />
+      <input type="number" id="dex" />
+      <input type="button" class="spinner_up" value="+" />
+      ／<span id="dex_i"></span>
+    <th>KRM</th>
+    <td nowrap>
+      <input type="button" class="spinner_down" value="-" />
+      <input type="number" id="krm" />
+      <input type="button" class="spinner_up" value="+" />
+      ／<span id="krm_i"></span></td>
   </tr>
+    <th>FREE</th>
+    <td colspan="4" nowrap>
+      <input type="button" class="spinner_down" value="-" />
+      <input type="number" id="free1" />
+      <input type="button" class="spinner_up" value="+" />
+      ／
+      <input type="button" class="spinner_down" value="-" />
+      <input type="number" id="free2" />
+      <input type="button" class="spinner_up" value="+" /></td>
+  </tr>
+  </table>
+  <hr />
+  <table style="width:90%">
   <tr>
     <th>MAGIC</th>
-    <td colspan="7" nowrap>
+    <td colspan="3" nowrap>
       <select id="magic"></select>
       <input type="button" id="magic_run" value="発動" />
     </td>
   </tr>
   <tr>
     <th>STAR</th>
-    <td colspan="7">
-      月<input type="number" id="s_mon" />
-      火<input type="number" id="s_tue" />
-      水<input type="number" id="s_wed" />
-      木<input type="number" id="s_thu" />
-      金<input type="number" id="s_fri" />
-      土<input type="number" id="s_sat" />
-      太<input type="number" id="s_sun" />
+    <td colspan="3" nowrap>
+      月
+      <input type="button" class="spinner_down" value="-" />
+      <input type="number" id="s_mon" />
+      <input type="button" class="spinner_up" value="+" />
+      火
+      <input type="button" class="spinner_down" value="-" />
+      <input type="number" id="s_tue" />
+      <input type="button" class="spinner_up" value="+" />
+      水
+      <input type="button" class="spinner_down" value="-" />
+      <input type="number" id="s_wed" />
+      <input type="button" class="spinner_up" value="+" />
     </td>
   </tr>
   <tr>
+    <th></th>
+    <td colspan="3" nowrap>
+      木
+      <input type="button" class="spinner_down" value="-" />
+      <input type="number" id="s_thu" />
+      <input type="button" class="spinner_up" value="+" />  
+      金
+      <input type="button" class="spinner_down" value="-" />
+      <input type="number" id="s_fri" />
+      <input type="button" class="spinner_up" value="+" />
+      土
+      <input type="button" class="spinner_down" value="-" />
+      <input type="number" id="s_sat" />
+      <input type="button" class="spinner_up" value="+" />
+    </td>
+  </tr>
+  <tr>
+    <th></th>
+    <td colspan="3">
+      太
+      <input type="button" class="spinner_down" value="-" />
+      <input type="number" id="s_sun" />
+      <input type="button" class="spinner_up" value="+" />
+    </td>
+  </tr>
+  </table>
+  </div>
+  <div id="status_equip">
+  <table style="width:90%">
+  <tr>
     <th>ITEMS</th>
-    <td colspan="7">
-      <textarea id="items" cols="65" rows="5" readonly></textarea>
+    <td colspan="2">
+      <textarea id="items" rows="5" readonly></textarea>
     </td>
   </tr>
   <tr>
     <th>MEMOS</th>
-    <td colspan="7">
-      <textarea id="memos" cols="65" rows="4"></textarea>
+    <td colspan="2">
+      <textarea id="memos" rows="6"></textarea>
     </td>
   </tr>
   <tr>
     <th>FLAGS</th>
-    <td colspan="7">
+    <td colspan="2">
       <select id="flags" readonly></select>
     </td>
   </tr>
   <tr>
     <th>BONUS?</th>
-    <td colspan="7" nowrap>
-      <span></span><small id="bonus"></small></span>
+    <td colspan="3">
+      <span id="bonus"></span>
     </td>
   </tr>
-  <tr>
-    <td colspan="5"></td>
-    <td colspan="2"><img id="status_save" src="stext/common/status_save.gif"
-      alt="ステータス保存" title="保存" /></div>
-</td>
-  </tr>
 </table>
+</div>
+<div><img id="status_save" src="stext/common/status_save.gif"
+      alt="ステータス保存" title="保存" /></div>
 </form>
 </div>

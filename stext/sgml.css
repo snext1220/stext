@@ -98,7 +98,7 @@ img.dice {
 }
 
 #dialog_body input[type="number"] {
-  width: 40px;
+  width: 50px;
 }
 
 #dialog_body h3 {
@@ -110,6 +110,12 @@ img.dice {
 }
 
 #dialog_body {
+  border: 0px solid #000;
+  background-color: #000;
+  padding: 20px;
+  width: 550px;
+  margin: 0 auto;
+  font-size: large;
   color: #f90;
   background-image: url(common/dialog_back.png);
   background-repeat: no-repeat;
@@ -141,12 +147,13 @@ img.dice {
 
 #dialog_body th, #dialog_body td {
   vertical-align: top;
+  padding-bottom: 0.3rem;
 }
 
 #dialog_body #state_desc {
   color: Red;
   font-weight: bold;
-  font-size: small;
+  font-size: normal;
 }
 
 #status_save {
@@ -166,27 +173,27 @@ img.dice {
 #dialog_body input[type="number"], #dialog_body select, #dialog_body textarea {
   border-radius: 3px;
   background-color: #cad4ff;
+  font-size: large;
 }
 
 #dialog_body textarea {
-  width: 500px;
+  width: 100%;
 }
 
-#magic_run {
+.spinner_down, .spinner_up, #magic_run, #status_change {
   border: solid 2px #ff9; 
   background-color: #dc143c;
   color: #fff;
   cursor: pointer;
+  font-size: large;
 }
 
-#dialog_body #chara_face {
-  position: absolute;
-  top: 40px;
-  left: 500px;
+#dialog_body #magic {
+  width: 80%;
 }
 
 #dialog_body #flags {
-  width: 500px;
+  width: 90%;
 }
 
 table.item_list {

@@ -621,6 +621,8 @@
 
       // ★mobile★
       dialog.slideDown(500);
+      $('#status_basic').show();
+      $('#status_equip').hide();
       target.slideUp(500);
       //$.zoombox.html(dialog.html(),
       //   {
@@ -1103,6 +1105,28 @@
         useStar(magic, 4, '#s_fri');
         useStar(magic, 5, '#s_sat');
         useStar(magic, 6, '#s_sun');
+      });
+
+      // ★mobile★
+      $(document).on('click', '#dialog_body #status_change', function(e) {
+        var b = $('#status_basic');
+        if (b.css('display') === 'none') {
+          $('#status_basic').show();
+          $('#status_equip').hide();
+        } else {
+          $('#status_basic').hide();
+          $('#status_equip').show();
+        }
+      });
+
+      $(document).on('click', '#dialog_body .spinner_up', function(e) {
+        var prev = $(this).prev();
+        prev.val(Number(prev.val()) + 1);
+      });
+
+      $(document).on('click', '#dialog_body .spinner_down', function(e) {
+        var next = $(this).next();
+        next.val(Number(next.val()) - 1);
       });
 
       // ボーナスアイテム一覧を表示
