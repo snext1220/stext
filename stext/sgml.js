@@ -621,6 +621,7 @@
 
       // ★mobile★
       dialog.slideDown(500);
+      $('#status_change').val('Equipment');
       $('#status_basic').show();
       $('#status_equip').hide();
       target.slideUp(500);
@@ -1111,9 +1112,11 @@
       $(document).on('click', '#dialog_body #status_change', function(e) {
         var b = $('#status_basic');
         if (b.css('display') === 'none') {
+          $('#status_change').val('Equipment');
           $('#status_basic').show();
           $('#status_equip').hide();
         } else {
+          $('#status_change').val('Basic Status');
           $('#status_basic').hide();
           $('#status_equip').show();
         }

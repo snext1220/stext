@@ -114,6 +114,7 @@ img.dice {
   background-color: #000;
   padding: 20px;
   width: 550px;
+  height: 565px;
   margin: 0 auto;
   font-size: large;
   color: #f90;
@@ -161,15 +162,6 @@ img.dice {
   cursor: pointer;
 }
 
-/*
-#status_save {
-  border: solid 2px #ff9; 
-  background-color: #0000cd;
-  color: #fff;
-  cursor: pointer;
-}
-*/
-
 #dialog_body input[type="number"], #dialog_body select, #dialog_body textarea {
   border-radius: 3px;
   background-color: #cad4ff;
@@ -186,6 +178,20 @@ img.dice {
   color: #fff;
   cursor: pointer;
   font-size: large;
+}
+
+.spinner_down, .spinner_up {
+  width: 30px;
+}
+
+#magic_run {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+#status_change {
+  display: block;
+  width: 90%;
 }
 
 #dialog_body #magic {
@@ -205,6 +211,11 @@ table.item_list, table.item_list td {
   border: 1px solid #000;
   padding: 8px;
 }
+
+table.item_list td {
+  height: 70px;
+}
+
 
 table.item_list img {
   width: 70px;
