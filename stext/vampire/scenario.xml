@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--履歴-->
-<!--v1.0 2018/2/25 テキスト完、bgm、背景完。-->
 <!--v0.9 2018/1/24 ストーリー流れのみ完。-->
+<!--v1.0 2018/2/25 テキスト完、bgm、背景完。-->
+<!--v1.1 2018/3/17 挿絵追加。-->
 <scenario title="鉄腕の吸血姫" author="cocotori">
 <items>
 	<item id="i00" name="小さな鍵">どこかの鍵。翼の飾りがついている。</item>
@@ -36,7 +37,7 @@
 	<work name="ayaemo-fantasy12-day.jpg（改変元）" category="画像" creator="foxypar4 (Creative Commons license http://creativecommons.org/licenses/by/2.0/deed.en)" url="http://www.flickr.com/photos/foxypar4/3313167875/"></work>
 	<work name="ayaemo-fantasy11-day.jpg（改変）" category="画像" creator="あやえも研究所" url="http://ayaemo.skr.jp"></work>
 	<work name="ayaemo-fantasy11-day.jpg（改変元）" category="画像" creator="Martin Pettitt (Creative Commons license http://creativecommons.org/licenses/by/2.0/deed.en)" url="http://www.flickr.com/photos/mdpettitt/5099932962/"></work>
-
+	<work name="キャラ挿絵2枚" category="画像" creator="ときのじ"></work>
 	
 </licence>
 
@@ -114,6 +115,12 @@
 眷属の者。永き時を生きるという、吸血鬼。
 あなたの血を吸った張本人に、いきなり遭遇したのだ。
 
+![闇に潜む眷属、吸血鬼](vampire1.png)
+
+[次へ](02111)
+</scene>
+
+<scene id="02111">
 目覚めてさっそく再会するとは幸先がいい。
 ここで倒し、禍根を絶ってやる。
 
@@ -189,6 +196,7 @@
 
 荒い呼吸、なんとも言えぬ焦燥感に苛まれながら、
 あなたは立ち上がる。
+
 
 [次へ](03)
 </scene>
@@ -1977,6 +1985,8 @@ END
 けれどそれも、いっときのこと。
 すぐにその顔は、微笑みに彩られて。
 「300年振りの臣下だ。ようこそ――」
+
+![差し伸べられた手](vampire2.png)
 
 [エピローグへ](3123)
 </scene>
