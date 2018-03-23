@@ -19,6 +19,9 @@
   // アイテム一覧
   var items_map = {};
 
+  // 実績一覧
+  var results_map = {};
+
   // セーブデータ
   var save_data;
 
@@ -271,6 +274,7 @@
     initGlobalSaveData: function() {
       global_save_data = {
         items: [],
+        results: {},
         bgm: true,
         panel: true
       };
@@ -943,6 +947,14 @@
         se.play();
       }
 
+      // シーン表示時に実績を記録 
+      if(scene.attr('result')) {
+        var results = global_save_data.results;
+        if (!results[scenario_code]) {
+
+        }
+      }
+
       // 現在のシーンのフラグ情報／アイテム情報を反映
       Util.updateItems(scene.attr('items'));
       Util.updateFlags(scene.attr('flags'));
@@ -1063,6 +1075,12 @@
         dialog.slideUp(500);
         target.slideDown(500);
         //$.zoombox.close()
+      });
+
+      // ステータスダイアログのクローズ
+      $(document).on('click', '#dialog_body #status_close', function(e) {
+        dialog.slideUp(500);
+        target.slideDown(500);
       });
 
       // 状態異常のステータスへの反映（ステータスダイアログ）
@@ -1265,6 +1283,17 @@
           };
         });
         console.log(items_map);
+
+        // 実績一覧を取得
+        results_map = {};
+        $('results > result', scenario_data).each(function() {
+          results_map[$(this).attr('id')] = {
+            name: $(this).attr('name'),
+            level: $(this).attr('level'),
+            desc: $(this).text().trim()
+          };
+        });
+        console.log(results_map);
 
         // デバッグモードではシナリオのデータ検証
         if (debug_mode === true) {
