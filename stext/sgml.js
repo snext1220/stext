@@ -1400,6 +1400,7 @@
         var items = $('<items>\n</items>');
         var flags = $('<flags>\n</flags>');
         var enemies = $('<enemies>\n</enemies>');
+        var results = $('<results>\n</results>');
         var license = $('<license>\n</license>');
         
         // 個々のファイルを変換
@@ -1466,6 +1467,15 @@
                     .attr('func', enemy[4])
                     .text(enemy[5])
                     .appendTo(enemies);
+                // 実績の処理
+                } else if (tmp_para.indexOf('r') === 0) {
+                  var result = tmp_para.split(':')
+                  $('<result></result>')
+                    .attr('id', result[0])
+                    .attr('name', result[1])
+                    .attr('level', result[2])
+                    .text(result[3])
+                    .appendTo(results);
                 // ライセンス処理 
                 } else if (tmp_para.indexOf('w') === 0) {
                   var work = tmp_para.split(':')
@@ -1523,6 +1533,7 @@
 
           // 共通情報を追加
           license.prependTo(result);
+          results.prependTo(result);
           enemies.prependTo(result);
           flags.prependTo(result);
           items.prependTo(result);
