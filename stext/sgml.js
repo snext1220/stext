@@ -289,16 +289,18 @@
       // org：idリスト、value：チェックする値（カンマ区切り）
       var checkId = function(org, value, scene_id) {
         if (value === undefined || value === '') { return; }
-        var ids = value.trim().replace('-', '').split(',');
+        var ids = value.trim().split(',');
         var keys = Object.keys(org);
         ids.forEach(function(id) {
+          id = id.replace('-', '');
           if(keys.indexOf(id) === -1) {
             error_messages.push({
               scene_id: scene_id,
               message: id.startsWith('i') ?
                 'アイテムコード' + id + 'が未登録です。' :
                   (id.startsWith('f') ? 'フラグコード' + id + 'が未登録です。' :
-                    '敵コード' + id + 'が未登録です。')
+                    (id.startsWith('m') ? '敵コード' + id + 'が未登録です。' :
+                      '実績コード' + id + 'が未登録です。'))
             });
           }
         });
@@ -320,6 +322,7 @@
         checkId(items_map, tmp_s.attr('items'), tmp_s.attr('id'));
         checkId(flags_map, tmp_s.attr('flags'), tmp_s.attr('id'));
         checkId(enemies_map, tmp_s.attr('enemies'), tmp_s.attr('id'));
+        checkId(results_map, tmp_s.attr('result'), tmp_s.attr('id'));
       });
       return error_messages;
     },

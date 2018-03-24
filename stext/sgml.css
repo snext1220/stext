@@ -126,8 +126,8 @@ img.dice {
 
 #dialog_body .close {
   position: absolute;
-  right: -32px;
-  top: -16px;
+  right: -16px;
+  top: -10px;
   cursor: pointer;
 }
 
