@@ -370,6 +370,22 @@
       }
     },
 
+    updateResults: function(at_result) {
+      if(!at_result) { return; }
+      // resultsプロパティの存在チェック（セーブデータ変更時の処理要検討）
+      if (global_save_data['results'] === undefined) {
+        global_save_data['results'] = {};
+      }
+      var results = global_save_data.results;
+      // 現在のシナリオの実績情報がなく、シナリオコードが「<」で始まらない場合
+      if (results[scenario_code] === undefined &&
+        scenario_code.indexOf('<') !== 0) {
+        results[scenario_code] = [];
+      }
+      this.pushUnique(results[scenario_code], at_result);
+      this.saveStorageGlobal();
+    },
+
     // num個のサイコロ（HTML文字列）を取得
     cube: function(num) {
       if (num === undefined) { num = 1; }
@@ -947,17 +963,10 @@
         se.play();
       }
 
-      // シーン表示時に実績を記録 
-      if(scene.attr('result')) {
-        var results = global_save_data.results;
-        if (!results[scenario_code]) {
-
-        }
-      }
-
-      // 現在のシーンのフラグ情報／アイテム情報を反映
+      // 現在のシーンのフラグ情報／アイテム／実績情報を反映
       Util.updateItems(scene.attr('items'));
       Util.updateFlags(scene.attr('flags'));
+      Util.updateResults(scene.attr('result'));
 
       // 現在のシーン番号を保存
       save_data.scene = scene_num;
@@ -1176,9 +1185,34 @@
         window.open('http://www.web-deli.com/sorcerian/next/stext.aspx');
       });
 
-      // リロードボタンでページリロード
+      // リロードボタンでページリロード（改訂中）
       target.on('click', '#ctrl_reload', function(e) {
-        location.reload();
+        //location.reload();
+        $.get(ROOT + COMMON + 'dialog_result.html')
+        .done(function(data) {
+          var dialog_results = $(data);
+          Object.keys(results_map).forEach(function(key){
+            if (global_save_data['results'][scenario_code].indexOf(key) !== -1) {
+              var row = '<tr>' +
+                '<td><img src="' + ROOT + COMMON + 'trophy' +  results_map[key].level + '.png" title="" /></td>' +
+                '<td><h3>' +  results_map[key].name + '</h3>' +
+                '<p>' +  results_map[key].desc + '</p></td>' +
+                '</tr>';
+            } else {
+              var row = '<tr>' +
+                '<td><img src="' + ROOT + COMMON + 'trophy0.png" title="実績未達" /></td>' +
+                '<td><h3>???????????????</h3>' +
+                '<p>???????????????</p></td>' +
+                '</tr>';
+            }
+            $('.result_list', dialog_results).append(row);
+          });
+          $.zoombox.html(dialog_results.html(),
+          {
+            width: 480,
+            height: 200
+          });
+        });
       });
 
       // ヘルプボタンでページ移動
@@ -1239,7 +1273,7 @@
       var done_read = function(result) {
         // シナリオデータを取得
         scenario_data = result;
-        console.log(scenario_data);
+        //console.log(scenario_data);
       
         // 魔法の星を演算（配列末尾に「星の種類 数...」を設定）
         for(var key in Common.magic) {
@@ -1259,7 +1293,7 @@
         $('flags > flag', scenario_data).each(function() {
           flags_map[$(this).attr('id')] = $(this).text().trim();
         });
-        console.log(flags_map);
+        //console.log(flags_map);
       
         // モンスター覧を取得
         enemies_map = {};
@@ -1272,7 +1306,7 @@
             desc: $(this).text()
           }
         });
-        console.log(enemies_map);
+        //console.log(enemies_map);
       
         // アイテム一覧を取得
         items_map = {};
@@ -1282,7 +1316,7 @@
             desc: $(this).text().trim()
           };
         });
-        console.log(items_map);
+        //console.log(items_map);
 
         // 実績一覧を取得
         results_map = {};
@@ -1293,7 +1327,7 @@
             desc: $(this).text().trim()
           };
         });
-        console.log(results_map);
+        //console.log(results_map);
 
         // デバッグモードではシナリオのデータ検証
         if (debug_mode === true) {

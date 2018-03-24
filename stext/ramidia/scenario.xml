@@ -22,6 +22,19 @@
     扉に仕掛けられたわな
   </enemy>
 </enemies>
+<results>
+  <result id="r01" name="絵本の世界" level="1">
+    少女の部屋まで進めた</result>
+  <result id="r02" name="謎の老人…一体なにティスなんだ…？" level="2">
+    謎の老人に助けられた</result>
+  <result id="r03" name="怪我の功名" level="3">
+    塔で右と左の扉を両方開けた</result>
+  <result id="r04" name="異次元塔ディ・メンジェス" level="4">
+    塔の最上階まで進めた</result>
+  <result id="r05" name="空腹ソーサリアン" level="5">
+    お茶会を選んだ</result>
+</results>
+
   <scene id="0" flags="f3,f4,f5">
 君は世界を渡り歩く旅人だ。<font color="Red">しかし、</font>今では食料を買う為に持っていた武器をも売り払ってしまわなければならないほど、窮乏している。
 
@@ -39,7 +52,7 @@
 [フラグ確認用（-1）](12 "-f1")
 [](X)
 </scene>
-  <scene id="1" items="i1,i2" flags="f1,f2" enemies="m1,m2,m3,m4" bgm="last">
+  <scene id="1" items="i1,i2" flags="f1,f2" enemies="m1,m2,m3,m4" result="r02" bgm="last">
 
 君がルーラル湖から歩き始めて数時間が経った。しばらく歩いていくと、町が見えてきた。町の中には巨大な城も見える。
 

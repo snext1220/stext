@@ -144,6 +144,35 @@ img.dice {
   color: #fff;
 }
 
+#dialog_results {
+  background-color: #000;
+  background-image: url(common/dialog_list_back.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #fff;
+  padding: 20px;
+}
+
+#dialog_results table {
+    width: 100%;
+    display: block;
+    overflow-y: scroll;
+    height: 250px;
+}
+  
+#dialog_results table::-webkit-scrollbar-track{
+  background-color: #000;
+}
+
+#dialog_results table,
+#dialog_results table td {
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.5;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
 #dialog_body .delta {
   color: Red;
   font-weight: bold;
