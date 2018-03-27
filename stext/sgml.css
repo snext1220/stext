@@ -150,14 +150,14 @@ img.dice {
   background-repeat: no-repeat;
   background-position: center;
   color: #fff;
-  padding: 60px 0px 0px;
+  padding: 75px 0px 0px;
 }
 
 #dialog_results table {
     width: 100%;
     display: block;
     overflow-y: scroll;
-    height: 250px;
+    height: 330px;
 }
   
 #dialog_results table::-webkit-scrollbar-track{
