@@ -1199,7 +1199,8 @@
               var row = '<tr>' +
                 '<td><img src="' + ROOT + COMMON + 'trophy' + results_map[key].level +
                 '.png" title="' + trophy[results_map[key].level] + '" /></td>' +
-                '<td><h3>' +  results_map[key].name + '</h3>' +
+                '<td><h3>' +  results_map[key].name + '（Lv.' + 
+                results_map[key].level + '）</h3>' +
                 '<p>' +  results_map[key].desc + '</p></td>' +
                 '</tr>';
             } else {
