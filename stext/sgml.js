@@ -760,7 +760,7 @@
         '<img id="item_list" src="' + ROOT + COMMON + 'ctrl_bonus.png" />　' +
         '<img id="audio_onoff" src="' + ROOT + COMMON + 'ctrl_audio_' +
           (global_save_data.bgm ? 'on' : 'off') + '.png" />　' +
-        '<img id="ctrl_reload" src="' + ROOT + COMMON + 'ctrl_reload.png" />　' +
+        '<img id="ctrl_reload" src="' + ROOT + COMMON + 'ctrl_results.png" />　' +
         '<img id="ctrl_help" src="' + ROOT + COMMON + 'ctrl_help.png" />' +
         '</div>')
         .prependTo(target);
@@ -1185,19 +1185,20 @@
 
       // ホームボタンでページ移動
       target.on('click', '#ctrl_home', function(e) {
-        window.open('http://www.web-deli.com/sorcerian/next/stext.aspx');
+        location.href = 'http://www.web-deli.com/sorcerian/next/stext.aspx';
       });
 
       // リロードボタンでページリロード（改訂中）
       target.on('click', '#ctrl_reload', function(e) {
-        //location.reload();
         $.get(ROOT + COMMON + 'dialog_result.html')
         .done(function(data) {
+          var trophy = [ '', 'ノーマル', 'ブロンズ', 'シルバー', 'ゴールド', 'プラチナ' ];
           var dialog_results = $(data);
           Object.keys(results_map).forEach(function(key){
             if (global_save_data['results'][scenario_code].indexOf(key) !== -1) {
               var row = '<tr>' +
-                '<td><img src="' + ROOT + COMMON + 'trophy' +  results_map[key].level + '.png" title="" /></td>' +
+                '<td><img src="' + ROOT + COMMON + 'trophy' + results_map[key].level +
+                '.png" title="' + trophy[results_map[key].level] + '" /></td>' +
                 '<td><h3>' +  results_map[key].name + '</h3>' +
                 '<p>' +  results_map[key].desc + '</p></td>' +
                 '</tr>';

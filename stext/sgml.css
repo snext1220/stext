@@ -146,11 +146,11 @@ img.dice {
 
 #dialog_results {
   background-color: #000;
-  background-image: url(common/dialog_list_back.png);
+  background-image: url(common/dialog_result_back.png);
   background-repeat: no-repeat;
   background-position: center;
   color: #fff;
-  padding: 20px;
+  padding: 60px 0px 0px;
 }
 
 #dialog_results table {
@@ -171,6 +171,10 @@ img.dice {
   line-height: 1.5;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
+}
+
+#dialog_results table td {
+  padding-left: 5px;
 }
 
 #dialog_body .delta {
