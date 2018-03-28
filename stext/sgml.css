@@ -159,9 +159,14 @@ img.dice {
     overflow-y: scroll;
     height: 330px;
 }
-  
-#dialog_results table::-webkit-scrollbar-track{
-  background-color: #000;
+
+#dialog_results table::-webkit-scrollbar {
+  width:5px;
+  background: #300;
+}
+
+#dialog_results table::-webkit-scrollbar-thumb {
+  background:#330;
 }
 
 #dialog_results table,
@@ -175,6 +180,14 @@ img.dice {
 
 #dialog_results table td {
   padding-left: 5px;
+}
+
+#dialog_results table h3 {
+  color: #ee82ee;
+}
+
+#dialog_results table p {
+  color: #ffa500;
 }
 
 #dialog_body .delta {
