@@ -162,7 +162,7 @@ img.dice {
 
 #dialog_results table::-webkit-scrollbar {
   width:5px;
-  background: #300;
+  background: #030;
 }
 
 #dialog_results table::-webkit-scrollbar-thumb {
@@ -183,11 +183,11 @@ img.dice {
 }
 
 #dialog_results table h3 {
-  color: #ee82ee;
+  color: #ffa500;
 }
 
 #dialog_results table p {
-  color: #ffa500;
+  color: #9370db;
 }
 
 #dialog_body .delta {

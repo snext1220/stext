@@ -1195,7 +1195,8 @@
           var trophy = [ '', 'ノーマル', 'ブロンズ', 'シルバー', 'ゴールド', 'プラチナ' ];
           var dialog_results = $(data);
           Object.keys(results_map).forEach(function(key){
-            if (global_save_data['results'][scenario_code].indexOf(key) !== -1) {
+            if (global_save_data['results'][scenario_code] !== undefined &&            
+              global_save_data['results'][scenario_code].indexOf(key) !== -1) {
               var row = '<tr>' +
                 '<td><img src="' + ROOT + COMMON + 'trophy' + results_map[key].level +
                 '.png" title="' + trophy[results_map[key].level] + '" /></td>' +
