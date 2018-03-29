@@ -395,13 +395,13 @@
     toast: function(msg) {
       $('.toast').remove();
       $('body').append('<div class="toast">' + msg + '</div>');
-      var leftpos = $('body').width()/2 - $('.toast').outerWidth() / 2;
+      var leftpos = $('body').width() / 2 - $('.toast').outerWidth() / 2;
       $('.toast').css('left', leftpos).hide().fadeIn('fast');
       setTimeout(function() {
         $('.toast').fadeOut('slow',function(){
           $(this).remove();
         });
-      }, 3000);
+      }, 5000);
     },
 
     // num個のサイコロ（HTML文字列）を取得

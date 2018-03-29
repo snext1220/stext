@@ -295,12 +295,13 @@ table.item_list img {
   position: fixed;
   bottom: 10px;
   display: inline-block;
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
+  background: rgba(255, 215, 0, 0.85);
+  color: #000;
   border-radius: 15px;
   padding: 8px 15px;
   border: none;
   z-index: 1000;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-  font-size: 13px;
+  font-size: 20px;
+  font-weight: bold;
 }
