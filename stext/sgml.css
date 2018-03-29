@@ -290,3 +290,17 @@ table.item_list td {
 table.item_list img {
   width: 70px;
 }
+
+.toast{
+  position: fixed;
+  bottom: 10px;
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border-radius: 15px;
+  padding: 8px 15px;
+  border: none;
+  z-index: 1000;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  font-size: 13px;
+}

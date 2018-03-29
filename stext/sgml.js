@@ -148,8 +148,9 @@
     pushUnique: function(data, value) {
       if (data.indexOf(value) === -1) {
         data.push(value);
+        return true;
       }
-      return data;
+      return false;
     },
 
     // 配列dataから値valueを除去
@@ -385,8 +386,22 @@
         scenario_code.indexOf('<') !== 0) {
         results[scenario_code] = [];
       }
-      this.pushUnique(results[scenario_code], at_result);
+      if(this.pushUnique(results[scenario_code], at_result) === true) {
+        this.toast('実績「' + results_map[at_result].name + '」を獲得');
+      }
       this.saveStorageGlobal();
+    },
+
+    toast: function(msg) {
+      $('.toast').remove();
+      $('body').append('<div class="toast">' + msg + '</div>');
+      var leftpos = $('body').width()/2 - $('.toast').outerWidth() / 2;
+      $('.toast').css('left', leftpos).hide().fadeIn('fast');
+      setTimeout(function() {
+        $('.toast').fadeOut('slow',function(){
+          $(this).remove();
+        });
+      }, 3000);
     },
 
     // num個のサイコロ（HTML文字列）を取得
