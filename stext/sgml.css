@@ -162,11 +162,11 @@ img.dice {
 
 #dialog_results table::-webkit-scrollbar {
   width:5px;
-  background: #030;
+  background: #336;
 }
 
 #dialog_results table::-webkit-scrollbar-thumb {
-  background:#330;
+  background:#99f;
 }
 
 #dialog_results table,
@@ -295,13 +295,13 @@ table.item_list img {
   position: fixed;
   bottom: 10px;
   display: inline-block;
-  background: rgba(255, 215, 0, 0.85);
+  background: rgba(240, 230, 140, 0.9);
   color: #000;
   border-radius: 15px;
   padding: 8px 15px;
   border: none;
   z-index: 1000;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 18px;
+  /*font-weight: bold;*/
 }

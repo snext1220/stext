@@ -401,7 +401,7 @@
         $('.toast').fadeOut('slow',function(){
           $(this).remove();
         });
-      }, 5000);
+      }, 4000);
     },
 
     // num個のサイコロ（HTML文字列）を取得

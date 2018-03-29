@@ -52,7 +52,7 @@
 [フラグ確認用（-1）](12 "-f1")
 [](X)
 </scene>
-  <scene id="1" items="i1,i2" flags="f1,f2" enemies="m1,m2,m3,m4" result="r02" bgm="last">
+  <scene id="1" items="i1,i2" flags="f1,f2" enemies="m1,m2,m3,m4" result="r03" bgm="last">
 
 君がルーラル湖から歩き始めて数時間が経った。しばらく歩いていくと、町が見えてきた。町の中には巨大な城も見える。
 
