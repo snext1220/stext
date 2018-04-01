@@ -17,17 +17,20 @@
 				<p order="8">m01:人面岩:地:物理:L-STR:喋るだけで、硬い岩だ。</p>
 				<p order="9">m02:人面岩の口:霊:魔法:R-INT:喋る口だ。牙はない。</p>
 				<p order="10"/>
-				<p order="11">w:ダンジョン:bgm:Az:venusaz.seesaa.net/</p>
+				<p order="11">r01:絵本の世界:1:少女の部屋まで進めた</p>
 				<p order="12"/>
-				<p order="13">@items:i01,i02</p>
-				<p order="14">@flags:f01,f02</p>
-				<p order="15">@enemies:m01,m02</p>
-				<p order="16">@bgm:boss</p>
-				<p order="17">@se:mom</p>
-				<p order="18">@allowMove:true</p>
-				<p order="19">@end:bad</p>
-				<p order="20">@@</p>
-				<p order="21">...以下、本文...</p>
+				<p order="13">w:ダンジョン:bgm:Az:venusaz.seesaa.net/</p>
+				<p order="14"/>
+				<p order="15">@items:i01,i02</p>
+				<p order="16">@flags:f01,f02</p>
+				<p order="17">@enemies:m01,m02</p>
+				<p order="18">@result:r01</p>
+				<p order="19">@bgm:boss</p>
+				<p order="20">@se:mom</p>
+				<p order="21">@allowMove:true</p>
+				<p order="22">@end:bad</p>
+				<p order="23">@@</p>
+				<p order="24">...以下、本文...</p>
 			</text>
 			<backgroundcolour>#ffffff</backgroundcolour>
 			<choices>

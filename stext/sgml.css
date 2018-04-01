@@ -169,6 +169,11 @@ img.dice {
   background:#99f;
 }
 
+#dialog_results #result_rate {
+  text-align: right;
+  width: 100%;
+}
+
 #dialog_results table,
 #dialog_results table td {
   border-collapse: collapse;

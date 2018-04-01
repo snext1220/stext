@@ -1207,11 +1207,17 @@
       target.on('click', '#ctrl_reload', function(e) {
         $.get(ROOT + COMMON + 'dialog_result.html')
         .done(function(data) {
+          // 実績の数
+          var result_count = 0;
+          // 獲得した実績の数
+          var get_result = 0;
           var trophy = [ '', 'ノーマル', 'ブロンズ', 'シルバー', 'ゴールド', 'プラチナ' ];
           var dialog_results = $(data);
           Object.keys(results_map).forEach(function(key){
+            result_count++;
             if (global_save_data['results'][scenario_code] !== undefined &&            
               global_save_data['results'][scenario_code].indexOf(key) !== -1) {
+              get_result++;
               var row = '<tr>' +
                 '<td><img src="' + ROOT + COMMON + 'trophy' + results_map[key].level +
                 '.png" title="' + trophy[results_map[key].level] + '" /></td>' +
@@ -1228,6 +1234,9 @@
             }
             $('.result_list', dialog_results).append(row);
           });
+          // 到達度を反映
+          var result_rate = (get_result / result_count * 100).toFixed(1);
+          $('#result_rate', dialog_results).text('Rate:' + result_rate + '%');
           $.zoombox.html(dialog_results.html(),
           {
             width: 480,
@@ -1548,6 +1557,7 @@
             if (attrs.bgm) { scene.attr('bgm', attrs.bgm); }
             if (attrs.se) { scene.attr('se', attrs.se); }
             if (attrs.allowMove) { scene.attr('allowMove', attrs.allowMove); }
+            if (attrs.result) { scene.attr('result', attrs.result); }
             if (attrs.end) { scene.attr('end', attrs.end); }
             scene.appendTo(result);
           });

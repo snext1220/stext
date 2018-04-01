@@ -197,6 +197,100 @@
   attack="魔法" func="L+R-INT+2">悪霊の手。恐怖で震えあがる。</enemy>
 </enemies>
 
+<!--実績トロフィー-->
+<results>
+<result id="r01" name="冒険のはじまり" level="1">
+  冒険を開始した</result>
+<result id="r02" name="いしのなかにいる！" level="1">
+  凹んだ床を踏んでみた</result>
+<result id="r03" name="初めてのミッションクリア" level="1">
+  最初の罠を回避した</result>
+<result id="r04" name="エティスの溜め息" level="1">
+  人面岩の謎解きを断った</result>
+<result id="r05" name="人面岩の顔も3度まで" level="1">
+  人面岩の謎を3度間違えた</result>
+<result id="r06" name="オタクの称号" level="2">
+  人面岩の謎解きをクリアした</result>
+<result id="r07" name="左はペンタウァ" level="1">
+  左に進み過ぎてしまった</result>
+<result id="r08" name="ガジガジネズミ" level="2">
+  ネズミに食い殺された</result>
+<result id="r09" name="あまりに馬鹿げた顛末" level="2">
+  酸の海に自分から踏み入った</result>
+<result id="r10" name="誉れ高き愚か者" level="3">
+  ヒドラ、または鈴木土下座ェ門に敗死した</result>
+<result id="r11" name="たけし" level="5">
+  鈴木土下座ェ門に勝利！</result>
+<result id="r12" name="見てはいけないもの" level="3">
+  豚（猫？）の正体を見てしまった</result>
+<result id="r13" name="その名はグーラン" level="2">
+  グーランに出会った</result>
+<result id="r14" name="酸の池のど真ん中" level="2">
+  酸の池に落ちた</result>
+<result id="r15" name="ダイブ！酸の池" level="2">
+  酸の池に飛び込んだ</result>
+<result id="r16" name="I'll be back..." level="2">
+  酸の池に落ちた（2）</result>
+<result id="r17" name="さて、中盤戦！" level="3">
+  酸の池を踏破した</result>
+<result id="r18" name="コンゴトモ、ヨロシク…" level="3">
+  骨の仲間になった</result>
+<result id="r19" name="小瓶のお部屋" level="3">
+  小瓶の部屋に辿り着いた</result>
+<result id="r20" name="壊れた小瓶" level="2">
+  小瓶を壊した</result>
+<result id="r21" name="さあ、帰ろう！" level="3">
+  瓶を手に入れ、帰り道へ</result>
+<result id="r22" name="10％の確率" level="3">
+  岩の橋から滑落した</result>
+<result id="r23" name="0.08％" level="3">
+  岩の橋から滑落した（2）</result>
+<result id="r24" name="ペンタウァ万歳" level="2">
+  オークの岩の下敷きになった</result>
+<result id="r25" name="帰ってきた！" level="3">
+  元の洞窟に生還した</result>
+<result id="r26" name="グーラン安らかなれ" level="3">
+  グーランを弔った</result>
+<result id="r27" name="冒険者よ、お前もか！" level="3">
+  グーランにとどめを刺した</result>
+<result id="r28" name="ありがとう、ありがとう、ありがとう！" level="4">
+  グーランを助けた</result>
+<result id="r29" name="墓穴を掘る" level="3">
+  モンスターに敗けて、墓穴に落ちた</result>
+<result id="r30" name="トンズラ ソーサリアン" level="3">
+  青い玉を持ち逃げした</result>
+<result id="r31" name="宛てもなく" level="3">
+  洞窟を彷徨い歩いて、オワタ</result>
+<result id="r32" name="エンディングへ一直線" level="3">
+  青い玉の扉を開いた</result>
+<result id="r33" name="スライムと丸焼けソーサリアン" level="3">
+  スライムの火事に巻き込まれた</result>
+<result id="r34" name="アリーヴェデルチ！" level="3">
+  豚（猫？）との友情を結んだ</result>
+<result id="r35" name="蛇王バジリスク" level="3">
+  バジリスクによって石化した</result>
+<result id="r36" name="異次元モグラ" level="3">
+  ケマゾツによってパクリとされた</result>
+<result id="r37" name="覇王翔吼拳" level="3">
+  バーサーカー（豚）に奥義を放った</result>
+<result id="r38" name="まさかのリタイア" level="4">
+  宝物庫で杖を探すのをあきらめた</result>
+<result id="r39" name="オークのごちそう" level="4">
+  宝物庫で力尽きた</result>
+<result id="r40" name="開かない宝箱" level="4">
+  宝箱を開くためのアイテムがなかった</result>
+<result id="r41" name="指名手配ソーサリアン" level="4">
+  杖を持ち逃げした</result>
+<result id="r42" name="きのぼう" level="4">
+  きのぼうを持ち帰った</result>
+<result id="r43" name="Happy End, but not True End" level="4">
+  杖を献上した（グーランは死んだけど）</result>
+<result id="r44" name="誉れ高き勇者よ！" level="5">
+  杖を献上した（True End）</result>
+<result id="r45" name="不可思議な力" level="1">
+  チェックポイントを利用した</result>
+</results>
+
 <!--ライセンス情報-->
 <licence>
 <work name="ダンジョン" category="bgm" creator="Az" />
@@ -210,7 +304,7 @@
 </licence>
 
 <!--シナリオ（プロローグ）-->
-<scene id="0">
+<scene id="0" result="r01">
 **王さまの杖が盗まれた、だって…！？**
 
 ジメジメとしたダンジョンを歩きながら、
@@ -354,7 +448,7 @@
 [君子危うきに近寄らず](1030)
 </scene>
 
-<scene id="1020" end="bad">
+<scene id="1020" result="r02" end="bad">
 ダンジョンで、
 いかにもな仕掛け床を踏んでどうするというのか。
 
@@ -383,7 +477,7 @@
 (End)
 </scene>
 
-<scene id="1030">
+<scene id="1030" result="r03">
 ダンジョンでの心得はただひとつ、
 
 **慎重たれ**
@@ -650,7 +744,7 @@
 </scene>
 
 <!--人面岩（共通エンド）-->
-<scene id="1190" end="bad">
+<scene id="1190" result="r04" end="bad">
 人間、得手不得手はあるものだ。
 謎解きが苦手なのも、
 あるいは致し方ないのもかもしれない。
@@ -1101,7 +1195,7 @@
 [コック](1490)
 </scene>
 
-<scene id="1490" end="bad">
+<scene id="1490" result="r05" end="bad">
 人間、
 得手不得手はあるものだ。
 
@@ -1128,7 +1222,7 @@
 </scene>
 
 <!--人面岩終了-->
-<scene id="1500">
+<scene id="1500" result="r06">
 「…………」
 
 君が最後の問いに答えると、
@@ -1236,7 +1330,7 @@
 [マークのない道を戻る](1690)
 </scene>
 
-<scene id="1690" end="bad">
+<scene id="1690" result="r07" end="bad">
 君は、左に進み過ぎてしまったのだろうか。
 
 きっとそうに違いない。
@@ -1448,7 +1542,7 @@
 [隧道を抜けると、そこは…](1860)
 </scene>
 
-<scene id="1850" end="bad">
+<scene id="1850" result="r08" end="bad">
 嗚呼、愚かなる冒険者よ――！
 
 君は、なぜ野生のラットに餌をやろうなどと
@@ -1519,7 +1613,7 @@
 [とりあえず帰るぽよ…](1880)
 </scene>
 
-<scene id="1870" end="bad">
+<scene id="1870" result="r09" end="bad">
 （工事中です）
 
 すまない。
@@ -1685,7 +1779,7 @@
 [死んでしまったよ…](1940)
 </scene>
 
-<scene id="1940" end="bad">
+<scene id="1940" result="r10" end="bad">
 人はいつ死ぬと思うか。
 
 頭をヒドラに食いちぎられた時……違う！
@@ -1803,7 +1897,7 @@
 [死んでしまったよ…](1940)
 </scene>
 
-<scene id="1990" end="bad">
+<scene id="1990" result="r11" end="bad">
 **……こんなげーむにまじになっちゃってどうするの。**
 
 
@@ -1941,7 +2035,7 @@
 [みししっ、みししっ](1650)
 </scene>
 
-<scene id="2050">
+<scene id="2050" result="r12">
 「◎」の道には、豚（猫？）が立っている。
 
 「みししっ、みししっ(=´・ω・`= )」
@@ -2056,7 +2150,7 @@ VITが足りないのだろうか、と首をひねりながら、
 [見なかったことにする](1650)
 </scene>
 
-<scene id="2310">
+<scene id="2310" result="r13">
 人影は、
 君の姿を認めると、ほっとしたように微笑んだ。
 
@@ -2310,7 +2404,7 @@ B A F C E
 [慌てて次の足場に向けてジャンプ！](2540)
 </scene>
 
-<scene id="2540" end="bad">
+<scene id="2540" result="r14" end="bad">
 君は、成年男子による
 立ち幅跳びの平均値を知っているだろうか。
 
@@ -2520,7 +2614,7 @@ B A F C E
 </scene>
 
 <!--酸の池（飛び込みエンド）-->
-<scene id="2680" end="bad">
+<scene id="2680" result="r15" end="bad">
 君は、なぜ＜酸の池＞に飛び込もうと考えたのか。
 
 何ものも溶かしてしまうような酸だ。
@@ -2549,7 +2643,7 @@ B A F C E
 </scene>
 
 <!--酸の池（共通エンド）-->
-<scene id="2690" end="bad">
+<scene id="2690" result="r16" end="bad">
 スタッ。
 見事、足場に着地！
 
@@ -2598,7 +2692,7 @@ I'll be back...
 </scene>
 
 <!--酸の池以降-->
-<scene id="3010">
+<scene id="3010" result="r17">
 さあ、
 第2のチェックポイントも越えたところで、
 物語もいよいよ中盤だ。
@@ -2903,7 +2997,7 @@ I'll be back...
 [無念にも負けてしまったならば……](3260)
 </scene>
 
-<scene id="3260" end="bad">
+<scene id="3260" result="r18" end="bad">
 骨（コツ）は手ごわかった。
 
 ジワジワと体力を削られた君は、力尽きて倒れてしまう。
@@ -2991,7 +3085,7 @@ I'll be back...
 [ギー、バッタン！](3310)
 </scene>
 
-<scene id="3310">
+<scene id="3310" result="r19">
 「おぬし、何ものじゃ…！？」
 
 「お～い、曲者だよ！？曲者！！」
@@ -3039,7 +3133,7 @@ I'll be back...
 [瓶たちを無理やり押さえつける](3320)
 </scene>
 
-<scene id="3320" end="bad">
+<scene id="3320" result="r20" end="bad">
 てんで勝手気ままに騒めいている小瓶を、
 しかも、「華奢で、いかにも壊れやすそうな」小瓶を。
 
@@ -3152,7 +3246,7 @@ I'll be back...
 [黒の瓶を奪い取る](3350)
 </scene>
 
-<scene id="3350" end="bad">
+<scene id="3350" result="r20" end="bad">
 「華奢で、いかにも壊れやすそうな」小瓶を、
 無理やりに押さえつけようとしたらどうなるか、
 君は考えもしなかったのか。
@@ -3369,7 +3463,7 @@ I'll be back...
 </scene>
 
 <!--帰り道-->
-<scene id="3600">
+<scene id="3600" result="r21">
 ゴオオオォオォオォ……
 
 小部屋の奥の隠し通路を抜けた先は、
@@ -3661,7 +3755,7 @@ CHANGE-AIRの魔法を唱えると、
 [さもなければ…](3720)
 </scene>
 
-<scene id="3710" end="bad">
+<scene id="3710" result="r22" end="bad">
 ダイスを4回振って、
 「1」のゾロ目が出る確率はおおよそ10％程度。
 
@@ -3845,7 +3939,7 @@ CHANGE-AIRの魔法を唱えると、
 [そして、橋の向こうへ――](3800)
 </scene>
 
-<scene id="3790" end="bad">
+<scene id="3790" result="r23" end="bad">
 ダイスを4回振って、
 すべてがぞろ目である確率は約0.08％。
 
@@ -3906,7 +4000,7 @@ CHANGE-AIRの魔法を唱えると、
 [君子危うきに近寄らず。足早に立ち去る](3820)
 </scene>
 
-<scene id="3810" end="bad">
+<scene id="3810" result="r24" end="bad">
 冒険の本質は、なにはともあれ好奇心だ。
 好奇心なくして、冒険者は存在しえない。
 
@@ -4002,7 +4096,7 @@ CHANGE-AIRの魔法を唱えると、
 [奥に見える扉へ向けてダッシュ！](3870)
 </scene>
 
-<scene id="3840" end="bad">
+<scene id="3840" result="r24" end="bad">
 正直、意味がわからない。
 まったく理解できない。
 不可解だ。
@@ -4134,7 +4228,7 @@ HP／MPがいずれも0になっていなければ、
 [通路を抜けて、先へ](3880)
 </scene>
 
-<scene id="3880">
+<scene id="3880" result="r25">
 通路の終点にあった扉を、君は慌てて押し開くと、
 その中に転がり込む。
 
@@ -4196,7 +4290,7 @@ HP／MPがいずれも0になっていなければ、
 </scene>
 
 <!--死・塩酸-->
-<scene id="4110" items="i05">
+<scene id="4110" items="i05" result="r26">
 せめてもの手向けに君は、
 小瓶の中身をグーランの屍に振りかけた。
 
@@ -4253,7 +4347,7 @@ HP／MPがいずれも0になっていなければ、
 </scene>
 
 <!--死・聖水-->
-<scene id="4130" items="i02,i05">
+<scene id="4130" items="i02,i05" result="r26">
 せめてもの手向けに君は、
 小瓶の中身をグーランの屍に振りかけた。
 
@@ -4291,7 +4385,7 @@ HP／MPがいずれも0になっていなければ、
 </scene>
 
 <!--死・毒-->
-<scene id="4140">
+<scene id="4140" result="r27">
 東方の国には「死に水を取る」という言葉があるそうだ。
 
 本来は、
@@ -4361,7 +4455,7 @@ HP／MPがいずれも0になっていなければ、
 
 <!--生きているグーラン-->
 <!--生・塩酸-->
-<scene id="4200" flags="f14">
+<scene id="4200" flags="f14" result="r27">
 ガッ、ハ――！！
 
 小瓶の中身を飲み干したグーランは、
@@ -4433,7 +4527,7 @@ HP／MPがいずれも0になっていなければ、
 </scene>
 
 <!--生・聖水-->
-<scene id="4220" flags="f13">
+<scene id="4220" flags="f13" result="r28">
 「おぉ、なんと清々しい――
 　身も心も洗われていくようだ……」
 
@@ -4506,7 +4600,7 @@ HP／MPがいずれも0になっていなければ、
 </scene>
 
 <!--生・毒-->
-<scene id="4240" flags="f14">
+<scene id="4240" flags="f14" result="r27">
 **ガッ、ハ――！！**
 
 小瓶の中身を飲み干したグーランは、
@@ -4621,7 +4715,7 @@ HP／MPがいずれも0になっていなければ、
 [やられちまったぜ…](4510)
 </scene>
 
-<scene id="4510" end="bad">
+<scene id="4510" result="r29" end="bad">
 （自分の墓穴くらい、自分で掘れなくてどうするよ！？）
 
 なんとなく名言に聞こえるが、
@@ -4636,7 +4730,7 @@ HP／MPがいずれも0になっていなければ、
 （End）
 </scene>
 
-<scene id="4520" items="i05">
+<scene id="4520" items="i05" result="r26">
 君は見事に魔物の群れを撃退した。
 
 もっとも、死に物狂いで剣を振り回す君に、
@@ -4674,7 +4768,7 @@ HP／MPがいずれも0になっていなければ、
 [](X)
 </scene>
 
-<scene id="4525" end="bad">
+<scene id="4525" result="r30" end="bad">
 君は、＜青い玉＞を手に入れるや、
 意気揚々とダンジョンを後にする。
 
@@ -4704,7 +4798,7 @@ RESURRECTの魔法が宿っているという、
 </scene>
 
 <!--立ち去るエンド-->
-<scene id="4530" end="bad">
+<scene id="4530" result="r31" end="bad">
 君は、
 偉大な先達を助けられなかった無念を噛みしめながら、
 その場を後にする。
@@ -4768,7 +4862,7 @@ RESURRECTの魔法が宿っているという、
 </scene>
 
 <!--ダンジョン奥-->
-<scene id="5100">
+<scene id="5100" result="r32">
 「みししっ、みしし～～っ！(=´・ω・`= )！？」
 
 扉を抜けて、君は道なりに歩いている。
@@ -4862,7 +4956,7 @@ RESURRECTの魔法が宿っているという、
 [気持ち悪いので、とりあえず剣先でツンツン…](5140)
 </scene>
 
-<scene id="5120" end="bad">
+<scene id="5120" result="r33" end="bad">
 こうかはばつぐんだ！
 
 剣も効かない。
@@ -4974,7 +5068,7 @@ RESURRECTの魔法が宿っているという、
 [消化されずにツンツンしきったら――](5150)
 </scene>
 
-<scene id="5150" items="i13">
+<scene id="5150" items="i13" result="r34">
 「みししっ、みししっ、しししっ(=´・ω・`= )！！」
 
 豚（猫？）は、君に激しく感謝しているようだ。
@@ -5098,7 +5192,7 @@ RESURRECTの魔法が宿っているという、
 [カ、エ、ル](5300)
 </scene>
 
-<scene id="5190" end="bad">
+<scene id="5190" result="r35" end="bad">
 蛇王バジリスク、それが蛇の名だ。
 
 毒もない。
@@ -5945,7 +6039,7 @@ RESURRECTの魔法が宿っているという、
 [合計値が9以上ならば…](6300)
 </scene>
 
-<scene id="6280" end="bad">
+<scene id="6280" result="r36" end="bad">
 ＜穴＞から突き出てきたのは、巨大な＜口＞であった。
 
 一本一本が人間の拳ほどもある、鋭くはないが厚く、
@@ -6127,7 +6221,7 @@ DEX＋左右の合計値が13以上ならば、
 [逃げればいいと思うよ](6350)
 </scene>
 
-<scene id="6340" end="bad">
+<scene id="6340" result="r37" end="bad">
 覇王翔吼拳――
 それは溜めた気を精神弾に換えて、
 前方に放つ「極限流」の奥義だ。
@@ -6371,7 +6465,7 @@ DEX＋左右の合計値が13以上ならば、
 [もう、無理ぽ…](7010)
 </scene>
 
-<scene id="7010" end="bad">
+<scene id="7010" result="r38" end="bad">
 ここで諦めてしまうとは、なんと情けない……！
 
 君は、オークの宝物庫（?）に辿り着きながら、
@@ -6440,7 +6534,7 @@ DEX＋左右の合計値が13以上ならば、
 [体力／精神力が尽きた](7030)
 </scene>
 
-<scene id="7030" end="bad">
+<scene id="7030" result="r39" end="bad">
 君は最善を尽くした。
 それは認めよう。
 
@@ -6565,7 +6659,7 @@ DEX＋左右の合計値が13以上ならば、
 [なにも持っていない！](7120)
 </scene>
 
-<scene id="7120" end="bad">
+<scene id="7120" result="r40" end="bad">
 なんということだろう。
 君はなにひとつ
 身代わりになりうるものを持っていなかった！
@@ -6713,7 +6807,7 @@ DEX＋左右の合計値が13以上ならば、
 [ペンタウァへ凱旋する](7800 "f13,f34")
 </scene>
 
-<scene id="7500" end="bad">
+<scene id="7500" result="r41" end="bad">
 （あ、あんですって～！？）
 
 失礼。
@@ -6761,7 +6855,7 @@ DEX＋左右の合計値が13以上ならば、
 （End）
 </scene>
 
-<scene id="7600" end="bad">
+<scene id="7600" result="r42" end="bad">
 「きのぼう、ですな」
 
 謁見の間。
@@ -6809,7 +6903,7 @@ DEX＋左右の合計値が13以上ならば、
 （End）
 </scene>
 
-<scene id="7700" end="happy">
+<scene id="7700" result="r43" end="happy">
 「――これは、試練だったのじゃ」
 
 謁見の間にて。
@@ -6864,7 +6958,7 @@ DEX＋左右の合計値が13以上ならば、
 （Happy? End ―― not True End...）
 </scene>
 
-<scene id="7800" end="happy">
+<scene id="7800" result="r44" end="happy">
 「――これは、試練だったのじゃ」
 
 謁見の間にて。
@@ -6925,7 +7019,7 @@ DEX＋左右の合計値が13以上ならば、
 </scene>
 
 <!--チェックポイントによる復活（人面岩の後）-->
-<scene id="11550" items="i06" allowMove="true">
+<scene id="11550" items="i06" result="r45" allowMove="true">
 おお、誉れ高き勇者よ、
 よくぞ、もどってきてくれた！
 私は、とてもうれしい。
@@ -6949,7 +7043,7 @@ DEX＋左右の合計値が13以上ならば、
 </scene>
 
 <!--チェックポイントによる復活（酸の池を抜けた後）-->
-<scene id="13000" items="i04,i06,i11" flags="f01,f02,f03,f04,f05,f06" allowMove="true">
+<scene id="13000" items="i04,i06,i11" flags="f01,f02,f03,f04,f05,f06" result="r45" allowMove="true">
 おお、誉れ高き勇者よ、
 よくぞ、もどってきてくれた！
 私は、とてもうれしい。
@@ -6973,7 +7067,7 @@ DEX＋左右の合計値が13以上ならば、
 </scene>
 
 <!--チェックポイントによる復活（瓶の謎を解く前）-->
-<scene id="13290" items="i03,i04,i06,i11,i12" flags="f01,f02,f03,f04,f05,f06,f11,f12" allowMove="true">
+<scene id="13290" items="i03,i04,i06,i11,i12" flags="f01,f02,f03,f04,f05,f06,f11,f12" result="r45" allowMove="true">
 おお、誉れ高き勇者よ、
 よくぞ、もどってきてくれた！
 私は、とてもうれしい。
@@ -6997,7 +7091,7 @@ DEX＋左右の合計値が13以上ならば、
 </scene>
 
 <!--チェックポイントによる復活（青い玉で扉を開けた）-->
-<scene id="15000" items="i03,i04,i06,i11,i12" flags="f01,f02,f03,f04,f05,f06,f11,f12,f13" allowMove="true">
+<scene id="15000" items="i03,i04,i06,i11,i12" flags="f01,f02,f03,f04,f05,f06,f11,f12,f13" result="r45" allowMove="true">
 おお、誉れ高き勇者よ、
 よくぞ、もどってきてくれた！
 私は、とてもうれしい。
@@ -7021,7 +7115,7 @@ DEX＋左右の合計値が13以上ならば、
 [さっさと冒険を再開する](5100)
 </scene>
 
-<scene id="16400" items="i03,i04,i06,i11,i12,i13,i14" flags="f01,f02,f03,f04,f05,f06,f11,f12,f13" allowMove="true">
+<scene id="16400" items="i03,i04,i06,i11,i12,i13,i14" flags="f01,f02,f03,f04,f05,f06,f11,f12,f13" result="r45" allowMove="true">
 おお、誉れ高き勇者よ、
 よくぞ、もどってきてくれた！
 私は、とてもうれしい。
