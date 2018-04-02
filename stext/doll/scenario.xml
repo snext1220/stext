@@ -6,6 +6,7 @@
 <!--v1.2 2017/9/19 不要なアイテムの削除。-->
 <!--v1.3 2017/12/9 ED絵追加。ライセンス情報追加。-->
 <!--v1.4 2018/1/12 happyEnd曲変更。ライセンス情報追加。-->
+<!--v1.5 2018/4/1 トロフィー追加。-->
 <scenario title="プレアオブ・ドールズ" author="cocotori">
 <items>
 </items>
@@ -34,6 +35,15 @@
 	<work name="石膏" category="画像" creator="niur" url="http://niur.net/index.php"></work>
 	<work name="ED絵" category="画像" creator="ときのじ"></work>
 </licence>
+
+<!--実績トロフィー-->
+<results>
+	<result id="r01" name="箒で顔をなでてもらった" level="1">箒を買った</result>
+	<result id="r02" name="腕を補修してあげた" level="1">紐を買った</result>
+	<result id="r03" name="服を買ってあげた" level="1">あなたのお気に入りは？</result>
+	<result id="r04" name="誰のためでもない、その旅路に祝福を" level="2">ENDを見た</result>
+</results>
+
 	<scene id="0">
 　ここはペンタウァ。
 　王様の治める、平和な国。
@@ -149,7 +159,7 @@
 
 </scene>
 
-<scene id="221">
+<scene id="221" result="r03">
 
 　「こんな綺麗な服を……よいのですか」
 
@@ -176,7 +186,7 @@
 
 </scene>
 
-<scene id="222">
+<scene id="222" result="r03">
 
 　なんでも揃うペンタウァの洋服屋。
 　特別な意図があったわけではない。
@@ -199,7 +209,7 @@
 
 </scene>
 
-<scene id="223">
+<scene id="223" result="r03">
 
 　「おや、これは男性の服では？」
 　手渡した服を着て、意外そうに自分の姿を眺めるミナナ。
@@ -241,7 +251,7 @@
 [戻る](1)
 </scene>
 
-  <scene id="31" flags="f3">
+  <scene id="31" flags="f3" result="r02">
 
 　丈夫なヒモを購入した。
 　「必要なのは薬草ですよ？　……あ」
@@ -337,7 +347,7 @@
 
 </scene>
 
-  <scene id="33" flags="f4">
+  <scene id="33" flags="f4" result="r01">
 
 　立派な箒が売っていたので思わず購入した。
 　用途は考えてもいない。
@@ -1222,7 +1232,7 @@
 
 
 </scene>
-  <scene id="15" end="happy">
+  <scene id="15" end="happy" result="r04">
   
 	--シナリオクリア--
 	

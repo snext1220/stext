@@ -3,6 +3,7 @@
 <!--v0.9 2018/1/24 ストーリー流れのみ完。-->
 <!--v1.0 2018/2/25 テキスト完、bgm、背景完。-->
 <!--v1.1 2018/3/17 挿絵追加。-->
+<!--v1.2 2018/4/1 トロフィー追加。-->
 <scenario title="鉄腕の吸血姫" author="cocotori">
 <items>
 	<item id="i00" name="小さな鍵">どこかの鍵。翼の飾りがついている。</item>
@@ -40,6 +41,12 @@
 	<work name="キャラ挿絵2枚" category="画像" creator="ときのじ"></work>
 	
 </licence>
+
+<!--実績トロフィー-->
+<results>
+	<result id="r01" name="受け継いだもの、命、そして" level="2">END1を見た</result>
+	<result id="r02" name="手を取り、ともに生きる" level="2">END2を見た</result>
+</results>
 
 <scene id="0">
 薄暗い部屋。あなたはうめきとともに目覚める。
@@ -1891,7 +1898,7 @@ MPを50回復する。
 [エピローグへ](29)
 </scene>
 
-<scene id="29" end="happy">
+<scene id="29" end="happy" result="r01">
 王都ペンタウァ。
 王宮執務室にて。
 
@@ -1991,7 +1998,7 @@ END
 [エピローグへ](3123)
 </scene>
 
-<scene id="3123" end="happy">
+<scene id="3123" end="happy" result="r02">
 ペンタウァでは一人のソーサリアンの行方が
 掴めないとの話題がたった。
 
