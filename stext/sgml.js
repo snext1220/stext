@@ -374,6 +374,7 @@
       }
     },
 
+    // @result属性（at_result）の値に応じて、グローバルセーブデータのresultsプロパティを更新
     updateResults: function(at_result) {
       if(!at_result) { return; }
       // resultsプロパティの存在チェック（セーブデータ変更時の処理要検討）
@@ -392,6 +393,7 @@
       this.saveStorageGlobal();
     },
 
+    // 指定されたメッセージをトースト表示
     toast: function(msg) {
       $('.toast').remove();
       $('body').append('<div class="toast">' + msg + '</div>');
@@ -730,9 +732,11 @@
     },
 
     // そのシーンに直接の番号指定で移動可能かを判定
-    canSceneMove: function(scene_num) {
-      var scene = $('scene[id="' + scene_num + '"][allowMove]', scenario_data);
-      return scene.length != 0 ? true : false;
+    canSceneMove: function(scene_num, allow_num) {
+      return allow_num.split(',').indexOf(scene_num) !== -1
+      // 旧コード
+      //var scene = $('scene[id="' + scene_num + '"][allowMove]', scenario_data);
+      //return scene.length != 0 ? true : false;
     },
 
     // 指定されたBGMを再生
@@ -822,9 +826,11 @@
       $('a', target).addClass('scenebtn');
 
       // 移動用ボタンの整形
-      $('a[href="X"]', target)
+      var tmp_move = $('a[href="X"]', target);
+      tmp_move
         .removeClass('scenebtn')
         .addClass('scene_move')
+        .attr('data-allow', tmp_move.text())
         .text('移動する')
         .before('<input type="number" id="toscene" class="scene_move" />')
         .add('#toscene')
@@ -874,16 +880,17 @@
         $('a[title="-' + flags[i] + '"]', target).hide();
       }
 
-      // 指定のフラグを所持している場合にだけボタンを表示（複数フラグ対応）
+      // 指定のフラグ＆アイテムを所持している場合にだけボタンを表示（複数フラグ＆アイテム対応）
       var multi_flags = $('a[title*=","]', target);     
       multi_flags.each(function(index, elem) {
         var multi_ids = $(elem).attr('title');
         if (multi_ids.indexOf('-') !== 0) {
-          // 通常のマルチフラグ処理（指定フラグを全て所有でボタン表示）
+          // 通常のマルチフラグ処理（指定フラグ＆アイテムを全て所有でボタン表示）
           var show_flag = true; // ボタンを表示するか
           var multi_ids_values = multi_ids.split(',');
           for (var i = 0; i < multi_ids_values.length; i++) {
-            if (flags.indexOf(multi_ids_values[i].trim()) === -1) {
+            if (flags.indexOf(multi_ids_values[i].trim()) === -1 &&
+              items.indexOf(multi_ids_values[i].trim()) === -1) {
               show_flag = false;
               break;
             }
@@ -897,7 +904,8 @@
           var hide_flag = true; // ボタンを非表示にするか
           var multi_ids_values = multi_ids.substring(1).split(',');
           for (var i = 0; i < multi_ids_values.length; i++) {
-            if (flags.indexOf(multi_ids_values[i].trim()) === -1) {
+            if (flags.indexOf(multi_ids_values[i].trim()) === -1 &&
+              items.indexOf(multi_ids_values[i].trim()) === -1) {
               hide_flag = false;
               break;
             }
@@ -909,9 +917,10 @@
         }
       });
 
-      // 指定のアイテムを所有している場合にだけボタンを表示
+      // 指定のアイテムを所有している場合にだけボタンを表示（「-」で所持していない場合に非表示）
       for (var i = 0; i < items.length; i++) {
         $('a[title="' + items[i] + '"]', target).show();
+        $('a[title="-' + items[i] + '"]', target).hide();
       }
 
       // 指定の魔法が利用できる場合にだけボタンを表示
@@ -1014,6 +1023,11 @@
       // 移動ボタンをクリックで次のシーンに移動
       target.on('click', 'a.scenebtn', function(e) {
         var num = $(this).attr('href');
+        // 複数移動先が指定されている場合、ランダムに選択
+        if (num.indexOf(',') !== -1) {
+          num = Util.randomArray(num.split(',')).trim();
+        }
+        // 履歴に追加
         history.pushState(num, 'Scene ' + num);
         Util.createScene(num);
         e.preventDefault();
@@ -1022,11 +1036,12 @@
       // 指定シーンに移動
       target.on('click', 'a.scene_move', function(e) {
         var num = $('#toscene').val();
-        if(Util.canSceneMove(num)) {
+        var allow_num = $(this).attr('data-allow');
+        if(Util.canSceneMove(num, allow_num)) {
           history.pushState(num, 'Scene ' + num);
           Util.createScene(num);
         } else {
-          window.alert('その番号には移動できません。');
+          Util.toast('指定された番号には移動できないようだ');
         }
         e.preventDefault();
       });
@@ -1167,11 +1182,13 @@
         }
       });
 
+      // ［+］スピナーで直前のテキストボックス値をインクリメント
       $(document).on('click', '#dialog_body .spinner_up', function(e) {
         var prev = $(this).prev();
         prev.val(Number(prev.val()) + 1);
       });
 
+      // ［-］スピナーで直後のテキストボックス値をインクリメント
       $(document).on('click', '#dialog_body .spinner_down', function(e) {
         var next = $(this).next();
         next.val(Number(next.val()) - 1);
@@ -1203,7 +1220,7 @@
         location.href = 'http://www.web-deli.com/sorcerian/next/stext.aspx';
       });
 
-      // リロードボタンでページリロード（改訂中）
+      // 実績情報を表示（旧リロードボタン）
       target.on('click', '#ctrl_reload', function(e) {
         $.get(ROOT + COMMON + 'dialog_result.html')
         .done(function(data) {
@@ -1404,6 +1421,8 @@
       if (scenario_code.indexOf('<') === 0) {
         var tmp_data = $(scenario_code);
         scenario_code = 'playground';
+        global_save_data['results']['playground'] = [];
+        Util.saveStorageGlobal();
         done_read(tmp_data);
       // シナリオコードが渡された場合にはscenario.xmlを読み込み
       } else {
@@ -1533,7 +1552,9 @@
 
                 // 「999」は自由移動ボックス、それ以外はリンクボタン
                 if (dest === '999') {
-                  var tmp = '[](X)\n';
+                  var tmp = '[';
+                  tmp += caption[0];
+                  tmp += '](X)\n';
                 } else {
                   var tmp = '[';
                   tmp += caption[0];
