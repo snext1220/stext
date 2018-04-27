@@ -16,7 +16,7 @@
           </xs:annotation>
           <xs:complexType>
             <xs:sequence>
-              <xs:element maxOccurs="unbounded" name="item">
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="item">
                 <xs:annotation>
                   <xs:documentation>
                     個々のアイテム情報。説明は15文字程度（複数列挙可）
@@ -63,7 +63,7 @@
           </xs:annotation>
           <xs:complexType>
             <xs:sequence>
-              <xs:element maxOccurs="unbounded" name="flag">
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="flag">
                 <xs:annotation>
                   <xs:documentation>
                     個々のフラグ情報。説明は15文字程度（複数列挙可）
@@ -103,7 +103,7 @@
           </xs:annotation>
           <xs:complexType>
             <xs:sequence>
-              <xs:element maxOccurs="unbounded" name="enemy">
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="enemy">
                 <xs:annotation>
                   <xs:documentation>
                     モンスター／罠の情報。説明は15文字程度（複数列挙可）
@@ -191,7 +191,7 @@
           </xs:annotation>
           <xs:complexType>
             <xs:sequence>
-              <xs:element maxOccurs="unbounded" name="result">
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="result">
                 <xs:annotation>
                   <xs:documentation>
                     個々の実績情報。説明は15文字程度（複数列挙可）
@@ -250,7 +250,7 @@
           </xs:annotation>
           <xs:complexType>
             <xs:sequence>
-              <xs:element maxOccurs="unbounded" name="work">
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="work">
                 <xs:annotation>
                   <xs:documentation>
                     作品情報（複数列挙可）
@@ -373,13 +373,6 @@
                       <xs:enumeration value="bad" />
                     </xs:restriction>
                   </xs:simpleType>
-                </xs:attribute>
-                <xs:attribute name="allowMove" type="xs:boolean" use="optional">
-                  <xs:annotation>
-                    <xs:documentation>
-                      番号指定による移動を許可するか（値はtrue固定）
-                    </xs:documentation>
-                  </xs:annotation>
                 </xs:attribute>
                 <xs:attribute name="se" type="xs:string" use="optional">
                   <xs:annotation>

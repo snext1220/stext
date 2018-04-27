@@ -1560,8 +1560,13 @@
                   tmp += caption[0];
                   tmp += '](';
                   tmp += dest;
+                  // ランダム分岐
+                  if (caption[2]) {
+                    tmp += ',' + caption[2];
+                  }
+                  // フラグ／アイテム条件
                   if (caption[1]) {
-                    tmp += ' "' + caption[1] + '"'
+                    tmp += ' "' + caption[1] + '"';
                   }
                   tmp += ')\n';
                 }

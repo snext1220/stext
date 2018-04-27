@@ -37,6 +37,14 @@
   -->
 </enemies>
 
+<!--実績情報-->
+<results>
+  <!--
+  <result id="r01" name="実績名" level="1">
+    実績の説明</result>
+  -->
+</results>
+
 <!--ライセンス情報-->
 <licence>
   <!--
@@ -53,11 +61,11 @@
 </scene>
 <!--
 <scene id="100" items="-i01,i02" flags="f01,f02" enemies="m01,m02"
-  end="happy" se="hoge" allowMove="true">
+  end="happy" se="hoge" result="r01">
   本文
 </scene>
 <scene id="200" items="-i01,i02" flags="f01,f02" enemies="m01,m02"
-  end="bad" se="hoge" allowMove="true">
+  end="bad" se="hoge">
   本文
 </scene>
 -->

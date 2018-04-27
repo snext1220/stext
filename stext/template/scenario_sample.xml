@@ -21,6 +21,11 @@
     attack="毒" func="DEX>2L">毒がたっぷりと塗られた矢</enemy>
 </enemies>
 
+<results>
+<result id="r01" name="冒険のはじまり" level="1">
+  冒険を開始した</result>
+</results>
+
 <!--ライセンス情報-->
 <licence>
 	<work name="メインテーマ" category="bgm" creator="Az"
@@ -35,7 +40,7 @@
 
 [次へ](100)
 </scene>
-<scene id="100" items="i99" flags="f99" enemies="m99,m98">
+<scene id="100" items="i99" flags="f99" enemies="m99,m98" result="r01">
 
 - フラグf99が立ちます（=> ステータスから確認しましょう）
 - アイテムi99を入手します（=> ステータスから確認しましょう）

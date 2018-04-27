@@ -27,10 +27,9 @@
 				<p order="18">@result:r01</p>
 				<p order="19">@bgm:boss</p>
 				<p order="20">@se:mom</p>
-				<p order="21">@allowMove:true</p>
-				<p order="22">@end:bad</p>
-				<p order="23">@@</p>
-				<p order="24">...以下、本文...</p>
+				<p order="21">@end:bad</p>
+				<p order="22">@@</p>
+				<p order="23">...以下、本文...</p>
 			</text>
 			<backgroundcolour>#ffffff</backgroundcolour>
 			<choices>
@@ -54,10 +53,9 @@
 				<p order="4">@enemies:m01,m02</p>
 				<p order="5">@bgm:boss</p>
 				<p order="6">@se:mom</p>
-				<p order="7">@allowMove:true</p>
-				<p order="8">@end:bad</p>
-				<p order="9">@@</p>
-				<p order="10">...以下、本文...</p>
+				<p order="7">@end:bad</p>
+				<p order="8">@@</p>
+				<p order="9">...以下、本文...</p>
 			</text>
 			<backgroundcolour>#ffffff</backgroundcolour>
 			<choices/>
