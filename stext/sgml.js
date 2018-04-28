@@ -760,10 +760,11 @@
 
       var scene = $('scene[id="' + scene_num + '"]', scenario_data);
 
-      // シーンテキストの整形
+      // シーンテキストの整形（カラーリング＆URL）
       var tmp_scene = scene.text();
       tmp_scene = tmp_scene.replace(/%(blue|red|purple)%/gi, '&nbsp;<span style="color:$1">');
       tmp_scene = tmp_scene.replace(/%\/%/gi, '</span>&nbsp;');
+      tmp_scene = tmp_scene.replace(/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi, '<a href="$&" target="_blank">$&</a>');
       target.html(tmp_scene);
       //target.text(scene.text());
       target.markdown();
@@ -824,6 +825,9 @@
 
       // 移動ボタンの整形
       $('a', target).addClass('scenebtn');
+
+      // 外部リンク
+      $('a[target="_blank"]', target).removeClass('scenebtn');
 
       // 移動用ボタンの整形
       var tmp_move = $('a[href="X"]', target);
@@ -1537,6 +1541,8 @@
                 // シーン個別の属性を処理
                 } else if (tmp_para.indexOf('@') === 0) {
                   var attr = tmp_para.substring(1).split(':');
+                  // ★未検証★空文字列を認識するように
+                  if(attr[1] === undefined) { attr[1] = ''; }
                   attrs[attr[0]] = attr[1];
                 }
               // ヘッダー処理オフの場合、本文として追加
@@ -1577,14 +1583,14 @@
             var scene = $('<scene></scene>\n')
               .attr('id', attrs.id)
               .text(body);
-            if (attrs.items) { scene.attr('items', attrs.items); }
-            if (attrs.flags) { scene.attr('flags', attrs.flags); }
-            if (attrs.enemies) { scene.attr('enemies', attrs.enemies); }
-            if (attrs.bgm) { scene.attr('bgm', attrs.bgm); }
-            if (attrs.se) { scene.attr('se', attrs.se); }
-            if (attrs.allowMove) { scene.attr('allowMove', attrs.allowMove); }
-            if (attrs.result) { scene.attr('result', attrs.result); }
-            if (attrs.end) { scene.attr('end', attrs.end); }
+            if (attrs.items !== undefined) { scene.attr('items', attrs.items); }
+            if (attrs.flags !== undefined) { scene.attr('flags', attrs.flags); }
+            if (attrs.enemies !== undefined) { scene.attr('enemies', attrs.enemies); }
+            if (attrs.bgm !== undefined) { scene.attr('bgm', attrs.bgm); }
+            if (attrs.se !== undefined) { scene.attr('se', attrs.se); }
+            if (attrs.allowMove !== undefined) { scene.attr('allowMove', attrs.allowMove); }
+            if (attrs.result !== undefined) { scene.attr('result', attrs.result); }
+            if (attrs.end !== undefined) { scene.attr('end', attrs.end); }
             scene.appendTo(result);
           });
 
