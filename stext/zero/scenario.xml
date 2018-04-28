@@ -47,6 +47,15 @@
 	<work name="N30_48" category="音楽" creator="AZ" url="https://soundcloud.com/venus-az"></work>
 	<work name="N30_49" category="音楽" creator="AZ" url="https://soundcloud.com/venus-az"></work>
 </licence>
+<results>
+  <result id="r01" name="宣教師の正体" level="1">
+    マンティコアを倒した</result>
+  <result id="r02" name="ユーデリアのダンジョン" level="2">
+    ダンジョンから脱出した</result>
+  <result id="r03" name="カオスの根源" level="3">
+    ブザッティを倒した</result>
+</results>
+
   <scene id="0">
 **プロローグ**
 
@@ -1192,7 +1201,7 @@
 [額](05310)
 [心臓](05410)
 [尻尾](05510)
-[NOIRA-TEMを唱える](05810 "mNOILA-TEM")
+[NOILA-TEMを唱える](05810 "mNOILA-TEM")
 [EXPLOSIONを唱える](05910 "mEXPLOSION")
 
 </scene>
@@ -1208,7 +1217,7 @@
 
 
 </scene>
-  <scene id="05310" flags="f6">
+  <scene id="05310" flags="f6" result="r01">
 
 額への渾身の一撃は、マンティコアに致命傷を与えた。
 しかし、マンティコアの爪は君を切り裂き、君もまた深いダメージを負った。
@@ -1246,7 +1255,7 @@
 [心臓](05610)
 
 </scene>
-  <scene id="05610" flags="f6">
+  <scene id="05610" flags="f6" result="r01">
 
 君が狙った心臓への一撃は、マンティコアの致命傷となった。
 ドサリ、と敵は横倒しとなり、動く事は無かった。
@@ -1258,7 +1267,7 @@
 [君は酒屋の主人の元にかけよった](05710)
 
 </scene>
-  <scene id="05810" flags="f6">
+  <scene id="05810" flags="f6" result="r01">
 
 君はNOILA-TEMの呪文を唱えた。
 
@@ -1274,7 +1283,7 @@ NOILA-TEMはマンティコアの致命的なダメージを与えた。
 
 
 </scene>
-  <scene id="05910" flags="f6">
+  <scene id="05910" flags="f6" result="r01">
 
 君はEXPLOSIONの呪文を唱えた。
 
@@ -1529,7 +1538,7 @@ EXPLOSIONはマンティコアの致命的なダメージを与えた。
 [番人に戦いを挑む](06207)
 [引き返す](06306 "f9")
 [引き返す](06006 "-f9")
-[NOIRA-TEMを唱える](06407 "mNOILA-TEM")
+[NOILA-TEMを唱える](06407 "mNOILA-TEM")
 [EXPLOSIONを唱える](06407 "mEXPLOSION")
 
 </scene>
@@ -1611,7 +1620,7 @@ EXPLOSIONはマンティコアの致命的なダメージを与えた。
 [信者に襲い掛かる](08209)
 [ごまかして大広間から離れる](08008)
 [CHANGE-AIRを唱える](08309 "mCHANGE-AIR")
-[](X)
+[08409](X)
 
 </scene>
   <scene id="08109">
@@ -1647,7 +1656,7 @@ EXPLOSIONはマンティコアの致命的なダメージを与えた。
 [君は大広間に潜入した](08509)
 
 </scene>
-  <scene id="08409" allowMove="true">
+  <scene id="08409">
 
 君が合言葉を伝えると、信者は通してくれた。
 「創造神のご加護を！」
@@ -1974,7 +1983,7 @@ EXPLOSIONはマンティコアの致命的なダメージを与えた。
 
 
 </scene>
-  <scene id="10011" flags="f12">
+  <scene id="10011" flags="f12" result="r02">
 
 穴をくぐると、そこは花畑が広がる美しい村だった。
 君は思い出した。ここはラミアの村である。
@@ -2622,7 +2631,7 @@ LIGHT-CROSSの呪文を唱え終わる直前、唸りを上げてブザッティ
 (End)
 
 </scene>
-  <scene id="13015" items="-i5">
+  <scene id="13015" items="-i5" result="r03">
 
 君はブザッティに向かって、＜金の卵＞を投げた。
 ＜金の卵＞は放物線を描き、ブザッティの胸の辺りに落ちた。
