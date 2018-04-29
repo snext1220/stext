@@ -3,8 +3,8 @@
 </items><flags>
 <flag id="f01">講師ザハラン</flag></flags><enemies>
 </enemies><results>
-</results><license>
-<work name="メインテーマ" category="bgm" creator="Az" url="venusaz.seesaa.net/"></work><work name="番外編" category="2" creator="Az" url="venusaz.seesaa.net/"></work><work name="プロローグ画像" category="ソーサリアンOriginalスクリーンショット"></work><work name="修行１～番外編の説明画像" category="ときのじ"></work></license>
+<result id="r01" name="環境を整えたようだな" level="1">シナリオを作る環境を整えた</result><result id="r02" name="進む道が決まったか…頑張れよ…" level="2">GBATを使うことに決めた</result><result id="r03" name="連結ミスには気をつけるのだぞ" level="3">物語を追加してScene同士を繋げた</result><result id="r04" name="戦闘はバランスに注意するのだ" level="3">モンスターを登場させた</result><result id="r05" name="アイテムを攻略の鍵にするのも良いな" level="3">アイテムを入手できるようにした</result><result id="r06" name="分岐は物語に深みが出るテクニックだ" level="4">フラグを使って物語を分岐させた</result><result id="r07" name="感動のENDを迎え…ワシの出番は!?" level="5">エンディングを実装した（消えた道場主の出番）</result><result id="r08" name="私の時代がやって来たようだな" level="4">講師ザハランを登場させた</result></results><license>
+<work name="メインテーマ" category="bgm" creator="Az" url="venusaz.seesaa.net/"></work><work name="番外編" category="2" creator="Az" url="venusaz.seesaa.net/"></work><work name="プロローグ画像" category="ソーサリアンOriginalスクリーンショット"></work><work name="GBATアイコン画像" category="Crumbly Head Games" creator="https" url="//www.crumblyheadgames.co.uk/the-gamebook-authoring-tool/"></work><work name="修行１～番外編の説明画像" category="ときのじ"></work></license>
 <scene id="0">
 **プロローグ**
 
@@ -41,7 +41,7 @@
 
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="2" bgm="">
+</scene><scene id="2">
 ![追い出された悲運の道場主](trial003.png)
 **「やあ、いらっしゃい。この道場に何のようかね？」**
 
@@ -212,8 +212,10 @@
 
 ---
 %blue%＊デュエルはクリスティの指示通り、ブラウザで
-　「Crumbly Head Games
-　　（https://www.crumblyheadgames.co.uk/the-gamebook-authoring-tool/）」というサイトを開くことにした。%/%
+　「Crumbly Head Games」というサイトを開くことにした。%/%
+
+**【Crumbly Head Games】**
+　　https://www.crumblyheadgames.co.uk/the-gamebook-authoring-tool/
 
 
 
@@ -264,7 +266,7 @@
 [★次へ進む](6)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="6">
+</scene><scene id="6" result="r01">
 **ソーサリアンTextシナリオ開発道場
 　修行１「環境を整えたい」**
 
@@ -555,9 +557,9 @@
 　GBAT独自のファイル形式で作られた%blue%『template.gbat』%/%
 　というファイルが入っているんだけど、%red%このファイルの置き場所を
 　間違えるとGBATが正常に動作しない%/%から気を付けてね」
-%purple%
+
 **【ファイルのダウンロード】**
-　http://d.hatena.ne.jp/sorcerian/20180131%/%
+　　http://d.hatena.ne.jp/sorcerian/20180131
 ![テンプレート DL](trial.toki002001.png)
 
 １．上記のサイトから%blue%template.zip%/%をダウンロードする。
@@ -570,7 +572,8 @@
 ---
 
 %blue%＊デュエルはクリスティの説明を聞きながら、自分のパソコンに
-　『GBAT用のテンプレートファイル』をダウンロードをすることができた。%/%
+　『GBAT用のテンプレートファイル』をダウンロードをすることが
+　できた。%/%
 
 ---
 
@@ -642,9 +645,9 @@
 %blue%＊デュエルはクリスティの指示通り、
 　マニュアル（http://d.hatena.ne.jp/sorcerian/20180131）から
 　「Playground」というページを開くことにした。%/%
-%purple%
+
 **【Playground直通リンクはコチラ】**
-　http://www.web-deli.com/sorcerian/next/playground.aspx%/%
+　　http://www.web-deli.com/sorcerian/next/playground.aspx
 ![Playgroundへのリンク](trial.toki002002.png)
 
 ---
@@ -727,7 +730,7 @@
 [★次へ進む](11)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="11">
+</scene><scene id="11" result="r02">
 **ソーサリアンTextシナリオ開発道場
 　修行２「最初の一歩を踏み出したい」**
 
@@ -971,9 +974,9 @@
 　入力しちゃいましょう。
 　別に後から入力しても構わないんだけども、忘れない内に入力して
 　おいた方が良いわね」
-%purple%
+
 **【手　順】**
-　http://d.hatena.ne.jp/sorcerian/20180131%/%
+　　http://d.hatena.ne.jp/sorcerian/20180131
 ![タイトルと作者名の入力](trial.toki003003.png)
 
 １．画面左下の%blue%Section%/%の下にある%blue%Gamebook%/%タブをクリック。
@@ -1028,9 +1031,9 @@
 ![クリスティ](trial010.png)
 「ええ、そうね！
 　それじゃあ、プロローグを書いていきましょうか！」
-%purple%
+
 **【手　順】**
-　http://d.hatena.ne.jp/sorcerian/20180131%/%
+　　http://d.hatena.ne.jp/sorcerian/20180131
 ![プロローグの入力](trial.toki003004.png)
 
 １．%blue%outline%/%の%blue%『1 - @@』%/%をクリックする。
@@ -1084,9 +1087,9 @@
 
 　次は%blue%Scene 2%/%の本文を入れてみましょう。
 　既に%blue%『2 - 先へ進む』%/%が作られている状態だから、それを利用するわ」
-%purple%
+
 **【手　順】**
-　http://d.hatena.ne.jp/sorcerian/20180131%/%
+　　http://d.hatena.ne.jp/sorcerian/20180131
 ![Scene2の入力](trial.toki003006.png)
 
 １．%blue%outline%/%の%blue%『2 - 先へ進む』%/%をクリックする。
@@ -1110,9 +1113,9 @@
 「いい感じね！
 　続けて%blue%Scene 3とScene 4%/%も作って、
 　それぞれのSceneに本文を入力していきましょう！
-%purple%
+
 **【手　順】**
-　http://d.hatena.ne.jp/sorcerian/20180131%/%
+　　http://d.hatena.ne.jp/sorcerian/20180131
 ![Sceneの作り方](trial.toki003007.png)
 
 １．画面上部にあるツールで%blue%『＋』%/%をクリックする。
@@ -1203,9 +1206,9 @@
 ![クリスティ](trial010.png)
 「ええ、そうよ。
 　じゃあ今度は実践ということで、Scene同士を繋げてみましょうか」
-%purple%
+
 **【手　順】**
-　http://d.hatena.ne.jp/sorcerian/20180131%/%
+　　http://d.hatena.ne.jp/sorcerian/20180131
 ![Sceneの繋げ方](trial.toki003008.png)
 
 １．画面中央下の%blue%Choicesウィンドウ%/%にある%blue%Add%/%をクリック。
@@ -1259,7 +1262,7 @@
 [★次へ進む](16)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="16">
+</scene><scene id="16" result="r03">
 **ソーサリアンTextシナリオ開発道場
 　修行３「物語を書きたい」**
 
@@ -1284,7 +1287,15 @@
 
 ![デュエル](trial001.png)
 「このテンプレートも色々と編集し始めたもんな。
-　……っと、保存も完了！　ふー、終わったぁ～ッ！」
+
+　おっと、そういえば%blue%scenario.gbat%/%は%red%**パソコン内の浅い階層に
+　保存しないと、GBATが正常に動作しなくなる**%/%んだったな。
+
+　オレは最初に%blue%**PC＞ローカルディスク(C:) に 『GBAT』フォルダを
+　作った**%/%から、編集した%blue%scenario.gbatは『GBAT』フォルダ内に
+　保存すればいいな！%/%
+
+　……よしっ、保存も完了！　ふー、終わったぁ～ッ！」
 
 ---
 
@@ -1645,8 +1656,9 @@
 ![クリスティ](trial010.png)
 「これで登場させるモンスターの詳細情報も決定したし、%blue%
 　**シナリオにモンスターを登場させる方法**%/%に進むわね」
-%purple%**【手　順】**
-　http://d.hatena.ne.jp/sorcerian/20180131%/%
+
+**【手　順】**
+　　http://d.hatena.ne.jp/sorcerian/20180131
 ![モンスターを登場させる](trial.toki004001.png)
 
 １．画面左上の%blue%Outline%/%の%blue%『1 - プロローグ』%/%をクリックする。
@@ -1688,7 +1700,7 @@
 [★次へ進む](20)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="20">
+</scene><scene id="20" result="r04">
 **ソーサリアンTextシナリオ開発道場
 　修行４「モンスターを登場させたい」**
 
@@ -1698,9 +1710,9 @@
 %blue%＊モンスターの情報を入力し終えたデュエルは、
 　scenario.gbatを保存した後、早速**「Playground」でシナリオが
 　正常に動作するのか**を確認した。%/%
-%purple%
+
 **【Playground直通リンクはコチラ】**
-　http://www.web-deli.com/sorcerian/next/playground.aspx%/%
+　　http://www.web-deli.com/sorcerian/next/playground.aspx
 ![今日の進捗](trial.toki004002.png)
 
 ---
@@ -1913,7 +1925,10 @@
 
 　これから『i01:こいし』を例に%blue%アイテムの情報について解説するわ。%/%
 %blue%
-　**●i01**（アイテムの番号）
+　**●i01**（アイテムの番号）%/%
+%blue%
+　**●こいし**（アイテムの名前）%/%
+%blue%
 　**●何の変哲もない、石だ**（アイテムの説明）%/%
 
 　はい、以上よ。
@@ -1944,8 +1959,9 @@
 　それじゃあ、次は%blue%**シナリオでアイテムを入手する方法**%/%を
 　説明するわ。
 　今回は、本文にも少し手を加えるわよ」
-%purple%**【手　順】**
-　http://d.hatena.ne.jp/sorcerian/20180131%/%
+
+**【手　順】**
+　　http://d.hatena.ne.jp/sorcerian/20180131
 ![アイテムを入手する](trial.toki005001.png)
 
 １．画面左上の%blue%Outline%/%の%blue%『1 - プロローグ』%/%をクリックする。
@@ -1987,9 +2003,9 @@
 %blue%
 　デュエル達は逸る気持ちを抑えつつ、**「Playground」で
 　シナリオが正常に動作するのか**を確認した。%/%
-%purple%
+
 **【Playground直通リンクはコチラ】**
-　http://www.web-deli.com/sorcerian/next/playground.aspx%/%
+　　http://www.web-deli.com/sorcerian/next/playground.aspx
 
 ---
 
@@ -2064,7 +2080,7 @@
 [★次へ進む](24)
 [他の修行を選ぶ](3 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="24">
+</scene><scene id="24" result="r05">
 **ソーサリアンTextシナリオ開発道場
 　修行５「アイテムを入手したい」**
 
@@ -2199,7 +2215,7 @@
 
 %blue%＊更にクリスティは、「よく『フラグが立つ』と言われるのは、
 　英語のFlagが旗を意味することから、とも言われているわね」
-　とも付け加えた。
+　と付け加えた。
 
 ---
 
@@ -2331,7 +2347,7 @@
 「あぁ、基礎を覚えてくると、
 　自分にとってやり易いところとか、やりにくいところとかが
 　だんだんと解ってくるもんな。
-　次の作るシナリオでは、自分なりに工夫して色々やってみるさ」
+　次に作るシナリオでは、自分なりに工夫して色々やってみるさ」
 
 ---
 
@@ -2400,9 +2416,8 @@
 　ちょっと長いけど、やること自体にあまり変化はないから、
 　落ち着いてひとつづつ作業を進めましょう」
 
-%purple%
 **【手　順】**
-　http://d.hatena.ne.jp/sorcerian/20180131%/%
+　　http://d.hatena.ne.jp/sorcerian/20180131
 
 ![サンプルデータ削除](trial.toki006002.png)
 １．画面左上の%blue%Outline%/%の%blue%『1 - プロローグ』%/%をクリックする。
@@ -2420,7 +2435,7 @@
 　　※アットマーク（@）は、半角にしてください%/%
 ５．%blue%『@@』と『@@』の間%/%に%blue%『@flags:f01』%/%と入力。%red%
 　　※@flagsとは、立たせたいフラグを
-　　指定する項目のこと%/%
+　　　指定する項目のこと%/%
 ６．3段目（＠＠の下）に%blue%Scene 5の本文%/%を入力する。
 　　（例：　強大な敵との戦闘が始まりそうになりましたが、
 　　　　　まだ探索していない道があったので、
@@ -2431,19 +2446,19 @@
 １．画面上部にあるツールで%blue%『＋』%/%をクリックする。
 ２．%blue%Outline%/%に追加された%blue%『6 - 　』%/%をクリックする。
 ３．%blue%『Section』ウィンドウ内のSummary右側%/%をクリックして、
-　　　Sceneの名称を変更する。
-　　　（例：エンディング２）
+　　Sceneの名称を変更する。
+　　（例：エンディング２）
 ４．画面中央の空白の1段目と2段目に%blue%@@%/%を入力する。%red%
-　　　※アットマーク（@）は、半角にしてください%/%
+　　※アットマーク（@）は、半角にしてください%/%
 ５．%blue%『@@』と『@@』の間%/%に%blue%『@items:i01』%/%と入力。
 ６．3段目（＠＠の下）に%blue%Scene 6の本文%/%を入力する。
-　　　（例：　まだ行っていない道を探索していると、
-　　　　　　ダンジョンの奥深くで、とうとう王様の杖を
-　　　　　　見付けることができました。
-　　　　　　４人は無事に王様の杖を取り返し、
-　　　　　　ペンタウァに帰りました。
-　　　　　　王様に杖を献上して、ペンタウァは元の平和な国に
-　　　　　　戻ったとさ。　めでたし、めでたし。）
+　　（例：　まだ行っていない道を探索していると、
+　　　　　ダンジョンの奥深くで、とうとう王様の杖を
+　　　　　見付けることができました。
+　　　　　４人は無事に王様の杖を取り返し、
+　　　　　ペンタウァに帰りました。
+　　　　　王様に杖を献上して、ペンタウァは元の平和な国に
+　　　　　戻ったとさ。　めでたし、めでたし。）
 
 ---
 
@@ -2487,9 +2502,9 @@
 ![クリスティ](trial010.png)
 「じゃあ、次は新しく作ったScene 5と他のSceneを繋げて、
 　物語を完成させちゃいましょう！」
-%purple%
+
 **【手　順】**
-　http://d.hatena.ne.jp/sorcerian/20180131%/%
+　　http://d.hatena.ne.jp/sorcerian/20180131
 
 ![Sceneの繋げ方１](trial.toki006005.png)
 １．%blue%『3 - ダンジョン探索中』%/%をクリックする。
@@ -2548,7 +2563,7 @@
 [★次へ進む](29)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="29" bgm="">
+</scene><scene id="29" bgm="" result="r06">
 **ソーサリアンTextシナリオ開発道場
 　修行６「フラグで物語を分岐させたい」**
 
@@ -2561,9 +2576,9 @@
 %blue%
 　それからデュエルは、scenario.gbatを忘れずに保存すると、
 　動作確認のためにブラウザで「Playground」を開いた。%/%
-%purple%
+
 **【Playground直通リンクはコチラ】**
-　http://www.web-deli.com/sorcerian/next/playground.aspx%/%
+　　http://www.web-deli.com/sorcerian/next/playground.aspx
 
 ---
 
@@ -2643,23 +2658,26 @@
 
 %blue%＊クリスティはそう言うと、マニュアルから幾つかのページを
 　ピックアップして教えてくれた。%/%
-%purple%
-　【開発者向けマニュアル（目次）】
-　　http://d.hatena.ne.jp/sorcerian/20171221%/%
-%purple%
-　【GBATによるシナリオの作り方】
-　【魔法分岐、自由移動の設定（GBAT）】
-　　http://d.hatena.ne.jp/sorcerian/20180131%/%
-%purple%
-　【エディタ等によるシナリオの作り方】
-　　http://d.hatena.ne.jp/sorcerian/20180115%/%
-%purple%
-　【STextに使われている言語SGMLについて】
-　　http://d.hatena.ne.jp/sorcerian/20180128%/%
-%purple%
-　【Playgroundの様々な機能】
-　【ローカルサーバーでシナリオの動作を確認】
-　　http://d.hatena.ne.jp/sorcerian/20180125%/%
+
+**【開発者向けマニュアル（目次）】**
+　　http://d.hatena.ne.jp/sorcerian/20171221
+
+**【GBATによるシナリオの作り方】
+【魔法分岐、自由移動の設定（GBAT）】**
+　　http://d.hatena.ne.jp/sorcerian/20180131
+
+**【エディタ等によるシナリオの作り方】**
+　　http://d.hatena.ne.jp/sorcerian/20180115
+
+**【STextに使われている言語SGMLについて】**
+　　http://d.hatena.ne.jp/sorcerian/20180128
+
+**【Playgroundの様々な機能】
+【ローカルサーバーでシナリオの動作を確認】**
+　　http://d.hatena.ne.jp/sorcerian/20180125
+
+**【開発者向けテクニック集】**
+　　http://d.hatena.ne.jp/sorcerian/20180429
 
 ---
 
@@ -2755,12 +2773,12 @@
 
 ---
 
-%purple%**【手　順】**
-　http://d.hatena.ne.jp/sorcerian/20180131%/%
+**【手　順】**
+　　http://d.hatena.ne.jp/sorcerian/20180131
 ![エンディング実装](trial.toki007002.png)
 
 １．画面左上の%blue%Outline%/%の%blue%『1 - プロローグ』%/%をクリックする。
-２．%blue%『不要な情報』%/%を削除する。
+２．%red%『不要な情報』%/%を削除する。
 ３．画面左上の%blue%Outline%/%の%blue%『4 - エンディング』%/%をクリックする。
 ４．%blue%『@@』と『@@』の間%/%に%blue%『@end:happy』%/%と入力。
 ５．画面左上の%blue%Outline%/%の%blue%『6 - エンディング２』%/%をクリックする。
@@ -2771,7 +2789,7 @@
 [★次へ進む](31)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="31">
+</scene><scene id="31" result="r07">
 **ソーサリアンTextシナリオ開発道場
 　番外編「？？？を見てみたい」**
 
@@ -2847,7 +2865,6 @@
 
 ---
 
-
 　**さあ、旅立て。
 　無限の物語、ソーサリアンTextの世界へ――**
 
@@ -2858,7 +2875,7 @@
 
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="32" bgm="">
+</scene><scene id="32" bgm="" result="r08">
 ![講師ザハラン](trial007.png)
 **「ほう、よく来たな。この道場に何のようかな？」**
 
