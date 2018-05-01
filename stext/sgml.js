@@ -764,7 +764,8 @@
       var tmp_scene = scene.text();
       tmp_scene = tmp_scene.replace(/%(blue|red|purple)%/gi, '&nbsp;<span style="color:$1">');
       tmp_scene = tmp_scene.replace(/%\/%/gi, '</span>&nbsp;');
-      tmp_scene = tmp_scene.replace(/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi, '<a href="$&" target="_blank">$&</a>');
+      tmp_scene = tmp_scene.replace(/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi,
+        '<a href="$&" data-link="auto" target="_blank">$&</a>');
       target.html(tmp_scene);
       //target.text(scene.text());
       target.markdown();
@@ -827,7 +828,7 @@
       $('a', target).addClass('scenebtn');
 
       // 外部リンク
-      $('a[target="_blank"]', target).removeClass('scenebtn');
+      $('a[data-link="auto"]', target).removeClass('scenebtn');
 
       // 移動用ボタンの整形
       var tmp_move = $('a[href="X"]', target);

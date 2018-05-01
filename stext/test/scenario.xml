@@ -48,12 +48,18 @@
 
 ![ソーサリアンText](stext.png)
 
+[次へ](1)
 [冒険に出発する（BGM変わる）](1,2,3)
 [冒険に出発する（BGM変わる）](1)
 [フラグ確認用（-1）](12 "-f1")
 [12,15](X)
 </scene>
-  <scene id="1" items="i1,i2" flags="f1,f2" enemies="m1,m2,m3,m4" result="r03" bgm="last">
+  <scene id="1" enemies="m1">
+TEST
+http://www.web-deli.com/sorcerian/next/stext.aspx
+[次へ](2)
+</scene>
+  <scene id="11111" items="i1,i2" flags="f1,f2" enemies="m1,m2,m3,m4" result="r03" bgm="last">
 
 君がルーラル湖から歩き始めて数時間が経った。しばらく歩いていくと、町が見えてきた。町の中には巨大な城も見える。
 
