@@ -812,9 +812,13 @@
           var debug_flags = $('#debug_panel #debug_flags').val().trim();
           if(debug_items !== '') {
             save_data.items = debug_items.split(',');
+          } else {
+            save_data.items = [];
           }
           if(debug_flags !== '') {
             save_data.flags = debug_flags.split(',');
+          } else {
+            save_data.flags = [];
           }
           Util.saveStorage();
           Util.createScene($('#debug_panel #debug_id').val());
@@ -1479,6 +1483,10 @@
             // id値を設定（1は強制的に0に）
             attrs.id = Number($('number', section).text());
             if(attrs.id === 1) { attrs.id = 0; }
+
+            if ($('> summary', section).text().toLowerCase() === 'link') {
+              return true;
+            }
 
             // テキストを生成
             var body = '\n';

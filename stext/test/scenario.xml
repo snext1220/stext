@@ -7,6 +7,9 @@
 <flags>
   <flag id="f1">魔導士に会った</flag>
   <flag id="f2">大僧正に会った</flag>
+  <flag id="f3">魔導士に会った</flag>
+  <flag id="f4">大僧正に会った</flag>
+  <flag id="f5">大僧正に会った</flag>
 </flags>
 <enemies>
   <enemy id="m1" name="ゴブリン" element="地" attack="物理" func="2L+R-STR">
@@ -57,7 +60,6 @@
   <scene id="1" enemies="m1">
 TEST
 http://www.web-deli.com/sorcerian/next/stext.aspx
-[次へ](2)
 </scene>
   <scene id="11111" items="i1,i2" flags="f1,f2" enemies="m1,m2,m3,m4" result="r03" bgm="last">
 
