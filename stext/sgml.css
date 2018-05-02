@@ -296,6 +296,10 @@ table.item_list img {
   width: 70px;
 }
 
+.enemy_row {
+  cursor: pointer;
+}
+
 .toast{
   position: fixed;
   bottom: 10px;

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book version="2">
+	<title>Untitled</title>
+	<sections>
+		<section>
+			<number>3</number>
+			<shiftable>false</shiftable>
+			<summary/>
+			<text>
+				<p order="1">ファイル跨ぎの分岐に成功しました。</p>
+			</text>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+	</sections>
+	<footer>
+		<p order="1">Created using the GameBook Authoring Tool</p>
+		<p order="2">http://www.crumblyheadgames.co.uk/the-gamebook-authoring-tool/</p>
+	</footer>
+	<formats>
+		<choice>{{text}}, turn to {{destination}}</choice>
+	</formats>
+	<options>
+		<newpagepersection>false</newpagepersection>
+	</options>
+	<styles>
+		<style name="text">
+			<font>
+				<name>Cambria</name>
+				<size>10</size>
+			</font>
+		</style>
+		<style name="header">
+			<font>
+				<name>Cambria</name>
+				<size>36</size>
+			</font>
+		</style>
+		<style name="footer">
+			<font>
+				<name>Consolas</name>
+				<size>8</size>
+			</font>
+		</style>
+	</styles>
+</book>

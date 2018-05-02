@@ -677,6 +677,24 @@
     endScenario: function(result) {
       if(!result) { return; }
 
+      // エンディングでライセンス情報を表示
+      /*
+      console.log('***********License Info.***********');
+      var tmp_license = { 'bgm': '音楽', 'picture': '画像' };
+      $('licence > work', scenario_data).each(function() {
+        console.log(this);
+        var license_url = $(this).attr('url');
+        console.log(license_url);
+        
+/*
+        console.log($(this).attr('name') + 
+          '（' + tmp_license[$(this).attr('category')] + '）:' +
+          $(this).attr('creator') + ' ' + license_url ? license_url : ''
+        );
+      });
+      console.log('***********License Info.***********');
+      */
+
       $('<p><a href="#" onclick="location.reload(true)" class="scenebtn">' +
         '最初から冒険に挑戦する</a></p>').insertBefore($('#cubes', target));
 
@@ -864,12 +882,12 @@
         var enemies = scene.attr('enemies').split(',');
         for (var i = 0; i < enemies.length; i++) {
           var enemy = enemies_map[enemies[i]];
-          var row = '<tr><th>' + enemy.name;
+          var row = '<tr class="enemy_row" data-enemy="' + enemies[i] + '"><th>' + enemy.name;
           if(enemy.element) { row += '（' + enemy.element + '）'; }
           row += '</th><td>' + enemy.attack + '</td><td>';
           if(enemy.func) { row += Util.selectFunc(enemy.func); }
           row += '</td><td>' + this.dropItem(enemy.element);
-          row += '</td><td>' + enemy.desc + '</td></tr>';
+          row += '</td></tr>';
           e_table.append(row);
         }
         e_table.insertBefore('a.scenebtn:first');
@@ -1053,6 +1071,12 @@
           Util.toast('指定された番号には移動できないようだ');
         }
         e.preventDefault();
+      });
+
+      // 敵一覧をクリックで詳細情報を表示
+      target.on('click', 'tr.enemy_row', function(e) {
+        var enemy = enemies_map[$(this).attr('data-enemy')];
+        Util.toast('<b>' + enemy.name + '</b><br/>' + enemy.desc);
       });
 
       // ダイス回転音を準備
@@ -1330,7 +1354,7 @@
         // シナリオデータを取得
         scenario_data = result;
         //console.log(scenario_data);
-      
+
         // 魔法の星を演算（配列末尾に「星の種類 数...」を設定）
         for(var key in Common.magic) {
           var magic = Common.magic[key];

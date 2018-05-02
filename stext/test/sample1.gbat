@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book version="2">
+	<title>動作確認シナリオ@Rio</title>
+	<sections>
+		<section>
+			<number>1</number>
+			<shiftable>false</shiftable>
+			<summary/>
+			<text>
+				<p order="1">@@</p>
+				<p order="2">i01:こいし:何の変哲もない、石だ</p>
+				<p order="3">i02:ひとにぎりのすな:グーランの、なれの果てだ</p>
+				<p order="4">i03:きのぼう:豚（猫）いじめのための?棒</p>
+				<p order="5">i04:かれは:どこかで懐に紛れ込んだのだろうか？</p>
+				<p order="6"/>
+				<p order="7">f01:「☆」の道を調べた。</p>
+				<p order="8">f02:「〇」の道で、ジャイアントラットを倒した。</p>
+				<p order="9">f03:「＊」の道で、怖い目を見た。</p>
+				<p order="10">f04:「◎」の道で、豚（猫）を助けた。</p>
+				<p order="11"/>
+				<p order="12">m01:人面岩:地:物理:L-STR:喋るだけで、硬い岩だ。</p>
+				<p order="13">m02:人面岩の口:霊:魔法:R-INT:喋る口だ。牙はない。</p>
+				<p order="14">m03:投げた石:地:物理:L+R-STR:君が投げた石だ。</p>
+				<p order="15">m04:一寸怒ったラット:地:物理:L-STR:ガジガジたち。一見、可愛い。</p>
+				<p order="16"/>
+				<p order="17">r01:冒険のはじまり:1:冒険を開始した</p>
+				<p order="18">r02:いしのなかにいる！:2:凹んだ床を踏んでみた</p>
+				<p order="19">r03:初めてのミッションクリア:3:最初の罠を回避した</p>
+				<p order="20">r04:エティスの溜め息:4:人面岩の謎解きを断った</p>
+				<p order="21">r05:人面岩の顔も3度まで:5:人面岩の謎を3度間違えた</p>
+				<p order="22"/>
+				<p order="23">w:ダンジョン:bgm:Az:venusaz.seesaa.net/</p>
+				<p order="24">w:グーラン:picture:Falcom:</p>
+				<p order="25">@@</p>
+				<p order="26"/>
+				<p order="27"># タイトルテスト1</p>
+				<p order="28">## タイトルテスト2</p>
+				<p order="29">### タイトルテスト3</p>
+				<p order="30"/>
+				<p order="31">文章です。</p>
+				<p order="32">**強調**です。</p>
+				<p order="33"/>
+				<p order="34">---</p>
+				<p order="35"/>
+				<p order="36">- 自動リンクのテスト（http://d.hatena.ne.jp/sorcerian/20180128）</p>
+				<p order="37"/>
+				<p order="38">1. みんな、%blue%ソーサリアン%/%！</p>
+				<p order="39">2. みんな、%red%ソーサリアン%/%！</p>
+				<p order="40">3. みんな、%purple%ソーサリアン%/%！</p>
+				<p order="41"/>
+				<p order="42">自由移動欄からは500、600、700に移動できます。</p>
+			</text>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices>
+				<choice>
+					<text>
+						<p order="1">標準リンク</p>
+					</text>
+					<destination>2</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">ランダムリンク@@101,102</p>
+					</text>
+					<destination>100</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">別ファイルへのリンク</p>
+					</text>
+					<destination>3</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">500,600,700</p>
+					</text>
+					<destination>999</destination>
+					<hidden>false</hidden>
+				</choice>
+			</choices>
+		</section>
+		<section>
+			<number>2</number>
+			<shiftable>true</shiftable>
+			<summary>標準リンク</summary>
+			<text>
+				<p order="1">@@</p>
+				<p order="2">@flags:f01,f02</p>
+				<p order="3">@items:i01,i02,i03</p>
+				<p order="4">@enemies:m01,m02,m03</p>
+				<p order="5">@result:r01</p>
+				<p order="6">@bgm:</p>
+				<p order="7">@@</p>
+				<p order="8"/>
+				<p order="9">-魔法ボタンの確認（HEAL、LIGHT-CROSS）</p>
+				<p order="10">-フラグf01、f02を設定</p>
+				<p order="11">-アイテムi01、i02、i03を設定</p>
+				<p order="12">-実績r01を設定</p>
+				<p order="13"/>
+				<p order="14">![キャプチャ埋め込み例](stext.png)</p>
+				<p order="15"/>
+			</text>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices>
+				<choice>
+					<text>
+						<p order="1">HEAL有効@mHEAL</p>
+					</text>
+					<destination>4</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">CHANGE-AIR有効@mCHANGE-AIR</p>
+					</text>
+					<destination>5</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">次ページでフラグ／アイテム確認</p>
+					</text>
+					<destination>6</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">エンディング（Happy）</p>
+					</text>
+					<destination>7</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">エンディング（Bad）</p>
+					</text>
+					<destination>8</destination>
+					<hidden>false</hidden>
+				</choice>
+			</choices>
+		</section>
+		<section>
+			<number>3</number>
+			<shiftable>true</shiftable>
+			<summary>link</summary>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>4</number>
+			<shiftable>true</shiftable>
+			<summary>HEAL</summary>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>5</number>
+			<shiftable>true</shiftable>
+			<summary>CHANGE-AIR</summary>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>6</number>
+			<shiftable>true</shiftable>
+			<summary>フラグ／アイテム</summary>
+			<text>
+				<p order="1">@@</p>
+				<p order="2">@items:-i03</p>
+				<p order="3">@bgm:last</p>
+				<p order="4">@@</p>
+				<p order="5"/>
+				<p order="6">-BGMが変更</p>
+				<p order="7">-アイテムi03を削除</p>
+				<p order="8"/>
+				<p order="9"/>
+				<p order="10"/>
+			</text>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices>
+				<choice>
+					<text>
+						<p order="1">アイテム／フラグ分岐</p>
+					</text>
+					<destination>9</destination>
+					<hidden>false</hidden>
+				</choice>
+			</choices>
+		</section>
+		<section>
+			<number>7</number>
+			<shiftable>true</shiftable>
+			<summary>エンディング（Happy）</summary>
+			<text>
+				<p order="1">@@</p>
+				<p order="2">@end:happy</p>
+				<p order="3">@@</p>
+				<p order="4"/>
+				<p order="5">ハッピーエンドです！</p>
+				<p order="6"/>
+				<p order="7"/>
+			</text>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>8</number>
+			<shiftable>true</shiftable>
+			<summary>エンディング（Bad）</summary>
+			<text>
+				<p order="1">@@</p>
+				<p order="2">@end:bad</p>
+				<p order="3">@@</p>
+				<p order="4"/>
+				<p order="5">バッドエンドです！</p>
+				<p order="6"/>
+			</text>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>9</number>
+			<shiftable>true</shiftable>
+			<summary>アイテム／フラグ分岐</summary>
+			<text>
+				<p order="1">@@</p>
+				<p order="2">@se:do</p>
+				<p order="3">@@</p>
+				<p order="4"/>
+				<p order="5">-効果音doを再生</p>
+				<p order="6">-フラグ、アイテムによる分岐（詳細はソースを確認）</p>
+				<p order="7"/>
+			</text>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices>
+				<choice>
+					<text>
+						<p order="1">フラグ分岐（f01）@f01</p>
+					</text>
+					<destination>14</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">×フラグ分岐（f05）@f05</p>
+					</text>
+					<destination>19</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">フラグ分岐（-f05）@-f05</p>
+					</text>
+					<destination>15</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">×フラグ分岐（-f01）@-f01</p>
+					</text>
+					<destination>20</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">フラグ分岐（f01,f02）@f01,f02</p>
+					</text>
+					<destination>10</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">×フラグ分岐（f01,f02,f03）@f01,f02,f03</p>
+					</text>
+					<destination>21</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">フラグ分岐（-f01,f02,f03）@-f01,f02,f03</p>
+					</text>
+					<destination>11</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">×フラグ分岐（f01,f02,f03）@f01,f02,f03</p>
+					</text>
+					<destination>22</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">アイテム分岐（i01）@i01</p>
+					</text>
+					<destination>17</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">×アイテム分岐（i05）@i05</p>
+					</text>
+					<destination>23</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">アイテム分岐（-i05）@-i05</p>
+					</text>
+					<destination>18</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">×アイテム分岐（-i01）@-i01</p>
+					</text>
+					<destination>24</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">アイテム分岐（i01,i02）@i01,i02</p>
+					</text>
+					<destination>12</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">×アイテム分岐（i01,i02,i03）@i01,i02,i03</p>
+					</text>
+					<destination>25</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">アイテム分岐（-i01,i02,i03）@-i01,i02,i03</p>
+					</text>
+					<destination>13</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">×アイテム分岐（-i01,i02）@-i01,i02</p>
+					</text>
+					<destination>26</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">フラグ／アイテム混在(i01,f01)@i01,f01</p>
+					</text>
+					<destination>27</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">フラグ／アイテム混在(-i01,f03)@i01,f03</p>
+					</text>
+					<destination>28</destination>
+					<hidden>false</hidden>
+				</choice>
+			</choices>
+		</section>
+		<section>
+			<number>10</number>
+			<shiftable>true</shiftable>
+			<summary>フラグ分岐（f1,f2）@f1,f2</summary>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>11</number>
+			<shiftable>true</shiftable>
+			<summary>フラグ分岐（-f01,f02,f03）@-f01,f02,f03</summary>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>12</number>
+			<shiftable>true</shiftable>
+			<summary>アイテム分岐（i01,i02）@i01,i02</summary>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>13</number>
+			<shiftable>true</shiftable>
+			<summary>アイテム分岐（-i01,i02,i03）@-i01,i02,i03</summary>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>14</number>
+			<shiftable>true</shiftable>
+			<summary>フラグ分岐（f01）@f01</summary>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>15</number>
+			<shiftable>true</shiftable>
+			<summary>フラグ分岐（-f05）@-f05</summary>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>16</number>
+			<shiftable>true</shiftable>
+			<summary/>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>17</number>
+			<shiftable>true</shiftable>
+			<summary>アイテム分岐（i01）@i01</summary>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>18</number>
+			<shiftable>true</shiftable>
+			<summary>アイテム分岐（i05）@-i05</summary>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>19</number>
+			<shiftable>true</shiftable>
+			<summary>×フラグ分岐（f05）@f05</summary>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>20</number>
+			<shiftable>true</shiftable>
+			<summary>×フラグ分岐（-f01）@-f01</summary>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>21</number>
+			<shiftable>true</shiftable>
+			<summary>×フラグ分岐（f01,f02,f03）@f01,f02,f03</summary>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>22</number>
+			<shiftable>true</shiftable>
+			<summary>×フラグ分岐（f01,f02,f03）@f01,f02,f03</summary>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>23</number>
+			<shiftable>true</shiftable>
+			<summary>×アイテム分岐（i05）@i05</summary>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>24</number>
+			<shiftable>true</shiftable>
+			<summary>×アイテム分岐（-i01）@-i01</summary>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>25</number>
+			<shiftable>true</shiftable>
+			<summary>アイテム分岐（i01,i02,i03）@i01,i02,i03</summary>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>26</number>
+			<shiftable>true</shiftable>
+			<summary>×アイテム分岐（-i01,i02）@-i01,i02</summary>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>27</number>
+			<shiftable>true</shiftable>
+			<summary>フラグ／アイテム混在()</summary>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>28</number>
+			<shiftable>true</shiftable>
+			<summary>フラグ／アイテム混在(-i01,f03)@i01,f03</summary>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>100</number>
+			<shiftable>true</shiftable>
+			<summary>ランダムリンク</summary>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>101</number>
+			<shiftable>true</shiftable>
+			<summary/>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>102</number>
+			<shiftable>true</shiftable>
+			<summary/>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>999</number>
+			<shiftable>true</shiftable>
+			<summary>link</summary>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+	</sections>
+	<footer>
+		<p order="1">Created using the GameBook Authoring Tool</p>
+		<p order="2">http://www.crumblyheadgames.co.uk/the-gamebook-authoring-tool/</p>
+	</footer>
+	<formats>
+		<choice>{{text}}, turn to {{destination}}</choice>
+	</formats>
+	<options>
+		<newpagepersection>false</newpagepersection>
+	</options>
+	<styles>
+		<style name="text">
+			<font>
+				<name>Cambria</name>
+				<size>10</size>
+			</font>
+		</style>
+		<style name="header">
+			<font>
+				<name>Cambria</name>
+				<size>36</size>
+			</font>
+		</style>
+		<style name="footer">
+			<font>
+				<name>Consolas</name>
+				<size>8</size>
+			</font>
+		</style>
+	</styles>
+</book>
