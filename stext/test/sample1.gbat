@@ -95,13 +95,13 @@
 				<p order="6">@bgm:</p>
 				<p order="7">@@</p>
 				<p order="8"/>
-				<p order="9">-魔法ボタンの確認（HEAL、LIGHT-CROSS）</p>
-				<p order="10">-フラグf01、f02を設定</p>
-				<p order="11">-アイテムi01、i02、i03を設定</p>
-				<p order="12">-実績r01を設定</p>
+				<p order="9">- 魔法ボタンの確認（HEAL、LIGHT-CROSS）</p>
+				<p order="10">- フラグf01、f02を設定</p>
+				<p order="11">- アイテムi01、i02、i03を設定</p>
+				<p order="12">- 実績r01を設定</p>
 				<p order="13"/>
 				<p order="14">![キャプチャ埋め込み例](stext.png)</p>
-				<p order="15"/>
+				<p order="15">![キャプチャ埋め込み例（マルチ）](dsc.jpg)</p>
 			</text>
 			<backgroundcolour>#ffffff</backgroundcolour>
 			<choices>
@@ -176,8 +176,8 @@
 				<p order="3">@bgm:last</p>
 				<p order="4">@@</p>
 				<p order="5"/>
-				<p order="6">-BGMが変更</p>
-				<p order="7">-アイテムi03を削除</p>
+				<p order="6">- BGMが変更</p>
+				<p order="7">- アイテムi03を削除</p>
 				<p order="8"/>
 				<p order="9"/>
 				<p order="10"/>
@@ -233,8 +233,8 @@
 				<p order="2">@se:do</p>
 				<p order="3">@@</p>
 				<p order="4"/>
-				<p order="5">-効果音doを再生</p>
-				<p order="6">-フラグ、アイテムによる分岐（詳細はソースを確認）</p>
+				<p order="5">- 効果音doを再生</p>
+				<p order="6">- フラグ、アイテムによる分岐（詳細はソースを確認）</p>
 				<p order="7"/>
 			</text>
 			<backgroundcolour>#ffffff</backgroundcolour>

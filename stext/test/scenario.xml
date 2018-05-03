@@ -30,13 +30,13 @@
 [500,600,700](X)
 </scene><scene id="2" items="i01,i02,i03" flags="f01,f02" enemies="m01,m02,m03" bgm="" result="r01">
 
--魔法ボタンの確認（HEAL、LIGHT-CROSS）
--フラグf01、f02を設定
--アイテムi01、i02、i03を設定
--実績r01を設定
+- 魔法ボタンの確認（HEAL、LIGHT-CROSS）
+- フラグf01、f02を設定
+- アイテムi01、i02、i03を設定
+- 実績r01を設定
 
 ![キャプチャ埋め込み例](stext.png)
-
+![キャプチャ埋め込み例（マルチ）](dsc.jpg)
 
 [HEAL有効](4 "mHEAL")
 [CHANGE-AIR有効](5 "mCHANGE-AIR")
@@ -49,8 +49,8 @@
 
 </scene><scene id="6" items="-i03" bgm="last">
 
--BGMが変更
--アイテムi03を削除
+- BGMが変更
+- アイテムi03を削除
 
 
 
@@ -69,8 +69,8 @@
 
 </scene><scene id="9" se="do">
 
--効果音doを再生
--フラグ、アイテムによる分岐（詳細はソースを確認）
+- 効果音doを再生
+- フラグ、アイテムによる分岐（詳細はソースを確認）
 
 
 [フラグ分岐（f01）](14 "f01")
