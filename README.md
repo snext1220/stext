@@ -14,6 +14,9 @@ People called this plugin.....**Sorcerian Text**.
 
 ```
 $(function() {
-  $('#main').startGame('ramidia');
+  // Production Mode
+  $('#main').startGame('scepter');
+  // Debug Mode（display debug panel）
+  $('#main').startGame('scepter', true);
 });
 ```

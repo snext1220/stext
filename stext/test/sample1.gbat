@@ -39,7 +39,7 @@
 				<p order="30"/>
 				<p order="31">文章です。</p>
 				<p order="32">**強調**です。</p>
-				<p order="33"/>
+				<p order="33">~~取り消し~~です。</p>
 				<p order="34">---</p>
 				<p order="35"/>
 				<p order="36">- 自動リンクのテスト（http://d.hatena.ne.jp/sorcerian/20180128）</p>
@@ -48,7 +48,7 @@
 				<p order="39">2. みんな、%red%ソーサリアン%/%！</p>
 				<p order="40">3. みんな、%purple%ソーサリアン%/%！</p>
 				<p order="41"/>
-				<p order="42">自由移動欄からは500、600、700に移動できます。</p>
+				<p order="42">&gt; 自由移動欄からは500、600、700に移動できます。</p>
 			</text>
 			<backgroundcolour>#ffffff</backgroundcolour>
 			<choices>
