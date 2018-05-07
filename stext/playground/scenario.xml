@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd" title="動作確認シナリオ" author="Rio"><items>
 <item id="i01" name="こいし">何の変哲もない、石だ</item><item id="i02" name="ひとにぎりのすな">グーランの、なれの果てだ</item><item id="i03" name="きのぼう">豚（猫）いじめのための?棒</item><item id="i04" name="かれは">どこかで懐に紛れ込んだのだろうか？</item></items><flags>
-<flag id="f01">「☆」の道を調べた。</flag><flag id="f02">「〇」の道で、ジャイアントラットを倒した。</flag><flag id="f03">「＊」の道で、怖い目を見た。</flag><flag id="f04">「◎」の道で、豚（猫）を助けた。</flag></flags><enemies>
+<flag id="f01">「☆」の道を調べた。</flag><flag id="f02">「〇」の道で、ジャイアントラットを倒した。</flag><flag id="f03">「＊」の道で、怖い目を見た。</flag><flag id="f04">*隠しフラグ</flag></flags><enemies>
 <enemy id="m01" name="人面岩" element="地" attack="物理" func="L-STR">喋るだけで、硬い岩だ。</enemy><enemy id="m02" name="人面岩の口" element="霊" attack="魔法" func="R-INT">喋る口だ。牙はない。</enemy><enemy id="m03" name="投げた石" element="地" attack="物理" func="L+R-STR">君が投げた石だ。</enemy><enemy id="m04" name="一寸怒ったラット" element="地" attack="物理" func="L-STR">ガジガジたち。一見、可愛い。</enemy></enemies><results>
 <result id="r01" name="冒険のはじまり" level="1">冒険を開始した</result><result id="r02" name="いしのなかにいる！" level="2">凹んだ床を踏んでみた</result><result id="r03" name="初めてのミッションクリア" level="3">最初の罠を回避した</result><result id="r04" name="エティスの溜め息" level="4">人面岩の謎解きを断った</result><result id="r05" name="人面岩の顔も3度まで" level="5">人面岩の謎を3度間違えた</result></results><license>
-<work name="ダンジョン" category="bgm" creator="Az" url="venusaz.seesaa.net/"></work><work name="グーラン" category="picture" creator="Falcom" url=""></work></license>
+<work name="ダンジョン" category="bgm" creator="Az" url="venusaz.seesaa.net/"></work><work name="グーラン" category="picture" creator="Falcom"></work></license>
 <scene id="0">
 
 # タイトルテスト1
@@ -48,11 +48,11 @@ HEAL実行
 
 </scene><scene id="5">
 
-</scene><scene id="6" items="-i03" bgm="last">
+</scene><scene id="6" items="-i03" flags="f04" bgm="last">
 
 - BGMが変更
+- 隠しフラグf04を追加（ステータス画面からは見られない）
 - アイテムi03を削除
-
 
 
 

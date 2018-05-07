@@ -16,7 +16,7 @@
 				<p order="7">f01:「☆」の道を調べた。</p>
 				<p order="8">f02:「〇」の道で、ジャイアントラットを倒した。</p>
 				<p order="9">f03:「＊」の道で、怖い目を見た。</p>
-				<p order="10">f04:「◎」の道で、豚（猫）を助けた。</p>
+				<p order="10">f04:*隠しフラグ</p>
 				<p order="11"/>
 				<p order="12">m01:人面岩:地:物理:L-STR:喋るだけで、硬い岩だ。</p>
 				<p order="13">m02:人面岩の口:霊:魔法:R-INT:喋る口だ。牙はない。</p>
@@ -174,15 +174,16 @@
 			<summary>フラグ／アイテム</summary>
 			<text>
 				<p order="1">@@</p>
-				<p order="2">@items:-i03</p>
-				<p order="3">@bgm:last</p>
-				<p order="4">@@</p>
-				<p order="5"/>
-				<p order="6">- BGMが変更</p>
-				<p order="7">- アイテムi03を削除</p>
-				<p order="8"/>
-				<p order="9"/>
+				<p order="2">@flags:f04</p>
+				<p order="3">@items:-i03</p>
+				<p order="4">@bgm:last</p>
+				<p order="5">@@</p>
+				<p order="6"/>
+				<p order="7">- BGMが変更</p>
+				<p order="8">- 隠しフラグf04を追加（ステータス画面からは見られない）</p>
+				<p order="9">- アイテムi03を削除</p>
 				<p order="10"/>
+				<p order="11"/>
 			</text>
 			<backgroundcolour>#ffffff</backgroundcolour>
 			<choices>
