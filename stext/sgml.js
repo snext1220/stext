@@ -699,7 +699,8 @@
 
       // エンディングフラグ
       save_data.isEnded = true;
-      localStorage.removeItem(scenario_code);
+      Util.saveStorage();
+      //localStorage.removeItem(scenario_code);
 
       // ボーナスアイテムの選択
       var bonus_item, o_bonus_item, audio_path;
@@ -1426,16 +1427,20 @@
       
         // ストレージに情報がある場合は続きから再開
         if (localStorage[scenario_code]) {
-          if (confirm('以前のデータが残っています。' +
-              '\r続きから開始しますか？')) {
-            Util.loadStorage();
-            Util.initDialog();
-            // 再開時に経過日数の加算分を減算
-            save_data.ellapsed_scene--;
-            var num = save_data.scene;
-            Util.createScene(num);
-            history.pushState(num, 'Scene ' + num);
-            return;
+          Util.loadStorage();
+          // エンディングに到達済みの場合は強制初期化
+          if (!save_data.isEnded) {
+            if (confirm('以前のデータが残っています。' +
+                '\r続きから開始しますか？')) {
+              //Util.loadStorage();
+              Util.initDialog();
+              // 再開時に経過日数の加算分を減算
+              save_data.ellapsed_scene--;
+              var num = save_data.scene;
+              Util.createScene(num);
+              history.pushState(num, 'Scene ' + num);
+              return;
+            }
           }
         }
       
