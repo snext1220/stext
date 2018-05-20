@@ -981,9 +981,7 @@
       if(!bgm ||
         (bgm && new_bgm !== undefined && new_bgm !== save_data.bgm)) {
         Util.playBgm(audio_path);
-        if (new_bgm === undefined) {
-          save_data.bgm = '';
-        } else {
+        if (new_bgm !== undefined) {
           save_data.bgm = new_bgm;
         }
       }
