@@ -98,10 +98,13 @@
 				<p order="7">@@</p>
 				<p order="8"/>
 				<p order="9">- 魔法ボタンの確認（HEAL、LIGHT-CROSS）</p>
-				<p order="10">- フラグf01、f02を設定</p>
-				<p order="11">- アイテムi01、i02、i03を設定</p>
-				<p order="12">- 実績r01を設定</p>
-				<p order="13"/>
+				<p order="10">- ステータスボタンの確認（STR&lt;5、HP&gt;50）</p>
+				<p order="11">- 文字列入力欄の確認（正答はペンタウァ）</p>
+				<p order="12">- フラグf01、f02を設定</p>
+				<p order="13">- アイテムi01、i02、i03を設定</p>
+				<p order="14">- 実績r01を設定</p>
+				<p order="15"/>
+				<p order="16"/>
 			</text>
 			<backgroundcolour>#ffffff</backgroundcolour>
 			<choices>
@@ -114,9 +117,37 @@
 				</choice>
 				<choice>
 					<text>
+						<p order="1">HEAL無効@-mHEAL</p>
+					</text>
+					<destination>29</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
 						<p order="1">CHANGE-AIR有効@mCHANGE-AIR</p>
 					</text>
 					<destination>5</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">STRが5未満@oSTR5-</p>
+					</text>
+					<destination>41</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">HPが50より大きい@oHP50+</p>
+					</text>
+					<destination>41</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">ペンタウァ,42,43</p>
+					</text>
+					<destination>998</destination>
 					<hidden>false</hidden>
 				</choice>
 				<choice>
@@ -556,6 +587,50 @@
 			<choices/>
 		</section>
 		<section>
+			<number>29</number>
+			<shiftable>true</shiftable>
+			<summary>HEAL無効@-mHEAL</summary>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>30</number>
+			<shiftable>true</shiftable>
+			<summary/>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>41</number>
+			<shiftable>true</shiftable>
+			<summary/>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>42</number>
+			<shiftable>true</shiftable>
+			<summary/>
+			<text>
+				<p order="1">正解！</p>
+			</text>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>43</number>
+			<shiftable>true</shiftable>
+			<summary/>
+			<text>
+				<p order="1">不正解...</p>
+			</text>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
 			<number>100</number>
 			<shiftable>true</shiftable>
 			<summary>ランダムリンク</summary>
@@ -608,6 +683,14 @@
 				<p order="4">![キャプチャ埋め込み例（マルチ）](dsc.jpg)</p>
 				<p order="5"/>
 			</text>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>998</number>
+			<shiftable>true</shiftable>
+			<summary>STRが5未満@oSTR5-</summary>
+			<text/>
 			<backgroundcolour>#ffffff</backgroundcolour>
 			<choices/>
 		</section>

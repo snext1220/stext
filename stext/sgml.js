@@ -863,6 +863,17 @@
         .add('#toscene')
         .wrapAll('<div></div>');
 
+      // 文字列入力用ボタンの整形
+      var tmp_strinput = $('a[href="Q"]', target);
+      tmp_strinput
+        .removeClass('scenebtn')
+        .addClass('quest_str')
+        .attr('data-yesno', tmp_strinput.text())
+        .text('回答する')
+        .before('<input type="text" id="stranswer" class="quest_str" />')
+        .add('#stranswer')
+        .wrapAll('<div></div>');
+
       // 挿絵の整形
       var a_img = $('a:has(img)', target);
       a_img.each(function(index, elem) {
@@ -954,8 +965,29 @@
       for(var key in Common.magic) {
         if (Util.canUseMagic(Common.magic[key])) {
           $('a[title="m' + key + '"]', target).show();
+          $('a[title="-m' + key + '"]', target).hide();
         }
       }
+
+      // ステータスが条件を満たしている場合にだけボタンを表示
+      var status_switch = $('a[title^="o"]', target);
+      status_switch.each(function(index, elem) {
+        var cond = $(elem).attr('title');
+        // 「oSTR6+」のような文字列を分解
+        var cond_set = cond.match(
+          /o(hp|mp|str|int|dex|krm)\s*(\d{1,})(\+|-)\s*/i);
+        var current_value = save_data.chara[cond_set[1].toLowerCase()];
+        // 「-」であれば指定値未満か、「+」であれば指定値より大きいかを判定
+        if (cond_set[3] === '-') {
+          if (current_value < Number(cond_set[2])) {
+            $(elem).show();
+          }
+        } else {
+          if (current_value > Number(cond_set[2])) {
+            $(elem).show();
+          }
+        }
+      });
 
       /* BGM再生 */
       // 再生すべきBGMのパスを生成
@@ -1055,6 +1087,12 @@
         // 履歴に追加
         history.pushState(num, 'Scene ' + num);
         Util.createScene(num);
+
+        // BGMが再生中でなければ強制的に再生
+        if (bgm && bgm.paused && global_save_data.bgm) {
+          bgm.play();
+        }
+
         e.preventDefault();
       });
 
@@ -1068,6 +1106,20 @@
         } else {
           Util.toast('指定された番号には移動できないようだ');
         }
+        e.preventDefault();
+      });
+
+      // 回答の成否を判定（文字列入力ボックス）
+      target.on('click', 'a.quest_str', function(e) {
+        var answer = $('#stranswer').val();
+        var yn = $(this).attr('data-yesno').split(',');
+        if(answer === yn[0]) {
+          var to_move = yn[1];
+        } else {
+          var to_move = yn[2];
+        }
+        history.pushState(to_move, 'Scene ' + to_move);
+        Util.createScene(to_move);
         e.preventDefault();
       });
 
@@ -1591,11 +1643,15 @@
                 var caption = $('text p', cho).text().trim().split('@');
                 var dest = $('destination', cho).text();
 
-                // 「999」は自由移動ボックス、それ以外はリンクボタン
+                // 「999」は自由移動ボックス、「998」は文字列入力欄、それ以外はリンクボタン
                 if (dest === '999') {
                   var tmp = '[';
                   tmp += caption[0];
                   tmp += '](X)\n';
+                } else if (dest === '998') {
+                  var tmp = '[';
+                  tmp += caption[0];
+                  tmp += '](Q)\n';
                 } else {
                   var tmp = '[';
                   tmp += caption[0];

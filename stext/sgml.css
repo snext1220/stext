@@ -60,10 +60,16 @@ input.scene_move {
   background-color: #ff9;  
 }
 
-a.scene_move {
+input.quest_str {
+  width: 80%;
+  height: 20px;
+  background-color: #0fc;  
 }
 
-.scene_move {
+a.scene_move, a.quest_str {
+}
+
+.scene_move, .quest_str {
   text-align: center;
   margin: 3px;
   padding: 5px;
