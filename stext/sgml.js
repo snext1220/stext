@@ -682,17 +682,17 @@
       if(!result) { return; }
 
       // エンディングでライセンス情報を表示
-      console.log('***********License Info.***********');
-      var tmp_license = { 'bgm': '音楽', 'picture': '画像' };
-      $('license work', scenario_data).each(function() {
-        var license_url = $(this).attr('url');
+      console.log('***********Licence Info.***********');
+      var tmp_licence = { 'bgm': '音楽', 'picture': '画像' };
+      $('licence > work', scenario_data).each(function() {
+        var licence_url = $(this).attr('url');
         console.log($(this).attr('name') +
-          '(' + tmp_license[$(this).attr('category')] + '): ' +
-          $(this).attr('creator') + ' '
-          + (license_url !== undefined ? license_url : '')
+          '(' + tmp_licence[$(this).attr('category')] + '): ' +
+          $(this).attr('creator') + ' ' +
+          (licence_url !== undefined ? licence_url : '')
         );        
       });
-      console.log('***********License Info.***********');
+      console.log('***********Licence Info.***********');
 
       $('<p><a href="#" onclick="location.reload(true)" class="scenebtn">' +
         '最初から冒険に挑戦する</a></p>').insertBefore($('#cubes', target));
@@ -809,7 +809,6 @@
         $('#control_panel').hide();
       }
 
-      console.log('debug:' + debug_mode);
       // デバッグモードが有効の場合、デバッグウィンドウを表示
       if(debug_mode) {
         $('<div id="debug_panel"><form>' +
@@ -1062,7 +1061,7 @@
       // エンディング処理
       Util.endScenario(scene.attr('end'));
 
-      console.log(save_data);
+      //console.log(save_data);
     }
   };
 
@@ -1075,6 +1074,12 @@
       target = this;
       if(!debug) { debug = false; }
       debug_mode = debug;
+
+      // ストレージの有効化を確認（Ping）
+      localStorage['stext_ping'] = Date.now();
+      while (localStorage['stext_ping'] === undefined) {
+        var tmp = localStorage['stext_ping'];
+      }
 
       /** EventListener **/
       // 移動ボタンをクリックで次のシーンに移動
@@ -1403,7 +1408,6 @@
       var done_read = function(result) {
         // シナリオデータを取得
         scenario_data = result;
-        //console.log(scenario_data);
 
         // 魔法の星を演算（配列末尾に「星の種類 数...」を設定）
         for(var key in Common.magic) {
@@ -1423,7 +1427,6 @@
         $('flags > flag', scenario_data).each(function() {
           flags_map[$(this).attr('id')] = $(this).text().trim();
         });
-        //console.log(flags_map);
       
         // モンスター覧を取得
         enemies_map = {};
@@ -1436,7 +1439,6 @@
             desc: $(this).text()
           }
         });
-        //console.log(enemies_map);
       
         // アイテム一覧を取得
         items_map = {};
@@ -1446,7 +1448,6 @@
             desc: $(this).text().trim()
           };
         });
-        //console.log(items_map);
 
         // 実績一覧を取得
         results_map = {};
@@ -1457,12 +1458,11 @@
             desc: $(this).text().trim()
           };
         });
-        //console.log(results_map);
 
         // デバッグモードではシナリオのデータ検証
         if (debug_mode === true) {
           var errors = Util.validateScenario();
-          console.log('検証結果' + errors);
+          //console.log('検証結果' + errors);
           if (errors.length !== 0) {
             var msgs = '<h3>scenario.xmlでエラーが検出されました。</h3>';
             msgs += '<ul class="errorlist">';
