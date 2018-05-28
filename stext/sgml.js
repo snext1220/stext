@@ -1700,8 +1700,10 @@
               callback(result);
             // さもなければ、ダウンロード処理
             } else {
-              var content = '<?xml version="1.0" encoding="utf-8"?>\n' +
-                result.get(0).outerHTML;
+              var content = vkbeautify.xml(
+                '<?xml version="1.0" encoding="utf-8"?>\n' +
+                result.get(0).outerHTML
+              );
               var blob = new Blob([ content ], { 'type': 'application/octet-stream' });
               //location.href = window.URL.createObjectURL(blob);
               var anchor = document.createElement('a');
