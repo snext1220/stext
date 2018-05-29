@@ -26,6 +26,13 @@
 自由移動欄からは500、600、700に移動できます。
 ```
 
+[HEAL,STR5+](4 "mHEAL,oSTR5+")
+[HEAL,STR5+どちらかNG](4 "-mHEAL,oSTR5+")
+[HEAL,CURE有効](4 "mHEAL,mCURE")
+[HEAL,F01有効](4 "mHEAL,f01")
+[HEAL,F01どちらかNG](4 "-mHEAL,f01")
+[HEAL,CUREどちらかNG](4 "-mHEAL,mCURE")
+
 [標準リンク](2)
 [ランダムリンク](100,101,102)
 [別ファイルへのリンク](3)
@@ -38,7 +45,6 @@
 - フラグf01、f02を設定
 - アイテムi01、i02、i03を設定
 - 実績r01を設定
-
 
 
 [HEAL有効](4 "mHEAL")

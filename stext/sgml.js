@@ -343,6 +343,31 @@
       }
     },
 
+    // 指定された魔法を利用できるかを判定（引数はm＜魔法名＞）
+    canUseMagicByName: function(name) {
+      if (name.indexOf('m') === 0) {
+        return Util.canUseMagic(Common.magic[name.substring(1)]);
+      }
+      return false;
+    },
+
+    // 指定されたステータス条件を満たしているかを判定（引数はo＜条件＞）
+    ifStatus: function(cond) {
+      if (cond.indexOf('o') === 0) {
+        // 「oSTR6+」のような文字列を分解
+        var cond_set = cond.match(
+          /o(hp|mp|str|int|dex|krm)\s*(\d{1,})(\+|-)\s*/i);
+        var current_value = save_data.chara[cond_set[1].toLowerCase()];
+        // 「-」であれば指定値未満か、「+」であれば指定値より大きいかを判定
+        if (cond_set[3] === '-') {
+          return current_value < Number(cond_set[2]);
+        } else {
+          return current_value > Number(cond_set[2]);
+        }
+      }
+      return false;
+    },
+
     // @items属性（at_items）の値に応じて、セーブデータのitemsプロパティを更新
     updateItems: function(at_items) {
       if(!at_items) { return; }
@@ -927,7 +952,9 @@
           var multi_ids_values = multi_ids.split(',');
           for (var i = 0; i < multi_ids_values.length; i++) {
             if (flags.indexOf(multi_ids_values[i].trim()) === -1 &&
-              items.indexOf(multi_ids_values[i].trim()) === -1) {
+              items.indexOf(multi_ids_values[i].trim()) === -1 &&
+              !Util.canUseMagicByName(multi_ids_values[i].trim()) &&
+              !Util.ifStatus(multi_ids_values[i].trim())) {
               show_flag = false;
               break;
             }
@@ -942,7 +969,9 @@
           var multi_ids_values = multi_ids.substring(1).split(',');
           for (var i = 0; i < multi_ids_values.length; i++) {
             if (flags.indexOf(multi_ids_values[i].trim()) === -1 &&
-              items.indexOf(multi_ids_values[i].trim()) === -1) {
+              items.indexOf(multi_ids_values[i].trim()) === -1 &&
+              !Util.canUseMagicByName(multi_ids_values[i].trim()) &&
+              !Util.ifStatus(multi_ids_values[i].trim())) {
               hide_flag = false;
               break;
             }
@@ -1506,7 +1535,9 @@
       scenario_code = scenario_code.trim();
       // 文字列が渡された場合には、シナリオデータとして処理
       if (scenario_code.indexOf('<') === 0) {
-        var tmp_data = $(scenario_code);
+        //var tmp_data = $(scenario_code);
+        var parser = new DOMParser();
+        var tmp_data = parser.parseFromString(scenario_code, 'text/xml');
         scenario_code = 'playground';
         global_save_data['results']['playground'] = [];
         Util.saveStorageGlobal();
