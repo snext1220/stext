@@ -368,6 +368,18 @@
       return false;
     },
 
+    // 指定された実績を持っているか（引数はr01:scepterの形式）
+    hasResult: function(result) {
+      if (result.indexOf('r') === 0) {
+        var results = result.split(':');
+        var info = global_save_data['results'][results[1].trim()];
+        if (info !== undefined) {
+          return info.indexOf(results[0].trim()) !== -1
+        }
+      }
+      return false;
+    },
+
     // @items属性（at_items）の値に応じて、セーブデータのitemsプロパティを更新
     updateItems: function(at_items) {
       if(!at_items) { return; }
@@ -954,7 +966,9 @@
             if (flags.indexOf(multi_ids_values[i].trim()) === -1 &&
               items.indexOf(multi_ids_values[i].trim()) === -1 &&
               !Util.canUseMagicByName(multi_ids_values[i].trim()) &&
-              !Util.ifStatus(multi_ids_values[i].trim())) {
+              !Util.ifStatus(multi_ids_values[i].trim()) &&
+              !Util.ifStatus(multi_ids_values[i].trim()) &&
+              !Util.hasResult(multi_ids_values[i].trim())) {
               show_flag = false;
               break;
             }
@@ -971,7 +985,8 @@
             if (flags.indexOf(multi_ids_values[i].trim()) === -1 &&
               items.indexOf(multi_ids_values[i].trim()) === -1 &&
               !Util.canUseMagicByName(multi_ids_values[i].trim()) &&
-              !Util.ifStatus(multi_ids_values[i].trim())) {
+              !Util.ifStatus(multi_ids_values[i].trim()) &&
+              !Util.hasResult(multi_ids_values[i].trim())) {
               hide_flag = false;
               break;
             }
@@ -996,6 +1011,24 @@
           $('a[title="-m' + key + '"]', target).hide();
         }
       }
+
+      // 指定の実績を保持している場合にだけボタンを表示
+      var result_switch = $('a[title^="r"]', target);
+      result_switch.each(function(index, elem) {
+        var result = $(elem).attr('title');
+        if (Util.hasResult(result)) {
+          $(elem).show();
+        }
+      });
+
+      // 指定の実績を保持していない場合にだけボタンを表示
+      var result_switch_not = $('a[title^="-r"]', target);
+      result_switch_not.each(function(index, elem) {
+        var result = $(elem).attr('title').substring(1);
+        if (Util.hasResult(result)) {
+          $(elem).hide();
+        }
+      });
 
       // ステータスが条件を満たしている場合にだけボタンを表示
       var status_switch = $('a[title^="o"]', target);

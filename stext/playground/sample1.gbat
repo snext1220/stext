@@ -77,6 +77,13 @@
 				</choice>
 				<choice>
 					<text>
+						<p order="1">複合条件の検証</p>
+					</text>
+					<destination>50</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
 						<p order="1">500,600,700</p>
 					</text>
 					<destination>999</destination>
@@ -145,13 +152,6 @@
 				</choice>
 				<choice>
 					<text>
-						<p order="1">ペンタウァ,42,43</p>
-					</text>
-					<destination>998</destination>
-					<hidden>false</hidden>
-				</choice>
-				<choice>
-					<text>
 						<p order="1">次ページでフラグ／アイテム確認</p>
 					</text>
 					<destination>6</destination>
@@ -169,6 +169,13 @@
 						<p order="1">エンディング（Bad）</p>
 					</text>
 					<destination>8</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">ペンタウァ,42,43</p>
+					</text>
+					<destination>998</destination>
 					<hidden>false</hidden>
 				</choice>
 			</choices>
@@ -603,6 +610,14 @@
 			<choices/>
 		</section>
 		<section>
+			<number>31</number>
+			<shiftable>true</shiftable>
+			<summary>r01、r02揃ってない@-r01:scepter,r02:tempest</summary>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
 			<number>41</number>
 			<shiftable>true</shiftable>
 			<summary/>
@@ -627,6 +642,79 @@
 			<text>
 				<p order="1">不正解...</p>
 			</text>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>50</number>
+			<shiftable>true</shiftable>
+			<summary/>
+			<text>
+				<p order="1">@@</p>
+				<p order="2">@@</p>
+				<p order="3"/>
+				<p order="4"># 実績／魔法の複合条件</p>
+				<p order="5"/>
+				<p order="6">以下の条件でボタンを表示します。</p>
+				<p order="7"/>
+				<p order="8">- 実績r01:scepter（冒険の始まり）、r02:tempest（命あっての物種）あり</p>
+				<p order="9">- r01、r02揃わず</p>
+				<p order="10">- r01、HEAL利用可</p>
+				<p order="11">- i03、HEAL揃わず</p>
+				<p order="12">- r01、STR&gt;5</p>
+				<p order="13">- r01、STR&gt;5揃わず</p>
+			</text>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices>
+				<choice>
+					<text>
+						<p order="1">r01、r02あり@r01:scepter,r02:tempest</p>
+					</text>
+					<destination>51</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">r01、r02揃ってない@-r01:scepter,r02:tempest</p>
+					</text>
+					<destination>51</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">r01、HEAL@r01:scepter,mHEAL</p>
+					</text>
+					<destination>51</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">i03、HEAL揃わず@-i03,mHEAL</p>
+					</text>
+					<destination>51</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">r01、STR5+@r01:scepter,oSTR5+</p>
+					</text>
+					<destination>51</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">r01、STR5+揃わず@-r01:scepter,oSTR5+</p>
+					</text>
+					<destination>51</destination>
+					<hidden>false</hidden>
+				</choice>
+			</choices>
+		</section>
+		<section>
+			<number>51</number>
+			<shiftable>true</shiftable>
+			<summary>r01、r02あり</summary>
+			<text/>
 			<backgroundcolour>#ffffff</backgroundcolour>
 			<choices/>
 		</section>
