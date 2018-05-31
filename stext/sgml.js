@@ -948,14 +948,15 @@
       $('a[title]', target).hide();
       $('a[title^="-"]', target).show();
 
-      // 指定のフラグを所持している場合にだけボタンだけを表示（「-」で所持していない場合に非表示）
-      for (var i = 0; i < flags.length; i++) {
-        $('a[title="' + flags[i] + '"]', target).show();
-        $('a[title="-' + flags[i] + '"]', target).hide();
-      }
+      // // 指定のフラグを所持している場合にだけボタンだけを表示（「-」で所持していない場合に非表示）
+      // for (var i = 0; i < flags.length; i++) {
+      //   $('a[title="' + flags[i] + '"]', target).show();
+      //   $('a[title="-' + flags[i] + '"]', target).hide();
+      // }
 
       // 指定のフラグ＆アイテムを所持している場合にだけボタンを表示（複数フラグ＆アイテム対応）
-      var multi_flags = $('a[title*=","]', target);     
+      //var multi_flags = $('a[title*=","]', target);
+      var multi_flags = $('a[title]', target);
       multi_flags.each(function(index, elem) {
         var multi_ids = $(elem).attr('title');
         if (multi_ids.indexOf('-') !== 0) {
@@ -998,57 +999,77 @@
         }
       });
 
-      // 指定のアイテムを所有している場合にだけボタンを表示（「-」で所持していない場合に非表示）
-      for (var i = 0; i < items.length; i++) {
-        $('a[title="' + items[i] + '"]', target).show();
-        $('a[title="-' + items[i] + '"]', target).hide();
-      }
+      // // 指定のアイテムを所有している場合にだけボタンを表示（「-」で所持していない場合に非表示）
+      // for (var i = 0; i < items.length; i++) {
+      //   $('a[title="' + items[i] + '"]', target).show();
+      //   $('a[title="-' + items[i] + '"]', target).hide();
+      // }
 
-      // 指定の魔法が利用できる場合にだけボタンを表示
-      for(var key in Common.magic) {
-        if (Util.canUseMagic(Common.magic[key])) {
-          $('a[title="m' + key + '"]', target).show();
-          $('a[title="-m' + key + '"]', target).hide();
-        }
-      }
+      // // 指定の魔法が利用できる場合にだけボタンを表示
+      // for(var key in Common.magic) {
+      //   if (Util.canUseMagic(Common.magic[key])) {
+      //     $('a[title="m' + key + '"]', target).show();
+      //     $('a[title="-m' + key + '"]', target).hide();
+      //   }
+      // }
 
-      // 指定の実績を保持している場合にだけボタンを表示
-      var result_switch = $('a[title^="r"]', target);
-      result_switch.each(function(index, elem) {
-        var result = $(elem).attr('title');
-        if (Util.hasResult(result)) {
-          $(elem).show();
+      // // 指定の実績を保持している場合にだけボタンを表示
+      // var result_switch = $('a[title^="r"]', target);
+      // result_switch.each(function(index, elem) {
+      //   var result = $(elem).attr('title');
+      //   if (Util.hasResult(result)) {
+      //     $(elem).show();
+      //   }
+      // });
+
+      // // 指定の実績を保持していない場合にだけボタンを表示
+      // var result_switch_not = $('a[title^="-r"]', target);
+      // result_switch_not.each(function(index, elem) {
+      //   var result = $(elem).attr('title').substring(1);
+      //   if (Util.hasResult(result)) {
+      //     $(elem).hide();
+      //   }
+      // });
+
+      // // ステータスが条件を満たしている場合にだけボタンを表示
+      // var status_switch = $('a[title^="o"]', target);
+      // status_switch.each(function(index, elem) {
+      //   var cond = $(elem).attr('title');
+      //   // 「oSTR6+」のような文字列を分解
+      //   var cond_set = cond.match(
+      //     /o(hp|mp|str|int|dex|krm)\s*(\d{1,})(\+|-)\s* /i);
+      //   var current_value = save_data.chara[cond_set[1].toLowerCase()];
+      //   // 「-」であれば指定値未満か、「+」であれば指定値より大きいかを判定
+      //   if (cond_set[3] === '-') {
+      //     if (current_value < Number(cond_set[2])) {
+      //       $(elem).show();
+      //     }
+      //   } else {
+      //     if (current_value > Number(cond_set[2])) {
+      //       $(elem).show();
+      //     }
+      //   }
+      // });
+
+      // 現時点で非表示になっているボタンを削除
+      $('a[title]:hidden', target).remove();
+      // シーンボタンの間の余計なbrを除去
+      $('.scenebtn + br', target).each(function(index, elem) {
+        var next = elem.nextSibling;
+        while (next !== null && 
+          next.nodeType === 1 &&
+          next.nodeName.toLowerCase() === 'br')
+        /* ||
+          (next.nodeType === 3 &&
+            (next.nodeValue === '' ||
+              (/^[\s\n\r]{1,}$/g).test(next.nodeValue)
+            )
+          ))*/ {
+            $(next).addClass('del');
+            next = next.nextSibling;
         }
       });
-
-      // 指定の実績を保持していない場合にだけボタンを表示
-      var result_switch_not = $('a[title^="-r"]', target);
-      result_switch_not.each(function(index, elem) {
-        var result = $(elem).attr('title').substring(1);
-        if (Util.hasResult(result)) {
-          $(elem).hide();
-        }
-      });
-
-      // ステータスが条件を満たしている場合にだけボタンを表示
-      var status_switch = $('a[title^="o"]', target);
-      status_switch.each(function(index, elem) {
-        var cond = $(elem).attr('title');
-        // 「oSTR6+」のような文字列を分解
-        var cond_set = cond.match(
-          /o(hp|mp|str|int|dex|krm)\s*(\d{1,})(\+|-)\s*/i);
-        var current_value = save_data.chara[cond_set[1].toLowerCase()];
-        // 「-」であれば指定値未満か、「+」であれば指定値より大きいかを判定
-        if (cond_set[3] === '-') {
-          if (current_value < Number(cond_set[2])) {
-            $(elem).show();
-          }
-        } else {
-          if (current_value > Number(cond_set[2])) {
-            $(elem).show();
-          }
-        }
-      });
+      $('br.del').remove();
 
       /* BGM再生 */
       // 再生すべきBGMのパスを生成
