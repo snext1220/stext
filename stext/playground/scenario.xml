@@ -222,6 +222,8 @@ HEAL実行
 - i03、HEAL揃わず
 - r01、STR&gt;5
 - r01、STR&gt;5揃わず
+- r01あり
+- r20:tempestなし
 
 [r01、r02あり](51 "r01:scepter,r02:tempest")
 [r01、r02揃ってない](51 "-r01:scepter,r02:tempest")
@@ -229,6 +231,8 @@ HEAL実行
 [i03、HEAL揃わず](51 "-i03,mHEAL")
 [r01、STR5+](51 "r01:scepter,oSTR5+")
 [r01、STR5+揃わず](51 "-r01:scepter,oSTR5+")
+[r01あり](51 "r01:scepter")
+[r20:tempestなし](51 "-r20:tempest")
 </scene>
 	<scene id="51"></scene>
 	<scene id="100">

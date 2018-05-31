@@ -663,6 +663,8 @@
 				<p order="11">- i03、HEAL揃わず</p>
 				<p order="12">- r01、STR&gt;5</p>
 				<p order="13">- r01、STR&gt;5揃わず</p>
+				<p order="14">- r01あり</p>
+				<p order="15">- r20:tempestなし</p>
 			</text>
 			<backgroundcolour>#ffffff</backgroundcolour>
 			<choices>
@@ -704,6 +706,20 @@
 				<choice>
 					<text>
 						<p order="1">r01、STR5+揃わず@-r01:scepter,oSTR5+</p>
+					</text>
+					<destination>51</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">r01あり@r01:scepter</p>
+					</text>
+					<destination>51</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">r20:tempestなし@-r20:tempest</p>
 					</text>
 					<destination>51</destination>
 					<hidden>false</hidden>
