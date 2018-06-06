@@ -1457,11 +1457,24 @@
       });
 
       // スプラッシュ画面クリック時に音楽を再生
-      $(document).on('touchstart', '.zoombox_mask', function() {
-        if(global_save_data.bgm && bgm.paused) {
-          bgm.play();
+      // $(document).on('touchstart', '.zoombox_mask', function() {
+      //   if(global_save_data.bgm && bgm.paused) {
+      //     bgm.play();
+      //   }
+      // });
+
+      // スプラッシュ画面クリック時に音楽を再生
+      var bgm_error = function(e) {
+        if (e.target.classList.contains('zoombox_mask')) {
+          console.log('music_log');
+          if(bgm != null && bgm.paused && global_save_data.bgm) {
+            console.log('music_error_log');
+            bgm.play();
+          }
         }
-      });
+      };
+      document.addEventListener('click', bgm_error, true);
+      document.addEventListener('touchstart', bgm_error, true);
       /** EventListener **/
 
       // グローバルセーブデータが存在しない場合は初期化
