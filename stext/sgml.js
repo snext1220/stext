@@ -1821,6 +1821,53 @@
         $(reader).on('load', readFile);
         reader.readAsText(inputs[file_num], 'UTF-8');
       });
+    },
+
+    // ストレージ上のセーブデータを「data-xxxxxx.stext」として出力（xxxxxxはタイムスタンプ）
+    // this：ボタン
+    backupData: function() {
+      $(this).click(function() {
+        var content = '';
+        var storage = localStorage;
+        for (var i = 0; i < storage.length; i++) {
+          content += storage.key(i) + '\n';
+          content += storage[storage.key(i)] + '\n';
+        }
+        var blob = new Blob([ content ], { 'type': 'application/octet-stream' });
+        //location.href = window.URL.createObjectURL(blob);
+        var anchor = document.createElement('a');
+        anchor.href = window.URL.createObjectURL(blob);
+        var today = new Date();
+        anchor.download = 'data-' + (new Date()).getTime()  + '.stext';
+        anchor.click();
+      });
+    },
+
+    // バックアップしたセーブデータをストレージに書き戻す
+    // this：ファイル選択ボックス
+    restoreData: function() {
+      $(this).change(function() {
+        var input = this.files[0];
+        var reader = new FileReader();
+        $(reader).on('load', function() {
+          var data = reader.result.split('\n');
+          var key = '';
+          var value = '';
+          var storage = localStorage;
+          for (var i = 0; i < data.length; i++) {
+            if (i % 2 === 0) {
+              key = data[i];
+            } else {
+              value = data[i];
+              if (value) {
+                storage[key] = value;
+                console.log('save');
+              }
+            }
+          }
+        });
+        reader.readAsText(input, 'UTF-8');
+      });      
     }
   });
 })(jQuery);
