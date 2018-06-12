@@ -24,7 +24,7 @@ $(function() {
   //$('#main').startGame('playground', true);
 
   // ストレージデータのバックアップ／リストア（テスト用）
-  $('#backup').backupData();
+  $('#backup').backupData('#scenario');
   $('#restore').restoreData();
 });
 </script>
@@ -34,7 +34,19 @@ $(function() {
   SGML（Sorcerian Gamebook Markup Language） Initialized...
 </div>
 <div style="text-align: center;">
-  <input type="button" id="backup" value="バックアップ" />
+  <select id="scenario">
+    <option value="all">全シナリオデータ</option>
+    <option value="scepter">新・消えた王さまの杖</option>
+    <option value="zero">ゼロの創造</option>
+    <option value="doll">プレアオブ・ドールズ</option>
+    <option value="tempest">災厄の夜 - テンペスト・ナイト</option>
+    <option value="hero">少女は英雄を語りて</option>
+    <option value="vampire">鉄腕の吸血姫</option>
+    <option value="slayer">その名はドラゴンスレイヤー</option>
+    <option value="ramidia">ラミディアの魔法使い</option>
+    <option value="trial">STextシナリオ開発道場</option>
+  </select>
+  <input type="button" id="backup" value="バックアップ" />／
   <input type="file" id="restore" accept=".stext" value="リストア" />
 </div>
 </body>

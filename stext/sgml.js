@@ -1825,20 +1825,26 @@
 
     // ストレージ上のセーブデータを「data-xxxxxx.stext」として出力（xxxxxxはタイムスタンプ）
     // this：ボタン
-    backupData: function() {
+    // 引数selector：シナリオコードを表すフォーム要素（セレクター式）
+    backupData: function(selector) {
       $(this).click(function() {
         var content = '';
         var storage = localStorage;
-        for (var i = 0; i < storage.length; i++) {
-          content += storage.key(i) + '\n';
-          content += storage[storage.key(i)] + '\n';
+        var scenario = $(selector).val();
+        if (scenario === 'all') {
+          for (var i = 0; i < storage.length; i++) {
+            content += storage.key(i) + '\n';
+            content += storage[storage.key(i)] + '\n';
+          }
+        } else {
+          console.log(scenario);
+          content = storage[scenario];
         }
         var blob = new Blob([ content ], { 'type': 'application/octet-stream' });
-        //location.href = window.URL.createObjectURL(blob);
         var anchor = document.createElement('a');
         anchor.href = window.URL.createObjectURL(blob);
         var today = new Date();
-        anchor.download = 'data-' + (new Date()).getTime()  + '.stext';
+        anchor.download = scenario + '-' + (new Date()).getTime()  + '.stext';
         anchor.click();
       });
     },
@@ -1848,22 +1854,26 @@
     restoreData: function() {
       $(this).change(function() {
         var input = this.files[0];
+        var fname = input.name.split('-')[0];
         var reader = new FileReader();
         $(reader).on('load', function() {
           var data = reader.result.split('\n');
-          var key = '';
-          var value = '';
           var storage = localStorage;
-          for (var i = 0; i < data.length; i++) {
-            if (i % 2 === 0) {
-              key = data[i];
-            } else {
-              value = data[i];
-              if (value) {
-                storage[key] = value;
-                console.log('save');
+          if (fname === 'all') {
+            var key = '';
+            var value = '';
+            for (var i = 0; i < data.length; i++) {
+              if (i % 2 === 0) {
+                key = data[i];
+              } else {
+                value = data[i];
+                if (value) {
+                  storage[key] = value;
+                }
               }
             }
+          } else {
+            storage[fname] = reader.result;
           }
         });
         reader.readAsText(input, 'UTF-8');
