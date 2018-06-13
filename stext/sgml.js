@@ -1160,8 +1160,10 @@
 
       // ストレージの有効化を確認（Ping）
       localStorage['stext_ping'] = Date.now();
+      console.log(localStorage['stext_ping']);
       while (localStorage['stext_ping'] === undefined) {
-        var tmp = localStorage['stext_ping'];
+        window.alert('ゲームを初期化中です...');
+        console.log(localStorage['stext_ping']);
       }
 
       /** EventListener **/
@@ -1834,7 +1836,10 @@
         if (scenario === 'all') {
           for (var i = 0; i < storage.length; i++) {
             var key = storage.key(i);
-            if (/^[a-z0-9_]+$/gi.test(key) && key !== 'playground_editor') {
+            var value = storage[key];
+            if (/^[a-z0-9_]+$/gi.test(key) &&
+              key !== 'playground_editor' &&
+              /^{(.*)}$/.test(value)) {
               content += key + '\n';
               content += storage[key] + '\n';
             }
