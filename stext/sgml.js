@@ -1837,8 +1837,11 @@
             content += storage[storage.key(i)] + '\n';
           }
         } else {
-          console.log(scenario);
           content = storage[scenario];
+          if (!content) {
+            window.alert('データが存在しません！');
+            return;
+          }
         }
         var blob = new Blob([ content ], { 'type': 'application/octet-stream' });
         var anchor = document.createElement('a');
@@ -1877,6 +1880,7 @@
           }
         });
         reader.readAsText(input, 'UTF-8');
+        window.alert('リストアが完了しました。\n（起動している場合は）ゲーム画面をリロードしてください。');
       });      
     }
   });
