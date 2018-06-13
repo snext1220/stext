@@ -1833,8 +1833,11 @@
         var scenario = $(selector).val();
         if (scenario === 'all') {
           for (var i = 0; i < storage.length; i++) {
-            content += storage.key(i) + '\n';
-            content += storage[storage.key(i)] + '\n';
+            var key = storage.key(i);
+            if (/^[a-z0-9_]+$/gi.test(key) && key !== 'playground_editor') {
+              content += key + '\n';
+              content += storage[key] + '\n';
+            }
           }
         } else {
           content = storage[scenario];
