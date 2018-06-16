@@ -181,7 +181,7 @@
     // グローバルセーブデータをストレージに保存
     saveStorageGlobal: function() {
       storage[GLOBAL_SAVE_DATA_KEY] = JSON.stringify(global_save_data);
-      storage[GLOBAL_SAVE_DATA_KEY + '_double'] = storage[GLOBAL_SAVE_DATA_KEY];
+      //storage[GLOBAL_SAVE_DATA_KEY + '_double'] = storage[GLOBAL_SAVE_DATA_KEY];
     },
 
     // グローバルセーブデータをストレージから取得
@@ -339,6 +339,11 @@
         checkId(results_map, tmp_s.attr('result'), tmp_s.attr('id'));
       });
       return error_messages;
+    },
+
+    // スプラッシュ画面の起動
+    showSplash() {
+      $.zoombox.open(ROOT + COMMON + 'title.png', { duration: 400 });
     },
 
     // 指定された魔法を利用できるかを判定（引数は個々の魔法情報配列）
@@ -1172,10 +1177,12 @@
       debug_mode = debug;
 
       // ストレージの有効化を確認（Ping）
+      /*
       storage['stext_ping'] = Date.now();
       while (storage['stext_ping'] === null) {
         console.log(storage['stext_ping']);
       }
+      */
 
       /** EventListener **/
       // 移動ボタンをクリックで次のシーンに移動
@@ -1479,7 +1486,6 @@
       // スプラッシュ画面クリック時に音楽を再生
       var bgm_error = function(e) {
         if (e.target.classList.contains('zoombox_mask')) {
-          console.log('music_log');
           if(bgm != null && bgm.paused && global_save_data.bgm) {
             console.log('music_error_log');
             bgm.play();
@@ -1509,9 +1515,6 @@
         }
       });
       */
-
-      // スプラッシュ画面の起動
-      $.zoombox.open(ROOT + COMMON + 'title.png', { duration: 400 });
 
       // 初期化処理
       var done_read = function(result) {
@@ -1598,6 +1601,7 @@
               var num = save_data.scene;
               Util.createScene(num);
               history.pushState(num, 'Scene ' + num);
+              Util.showSplash();
               return;
             }
           }
@@ -1609,6 +1613,7 @@
       
         window.alert('キャラが新規作成されました。\r' +
           'ステータスダイアログは画面右クリックで開くことができます。');
+        Util.showSplash();
       };
       
       // シナリオコード
