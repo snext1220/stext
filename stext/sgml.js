@@ -43,6 +43,9 @@
   var bgm;
   var bgm_name; // 名前（bgm_*.mp3の「*」のみ。メインは空）
 
+  // 利用するストレージ
+  var storage = localStorage;
+
   // 基本データ
   var Common = {
     // 男性の名前
@@ -167,22 +170,23 @@
 
     // セーブデータをストレージに保存
     saveStorage: function() {
-      localStorage[scenario_code] = JSON.stringify(save_data);
+      storage[scenario_code] = JSON.stringify(save_data);
     },
 
     // セーブデータをストレージから取得
     loadStorage: function() {
-      save_data = JSON.parse(localStorage[scenario_code]);
+      save_data = JSON.parse(storage[scenario_code]);
     },
 
     // グローバルセーブデータをストレージに保存
     saveStorageGlobal: function() {
-      localStorage[GLOBAL_SAVE_DATA_KEY] = JSON.stringify(global_save_data);
+      storage[GLOBAL_SAVE_DATA_KEY] = JSON.stringify(global_save_data);
+      storage[GLOBAL_SAVE_DATA_KEY + '_double'] = storage[GLOBAL_SAVE_DATA_KEY];
     },
 
     // グローバルセーブデータをストレージから取得
     loadStorageGlobal: function() {
-      global_save_data = JSON.parse(localStorage[GLOBAL_SAVE_DATA_KEY]);
+      global_save_data = JSON.parse(storage[GLOBAL_SAVE_DATA_KEY]);
     },
 
     // セーブデータの初期化
@@ -195,7 +199,7 @@
       var dex_i = this.minMaxGuard(this.random(pc_base[6], pc_base[6] + 2));
       var krm_i = this.minMaxGuard(this.random(pc_base[7], pc_base[7] + 2));
       // 旧セーブデータからメモを取得
-      var old_data = localStorage[scenario_code];
+      var old_data = storage[scenario_code];
       var old_memo = '';
       if(old_data) {
         old_data = JSON.parse(old_data);
@@ -273,10 +277,19 @@
 
     // グローバルなセーブデータを初期化
     initGlobalSaveData: function() {
+      if (storage[GLOBAL_SAVE_DATA_KEY + '_double'] !== null) {
+        storage['bug'] = (new Date()).toString();
+        //storage[GLOBAL_SAVE_DATA_KEY] = storage[GLOBAL_SAVE_DATA_KEY + '_double'];
+        return;
+      } 
       global_save_data = {
+        // 所有しているボーナスアイテム
         items: [],
+        // 所有している実績（「シナリオコード: 実績」の形式）
         results: {},
+        // BGMを再生するか
         bgm: true,
+        // コントロールパネルを表示するか
         panel: true
       };
       this.saveStorageGlobal(GLOBAL_SAVE_DATA_KEY);
@@ -737,7 +750,7 @@
       // エンディングフラグ
       save_data.isEnded = true;
       Util.saveStorage();
-      //localStorage.removeItem(scenario_code);
+      //storage.removeItem(scenario_code);
 
       // ボーナスアイテムの選択
       var bonus_item, o_bonus_item, audio_path;
@@ -1159,11 +1172,9 @@
       debug_mode = debug;
 
       // ストレージの有効化を確認（Ping）
-      localStorage['stext_ping'] = Date.now();
-      console.log(localStorage['stext_ping']);
-      while (localStorage['stext_ping'] === undefined) {
-        window.alert('ゲームを初期化中です...');
-        console.log(localStorage['stext_ping']);
+      storage['stext_ping'] = Date.now();
+      while (storage['stext_ping'] === null) {
+        console.log(storage['stext_ping']);
       }
 
       /** EventListener **/
@@ -1480,7 +1491,7 @@
       /** EventListener **/
 
       // グローバルセーブデータが存在しない場合は初期化
-      if(localStorage[GLOBAL_SAVE_DATA_KEY]) {
+      if(storage[GLOBAL_SAVE_DATA_KEY]) {
         Util.loadStorageGlobal();
       } else {
         Util.initGlobalSaveData();
@@ -1574,7 +1585,7 @@
         }
       
         // ストレージに情報がある場合は続きから再開
-        if (localStorage[scenario_code]) {
+        if (storage[scenario_code]) {
           Util.loadStorage();
           // エンディングに到達済みの場合は強制初期化
           if (!save_data.isEnded) {
