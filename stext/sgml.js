@@ -1590,11 +1590,14 @@
         // ストレージに情報がある場合は続きから再開
         if (storage[scenario_code]) {
           Util.loadStorage();
+          console.log('AAAAA');
           // エンディングに到達済みの場合は強制初期化
           if (!save_data.isEnded) {
+            console.log('BBBBB');
             var result = window.confirm('以前のデータが残っています。' +
             '\r続きから開始しますか？（06171542）');
             if (result) {
+              console.log('CCCCC');
               Util.initDialog();
               // 再開時に経過日数の加算分を減算
               save_data.ellapsed_scene--;
@@ -1606,7 +1609,7 @@
             }
           }
         }
-
+        console.log('DDDDD');
         // ストレージに情報がない場合には最初からゲームを開始
         // ゲーム情報を初期化
         Util.initScenario();
