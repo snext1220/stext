@@ -1,5 +1,4 @@
 (function($) {
-  var VERSION = '（06171630）';
   // ルートパス
   var ROOT = 'stext/';
   var COMMON  = 'common/'
@@ -563,11 +562,6 @@
       // 最初のシーンを取得
       Util.createScene(0);
       history.pushState(0, 'Scene 0');
-
-      // 初期化ダイアログ＋スプラッシュ画面
-      window.alert('キャラが新規作成されました。\r' +
-      'ステータスダイアログは画面右クリックで開くことができます。' + VERSION);
-      Util.showSplash();
     },
 
     // ダイアログを初期化
@@ -1600,11 +1594,9 @@
           // エンディングに到達済みの場合は強制初期化
           if (!save_data.isEnded) {
             console.log('BBBBB');
-            target.on('click', '#dialog #tmp_init', function(e) {
-              console.log('EEEEE');
-              Util.initScenario();
-            });
-            target.on('click', '#dialog #tmp_continue', function(e) {
+            var result = window.confirm('以前のデータが残っています。' +
+            '\r続きから開始しますか？（06171542）');
+            if (result) {
               console.log('CCCCC');
               Util.initDialog();
               // 再開時に経過日数の加算分を減算
@@ -1613,22 +1605,18 @@
               Util.createScene(num);
               history.pushState(num, 'Scene ' + num);
               Util.showSplash();
-            });          
-            var msg = '<div id="dialog">' +
-              '<h3>Welcome to SORCERIAN Text!!</h3>' +
-              '<p>以前のデータが残っています。<br />' +
-              '続きから開始しますか？' + VERSION + '</p>' +
-              '<button id="tmp_continue">続きから</button> ' +
-              '<button id="tmp_init">最初から</button>' +
-              '</div>';
-            target.html(msg);
-            return;
+              return;
+            }
           }
         }
         console.log('DDDDD');
         // ストレージに情報がない場合には最初からゲームを開始
         // ゲーム情報を初期化
         Util.initScenario();
+        // 初期ダイアログ＋スプラッシュ
+        window.alert('キャラが新規作成されました。\r' +
+          'ステータスダイアログは画面右クリックで開くことができます。（06171542）');
+        Util.showSplash();
       };
       
       // シナリオコード
