@@ -1592,9 +1592,9 @@
           Util.loadStorage();
           // エンディングに到達済みの場合は強制初期化
           if (!save_data.isEnded) {
-            if (confirm('以前のデータが残っています。' +
-                '\r続きから開始しますか？')) {
-              //Util.loadStorage();
+            var result = window.confirm('以前のデータが残っています。' +
+            '\r続きから開始しますか？（06171542）');
+            if (result) {
               Util.initDialog();
               // 再開時に経過日数の加算分を減算
               save_data.ellapsed_scene--;
@@ -1606,14 +1606,15 @@
             }
           }
         }
-      
+
         // ストレージに情報がない場合には最初からゲームを開始
         // ゲーム情報を初期化
         Util.initScenario();
-      
+        // 初期ダイアログ＋スプラッシュ
         window.alert('キャラが新規作成されました。\r' +
-          'ステータスダイアログは画面右クリックで開くことができます。');
+          'ステータスダイアログは画面右クリックで開くことができます。（06171542）');
         Util.showSplash();
+
       };
       
       // シナリオコード
