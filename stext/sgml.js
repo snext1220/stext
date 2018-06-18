@@ -1,5 +1,5 @@
 (function($) {
-  var VERSION = '（06171630）';
+  var VERSION = '（06180930）';
   // ルートパス
   var ROOT = 'stext/';
   var COMMON  = 'common/'
@@ -278,11 +278,6 @@
 
     // グローバルなセーブデータを初期化
     initGlobalSaveData: function() {
-      if (storage[GLOBAL_SAVE_DATA_KEY + '_double'] !== null) {
-        storage['bug'] = (new Date()).toString();
-        //storage[GLOBAL_SAVE_DATA_KEY] = storage[GLOBAL_SAVE_DATA_KEY + '_double'];
-        return;
-      } 
       global_save_data = {
         // 所有しているボーナスアイテム
         items: [],
