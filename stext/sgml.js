@@ -1,5 +1,5 @@
 (function($) {
-  var VERSION = '（06180930）';
+  var VERSION = '（06190130）';
   // ルートパス
   var ROOT = 'stext/';
   var COMMON  = 'common/'
@@ -562,11 +562,12 @@
       // 初期化ダイアログ＋スプラッシュ画面
       window.alert('キャラが新規作成されました。\r' +
       'ステータスダイアログは画面右クリックで開くことができます。' + VERSION);
-      Util.showSplash();
+      //Util.showSplash();
     },
 
     // ダイアログを初期化
     initDialog: function() {
+      $('#dialog_body').remove();
       // ステータスダイアログを初期化
       $.get(ROOT + COMMON + 'dialog.html')
         .done(function(data) {
@@ -592,10 +593,10 @@
           }
           // ★mobile★
           dialog.insertBefore(target).hide();
-       });
+        });
 
-       // ボーナスアイテムダイアログを初期化
-       $.get(ROOT + COMMON + 'dialog_list.html')
+      // ボーナスアイテムダイアログを初期化
+      $.get(ROOT + COMMON + 'dialog_list.html')
         .done(function(data) {
           dialog_item = $(data);
 
@@ -1184,6 +1185,11 @@
         console.log(storage['stext_ping']);
       }
       */
+      // 背景画像を設定
+      target.addClass('main_back');
+
+      // イベントリスナーの初期化
+      target.off();
 
       /** EventListener **/
       // 移動ボタンをクリックで次のシーンに移動
@@ -1477,6 +1483,24 @@
         Util.createScene(e.originalEvent.state);
       });
 
+      // 再開画面（［はじめから］ボタン）
+      target.on('click', '#restart #tmp_init', function(e) {
+        console.log('EEEEE');      
+        Util.initScenario();
+      });
+
+      // 再開画面（［続きから］ボタン）
+      target.on('click', '#restart #tmp_continue', function(e) {
+        console.log('CCCCC');
+        Util.initDialog();
+        // 再開時に経過日数の加算分を減算
+        save_data.ellapsed_scene--;
+        var num = save_data.scene;
+        Util.createScene(num);
+        history.pushState(num, 'Scene ' + num);
+        //Util.showSplash();
+      }); 
+
       // スプラッシュ画面クリック時に音楽を再生
       // $(document).on('touchstart', '.zoombox_mask', function() {
       //   if(global_save_data.bgm && bgm.paused) {
@@ -1594,22 +1618,8 @@
           console.log('AAAAA');
           // エンディングに到達済みの場合は強制初期化
           if (!save_data.isEnded) {
-            console.log('BBBBB');
-            target.on('click', '#dialog #tmp_init', function(e) {
-              console.log('EEEEE');
-              Util.initScenario();
-            });
-            target.on('click', '#dialog #tmp_continue', function(e) {
-              console.log('CCCCC');
-              Util.initDialog();
-              // 再開時に経過日数の加算分を減算
-              save_data.ellapsed_scene--;
-              var num = save_data.scene;
-              Util.createScene(num);
-              history.pushState(num, 'Scene ' + num);
-              Util.showSplash();
-            });          
-            var msg = '<div id="dialog">' +
+            console.log('BBBBB');         
+            var msg = '<div id="restart">' +
               '<h3>Welcome to SORCERIAN Text!!</h3>' +
               '<p>以前のデータが残っています。<br />' +
               '続きから開始しますか？' + VERSION + '</p>' +

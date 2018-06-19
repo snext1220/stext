@@ -13,9 +13,19 @@
   width: 550px;
   min-height: 500px;
   margin: 0 auto;
+}
+
+.main_back {
   background-image: url(common/main_back.png);
   background-repeat: no-repeat;
   background-position: right center;
+}
+
+#restart {
+  background-image: url(common/restart_back.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 500px;
 }
 
 h5#scenario_title {
