@@ -1,5 +1,4 @@
 (function($) {
-  var VERSION = '（06190130）';
   // ルートパス
   var ROOT = 'stext/';
   var COMMON  = 'common/'
@@ -561,7 +560,7 @@
 
       // 初期化ダイアログ＋スプラッシュ画面
       window.alert('キャラが新規作成されました。\r' +
-      'ステータスダイアログは画面右クリックで開くことができます。' + VERSION);
+      'ステータスダイアログは画面右クリックで開くことができます。');
       //Util.showSplash();
     },
 
@@ -1178,13 +1177,6 @@
       if(!debug) { debug = false; }
       debug_mode = debug;
 
-      // ストレージの有効化を確認（Ping）
-      /*
-      storage['stext_ping'] = Date.now();
-      while (storage['stext_ping'] === null) {
-        console.log(storage['stext_ping']);
-      }
-      */
       // 背景画像を設定
       target.addClass('main_back');
 
@@ -1485,13 +1477,11 @@
 
       // 再開画面（［はじめから］ボタン）
       target.on('click', '#restart #tmp_init', function(e) {
-        console.log('EEEEE');      
         Util.initScenario();
       });
 
       // 再開画面（［続きから］ボタン）
       target.on('click', '#restart #tmp_continue', function(e) {
-        console.log('CCCCC');
         Util.initDialog();
         // 再開時に経過日数の加算分を減算
         save_data.ellapsed_scene--;
@@ -1509,16 +1499,17 @@
       // });
 
       // スプラッシュ画面クリック時に音楽を再生
+      /*
       var bgm_error = function(e) {
         if (e.target.classList.contains('zoombox_mask')) {
           if(bgm != null && bgm.paused && global_save_data.bgm) {
-            console.log('music_error_log');
             bgm.play();
           }
         }
       };
       document.addEventListener('click', bgm_error, true);
       document.addEventListener('touchstart', bgm_error, true);
+      */
       /** EventListener **/
 
       // グローバルセーブデータが存在しない場合は初期化
@@ -1599,7 +1590,6 @@
         // デバッグモードではシナリオのデータ検証
         if (debug_mode === true) {
           var errors = Util.validateScenario();
-          //console.log('検証結果' + errors);
           if (errors.length !== 0) {
             var msgs = '<h3>scenario.xmlでエラーが検出されました。</h3>';
             msgs += '<ul class="errorlist">';
@@ -1615,14 +1605,12 @@
         // ストレージに情報がある場合は続きから再開
         if (storage[scenario_code]) {
           Util.loadStorage();
-          console.log('AAAAA');
           // エンディングに到達済みの場合は強制初期化
           if (!save_data.isEnded) {
-            console.log('BBBBB');         
             var msg = '<div id="restart">' +
               '<h3>Welcome to SORCERIAN Text!!</h3>' +
               '<p>以前のデータが残っています。<br />' +
-              '続きから開始しますか？' + VERSION + '</p>' +
+              '続きから開始しますか？</p>' +
               '<button id="tmp_continue">続きから</button> ' +
               '<button id="tmp_init">最初から</button>' +
               '</div>';
@@ -1630,7 +1618,6 @@
             return;
           }
         }
-        console.log('DDDDD');
         // ストレージに情報がない場合には最初からゲームを開始
         // ゲーム情報を初期化
         Util.initScenario();
