@@ -667,10 +667,10 @@
       $('#s_sun', dialog).attr('value', save_data.stars[6]);
       var delta = this.deltaStatus(
         $('[name="state"][checked="checked"]', dialog).attr('value'));
-      $('#str_d', dialog).text('（' + delta[0] + '）');
-      $('#int_d', dialog).text('（' + delta[1] + '）');
-      $('#dex_d', dialog).text('（' + delta[2] + '）');
-      $('#krm_d', dialog).text('（' + delta[3] + '）');
+      // $('#str_d', dialog).text('（' + delta[0] + '）');
+      // $('#int_d', dialog).text('（' + delta[1] + '）');
+      // $('#dex_d', dialog).text('（' + delta[2] + '）');
+      // $('#krm_d', dialog).text('（' + delta[3] + '）');
       $('#state_desc', dialog).text(delta[4]);
       $('#memos', dialog).text(save_data.memos);
 
@@ -1182,6 +1182,8 @@
 
       // イベントリスナーの初期化
       target.off();
+      target.parent().off();
+      $(window).off('popstate');
 
       /** EventListener **/
       // 移動ボタンをクリックで次のシーンに移動
@@ -1284,7 +1286,7 @@
       });
 
       // ステータス保存（ステータスダイアログ）
-      $(document).on('click', '#dialog_body #status_save', function(e) {
+      target.parent().on('click', '#dialog_body #status_save', function(e) {
         save_data.chara.hp = $('#dialog_body #hp').val();
         save_data.chara.mp = $('#dialog_body #mp').val();
         save_data.chara.free1 = $('#dialog_body #free1').val();
@@ -1310,18 +1312,18 @@
       });
 
       // ステータスダイアログのクローズ
-      $(document).on('click', '#dialog_body #status_close', function(e) {
+      target.parent().on('click', '#dialog_body #status_close', function(e) {
         dialog.slideUp(500);
         target.slideDown(500);
       });
 
       // 状態異常のステータスへの反映（ステータスダイアログ）
-      $(document).on('click', '#dialog_body [name="state"]', function(e) {
+      target.parent().on('click', '#dialog_body [name="state"]', function(e) {
         var delta = Util.deltaStatus($(this).val());
-        $('#dialog_body #str_d').text('（' + delta[0] + '）');
-        $('#dialog_body #int_d').text('（' + delta[1] + '）');
-        $('#dialog_body #dex_d').text('（' + delta[2] + '）');
-        $('#dialog_body #krm_d').text('（' + delta[3] + '）');
+        // $('#dialog_body #str_d').text('（' + delta[0] + '）');
+        // $('#dialog_body #int_d').text('（' + delta[1] + '）');
+        // $('#dialog_body #dex_d').text('（' + delta[2] + '）');
+        // $('#dialog_body #krm_d').text('（' + delta[3] + '）');
         $('#dialog_body #state_desc').text(delta[4]);
       });
 
@@ -1334,7 +1336,7 @@
       };
 
       // 魔法実行時の星消費（ステータスダイアログ）未検証
-      $(document).on('click', '#dialog_body #magic_run', function(e) {
+      target.parent().on('click', '#dialog_body #magic_run', function(e) {
         e.preventDefault();
         var magic = Common.magic[
           $('#dialog_body #magic option:selected').val()];
@@ -1359,7 +1361,7 @@
       });
 
       // ★mobile★
-      $(document).on('click', '#dialog_body #status_change', function(e) {
+      target.parent().on('click', '#dialog_body #status_change', function(e) {
         var b = $('#status_basic');
         if (b.css('display') === 'none') {
           $('#status_change').val('Equipment');
@@ -1373,13 +1375,13 @@
       });
 
       // ［+］スピナーで直前のテキストボックス値をインクリメント
-      $(document).on('click', '#dialog_body .spinner_up', function(e) {
+      target.parent().on('click', '#dialog_body .spinner_up', function(e) {
         var prev = $(this).prev();
         prev.val(Number(prev.val()) + 1);
       });
 
       // ［-］スピナーで直後のテキストボックス値をインクリメント
-      $(document).on('click', '#dialog_body .spinner_down', function(e) {
+      target.parent().on('click', '#dialog_body .spinner_down', function(e) {
         var next = $(this).next();
         next.val(Number(next.val()) - 1);
       });
@@ -1393,7 +1395,7 @@
       });
 
       // ボーナスアイテムリストをクリックでアイテムの説明を表示
-      $(document).on('click', '#dialog_list img.bonus_item', function(e) {
+      target.parent().on('click', '#dialog_list img.bonus_item', function(e) {
         var id = e.target.id;
         var o_bonus_item;
         if (id.startsWith('gi')) {
