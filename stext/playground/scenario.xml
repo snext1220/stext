@@ -66,8 +66,18 @@
 - アイテムi01、i02、i03を設定
 - 実績r01を設定
 
+[種族がFIGHTER](41 "xFIGHTER")
+[種族がWIZARDでない](41 "-xWIZARD")
+[性別がMALE](41 "xMALE")
+[性別がFEMALE](41 "xFEMALE")
+[年齢がYOUNG](41 "xYOUNG")
+[年齢がADULT](41 "xADULT")
+[年齢がOLD](41 "xOLD")
+[状態異常がPOISON](41 "xPOISON")
+[状態異常がFROZEN](41 "xFROZEN")
 
-
+[Free1が50より大きい](41 "oFreeI50+")
+[Free2が70より小さい](41 "oFreeII70-")
 [HEAL有効](4 "mHEAL")
 [HEAL無効](29 "-mHEAL")
 [CHANGE-AIR有効](5 "mCHANGE-AIR")

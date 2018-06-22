@@ -363,20 +363,33 @@
       }
       return false;
     },
-
+    
     // 指定されたステータス条件を満たしているかを判定（引数はo＜条件＞）
     ifStatus: function(cond) {
       if (cond.indexOf('o') === 0) {
         // 「oSTR6+」のような文字列を分解
         var cond_set = cond.match(
-          /o(hp|mp|str|int|dex|krm)\s*(\d{1,})(\+|-)\s*/i);
-        var current_value = save_data.chara[cond_set[1].toLowerCase()];
+          /o(hp|mp|str|int|dex|krm|freei|freeii)\s*(\d{1,})(\+|-)\s*/i);
+        cond_set[1] = cond_set[1].toLowerCase();
+        cond_set[1] = cond_set[1].replace('freeii', 'free2');
+        cond_set[1] = cond_set[1].replace('freei',  'free1');
+        var current_value = save_data.chara[cond_set[1]];
         // 「-」であれば指定値未満か、「+」であれば指定値より大きいかを判定
         if (cond_set[3] === '-') {
           return current_value < Number(cond_set[2]);
         } else {
           return current_value > Number(cond_set[2]);
         }
+      }
+      return false;
+    },
+
+    // 種族／性別／年齢／状態異常の合致を確認
+    isCharaState: function(state) {
+      if (state.indexOf('x') === 0) {
+        var tmp_state = [save_data.chara.race, save_data.chara.sex,
+          save_data.chara.age, save_data.chara.state.toUpperCase() ];
+        return tmp_state.indexOf(state.substring(1).toUpperCase()) !== -1;
       }
       return false;
     },
@@ -820,6 +833,13 @@
       bgm.loop = true;
       if(global_save_data.bgm) { bgm.play(); }
     },
+
+    // BGMが停止中で、再生オン（未利用）
+    checkAndPlay: function() {
+      if (bgm && bgm.paused && global_save_data.bgm) {
+        bgm.play();
+      }
+    },
     
     // 現在のシーン情報を取得＆画面の生成
     createScene: function(scene_num) {
@@ -987,7 +1007,7 @@
               items.indexOf(multi_ids_values[i].trim()) === -1 &&
               !Util.canUseMagicByName(multi_ids_values[i].trim()) &&
               !Util.ifStatus(multi_ids_values[i].trim()) &&
-              !Util.ifStatus(multi_ids_values[i].trim()) &&
+              !Util.isCharaState(multi_ids_values[i].trim()) &&
               !Util.hasResult(multi_ids_values[i].trim())) {
               show_flag = false;
               break;
@@ -1006,6 +1026,7 @@
               items.indexOf(multi_ids_values[i].trim()) === -1 &&
               !Util.canUseMagicByName(multi_ids_values[i].trim()) &&
               !Util.ifStatus(multi_ids_values[i].trim()) &&
+              !Util.isCharaState(multi_ids_values[i].trim()) &&
               !Util.hasResult(multi_ids_values[i].trim())) {
               hide_flag = false;
               break;
@@ -1141,8 +1162,30 @@
       }
       */
 
+      // シーン移動時にBGMを切替（旧コード）
+      /*
+      if(scene.attr('bgm')) {
+        new_bgm_name = scene.attr('bgm');
+        if(new_bgm_name === 'main') { new_bgm_name = ''; }
+        // 現在再生中のBGMと異なる場合にのみ切替
+        if(bgm_name !== new_bgm_name) {
+          bgm_name = new_bgm_name;
+          if(bgm) { bgm.pause(); }
+          if(bgm_name === '') {
+            var audio_path = ROOT + scenario_code + '/bgm.mp3';
+          } else {
+            var audio_path = ROOT + scenario_code + '/bgm_' + bgm_name + '.mp3';
+          }
+          bgm = new Audio(audio_path);
+          bgm.loop = true;
+          if(global_save_data.bgm) { bgm.play(); }
+        }
+      }
+      */
+
       // シーン表示時に効果音を再生（未検証）
       if(scene.attr('se')) {
+        //bgm.pause();
         var se = new Audio(ROOT + scenario_code + '/' + scene.attr('se') + '.mp3');
         se.loop = false;
         se.play();
