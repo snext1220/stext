@@ -84,6 +84,13 @@
 				</choice>
 				<choice>
 					<text>
+						<p order="1">キャラ条件の検証</p>
+					</text>
+					<destination>16</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
 						<p order="1">500,600,700</p>
 					</text>
 					<destination>999</destination>
@@ -466,9 +473,144 @@
 			<number>16</number>
 			<shiftable>true</shiftable>
 			<summary/>
-			<text/>
+			<text>
+				<p order="1">## キャラ基本情報での分岐</p>
+				<p order="2"/>
+				<p order="3">- 種族（FIGHTER／WIZARD／DWARF／ELF）</p>
+				<p order="4">- 性別（MALE／FEMALE）</p>
+				<p order="5">- 年齢帯（YOUNG／ADULT／OLD）</p>
+				<p order="6">- 状態異常（POINSON／FROZEN／STONE／CURSE／FORGET）</p>
+				<p order="7">- 上記の複合</p>
+			</text>
 			<backgroundcolour>#ffffff</backgroundcolour>
-			<choices/>
+			<choices>
+				<choice>
+					<text>
+						<p order="1">私はFIGHTER@xFIGHTER</p>
+					</text>
+					<destination>51</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">私はFIGHTERでない@-xFIGHTER</p>
+					</text>
+					<destination>51</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">私はWIZARD@xWIZARD</p>
+					</text>
+					<destination>51</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">私はDWARF@xDWARF</p>
+					</text>
+					<destination>51</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">私はELF@xELF</p>
+					</text>
+					<destination>51</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">私は男@xMALE</p>
+					</text>
+					<destination>51</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">私は女@xFEMALE</p>
+					</text>
+					<destination>51</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">私はYOUNG@xYOUNG</p>
+					</text>
+					<destination>51</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">私はADULT@xADULT</p>
+					</text>
+					<destination>51</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">私はOLD@xOLD</p>
+					</text>
+					<destination>51</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">毒@xPOISON</p>
+					</text>
+					<destination>51</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">凍結@xFROZEN</p>
+					</text>
+					<destination>51</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">石化@xSTONE</p>
+					</text>
+					<destination>51</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">呪い@xCURSE</p>
+					</text>
+					<destination>51</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">忘却@xFORGET</p>
+					</text>
+					<destination>51</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">FIGHTER／毒です@xFIGHTER,xPOISON</p>
+					</text>
+					<destination>51</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">FIGHTER／毒×@-xFIGHTER,xPOISON</p>
+					</text>
+					<destination>51</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">FIGHTER／HEAL／STR5より大きい@xFIGHTER,mHEAL,oSTR5+</p>
+					</text>
+					<destination>51</destination>
+					<hidden>false</hidden>
+				</choice>
+			</choices>
 		</section>
 		<section>
 			<number>17</number>

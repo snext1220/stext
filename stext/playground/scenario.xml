@@ -55,6 +55,7 @@
 [ランダムリンク](100,101,102)
 [別ファイルへのリンク](3)
 [複合条件の検証](50)
+[キャラ条件の検証](16)
 [500,600,700](X)
 </scene>
 	<scene id="2" items="i01,i02,i03" flags="f01,f02" enemies="m01,m02,m03" bgm="" result="r01">
@@ -66,18 +67,8 @@
 - アイテムi01、i02、i03を設定
 - 実績r01を設定
 
-[種族がFIGHTER](41 "xFIGHTER")
-[種族がWIZARDでない](41 "-xWIZARD")
-[性別がMALE](41 "xMALE")
-[性別がFEMALE](41 "xFEMALE")
-[年齢がYOUNG](41 "xYOUNG")
-[年齢がADULT](41 "xADULT")
-[年齢がOLD](41 "xOLD")
-[状態異常がPOISON](41 "xPOISON")
-[状態異常がFROZEN](41 "xFROZEN")
 
-[Free1が50より大きい](41 "oFreeI50+")
-[Free2が70より小さい](41 "oFreeII70-")
+
 [HEAL有効](4 "mHEAL")
 [HEAL無効](29 "-mHEAL")
 [CHANGE-AIR有効](5 "mCHANGE-AIR")
@@ -156,7 +147,34 @@ HEAL実行
 フラグ分岐（-f05）
 
 </scene>
-	<scene id="16"></scene>
+	<scene id="16">
+## キャラ基本情報での分岐
+
+- 種族（FIGHTER／WIZARD／DWARF／ELF）
+- 性別（MALE／FEMALE）
+- 年齢帯（YOUNG／ADULT／OLD）
+- 状態異常（POINSON／FROZEN／STONE／CURSE／FORGET）
+- 上記の複合
+
+[私はFIGHTER](51 "xFIGHTER")
+[私はFIGHTERでない](51 "-xFIGHTER")
+[私はWIZARD](51 "xWIZARD")
+[私はDWARF](51 "xDWARF")
+[私はELF](51 "xELF")
+[私は男](51 "xMALE")
+[私は女](51 "xFEMALE")
+[私はYOUNG](51 "xYOUNG")
+[私はADULT](51 "xADULT")
+[私はOLD](51 "xOLD")
+[毒](51 "xPOISON")
+[凍結](51 "xFROZEN")
+[石化](51 "xSTONE")
+[呪い](51 "xCURSE")
+[忘却](51 "xFORGET")
+[FIGHTER／毒です](51 "xFIGHTER,xPOISON")
+[FIGHTER／毒×](51 "-xFIGHTER,xPOISON")
+[FIGHTER／HEAL／STR5より大きい](51 "xFIGHTER,mHEAL,oSTR5+")
+</scene>
 	<scene id="17">
 アイテム分岐（i01）
 
