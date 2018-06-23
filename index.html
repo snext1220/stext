@@ -12,7 +12,7 @@
 <script src="./stext/sgml.min.js"></script>
 <script>
 $(function() {
-  //$('#main').startGame('scepter', true);
+  $('#main').startGame('scepter', true);
   //$('#main').startGame('zero', true);
   //$('#main').startGame('doll', true);
   //$('#main').startGame('tempest', true);
@@ -21,7 +21,19 @@ $(function() {
   //$('#main').startGame('slayer', true);
   //$('#main').startGame('ramidia', true);
   //$('#main').startGame('trial', true);
-  $('#main').startGame('playground', true);
+  //$('#main').startGame('playground', true);
+
+  $.get('./stext/stext.xml').done(function(data) {
+    $('scenario > work, utility > work[backup]', data).each(function() { 
+      $('#scenario').append(
+        $('<option></option>').
+          attr('value', $(this).attr('id')).
+          text($(this).attr('title'))
+      );
+    }); 
+  }).fail(function(xhr, status, err) {
+    console.log(err);
+  });
 
   // ストレージデータのバックアップ／リストア（テスト用）
   $('#backup').backupData('#scenario');
@@ -36,15 +48,7 @@ $(function() {
 <div style="text-align: center;">
   <select id="scenario">
     <option value="all">全シナリオデータ</option>
-    <option value="scepter">新・消えた王さまの杖</option>
-    <option value="zero">ゼロの創造</option>
-    <option value="doll">プレアオブ・ドールズ</option>
-    <option value="tempest">災厄の夜 - テンペスト・ナイト</option>
-    <option value="hero">少女は英雄を語りて</option>
-    <option value="vampire">鉄腕の吸血姫</option>
-    <option value="slayer">その名はドラゴンスレイヤー</option>
-    <option value="ramidia">ラミディアの魔法使い</option>
-    <option value="trial">STextシナリオ開発道場</option>
+    <option value="sorcerian_text">基本情報（実績／ボーナス）</option>
   </select>
   <input type="button" id="backup" value="バックアップ" />／
   <input type="file" id="restore" accept=".stext" value="リストア" />

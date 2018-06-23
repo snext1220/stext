@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<stext>
+
+<scenario>
+
+<work id="scepter" title="新・消えた王様の杖" author="リオ">
+<img src="./images2/stext01.png" height="120"
+  title="新・消えた王様の杖" align="right" class="right" />
+<p>ペンタウァ王家の象徴＜おうさまのつえ＞が、オークによって盗まれてしまう。</p>
+<p>国宝級のアイテムを取り戻す任を与えられたのは、なぜか駆け出しの冒険者（ソーサリアン）である君だ。とにかく弱い、とにかくすぐ死ぬ。</p>
+<p>そんな君の冒険譚は、死んでは何事もなかったかのように生まれ変わり（＝リプレイして）何度も繰り返されるに違いない。</p>
+<p>誉れ高き勇者よ、しぬでないぞよ（By 王さま）。</p>
+<p><a href="https://goo.gl/33zcXs" class="startbtn">冒険に出発する</a></p>
+</work>
+
+<work id="zero" title="ゼロの創造" author="Salvador">
+<img src="./images2/gallery/tn/d11.gif" height="120" title="ゼロの創造"
+  align="left" class="left" />
+<p>かつて、創造神がこの世に大いなる恵みを与えていた時代があったという。常に世界には新しい発見があり、人々は新天地の開拓に乗り出していった時代だった。人々は創造神を信じ、その光臨を願っていた。それを創造神信仰と呼ぶ。</p>
+<p>しかし、願いも虚しく、創造神は姿を見せる事はなかった。世界には久しく新しい発見は無い。創造神信仰そのものが人々の記憶から消えていった。</p>
+<p>時代は流れ、混迷の時代。世界には虚無が広がり、人々は滅びゆく世界を感じていた。連動するように、創造神信仰は復活の兆しを見せていた。</p>
+<p><a href="https://goo.gl/qcag2U" class="startbtn">冒険に出発する</a></p>
+</work>
+
+<work id="doll" title="プレアオブ・ドールズ" author="cocotori">
+<img src="./images2/stext04.jpg" height="120"
+    align="right" class="right" title="プレアオブ・ドールズ" />
+<p>王都ペンタウァで人形が関わる猟奇事件に巻き込まれる。
+犯人の姿に、かつての知り合いを感じたあなたは、討伐隊に志願することになる。</p>
+<p>人は、人形は。その想いは届くことはあるのだろうか。
+悲しき人形と心の物語。</p>
+<p>※ノベルタイプの、読み物シナリオです。
+幾つか選択肢がありますが、進行には影響を与えません。</p>
+<p><a href="https://goo.gl/or97iR" class="startbtn">冒険に出発する</a></p>
+</work>
+
+<work id="tempest" title="災厄の夜 - テンペスト・ナイト -"
+  author="ちゃなさん" guest="true">
+<img src="./images2/world1.gif" height="120"
+  title="災厄の夜 - テンペスト・ナイト -" align="left" class="left" />
+<p class="award">ゲストさま投稿作品（記念すべき第1号！）</p>
+<p>舞台はオリジナルのソーサリアンから数十年後のペンタウァ。666年に一度訪れるという未曾有の危機に、あなたはたった独りで立ち向かうことになります。</p>
+<p>攻略の鍵になるのは、剣とも斧とも杖ともつかない謎の武器、アームロッド。世界のあちこちを巡って、この武器をいかに強化するかが、勝負の分かれ目となります。</p>
+<p>道中、あなたは様々な懐かしい面々に会うことになるでしょう。中にはかつての強敵だったあの人も……。そして、ペンタウァを滅ぼしにかかる「災厄」の正体とは……？（<a href="https://twitter.com/ChanaGame" target="_blank">ちゃな</a>）</p>
+<p><a href="https://goo.gl/34cBhq" class="startbtn">冒険に出発する</a></p>
+</work>
+
+<work id="hero" title="少女は英雄を語りて" author="ときのじ">
+<img src="./images2/gallery/tn/d33.gif" height="120"
+  title="少女は英雄を語りて" align="right" class="right" />
+<p>君は『消える本』の噂を聞いたことがあるだろうか？手にした筈なのに消えている、読んだ筈なのに覚えていない。そんな不思議な本の噂を。</p>
+<p>ペンタウァでは今、その『消える本』の噂で持ち切りだ。ある者は「これは天変地異の前触れだ」と声高らかに叫び、またある者は「妖精の悪戯だろう」と酒を片手に笑い合う。肝心の本は何処にあるのか分からないというのに、本を目撃したという者だけは着々と増えているというのだから、噂は大きくなる一方だ。</p>
+<p>害とも益ともつかぬ謎の本。もしもそれが本当に天変地異の前触れだったとしたら、このまま放置すれば手遅れになってしまうかもしれない。これは早急に調査をしなければ、と。聡明なペンタウァの王は、ソーサリアンに向けてお触れを出した。</p>
+<p>「読書好きも読書嫌いも、この際問わぬ。勇気ある者はこの『消える本』の謎に挑んではくれないだろうか」</p>
+<p><a href="https://goo.gl/Xuarfz" class="startbtn">冒険に出発する</a></p>
+</work>
+
+<work id="vampire" title="鉄腕の吸血姫" author="cocotori">
+<img src="./images2/stext06.png" height="120"
+  title="鉄腕の吸血姫" align="left" class="left" />
+<p>薄暗い部屋であなたは目覚める。首筋に噛み跡。伝承では、吸血鬼に血を吸われた者は、間もなく同じ道をたどるという。絶望的状況に追い込まれたあなた。</p>
+<p>逃れるすべは、完全に怪物と化す前に、血を吸った張本人を倒すこと。そうすれば呪いは解け、人としての自我を取り戻すはずだ。</p>
+<p>ノベル風シナリオ第二弾。戦いと命、そして覚悟の物語――急げ、夜が明ける前に。</p>
+<p><a href="https://goo.gl/fDjakc" class="startbtn">冒険に出発する</a></p>
+</work>
+
+<work id="slayer" title="その名はドラゴンスレイヤー" author="RYUさん" guest="true">
+<img src="./images2/gallery/tn/d25.gif" height="120"
+  title="その名はドラゴンスレイヤー" align="right" class="right" />
+<p class="award">ゲストさま投稿作品（早くも第2号）</p>
+<p>「ドラゴンスレイヤーが見つかった？」</p>
+<p>昔から定期的に発生する、もう何度目かわからないほどに聞き飽きた噂話。しかし「どうやら今度は本物らしい」との噂がついたのでさあ大変。</p>
+<p>噂の出所の小さな島には、世界中の冒険者だけでなく強力なモンスター達、果ては魔族神族その他諸々まで押し寄せて……冒険者と生まれたからには、これに挑戦しないわけにはいかない！</p>
+<p>しかし、島にはそれ以外にも何やらキナくさいニオイが…</p>
+<p><a href="https://goo.gl/3KHjX3" class="startbtn">冒険に出発する</a></p>
+<p class="award">第一部を公開中（第二部以降は2018年7月公開予定）</p>
+</work>
+
+<work id="ramidia" title="ラミディアの魔法使い" author="Salvador">
+<img src="./images2/stext07.png" height="160"
+  title="ラミディアの魔法使い" align="left" class="left" />
+<p>北方の広大な森の中にある王国、ロマンシア。この国は数年前まで火山の噴火や地震が相次ぎ、さらに伝染病まで流行るという災厄に見舞われていた。災厄の元凶は、この地に古くから棲んでいた竜に取り憑いた邪神ヴァイデスであったという。</p>
+<p>この邪神を聖剣を手にした一人の王子が倒したために、ロマンシアに平和が訪れたといわれている。ヴァイデスに操られていた竜は聖剣によって元の善良な心を取り戻し、それからは人前に姿を見せていないという事だ。</p>
+<p>エティスはそんなロマンシアの首都、ラミディアに魔の気配を感じるという。君は魔の正体を探るべく、ロマンシアへ向かった。</p>
+<p class="award">2018年6月25日公開予定</p>
+<!--<p><a href="https://goo.gl/RyZPyx" class="startbtn">冒険に出発する</a></p>-->
+</work>
+
+</scenario>
+
+<utility>
+<work title="STextシナリオ制作用 BGM素材" author="AZ">
+<p>以下は、ソーサリアン Textのシナリオを制作／公開する際に利用できるBGM素材です（2018年2月時点で全17曲を公開中）。これら素材を利用して、是非、あなたの物語を余に――もとい、世に送り出してやってください。</p>
+<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/442598796%3Fsecret_token%3Ds-uxcN2&amp;color=%23a86681&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
+<p>音楽ファイルをダウンロードするには、以下のリンクからSoundCloudのページに移動した上で、曲目リストの右端から［...］－［Download］を選択してください（すべてまとめてのダウンロードはできません）。</p>
+<p><a href="https://soundcloud.com/venus-az/sets/n30/s-uxcN2" class="external" target="_blank">SORCERIAN Text Original Sound</a></p>
+<p>※<span class="award">SText以外の利用は禁止</span>とさせて戴きますので、ご了承ください。</p>
+</work>
+
+<work title="GBAT to SText" author="リオ">
+<img src="./images_blog/stext_gbat0.png" height="120"
+  title="GBATメイン画面" align="left" class="left" />
+<p>GBAT（GameBook Authoring Tool）は、ゲームブックシナリオをチャート化しながら執筆できるGUIツール。シナリオのフローをリアルタイムにチャート化するので、全体を見渡しつつ、執筆を進められます。</p>
+<p>GBAT to STextは、このGBATで作成された.gbatファイルをSText形式に変換するためのツールです。GBAT（Free版）は100パラグラフの制限がありますが、GBAT to STextは複数の.gbatファイルを統合できますので、大きなシナリオの執筆にも活用できます。</p>
+<hr />
+<p><form><input id="gbat" type="file" accept=".gbat" multiple="multiple" /> &lt;- 変換する.gbatファイルを指定</form></p>
+<hr />
+<p>SText固有の定義をGBATで表す方法については、以下のマニュアルも参照してください。</p>
+<p><a href="http://d.hatena.ne.jp/sorcerian/20180131" target="_blank" class="external">ソーサリアンText開発者向けマニュアル（GBAT to SText編）</a></p>
+</work>
+
+<work title="SText Playground" author="リオ">
+<img src="./images_blog/gbat_play3.png" height="120"
+  title="Playground実行画面" align="right" class="right" />
+<p>SText Playgroundは、ブラウザー上で動作するソーサリアン Textのシナリオ実行環境です。ソフトウェアのインストールなどが不要なので、手軽に実行できるのが特徴です。</p>
+<p>画像の表示、音声の再生には非対応ですが、それ以外の機能はほぼサポートしているので、シナリオの動作確認に活用ください。</p>
+<p>構文ハイライト機能付きの簡易エディターを備え、テンプレート／.gbatファイルのインポートから、作成したシナリオのストレージ保存、ダウンロードなどにも対応しているので、簡易なシナリオであれば、Playgroundひとつで完結して執筆作業を進めることも可能です。</p>
+<p><a href="playground.aspx" target="_blank" class="startbtn">SText Playgroundを起動する</a></p>
+<p>使い方などは、以下のマニュアルも参照してください。</p>
+<p><a href="http://d.hatena.ne.jp/sorcerian/20180125" target="_blank" class="external">ソーサリアンText開発者向けマニュアル（環境準備編）</a></p>
+</work>
+
+<work title="もっと攻略したい" author="RYUさん他" guest="true" other="true">
+<img src="./images2/stextU3.png" height="120"
+  title="もっと攻略したい" align="left" class="left" />
+<p>ソーサリアン Textをもっと攻略したい、あるいは行き詰ったという人のために。</p>
+<p>シナリオのデッド＆リトライを支援するセーブデータ一覧、全ルートのコンプリートを目指す人のために簡易フローチャート（PDF版）などをまとめてみました（今後は、完全版フローチャートも作成予定です）。是非、攻略のお供にご利用ください！</p>
+<ul>
+<li><a href="../flow_scepter.pdf" target="_blank" class="external">「新・消えた王様の杖」簡易フローチャート（作・RYUさん）</a></li>
+<li><a href="http://d.hatena.ne.jp/sorcerian/20180205" target="_blank" class="external">「新・消えた王様の杖」セーブデータ一覧（作・リオ）</a></li>
+<li><a href="http://d.hatena.ne.jp/sorcerian/20180416" target="_blank" class="external">「新・消えた王様の杖」一日一ネタ（作・リオ）</a></li>
+<li><a href="../flow_zero.pdf" target="_blank" class="external">「ゼロの創造」簡易フローチャート（作・RYUさん）</a></li>
+<li><a href="../flow_temp.pdf" target="_blank" class="external">「災厄の夜」簡易フローチャート（作・RYUさん）</a></li>
+<li>「少女は英雄を語りて」簡易フローチャート（作・RYUさん）</li><span class="award">作成中</span>
+</ul>
+<p>この場を借りて、雪かきの合間に(?)作者すら把握してない全ルートをコンプリートし、しかも、フローチャート化してくださったRYU（<a href="https://twitter.com/ishikawanonoich" target="_blank">@ishikawanonoich</a>）さんに心から御礼申し上げます。</p>
+</work>
+
+<work id="trial" title="STextシナリオ開発道場" author="ときのじ" backup="true">
+<img src="./images2/stextU5.png" height="120"
+  title="STextシナリオ開発道場" align="right" class="right" />
+<p>「ソーサリアンTextのシナリオを書いてみたい！」</p>
+<p>君はそう思ったことはないだろうか？もしシナリオを書いてみたいと思ったのであれば、この先にある道場は、きっと君の助けになることだろう。何故なら、その道場とは「ソーサリアンTextのシナリオを書きたい」というソーサリアンの願いをぱぱっと叶える特別メニューが揃っているからだ。</p>
+<p>道場には、君のようにシナリオを書こうと勉強している者もいれば、シナリオの書き方を分かり易く教えてくれる者もいる。そんなペンタウァの勇者達のやり取りがなかなかに賑やかで、見学しているだけでも楽しいかもしれないぞ。</p>
+<p>さぁ、君もソーサリアンの一人となって、ソーサリアンTextのシナリオの書き方を学ぼう！</p>
+<p><a href="https://goo.gl/zJ2rvp" class="startbtn">修行に入る</a></p>
+  道場で基本的な使い方を学んだ後は、以下のページでより実践的なノウハウも確認してほしい。
+<p><a href="http://d.hatena.ne.jp/sorcerian/20180429" target="_blank" class="external">開発者向け実践テクニック集（作・リオ）</a></p>
+</work>
+
+<work title="ユーザーディスクツールβ版" author="リオ">
+<img src="./images2/stextU6.png" height="120"
+  title="ユーザーディスクツール" align="left" class="left" />
+<p>ユーザーディスクツールは、ブラウザーで保存されているSTextのセーブデータをファイルに.stextファイルとして出力（バックアップ）したり、バックアップしておいた.stextファイルを復旧（リストア）するためのツールです。</p>
+<p>シナリオ内の分岐を繰り返しリトライしたい場合などにご活用ください。</p>
+<hr />
+<form>
+<p>
+<select id="scenario">
+  <option value="all">全シナリオデータ</option>
+  <option value="sorcerian_text">基本情報（実績／ボーナス）</option>
+</select>
+<input type="button" id="backup" value="バックアップ" />
+</p>
+<p><input type="file" id="restore" accept=".stext" /> &lt;- 復旧する.stextファイルを指定</p>
+</form>
+<hr />
+<p>バックアップしたファイルの名前は、リストア時のキーとなっているため、リネームしないで、そのままご利用ください。また、「全シナリオデータ」をリストアした場合、バックアップ後～リストア前に取得した実績／ボーナスアイテムは削除されるので、注意してください。</p>
+</work>
+
+</utility>
+
+</stext>
