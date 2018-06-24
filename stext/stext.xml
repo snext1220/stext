@@ -47,7 +47,7 @@
 
 攻略の鍵になるのは、剣とも斧とも杖ともつかない謎の武器、アームロッド。世界のあちこちを巡って、この武器をいかに強化するかが、勝負の分かれ目となります。
 
-道中、あなたは様々な懐かしい面々に会うことになるでしょう。中にはかつての強敵だったあの人も……。そして、ペンタウァを滅ぼしにかかる「災厄」の正体とは……？（<a href="https://twitter.com/ChanaGame" target="stext">ちゃな</a>）
+道中、あなたは様々な懐かしい面々に会うことになるでしょう。中にはかつての強敵だったあの人も……。そして、ペンタウァを滅ぼしにかかる「災厄」の正体とは……？（<a href="https://twitter.com/ChanaGame" target="other">ちゃな</a>）
 </work>
 
 <work id="hero" title="少女は英雄を語りて" author="ときのじ"
@@ -88,7 +88,8 @@
 しかし、島にはそれ以外にも何やらキナくさいニオイが…
 </work>
 
-<work id="ramidia" title="ラミディアの魔法使い" author="Salvador">
+<work id="ramidia" title="ラミディアの魔法使い" author="Salvador"
+  url="https://goo.gl/RyZPyx">
 <img src="./images2/stext07.png" height="160"
   title="ラミディアの魔法使い" align="left" class="left" />
 北方の広大な森の中にある王国、ロマンシア。この国は数年前まで火山の噴火や地震が相次ぎ、さらに伝染病まで流行るという災厄に見舞われていた。災厄の元凶は、この地に古くから棲んでいた竜に取り憑いた邪神ヴァイデスであったという。
@@ -96,8 +97,6 @@
 この邪神を聖剣を手にした一人の王子が倒したために、ロマンシアに平和が訪れたといわれている。ヴァイデスに操られていた竜は聖剣によって元の善良な心を取り戻し、それからは人前に姿を見せていないという事だ。
 
 エティスはそんなロマンシアの首都、ラミディアに魔の気配を感じるという。君は魔の正体を探るべく、ロマンシアへ向かった。
-
-<p class="award">2018年6月25日公開予定</p>
 </work>
 
 </scenario>
@@ -110,7 +109,7 @@
 
 音楽ファイルをダウンロードするには、以下のリンクからSoundCloudのページに移動した上で、曲目リストの右端から［...］－［Download］を選択してください（すべてまとめてのダウンロードはできません）。
 
-<p><a href="https://soundcloud.com/venus-az/sets/n30/s-uxcN2" class="external" target="stext">SORCERIAN Text Original Sound</a></p>
+<p><a href="https://soundcloud.com/venus-az/sets/n30/s-uxcN2" class="external" target="manual">SORCERIAN Text Original Sound</a></p>
 
 ※<span class="award">SText以外の利用は禁止</span>とさせて戴きますので、ご了承ください。
 </work>
@@ -132,7 +131,7 @@ GBAT to STextは、このGBATで作成された.gbatファイルをSText形式�
 
 SText固有の定義をGBATで表す方法については、以下のマニュアルも参照してください。
 
-<a href="http://d.hatena.ne.jp/sorcerian/20180131" target="stext" class="external">ソーサリアンText開発者向けマニュアル（GBAT to SText編）</a>
+<a href="http://d.hatena.ne.jp/sorcerian/20180131" target="manual" class="external">ソーサリアンText開発者向けマニュアル（GBAT to SText編）</a>
 </work>
 
 <work title="SText Playground" author="リオ">
@@ -149,7 +148,7 @@ SText Playgroundは、ブラウザー上で動作するソーサリアン Text�
 
 使い方などは、以下のマニュアルも参照してください。
 
-<a href="http://d.hatena.ne.jp/sorcerian/20180125" target="stext" class="external">ソーサリアンText開発者向けマニュアル（環境準備編）</a>
+<a href="http://d.hatena.ne.jp/sorcerian/20180125" target="manual" class="external">ソーサリアンText開発者向けマニュアル（環境準備編）</a>
 </work>
 
 <work title="もっと攻略したい" author="RYUさん他" guest="true" other="true">
@@ -159,14 +158,14 @@ SText Playgroundは、ブラウザー上で動作するソーサリアン Text�
 
 シナリオのデッド＆リトライを支援するセーブデータ一覧、全ルートのコンプリートを目指す人のために簡易フローチャート（PDF版）などをまとめてみました（今後は、完全版フローチャートも作成予定です）。是非、攻略のお供にご利用ください！
 
-- <a href="../flow/scepter.pdf" target="stext" class="external">「新・消えた王様の杖」簡易フローチャート（作・RYUさん）</a>
-- <a href="http://d.hatena.ne.jp/sorcerian/20180205" target="stext" class="external">「新・消えた王様の杖」セーブデータ一覧（作・リオ）</a>
-- <a href="http://d.hatena.ne.jp/sorcerian/20180416" target="stext" class="external">「新・消えた王様の杖」一日一ネタ（作・リオ）</a>
-- <a href="../flow/zero.pdf" target="stext" class="external">「ゼロの創造」簡易フローチャート（作・RYUさん）</a>
-- <a href="../flow/temp.pdf" target="stext" class="external">「災厄の夜」簡易フローチャート（作・RYUさん）</a>
+- <a href="../flow/scepter.pdf" target="manual" class="external">「新・消えた王様の杖」簡易フローチャート（作・RYUさん）</a>
+- <a href="http://d.hatena.ne.jp/sorcerian/20180205" target="manual" class="external">「新・消えた王様の杖」セーブデータ一覧（作・リオ）</a>
+- <a href="http://d.hatena.ne.jp/sorcerian/20180416" target="manual" class="external">「新・消えた王様の杖」一日一ネタ（作・リオ）</a>
+- <a href="../flow/zero.pdf" target="manual" class="external">「ゼロの創造」簡易フローチャート（作・RYUさん）</a>
+- <a href="../flow/temp.pdf" target="manual" class="external">「災厄の夜」簡易フローチャート（作・RYUさん）</a>
 - 「少女は英雄を語りて」簡易フローチャート（作・RYUさん）<span class="award">作成中</span>
 
-この場を借りて、雪かきの合間に(?)作者すら把握してない全ルートをコンプリートし、しかも、フローチャート化してくださったRYU（<a href="https://twitter.com/ishikawanonoich" target="stext">@ishikawanonoich</a>）さんに心から御礼申し上げます。
+この場を借りて、雪かきの合間に(?)作者すら把握してない全ルートをコンプリートし、しかも、フローチャート化してくださったRYU（<a href="https://twitter.com/ishikawanonoich" target="other">@ishikawanonoich</a>）さんに心から御礼申し上げます。
 </work>
 
 <work id="trial" title="STextシナリオ開発道場" author="ときのじ" backup="true">
@@ -184,7 +183,7 @@ SText Playgroundは、ブラウザー上で動作するソーサリアン Text�
 
 道場で基本的な使い方を学んだ後は、以下のページでより実践的なノウハウも確認してほしい。
 
-<a href="http://d.hatena.ne.jp/sorcerian/20180429" target="stext" class="external">開発者向け実践テクニック集（作・リオ）</a>
+<a href="http://d.hatena.ne.jp/sorcerian/20180429" target="manual" class="external">開発者向け実践テクニック集（作・リオ）</a>
 </work>
 
 <work title="ユーザーディスクツールβ版" author="リオ">

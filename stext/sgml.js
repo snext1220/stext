@@ -1226,6 +1226,7 @@
       // イベントリスナーの初期化
       target.off();
       target.parent().off();
+      $(document).off('click', '#dialog_list img.bonus_item');
       $(window).off('popstate');
 
       /** EventListener **/
@@ -1438,7 +1439,7 @@
       });
 
       // ボーナスアイテムリストをクリックでアイテムの説明を表示
-      target.parent().on('click', '#dialog_list img.bonus_item', function(e) {
+      $(document).on('click', '#dialog_list img.bonus_item', function(e) {
         var id = e.target.id;
         var o_bonus_item;
         if (id.startsWith('gi')) {
