@@ -718,7 +718,6 @@
         var flag_text = flags_map[save_data.flags[i]];
         if (flag_text.indexOf('*') !== 0) {
           var tmp = '<option ';
-          //if (i == save_data.flags.length - 1) { tmp += 'selected'; }
           tmp += '>・' + flags_map[save_data.flags[i]] + '</option>';
           flags.append(tmp);
         }
@@ -738,12 +737,6 @@
       $('#status_basic').show();
       $('#status_equip').hide();
       target.slideUp(500);
-      //$.zoombox.html(dialog.html(),
-      //   {
-      //     width: 640,
-      //     height: 480
-      //   }
-      // );
     },
 
     // エンディングの処理（resultはhappy／bad）
@@ -833,14 +826,7 @@
       bgm.loop = true;
       if(global_save_data.bgm) { bgm.play(); }
     },
-
-    // BGMが停止中で、再生オン（未利用）
-    checkAndPlay: function() {
-      if (bgm && bgm.paused && global_save_data.bgm) {
-        bgm.play();
-      }
-    },
-    
+   
     // 現在のシーン情報を取得＆画面の生成
     createScene: function(scene_num) {
       // エンディングフラグが立っている場合は、初期化処理を実行
@@ -987,12 +973,6 @@
       $('a[title]', target).hide();
       $('a[title^="-"]', target).show();
 
-      // // 指定のフラグを所持している場合にだけボタンだけを表示（「-」で所持していない場合に非表示）
-      // for (var i = 0; i < flags.length; i++) {
-      //   $('a[title="' + flags[i] + '"]', target).show();
-      //   $('a[title="-' + flags[i] + '"]', target).hide();
-      // }
-
       // 指定のフラグ＆アイテムを所持している場合にだけボタンを表示（複数フラグ＆アイテム対応）
       //var multi_flags = $('a[title*=","]', target);
       var multi_flags = $('a[title]', target);
@@ -1038,58 +1018,6 @@
           }
         }
       });
-
-      // // 指定のアイテムを所有している場合にだけボタンを表示（「-」で所持していない場合に非表示）
-      // for (var i = 0; i < items.length; i++) {
-      //   $('a[title="' + items[i] + '"]', target).show();
-      //   $('a[title="-' + items[i] + '"]', target).hide();
-      // }
-
-      // // 指定の魔法が利用できる場合にだけボタンを表示
-      // for(var key in Common.magic) {
-      //   if (Util.canUseMagic(Common.magic[key])) {
-      //     $('a[title="m' + key + '"]', target).show();
-      //     $('a[title="-m' + key + '"]', target).hide();
-      //   }
-      // }
-
-      // // 指定の実績を保持している場合にだけボタンを表示
-      // var result_switch = $('a[title^="r"]', target);
-      // result_switch.each(function(index, elem) {
-      //   var result = $(elem).attr('title');
-      //   if (Util.hasResult(result)) {
-      //     $(elem).show();
-      //   }
-      // });
-
-      // // 指定の実績を保持していない場合にだけボタンを表示
-      // var result_switch_not = $('a[title^="-r"]', target);
-      // result_switch_not.each(function(index, elem) {
-      //   var result = $(elem).attr('title').substring(1);
-      //   if (Util.hasResult(result)) {
-      //     $(elem).hide();
-      //   }
-      // });
-
-      // // ステータスが条件を満たしている場合にだけボタンを表示
-      // var status_switch = $('a[title^="o"]', target);
-      // status_switch.each(function(index, elem) {
-      //   var cond = $(elem).attr('title');
-      //   // 「oSTR6+」のような文字列を分解
-      //   var cond_set = cond.match(
-      //     /o(hp|mp|str|int|dex|krm)\s*(\d{1,})(\+|-)\s* /i);
-      //   var current_value = save_data.chara[cond_set[1].toLowerCase()];
-      //   // 「-」であれば指定値未満か、「+」であれば指定値より大きいかを判定
-      //   if (cond_set[3] === '-') {
-      //     if (current_value < Number(cond_set[2])) {
-      //       $(elem).show();
-      //     }
-      //   } else {
-      //     if (current_value > Number(cond_set[2])) {
-      //       $(elem).show();
-      //     }
-      //   }
-      // });
 
       // 現時点で非表示になっているボタンを削除
       $('a[title]:hidden', target).remove();
@@ -1141,48 +1069,6 @@
       }
       /* BGM再生ココマデ */
 
-      // シーン移動時にBGMを切替（旧コード）
-      /*
-      if(scene.attr('bgm')) {
-        new_bgm_name = scene.attr('bgm');
-        if(new_bgm_name === 'main') { new_bgm_name = ''; }
-        // 現在再生中のBGMと異なる場合にのみ切替
-        if(bgm_name !== new_bgm_name) {
-          bgm_name = new_bgm_name;
-          if(bgm) { bgm.pause(); }
-          if(bgm_name === '') {
-            var audio_path = ROOT + scenario_code + '/bgm.mp3';
-          } else {
-            var audio_path = ROOT + scenario_code + '/bgm_' + bgm_name + '.mp3';
-          }
-          bgm = new Audio(audio_path);
-          bgm.loop = true;
-          if(global_save_data.bgm) { bgm.play(); }
-        }
-      }
-      */
-
-      // シーン移動時にBGMを切替（旧コード）
-      /*
-      if(scene.attr('bgm')) {
-        new_bgm_name = scene.attr('bgm');
-        if(new_bgm_name === 'main') { new_bgm_name = ''; }
-        // 現在再生中のBGMと異なる場合にのみ切替
-        if(bgm_name !== new_bgm_name) {
-          bgm_name = new_bgm_name;
-          if(bgm) { bgm.pause(); }
-          if(bgm_name === '') {
-            var audio_path = ROOT + scenario_code + '/bgm.mp3';
-          } else {
-            var audio_path = ROOT + scenario_code + '/bgm_' + bgm_name + '.mp3';
-          }
-          bgm = new Audio(audio_path);
-          bgm.loop = true;
-          if(global_save_data.bgm) { bgm.play(); }
-        }
-      }
-      */
-
       // シーン表示時に効果音を再生（未検証）
       if(scene.attr('se')) {
         //bgm.pause();
@@ -1205,8 +1091,6 @@
 
       // エンディング処理
       Util.endScenario(scene.attr('end'));
-
-      //console.log(save_data);
     }
   };
 
@@ -1352,7 +1236,6 @@
         // ★mobile★
         dialog.slideUp(500);
         target.slideDown(500);
-        //$.zoombox.close()
       });
 
       // ステータスダイアログのクローズ
@@ -1564,19 +1447,6 @@
       } else {
         Util.initGlobalSaveData();
       }
-
-      // bgm.mp3が存在したら、再生開始（旧コード）
-      /*
-      var audio_path = ROOT + scenario_code + '/bgm.mp3';
-      $.get(audio_path).then(function() {
-        bgm = new Audio(audio_path);
-        bgm.loop = true;
-        if(global_save_data.bgm) {
-          bgm.play();
-          //bgm.volume = 0.2;
-        }
-      });
-      */
 
       // 初期化処理
       var done_read = function(result) {
@@ -1957,7 +1827,7 @@
           }
         });
         reader.readAsText(input, 'UTF-8');
-        window.alert('リストアが完了しました。\n（起動している場合は）ゲーム画面をリロードしてください。');
+        window.alert('リストアが完了しました。\r（起動している場合は）ゲーム画面をリロードしてください。');
       });      
     }
   });
