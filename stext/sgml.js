@@ -1795,7 +1795,9 @@
         anchor.href = window.URL.createObjectURL(blob);
         var today = new Date();
         anchor.download = scenario + '-' + (new Date()).getTime()  + '.stext';
+        document.body.appendChild(anchor);
         anchor.click();
+        document.body.removeChild(anchor);
       });
     },
 
