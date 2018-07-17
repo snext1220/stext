@@ -90,13 +90,24 @@
 
 <work id="ramidia" title="ラミディアの魔法使い" author="Salvador"
   url="https://goo.gl/RyZPyx">
-<img src="./images2/stext07.png" height="160"
+<img src="./images2/stext08.png" height="160"
   title="ラミディアの魔法使い" align="left" class="left" />
 北方の広大な森の中にある王国、ロマンシア。この国は数年前まで火山の噴火や地震が相次ぎ、さらに伝染病まで流行るという災厄に見舞われていた。災厄の元凶は、この地に古くから棲んでいた竜に取り憑いた邪神ヴァイデスであったという。
 
 この邪神を聖剣を手にした一人の王子が倒したために、ロマンシアに平和が訪れたといわれている。ヴァイデスに操られていた竜は聖剣によって元の善良な心を取り戻し、それからは人前に姿を見せていないという事だ。
 
 エティスはそんなロマンシアの首都、ラミディアに魔の気配を感じるという。君は魔の正体を探るべく、ロマンシアへ向かった。
+</work>
+
+<work id="cat" title="わたしのネコを探して" author="cocotori">
+<img src="./images2/stext09.png" height="120"
+  title="わたしのネコを探して" align="right" class="right" />
+<p class="award">Sorcerian Text Mini（30Scene限定企画Vol.1）</p>
+「ネコを探してほしいの」
+
+見知らぬ少女のお願いを叶えるため、ペンタウァの町を右へ左へ奔走するあなた。いったいネコはどこへ行ってしまったのか。
+
+ゆるめのテイストに彩られた、探索物シナリオです。ペンタウァの町をうろうろしながら、いろいろな人の話を聞いてみてください。
 </work>
 
 </scenario>
