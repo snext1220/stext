@@ -683,6 +683,17 @@
             ROOT + COMMON + String(save_data.chara.sex).toLowerCase() + '_' +
               String(save_data.chara.age).toLowerCase() + '_' + 
               String(save_data.chara.race).toLowerCase() + '.png');
+
+          // 職業選択ボックスを生成
+          var job_box = $('#job', dialog);
+          job_box.empty();
+          for(var i = 0; i < enabled_jobs.length; i++) {
+            $('<option></option>')
+              .attr('value', enabled_jobs[i])
+              .text(enabled_jobs[i])
+              .appendTo(job_box);
+          }
+
           if(save_data.bonus) {
             var b = Util.getBonusItem(save_data.bonus);
             $('#bonus', dialog).text(b.desc + '（' + b.name + '）');
@@ -738,6 +749,7 @@
 
     // ステータスダイアログを生成
     createDialog: function() {
+      $('#job', dialog).val(save_data.chara.job);
       $('#hp', dialog).val(save_data.chara.hp);
       $('#mp', dialog).val(save_data.chara.mp);
       $('[name="state"]', dialog).each(function() {
@@ -1383,6 +1395,7 @@
 
       // ステータス保存（ステータスダイアログ）
       target.parent().on('click', '#dialog_body #status_save', function(e) {
+        save_data.chara.job = $('#dialog_body #job').val();
         save_data.chara.hp = $('#dialog_body #hp').val();
         save_data.chara.mp = $('#dialog_body #mp').val();
         save_data.chara.free1 = $('#dialog_body #free1').val();
@@ -1581,8 +1594,8 @@
 
       // 再開画面（［続きから］ボタン）
       target.on('click', '#restart #tmp_continue', function(e) {
-        Util.initDialog();
         Util.initJobs();
+        Util.initDialog();
         // 再開時に経過日数の加算分を減算
         save_data.ellapsed_scene--;
         var num = save_data.scene;

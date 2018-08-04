@@ -8,6 +8,18 @@
 			<summary/>
 			<text>
 				<p order="1">ファイル跨ぎの分岐に成功しました。</p>
+				<p order="2"/>
+				<p order="3">-----</p>
+				<p order="4"/>
+				<p order="5">#### 変数埋め込み＆条件分岐のテスト </p>
+				<p order="6"/>
+				<p order="7">- 「お～い、＜${title}＞の${name}！」</p>
+				<p order="8">- Race:${race?人間:魔法使い:ドワ:エル}</p>
+				<p order="9">- Sex:${sex?おとーさん:おかーさん}</p>
+				<p order="10">- State:${state?正常:毒:凍結:石化:忘却}</p>
+				<p order="11">- Age:${age?若者:中年:老人}</p>
+				<p order="12">- 乱数：${rand?1:20}</p>
+				<p order="13">- ランダムメッセージ:${msg?こんにちは:おはよう:こんばんは}</p>
 			</text>
 			<backgroundcolour>#ffffff</backgroundcolour>
 			<choices/>
