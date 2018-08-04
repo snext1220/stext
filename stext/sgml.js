@@ -738,39 +738,35 @@
 
     // ステータスダイアログを生成
     createDialog: function() {
-      $('#hp', dialog).attr('value', save_data.chara.hp);
-      $('#mp', dialog).attr('value', save_data.chara.mp);
+      $('#hp', dialog).val(save_data.chara.hp);
+      $('#mp', dialog).val(save_data.chara.mp);
       $('[name="state"]', dialog).each(function() {
         var state = $(this).attr('value');
         if(state ===  save_data.chara.state) {
-          $(this).attr('checked', 'checked');
+          $(this).prop('checked', true);
         } else {
-          $(this).removeAttr('checked');
+          $(this).prop('checked', false);
         }
       });
       $('#ellapsed_scene', dialog).text(save_data.ellapsed_scene + ' scene');
-      $('#free1', dialog).attr('value', save_data.chara.free1);
-      $('#free2', dialog).attr('value', save_data.chara.free2);
-      $('#str', dialog).attr('value', save_data.chara.str);
-      $('#int', dialog).attr('value', save_data.chara.int);
-      $('#dex', dialog).attr('value', save_data.chara.dex);
-      $('#krm', dialog).attr('value', save_data.chara.krm);
-      $('#s_mon', dialog).attr('value', save_data.stars[0]);
-      $('#s_tue', dialog).attr('value', save_data.stars[1]);
-      $('#s_wed', dialog).attr('value', save_data.stars[2]);
-      $('#s_thu', dialog).attr('value', save_data.stars[3]);
-      $('#s_fri', dialog).attr('value', save_data.stars[4]);
-      $('#s_sat', dialog).attr('value', save_data.stars[5]);
-      $('#s_sun', dialog).attr('value', save_data.stars[6]);
+      $('#free1', dialog).val(save_data.chara.free1);
+      $('#free2', dialog).val(save_data.chara.free2);
+      $('#str', dialog).val(save_data.chara.str);
+      $('#int', dialog).val(save_data.chara.int);
+      $('#dex', dialog).val(save_data.chara.dex);
+      $('#krm', dialog).val(save_data.chara.krm);
+      $('#s_mon', dialog).val(save_data.stars[0]);
+      $('#s_tue', dialog).val(save_data.stars[1]);
+      $('#s_wed', dialog).val(save_data.stars[2]);
+      $('#s_thu', dialog).val(save_data.stars[3]);
+      $('#s_fri', dialog).val(save_data.stars[4]);
+      $('#s_sat', dialog).val(save_data.stars[5]);
+      $('#s_sun', dialog).val(save_data.stars[6]);
       var delta = this.deltaStatus(
-        $('[name="state"][checked="checked"]', dialog).attr('value'));
-      // $('#str_d', dialog).text('（' + delta[0] + '）');
-      // $('#int_d', dialog).text('（' + delta[1] + '）');
-      // $('#dex_d', dialog).text('（' + delta[2] + '）');
-      // $('#krm_d', dialog).text('（' + delta[3] + '）');
+        $('[name="state"]:checked', dialog).val());
       $('#state_desc', dialog).text(delta[4]);
-      $('#memos', dialog).text(save_data.memos);
-
+      $('#memos', dialog).val(save_data.memos);
+      
       // 魔法選択ボックスを生成
       var magic_box = $('#magic', dialog);
       magic_box.empty();
@@ -951,7 +947,6 @@
         '<img id="ctrl_show" src="' + ROOT + COMMON + 'ctrl_show.png" /></a> ' +
         $('scenario', scenario_data).attr('title') +
           '【' + scene_num + '】</span></h5>' + 
-        '<div id="simple_status"></div>' +
         '<div id="control_panel">' +
         '<img id="ctrl_home" src="' + ROOT + COMMON + 'ctrl_home.png" /></a>　' +
         '<img id="status_open" src="' + ROOT + COMMON + 'ctrl_status.png" />　' +
@@ -962,9 +957,6 @@
         '<img id="ctrl_help" src="' + ROOT + COMMON + 'ctrl_help.png" />' +
         '</div>')
         .prependTo(target);
-
-      // 簡易ステータス表示
-      this.showSimpleStatus();
 
       // パネル非表示状態になっている場合、パネルを非表示に
       if(!global_save_data.panel) {
@@ -1006,6 +998,9 @@
 
       // サイコロの表示
       target.append('<center id="cubes">' + Util.cube(2) + '</center>');
+      // 簡易ステータス表示
+      $('<div id="simple_status"></div>').insertBefore('#cubes');
+      this.showSimpleStatus();
 
       // 移動ボタンの整形
       $('a', target).addClass('scenebtn');
