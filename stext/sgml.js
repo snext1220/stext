@@ -10,6 +10,9 @@
   // シナリオデータ
   var scenario_data;
 
+  // 利用可能なジョブ
+  var enabled_jobs;
+
   // フラグ一覧
   var flags_map = {};
 
@@ -89,6 +92,69 @@
       'DESTROY-A':   [ 1, 0, 4, 0, 0, 0, 0, '風属性の敵を全滅' ],
       'LIGHT-CROSS': [ 0, 2, 0, 2, 0, 1, 0, '霊属性の敵を全滅' ],
       'NOILA-TEM':   [ 1, 1, 1, 1, 1, 1, 1, 'すべての属性の敵を全滅' ],
+    },
+
+    jobs: {
+      'のうふ' : [ 'FWDE', 'MF', 'YAO' ],
+      'れんきんじゅつ' : [ 'W', 'M', 'YAO' ],
+      'ようへい' : [ 'FDE', 'M', 'YA' ],
+      'うらないし' : [ 'WE', 'MF', 'YAO' ],
+      'こうふ' : [ 'FD', 'M', 'YA' ],
+      'どろぼう' : [ 'FWDE', 'MF', 'YAO' ],
+      'そうりょ' : [ 'W', 'MF', 'YAO' ],
+      'しょうにん' : [ 'FWE', 'MF', 'YAO' ],
+      'せんいん' : [ 'FD', 'M', 'YA' ],
+      'とうし' : [ 'FDE', 'MF', 'Y' ],
+      'どうけし' : [ 'WE', 'MF', 'YAO' ],
+      'かじや' : [ 'FD', 'M', 'YAO' ],
+      'きこり' : [ 'FD', 'M', 'YA' ],
+      'かりうど' : [ 'FDE', 'M', 'YAO' ],
+      'きとうし' : [ 'WE', 'M', 'YAO' ],
+      'あくまばらい' : [ 'W', 'M', 'YAO' ],
+      'せんきょうし' : [ 'W', 'MF', 'YAO' ],
+      'いしゃ' : [ 'WE', 'M', 'AO' ],
+      'かんごふ' : [ 'FWE', 'F', 'YAO' ],
+      'ぱんや' : [ 'FWE', 'MF', 'YAO' ],
+      'りょうし' : [ 'FD', 'MF', 'YA' ],
+      'だいく' : [ 'FD', 'M', 'YAO' ],
+      'ちょうこくか' : [ 'FWDE', 'MF', 'O' ],
+      'おりこ' : [ 'WDE', 'F', 'YAO' ],
+      'すみやき' : [ 'FD', 'MF', 'YAO' ],
+      'コック' : [ 'WE', 'MF', 'YAO' ],
+      'スパイ' : [ 'FWE', 'M', 'YA' ],
+      'ぼくどう' : [ 'FWDE', 'MF', 'Y' ],
+      'ようじんぼう' : [ 'FDE', 'M', 'Y' ],
+      'ぎんゆうしじん' : [ 'WE', 'M', 'YAO' ],
+      'ぎょしゃ' : [ 'FD', 'MF', 'YAO' ],
+      'はかもり' : [ 'FWDE', 'M', 'O' ],
+      'しゃほん' : [ 'WE', 'M', 'O' ],
+      'こなひき' : [ 'FD', 'MF', 'YA' ],
+      'かせいふ' : [ 'FWDE', 'F', 'YAO' ],
+      'おどりこ' : [ 'E', 'F', 'Y' ],
+      'はなや' : [ 'FWE', 'F', 'YAO' ],
+      'いしく' : [ 'D', 'MF', 'YA' ],
+      'かみゆい' : [ 'FWDE', 'F', 'AO' ],
+      'したてや' : [ 'WDE', 'F', 'YAO' ],
+      'いとつむぎ' : [ 'D', 'F', 'YAO' ],
+      'うたうたい' : [ 'FWE', 'F', 'YA' ],
+      'かみすき' : [ 'WD', 'MF', 'O' ],
+      'つうやく' : [ 'DE', 'MF', 'YAO' ],
+      'やくざいし' : [ 'FWE', 'MF', 'AO' ],
+      'ほねさいくし' : [ 'D', 'MF', 'O' ],
+      'わたしもり' : [ 'FW', 'M', 'YA' ],
+      'やくそうとり' : [ 'WE', 'MF', 'YAO' ],
+      'そうぎや' : [ 'FW', 'M', 'O' ],
+      'ワインづくり' : [ 'FWDE', 'MF', 'YA' ],
+      'こじき' : [ 'FWDE', 'MF', 'YAO' ],
+      'ちょうきょうし' : [ 'DE', 'MF', 'A' ],
+      'ほうせきさいくし' : [ 'D', 'MF', 'O' ],
+      'かごづくり' : [ 'FD', 'MF', 'O' ],
+      'かぎや' : [ 'D', 'MF', 'AO' ],
+      'くつし' : [ 'FDE', 'MF', 'O' ],
+      'はくせいづくり' : [ 'FD', 'MF', 'O' ],
+      'ゆみし' : [ 'FE', 'MF', 'O' ],
+      'チーズづくり' : [ 'FD', 'F', 'YAO' ],
+      'さんば' : [ 'FW', 'F', 'AO' ]   
     },
 
     // シナリオクリア時に入手できるアイテム
@@ -223,6 +289,8 @@
           sex: pc_base[1],
           // 年齢帯
           age: this.randomArray(['YOUNG', 'ADULT', 'OLD']),
+          // 職業
+          job: '',
           // 状態異常
           state: '',
           // HP最大値
@@ -272,6 +340,11 @@
         // エンディングに到達したか
         isEnded: false
       };
+
+      // 現在の条件で利用可能な職業を初期化＆現在の職業を設定
+      this.initJobs();
+      save_data.chara.job = this.randomArray(enabled_jobs);
+
       this.saveStorage();
     },
 
@@ -288,6 +361,15 @@
         panel: true
       };
       this.saveStorageGlobal(GLOBAL_SAVE_DATA_KEY);
+    },
+
+    initJobs: function() {
+      enabled_jobs = Object.keys(Common.jobs).filter(function(name) {
+        var cond = Common.jobs[name];      
+        return cond[0].indexOf(save_data.chara.race.charAt(0)) !== -1 &&
+          cond[1].indexOf(save_data.chara.sex.charAt(0)) !== -1 &&
+          cond[2].indexOf(save_data.chara.age.charAt(0)) !== -1;
+      });
     },
 
     // シナリオデータが有効であるか（開発中）
@@ -340,6 +422,8 @@
     showSplash() {
       $.zoombox.open(ROOT + COMMON + 'title.png', { duration: 400 });
     },
+
+
 
     // 指定された魔法を利用できるかを判定（引数は個々の魔法情報配列）
     canUseMagic: function(magic) {
@@ -826,6 +910,18 @@
       bgm.loop = true;
       if(global_save_data.bgm) { bgm.play(); }
     },
+
+    // 簡易ステータス表示
+    showSimpleStatus() {
+      $('#simple_status').html(
+        'HP:<span class="status_v">' + save_data.chara.hp + '</span>　' +
+        'MP:<span class="status_v">' + save_data.chara.mp + '</span>　|　' +
+        'STR:<span class="status_v">' + save_data.chara.str + '</span>　' +
+        'INT:<span class="status_v">' + save_data.chara.int + '</span>　' +
+        'DEX:<span class="status_v">' + save_data.chara.dex + '</span>　' +
+        'KRM:<span class="status_v">' + save_data.chara.krm + '</span>'
+      );
+    },
    
     // 現在のシーン情報を取得＆画面の生成
     createScene: function(scene_num) {
@@ -855,6 +951,7 @@
         '<img id="ctrl_show" src="' + ROOT + COMMON + 'ctrl_show.png" /></a> ' +
         $('scenario', scenario_data).attr('title') +
           '【' + scene_num + '】</span></h5>' + 
+        '<div id="simple_status"></div>' +
         '<div id="control_panel">' +
         '<img id="ctrl_home" src="' + ROOT + COMMON + 'ctrl_home.png" /></a>　' +
         '<img id="status_open" src="' + ROOT + COMMON + 'ctrl_status.png" />　' +
@@ -865,6 +962,9 @@
         '<img id="ctrl_help" src="' + ROOT + COMMON + 'ctrl_help.png" />' +
         '</div>')
         .prependTo(target);
+
+      // 簡易ステータス表示
+      this.showSimpleStatus();
 
       // パネル非表示状態になっている場合、パネルを非表示に
       if(!global_save_data.panel) {
@@ -1233,6 +1333,8 @@
         save_data.stars[6] = $('#dialog_body #s_sun').val();
         save_data.memos    = $('#dialog_body #memos').val();
         Util.saveStorage();
+        // 簡易ステータス表示を更新
+        Util.showSimpleStatus();
         // ★mobile★
         dialog.slideUp(500);
         target.slideDown(500);
@@ -1412,6 +1514,7 @@
       // 再開画面（［続きから］ボタン）
       target.on('click', '#restart #tmp_continue', function(e) {
         Util.initDialog();
+        Util.initJobs();
         // 再開時に経過日数の加算分を減算
         save_data.ellapsed_scene--;
         var num = save_data.scene;
