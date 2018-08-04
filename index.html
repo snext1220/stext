@@ -12,7 +12,7 @@
 <script src="./stext/sgml.js"></script>
 <script>
 $(function() {
-  $('#main').startGame('scepter', true);
+  //$('#main').startGame('scepter', true);
   //$('#main').startGame('zero', true);
   //$('#main').startGame('doll', true);
   //$('#main').startGame('tempest', true);
@@ -21,10 +21,10 @@ $(function() {
   //$('#main').startGame('slayer', true);
   //$('#main').startGame('ramidia', true);
   //$('#main').startGame('trial', true);
-  //$('#main').startGame('playground', true);
   //$('#main').startGame('cat', true);
   //$('#main').startGame('soul', true);
-
+  $('#main').startGame('playground', true);
+  
   $.get('./stext/stext.xml').done(function(data) {
     $('scenario > work, utility > work[backup]', data).each(function() { 
       $('#scenario').append(

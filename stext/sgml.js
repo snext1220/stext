@@ -918,6 +918,77 @@
         'KRM:<span class="status_v">' + save_data.chara.krm + '</span>'
       );
     },
+
+    // 本文中のSGML式 ${...} を解析
+    interpolation(match, sub) {
+      var tmp_sub = sub.split('?');
+      var m_var = tmp_sub[0];
+      if (tmp_sub[1]) {
+        var m_params = tmp_sub[1].split(':');
+      }
+      switch (m_var) {
+        case 'name' :
+          return save_data.chara.name;
+        case 'title' :
+          return save_data.chara.title;
+        case 'race' :
+          switch (save_data.chara.race) {
+            case 'FIGHTER' :
+              return m_params[0];
+            case 'WIZARD' :
+              return m_params[1];
+            case 'DWARF' :
+              return m_params[2];
+            case 'ELF' :
+              return m_params[3];
+            default :
+              return 'Unknown Race';
+          }
+        case 'sex' :
+          switch (save_data.chara.sex) {
+            case 'MALE' :
+              return m_params[0];
+            case 'FEMALE' :
+              return m_params[1];
+            default :
+              return 'Unknown Sex';
+          }
+        case 'age' :
+          switch (save_data.chara.age) {
+            case 'YOUNG' :
+              return m_params[0];
+            case 'ADULT' :
+              return m_params[1];
+            case 'OLD' :
+              return m_params[2];  
+            default :
+              return 'Unknown Age';
+          }
+        case 'state' :
+          switch (save_data.chara.state) {
+            case '' :
+              return m_params[0];
+            case 'poison' :
+              return m_params[1];
+            case 'frozen' :
+              return m_params[2];
+            case 'stone' :
+              return m_params[3];  
+            case 'curse' :
+              return m_params[4];  
+            case 'forget' :
+              return m_params[5];  
+            default :
+              return 'Unknown State';
+          }
+        case 'rand' :
+          return Util.random(Number(m_params[0]), Number(m_params[1]));
+        case 'msg' :
+          return Util.randomArray(m_params);
+        default :
+          return sub;
+      }
+    },
    
     // 現在のシーン情報を取得＆画面の生成
     createScene: function(scene_num) {
@@ -938,6 +1009,8 @@
       tmp_scene = tmp_scene.replace(/%\/%/gi, '</span>&nbsp;');
       tmp_scene = tmp_scene.replace(/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi,
         '<a href="$&" data-link="auto" target="_blank">$&</a>');
+      // ${...}の箇所を式の内容に応じて処理
+      tmp_scene = tmp_scene.replace(/\${(.+?)}/gi, this.interpolation);
       target.html(tmp_scene);
       //target.text(scene.text());
       target.markdown();
