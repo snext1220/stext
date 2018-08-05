@@ -1948,40 +1948,63 @@
       });
     },
 
-    // ストレージ上のセーブデータを「data-xxxxxx.stext」として出力（xxxxxxはタイムスタンプ）
+    // ストレージ上のセーブデータを「xxxxx-99999.stext」として出力
+    // （xxxxxxはシナリオコード、99999はタイムスタンプ）
     // this：ボタン
     // 引数selector：シナリオコードを表すフォーム要素（セレクター式）
     backupData: function(selector) {
+      // ダウンロード処理
+      var dl = function(scena_id, data) {
+        var blob = new Blob([ data ], { 'type': 'application/octet-stream' });
+        var anchor = document.createElement('a');
+        anchor.href = window.URL.createObjectURL(blob);
+        var today = new Date();
+        anchor.download = scena_id + '-' + (new Date()).getTime()  + '.stext';
+        document.body.appendChild(anchor);
+        anchor.click();
+        document.body.removeChild(anchor);
+      };
+
       $(this).click(function() {
         var content = '';
         var storage = localStorage;
         var scenario = $(selector).val();
         if (scenario === 'all') {
-          for (var i = 0; i < storage.length; i++) {
-            var key = storage.key(i);
-            var value = storage[key];
-            if (/^[a-z0-9_]+$/gi.test(key) &&
-              key !== 'playground_editor' &&
-              /^{(.*)}$/.test(value)) {
-              content += key + '\n';
-              content += storage[key] + '\n';
-            }
-          }
+          // シナリオデータからidあり、unpublishedなしのwork要素を取得
+          $.get(ROOT + 'stext.xml')
+            .done(function(data) {
+              var ids = [ GLOBAL_SAVE_DATA_KEY ];
+              $('work[id]:not([unpublished])', data).each(function(i, elm){
+                ids.push($(elm).attr('id'));
+              });
+              for (var i = 0; i < ids.length; i++) {
+                var tmp_data = storage[ids[i]];
+                if (tmp_data) {
+                  content += ids[i] + '\n';
+                  content += tmp_data + '\n';
+                }
+              }
+              dl(scenario, content);
+            });
+          // 旧コード（削除予定）
+          // for (var i = 0; i < storage.length; i++) {
+          //   var key = storage.key(i);
+          //   var value = storage[key];
+          //   if (/^[a-z0-9_]+$/gi.test(key) &&
+          //     key !== 'playground_editor' &&
+          //     /^{(.*)}$/.test(value)) {
+          //     content += key + '\n';
+          //     content += storage[key] + '\n';
+          //   }
+          // }
         } else {
           content = storage[scenario];
           if (!content) {
             window.alert('データが存在しません！');
             return;
           }
+          dl(scenario, content);
         }
-        var blob = new Blob([ content ], { 'type': 'application/octet-stream' });
-        var anchor = document.createElement('a');
-        anchor.href = window.URL.createObjectURL(blob);
-        var today = new Date();
-        anchor.download = scenario + '-' + (new Date()).getTime()  + '.stext';
-        document.body.appendChild(anchor);
-        anchor.click();
-        document.body.removeChild(anchor);
       });
     },
 
