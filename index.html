@@ -12,22 +12,14 @@
 <script src="./stext/sgml.js"></script>
 <script>
 $(function() {
-  $('#main').startGame('scepter', true);
-  //$('#main').startGame('zero', true);
-  //$('#main').startGame('doll', true);
-  //$('#main').startGame('tempest', true);
-  //$('#main').startGame('hero', true);
-  //$('#main').startGame('vampire', true);
-  //$('#main').startGame('slayer', true);
-  //$('#main').startGame('ramidia', true);
-  //$('#main').startGame('trial', true);
-  //$('#main').startGame('cat', true);
-  //$('#main').startGame('soul', true);
-  //$('#main').startGame('playground', true);
-  
   $.get('./stext/stext.xml').done(function(data) {
     $('scenario > work, utility > work[backup]', data).each(function() { 
       $('#scenario').append(
+        $('<option></option>').
+          attr('value', $(this).attr('id')).
+          text($(this).attr('title'))
+      );
+      $('#select_scenario').append(
         $('<option></option>').
           attr('value', $(this).attr('id')).
           text($(this).attr('title'))
@@ -37,6 +29,11 @@ $(function() {
     console.log(err);
   });
 
+  // シナリオ選択用
+  $('#select_scenario').change(function(e){
+    $('#main').startGame($(this).val(), true);
+  });
+
   // ストレージデータのバックアップ／リストア（テスト用）
   $('#backup').backupData('#scenario');
   $('#restore').restoreData();
@@ -44,6 +41,12 @@ $(function() {
 </script>
 </head>
 <body>
+<div style="text-align: center;">
+<select id="select_scenario">
+  <option value="" selected>シナリオを選択してください。</option>
+  <option value="test">テストシナリオ</option>
+</select>
+</div>
 <div id="main">
   SGML（Sorcerian Gamebook Markup Language） Initialized...
 </div>
