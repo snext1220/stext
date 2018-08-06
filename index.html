@@ -13,6 +13,17 @@
 <script src="./stext/sgml.js"></script>
 <script>
 $(function() {
+  var result = {};
+  var params = location.search.substring(1).split('&');
+  for(var i = 0; i < params.length; i++){
+    var kv = params[i].split('=');
+    result[kv[0]] = decodeURIComponent(kv[1]);
+  }
+  var id = result['id'];
+  if(id) {
+    $('#main').startGame(id, true);
+  }
+
   $.get('./stext/stext.xml').done(function(data) {
     $('scenario > work, utility > work[backup]', data).each(function() { 
       $('#scenario').append(
@@ -32,7 +43,7 @@ $(function() {
 
   // シナリオ選択用
   $('#select_scenario').change(function(e){
-    $('#main').startGame($(this).val(), true);
+    location.href = 'index.html?id=' + $(this).val();
   });
 
   // ストレージデータのバックアップ／リストア（テスト用）
