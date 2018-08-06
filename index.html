@@ -9,6 +9,7 @@
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="./stext/zoombox.js"></script>
 <script src="./stext/jquery.markdown.js"></script>
+<script src="./stext/vkbeautify.js"></script>
 <script src="./stext/sgml.js"></script>
 <script>
 $(function() {
@@ -37,6 +38,8 @@ $(function() {
   // ストレージデータのバックアップ／リストア（テスト用）
   $('#backup').backupData('#scenario');
   $('#restore').restoreData();
+  // GBAT2STextの有効化（テスト用）
+  $('#gbat').gbat2stext();
 });
 </script>
 </head>
@@ -56,7 +59,8 @@ $(function() {
     <option value="sorcerian_text">基本情報（実績／ボーナス）</option>
   </select>
   <input type="button" id="backup" value="バックアップ" />／
-  <input type="file" id="restore" accept=".stext" value="リストア" />
+  <input type="file" id="restore" accept=".stext" value="リストア" /><br />
+  <input id="gbat" type="file" accept=".gbat" multiple="multiple" /> &lt;- 変換する.gbatファイルを指定
 </div>
 </body>
 </html>
