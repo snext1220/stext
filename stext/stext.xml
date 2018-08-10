@@ -110,7 +110,7 @@
 ゆるめのテイストに彩られた、探索物シナリオです。ペンタウァの町をうろうろしながら、いろいろな人の話を聞いてみてください。
 </work>
 
-<work id="soul" title="魂の選択" author="ときのじ" unpublished="true">
+<work id="soul" title="魂の選択" author="ときのじ">
 <img src="./images2/stext10.png" height="120"
   title="魂の選択" align="left" class="left" />
 <p class="award">ミニミニ30祭Vol.2<br />（30Scene限定シナリオ）</p>
@@ -125,7 +125,6 @@
 君は夢の中で謎の女から何かを頼まれたようだ。しかし、その言葉は断片的で、肝心な部分は聞き取ることができなかった。女は一体何を望んでいるのだろうか……？
 
 ――この物語の結末を決めるのは、君の【魂の在り方】次第。
-<p class="award">2018年8月10日公開予定！</p>
 </work>
 
 </scenario>
