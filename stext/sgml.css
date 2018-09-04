@@ -345,3 +345,22 @@ table.item_list img {
   font-size: 18px;
   /*font-weight: bold;*/
 }
+
+/*
+.markdown-body table {
+  border-collapse:collapse; 
+  background-color: #fff;
+  margin: 5px;
+}
+
+.markdown-body table, .markdown-body th, .markdown-body td {
+  border: 1px solid #000;
+  padding: 4px;
+}
+
+.markdown-body blockquote {
+  border-left: 4px solid #DDDDDD;
+  color: #777777;
+  padding: 0 15px;
+}
+*/
