@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <scenario
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd" title="動作確認シナリオ" author="Rio">
+	<init>
+	  <constraint race="FIGHTER,WIZARD" sex="MALE" age="YOUNG" />
+	</init>
+
 	<items>
 		<item id="i01" name="こいし">何の変哲もない、石だ</item>
 		<item id="i02" name="ひとにぎりのすな">グーランの、なれの果てだ</item>
