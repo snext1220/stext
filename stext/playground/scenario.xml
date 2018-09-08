@@ -2,7 +2,7 @@
 <scenario
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd" title="動作確認シナリオ" author="Rio">
 	<init>
-	  <constraint race="FIGHTER,WIZARD" sex="MALE" age="YOUNG" />
+	  <constraint race="FIGHTER,WIZARD" sex="MALE" age="YOUNG,OLD" />
 	</init>
 
 	<items>

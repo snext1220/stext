@@ -257,7 +257,34 @@
 
     // セーブデータの初期化
     initSavedata: function() {
-      var pc_base = this.randomArray(Common.pc_init);
+      var constraint = $('init > constraint', scenario_data);
+      var init_races, init_sex, init_ages;
+      if (constraint) {
+        var init_races = constraint.attr('race');
+        if (init_races) { init_races = init_races.split(','); }
+        var init_sex = constraint.attr('sex');
+        var init_ages = constraint.attr('age');
+        if (init_ages) { init_ages = init_ages.split(','); }
+      }
+      // 種族／性別で絞り込まれたpc_initからランダムに取得
+      var pc_base = this.randomArray(Common.pc_init.
+        // 種族でフィルター（無指定でスキップ）
+        filter(function(value) {
+          if (init_races) {
+            return init_races.includes(value[0]);
+          } else {
+            return true;
+          }
+        }).
+        // 性別でフィルター（無指定でスキップ）
+        filter(function(value) {
+          if (init_sex) {
+            return init_sex === value[1];
+          } else {
+            return true
+          }
+        })
+      );
       var hp_m = this.random(pc_base[2], pc_base[2] + 10);
       var mp_m = this.random(pc_base[3], pc_base[3] + 10);
       var str_i = this.minMaxGuard(this.random(pc_base[4], pc_base[4] + 2));
@@ -288,7 +315,16 @@
           // 性別
           sex: pc_base[1],
           // 年齢帯
-          age: this.randomArray(['YOUNG', 'ADULT', 'OLD']),
+          age: this.randomArray(
+            ['YOUNG', 'ADULT', 'OLD'].
+              filter(function(value) {
+                if (init_ages) {
+                  return init_ages.includes(value);
+                } else {
+                  return true;
+                }
+            })
+          ),
           // 職業
           job: '',
           // 状態異常
@@ -1759,6 +1795,7 @@
         'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ' +
         'xsi:noNamespaceSchemaLocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd">\n' +
         '</scenario>');
+        var inits = $('<init>\n</init>');
         var items = $('<items>\n</items>');
         var flags = $('<flags>\n</flags>');
         var enemies = $('<enemies>\n</enemies>');
@@ -1807,8 +1844,16 @@
               if (header_on) {
                 // 空行はスキップ
                 if(!tmp_para) { return true; }
+                // 種族／年齢／種族の制約
+                if (tmp_para.indexOf('pc') === 0) {
+                  var pc = tmp_para.split(':')
+                  var cons = $('<constraint></constraint>');
+                  if (pc[1]) { cons.attr('race', pc[1]); }
+                  if (pc[2]) { cons.attr('sex',  pc[2]); }
+                  if (pc[3]) { cons.attr('age',  pc[3]); }
+                  cons.appendTo(inits);
                 // アイテム処理
-                if (tmp_para.indexOf('i') === 0) {
+                } else if (tmp_para.indexOf('i') === 0) {
                   var item = tmp_para.split(':')
                   $('<item></item>')
                     .attr('id', item[0])
@@ -1917,6 +1962,7 @@
           enemies.prependTo(result);
           flags.prependTo(result);
           items.prependTo(result);
+          inits.prependTo(result);
 
           // 未処理のファイルがなくなったら出力処理
           file_num++;
