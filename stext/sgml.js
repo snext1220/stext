@@ -557,6 +557,20 @@
       }
     },
 
+    // @stars属性（at_stars）の値に応じて、セーブデータのstarsプロパティを更新
+    updateStars: function(at_stars) {
+      if(!at_stars) { return; }
+      var stars = save_data.stars;
+      at_stars = at_stars.split(',');
+      // stars属性の内容を順に反映
+      for (var i = 0; i < at_stars.length; i++) {
+        stars[i] += Number(at_stars[i].trim());
+        // 減算で負数になった星はゼロ丸め
+        if (stars[i] < 0) { stars[i] = 0; }
+      }
+      save_data.stars = stars;
+    },
+
     // @result属性（at_result）の値に応じて、グローバルセーブデータのresultsプロパティを更新
     updateResults: function(at_result) {
       if(!at_result) { return; }
@@ -1299,6 +1313,7 @@
       // 現在のシーンのフラグ情報／アイテム／実績情報を反映
       Util.updateItems(scene.attr('items'));
       Util.updateFlags(scene.attr('flags'));
+      Util.updateStars(scene.attr('stars'));
       Util.updateResults(scene.attr('result'));
 
       // 現在のシーン番号を保存
