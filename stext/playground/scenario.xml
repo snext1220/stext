@@ -34,7 +34,7 @@
 		<work name="ダンジョン" category="bgm" creator="Az" url="venusaz.seesaa.net/"></work>
 		<work name="グーラン" category="picture" creator="Falcom" url=""></work>
 	</license>
-	<scene id="0" stars="1,-2,3,4,5,-6,7">
+	<scene id="0" flags="-f01,-f04" stars="1,-2,3,4,5,-6,7">
 
 # タイトルテスト1
 ## タイトルテスト2

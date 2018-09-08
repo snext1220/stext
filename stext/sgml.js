@@ -553,8 +553,20 @@
 
       for (var i = 0; i < at_flags.length; i++) {
         var flag = at_flags[i].trim();
-        this.pushUnique(flags, flag);
+
+        // 隠しフラグのみ削除可
+        if (flag.indexOf('-') === 0) {
+          flag = this.ltrim(flag);
+          if (flags_map[flag].indexOf('*') === 0) {
+            flags = this.shiftUnique(flags, flag);
+          } else {
+            console.log(flag + '：隠しフラグ以外は削除できません。'); 
+          }
+        } else {
+          this.pushUnique(flags, flag);
+        }
       }
+      save_data.flags = flags;
     },
 
     // @stars属性（at_stars）の値に応じて、セーブデータのstarsプロパティを更新
