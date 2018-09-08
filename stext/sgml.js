@@ -459,8 +459,6 @@
       $.zoombox.open(ROOT + COMMON + 'title.png', { duration: 400 });
     },
 
-
-
     // 指定された魔法を利用できるかを判定（引数は個々の魔法情報配列）
     canUseMagic: function(magic) {
       if(save_data.stars[0] < magic[0] ||
@@ -581,6 +579,42 @@
         if (stars[i] < 0) { stars[i] = 0; }
       }
       save_data.stars = stars;
+    },
+
+    // 移動ボタンの条件式に応じて、セーブデータのstarsプロパティを更新（成否をtrue／falseで返す）
+    updateStarsByMagic: function(cond) {
+      // 無指定、または「-」条件ではなにもしない
+      if (cond === undefined || cond.indexOf('-') === 0) {
+        return true;
+      }
+      var stars = save_data.stars.concat();
+      // 指定された魔法で星を減算（星の何れかが0未満でfalse）
+      var useStar = function(magic) {
+        for (var i = 0; i < stars.length; i++) {
+          stars[i] -= magic[i];
+          if (stars[i] < 0) { return false; }
+        }
+        return true;
+      };
+      // 「+」条件式から魔法に関する条件のみを抽出
+      var conds = cond.split(',').filter(function(value) {
+        return value.indexOf('m') === 0;
+      });
+      // 該当する魔法分だけ星を減算
+      for (var i = 0; i < conds.length; i++) {
+        var magic = Common.magic[conds[i].substring(1)];
+        if (!magic) { return; }
+        // 魔法が使える＆減算後も星が足りているか
+        if (Util.canUseMagic(magic)) {
+          if (!useStar(magic)) { return false; };
+        } else {
+          return false;
+        }
+      }
+      // 星を反映
+      save_data.stars = stars;
+      Util.saveStorage();
+      return true;
     },
 
     // @result属性（at_result）の値に応じて、グローバルセーブデータのresultsプロパティを更新
@@ -1065,10 +1099,18 @@
     },
    
     // 現在のシーン情報を取得＆画面の生成
-    createScene: function(scene_num) {
+    // 引数scene_num：シーン番号、cond：条件式
+    createScene: function(scene_num, cond) {
       // エンディングフラグが立っている場合は、初期化処理を実行
       if(save_data.isEnded) {
         location.reload(true);
+        return;
+      }
+
+      // 条件式に応じて、処理を実施（魔法による星演算のみ）
+      // 失敗時はトースト表示して、処理終了
+      if(!Util.updateStarsByMagic(cond)) {
+        Util.toast('星が不足しているようだ。');
         return;
       }
 
@@ -1363,13 +1405,14 @@
       // 移動ボタンをクリックで次のシーンに移動
       target.on('click', 'a.scenebtn', function(e) {
         var num = $(this).attr('href');
+        var cond = $(this).attr('title');
         // 複数移動先が指定されている場合、ランダムに選択
         if (num.indexOf(',') !== -1) {
           num = Util.randomArray(num.split(',')).trim();
         }
         // 履歴に追加
         history.pushState(num, 'Scene ' + num);
-        Util.createScene(num);
+        Util.createScene(num, cond);
 
         // BGMが再生中でなければ強制的に再生
         if (bgm && bgm.paused && global_save_data.bgm) {

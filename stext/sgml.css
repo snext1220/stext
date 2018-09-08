@@ -346,18 +346,18 @@ table.item_list img {
   /*font-weight: bold;*/
 }
 
-/*
-.markdown-body table {
+.markdown-body table:not([class]) {
   border-collapse:collapse; 
   background-color: #fff;
   margin: 5px;
 }
 
-.markdown-body table, .markdown-body th, .markdown-body td {
+.markdown-body table:not([class]), .markdown-body table:not([class]) th, .markdown-body table:not([class]) td {
   border: 1px solid #000;
   padding: 4px;
 }
 
+/*
 .markdown-body blockquote {
   border-left: 4px solid #DDDDDD;
   color: #777777;
