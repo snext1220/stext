@@ -617,6 +617,17 @@
       return true;
     },
 
+    // @free1（at_free1）, @free2（at_free2）の値に応じて、
+    // セーブデータのfree1、free2プロパティを更新
+    updateFrees: function(at_free1, at_free2) {
+      if (at_free1) {
+        save_data.chara.free1 += Number(at_free1);
+      }
+      if (at_free2) {
+        save_data.chara.free2 += Number(at_free2);
+      }
+    },
+
     // @result属性（at_result）の値に応じて、グローバルセーブデータのresultsプロパティを更新
     updateResults: function(at_result) {
       if(!at_result) { return; }
@@ -1364,10 +1375,11 @@
         se.play();
       }
 
-      // 現在のシーンのフラグ情報／アイテム／実績情報を反映
+      // 現在のシーンのフラグ情報／アイテム／Free欄／実績情報を反映
       Util.updateItems(scene.attr('items'));
       Util.updateFlags(scene.attr('flags'));
       Util.updateStars(scene.attr('stars'));
+      Util.updateFrees(scene.attr('free1'), scene.attr('free2'));
       Util.updateResults(scene.attr('result'));
 
       // 現在のシーン番号を保存
