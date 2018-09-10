@@ -506,7 +506,8 @@
     isCharaState: function(state) {
       if (state.indexOf('x') === 0) {
         var tmp_state = [save_data.chara.race, save_data.chara.sex,
-          save_data.chara.age, save_data.chara.state.toUpperCase() ];
+          save_data.chara.age, save_data.chara.state.toUpperCase(),
+          save_data.chara.job ];
         return tmp_state.indexOf(state.substring(1).toUpperCase()) !== -1;
       }
       return false;
@@ -1130,6 +1131,19 @@
 
       var scene = $('scene[id="' + scene_num + '"]', scenario_data);
 
+      // 現在のシーンのフラグ情報／アイテム／Free欄／実績情報を反映
+      Util.updateItems(scene.attr('items'));
+      Util.updateFlags(scene.attr('flags'));
+      Util.updateStars(scene.attr('stars'));
+      Util.updateFrees(scene.attr('free1'), scene.attr('free2'));
+      Util.updateResults(scene.attr('result'));
+
+      // 現在のシーン番号を保存
+      save_data.scene = scene_num;
+      save_data.ellapsed_scene++;
+      // ストレージに反映
+      Util.saveStorage();
+
       // シーンテキストの整形（カラーリング＆URL）
       var tmp_scene = scene.text();
       tmp_scene = tmp_scene.replace(/%(blue|red|purple|white)%/gi, '&nbsp;<span style="color:$1">');
@@ -1374,20 +1388,6 @@
         se.loop = false;
         se.play();
       }
-
-      // 現在のシーンのフラグ情報／アイテム／Free欄／実績情報を反映
-      Util.updateItems(scene.attr('items'));
-      Util.updateFlags(scene.attr('flags'));
-      Util.updateStars(scene.attr('stars'));
-      Util.updateFrees(scene.attr('free1'), scene.attr('free2'));
-      Util.updateResults(scene.attr('result'));
-
-      // 現在のシーン番号を保存
-      save_data.scene = scene_num;
-      save_data.ellapsed_scene++;
-
-      // ストレージに反映
-      Util.saveStorage();
 
       // エンディング処理
       Util.endScenario(scene.attr('end'));

@@ -2,9 +2,8 @@
 <scenario
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd" title="動作確認シナリオ" author="Rio">
 	<init>
-	  <constraint race="FIGHTER,WIZARD" sex="MALE" age="YOUNG,OLD" />
+		<constraint race="FIGHTER,WIZARD" sex="FEMALE" age="YOUNG,ADULT"></constraint>
 	</init>
-
 	<items>
 		<item id="i01" name="こいし">何の変哲もない、石だ</item>
 		<item id="i02" name="ひとにぎりのすな">グーランの、なれの果てだ</item>
@@ -16,6 +15,7 @@
 		<flag id="f02">「〇」の道で、ジャイアントラットを倒した。</flag>
 		<flag id="f03">「＊」の道で、怖い目を見た。</flag>
 		<flag id="f04">*隠しフラグ</flag>
+		<flag id="f05">*進行管理用の隠しフラグ</flag>
 	</flags>
 	<enemies>
 		<enemy id="m01" name="人面岩" element="地" attack="物理" func="L-STR">喋るだけで、硬い岩だ。</enemy>
@@ -34,18 +34,16 @@
 		<work name="ダンジョン" category="bgm" creator="Az" url="venusaz.seesaa.net/"></work>
 		<work name="グーラン" category="picture" creator="Falcom" url=""></work>
 	</license>
-	<scene id="0" free1="10" free2="-5" flags="-f01,-f04" stars="1,-2,3,4,5,-6,7">
+	<scene id="0" flags="f05" stars="1,2,3,4,5,6,7" free1="10" free2="-5">
 
 # タイトルテスト1
 ## タイトルテスト2
 ### タイトルテスト3
 
-文章です。俺は${銀狼|silver wolf}だ！
+文章です。
 **強調**です。
 
 ---
-
-
 
 - 自動リンクのテスト（http://d.hatena.ne.jp/sorcerian/20180128）
 
@@ -53,6 +51,11 @@
 2. みんな、%red%ソーサリアン%/%！
 3. みんな、%purple%ソーサリアン%/%！
 4. みんな、%white%ソーサリアン%/%！
+
+- このシナリオは、種族はFIGHTER,WIZARD、性別はFEMALE、年齢はYOUNG,ADULT限定です。
+- 初期状態で各星を1,2,3,4,5,6,7加算します。
+- free1を+10、free2を-5します。
+- 隠しフラグf05を追加します。
 
 ```
 自由移動欄からは500、600、700に移動できます。
@@ -65,13 +68,16 @@
 [キャラ条件の検証](16)
 [500,600,700](X)
 </scene>
-	<scene id="2" items="i01,i02,i03" flags="f01,f02" enemies="m01,m02,m03" bgm="" result="r01">
+	<scene id="2" items="i01,i02,i03" flags="f01,f02,-f02,-f05" enemies="m01,m02,m03" stars="-5,-5,-5,-5,-5,-5,-5" free1="7" free2="-2" bgm="" result="r01">
 
 - 魔法ボタンの確認（HEAL、LIGHT-CROSS）
 - ステータスボタンの確認（STR&lt;5、HP&gt;50）
 - 文字列入力欄の確認（正答はペンタウァ）
 - フラグf01、f02を設定
+- 隠しフラグf05、非隠しフラグf02の削除（f02はコンソールにエラー）
 - アイテムi01、i02、i03を設定
+- 星のすべてを-5
+- free1、2をそれぞれ+7、-2
 - 実績r01を設定
 
 
@@ -161,6 +167,7 @@ HEAL実行
 - 性別（MALE／FEMALE）
 - 年齢帯（YOUNG／ADULT／OLD）
 - 状態異常（POINSON／FROZEN／STONE／CURSE／FORGET）
+- 職業（のうふ／こじき）
 - 上記の複合
 
 [私はFIGHTER](51 "xFIGHTER")
@@ -178,6 +185,8 @@ HEAL実行
 [石化](51 "xSTONE")
 [呪い](51 "xCURSE")
 [忘却](51 "xFORGET")
+[私はのうふ](51 "xのうふ")
+[私はこじき](51 "xこじき")
 [FIGHTER／毒です](51 "xFIGHTER,xPOISON")
 [FIGHTER／毒×](51 "-xFIGHTER,xPOISON")
 [FIGHTER／HEAL／STR5より大きい](51 "xFIGHTER,mHEAL,oSTR5+")
@@ -236,6 +245,7 @@ HEAL実行
 	<scene id="29"></scene>
 	<scene id="30"></scene>
 	<scene id="31"></scene>
+	<scene id="32"></scene>
 	<scene id="41"></scene>
 	<scene id="42">
 正解！
@@ -290,11 +300,6 @@ HEAL実行
 
 ---
 
-> **ランダムリンクとは？**
-> ランダムにリンク先が変化するリンクのこと。重要なキーとなるシーンは発見されにくくなるので、あくまで一寸したオマケ要素での利用にお勧め。
-
----
-
 | 左寄せ | 中央寄せ | 右寄せ |
 | -------- |:------------:| ---------:|
 | 王様の杖 | 中央 | 500 |
@@ -328,6 +333,8 @@ HEAL実行
 - Age:${age?若者:中年:老人}
 - 乱数：${rand?1:20}
 - ランダムメッセージ:${msg?こんにちは:おはよう:こんばんは}
+- ルビ：私はペンタウァの${ソーサリアン|ゆうしゃ}、${銀狼|シルバーウルフ}です。
+
 
 </scene>
 </scenario>
