@@ -3,8 +3,7 @@
 
 <scenario>
 
-<work id="scepter" title="新・消えた王様の杖" author="リオ"
-  url="https://goo.gl/33zcXs">
+<work id="scepter" title="新・消えた王様の杖" author="リオ">
 <img src="./images2/stext01.png" height="120"
   title="新・消えた王様の杖" align="right" class="right" />
 ペンタウァ王家の象徴＜おうさまのつえ＞が、オークによって盗まれてしまう。
@@ -16,8 +15,7 @@
 誉れ高き勇者よ、しぬでないぞよ（By 王さま）。
 </work>
 
-<work id="zero" title="ゼロの創造" author="Salvador"
-  url="https://goo.gl/qcag2U">
+<work id="zero" title="ゼロの創造" author="Salvador">
 <img src="./images2/gallery/tn/d11.gif" height="120" title="ゼロの創造"
   align="left" class="left" />
 かつて、創造神がこの世に大いなる恵みを与えていた時代があったという。常に世界には新しい発見があり、人々は新天地の開拓に乗り出していった時代だった。人々は創造神を信じ、その光臨を願っていた。それを創造神信仰と呼ぶ。
@@ -39,7 +37,7 @@
 </work>
 
 <work id="tempest" title="災厄の夜 - テンペスト・ナイト -"
-  author="ちゃなさん" guest="true" url="https://goo.gl/34cBhq">
+  author="ちゃなさん" guest="true">
 <img src="./images2/world1.gif" height="120"
   title="災厄の夜 - テンペスト・ナイト -" align="left" class="left" />
 <p class="award">ゲストさま投稿作品（記念すべき第1号！）</p>
@@ -50,8 +48,7 @@
 道中、あなたは様々な懐かしい面々に会うことになるでしょう。中にはかつての強敵だったあの人も……。そして、ペンタウァを滅ぼしにかかる「災厄」の正体とは……？（<a href="https://twitter.com/ChanaGame" target="other">ちゃな</a>）
 </work>
 
-<work id="hero" title="少女は英雄を語りて" author="ときのじ"
-  url="https://goo.gl/Xuarfz">
+<work id="hero" title="少女は英雄を語りて" author="ときのじ">
 <img src="./images2/gallery/tn/d33.gif" height="120"
   title="少女は英雄を語りて" align="right" class="right" />
 君は『消える本』の噂を聞いたことがあるだろうか？手にした筈なのに消えている、読んだ筈なのに覚えていない。そんな不思議な本の噂を。
@@ -63,8 +60,7 @@
 「読書好きも読書嫌いも、この際問わぬ。勇気ある者はこの『消える本』の謎に挑んではくれないだろうか」
 </work>
 
-<work id="vampire" title="鉄腕の吸血姫" author="cocotori"
-  url="https://goo.gl/fDjakc">
+<work id="vampire" title="鉄腕の吸血姫" author="cocotori">
 <img src="./images2/stext06.png" height="120"
   title="鉄腕の吸血姫" align="left" class="left" />
 薄暗い部屋であなたは目覚める。首筋に噛み跡。伝承では、吸血鬼に血を吸われた者は、間もなく同じ道をたどるという。絶望的状況に追い込まれたあなた。
@@ -75,7 +71,7 @@
 </work>
 
 <work id="slayer" title="その名はドラゴンスレイヤー" author="RYUさん"
-  guest="true" url="https://goo.gl/3KHjX3">
+  guest="true">
 <img src="./images2/gallery/tn/d25.gif" height="120"
   title="その名はドラゴンスレイヤー" align="right" class="right" />
 <p class="award">ゲストさま投稿作品第2弾（第2部を公開中）</p>
@@ -88,8 +84,7 @@
 しかし、島にはそれ以外にも何やらキナくさいニオイが…
 </work>
 
-<work id="ramidia" title="ラミディアの魔法使い" author="Salvador"
-  url="https://goo.gl/RyZPyx">
+<work id="ramidia" title="ラミディアの魔法使い" author="Salvador">
 <img src="./images2/stext08.png" height="160"
   title="ラミディアの魔法使い" align="left" class="left" />
 北方の広大な森の中にある王国、ロマンシア。この国は数年前まで火山の噴火や地震が相次ぎ、さらに伝染病まで流行るという災厄に見舞われていた。災厄の元凶は、この地に古くから棲んでいた竜に取り憑いた邪神ヴァイデスであったという。
