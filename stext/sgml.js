@@ -3,6 +3,8 @@
   var ROOT = 'stext/';
   var COMMON  = 'common/'
   var CAPTURE  = 'capture/'
+  var BGM = 'bgm/'
+  var SE = 'se/'
 
   // シナリオコード
   var scenario_code;
@@ -24,6 +26,9 @@
 
   // 実績一覧
   var results_map = {};
+
+  // BGM一覧
+  var bgms_map = {};
 
   // セーブデータ
   var save_data;
@@ -406,6 +411,16 @@
           cond[1].indexOf(save_data.chara.sex.charAt(0)) !== -1 &&
           cond[2].indexOf(save_data.chara.age.charAt(0)) !== -1;
       });
+    },
+
+    // 再生すべきbgmのパスを生成
+    buildBgmPath: function(base) {
+      // 指定ファイルがSText標準の場合
+      if (base.indexOf('@') === 0) {
+        return ROOT + COMMON + BGM + base.substring(1) + '.mp3';
+      } else {
+        return ROOT + scenario_code + '/' + BGM + base + '.mp3';
+      }
     },
 
     // シナリオデータが有効であるか（開発中）
@@ -970,7 +985,8 @@
         case 'happy' :
           bonus_item = Util.randomArray(Object.keys(Common.global_items.happy));
           o_bonus_item = Common.global_items.happy[bonus_item];
-          audio_path = ROOT + scenario_code + '/bgm_happy.mp3';
+          //audio_path = ROOT + scenario_code + '/bgm_happy.mp3';
+          audio_path = Util.buildBgmPath(bgms_map.happy);
           break;
         case 'bad' :
           // バッドアイテムは20％未満の確率で入手
@@ -978,7 +994,8 @@
             bonus_item = Util.randomArray(Object.keys(Common.global_items.bad));
             o_bonus_item = Common.global_items.bad[bonus_item];            
           }
-          audio_path = ROOT + scenario_code + '/bgm_bad.mp3';
+          audio_path = Util.buildBgmPath(bgms_map.bad);
+          //audio_path = ROOT + scenario_code + '/bgm_bad.mp3';
           break;
       }
 
@@ -1028,7 +1045,7 @@
     },
 
     // 簡易ステータス表示
-    showSimpleStatus() {
+    showSimpleStatus: function() {
       $('#simple_status').html(
         'HP:<span class="status_v">' + save_data.chara.hp + '</span>　' +
         'MP:<span class="status_v">' + save_data.chara.mp + '</span>　|　' +
@@ -1040,7 +1057,7 @@
     },
 
     // 本文中のSGML式 ${...} を解析
-    interpolation(match, sub) {
+    interpolation: function(match, sub) {
       var tmp_sub = sub.split('?');
       var m_var = tmp_sub[0];
       if (tmp_sub[1]) {
@@ -1109,6 +1126,11 @@
           return sub;
       }
     },
+
+    ifCondition: function(match, sub) {
+
+      return '';
+    },
    
     // 現在のシーン情報を取得＆画面の生成
     // 引数scene_num：シーン番号、cond：条件式
@@ -1153,6 +1175,8 @@
       // ${text|ruby}の箇所をruby要素で修飾（ルビ）       
       tmp_scene = tmp_scene.replace(/\${(.+?)\|(.+?)}/gi,
         '<ruby>$1<rp>（</rp><rt>$2</rt><rp>）</rp></ruby>');
+      // ${if cond}...${/if}による条件分岐
+      // tmp_scene = tmp_scene.replace(/\${if[\s]+.+?}(.+?)${\/if}/gi, this.ifCondition);
       // ${...}の箇所を式の内容に応じて処理
       tmp_scene = tmp_scene.replace(/\${(.+?)}/gi, this.interpolation);
       target.html(tmp_scene);
@@ -1357,19 +1381,24 @@
       var new_bgm = scene.attr('bgm');
       // セーブデータに保存済みのパスを取得（空の場合はメイン）
       if (save_data.bgm) {
-        tmp_path = '/bgm_' + save_data.bgm + '.mp3';
+        tmp_path = save_data.bgm;
+        //tmp_path = '/bgm_' + save_data.bgm + '.mp3';
       } else {
-        tmp_path = '/bgm.mp3';
+        tmp_path = bgms_map.main;
+        //tmp_path = '/bgm.mp3';
       }
       // bgm属性による上書き
       if(new_bgm !== undefined) {
         if(new_bgm === '') {
-          tmp_path = '/bgm.mp3';
+          tmp_path = bgms_map.main;
+          //tmp_path = '/bgm.mp3';
         } else {
-          tmp_path = '/bgm_' + new_bgm + '.mp3';
+          tmp_path = new_bgm;
+          //tmp_path = '/bgm_' + new_bgm + '.mp3';
         }
       }
-      var audio_path = ROOT + scenario_code + tmp_path;
+      var audio_path = Util.buildBgmPath(tmp_path);
+      //var audio_path = ROOT + scenario_code + tmp_path;
 
       // 初期立ち上げ時、画面遷移時（bgm属性ありで、以前から変化した）に再生
       if(!bgm ||
@@ -1384,7 +1413,7 @@
       // シーン表示時に効果音を再生（未検証）
       if(scene.attr('se')) {
         //bgm.pause();
-        var se = new Audio(ROOT + scenario_code + '/' + scene.attr('se') + '.mp3');
+        var se = new Audio(ROOT + scenario_code + '/' + BGM + SE + scene.attr('se') + '.mp3');
         se.loop = false;
         se.play();
       }
@@ -1808,6 +1837,18 @@
           };
         });
 
+        // BGM情報を取得
+        var init_bgms = $('init > bgm', scenario_data);
+        var i_main = init_bgms.attr('main');
+        var i_happy = init_bgms.attr('happy');
+        var i_bad = init_bgms.attr('bad');
+        bgms_map = {
+          main: i_main === undefined ? 'main' : i_main,
+          happy: i_happy === undefined ? 'happy' : i_happy,
+          bad: i_bad === undefined ? 'bad' : i_bad
+        };
+        console.log(bgms_map);
+
         // デバッグモードではシナリオのデータ検証
         if (debug_mode === true) {
           var errors = Util.validateScenario();
@@ -1934,6 +1975,13 @@
                   if (pc[2]) { cons.attr('sex',  pc[2]); }
                   if (pc[3]) { cons.attr('age',  pc[3]); }
                   cons.appendTo(inits);
+                } else if (tmp_para.indexOf('bgm') === 0) {
+                    var bgm = tmp_para.split(':')
+                    var initBgm = $('<bgm></bgm>');
+                    if (bgm[1]) { initBgm.attr('main', bgm[1]); }
+                    if (bgm[2]) { initBgm.attr('happy',bgm[2]); }
+                    if (bgm[3]) { initBgm.attr('bad',  bgm[3]); }
+                    initBgm.appendTo(inits);
                 // アイテム処理
                 } else if (tmp_para.indexOf('i') === 0) {
                   var item = tmp_para.split(':')
@@ -1976,7 +2024,7 @@
                     .attr('name', work[1])
                     .attr('category', work[2])
                     .attr('creator', work[3])
-                    .attr('url', work[4])
+                    .attr('url', (work[4] ? '//' + work[4] : ''))
                     .appendTo(license);                    
                 // シーン個別の属性を処理
                 } else if (tmp_para.indexOf('@') === 0) {
