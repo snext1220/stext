@@ -688,8 +688,23 @@
     },
 
     // ドロップアイテムの生成
-    dropItem: function(element) {
-      if(!element) { return ''; }
+    dropItem: function(enemy) {
+      // drop属性がある場合は、こちらで生成
+      if(enemy.drop) {
+        var drops = enemy.drop.split('/');
+        var star_maps = { 'mon': '月', 'tue': '火星', 'wed': '水星', 'thu': '木星', 'fri': '金星', 'sat': '土星', 'sun': '太陽' };
+        var star_name = star_maps[drops[0]];
+        // 星指定の場合
+        if (star_name) {
+          var num = (drops[1] === '1' ? '' : '×' + drops[1]);
+          return star_name + num;
+        // 星以外の指定の場合
+        } else {
+          return drops[2];
+        }
+      }
+      // drop属性がない場合には、属性に基づいて生成
+      if(!enemy.element) { return ''; }
       var drop = {
         '地': [ '木星', '火星', '土星', '－', '－' ],
         '火': [ '火星', '太陽', '火星', '－', '－' ],
@@ -697,7 +712,7 @@
         '風': [ '金星', '水星', '月', '－', '－' ],
         '霊': [ '土星', '太陽', '月', '－', '－' ]
       };
-      return this.randomArray(drop[element]);
+      return this.randomArray(drop[enemy.element]);
     },
 
     // ダメージ式／回避方法を選択
@@ -1294,7 +1309,7 @@
           if(enemy.element) { row += '（' + enemy.element + '）'; }
           row += '</th><td>' + enemy.attack + '</td><td>';
           if(enemy.func) { row += Util.selectFunc(enemy.func); }
-          row += '</td><td>' + this.dropItem(enemy.element);
+          row += '</td><td>' + this.dropItem(enemy);
           row += '</td></tr>';
           e_table.append(row);
         }
@@ -1814,10 +1829,12 @@
             element: $(this).attr('element'),
             attack: $(this).attr('attack'),
             func: $(this).attr('func'),
+            drop: $(this).attr('drop'),
             desc: $(this).text()
           }
         });
-      
+        console.log(enemies_map);
+
         // アイテム一覧を取得
         items_map = {};
         $('items > item', scenario_data).each(function() {

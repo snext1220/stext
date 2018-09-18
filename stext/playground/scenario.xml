@@ -19,9 +19,9 @@
 		<flag id="f05">*進行管理用の隠しフラグ</flag>
 	</flags>
 	<enemies>
-		<enemy id="m01" name="人面岩" element="地" attack="物理" func="L-STR">喋るだけで、硬い岩だ。</enemy>
-		<enemy id="m02" name="人面岩の口" element="霊" attack="魔法" func="R-INT">喋る口だ。牙はない。</enemy>
-		<enemy id="m03" name="投げた石" element="地" attack="物理" func="L+R-STR">君が投げた石だ。</enemy>
+		<enemy id="m01" name="人面岩" element="地" attack="物理" drop="tue/3" func="L-STR">喋るだけで、硬い岩だ。</enemy>
+		<enemy id="m02" name="人面岩の口" element="霊" attack="魔法" drop="free1/50/50Gold" func="R-INT">喋る口だ。牙はない。</enemy>
+		<enemy id="m03" name="投げた石" element="地" attack="物理" drop="sat/1" func="L+R-STR">君が投げた石だ。</enemy>
 		<enemy id="m04" name="一寸怒ったラット" element="地" attack="物理" func="L-STR">ガジガジたち。一見、可愛い。</enemy>
 	</enemies>
 	<results>
@@ -69,7 +69,7 @@
 [キャラ条件の検証](16)
 [500,600,700](X)
 </scene>
-	<scene id="2" items="i01,i02,i03" flags="f01,f02,-f02,-f05" enemies="m01,m02,m03" stars="-5,-5,-5,-5,-5,-5,-5" free1="7" free2="-2" bgm="" result="r01">
+	<scene id="2" items="i01,i02,i03" flags="f01,f02,-f02,-f05" enemies="m01,m02,m03,m04" stars="-5,-5,-5,-5,-5,-5,-5" free1="7" free2="-2" bgm="" result="r01">
 
 - 魔法ボタンの確認（HEAL、LIGHT-CROSS）
 - ステータスボタンの確認（STR&lt;5、HP&gt;50）
