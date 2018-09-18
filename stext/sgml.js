@@ -1142,9 +1142,16 @@
       }
     },
 
-    ifCondition: function(match, sub) {
-
-      return '';
+    ifCondition: function(match, cond, body) {
+      console.log(match);
+      console.log(cond);
+      console.log(body);
+      if(save_data.flags.indexOf(cond) !== -1 ||
+         save_data.items.indexOf(cond) !== -1) {
+        return body;
+      } else {
+        return '';
+      }
     },
    
     // 現在のシーン情報を取得＆画面の生成
@@ -1191,7 +1198,7 @@
       tmp_scene = tmp_scene.replace(/\${(.+?)\|(.+?)}/gi,
         '<ruby>$1<rp>（</rp><rt>$2</rt><rp>）</rp></ruby>');
       // ${if cond}...${/if}による条件分岐
-      // tmp_scene = tmp_scene.replace(/\${if[\s]+.+?}(.+?)${\/if}/gi, this.ifCondition);
+      tmp_scene = tmp_scene.replace(/\${if[\s]+(.+?)}([\s\S]+?)\${\/if}/gi, this.ifCondition);
       // ${...}の箇所を式の内容に応じて処理
       tmp_scene = tmp_scene.replace(/\${(.+?)}/gi, this.interpolation);
       target.html(tmp_scene);
