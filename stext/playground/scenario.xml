@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd" title="動作確認シナリオ" author="Rio">
 	<init>
 		<constraint race="FIGHTER,WIZARD" sex="FEMALE" age="YOUNG,ADULT"></constraint>
-		<bgm main="@battle01" bad="@sigh" />
+		<bgm main="@battle01" bad="sigh"></bgm>
 	</init>
 	<items>
 		<item id="i01" name="こいし">何の変哲もない、石だ</item>
@@ -19,10 +19,10 @@
 		<flag id="f05">*進行管理用の隠しフラグ</flag>
 	</flags>
 	<enemies>
-		<enemy id="m01" name="人面岩" element="地" attack="物理" drop="tue/3" func="L-STR">喋るだけで、硬い岩だ。</enemy>
-		<enemy id="m02" name="人面岩の口" element="霊" attack="魔法" drop="free1/50/50Gold" func="R-INT">喋る口だ。牙はない。</enemy>
-		<enemy id="m03" name="投げた石" element="地" attack="物理" drop="sat/1" func="L+R-STR">君が投げた石だ。</enemy>
-		<enemy id="m04" name="一寸怒ったラット" element="地" attack="物理" func="L-STR">ガジガジたち。一見、可愛い。</enemy>
+		<enemy id="m01" name="人面岩" element="地" attack="物理" func="L-STR" drop="tue/3">喋るだけで、硬い岩だ。</enemy>
+		<enemy id="m02" name="人面岩の口" element="霊" attack="魔法" func="R-INT" drop="free1/50/50Gold">喋る口だ。牙はない。</enemy>
+		<enemy id="m03" name="投げた石" element="地" attack="物理" func="L+R-STR" drop="sat/1">君が投げた石だ。</enemy>
+		<enemy id="m04" name="一寸怒ったラット" element="地" attack="物理" func="L-STR" drop="">ガジガジたち。一見、可愛い。</enemy>
 	</enemies>
 	<results>
 		<result id="r01" name="冒険のはじまり" level="1">冒険を開始した</result>
@@ -32,7 +32,7 @@
 		<result id="r05" name="人面岩の顔も3度まで" level="5">人面岩の謎を3度間違えた</result>
 	</results>
 	<license>
-		<work name="ダンジョン" category="bgm" creator="Az" url="venusaz.seesaa.net/"></work>
+		<work name="ダンジョン" category="bgm" creator="Az" url="//venusaz.seesaa.net/"></work>
 		<work name="グーラン" category="picture" creator="Falcom" url=""></work>
 	</license>
 	<scene id="0" flags="f05" stars="1,2,3,4,5,6,7" free1="10" free2="-5">
@@ -45,8 +45,10 @@
 **強調**です。
 
 ${if f04}
-テストです。
-テストです。
+フラグf04を持っている時だけ表示されます。
+${/if}
+${if f05}
+フラグf05を持っている時だけ表示されます。
 ${/if}
 ---
 

@@ -2034,7 +2034,8 @@
                     .attr('element', enemy[2])
                     .attr('attack', enemy[3])
                     .attr('func', enemy[4])
-                    .text(enemy[5])
+                    .attr('drop', enemy[5])
+                    .text(enemy[6])
                     .appendTo(enemies);
                 // 実績の処理
                 } else if (tmp_para.indexOf('r') === 0) {
