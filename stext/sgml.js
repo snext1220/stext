@@ -196,7 +196,10 @@
         'bgi04' : { name: 'トリカブト', desc: '冒険開始時に毒。但し、解除までシーン毎にMPを1回復' },
         'bgi05' : { name: 'ギャルのパンティー', desc: '冒険開始時に忘却。解除までSTR/INT0でない方を10' },
       }
-    }
+    },
+
+    // 状態異常の表示名
+    state_names: { '': '正常', 'poison': '毒', 'frozen': '凍結', 'stone': '石化', 'curse': '呪い', 'forget': '忘却' }
   };
 
   // ユーティリティ
@@ -1067,7 +1070,8 @@
         'STR:<span class="status_v">' + save_data.chara.str + '</span>　' +
         'INT:<span class="status_v">' + save_data.chara.int + '</span>　' +
         'DEX:<span class="status_v">' + save_data.chara.dex + '</span>　' +
-        'KRM:<span class="status_v">' + save_data.chara.krm + '</span>'
+        'KRM:<span class="status_v">' + save_data.chara.krm + '</span>　｜　' +
+        '<span class="status_v">' + Common.state_names[save_data.chara.state] + '</span>　'
       );
     },
 
