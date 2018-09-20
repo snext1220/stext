@@ -82,6 +82,8 @@
 噂の出所の小さな島には、世界中の冒険者だけでなく強力なモンスター達、果ては魔族神族その他諸々まで押し寄せて……冒険者と生まれたからには、これに挑戦しないわけにはいかない！
 
 しかし、島にはそれ以外にも何やらキナくさいニオイが…
+
+<p class="award">第3部は2018年11月頃公開予定です。</p>
 </work>
 
 <work id="ramidia" title="ラミディアの魔法使い" author="Salvador">
@@ -134,7 +136,7 @@
 エティスは言った。
 
 「全戦無敗という軍隊を持ちながら、戦国の世にあって領土の拡大を目的とせず、人を助ける戦いだけを何度も仕掛けているのは上杉だけじゃ。裏に何かあるのかもしれぬ」 
-<p class="award">2018年9月21日公開予定です。</p>
+<p class="award">2018年9月28日公開予定です。</p>
 </work>
 
 </scenario>
@@ -250,11 +252,13 @@ SText Playgroundは、ブラウザー上で動作するソーサリアン Text�
 
 <future>
 
+<work title="ソーサリアン性格診断（仮）" author="RYU" unpublished="2018年10月"></work>
+
+<work title="トラベラーズ☆イン" author="リオ" unpublished="2018年11月"></work>
+
 <work title="名無しの剣士" author="ときのじ"></work>
 
 <work title="新・囚われた魔法使い" author="Salvador"></work>
-
-<work title="トラベラーズ☆イン" author="リオ" unpublished="2018年10月"></work>
 
 <work title="嗚呼、ジョセフィーヌよ、何処へ往く" author="リオ"></work>
 
