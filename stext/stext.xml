@@ -124,7 +124,7 @@
 ――この物語の結末を決めるのは、君の【魂の在り方】次第。
 </work>
 
-<work id="kenshin" title="戦国ソーサリアン外伝・上杉謙信の章" author="Salvador" unpublished="true">
+<work id="kenshin" title="戦国ソーサリアン外伝・上杉謙信の章" author="Salvador">
 <img src="./images2/stext11.jpg" height="200"
   title="戦国ソーサリアン外伝・上杉謙信の章" align="right" class="right" />
 <p class="award">ミニミニ30祭Vol.3（30Scene限定?シナリオ）</p>
@@ -136,7 +136,7 @@
 エティスは言った。
 
 「全戦無敗という軍隊を持ちながら、戦国の世にあって領土の拡大を目的とせず、人を助ける戦いだけを何度も仕掛けているのは上杉だけじゃ。裏に何かあるのかもしれぬ」 
-<p class="award">2018年9月28日公開予定です。</p>
+
 </work>
 
 </scenario>
