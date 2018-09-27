@@ -139,6 +139,22 @@
 
 </work>
 
+<work title="ソーサリアン性格診断占い" author="RYUさん" guest="true" unpublished="2018年10月">
+<img src="./images2/stextU3.png" height="200"
+  title="ソーサリアン性格診断占い" align="left" class="left" />
+<p class="award">ミニミニ30祭Vol.4（30Scene限定シナリオ）</p>
+
+よくきたの、ワシがドラゴンスレイヤー発見の噂を御神託により「真実」と知らしめた、この魔法世界において最高の祈祷師、ユールじゃ。
+
+なに？占いなど胡散臭いから信じぬとな？
+
+たわけ！この、天に輝く星々の御力を借りて奇蹟を顕現するソーサリアン世界において、占星術がどれほどの信頼性を持つのかがわからんのか！
+
+その占星術において、世界に並ぶ者の無いこのワシが、おぬしの性格・将来を占ってやろうというのじゃ、ありがた過ぎて涙が出ようというものじゃろうて？
+
+<p class="award">2018年10月15日公開予定です。</p>
+</work>
+
 </scenario>
 
 <utility>
@@ -251,8 +267,6 @@ SText Playgroundは、ブラウザー上で動作するソーサリアン Text�
 </utility>
 
 <future>
-
-<work title="ソーサリアン性格診断（仮）" author="RYU" unpublished="2018年10月"></work>
 
 <work title="トラベラーズ☆イン" author="リオ" unpublished="2018年11月"></work>
 
