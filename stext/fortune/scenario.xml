@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <scenario
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd" title="ソーサリアン性格診断占い" author="RYU（ライウ）">
-	<init></init>
+	<init>
+		<bgm main="WinterPub" happy="@end02" bad="@town01"></bgm>
+	</init>
 	<items></items>
 	<flags>
 		<flag id="f4">*男</flag>
@@ -43,9 +45,9 @@
 		<result id="r30" name="姥捨て山に捨てられた(ｳｿ)" level="1">シーン数の都合です(ホント)</result>
 	</results>
 	<license>
-		<work name="WinterPub「冬の酒場にて」" category="bgm" creator="しんさんわーくす" url="dova-s.jp/bgm/play5472.html"></work>
+		<work name="WinterPub「冬の酒場にて」" category="bgm" creator="しんさんわーくす" url="//dova-s.jp/bgm/play5472.html"></work>
 	</license>
-	<scene id="0">
+	<scene id="0" bgm="">
 %white%　%/%
 %white%　%/%
 %blue%　✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡✡%/%
