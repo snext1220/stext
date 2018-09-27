@@ -3,6 +3,10 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:noNamespaceSchemaLocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd">
 
+<init>
+	<bgm main="@field05" happy="@field04" bad="@town01"></bgm>
+</init>
+
 <!--アイテム情報-->
 <items>
   <item id="i01" name="こいし">何の変哲もない、石だ</item>

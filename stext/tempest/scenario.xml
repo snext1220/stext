@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <scenario title="災厄の夜　-テンペスト・ナイト-" author="ちゃな@ChanaGame">
+  <init>
+    <bgm happy="@field04" bad="@town01"></bgm>
+  </init>
+
   <items>
     <item id="i01" name="アームロッド">剣にも斧にも杖にも見える魔鋼の武器</item>
     <item id="i02" name="神雷のアームロッド">STR+1、INT+1、DEX+1</item>
