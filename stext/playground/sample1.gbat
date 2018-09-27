@@ -9,7 +9,7 @@
 			<text>
 				<p order="1">@@</p>
 				<p order="2">pc:FIGHTER,WIZARD:FEMALE:YOUNG,ADULT</p>
-				<p order="3">bgm:@battle01::sigh</p>
+				<p order="3">bgm:@field05:@field04:@town01</p>
 				<p order="4"/>
 				<p order="5">i01:こいし:何の変哲もない、石だ</p>
 				<p order="6">i02:ひとにぎりのすな:グーランの、なれの果てだ</p>
