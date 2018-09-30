@@ -1381,25 +1381,27 @@
         }
       });
 
-      // 現時点で非表示になっているボタンを削除
+      // 現時点で非表示になっているボタンと、その直後の改行を削除
+      $('.scenebtn:hidden + br', target).remove();
       $('a[title]:hidden', target).remove();
-      // シーンボタンの間の余計なbrを除去
-      $('.scenebtn + br', target).each(function(index, elem) {
-        var next = elem.nextSibling;
-        while (next !== null && 
-          next.nodeType === 1 &&
-          next.nodeName.toLowerCase() === 'br')
-        /* ||
-          (next.nodeType === 3 &&
-            (next.nodeValue === '' ||
-              (/^[\s\n\r]{1,}$/g).test(next.nodeValue)
-            )
-          ))*/ {
-            $(next).addClass('del');
-            next = next.nextSibling;
-        }
-      });
-      $('br.del').remove();
+      // $('a[title]:hidden', target).remove();
+      // // シーンボタンの間の余計なbrを除去
+      // $('.scenebtn + br', target).each(function(index, elem) {
+      //   var next = elem.nextSibling;
+      //   while (next !== null && 
+      //     next.nodeType === 1 &&
+      //     next.nodeName.toLowerCase() === 'br')
+      //   /* ||
+      //     (next.nodeType === 3 &&
+      //       (next.nodeValue === '' ||
+      //         (/^[\s\n\r]{1,}$/g).test(next.nodeValue)
+      //       )
+      //     ))*/ {
+      //       $(next).addClass('del');
+      //       next = next.nextSibling;
+      //   }
+      // });
+      // $('br.del').remove();
 
       /* BGM再生 */
       // 再生すべきBGMのパスを生成
