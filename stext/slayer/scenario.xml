@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <scenario
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd" title="その名はドラゴンスレイヤー" author="ＲＹＵ（ライウ）">
+	<init>
+		<bgm main="@field05" bad="@town01"></bgm>
+	</init>
 	<items>
 		<item id="i2535" name="エリクサー(並)">HP/MP/状態異常を全回復</item>
 		<item id="i2857" name="イビルクリスタル">赤黒く鳴動する不気味な水晶玉</item>
@@ -119,91 +122,91 @@
 		<flag id="f202">魔法研究者と話した</flag>
 	</flags>
 	<enemies>
-		<enemy id="m623" name="ワーベアーLv7/2回" element="霊" attack="強石化(物理)" func="6(L+R)+450-STR">熊男｡なぜ熊が石化攻撃を…それは獣王の掟｡人型化というより立って戦うだけなので戦闘力はさほど変わらないが､元々獣系最強な上に凶暴化+知能となると手がつけられない｡※強石化は2重に受けると即死｡</enemy>
-		<enemy id="m622" name="ワータイガーLv6" element="地" attack="物理" func="7(L+R)+400-STR">虎男｡一般的?には人間に虎の霊などを憑依させるが､これも虎が凶暴化､さらに邪悪な意思により人型化して知能を与えられたもののようだ｡ﾊﾟｧﾜｧﾌｩﾘｬｱｧｧｰｰ!!</enemy>
-		<enemy id="m621" name="ワーウルフLv6" element="風" attack="物理" func="8(L+R)+350-STR">狼男｡吸血鬼の眷属であったり人の魔法強化であったりするが､これは森の狼が凶暴強化されたもの｡ﾊﾟﾜﾌﾘｬｱｧｧｰｰ!!</enemy>
-		<enemy id="m511" name="マイコニッドA Lv5" element="風" attack="毒(物理)" func="5(L+R)+250-STR-DEX">人型のキノコ｡キノコが人型を成したのか､人がキノコになったのか…戦闘力でなく､放出される多種多様で強力な胞子がやっかい｡毒タイプは風に乗せて毒胞子をバラまく｡</enemy>
-		<enemy id="m512" name="マイコニッドB Lv5" element="水" attack="凍結(物理)" func="5(L+R)+250-STR-DEX">凍結タイプ｡凍結胞子が付着して相手の活動停止を狙う…氷魔法を得意とした魔法使いが苗床(ベース)とか？</enemy>
-		<enemy id="m513" name="マイコニッドC Lv5" element="火" attack="忘却(物理)" func="5(L+R)+250-STR-DEX">忘却タイプ｡神経毒胞子で忘却はいいとして､なぜ火属性なのか…植物とか菌に火は無理だよなぁ｡</enemy>
-		<enemy id="m514" name="マイコニッドD Lv5" element="地" attack="石化(物理)" func="5(L+R)+250-STR-DEX">石化タイプ｡普通に大地の力で相手を地に返すべく石化胞子をバラまく｡</enemy>
-		<enemy id="m515" name="マイコニッドE Lv5" element="霊" attack="呪い(物理)" func="5(L+R)+250-STR-DEX">呪いタイプ｡これも普通に苗床(ベース)の怨念で呪いの胞子をバラまく｡</enemy>
-		<enemy id="m613" name="リザードマスターLv7/3回" element="霊" attack="物理魔法※防御不能/攻撃魔法無効" func="7(L+R)+600-STR-INT-DEX-KRM">リザードマンの族長で､一族に伝わる伝説の邪剣"イビルソード"を持つ｡その強さはすでにボスクラス｡※防御不能かつ攻撃魔法は効かないが例外アリ)｡</enemy>
-		<enemy id="m612" name="リザードメイジLv6" element="水" attack="凍結(魔法)" func="6(L+R)+250-INT">高齢にならないと魔法を使える程の知能は無く､必然的に個体数は少ないが､使うとなると水魔法を高Lvで使いこなしてくる｡</enemy>
-		<enemy id="m611" name="リザードマンLv6" element="水" attack="毒(物理)" func="7(L+R)+300-STR">名の通りのトカゲ人間｡知能も文化もそれなりにあるが非常に残虐(武器には毒が塗ってある)…というか"他生物を狩る事が全て"的な蛮族文化｡</enemy>
-		<enemy id="m522" name="アスティラゴア(怨霊)Lv6" element="霊" attack="物理魔法※防御不能" func="6(L+R)+300-STR-INT">さらにその脳髄に元の持ち主の怨念が取り付いたもの｡「オマエもコッチに来い…」と触手で絞め殺そうと…菌の本能と怨念で2重に怖い！！</enemy>
-		<enemy id="m2851" name="毒の鱗粉Lv7" element="風" attack="毒(物理)" func="7(L+R)+450-STR">その名の通り毒を含んだ鱗粉。吸い込むと危険。</enemy>
-		<enemy id="m2852" name="凍結の鱗粉Lv7" element="水" attack="凍結(魔法)" func="7(L+R)+450-INT">FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわりつくと凍結してしまう。</enemy>
-		<enemy id="m2853" name="忘却の鱗粉Lv7" element="風" attack="忘却(物理)" func="7(L+R)+450-DEX">脳に作用して幻覚を見せる鱗粉。夢の世界への片道切符。</enemy>
-		<enemy id="m2854" name="呪いの鱗粉Lv7" element="霊" attack="呪い(魔法)" func="7(L+R)+450-KRM">モスに殺された人間の怨念がこもった鱗粉。「オマエもこちらに来い」と迫ってくる。</enemy>
-		<enemy id="m2855" name="石化の鱗粉Lv7" element="地" attack="石化(物理魔法)" func=" 7(L+R)+600-STR-INT">吸い込んでも体にまとわりついても石化してしまう鱗粉。</enemy>
-		<enemy id="m2856" name="モス・ジャイアントLv7" element="霊" attack="毒(物理)" func="10(L+R)+600-STR-INT-DEX-KRM">頭部付近から発射される無数の毒針攻撃。最後まで遠距離攻撃かつ意地でも状態異常攻撃。</enemy>
-		<enemy id="m422" name="Gホーネット(興奮)Lv5" element="風" attack="物理(毒)" func="7(L+R)+250-STR-DEX">敵からの攻撃を受けたなど何かしらの理由で興奮して攻撃的になっている状態｡逃げた方がよい｡</enemy>
-		<enemy id="m421" name="ジャイアントホーネットLv4" element="風" attack="物理(毒)" func="5(L+R)+200-STR-DEX">数十cm-1m程の巨大なスズメバチ｡その攻撃的な容姿､素早さ､尾の巨大な毒針は見る者に大きな恐怖を与える｡</enemy>
-		<enemy id="m413" name="スコーピオンジャイアント(黒)Lv5" element="霊" attack="呪い+石化(物理)" func="4(L+R)+150-STR">魔王の呪力が世に放たれ形を成した姿…"魔のサソリ"とも言われ､なんと呪いで魔法を封じた上に石化させてくる｡</enemy>
-		<enemy id="m412" name="スコーピオンジャイアント(青)Lv4" element="地" attack="忘却(物理)" func="4(L+R)+150-STR">こちらは神経毒により忘却を引き起こすのでやっかい。それでSTRが下がるとさらに忘却しやすく…</enemy>
-		<enemy id="m411" name="スコーピオンジャイアント(赤)Lv4" element="地" attack="毒(物理)" func="4(L+R)+150-STR">1m以上もある巨大なサソリ｡大きなハサミ以上に尻尾の毒針攻撃に注意。</enemy>
-		<enemy id="m522" name="アスティラゴア(怨霊)Lv6" element="霊" attack="物理魔法※防御不能" func="6(L+R)+300-STR-INT">さらにその脳髄に元の持ち主の怨念が取り付いたもの｡「オマエもコッチに来い…」と触手で絞め殺そうと…菌の本能と怨念で2重に怖い！！</enemy>
-		<enemy id="m521" name="アスティラゴアLv5" element="地" attack="魔法※防御不能" func="5(L+R)+150-INT">走る脳髄｡その正体は死体の脳髄に寄生した菌で､脳の力を引き出して精神感応波で攻撃してくる｡その目的は…仲間を増やす事だ！！</enemy>
-		<enemy id="m511" name="マイコニッドA Lv5" element="風" attack="毒(物理)" func="5(L+R)+250-STR-DEX">人型のキノコ｡キノコが人型を成したのか､人がキノコになったのか…戦闘力でなく､放出される多種多様で強力な胞子がやっかい｡毒タイプは風に乗せて毒胞子をバラまく｡</enemy>
-		<enemy id="m512" name="マイコニッドB Lv5" element="水" attack="凍結(物理)" func="5(L+R)+250-STR-DEX">凍結タイプ｡凍結胞子が付着して相手の活動停止を狙う…氷魔法を得意とした魔法使いが苗床(ベース)とか？</enemy>
-		<enemy id="m513" name="マイコニッドC Lv5" element="火" attack="忘却(物理)" func="5(L+R)+250-STR-DEX">忘却タイプ｡神経毒胞子で忘却はいいとして､なぜ火属性なのか…植物とか菌に火は無理だよなぁ｡</enemy>
-		<enemy id="m514" name="マイコニッドD Lv5" element="地" attack="石化(物理)" func="5(L+R)+250-STR-DEX">石化タイプ｡普通に大地の力で相手を地に返すべく石化胞子をバラまく｡</enemy>
-		<enemy id="m515" name="マイコニッドE Lv5" element="霊" attack="呪い(物理)" func="5(L+R)+250-STR-DEX">呪いタイプ｡これも普通に苗床(ベース)の怨念で呪いの胞子をバラまく｡</enemy>
-		<enemy id="m611" name="リザードマンLv6" element="水" attack="毒(物理)" func="7(L+R)+300-STR">名の通りのトカゲ人間｡知能も文化もそれなりにあるが非常に残虐(武器には毒が塗ってある)…というか"他生物を狩る事が全て"的な蛮族文化｡</enemy>
-		<enemy id="m612" name="リザードメイジLv6" element="水" attack="凍結(魔法)" func="6(L+R)+250-INT">高齢にならないと魔法を使える程の知能は無く､必然的に個体数は少ないが､使うとなると水魔法を高Lvで使いこなしてくる｡</enemy>
-		<enemy id="m511" name="マイコニッドA Lv5" element="風" attack="毒(物理)" func="5(L+R)+250-STR-DEX">人型のキノコ｡キノコが人型を成したのか､人がキノコになったのか…戦闘力でなく､放出される多種多様で強力な胞子がやっかい｡毒タイプは風に乗せて毒胞子をバラまく｡</enemy>
-		<enemy id="m512" name="マイコニッドB Lv5" element="水" attack="凍結(物理)" func="5(L+R)+250-STR-DEX">凍結タイプ｡凍結胞子が付着して相手の活動停止を狙う…氷魔法を得意とした魔法使いが苗床(ベース)とか？</enemy>
-		<enemy id="m513" name="マイコニッドC Lv5" element="火" attack="忘却(物理)" func="5(L+R)+250-STR-DEX">忘却タイプ｡神経毒胞子で忘却はいいとして､なぜ火属性なのか…植物とか菌に火は無理だよなぁ｡</enemy>
-		<enemy id="m514" name="マイコニッドD Lv5" element="地" attack="石化(物理)" func="5(L+R)+250-STR-DEX">石化タイプ｡普通に大地の力で相手を地に返すべく石化胞子をバラまく｡</enemy>
-		<enemy id="m515" name="マイコニッドE Lv5" element="霊" attack="呪い(物理)" func="5(L+R)+250-STR-DEX">呪いタイプ｡これも普通に苗床(ベース)の怨念で呪いの胞子をバラまく｡</enemy>
-		<enemy id="m1206" name="マーベル(小手調べ/Lv3/1回)" element="風" attack="物理※攻撃魔法無効" func="4(L+R)+200-STR-DEX">小手調べ。明らかにこちらを下に見ているが…(1回)※攻撃魔法無効(特に意味は無いが)</enemy>
-		<enemy id="m1207" name="マーベル(本気/Lv4/2回)" element="風" attack="物理※攻撃魔法無効" func="5(L+R)+250-STR-DEX">本気でもこんなもん。井の中の蛙。(2回)※攻撃魔法無効(特に意味は無いが)</enemy>
-		<enemy id="m1304" name="ザシュマー(手加減/Lv4/2回)" element="火" attack="物理魔法" func="5(L+R)+250-STR-INT">まだ手加減しているが十分に強い。さすが上位吸血鬼。(2回)</enemy>
-		<enemy id="m1305" name="ザシュマー(本気/Lv5/3回)" element="火" attack="物理魔法" func="6(L+R)+300-STR-INT">再生してかなり本気になった。勝てるか？(3回)</enemy>
-		<enemy id="m1403" name="ゾマ(実験1/Lv5/5回)" element="地" attack="物理" func="6(L+R)+250-STR-DEX">実験1-君は延々と飛来する石つぶて(十数cm)にどこまで耐えられるか？(5回)</enemy>
-		<enemy id="m1404" name="ゾマ(実験2/Lv5/4回)" element="水" attack="魔法" func="6(L+R)+300-INT-DEX">実験2-今度は水球(数十cm)が君の頭に取り付いて窒息させようとしてくる…必死によけろ！(4回)</enemy>
-		<enemy id="m1405" name="ゾマ(実験3/Lv6/3回)" element="風" attack="物理魔法※防御/魔法防御不能" func="6(L+R)+200-KRM">実験3-お待ちかね？の電撃攻撃。防御できず回避も困難…気合だ！気合で耐えろ！※防御/魔法防御不能、6(L+R)＜KRMで回避(3回)。</enemy>
-		<enemy id="m1403" name="ゾマ(実験1/Lv5/5回)" element="地" attack="物理" func="6(L+R)+250-STR-DEX">実験1-君は延々と飛来する石つぶて(十数cm)にどこまで耐えられるか？(5回)</enemy>
-		<enemy id="m1403" name="ゾマ(実験1/Lv5/5回)" element="地" attack="物理" func="6(L+R)+250-STR-DEX">実験1-君は延々と飛来する石つぶて(十数cm)にどこまで耐えられるか？(5回)</enemy>
-		<enemy id="m111" name="グリーンスライムLv1" element="地" attack="物理" func="2(L+R)+10-STR,2(L+R)+10-STR,2(L+R)+10-STR,2(L+R)+10-STR,2(L+R)+10-STR,2(L+R)+10-STR,2(L+R)+10-STR,1(L+R)+30-STR">"ネチョネチョ"じゃなく"ボヨンボヨン"のほう｡なので意外と素早い｡日本RPGのザコオブザコ｡※たまにキング</enemy>
-		<enemy id="m112" name="レッドスライムLv1" element="火" attack="魔法" func="2(L+R)+10-INT">レッドスライム｡魔法を使うぞ！(だからどうした)</enemy>
-		<enemy id="m113" name="キングスライムLv1" element="霊" attack="物理" func="1(L+R)+30-STR">キングスライム｡仲間と合体した(特に理由無く)｡</enemy>
-		<enemy id="m121" name="ゴブリンLv1" element="地" attack="物理" func="1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,2(L+R)+30-STR">小鬼と呼ばれる子供くらいの亜人類(デミヒューマン)｡弱いが必ず群れで行動し､武器や道具を使う知能もあるので侮れない。※たまにマスター</enemy>
-		<enemy id="m122" name="ゴブリンリーダーLv1" element="地" attack="物理" func="1(L+R)+30-STR">ゴブリン隊長｡装備が一回りよい物になっている｡</enemy>
-		<enemy id="m123" name="ゴブリンマスターLv2" element="霊" attack="物理" func="2(L+R)+30-STR">ゴブリンを極めし者(天)｡</enemy>
-		<enemy id="m211" name="オークLv2" element="地" attack="物理" func="2(L+R)+60-STR,2(L+R)+60-STR,2(L+R)+60-STR,2(L+R)+60-STR,2(L+R)+60-STR,2(L+R)+60-STR,2(L+R)+60-STR,2(L+R)+60-STR,2(L+R)+60-STR,3(L+R)+80-STR">豚野郎｡下衆で野蛮で太った人間くらいの強さや知能はあるのでやっかいだ｡※たまにキング</enemy>
-		<enemy id="m212" name="オークメイジLv2" element="火" attack="魔法" func="2(L+R)+60-INT">オーガメイジでなく｡豚のクセに魔法を…いや豚さんは知能が高いんだぞ！本当だぞ！(犬猫よりは)</enemy>
-		<enemy id="m213" name="オークキングLv3" element="霊" attack="物理" func="3(L+R)+80-STR">オークキング(自称)｡しかし言うだけあって装備は豪華｡</enemy>
-		<enemy id="m221" name="デスフラッターLv2" element="風" attack="物理" func="2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,6(L+R)+70-STR">大型･凶暴化したカラス｡知能が高く狡猾な分､下手な猛禽類より手強い｡数もいるので要注意｡※たまにブラッド</enemy>
-		<enemy id="m222" name="ブラッドフラッターLv3" element="風" attack="物理" func="6(L+R)+70-STR">返り血にぬれた､赤くて3倍速い奴｡通称ブラッドフラッター｡</enemy>
-		<enemy id="m311" name="トロルLv3" element="地" attack="物理" func="2(L+R)+200-STR,2(L+R)+200-STR,2(L+R)+200-STR,2(L+R)+200-STR,2(L+R)+200-STR,2(L+R)+200-STR,2(L+R)+200-STR,2(L+R)+200-STR,2(L+R)+200-STR,1(L+R)+300-STR">人間の2~3倍はある大型の亜人類｡知能は低めで鈍いが当たると超痛い｡※たまにホームラン</enemy>
-		<enemy id="m312" name="ファイヤートロルLv3" element="火" attack="物理魔法" func="3(L+R)+150-STR-INT">弱点である火を克服？たいまつなど火で武装｡若干ながら火炎魔法も使う｡知恵がついたので鈍さもマシになっている。</enemy>
-		<enemy id="m313" name="ホームラントロルLv4" element="霊" attack="物理" func="1(L+R)+300-STR">ボーナスポイントがよりSTR↑INT↓な個体｡ミスターフルスイング｡</enemy>
-		<enemy id="m321" name="レーベンオスLv3" element="地" attack="物理" func="4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,6(L+R)+150-STR">小型の肉食恐竜｡腕が退化した代わりに肥大化した脚で､素早く飛び跳ねて喰らいついてくる｡※たまに繁殖期</enemy>
-		<enemy id="m322" name="レーベンメスLv3" element="水" attack="魔法" func="3(L+R)+90-INT">メスは知能が高く､水魔法Delugeを使って獲物を仕留める｡</enemy>
-		<enemy id="m323" name="レーベン繁殖期Lv4" element="霊" attack="物理" func="6(L+R)+150-STR">繁殖期のオスは闘争心が非常に強く､異常なまでの敏捷性と攻撃力を誇る｡さっさと逃げた方が得策｡</enemy>
-		<enemy id="m3" name="ゴブリンLv1" element="地" attack="物理" func="1(L+R)+20-STR">小鬼と呼ばれる子供くらいの亜人類(デミヒューマン)｡弱いが必ず群れで行動し､武器や道具を使う知能もあるので侮れない｡</enemy>
-		<enemy id="m4" name="ゴブリンリーダーLv1" element="地" attack="物理" func="1(L+R)+30-STR">ゴブリン隊長｡装備が一回りよい物になっている｡</enemy>
-		<enemy id="m1101" name="触手1Lv4" element="地" attack="物理" func="6(L+R)+300-STR-DEX">ﾍﾟｼﾍﾟｼ担当｡</enemy>
-		<enemy id="m1102" name="触手2Lv4" element="地" attack="物理" func="4(L+R)+400-STR-DEX">捕まえ担当｡</enemy>
-		<enemy id="m1103" name="触手3Lv4" element="水" attack="魔法" func="7(L+R)+300-INT-DEX">水しぶき担当｡</enemy>
-		<enemy id="m1104" name="触手4Lv4" element="水" attack="魔法" func="5(L+R)+400-INT-DEX">水弾担当｡</enemy>
-		<enemy id="m1105" name="触手5Lv4" element="地" attack="物理" func="6(L+R)+300-STR-DEX">ﾍﾟｼﾍﾟｼ担当｡</enemy>
-		<enemy id="m1106" name="触手6Lv4" element="水" attack="魔法" func="7(L+R)+300-INT-DEX">水しぶき担当｡</enemy>
-		<enemy id="m1107" name="触手7Lv4" element="地" attack="物理" func="4(L+R)+400-STR-DEX">捕まえ担当｡</enemy>
-		<enemy id="m1108" name="触手8Lv4" element="水" attack="魔法" func="5(L+R)+400-INT-DEX">水弾担当｡</enemy>
-		<enemy id="m1109" name="ウォｰタｰガンLv4(命中判定)" element="水" attack="魔法" func="(L+R)-(DEX+KRM)/10">墨霧で視界を遮断しているので回避には運がからむ｡</enemy>
-		<enemy id="m1110" name="ウォｰタｰガンLv4(DM判定)※防御不能" element="水" attack="魔法" func="(L+R)+200-INT">超高水圧の水鉄砲｡</enemy>
-		<enemy id="m1111" name="本体(体当たり)Lv4/3回※防御不能" element="霊" attack="物理" func="(L+R)+600-STR-DEX-KRM">覚悟を決めた巨体での突進｡</enemy>
-		<enemy id="m1121" name="触手1&amp;2(怒)Lv5" element="地" attack="物理" func="10(L+R)+300-STR-DEX">ﾍﾟｼﾍﾟｼ担当1&amp;2｡</enemy>
-		<enemy id="m1122" name="触手3&amp;4(怒)Lv5" element="水" attack="魔法" func="12(L+R)+300-INT-DEX">水しぶき担当1&amp;2｡</enemy>
-		<enemy id="m1123" name="触手5(怒)Lv5" element="地" attack="物理" func="3(L+R)+600-STR-DEX">捕まえ担当2(1は殉職)…1の仇だ！(怒)</enemy>
-		<enemy id="m1124" name="触手6&amp;7(怒)Lv5" element="水" attack="魔法" func="8(L+R)+400-INT-DEX">水弾担当1&amp;2｡</enemy>
-		<enemy id="m1125" name="ウォｰタｰガンLv5(命中判定)" element="水" attack="魔法" func="(L+R)-(DEX+KRM)/10">墨霧で視界を遮断しているので回避には運がからむ｡</enemy>
-		<enemy id="m1126" name="ウォｰタｰガンLv5(DM判定)※防御不能" element="水" attack="魔法" func="(L+R)+200-INT">超高水圧の水鉄砲｡</enemy>
-		<enemy id="m1127" name="本体(体当たり：怒)Lv5/3回※防御不能" element="霊" attack="物理" func="(L+R)+600-STR-DEX-KRM">覚悟を決めた巨体での突進｡</enemy>
-		<enemy id="m1" name="ゴブリンLv1" element="地" attack="物理" func="1(L+R)+20-STR">小鬼と呼ばれる子供くらいの亜人類(デミヒューマン)｡弱いが必ず群れで行動し､武器や道具を使う知能もあるので侮れない｡</enemy>
-		<enemy id="m2" name="オークLv2" element="地" attack="物理" func="2(L+R)+60-STR">豚野郎｡下衆で野蛮だが､太った人間くらいの強さや知能はあるのでやっかいだ｡</enemy>
+		<enemy id="m623" name="ワーベアーLv7/2回" element="霊" attack="強石化(物理)" func="6(L+R)+450-STR" drop="熊男｡なぜ熊が石化攻撃を…それは獣王の掟｡人型化というより立って戦うだけなので戦闘力はさほど変わらないが､元々獣系最強な上に凶暴化+知能となると手がつけられない｡※強石化は2重に受けると即死｡"></enemy>
+		<enemy id="m622" name="ワータイガーLv6" element="地" attack="物理" func="7(L+R)+400-STR" drop="虎男｡一般的?には人間に虎の霊などを憑依させるが､これも虎が凶暴化､さらに邪悪な意思により人型化して知能を与えられたもののようだ｡ﾊﾟｧﾜｧﾌｩﾘｬｱｧｧｰｰ!!"></enemy>
+		<enemy id="m621" name="ワーウルフLv6" element="風" attack="物理" func="8(L+R)+350-STR" drop="狼男｡吸血鬼の眷属であったり人の魔法強化であったりするが､これは森の狼が凶暴強化されたもの｡ﾊﾟﾜﾌﾘｬｱｧｧｰｰ!!"></enemy>
+		<enemy id="m511" name="マイコニッドA Lv5" element="風" attack="毒(物理)" func="5(L+R)+250-STR-DEX" drop="人型のキノコ｡キノコが人型を成したのか､人がキノコになったのか…戦闘力でなく､放出される多種多様で強力な胞子がやっかい｡毒タイプは風に乗せて毒胞子をバラまく｡"></enemy>
+		<enemy id="m512" name="マイコニッドB Lv5" element="水" attack="凍結(物理)" func="5(L+R)+250-STR-DEX" drop="凍結タイプ｡凍結胞子が付着して相手の活動停止を狙う…氷魔法を得意とした魔法使いが苗床(ベース)とか？"></enemy>
+		<enemy id="m513" name="マイコニッドC Lv5" element="火" attack="忘却(物理)" func="5(L+R)+250-STR-DEX" drop="忘却タイプ｡神経毒胞子で忘却はいいとして､なぜ火属性なのか…植物とか菌に火は無理だよなぁ｡"></enemy>
+		<enemy id="m514" name="マイコニッドD Lv5" element="地" attack="石化(物理)" func="5(L+R)+250-STR-DEX" drop="石化タイプ｡普通に大地の力で相手を地に返すべく石化胞子をバラまく｡"></enemy>
+		<enemy id="m515" name="マイコニッドE Lv5" element="霊" attack="呪い(物理)" func="5(L+R)+250-STR-DEX" drop="呪いタイプ｡これも普通に苗床(ベース)の怨念で呪いの胞子をバラまく｡"></enemy>
+		<enemy id="m613" name="リザードマスターLv7/3回" element="霊" attack="物理魔法※防御不能/攻撃魔法無効" func="7(L+R)+600-STR-INT-DEX-KRM" drop="リザードマンの族長で､一族に伝わる伝説の邪剣&quot;イビルソード&quot;を持つ｡その強さはすでにボスクラス｡※防御不能かつ攻撃魔法は効かないが例外アリ)｡"></enemy>
+		<enemy id="m612" name="リザードメイジLv6" element="水" attack="凍結(魔法)" func="6(L+R)+250-INT" drop="高齢にならないと魔法を使える程の知能は無く､必然的に個体数は少ないが､使うとなると水魔法を高Lvで使いこなしてくる｡"></enemy>
+		<enemy id="m611" name="リザードマンLv6" element="水" attack="毒(物理)" func="7(L+R)+300-STR" drop="名の通りのトカゲ人間｡知能も文化もそれなりにあるが非常に残虐(武器には毒が塗ってある)…というか&quot;他生物を狩る事が全て&quot;的な蛮族文化｡"></enemy>
+		<enemy id="m522" name="アスティラゴア(怨霊)Lv6" element="霊" attack="物理魔法※防御不能" func="6(L+R)+300-STR-INT" drop="さらにその脳髄に元の持ち主の怨念が取り付いたもの｡「オマエもコッチに来い…」と触手で絞め殺そうと…菌の本能と怨念で2重に怖い！！"></enemy>
+		<enemy id="m2851" name="毒の鱗粉Lv7" element="風" attack="毒(物理)" func="7(L+R)+450-STR" drop="その名の通り毒を含んだ鱗粉。吸い込むと危険。"></enemy>
+		<enemy id="m2852" name="凍結の鱗粉Lv7" element="水" attack="凍結(魔法)" func="7(L+R)+450-INT" drop="FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわりつくと凍結してしまう。"></enemy>
+		<enemy id="m2853" name="忘却の鱗粉Lv7" element="風" attack="忘却(物理)" func="7(L+R)+450-DEX" drop="脳に作用して幻覚を見せる鱗粉。夢の世界への片道切符。"></enemy>
+		<enemy id="m2854" name="呪いの鱗粉Lv7" element="霊" attack="呪い(魔法)" func="7(L+R)+450-KRM" drop="モスに殺された人間の怨念がこもった鱗粉。「オマエもこちらに来い」と迫ってくる。"></enemy>
+		<enemy id="m2855" name="石化の鱗粉Lv7" element="地" attack="石化(物理魔法)" func=" 7(L+R)+600-STR-INT" drop="吸い込んでも体にまとわりついても石化してしまう鱗粉。"></enemy>
+		<enemy id="m2856" name="モス・ジャイアントLv7" element="霊" attack="毒(物理)" func="10(L+R)+600-STR-INT-DEX-KRM" drop="頭部付近から発射される無数の毒針攻撃。最後まで遠距離攻撃かつ意地でも状態異常攻撃。"></enemy>
+		<enemy id="m422" name="Gホーネット(興奮)Lv5" element="風" attack="物理(毒)" func="7(L+R)+250-STR-DEX" drop="敵からの攻撃を受けたなど何かしらの理由で興奮して攻撃的になっている状態｡逃げた方がよい｡"></enemy>
+		<enemy id="m421" name="ジャイアントホーネットLv4" element="風" attack="物理(毒)" func="5(L+R)+200-STR-DEX" drop="数十cm-1m程の巨大なスズメバチ｡その攻撃的な容姿､素早さ､尾の巨大な毒針は見る者に大きな恐怖を与える｡"></enemy>
+		<enemy id="m413" name="スコーピオンジャイアント(黒)Lv5" element="霊" attack="呪い+石化(物理)" func="4(L+R)+150-STR" drop="魔王の呪力が世に放たれ形を成した姿…&quot;魔のサソリ&quot;とも言われ､なんと呪いで魔法を封じた上に石化させてくる｡"></enemy>
+		<enemy id="m412" name="スコーピオンジャイアント(青)Lv4" element="地" attack="忘却(物理)" func="4(L+R)+150-STR" drop="こちらは神経毒により忘却を引き起こすのでやっかい。それでSTRが下がるとさらに忘却しやすく…"></enemy>
+		<enemy id="m411" name="スコーピオンジャイアント(赤)Lv4" element="地" attack="毒(物理)" func="4(L+R)+150-STR" drop="1m以上もある巨大なサソリ｡大きなハサミ以上に尻尾の毒針攻撃に注意。"></enemy>
+		<enemy id="m522" name="アスティラゴア(怨霊)Lv6" element="霊" attack="物理魔法※防御不能" func="6(L+R)+300-STR-INT" drop="さらにその脳髄に元の持ち主の怨念が取り付いたもの｡「オマエもコッチに来い…」と触手で絞め殺そうと…菌の本能と怨念で2重に怖い！！"></enemy>
+		<enemy id="m521" name="アスティラゴアLv5" element="地" attack="魔法※防御不能" func="5(L+R)+150-INT" drop="走る脳髄｡その正体は死体の脳髄に寄生した菌で､脳の力を引き出して精神感応波で攻撃してくる｡その目的は…仲間を増やす事だ！！"></enemy>
+		<enemy id="m511" name="マイコニッドA Lv5" element="風" attack="毒(物理)" func="5(L+R)+250-STR-DEX" drop="人型のキノコ｡キノコが人型を成したのか､人がキノコになったのか…戦闘力でなく､放出される多種多様で強力な胞子がやっかい｡毒タイプは風に乗せて毒胞子をバラまく｡"></enemy>
+		<enemy id="m512" name="マイコニッドB Lv5" element="水" attack="凍結(物理)" func="5(L+R)+250-STR-DEX" drop="凍結タイプ｡凍結胞子が付着して相手の活動停止を狙う…氷魔法を得意とした魔法使いが苗床(ベース)とか？"></enemy>
+		<enemy id="m513" name="マイコニッドC Lv5" element="火" attack="忘却(物理)" func="5(L+R)+250-STR-DEX" drop="忘却タイプ｡神経毒胞子で忘却はいいとして､なぜ火属性なのか…植物とか菌に火は無理だよなぁ｡"></enemy>
+		<enemy id="m514" name="マイコニッドD Lv5" element="地" attack="石化(物理)" func="5(L+R)+250-STR-DEX" drop="石化タイプ｡普通に大地の力で相手を地に返すべく石化胞子をバラまく｡"></enemy>
+		<enemy id="m515" name="マイコニッドE Lv5" element="霊" attack="呪い(物理)" func="5(L+R)+250-STR-DEX" drop="呪いタイプ｡これも普通に苗床(ベース)の怨念で呪いの胞子をバラまく｡"></enemy>
+		<enemy id="m611" name="リザードマンLv6" element="水" attack="毒(物理)" func="7(L+R)+300-STR" drop="名の通りのトカゲ人間｡知能も文化もそれなりにあるが非常に残虐(武器には毒が塗ってある)…というか&quot;他生物を狩る事が全て&quot;的な蛮族文化｡"></enemy>
+		<enemy id="m612" name="リザードメイジLv6" element="水" attack="凍結(魔法)" func="6(L+R)+250-INT" drop="高齢にならないと魔法を使える程の知能は無く､必然的に個体数は少ないが､使うとなると水魔法を高Lvで使いこなしてくる｡"></enemy>
+		<enemy id="m511" name="マイコニッドA Lv5" element="風" attack="毒(物理)" func="5(L+R)+250-STR-DEX" drop="人型のキノコ｡キノコが人型を成したのか､人がキノコになったのか…戦闘力でなく､放出される多種多様で強力な胞子がやっかい｡毒タイプは風に乗せて毒胞子をバラまく｡"></enemy>
+		<enemy id="m512" name="マイコニッドB Lv5" element="水" attack="凍結(物理)" func="5(L+R)+250-STR-DEX" drop="凍結タイプ｡凍結胞子が付着して相手の活動停止を狙う…氷魔法を得意とした魔法使いが苗床(ベース)とか？"></enemy>
+		<enemy id="m513" name="マイコニッドC Lv5" element="火" attack="忘却(物理)" func="5(L+R)+250-STR-DEX" drop="忘却タイプ｡神経毒胞子で忘却はいいとして､なぜ火属性なのか…植物とか菌に火は無理だよなぁ｡"></enemy>
+		<enemy id="m514" name="マイコニッドD Lv5" element="地" attack="石化(物理)" func="5(L+R)+250-STR-DEX" drop="石化タイプ｡普通に大地の力で相手を地に返すべく石化胞子をバラまく｡"></enemy>
+		<enemy id="m515" name="マイコニッドE Lv5" element="霊" attack="呪い(物理)" func="5(L+R)+250-STR-DEX" drop="呪いタイプ｡これも普通に苗床(ベース)の怨念で呪いの胞子をバラまく｡"></enemy>
+		<enemy id="m1206" name="マーベル(小手調べ/Lv3/1回)" element="風" attack="物理※攻撃魔法無効" func="4(L+R)+200-STR-DEX" drop="小手調べ。明らかにこちらを下に見ているが…(1回)※攻撃魔法無効(特に意味は無いが)"></enemy>
+		<enemy id="m1207" name="マーベル(本気/Lv4/2回)" element="風" attack="物理※攻撃魔法無効" func="5(L+R)+250-STR-DEX" drop="本気でもこんなもん。井の中の蛙。(2回)※攻撃魔法無効(特に意味は無いが)"></enemy>
+		<enemy id="m1304" name="ザシュマー(手加減/Lv4/2回)" element="火" attack="物理魔法" func="5(L+R)+250-STR-INT" drop="まだ手加減しているが十分に強い。さすが上位吸血鬼。(2回)"></enemy>
+		<enemy id="m1305" name="ザシュマー(本気/Lv5/3回)" element="火" attack="物理魔法" func="6(L+R)+300-STR-INT" drop="再生してかなり本気になった。勝てるか？(3回)"></enemy>
+		<enemy id="m1403" name="ゾマ(実験1/Lv5/5回)" element="地" attack="物理" func="6(L+R)+250-STR-DEX" drop="実験1-君は延々と飛来する石つぶて(十数cm)にどこまで耐えられるか？(5回)"></enemy>
+		<enemy id="m1404" name="ゾマ(実験2/Lv5/4回)" element="水" attack="魔法" func="6(L+R)+300-INT-DEX" drop="実験2-今度は水球(数十cm)が君の頭に取り付いて窒息させようとしてくる…必死によけろ！(4回)"></enemy>
+		<enemy id="m1405" name="ゾマ(実験3/Lv6/3回)" element="風" attack="物理魔法※防御/魔法防御不能" func="6(L+R)+200-KRM" drop="実験3-お待ちかね？の電撃攻撃。防御できず回避も困難…気合だ！気合で耐えろ！※防御/魔法防御不能、6(L+R)＜KRMで回避(3回)。"></enemy>
+		<enemy id="m1403" name="ゾマ(実験1/Lv5/5回)" element="地" attack="物理" func="6(L+R)+250-STR-DEX" drop="実験1-君は延々と飛来する石つぶて(十数cm)にどこまで耐えられるか？(5回)"></enemy>
+		<enemy id="m1403" name="ゾマ(実験1/Lv5/5回)" element="地" attack="物理" func="6(L+R)+250-STR-DEX" drop="実験1-君は延々と飛来する石つぶて(十数cm)にどこまで耐えられるか？(5回)"></enemy>
+		<enemy id="m111" name="グリーンスライムLv1" element="地" attack="物理" func="2(L+R)+10-STR,2(L+R)+10-STR,2(L+R)+10-STR,2(L+R)+10-STR,2(L+R)+10-STR,2(L+R)+10-STR,2(L+R)+10-STR,1(L+R)+30-STR" drop="&quot;ネチョネチョ&quot;じゃなく&quot;ボヨンボヨン&quot;のほう｡なので意外と素早い｡日本RPGのザコオブザコ｡※たまにキング"></enemy>
+		<enemy id="m112" name="レッドスライムLv1" element="火" attack="魔法" func="2(L+R)+10-INT" drop="レッドスライム｡魔法を使うぞ！(だからどうした)"></enemy>
+		<enemy id="m113" name="キングスライムLv1" element="霊" attack="物理" func="1(L+R)+30-STR" drop="キングスライム｡仲間と合体した(特に理由無く)｡"></enemy>
+		<enemy id="m121" name="ゴブリンLv1" element="地" attack="物理" func="1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,2(L+R)+30-STR" drop="小鬼と呼ばれる子供くらいの亜人類(デミヒューマン)｡弱いが必ず群れで行動し､武器や道具を使う知能もあるので侮れない。※たまにマスター"></enemy>
+		<enemy id="m122" name="ゴブリンリーダーLv1" element="地" attack="物理" func="1(L+R)+30-STR" drop="ゴブリン隊長｡装備が一回りよい物になっている｡"></enemy>
+		<enemy id="m123" name="ゴブリンマスターLv2" element="霊" attack="物理" func="2(L+R)+30-STR" drop="ゴブリンを極めし者(天)｡"></enemy>
+		<enemy id="m211" name="オークLv2" element="地" attack="物理" func="2(L+R)+60-STR,2(L+R)+60-STR,2(L+R)+60-STR,2(L+R)+60-STR,2(L+R)+60-STR,2(L+R)+60-STR,2(L+R)+60-STR,2(L+R)+60-STR,2(L+R)+60-STR,3(L+R)+80-STR" drop="豚野郎｡下衆で野蛮で太った人間くらいの強さや知能はあるのでやっかいだ｡※たまにキング"></enemy>
+		<enemy id="m212" name="オークメイジLv2" element="火" attack="魔法" func="2(L+R)+60-INT" drop="オーガメイジでなく｡豚のクセに魔法を…いや豚さんは知能が高いんだぞ！本当だぞ！(犬猫よりは)"></enemy>
+		<enemy id="m213" name="オークキングLv3" element="霊" attack="物理" func="3(L+R)+80-STR" drop="オークキング(自称)｡しかし言うだけあって装備は豪華｡"></enemy>
+		<enemy id="m221" name="デスフラッターLv2" element="風" attack="物理" func="2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,6(L+R)+70-STR" drop="大型･凶暴化したカラス｡知能が高く狡猾な分､下手な猛禽類より手強い｡数もいるので要注意｡※たまにブラッド"></enemy>
+		<enemy id="m222" name="ブラッドフラッターLv3" element="風" attack="物理" func="6(L+R)+70-STR" drop="返り血にぬれた､赤くて3倍速い奴｡通称ブラッドフラッター｡"></enemy>
+		<enemy id="m311" name="トロルLv3" element="地" attack="物理" func="2(L+R)+200-STR,2(L+R)+200-STR,2(L+R)+200-STR,2(L+R)+200-STR,2(L+R)+200-STR,2(L+R)+200-STR,2(L+R)+200-STR,2(L+R)+200-STR,2(L+R)+200-STR,1(L+R)+300-STR" drop="人間の2~3倍はある大型の亜人類｡知能は低めで鈍いが当たると超痛い｡※たまにホームラン"></enemy>
+		<enemy id="m312" name="ファイヤートロルLv3" element="火" attack="物理魔法" func="3(L+R)+150-STR-INT" drop="弱点である火を克服？たいまつなど火で武装｡若干ながら火炎魔法も使う｡知恵がついたので鈍さもマシになっている。"></enemy>
+		<enemy id="m313" name="ホームラントロルLv4" element="霊" attack="物理" func="1(L+R)+300-STR" drop="ボーナスポイントがよりSTR↑INT↓な個体｡ミスターフルスイング｡"></enemy>
+		<enemy id="m321" name="レーベンオスLv3" element="地" attack="物理" func="4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,6(L+R)+150-STR" drop="小型の肉食恐竜｡腕が退化した代わりに肥大化した脚で､素早く飛び跳ねて喰らいついてくる｡※たまに繁殖期"></enemy>
+		<enemy id="m322" name="レーベンメスLv3" element="水" attack="魔法" func="3(L+R)+90-INT" drop="メスは知能が高く､水魔法Delugeを使って獲物を仕留める｡"></enemy>
+		<enemy id="m323" name="レーベン繁殖期Lv4" element="霊" attack="物理" func="6(L+R)+150-STR" drop="繁殖期のオスは闘争心が非常に強く､異常なまでの敏捷性と攻撃力を誇る｡さっさと逃げた方が得策｡"></enemy>
+		<enemy id="m3" name="ゴブリンLv1" element="地" attack="物理" func="1(L+R)+20-STR" drop="小鬼と呼ばれる子供くらいの亜人類(デミヒューマン)｡弱いが必ず群れで行動し､武器や道具を使う知能もあるので侮れない｡"></enemy>
+		<enemy id="m4" name="ゴブリンリーダーLv1" element="地" attack="物理" func="1(L+R)+30-STR" drop="ゴブリン隊長｡装備が一回りよい物になっている｡"></enemy>
+		<enemy id="m1101" name="触手1Lv4" element="地" attack="物理" func="6(L+R)+300-STR-DEX" drop="ﾍﾟｼﾍﾟｼ担当｡"></enemy>
+		<enemy id="m1102" name="触手2Lv4" element="地" attack="物理" func="4(L+R)+400-STR-DEX" drop="捕まえ担当｡"></enemy>
+		<enemy id="m1103" name="触手3Lv4" element="水" attack="魔法" func="7(L+R)+300-INT-DEX" drop="水しぶき担当｡"></enemy>
+		<enemy id="m1104" name="触手4Lv4" element="水" attack="魔法" func="5(L+R)+400-INT-DEX" drop="水弾担当｡"></enemy>
+		<enemy id="m1105" name="触手5Lv4" element="地" attack="物理" func="6(L+R)+300-STR-DEX" drop="ﾍﾟｼﾍﾟｼ担当｡"></enemy>
+		<enemy id="m1106" name="触手6Lv4" element="水" attack="魔法" func="7(L+R)+300-INT-DEX" drop="水しぶき担当｡"></enemy>
+		<enemy id="m1107" name="触手7Lv4" element="地" attack="物理" func="4(L+R)+400-STR-DEX" drop="捕まえ担当｡"></enemy>
+		<enemy id="m1108" name="触手8Lv4" element="水" attack="魔法" func="5(L+R)+400-INT-DEX" drop="水弾担当｡"></enemy>
+		<enemy id="m1109" name="ウォｰタｰガンLv4(命中判定)" element="水" attack="魔法" func="(L+R)-(DEX+KRM)/10" drop="墨霧で視界を遮断しているので回避には運がからむ｡"></enemy>
+		<enemy id="m1110" name="ウォｰタｰガンLv4(DM判定)※防御不能" element="水" attack="魔法" func="(L+R)+200-INT" drop="超高水圧の水鉄砲｡"></enemy>
+		<enemy id="m1111" name="本体(体当たり)Lv4/3回※防御不能" element="霊" attack="物理" func="(L+R)+600-STR-DEX-KRM" drop="覚悟を決めた巨体での突進｡"></enemy>
+		<enemy id="m1121" name="触手1&amp;2(怒)Lv5" element="地" attack="物理" func="10(L+R)+300-STR-DEX" drop="ﾍﾟｼﾍﾟｼ担当1&amp;2｡"></enemy>
+		<enemy id="m1122" name="触手3&amp;4(怒)Lv5" element="水" attack="魔法" func="12(L+R)+300-INT-DEX" drop="水しぶき担当1&amp;2｡"></enemy>
+		<enemy id="m1123" name="触手5(怒)Lv5" element="地" attack="物理" func="3(L+R)+600-STR-DEX" drop="捕まえ担当2(1は殉職)…1の仇だ！(怒)"></enemy>
+		<enemy id="m1124" name="触手6&amp;7(怒)Lv5" element="水" attack="魔法" func="8(L+R)+400-INT-DEX" drop="水弾担当1&amp;2｡"></enemy>
+		<enemy id="m1125" name="ウォｰタｰガンLv5(命中判定)" element="水" attack="魔法" func="(L+R)-(DEX+KRM)/10" drop="墨霧で視界を遮断しているので回避には運がからむ｡"></enemy>
+		<enemy id="m1126" name="ウォｰタｰガンLv5(DM判定)※防御不能" element="水" attack="魔法" func="(L+R)+200-INT" drop="超高水圧の水鉄砲｡"></enemy>
+		<enemy id="m1127" name="本体(体当たり：怒)Lv5/3回※防御不能" element="霊" attack="物理" func="(L+R)+600-STR-DEX-KRM" drop="覚悟を決めた巨体での突進｡"></enemy>
+		<enemy id="m1" name="ゴブリンLv1" element="地" attack="物理" func="1(L+R)+20-STR" drop="小鬼と呼ばれる子供くらいの亜人類(デミヒューマン)｡弱いが必ず群れで行動し､武器や道具を使う知能もあるので侮れない｡"></enemy>
+		<enemy id="m2" name="オークLv2" element="地" attack="物理" func="2(L+R)+60-STR" drop="豚野郎｡下衆で野蛮だが､太った人間くらいの強さや知能はあるのでやっかいだ｡"></enemy>
 	</enemies>
 	<results>
 		<result id="r2101" name="ワーベアーと戦った" level="5">♪あるーひ♪もりのなか♪くまさんにー♪であーった♪</result>
@@ -264,8 +267,7 @@
 		<result id="r406" name="うるさいやつらに出会った" level="1">CV…男=古川登○夫､女=平○文､でお願いしますｗ</result>
 	</results>
 	<license>
-		<work name="Frontier(N30_44),YourDreams(N30_17),EnemyOfFearness(N30_43),Fucking(N30_26),SeeYouNextTime(N30_42),No-oneKnowsHisDestiny(N30_13),SilentlyCaution(N30_31),ChaseAndCrush(N30_19)" category="bgm" creator="Az" url="venusaz.seesaa.net/"></work>
-		<work name="stream-with-robins-1(コマドリの棲む沢)" category="bgm" creator="sounddictionary.info/ambient-1/"></work>
+		<work name="stream-with-robins-1(コマドリの棲む沢)" category="bgm" creator="sounddictionary.info/ambient-1/" url=""></work>
 	</license>
 	<scene id="2101" enemies="m621,m622,m623" result="r2101">
 ん？…ワーウルフが、まるで前衛のごとく後ろにいる”何か”にうながされて出てきた…
@@ -927,7 +929,7 @@
 
 [戻る（南へ）](2421,2423,2423,2423,2423,2422,2422,2422)
 </scene>
-	<scene id="2541" bgm="SilentlyCaution">
+	<scene id="2541" bgm="@talk01">
 群がる強敵達を倒して進んだその先には…
 
 聞いた通り、こちらにもほぼ同じ大きさの巨大な御神木がもう一本、立っているのが見えてきた。
@@ -940,10 +942,10 @@
 さぁ、用意はいいか？
 
 
-[オーケーボーイズ！ウィラゴーイン！！](2801 "f1251")
-[オーケーボーイズ！ウィラゴーイン！！](2802 "f1204")
-[オーケーボーイズ！ウィラゴーイン！！](2803 "f1302")
-[オーケーボーイズ！ウィラゴーイン！！](2804 "f1407")
+[オーケーボーイズ！ウィアゴーイン！！](2801 "f1251")
+[オーケーボーイズ！ウィアゴーイン！！](2802 "f1204")
+[オーケーボーイズ！ウィアゴーイン！！](2803 "f1302")
+[オーケーボーイズ！ウィアゴーイン！！](2804 "f1407")
 [ムリ…かえゆ…](2451)
 </scene>
 	<scene id="2542">
@@ -1274,7 +1276,7 @@
 
 [ほんと、普通だったら訴訟モンだぜ…](2704)
 </scene>
-	<scene id="2704" flags="f2704" bgm="SilentlyCaution">
+	<scene id="2704" flags="f2704" bgm="@talk01">
 主「…森の西側は、邪気の直近の影響でこちら側とは比較にならないほどの凶暴なモンスターであふれています…あまりに危険なので、そこへ続く道は封鎖しているのですが………今、それを解きました…西側への入口は森の南西です…どうか、お気を付けて…」
 おいおいおいおい！そういう事は早く言えよ！今よりはるかに敵が強い？ちょっと待てや！話が変わり過ぎやろ！
 
@@ -1396,7 +1398,7 @@
 
 [ほんと、やってられんわ…](2714)
 </scene>
-	<scene id="2714" flags="f2704" bgm="SilentlyCaution">
+	<scene id="2714" flags="f2704" bgm="@talk01">
 主「…森の西側は、邪気の直近の影響でこちら側とは比較にならないほどの凶暴なモンスターであふれています…あまりに危険なので、そこへ続く道は封鎖しているのですが………今、それを解きました…西側への入口は森の南西です…どうか、お気を付けて…」
 おいおいおいおい！そういう事は早く言えよ！今よりはるかに敵が強い？ちょっと待てや！話が変わり過ぎやろ！
 さすがにマーベルも顔が青ざめている…
@@ -1529,7 +1531,7 @@
 
 [ほんと、普通だったら訴訟モンだぜ…](2724)
 </scene>
-	<scene id="2724" flags="f2704" bgm="SilentlyCaution">
+	<scene id="2724" flags="f2704" bgm="@talk01">
 主「…森の西側は、邪気の直近の影響でこちら側とは比較にならないほどの凶暴なモンスターであふれています…あまりに危険なので、そこへ続く道は封鎖しているのですが………今、それを解きました…西側への入口は森の南西です…どうか、お気を付けて…」
 ザシュマー「なに！？今でもなかなかのモノだが、それと比較にならぬだと？…それは楽しみだ！血が騒ぐぞ！！」
 おいおいおいおい！そういう事は早く言えよ！今よりはるかに敵が強い？ちょっと待てや！話が変わり過ぎやろ！
@@ -1657,7 +1659,7 @@
 
 [ほんと、普通だったら考えられんわ…](2734)
 </scene>
-	<scene id="2734" flags="f2704" bgm="SilentlyCaution">
+	<scene id="2734" flags="f2704" bgm="@talk01">
 主「…森の西側は、邪気の直近の影響でこちら側とは比較にならないほどの凶暴なモンスターであふれています…あまりに危険なので、そこへ続く道は封鎖しているのですが………今、それを解きました…西側への入口は森の南西です…どうか、お気を付けて…」
 おいおいおいおい！そういう事は早く言えよ！今よりはるかに敵が強い？ちょっと待てや！話が変わり過ぎやろ！
 ゾマ「ほっほっほ、ずいぶん取り乱しておるの。そろそろ限界かの？であればワシの用もそろそろ終わりという事になるが…」
@@ -1956,7 +1958,7 @@
 [戻る＞鱗粉シーン（石化）へ](2855)
 [戻る＞追撃シーンへ](2856)
 </scene>
-	<scene id="2850" bgm="ChaseAndCrush">
+	<scene id="2850" bgm="@field03">
 空を飛んではいるが、その巨体を支えるには羽の大きさが足らないのか、動きは非常に緩慢だ。
 それゆえにはたらく防御本能か、広範囲に強力かつ様々な鱗粉を撒き散らしている。
 
@@ -2121,8 +2123,8 @@ FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわり�
 ※追撃戦闘ではモスにDMを与えた時に限り、３倍のEXP（同Lvなら３０）と、欠片は表示されている物を３つ得てよい。
 
 
-[まてぇ～！ル○ァ～～ン！！（逃がした/倒せなかった）](2851)
-[よっしゃぁー！見たかボケカスオラァーー！！（撃破）](2857 "f1251")
+[ドンハーゲナウェーイ！！（逃がした/倒せなかった）](2851)
+[ヒィーハァー！アイガッタビッグワーン！！（撃破）](2857 "f1251")
 [よし！やったぞ！！…しかし…（撃破）](2858 "f1204")
 [よし！今だ！！（撃破）](2859 "f1302")
 [どうスか！やりましたよ！！（撃破）](2860 "f1407")
@@ -2131,7 +2133,7 @@ FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわり�
 [このボスにおけるゾマの説明](2813 "f1407")
 [エリクサー(並)を使用する](2814 "i2535")
 </scene>
-	<scene id="2857" items="i2857" flags="f2857" bgm="ChaseAndCrush">
+	<scene id="2857" items="i2857" flags="f2857" bgm="@field03">
 「これでトドメだ！」
 弱りきって低空をフラフラと飛ぶモスに、跳躍した君の攻撃が炸裂する！
 それを受けたモスは、最後まで本能に従って生きただけのただ虫のごとく、静かに地に堕ちて横たわった…
@@ -2156,7 +2158,7 @@ FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわり�
 
 [森の主（ぬし）の所へ](2901)
 </scene>
-	<scene id="2858" items="i2857" flags="f2857" bgm="ChaseAndCrush">
+	<scene id="2858" items="i2857" flags="f2857" bgm="@field03">
 「これでトドメだ！」
 弱りきって低空をフラフラと飛ぶモスに、跳躍した君の攻撃が炸裂する！
 それを受けたモスは、最後まで本能に従って生きただけのただ虫のごとく、静かに地に堕ちて横たわった…
@@ -2194,7 +2196,7 @@ FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわり�
 
 [森の主（ぬし）の所へ](2911)
 </scene>
-	<scene id="2859" items="i2857" flags="f2857" bgm="ChaseAndCrush" result="r2859">
+	<scene id="2859" items="i2857" flags="f2857" bgm="@field03" result="r2859">
 ザシュマー「いったぞ！！」
 上空へ逃げようとしたモスの上を取り、炎気をまとった爪で一撃を加えたザシュマーだったが、トドメにはいたらず…たまらず下へ逃れたモスに、今まさに君の跳躍からの攻撃が決まらんとしていた…
 まるで長年組んだコンビのように息ピッタリだ。互いの力量を理解し、認めている間柄ならではと言った所か。
@@ -2232,7 +2234,7 @@ FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわり�
 
 [森の主（ぬし）の所へ](2921)
 </scene>
-	<scene id="2860" items="i2857" flags="f2857" bgm="ChaseAndCrush">
+	<scene id="2860" items="i2857" flags="f2857" bgm="@field03">
 「これでトドメだ！」
 弱りきって低空をフラフラと飛ぶモスに、跳躍した君の攻撃が炸裂する！
 それを受けたモスは、最後まで本能に従って生きただけのただ虫のごとく、静かに地に堕ちて横たわった…
@@ -2264,7 +2266,7 @@ FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわり�
 
 [森の主（ぬし）の所へ](2931)
 </scene>
-	<scene id="2901" items="-i1201" bgm="No-oneKnowsHisDestiny">
+	<scene id="2901" items="-i1201" bgm="@field02">
 「おーい！持ってきたぞーー！！」
 相変わらず軽いｗ
 だが、森の主（ぬし）からの返事は無い…時すでに遅かったのだろうか？そう思った矢先…
@@ -2323,7 +2325,7 @@ FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわり�
 
 [どゆこと？](2903)
 </scene>
-	<scene id="2903" items="i2903" flags="f2903" bgm="No-oneKnowsHisDestiny">
+	<scene id="2903" items="i2903" flags="f2903" bgm="@field02">
 主「………これは…！…どうやら、これは遠くからの邪気を受け取るための物のようです…」
 えっ？じゃあ発生源じゃなくて、受信機という事か…その邪気を送ってきてる、発信元はたどれないのか？
 主「…すでに送るのを止めているので、わかりません…おそらく、あなたがたどり着いた時点でモスを見限って止めたのでしょう…」
@@ -2361,7 +2363,7 @@ FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわり�
 
 [御神木を後にする](2593)
 </scene>
-	<scene id="2911" items="-i1201" bgm="No-oneKnowsHisDestiny">
+	<scene id="2911" items="-i1201" bgm="@field02">
 君「おーい！持ってきたぞーー！！」
 相変わらず軽い君に対して「まったくもう…」という感じのマーベル。
 だが、森の主（ぬし）からの返事は無い…時すでに遅かったのだろうか？
@@ -2470,7 +2472,7 @@ FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわり�
 
 [よし、いったん帰るか…](2914)
 </scene>
-	<scene id="2914" bgm="No-oneKnowsHisDestiny" result="r2914">
+	<scene id="2914" bgm="@field02" result="r2914">
 よし、いったん帰るか…ん？なんか忘れてるような…
 
 マーベル「…ﾌﾞﾂﾌﾞﾂ…うふふ、どうですか？この私が、森の番人としての責務を果たし、この森に平穏を取り戻しましたー！…ほら、森のみんなもあんなによろこんで…うふふ…」
@@ -2492,7 +2494,7 @@ FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわり�
 
 [御神木を後にする](2593)
 </scene>
-	<scene id="2921" items="-i1201" bgm="No-oneKnowsHisDestiny">
+	<scene id="2921" items="-i1201" bgm="@field02">
 君「おーい！持ってきたぞーー！！」
 相変わらず軽いｗ
 だが、森の主（ぬし）からの返事は無い…時すでに遅かったのだろうか？
@@ -2569,7 +2571,7 @@ FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわり�
 
 [どゆこと？](2923)
 </scene>
-	<scene id="2923" items="i2903" flags="f2903" bgm="No-oneKnowsHisDestiny">
+	<scene id="2923" items="i2903" flags="f2903" bgm="@field02">
 主「………これは…！…どうやら、これは遠くからの邪気を受け取るための物のようです…」
 えっ？じゃあ発生源じゃなくて、受信機という事か…その邪気を送ってきてる、発信元はたどれないのか？
 主「…すでに送るのを止めているので、わかりません…おそらく、あなた方がたどり着いた時点でモスを見限って止めたのでしょう…」
@@ -2614,7 +2616,7 @@ FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわり�
 
 [御神木を後にする](2593)
 </scene>
-	<scene id="2931" items="-i1201" bgm="No-oneKnowsHisDestiny">
+	<scene id="2931" items="-i1201" bgm="@field02">
 君「おーい！持ってきたぞーー！！」
 ずっとゾマが静かなので、心も足取りもとても軽く…
 だが、森の主（ぬし）からの返事は無い…時すでに遅かったのだろうか？そう思った矢先…
@@ -2686,7 +2688,7 @@ FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわり�
 
 [どゆこと？](2933)
 </scene>
-	<scene id="2933" items="i2903" flags="f2903" bgm="No-oneKnowsHisDestiny">
+	<scene id="2933" items="i2903" flags="f2903" bgm="@field02">
 主「………これは…！…どうやら、これは遠くからの邪気を受け取るための物のようです…」
 えっ？じゃあ発生源じゃなくて、受信機という事か…その邪気を送ってきてる、発信元はたどれないのか？
 主「…すでに送るのを止めているので、わかりません…おそらく、あなた方がたどり着いた時点でモスを見限って止めたのでしょう…」
@@ -2737,7 +2739,7 @@ FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわり�
 
 [御神木を後にする](2593)
 </scene>
-	<scene id="3001" bgm="SeeYouNextTime">
+	<scene id="3001" bgm="@end02">
 賢明なる諸君であれば、さすがにそろそろ今回は終わりだろうと思ったのではなかろうか。
 
 …え？こんだけ待たせたんだから、当然最後まであるだろうと思った？
@@ -2764,7 +2766,7 @@ FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわり�
 
 [戻る](2593)
 </scene>
-	<scene id="3002" bgm="SeeYouNextTime">
+	<scene id="3002" bgm="@end02">
 賢明なる諸君であれば、さすがにそろそろ今回は終わりだろうと思ったのではなかろうか。
 
 …え？こんだけ待たせたんだから、当然最後まであるだろうと思った？
@@ -2900,7 +2902,7 @@ FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわり�
 [マーベル「こちらへもいけます」西へ](2131,2132,2132,2132,2132,2132,2132,2132 "f1204")
 [東へ](2151)
 </scene>
-	<scene id="2151" flags="f2151" bgm="SilentlyCaution">
+	<scene id="2151" flags="f2151" bgm="@talk01">
 ここが…「拒絶の森」か。
 
 なるほど確かに、入口や外とは比べ物にならないほど、草木から茂みの陰に時折気配を感じる小動物にいたるまで、強烈な拒絶の気配を発している…
@@ -4109,7 +4111,7 @@ FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわり�
 [ザシュマーについての説明を見る](443 "f1302")
 [ゾマについての説明を見る](444 "f1407")
 </scene>
-	<scene id="2421" enemies="m511,m512,m513,m514,m515" bgm="SilentlyCaution" result="r2111">
+	<scene id="2421" enemies="m511,m512,m513,m514,m515" bgm="@talk01" result="r2111">
 ズル…グチョ…
 みなさんは「人型の大きなキノコ」と聞くと、こんな感じでかろうじて動くキノコを想像されるだろう。
 確かに聞く話ではそういう奴も…いやその方が多いらしいのだが、俺が今まで出くわした奴はみんな…やっぱり今回も…
@@ -4140,7 +4142,7 @@ FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわり�
 [ザシュマーについての説明を見る](443 "f1302")
 [ゾマについての説明を見る](444 "f1407")
 </scene>
-	<scene id="2422" enemies="m512,m512,m514,m514" bgm="SilentlyCaution">
+	<scene id="2422" enemies="m512,m512,m514,m514" bgm="@talk01">
 ズル…グチョ…
 みなさんは「人型の大きなキノコ」と聞くと、こんな感じでかろうじて動くキノコを想像されるだろう。
 確かに聞く話ではそういう奴も…いやその方が多いらしいのだが、俺が今まで出くわした奴はみんな…やっぱり今回も…
@@ -4171,7 +4173,7 @@ FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわり�
 [ザシュマーについての説明を見る](443 "f1302")
 [ゾマについての説明を見る](444 "f1407")
 </scene>
-	<scene id="2423" enemies="m511,m511,m515,m515" bgm="SilentlyCaution">
+	<scene id="2423" enemies="m511,m511,m515,m515" bgm="@talk01">
 ズル…グチョ…
 みなさんは「人型の大きなキノコ」と聞くと、こんな感じでかろうじて動くキノコを想像されるだろう。
 確かに聞く話ではそういう奴も…いやその方が多いらしいのだが、俺が今まで出くわした奴はみんな…やっぱり今回も…
@@ -4792,7 +4794,7 @@ FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわり�
 [マーベル「こちらへもいけます」東へ](2631 "f1204")
 [南へ](2511)
 </scene>
-	<scene id="2631" enemies="m522,m522,m522" bgm="SilentlyCaution" result="r2291">
+	<scene id="2631" enemies="m522,m522,m522" bgm="@talk01" result="r2291">
 うっげぇー…「アスティラゴア」だ…
 
 アスティラゴア…見た目は動く脳髄であるが、その正体は死体の脳に寄生する菌（カビ）の一種である。
@@ -4894,7 +4896,7 @@ FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわり�
 
 [森の入口へ](2008)
 </scene>
-	<scene id="1201" items="-i1106,-i1109,i1201" bgm="No-oneKnowsHisDestiny">
+	<scene id="1201" items="-i1106,-i1109,i1201" bgm="@field02">
 「ぃよしっ！７回成功！！」
 人はなぜ、広い水場を見ると石を投げて水面を跳ねさせたくなるのか…
 体を休めるつもりがすっかり遊んでしまった。
@@ -4910,9 +4912,11 @@ FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわり�
 経験や勘を信じて身を滅ぼす､というのはよくある話。
 （ノーマル）
 
-・中央（水上）をCHANGE-AIRで突っ切る※要CHANGE-AIR
+${if mCHANGE-AIR}
+・中央（水上）をCHANGE-AIRで突っ切る
 天の啓示か､はたまた究極のせっかちさんか。
 （非推奨：ハード）
+${/if}
 
 
 [右側（東）から迂回する](1202 "-f1210")
@@ -5546,7 +5550,7 @@ REJUVENATEはゾマに感知されてキャンセルされるので、無効。
 
 ゾマ「ほうほう…おぬし、あの魔法国家の出じゃったか。」
 君「ご、ご存知で？」
-ゾマ「んー…なんじゃったかのぅ、確か…ペン…ギン村じゃなくて…ペン…太郎でもない…」
+ゾマ「んー…なんじゃったかのぅ、確か…ペン…ギン村じゃなくて…ペンタ…ックスでもない…」
 君「…ペンタウァです…」
 ゾマ「おぉ！そうじゃそうじゃ！そのペンタウァの者は皆が一様に魔法を画一的に使いこなすので…ソー…ソーラン節じゃなくて…ソー…ソーサマンじゃったか？」
 君「…ソーサリアンです…」
@@ -5625,7 +5629,8 @@ REJUVENATEはゾマに感知されてキャンセルされるので、無効。
 	<scene id="1410" enemies="m1403">
 「あ、あのー…あなたはいったいだれですか？」
 
-君は宇宙人とのファーストコンタクトのようにオドオドと話しかける…まぁ確かに言葉が通じるかどうかもわからん相手なのはその通りではあるが…
+君は宇宙人とのファーストコンタクトのようにオドオドと話しかける…
+まぁ確かに言葉が通じるかどうかもわからん相手なのはその通りではあるが…
 
 リッチー「うむ、若いもんにしては落ち着いとるの、感心感心…ワシはの、究極の魔道の研究のためにドラゴンスレイヤーを探しに来た、ゾマというもんじゃ。おまえさん、何か知らんかの？」
 
@@ -5732,7 +5737,7 @@ REJUVENATEはゾマに感知されてキャンセルされるので、無効。
 
 [泉を越えて森へ進む](2004)
 </scene>
-	<scene id="1501" bgm="No-oneKnowsHisDestiny">
+	<scene id="1501" bgm="@field02">
 ここはクラーケンが居た泉の前…
 
 つまり泉の南側だが、すでに何の跡形も無い…
@@ -5757,7 +5762,7 @@ REJUVENATEはゾマに感知されてキャンセルされるので、無効。
 [森へ進む（北）](2007 "f2151")
 [泉の入口へ戻る（南）](1501)
 </scene>
-	<scene id="2001" bgm="No-oneKnowsHisDestiny">
+	<scene id="2001" bgm="@field02">
 ・【拒絶の森】
 火山の影で日の当たる時間の少ない、にもかかわらず火山灰や地脈を通してのマグマのエネルギーでうっそうとよく茂った深い深い森。
 日照の短さから森の恵みと言えるものは少なく、森に住む生き物も痩せて常に気が立っており凶暴だ。
@@ -5867,7 +5872,7 @@ REJUVENATEはゾマに感知されてキャンセルされるので、無効。
 
 [泉へ戻る](1502)
 </scene>
-	<scene id="2007" bgm="No-oneKnowsHisDestiny">
+	<scene id="2007" bgm="@field02">
 ここは拒絶の森の入口に当たる場所…
 
 不思議なもので、一度入ってしまうと「なぜ今まで気付かなかったのか？」と思ってしまうほど、入口が普通にわかってしまう…
@@ -5878,7 +5883,7 @@ REJUVENATEはゾマに感知されてキャンセルされるので、無効。
 [拒絶の森に入る](2151)
 [泉へ戻る](1502)
 </scene>
-	<scene id="2008" items="-i2005" bgm="No-oneKnowsHisDestiny">
+	<scene id="2008" items="-i2005" bgm="@field02">
 リンウは一見行き止まりに見える場所をかき分けて奥へと進んでいく…
 
 少し角度を変えれば進めたり、邪魔な枝はたわませると意外に簡単にどかせる所もあったりして、素人ではまず気付かない要素を駆使して入っていく…
@@ -5901,7 +5906,7 @@ REJUVENATEはゾマに感知されてキャンセルされるので、無効。
 
 [あんまり脅かすなよ…](2009)
 </scene>
-	<scene id="2009" bgm="No-oneKnowsHisDestiny" result="r2009">
+	<scene id="2009" bgm="@field02" result="r2009">
 一転、険しい表情でいかにも悪い知らせを話し出しそうな感じのリンウ…
 
 リンウ「先程も言ったように、この拒絶の森はもともとその構造だけでなく生息する生き物やモンスターの強さ的にもかなり厳しく、迂闊に入っていい場所ではない。しかしそんなこの森に長年慣れた私でも、この騒ぎが始まってからの凶暴化や新たなモンスターには手を焼いている…しかもそれがここ最近特に悪化していて、それと関係があるのか、この森の主（ぬし）の様子までおかしくなってしまったのだ。」
@@ -7050,7 +7055,7 @@ DMというか死を恐れないので大変危険。
 [南へ](1021)
 [戦闘その他の説明（チュートリアル）を見る](401)
 </scene>
-	<scene id="1101" bgm="EnemyOfFearness">
+	<scene id="1101" bgm="@battle03">
 慎重に慎重に…しかし霧が濃いので、泉がしっかり見える位置まで進むとかなり近付く事になってしまったが…
 
 泉はほとりしか見えず、奥や周りは霧が立ち込めていて視界が利かない。
@@ -7121,7 +7126,7 @@ DMというか死を恐れないので大変危険。
 
 [なんとぉーーー！！！](1105)
 </scene>
-	<scene id="1105" enemies="m1109,m1110,m1111" bgm="EnemyOfFearness">
+	<scene id="1105" enemies="m1109,m1110,m1111" bgm="@battle03">
 ついに触手すべてを失ったクラーケン…
 
 追い詰められた奴は、墨で作った霧で敵味方もろともに視界を遮断し、高圧縮した水流（高水圧レーザー）を乱射しながら体当たり攻撃を仕掛けてきた！
@@ -7142,7 +7147,7 @@ DMというか死を恐れないので大変危険。
 
 [ここからいなくなれぇーーーー！！！！](1106)
 </scene>
-	<scene id="1106" items="i1106" flags="f1106" bgm="Fucking">
+	<scene id="1106" items="i1106" flags="f1106" bgm="@town03">
 君は激闘の末、ついにクラーケン・ジャイアントを倒した！
 
 これで奴に引きずり込まれた人々も浮かばれる事だろう…
@@ -7169,7 +7174,7 @@ DMというか死を恐れないので大変危険。
 [旅立つ！](1201)
 [欠片袋についての説明を見る](1107)
 </scene>
-	<scene id="1107" bgm="Fucking">
+	<scene id="1107" bgm="@town03">
 ●欠片袋/箱について
 
 【欠片袋/箱】とは主にボス戦勝利後に手に入る【たくさんの七星欠片が入った袋/箱】の事で､ボーナスであると同時に【簡易Lvプレイ方】でのプレイや【効率よくLvUP】したりまたは【普通に欠片を無駄遣い】するなどして､欠片が不足する状況を救済するための措置でもある｡
@@ -7189,7 +7194,7 @@ DMというか死を恐れないので大変危険。
 
 [旅立つ！](1201)
 </scene>
-	<scene id="1108" items="i1108,i1109" flags="f1106" bgm="Fucking" result="r1108">
+	<scene id="1108" items="i1108,i1109" flags="f1106" bgm="@town03" result="r1108">
 君は激闘の末、ついにクラーケン・ジャイアントを倒した！
 
 これで奴に引きずり込まれた人々も浮かばれる事だろう…
@@ -7218,7 +7223,7 @@ DMというか死を恐れないので大変危険。
 [旅立つ！](1201)
 [欠片箱についての説明を見る](1109)
 </scene>
-	<scene id="1109" bgm="Fucking">
+	<scene id="1109" bgm="@town03">
 ●欠片袋/箱について
 
 【欠片袋/箱】とは主にボス戦勝利後に手に入る【たくさんの七星欠片が入った袋/箱】の事で､ボーナスであると同時に【簡易Lvプレイ方】でのプレイや【効率よくLvUP】したりまたは【普通に欠片を無駄遣い】するなどして､欠片が不足する状況を救済するための措置でもある｡
@@ -7305,7 +7310,7 @@ HP/MP両方の上限値も現在値も1/2にして（端数切捨、このボス
 
 [まだだ！まだ終わらんよ！！](1114)
 </scene>
-	<scene id="1114" enemies="m1125,m1126,m1127" bgm="EnemyOfFearness">
+	<scene id="1114" enemies="m1125,m1126,m1127" bgm="@battle03">
 ピンチにおちいったときこそ　かくとうかのしんかがとわれる。
 さいごまであきらめてはいけない。
 ﾅｧｰｲﾝ…ｴｲｯﾂ…ｾﾍﾞｰﾝ…
@@ -7336,7 +7341,7 @@ HP/MP両方の上限値も現在値も1/2にして（端数切捨、このボス
 [俺の…勝ちだ！！](1108)
 </scene>
 	<scene id="10000"></scene>
-	<scene id="110">
+	<scene id="110" bgm="">
 ここは武器屋。
 
 武器防具一式、初心者向けから熟練者向けまで揃うだけでなく、時折レアアイテムも入荷するという。
@@ -8187,7 +8192,8 @@ HP/MP両方の上限値も現在値も1/2にして（端数切捨、このボス
 トール「やっぱりそうか…これでも武器を扱う事で最前線の奴らと顔を突き合わせてるんだ、ヤバイ雰囲気が全体に出てきたのと、あんたの覚悟の決まった感じを見りゃそりゃわかるさ。」
 
 君「…多分これはもう、国を揺るがすクラスの事件になる。だからここからは、それに関与する覚悟と、それに耐えうるレベルのある奴だけが残って戦う事になるだろう…祭りはもう終わりだ。島の住人にも逃げ出す準備を始めるよう、それとなく促しておいてくれ。」
-トール「何言ってんだよ、この島にいるのは大なり小なりワケのある奴ばっかりさ…代々住んでる奴ならなおさら、こんなひでぇ場所で暮らしてきたっていうご先祖からの矜持もあるしな…だから逃げても行く所なんてねぇんだ…だったらこの島を守ってくれる奴らと一緒に残って戦うのが一番だろ？」君「いいのか？命あってのモノダネだぜ？」
+トール「何言ってんだよ、この島にいるのは大なり小なりワケのある奴ばっかりさ…代々住んでる奴ならなおさら、こんなひでぇ場所で暮らしてきたっていうご先祖からの矜持もあるしな…だから逃げても行く所なんてねぇんだ…だったらこの島を守ってくれる奴らと一緒に残って戦うのが一番だろ？」
+君「いいのか？命あってのモノダネだぜ？」
 トール「ドラゴンスレイヤーを手に入れるんだろ？だったらそれで何とかなるハズじゃねーか。」
 君「ふふっ…ずいぶんと分の悪い方に張る事になるぞ？」
 トール「俺の強運を知らんようだな。裸一貫、一代でこれだけの店を構えた男だぜ？」
@@ -8465,7 +8471,7 @@ HP/MP両方の上限値も現在値も1/2にして（端数切捨、このボス
 
 [戻る](800)
 </scene>
-	<scene id="850">
+	<scene id="850" bgm="@field02">
 トール「…あぁ、あれを見たのか。俺らがこの島に来た…ココネがまだ小さかったから、もう１０年も前か…ちょうどその頃にできた宗教らしくてな。聞いた話では…」
 
 言いかけて、トールが店内を片付けているココネをチラリと見やった。
@@ -8615,7 +8621,7 @@ HP/MP両方の上限値も現在値も1/2にして（端数切捨、このボス
 
 [ココネ「…地竜教の話？」](856)
 </scene>
-	<scene id="856" flags="f856" result="r856">
+	<scene id="856" flags="f856" bgm="@field02" result="r856">
 ココネ「…地竜教の話？」
 奥からパジャマ姿のココネが出てきた…眠そうに目をこすっているが、その状態でもわかるほどに表情が暗い…トールがこの話を聞かせたくないワケだ。
 
@@ -9218,7 +9224,7 @@ i2903:タリスマン(小):KRM+1 タリスマンになり始めの小石にヒ�
 
 [戻る](103)
 </scene>
-	<scene id="254">
+	<scene id="254" bgm="">
 「島民のみなさん、大地の竜を信じる心を忘れてはいけません。大地の竜はお怒りです、このままでは我々の祖先がやってきた事がすべて無駄になってしまいます。外から来た方々も、この島に根付き大地の竜を信じましょう。そうすれば、我々にはいずれ平和と豊かさが約束されるのです。」
 
 広場の中心で、粗末なローブを着た数人の人間が何やら周りに声を掛けている。その内の１人である若く美しい女性の声が、ことさらに大きく響いている…
