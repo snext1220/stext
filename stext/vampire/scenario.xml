@@ -4,6 +4,7 @@
 <!--v1.0 2018/2/25 テキスト完、bgm、背景完。-->
 <!--v1.1 2018/3/17 挿絵追加。-->
 <!--v1.2 2018/4/1 トロフィー追加。-->
+<!--v1.3 2018/10/6 bgm仕様変更に対応。-->
 <scenario title="鉄腕の吸血姫" author="cocotori">
 <items>
 	<item id="i00" name="小さな鍵">どこかの鍵。翼の飾りがついている。</item>
@@ -47,6 +48,10 @@
 	<result id="r01" name="受け継いだもの、命、そして" level="2">END1を見た</result>
 	<result id="r02" name="手を取り、ともに生きる" level="2">END2を見た</result>
 </results>
+
+	<init>
+		<bgm main="bgm" happy="@field04"></bgm>
+	</init>
 
 <scene id="0">
 薄暗い部屋。あなたはうめきとともに目覚める。
@@ -1128,7 +1133,7 @@
 [次へ](15)
 </scene>
 
-<scene id="15" bgm="vfr_mokusei">
+<scene id="15" bgm="bgm_vfr_mokusei">
 痛い！　痛い！　倒れ伏せ、もがき苦しむ、声も出ず。
 音は消え、世界は遠く。
 
@@ -1185,7 +1190,7 @@
 [次へ](16)
 </scene>
 
-<scene id="16" bgm="vfr_mokusei">
+<scene id="16" bgm="bgm_vfr_mokusei">
 「……！」
 思わず、突き飛ばす。
 
@@ -1277,7 +1282,7 @@
 [次へ](17)
 </scene>
 
-<scene id="17" bgm="sildra_hama">
+<scene id="17" bgm="bgm_sildra_hama">
 バサリ、バサリ。翼を大きくはためかせ。
 「わたしについてきて。あいつを倒して、生き残るんだ！」
 
@@ -1763,7 +1768,7 @@ MPを50回復する。
 [……しのいだ！](27)
 </scene>
 
-<scene id="27" bgm="sildra_hama">
+<scene id="27" bgm="bgm_sildra_hama">
 「「ぐああああああ！」」
 両者の絶叫が響き渡る。
 
@@ -1784,7 +1789,7 @@ MPを50回復する。
 [次へ](271)
 </scene>
 
-<scene id="271" bgm="vfr_mokusei">
+<scene id="271" bgm="bgm_vfr_mokusei">
 
 飛び散る血流。
 吹き上がる白煙。
