@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--v1.1 2018/10/6 bgm仕様変更に対応。-->
+
+
 <scenario
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd" title="わたしのネコを探して" author="cocotori">
 	<items>
@@ -24,6 +28,12 @@
 		<work name="N30_13" category="bgm" creator="Az"></work>
 		<work name="N30_42" category="bgm" creator="Az"></work>
 	</license>
+	
+	
+	<init>
+		<bgm main="@field02" happy="@end02"></bgm>
+	</init>
+	
 	<scene id="0" items="i03,i04">
 「此度も期待以上の活躍をしてくれたものよ。さすがはソーサリアン」
 
