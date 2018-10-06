@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <scenario title="戦国ソーサリアン外伝・上杉謙信の章"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd" author="Salvador">
+<init>
+	<bgm main="bgm" happy="bgm_happy" bad="bgm_bad"></bgm>
+</init>
 	<items>
 		<item id="i01" name="風林火山の軍旗">武田軍の旗</item>
 		<item id="i02" name="帝釈天の護符">雲海から貰ったお札</item>
