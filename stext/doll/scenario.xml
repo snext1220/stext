@@ -7,6 +7,7 @@
 <!--v1.3 2017/12/9 ED絵追加。ライセンス情報追加。-->
 <!--v1.4 2018/1/12 happyEnd曲変更。ライセンス情報追加。-->
 <!--v1.5 2018/4/1 トロフィー追加。-->
+<!--v1.6 2018/10/6 bgm仕様変更に対応。-->
 <scenario title="プレアオブ・ドールズ" author="cocotori">
 <items>
 </items>
@@ -44,7 +45,11 @@
 	<result id="r04" name="誰のためでもない、その旅路に祝福を" level="2">ENDを見た</result>
 </results>
 
-	<scene id="0">
+	<init>
+		<bgm main="bgm" happy="@end03"></bgm>
+	</init>
+
+	<scene id="0" bgm="bgm">
 　ここはペンタウァ。
 　王様の治める、平和な国。
 　些細ないざこざは絶えないが、大きな戦乱もなく平和な国である。
