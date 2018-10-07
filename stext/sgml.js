@@ -593,9 +593,9 @@
       at_stars = at_stars.split(',');
       // stars属性の内容を順に反映
       for (var i = 0; i < at_stars.length; i++) {
-        stars[i] += Number(at_stars[i].trim());
-        // 減算で負数になった星はゼロ丸め
-        if (stars[i] < 0) { stars[i] = 0; }
+        stars[i] = Number(stars[i]) + Number(at_stars[i].trim());
+        // 減算で負数になった星はゼロ丸め（廃止）
+        // if (stars[i] < 0) { stars[i] = 0; }
       }
       save_data.stars = stars;
     },
