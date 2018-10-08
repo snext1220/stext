@@ -531,6 +531,34 @@
       return false;
     },
 
+    // 指定された星を所有しているかを確認（個々の判定＝s1:1:1:1:1:1:1, 総計＝s10）
+    hasStars: function(at_stars) {
+      if (at_stars.indexOf('s') === 0) {
+        var stars = save_data.stars;
+        if (at_stars.indexOf(':') !== -1) {
+          at_stars = at_stars.substring(1).split(':');
+          // 所持数がひとつでも下回っていたら不可
+          for (var i = 0; i < at_stars.length; i++) {
+            if (Number(stars[i]) < at_stars[i]) {
+              return false;
+            }
+          }
+        } else {
+          at_stars = Number(at_stars.substring(1));
+          // 所持する星の総数を演算
+          var star_sum = 0;
+          for (var i = 0; i < 7; i++) {
+            star_sum += Number(stars[i]);
+          }
+          if (star_sum < at_stars) {
+            return false;
+          }
+        }
+        return true;
+      }
+      return false;
+    },
+
     // 指定された実績を持っているか（引数はr01:scepterの形式）
     hasResult: function(result) {
       if (result.indexOf('r') === 0) {
@@ -1364,6 +1392,7 @@
               !Util.canUseMagicByName(multi_ids_values[i].trim()) &&
               !Util.ifStatus(multi_ids_values[i].trim()) &&
               !Util.isCharaState(multi_ids_values[i].trim()) &&
+              !Util.hasStars(multi_ids_values[i].trim()) &&
               !Util.hasResult(multi_ids_values[i].trim())) {
               show_flag = false;
               break;
@@ -1383,6 +1412,7 @@
               !Util.canUseMagicByName(multi_ids_values[i].trim()) &&
               !Util.ifStatus(multi_ids_values[i].trim()) &&
               !Util.isCharaState(multi_ids_values[i].trim()) &&
+              !Util.hasStars(multi_ids_values[i].trim()) &&
               !Util.hasResult(multi_ids_values[i].trim())) {
               hide_flag = false;
               break;
