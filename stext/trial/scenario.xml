@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd" title="STextシナリオ開発道場" author="ときのじ"><items>
-</items><flags>
-<flag id="f01">講師ザハラン</flag></flags><enemies>
-</enemies><results>
-<result id="r01" name="環境を整えたようだな" level="1">シナリオを作る環境を整えた</result><result id="r02" name="進む道が決まったか…頑張れよ…" level="2">GBATを使うことに決めた</result><result id="r03" name="連結ミスには気をつけるのだぞ" level="3">物語を追加してScene同士を繋げた</result><result id="r04" name="戦闘はバランスに注意するのだ" level="3">モンスターを登場させた</result><result id="r05" name="アイテムを攻略の鍵にするのも良いな" level="3">アイテムを入手できるようにした</result><result id="r06" name="分岐は物語に深みが出るテクニックだ" level="4">フラグを使って物語を分岐させた</result><result id="r07" name="感動のENDを迎え…ワシの出番は!?" level="5">エンディングを実装した（消えた道場主の出番）</result><result id="r08" name="私の時代がやって来たようだな" level="4">講師ザハランを登場させた</result></results><license>
-<work name="メインテーマ" category="bgm" creator="Az" url="venusaz.seesaa.net/"></work><work name="番外編" category="2" creator="Az" url="venusaz.seesaa.net/"></work><work name="プロローグ画像" category="ソーサリアンOriginalスクリーンショット"></work><work name="GBATアイコン画像" category="Crumbly Head Games" creator="https" url="//www.crumblyheadgames.co.uk/the-gamebook-authoring-tool/"></work><work name="修行１～番外編の説明画像" category="ときのじ"></work></license>
-<scene id="0">
+<scenario
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd" title="STextシナリオ開発道場" author="ときのじ">
+	<init>
+		<bgm main="@end01"></bgm>
+	</init>
+	<items></items>
+	<flags>
+		<flag id="f01">講師ザハラン</flag>
+	</flags>
+	<enemies></enemies>
+	<results>
+		<result id="r01" name="環境を整えたようだな" level="1">シナリオを作る環境を整えた</result>
+		<result id="r02" name="進む道が決まったか…頑張れよ…" level="2">GBATを使うことに決めた</result>
+		<result id="r03" name="連結ミスには気をつけるのだぞ" level="3">物語を追加してScene同士を繋げた</result>
+		<result id="r04" name="戦闘はバランスに注意するのだ" level="3">モンスターを登場させた</result>
+		<result id="r05" name="アイテムを攻略の鍵にするのも良いな" level="3">アイテムを入手できるようにした</result>
+		<result id="r06" name="分岐は物語に深みが出るテクニックだ" level="4">フラグを使って物語を分岐させた</result>
+		<result id="r07" name="感動のENDを迎え…ワシの出番は!?" level="5">エンディングを実装した（消えた道場主の出番）</result>
+		<result id="r08" name="私の時代がやって来たようだな" level="4">講師ザハランを登場させた</result>
+	</results>
+	<license>
+		<work name="メインテーマ" category="bgm" creator="Az" url="//venusaz.seesaa.net/"></work>
+		<work name="番外編" category="2" creator="Az" url="//venusaz.seesaa.net/"></work>
+		<work name="プロローグ画像" category="ソーサリアンOriginalスクリーンショット" url=""></work>
+		<work name="GBATアイコン画像" category="Crumbly Head Games" creator="https" url="////www.crumblyheadgames.co.uk/the-gamebook-authoring-tool/"></work>
+		<work name="修行１～番外編の説明画像" category="ときのじ" url=""></work>
+	</license>
+	<scene id="0">
 **プロローグ**
 
 
@@ -41,7 +62,8 @@
 
 [修行する](2 "-f01")
 [修行する](32 "f01")
-</scene><scene id="2">
+</scene>
+	<scene id="2">
 ![追い出された悲運の道場主](trial003.png)
 **「やあ、いらっしゃい。この道場に何のようかね？」**
 
@@ -51,7 +73,8 @@
 [修行４「モンスターを登場させたい」](17)
 [修行５「アイテムを入手したい」](21)
 [修行６「フラグで物語を分岐させたい」](25)
-</scene><scene id="3">
+</scene>
+	<scene id="3">
 **ソーサリアンTextシナリオ開発道場
 　修行１「環境を整えたい」１**
 
@@ -132,7 +155,8 @@
 [★次へ進む](4)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="4">
+</scene>
+	<scene id="4">
 **ソーサリアンTextシナリオ開発道場
 　修行１「環境を整えたい」２**
 
@@ -204,7 +228,8 @@
 [★次へ進む](5)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="5">
+</scene>
+	<scene id="5">
 **ソーサリアンTextシナリオ開発道場
 　修行１「環境を整えたい」３**
 
@@ -266,7 +291,8 @@
 [★次へ進む](6)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="6" result="r01">
+</scene>
+	<scene id="6" result="r01">
 **ソーサリアンTextシナリオ開発道場
 　修行１「環境を整えたい」４**
 
@@ -374,7 +400,8 @@
 [★修行２「最初の一歩を踏み出したい」](7)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="7">
+</scene>
+	<scene id="7">
 **ソーサリアンTextシナリオ開発道場
 　修行２「最初の一歩を踏み出したい」１**
 
@@ -441,7 +468,8 @@
 [★次へ進む](8)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="8">
+</scene>
+	<scene id="8">
 **ソーサリアンTextシナリオ開発道場
 　修行２「最初の一歩を踏み出したい」２**
 
@@ -530,7 +558,8 @@
 [★次へ進む](9)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="9">
+</scene>
+	<scene id="9">
 **ソーサリアンTextシナリオ開発道場
 　修行２「最初の一歩を踏み出したい」３**
 
@@ -636,7 +665,8 @@
 [★次へ進む](10)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="10">
+</scene>
+	<scene id="10">
 **ソーサリアンTextシナリオ開発道場
 　修行２「最初の一歩を踏み出したい」４**
 
@@ -732,7 +762,8 @@
 [★次へ進む](11)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="11" result="r02">
+</scene>
+	<scene id="11" result="r02">
 **ソーサリアンTextシナリオ開発道場
 　修行２「最初の一歩を踏み出したい」５**
 
@@ -843,7 +874,8 @@
 [★修行３「物語を書きたい」](12)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="12">
+</scene>
+	<scene id="12">
 **STextシナリオ開発道場
 　修行３「物語を書きたい」１**
 
@@ -966,7 +998,8 @@
 [★次へ進む](13)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="13">
+</scene>
+	<scene id="13">
 **ソーサリアンTextシナリオ開発道場
 　修行３「物語を書きたい」２**
 
@@ -1065,7 +1098,8 @@
 [★次へ進む](14)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="14">
+</scene>
+	<scene id="14">
 **ソーサリアンTextシナリオ開発道場
 　修行３「物語を書きたい」３**
 
@@ -1176,7 +1210,8 @@
 [★次へ進む](15)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="15">
+</scene>
+	<scene id="15">
 **STextシナリオ開発道場
 　修行３「物語を書きたい」４**
 
@@ -1280,7 +1315,8 @@
 [★次へ進む](16)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="16" result="r03">
+</scene>
+	<scene id="16" result="r03">
 **ソーサリアンTextシナリオ開発道場
 　修行３「物語を書きたい」５**
 
@@ -1357,7 +1393,8 @@
 [★修行４「モンスターを登場させたい」](17)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="17">
+</scene>
+	<scene id="17">
 **ソーサリアンTextシナリオ開発道場
 　修行４「モンスターを登場させたい」１**
 
@@ -1489,7 +1526,8 @@
 [★次へ進む](18)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="18">
+</scene>
+	<scene id="18">
 **ソーサリアンTextシナリオ開発道場
 　修行４「モンスターを登場させたい」２**
 
@@ -1588,7 +1626,8 @@
 [★次へ進む](19)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="19">
+</scene>
+	<scene id="19">
 **ソーサリアンTextシナリオ開発道場
 　修行４「モンスターを登場させたい」３**
 
@@ -1721,7 +1760,8 @@
 [★次へ進む](20)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="20" result="r04">
+</scene>
+	<scene id="20" result="r04">
 **ソーサリアンTextシナリオ開発道場
 　修行４「モンスターを登場させたい」４**
 
@@ -1812,7 +1852,8 @@
 [★修行５「アイテムを入手したい」](21)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="21">
+</scene>
+	<scene id="21">
 **STextシナリオ開発道場
 　修行５「アイテムを入手したい」１**
 
@@ -1921,7 +1962,8 @@
 [★次へ進む](22)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="22">
+</scene>
+	<scene id="22">
 **ソーサリアンTextシナリオ開発道場
 　修行５「アイテムを入手したい」２**
 
@@ -2014,7 +2056,8 @@
 [★次へ進む](23)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="23">
+</scene>
+	<scene id="23">
 **ソーサリアンTextシナリオ開発道場
 　修行５「アイテムを入手したい」３**
 
@@ -2104,7 +2147,8 @@
 [★次へ進む](24)
 [他の修行を選ぶ](3 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="24" result="r05">
+</scene>
+	<scene id="24" result="r05">
 **ソーサリアンTextシナリオ開発道場
 　修行５「アイテムを入手したい」４**
 
@@ -2176,7 +2220,8 @@
 [★修行６「フラグで物語を分岐させたい」](25)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="25">
+</scene>
+	<scene id="25">
 **STextシナリオ開発道場
 　修行６「フラグで物語を分岐させたい」１**
 
@@ -2294,7 +2339,8 @@
 [★次へ進む](26)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="26">
+</scene>
+	<scene id="26">
 **ソーサリアンTextシナリオ開発道場
 　修行６「フラグで物語を分岐させたい」２**
 
@@ -2423,7 +2469,8 @@
 [★次へ進む](27)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="27">
+</scene>
+	<scene id="27">
 **ソーサリアンTextシナリオ開発道場
 　修行６「フラグで物語を分岐させたい」３**
 
@@ -2519,7 +2566,8 @@
 [★次へ進む](28)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="28">
+</scene>
+	<scene id="28">
 **ソーサリアンTextシナリオ開発道場
 　修行６「フラグで物語を分岐させたい」４**
 
@@ -2593,7 +2641,8 @@
 [★次へ進む](29)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="29" bgm="" result="r06">
+</scene>
+	<scene id="29" bgm="" result="r06">
 **ソーサリアンTextシナリオ開発道場
 　修行６「フラグで物語を分岐させたい」５**
 
@@ -2760,7 +2809,8 @@
 [★番外編「？？？を見てみたい」](30)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="30" bgm="2">
+</scene>
+	<scene id="30" bgm="@end02">
 **ソーサリアンTextシナリオ開発道場
 　番外編「？？？を見てみたい」１**
 
@@ -2819,7 +2869,8 @@
 [★次へ進む](31)
 [他の修行を選ぶ](2 "-f01")
 [他の修行を選ぶ](32 "f01")
-</scene><scene id="31" flags="f01" result="r07">
+</scene>
+	<scene id="31" flags="f01" result="r07">
 **ソーサリアンTextシナリオ開発道場
 　番外編「？？？を見てみたい」２**
 
@@ -2904,7 +2955,8 @@
 「GBAT編」　END**
 
 [他の修行を選ぶ](32)
-</scene><scene id="32" bgm="" result="r08">
+</scene>
+	<scene id="32" bgm="" result="r08">
 ![講師ザハラン](trial007.png)
 **「ほう、よく来たな。この道場に何のようかな？」**
 
@@ -2914,4 +2966,5 @@
 [修行４「モンスターを登場させたい」](17)
 [修行５「アイテムを入手したい」](21)
 [修行６「フラグで物語を分岐させたい」](25)
-</scene></scenario>
+</scene>
+</scenario>

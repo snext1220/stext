@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <scenario
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd" title="魂の選択" author="ときのじ">
-	<init></init>
+	<init>
+		<bgm main="soul-main01" happy="soul-happy" bad="soul-bad"></bgm>
+	</init>
 	<items>
 		<item id="i01" name="緑石の首飾り">【所持者リュフー】武具の端材と清められた石で作ったお守り</item>
 		<item id="i02" name="CHANGE AIR(薬)">【所持者リュフー】空気と同化して攻撃を受けなくなる薬</item>
@@ -16,9 +18,9 @@
 		<flag id="f04">宿屋に泊まった</flag>
 	</flags>
 	<enemies>
-		<enemy id="m01" name="傭兵(長剣＋短剣)" element="地" attack="物理" func="(L+R)×4+R3-STR×2">落ちぶれて悪事に手を染めた元騎士</enemy>
-		<enemy id="m02" name="黒づくめA" element="水" attack="魔法" func="(L+R)×2-INT">魔道士が造り出した元人間の合成獣</enemy>
-		<enemy id="m03" name="黒づくめB" element="地" attack="魔法" func="(L+R)×2-INT">魔道士が造り出した元人間の合成獣</enemy>
+		<enemy id="m01" name="傭兵(長剣＋短剣)" element="地" attack="物理" func="(L+R)×4+R3-STR×2" drop="落ちぶれて悪事に手を染めた元騎士"></enemy>
+		<enemy id="m02" name="黒づくめA" element="水" attack="魔法" func="(L+R)×2-INT" drop="魔道士が造り出した元人間の合成獣"></enemy>
+		<enemy id="m03" name="黒づくめB" element="地" attack="魔法" func="(L+R)×2-INT" drop="魔道士が造り出した元人間の合成獣"></enemy>
 	</enemies>
 	<results>
 		<result id="r01" name="そーさりあん" level="1">リュフーの保護者になった</result>
@@ -31,15 +33,15 @@
 		<result id="r08" name="ありがと！" level="5">「そーさりあん、またね！」</result>
 	</results>
 	<license>
-		<work name="メインテーマ（8bit13）" category="bgm" creator="魔王魂" url="https"></work>
-		<work name="バトルテーマ（8bit09）" category="bgm" creator="魔王魂" url="https"></work>
-		<work name="バッドエンド（8bit03）" category="bgm" creator="魔王魂" url="https"></work>
-		<work name="メインテーマ2（かこへのたびじ）" category="bgm" creator="(C)PANICPUMPKIN" url="http"></work>
-		<work name="ハッピーエンド（れんがじきのまちなみ）" category="bgm" creator="(C)PANICPUMPKIN" url="http"></work>
-		<work name="弓矢・矢が生き物に刺さる02" category="se" creator="On-Jin ～音人～" url="https"></work>
-		<work name="心臓音01" category="se" creator="On-Jin ～音人～" url="https"></work>
-		<work name="ドラゴン・鳴き声02" category="se" creator="On-Jin ～音人～" url="https"></work>
-		<work name="魂の選択（プロローグ画像）" category="ソーサリアンforeverスクリーンショット"></work>
+		<work name="メインテーマ（8bit13）" category="bgm" creator="魔王魂" url="//https"></work>
+		<work name="バトルテーマ（8bit09）" category="bgm" creator="魔王魂" url="//https"></work>
+		<work name="バッドエンド（8bit03）" category="bgm" creator="魔王魂" url="//https"></work>
+		<work name="メインテーマ2（かこへのたびじ）" category="bgm" creator="(C)PANICPUMPKIN" url="//http"></work>
+		<work name="ハッピーエンド（れんがじきのまちなみ）" category="bgm" creator="(C)PANICPUMPKIN" url="//http"></work>
+		<work name="弓矢・矢が生き物に刺さる02" category="se" creator="On-Jin ～音人～" url="//https"></work>
+		<work name="心臓音01" category="se" creator="On-Jin ～音人～" url="//https"></work>
+		<work name="ドラゴン・鳴き声02" category="se" creator="On-Jin ～音人～" url="//https"></work>
+		<work name="魂の選択（プロローグ画像）" category="ソーサリアンforeverスクリーンショット" url=""></work>
 	</license>
 	<scene id="0">
 **プロローグ**
@@ -755,7 +757,7 @@
 [▼HPを3減らして次へ進む](22 "i02")
 [▼HPを3減らして次へ進む](23 "-i02")
 </scene>
-	<scene id="20" items="-i02" enemies="m01,m02,m03" bgm="boss">
+	<scene id="20" items="-i02" enemies="m01,m02,m03" bgm="soul-boss">
 　**${sex?ふざけたことをッ！！:ふざけないでッ！！}**
 
 　君は語気を荒げ、凛然と言い放った。
@@ -785,7 +787,7 @@
 [男達三人を倒した！](24)
 [HPまたはMPが20以下になった……](25)
 </scene>
-	<scene id="21" enemies="m01,m02,m03" bgm="boss">
+	<scene id="21" enemies="m01,m02,m03" bgm="soul-boss">
 　**${sex?ふざけたことをッ！！:ふざけないでッ！！}**
 
 　君は語気を荒げ、凛然と言い放った。
@@ -828,7 +830,7 @@
 [男達三人を倒した！](24)
 [HPまたはMPが20以下になった……](25)
 </scene>
-	<scene id="22" items="-i02" enemies="m01,m02,m03" bgm="boss">
+	<scene id="22" items="-i02" enemies="m01,m02,m03" bgm="soul-boss">
 　**${sex?ふざけたことをッ！！:ふざけないでッ！！}**
 
 　君は語気を荒げ、凛然と言い放った。
@@ -872,7 +874,7 @@
 [男達三人を倒した！](24)
 [▼HPまたはMPが20以下になった……](25)
 </scene>
-	<scene id="23" enemies="m01,m02,m03" bgm="boss">
+	<scene id="23" enemies="m01,m02,m03" bgm="soul-boss">
 　**${sex?ふざけたことをッ！！:ふざけないでッ！！}**
 
 　君は語気を荒げ、凛然と言い放った。
@@ -1017,7 +1019,7 @@
 
 [・・・・・・](27)
 </scene>
-	<scene id="26" bgm="main2">
+	<scene id="26" bgm="soul-main02">
 　優しいげな声に呼ばれたような気がして、君は目を覚ました。
 　そして君の瞳に映ったのは――
 
