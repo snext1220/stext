@@ -594,8 +594,8 @@
       // stars属性の内容を順に反映
       for (var i = 0; i < at_stars.length; i++) {
         stars[i] = Number(stars[i]) + Number(at_stars[i].trim());
-        // 減算で負数になった星はゼロ丸め（廃止）
-        // if (stars[i] < 0) { stars[i] = 0; }
+        // 減算で負数になった星はゼロ丸め
+        if (stars[i] < 0) { stars[i] = 0; }
       }
       save_data.stars = stars;
     },
@@ -640,10 +640,10 @@
     // セーブデータのfree1、free2プロパティを更新
     updateFrees: function(at_free1, at_free2) {
       if (at_free1) {
-        save_data.chara.free1 += Number(at_free1);
+        save_data.chara.free1 = Number(save_data.chara.free1) + Number(at_free1);
       }
       if (at_free2) {
-        save_data.chara.free2 += Number(at_free2);
+        save_data.chara.free2 = Number(save_data.chara.free2) + Number(at_free2);
       }
     },
 
@@ -794,7 +794,7 @@
 
       // 最初のシーンを取得
       Util.createScene(0);
-      history.pushState(0, 'Scene 0');
+      //history.pushState(0, 'Scene 0');
 
       // 初期化ダイアログ＋スプラッシュ画面
       window.alert('キャラが新規作成されました。\r' +
@@ -1159,17 +1159,19 @@
     },
    
     // 現在のシーン情報を取得＆画面の生成
-    // 引数scene_num：シーン番号、cond：条件式
-    createScene: function(scene_num, cond) {
+    // 引数scene_num：シーン番号
+    // 引数options：オプション（reverse：戻るか、conditions：条件式）
+    createScene: function(scene_num, options) {
+      if (options === undefined) { options = {}; }
+
       // エンディングフラグが立っている場合は、初期化処理を実行
       if(save_data.isEnded) {
         location.reload(true);
         return;
       }
-
       // 条件式に応じて、処理を実施（魔法による星演算のみ）
       // 失敗時はトースト表示して、処理終了
-      if(!Util.updateStarsByMagic(cond)) {
+      if(!Util.updateStarsByMagic(options.conditions)) {
         Util.toast('星が不足しているようだ。');
         return;
       }
@@ -1179,18 +1181,22 @@
 
       var scene = $('scene[id="' + scene_num + '"]', scenario_data);
 
-      // 現在のシーンのフラグ情報／アイテム／Free欄／実績情報を反映
-      Util.updateItems(scene.attr('items'));
-      Util.updateFlags(scene.attr('flags'));
-      Util.updateStars(scene.attr('stars'));
-      Util.updateFrees(scene.attr('free1'), scene.attr('free2'));
-      Util.updateResults(scene.attr('result'));
+      // ［戻る］でない場合にだけシーンの自動化処理
+      if (!options.reverse) {
+        // 現在のシーンのフラグ情報／アイテム／Free欄／実績情報を反映
+        Util.updateItems(scene.attr('items'));
+        Util.updateFlags(scene.attr('flags'));
+        Util.updateStars(scene.attr('stars'));
+        Util.updateFrees(scene.attr('free1'), scene.attr('free2'));
+        Util.updateResults(scene.attr('result'));
 
-      // 現在のシーン番号を保存
-      save_data.scene = scene_num;
-      save_data.ellapsed_scene++;
-      // ストレージに反映
-      Util.saveStorage();
+        // 現在のシーン番号を保存
+        save_data.scene = scene_num;
+        save_data.ellapsed_scene++;
+        // ストレージに反映＆履歴を追加
+        Util.saveStorage();
+        history.pushState(save_data, 'Scene ' + scene_num);
+      }
 
       // シーンテキストの整形（カラーリング＆URL）
       var tmp_scene = scene.text();
@@ -1438,7 +1444,7 @@
       }
       /* BGM再生ココマデ */
 
-      // シーン表示時に効果音を再生（未検証）
+      // シーン表示時に効果音を再生
       if(scene.attr('se')) {
         //bgm.pause();
         var se = new Audio(ROOT + scenario_code + '/' + BGM + SE + scene.attr('se') + '.mp3');
@@ -1480,8 +1486,8 @@
           num = Util.randomArray(num.split(',')).trim();
         }
         // 履歴に追加
-        history.pushState(num, 'Scene ' + num);
-        Util.createScene(num, cond);
+        //history.pushState(num, 'Scene ' + num);
+        Util.createScene(num, { conditions: cond });
 
         // BGMが再生中でなければ強制的に再生
         if (bgm && bgm.paused && global_save_data.bgm) {
@@ -1496,7 +1502,7 @@
         var num = $('#toscene').val();
         var allow_num = $(this).attr('data-allow');
         if(Util.canSceneMove(num, allow_num)) {
-          history.pushState(num, 'Scene ' + num);
+          //history.pushState(num, 'Scene ' + num);
           Util.createScene(num);
         } else {
           Util.toast('指定された番号には移動できないようだ');
@@ -1513,7 +1519,7 @@
         } else {
           var to_move = yn[2];
         }
-        history.pushState(to_move, 'Scene ' + to_move);
+        //history.pushState(to_move, 'Scene ' + to_move);
         Util.createScene(to_move);
         e.preventDefault();
       });
@@ -1762,7 +1768,10 @@
 
       // 履歴情報の復帰
       $(window).on('popstate', function(e) {
-        Util.createScene(e.originalEvent.state);
+        //console.log("Pop!!");
+        //console.log(e.originalEvent.state);
+        //console.log(e.originalEvent.state.scene);
+        Util.createScene(e.originalEvent.state.scene, { reverse: true });
       });
 
       // 再開画面（［はじめから］ボタン）
@@ -1778,7 +1787,7 @@
         save_data.ellapsed_scene--;
         var num = save_data.scene;
         Util.createScene(num);
-        history.pushState(num, 'Scene ' + num);
+        //history.pushState(num, 'Scene ' + num);
         //Util.showSplash();
       }); 
 
