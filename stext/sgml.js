@@ -1824,7 +1824,7 @@
         // 再開時に経過日数の加算分を減算
         save_data.ellapsed_scene--;
         var num = save_data.scene;
-        Util.createScene(num);
+        Util.createScene(num, { reverse: true });
         //history.pushState(num, 'Scene ' + num);
         //Util.showSplash();
       }); 
