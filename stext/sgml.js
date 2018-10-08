@@ -590,12 +590,21 @@
     updateStars: function(at_stars) {
       if(!at_stars) { return; }
       var stars = save_data.stars;
-      at_stars = at_stars.split(',');
-      // stars属性の内容を順に反映
-      for (var i = 0; i < at_stars.length; i++) {
-        stars[i] = Number(stars[i]) + Number(at_stars[i].trim());
-        // 減算で負数になった星はゼロ丸め
-        if (stars[i] < 0) { stars[i] = 0; }
+      // 「1,1,1,...」の形式の場合、個別の星に反映
+      if (at_stars.indexOf(",") !== -1) {
+        at_stars = at_stars.split(',');
+        // stars属性の内容を順に反映
+        for (var i = 0; i < at_stars.length; i++) {
+          stars[i] = Number(stars[i]) + Number(at_stars[i].trim());
+          // 減算で負数になった星はゼロ丸め
+          if (stars[i] < 0) { stars[i] = 0; }
+        }
+      // 「div2」の形式で、すべての星を1/2（2の部分は可変） 
+      } else if (at_stars.indexOf('div') === 0) {
+        at_stars = at_stars.substring(3);
+        for (var i = 0; i < 7; i++) {
+          stars[i] = Math.floor(Number(stars[i]) / Number(at_stars));
+        }
       }
       save_data.stars = stars;
     },
@@ -972,8 +981,8 @@
       target.slideUp(500);
     },
 
-    // エンディングの処理（resultはhappy／bad）
-    endScenario: function(result) {
+    // エンディングの処理（resultはhappy／bad、changeBgmはBGMを変更するか）
+    endScenario: function(result, changeBgm) {
       if(!result) { return; }
 
       // エンディングでライセンス情報を表示
@@ -1018,10 +1027,12 @@
       }
 
       // エンディングテーマ再生
-      if(bgm) { bgm.pause(); }
-      bgm = new Audio(audio_path);
-      bgm.loop = true;
-      if(global_save_data.bgm) { bgm.play(); }
+      if (changeBgm) {
+        if(bgm) { bgm.pause(); }
+        bgm = new Audio(audio_path);
+        bgm.loop = true;
+        if(global_save_data.bgm) { bgm.play(); }
+      }
 
       if(bonus_item) {
         Util.pushUnique(global_save_data.items, bonus_item);
@@ -1147,9 +1158,6 @@
     },
 
     ifCondition: function(match, cond, body) {
-      console.log(match);
-      console.log(cond);
-      console.log(body);
       if(save_data.flags.indexOf(cond) !== -1 ||
          save_data.items.indexOf(cond) !== -1) {
         return body;
@@ -1452,8 +1460,8 @@
         se.play();
       }
 
-      // エンディング処理
-      Util.endScenario(scene.attr('end'));
+      // エンディング処理（bgm属性が指定されている場合、エンディング曲に変更しない）
+      Util.endScenario(scene.attr('end'), (scene.attr('bgm') === undefined));
     }
   };
 
@@ -1962,7 +1970,7 @@
         var flags = $('<flags>\n</flags>');
         var enemies = $('<enemies>\n</enemies>');
         var results = $('<results>\n</results>');
-        var license = $('<license>\n</license>');
+        var license = $('<licence>\n</licence>');
         
         // 個々のファイルを変換
         var readFile = function(e) {
