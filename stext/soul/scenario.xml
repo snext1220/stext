@@ -32,7 +32,7 @@
 		<result id="r07" name="くるっちゃった" level="4">狂える風の獣を覚醒させてしまった</result>
 		<result id="r08" name="ありがと！" level="5">「そーさりあん、またね！」</result>
 	</results>
-	<license>
+	<licence>
 		<work name="メインテーマ（8bit13）" category="bgm" creator="魔王魂" url="//https"></work>
 		<work name="バトルテーマ（8bit09）" category="bgm" creator="魔王魂" url="//https"></work>
 		<work name="バッドエンド（8bit03）" category="bgm" creator="魔王魂" url="//https"></work>
@@ -42,7 +42,7 @@
 		<work name="心臓音01" category="se" creator="On-Jin ～音人～" url="//https"></work>
 		<work name="ドラゴン・鳴き声02" category="se" creator="On-Jin ～音人～" url="//https"></work>
 		<work name="魂の選択（プロローグ画像）" category="ソーサリアンforeverスクリーンショット" url=""></work>
-	</license>
+	</licence>
 	<scene id="0">
 **プロローグ**
 　一つの冒険を終えたソーサリアンの君は、＜ペンタウァ＞への帰路で
