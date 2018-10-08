@@ -19,13 +19,13 @@
 		<result id="r07" name="感動のENDを迎え…ワシの出番は!?" level="5">エンディングを実装した（消えた道場主の出番）</result>
 		<result id="r08" name="私の時代がやって来たようだな" level="4">講師ザハランを登場させた</result>
 	</results>
-	<license>
+	<licence>
 		<work name="メインテーマ" category="bgm" creator="Az" url="//venusaz.seesaa.net/"></work>
 		<work name="番外編" category="2" creator="Az" url="//venusaz.seesaa.net/"></work>
 		<work name="プロローグ画像" category="ソーサリアンOriginalスクリーンショット" url=""></work>
 		<work name="GBATアイコン画像" category="Crumbly Head Games" creator="https" url="////www.crumblyheadgames.co.uk/the-gamebook-authoring-tool/"></work>
 		<work name="修行１～番外編の説明画像" category="ときのじ" url=""></work>
-	</license>
+	</licence>
 	<scene id="0">
 **プロローグ**
 
