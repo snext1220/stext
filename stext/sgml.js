@@ -623,6 +623,18 @@
       // 毒の場合はシーンごとにHP-1
       if (save_data.chara.state === 'poison') {
         save_data.chara.hp -= 1;
+        save_data.chara.stone_scene = 0;
+        save_data.chara.poison_scene = 0;
+      // 石化／忘却では経過シーンを記録
+      } else if (save_data.chara.state === 'stone') {
+        save_data.chara.stone_scene += 1;
+        save_data.chara.forget_scene = 0;
+      } else if (save_data.chara.state === 'forget') {
+        save_data.chara.forget_scene += 1;
+        save_data.chara.stone_scene = 0;
+      } else {
+        save_data.chara.stone_scene = 0;
+        save_data.chara.forget_scene = 0;
       }
     },
 
