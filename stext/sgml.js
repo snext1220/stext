@@ -1853,9 +1853,9 @@
 
       // 履歴情報の復帰
       $(window).on('popstate', function(e) {
-        //console.log("Pop!!");
-        //console.log(e.originalEvent.state);
-        //console.log(e.originalEvent.state.scene);
+        // 履歴から過去のセーブデータを復元
+        save_data = e.originalEvent.state;
+        Util.saveStorage();
         Util.createScene(e.originalEvent.state.scene, { reverse: true });
       });
 
