@@ -122,91 +122,85 @@
 		<flag id="f202">魔法研究者と話した</flag>
 	</flags>
 	<enemies>
-		<enemy id="m623" name="ワーベアーLv7/2回" element="霊" attack="強石化(物理)" func="6(L+R)+450-STR" drop="熊男｡なぜ熊が石化攻撃を…それは獣王の掟｡人型化というより立って戦うだけなので戦闘力はさほど変わらないが､元々獣系最強な上に凶暴化+知能となると手がつけられない｡※強石化は2重に受けると即死｡"></enemy>
-		<enemy id="m622" name="ワータイガーLv6" element="地" attack="物理" func="7(L+R)+400-STR" drop="虎男｡一般的?には人間に虎の霊などを憑依させるが､これも虎が凶暴化､さらに邪悪な意思により人型化して知能を与えられたもののようだ｡ﾊﾟｧﾜｧﾌｩﾘｬｱｧｧｰｰ!!"></enemy>
-		<enemy id="m621" name="ワーウルフLv6" element="風" attack="物理" func="8(L+R)+350-STR" drop="狼男｡吸血鬼の眷属であったり人の魔法強化であったりするが､これは森の狼が凶暴強化されたもの｡ﾊﾟﾜﾌﾘｬｱｧｧｰｰ!!"></enemy>
-		<enemy id="m511" name="マイコニッドA Lv5" element="風" attack="毒(物理)" func="5(L+R)+250-STR-DEX" drop="人型のキノコ｡キノコが人型を成したのか､人がキノコになったのか…戦闘力でなく､放出される多種多様で強力な胞子がやっかい｡毒タイプは風に乗せて毒胞子をバラまく｡"></enemy>
-		<enemy id="m512" name="マイコニッドB Lv5" element="水" attack="凍結(物理)" func="5(L+R)+250-STR-DEX" drop="凍結タイプ｡凍結胞子が付着して相手の活動停止を狙う…氷魔法を得意とした魔法使いが苗床(ベース)とか？"></enemy>
-		<enemy id="m513" name="マイコニッドC Lv5" element="火" attack="忘却(物理)" func="5(L+R)+250-STR-DEX" drop="忘却タイプ｡神経毒胞子で忘却はいいとして､なぜ火属性なのか…植物とか菌に火は無理だよなぁ｡"></enemy>
-		<enemy id="m514" name="マイコニッドD Lv5" element="地" attack="石化(物理)" func="5(L+R)+250-STR-DEX" drop="石化タイプ｡普通に大地の力で相手を地に返すべく石化胞子をバラまく｡"></enemy>
-		<enemy id="m515" name="マイコニッドE Lv5" element="霊" attack="呪い(物理)" func="5(L+R)+250-STR-DEX" drop="呪いタイプ｡これも普通に苗床(ベース)の怨念で呪いの胞子をバラまく｡"></enemy>
-		<enemy id="m613" name="リザードマスターLv7/3回" element="霊" attack="物理魔法※防御不能/攻撃魔法無効" func="7(L+R)+600-STR-INT-DEX-KRM" drop="リザードマンの族長で､一族に伝わる伝説の邪剣&quot;イビルソード&quot;を持つ｡その強さはすでにボスクラス｡※防御不能かつ攻撃魔法は効かないが例外アリ)｡"></enemy>
-		<enemy id="m612" name="リザードメイジLv6" element="水" attack="凍結(魔法)" func="6(L+R)+250-INT" drop="高齢にならないと魔法を使える程の知能は無く､必然的に個体数は少ないが､使うとなると水魔法を高Lvで使いこなしてくる｡"></enemy>
-		<enemy id="m611" name="リザードマンLv6" element="水" attack="毒(物理)" func="7(L+R)+300-STR" drop="名の通りのトカゲ人間｡知能も文化もそれなりにあるが非常に残虐(武器には毒が塗ってある)…というか&quot;他生物を狩る事が全て&quot;的な蛮族文化｡"></enemy>
-		<enemy id="m522" name="アスティラゴア(怨霊)Lv6" element="霊" attack="物理魔法※防御不能" func="6(L+R)+300-STR-INT" drop="さらにその脳髄に元の持ち主の怨念が取り付いたもの｡「オマエもコッチに来い…」と触手で絞め殺そうと…菌の本能と怨念で2重に怖い！！"></enemy>
-		<enemy id="m2851" name="毒の鱗粉Lv7" element="風" attack="毒(物理)" func="7(L+R)+450-STR" drop="その名の通り毒を含んだ鱗粉。吸い込むと危険。"></enemy>
-		<enemy id="m2852" name="凍結の鱗粉Lv7" element="水" attack="凍結(魔法)" func="7(L+R)+450-INT" drop="FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわりつくと凍結してしまう。"></enemy>
-		<enemy id="m2853" name="忘却の鱗粉Lv7" element="風" attack="忘却(物理)" func="7(L+R)+450-DEX" drop="脳に作用して幻覚を見せる鱗粉。夢の世界への片道切符。"></enemy>
-		<enemy id="m2854" name="呪いの鱗粉Lv7" element="霊" attack="呪い(魔法)" func="7(L+R)+450-KRM" drop="モスに殺された人間の怨念がこもった鱗粉。「オマエもこちらに来い」と迫ってくる。"></enemy>
-		<enemy id="m2855" name="石化の鱗粉Lv7" element="地" attack="石化(物理魔法)" func=" 7(L+R)+600-STR-INT" drop="吸い込んでも体にまとわりついても石化してしまう鱗粉。"></enemy>
-		<enemy id="m2856" name="モス・ジャイアントLv7" element="霊" attack="毒(物理)" func="10(L+R)+600-STR-INT-DEX-KRM" drop="頭部付近から発射される無数の毒針攻撃。最後まで遠距離攻撃かつ意地でも状態異常攻撃。"></enemy>
-		<enemy id="m422" name="Gホーネット(興奮)Lv5" element="風" attack="物理(毒)" func="7(L+R)+250-STR-DEX" drop="敵からの攻撃を受けたなど何かしらの理由で興奮して攻撃的になっている状態｡逃げた方がよい｡"></enemy>
-		<enemy id="m421" name="ジャイアントホーネットLv4" element="風" attack="物理(毒)" func="5(L+R)+200-STR-DEX" drop="数十cm-1m程の巨大なスズメバチ｡その攻撃的な容姿､素早さ､尾の巨大な毒針は見る者に大きな恐怖を与える｡"></enemy>
-		<enemy id="m413" name="スコーピオンジャイアント(黒)Lv5" element="霊" attack="呪い+石化(物理)" func="4(L+R)+150-STR" drop="魔王の呪力が世に放たれ形を成した姿…&quot;魔のサソリ&quot;とも言われ､なんと呪いで魔法を封じた上に石化させてくる｡"></enemy>
-		<enemy id="m412" name="スコーピオンジャイアント(青)Lv4" element="地" attack="忘却(物理)" func="4(L+R)+150-STR" drop="こちらは神経毒により忘却を引き起こすのでやっかい。それでSTRが下がるとさらに忘却しやすく…"></enemy>
-		<enemy id="m411" name="スコーピオンジャイアント(赤)Lv4" element="地" attack="毒(物理)" func="4(L+R)+150-STR" drop="1m以上もある巨大なサソリ｡大きなハサミ以上に尻尾の毒針攻撃に注意。"></enemy>
-		<enemy id="m522" name="アスティラゴア(怨霊)Lv6" element="霊" attack="物理魔法※防御不能" func="6(L+R)+300-STR-INT" drop="さらにその脳髄に元の持ち主の怨念が取り付いたもの｡「オマエもコッチに来い…」と触手で絞め殺そうと…菌の本能と怨念で2重に怖い！！"></enemy>
-		<enemy id="m521" name="アスティラゴアLv5" element="地" attack="魔法※防御不能" func="5(L+R)+150-INT" drop="走る脳髄｡その正体は死体の脳髄に寄生した菌で､脳の力を引き出して精神感応波で攻撃してくる｡その目的は…仲間を増やす事だ！！"></enemy>
-		<enemy id="m511" name="マイコニッドA Lv5" element="風" attack="毒(物理)" func="5(L+R)+250-STR-DEX" drop="人型のキノコ｡キノコが人型を成したのか､人がキノコになったのか…戦闘力でなく､放出される多種多様で強力な胞子がやっかい｡毒タイプは風に乗せて毒胞子をバラまく｡"></enemy>
-		<enemy id="m512" name="マイコニッドB Lv5" element="水" attack="凍結(物理)" func="5(L+R)+250-STR-DEX" drop="凍結タイプ｡凍結胞子が付着して相手の活動停止を狙う…氷魔法を得意とした魔法使いが苗床(ベース)とか？"></enemy>
-		<enemy id="m513" name="マイコニッドC Lv5" element="火" attack="忘却(物理)" func="5(L+R)+250-STR-DEX" drop="忘却タイプ｡神経毒胞子で忘却はいいとして､なぜ火属性なのか…植物とか菌に火は無理だよなぁ｡"></enemy>
-		<enemy id="m514" name="マイコニッドD Lv5" element="地" attack="石化(物理)" func="5(L+R)+250-STR-DEX" drop="石化タイプ｡普通に大地の力で相手を地に返すべく石化胞子をバラまく｡"></enemy>
-		<enemy id="m515" name="マイコニッドE Lv5" element="霊" attack="呪い(物理)" func="5(L+R)+250-STR-DEX" drop="呪いタイプ｡これも普通に苗床(ベース)の怨念で呪いの胞子をバラまく｡"></enemy>
-		<enemy id="m611" name="リザードマンLv6" element="水" attack="毒(物理)" func="7(L+R)+300-STR" drop="名の通りのトカゲ人間｡知能も文化もそれなりにあるが非常に残虐(武器には毒が塗ってある)…というか&quot;他生物を狩る事が全て&quot;的な蛮族文化｡"></enemy>
-		<enemy id="m612" name="リザードメイジLv6" element="水" attack="凍結(魔法)" func="6(L+R)+250-INT" drop="高齢にならないと魔法を使える程の知能は無く､必然的に個体数は少ないが､使うとなると水魔法を高Lvで使いこなしてくる｡"></enemy>
-		<enemy id="m511" name="マイコニッドA Lv5" element="風" attack="毒(物理)" func="5(L+R)+250-STR-DEX" drop="人型のキノコ｡キノコが人型を成したのか､人がキノコになったのか…戦闘力でなく､放出される多種多様で強力な胞子がやっかい｡毒タイプは風に乗せて毒胞子をバラまく｡"></enemy>
-		<enemy id="m512" name="マイコニッドB Lv5" element="水" attack="凍結(物理)" func="5(L+R)+250-STR-DEX" drop="凍結タイプ｡凍結胞子が付着して相手の活動停止を狙う…氷魔法を得意とした魔法使いが苗床(ベース)とか？"></enemy>
-		<enemy id="m513" name="マイコニッドC Lv5" element="火" attack="忘却(物理)" func="5(L+R)+250-STR-DEX" drop="忘却タイプ｡神経毒胞子で忘却はいいとして､なぜ火属性なのか…植物とか菌に火は無理だよなぁ｡"></enemy>
-		<enemy id="m514" name="マイコニッドD Lv5" element="地" attack="石化(物理)" func="5(L+R)+250-STR-DEX" drop="石化タイプ｡普通に大地の力で相手を地に返すべく石化胞子をバラまく｡"></enemy>
-		<enemy id="m515" name="マイコニッドE Lv5" element="霊" attack="呪い(物理)" func="5(L+R)+250-STR-DEX" drop="呪いタイプ｡これも普通に苗床(ベース)の怨念で呪いの胞子をバラまく｡"></enemy>
-		<enemy id="m1206" name="マーベル(小手調べ/Lv3/1回)" element="風" attack="物理※攻撃魔法無効" func="4(L+R)+200-STR-DEX" drop="小手調べ。明らかにこちらを下に見ているが…(1回)※攻撃魔法無効(特に意味は無いが)"></enemy>
-		<enemy id="m1207" name="マーベル(本気/Lv4/2回)" element="風" attack="物理※攻撃魔法無効" func="5(L+R)+250-STR-DEX" drop="本気でもこんなもん。井の中の蛙。(2回)※攻撃魔法無効(特に意味は無いが)"></enemy>
-		<enemy id="m1304" name="ザシュマー(手加減/Lv4/2回)" element="火" attack="物理魔法" func="5(L+R)+250-STR-INT" drop="まだ手加減しているが十分に強い。さすが上位吸血鬼。(2回)"></enemy>
-		<enemy id="m1305" name="ザシュマー(本気/Lv5/3回)" element="火" attack="物理魔法" func="6(L+R)+300-STR-INT" drop="再生してかなり本気になった。勝てるか？(3回)"></enemy>
-		<enemy id="m1403" name="ゾマ(実験1/Lv5/5回)" element="地" attack="物理" func="6(L+R)+250-STR-DEX" drop="実験1-君は延々と飛来する石つぶて(十数cm)にどこまで耐えられるか？(5回)"></enemy>
-		<enemy id="m1404" name="ゾマ(実験2/Lv5/4回)" element="水" attack="魔法" func="6(L+R)+300-INT-DEX" drop="実験2-今度は水球(数十cm)が君の頭に取り付いて窒息させようとしてくる…必死によけろ！(4回)"></enemy>
-		<enemy id="m1405" name="ゾマ(実験3/Lv6/3回)" element="風" attack="物理魔法※防御/魔法防御不能" func="6(L+R)+200-KRM" drop="実験3-お待ちかね？の電撃攻撃。防御できず回避も困難…気合だ！気合で耐えろ！※防御/魔法防御不能、6(L+R)＜KRMで回避(3回)。"></enemy>
-		<enemy id="m1403" name="ゾマ(実験1/Lv5/5回)" element="地" attack="物理" func="6(L+R)+250-STR-DEX" drop="実験1-君は延々と飛来する石つぶて(十数cm)にどこまで耐えられるか？(5回)"></enemy>
-		<enemy id="m1403" name="ゾマ(実験1/Lv5/5回)" element="地" attack="物理" func="6(L+R)+250-STR-DEX" drop="実験1-君は延々と飛来する石つぶて(十数cm)にどこまで耐えられるか？(5回)"></enemy>
-		<enemy id="m111" name="グリーンスライムLv1" element="地" attack="物理" func="2(L+R)+10-STR,2(L+R)+10-STR,2(L+R)+10-STR,2(L+R)+10-STR,2(L+R)+10-STR,2(L+R)+10-STR,2(L+R)+10-STR,1(L+R)+30-STR" drop="&quot;ネチョネチョ&quot;じゃなく&quot;ボヨンボヨン&quot;のほう｡なので意外と素早い｡日本RPGのザコオブザコ｡※たまにキング"></enemy>
-		<enemy id="m112" name="レッドスライムLv1" element="火" attack="魔法" func="2(L+R)+10-INT" drop="レッドスライム｡魔法を使うぞ！(だからどうした)"></enemy>
-		<enemy id="m113" name="キングスライムLv1" element="霊" attack="物理" func="1(L+R)+30-STR" drop="キングスライム｡仲間と合体した(特に理由無く)｡"></enemy>
-		<enemy id="m121" name="ゴブリンLv1" element="地" attack="物理" func="1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,2(L+R)+30-STR" drop="小鬼と呼ばれる子供くらいの亜人類(デミヒューマン)｡弱いが必ず群れで行動し､武器や道具を使う知能もあるので侮れない。※たまにマスター"></enemy>
-		<enemy id="m122" name="ゴブリンリーダーLv1" element="地" attack="物理" func="1(L+R)+30-STR" drop="ゴブリン隊長｡装備が一回りよい物になっている｡"></enemy>
-		<enemy id="m123" name="ゴブリンマスターLv2" element="霊" attack="物理" func="2(L+R)+30-STR" drop="ゴブリンを極めし者(天)｡"></enemy>
-		<enemy id="m211" name="オークLv2" element="地" attack="物理" func="2(L+R)+60-STR,2(L+R)+60-STR,2(L+R)+60-STR,2(L+R)+60-STR,2(L+R)+60-STR,2(L+R)+60-STR,2(L+R)+60-STR,2(L+R)+60-STR,2(L+R)+60-STR,3(L+R)+80-STR" drop="豚野郎｡下衆で野蛮で太った人間くらいの強さや知能はあるのでやっかいだ｡※たまにキング"></enemy>
-		<enemy id="m212" name="オークメイジLv2" element="火" attack="魔法" func="2(L+R)+60-INT" drop="オーガメイジでなく｡豚のクセに魔法を…いや豚さんは知能が高いんだぞ！本当だぞ！(犬猫よりは)"></enemy>
-		<enemy id="m213" name="オークキングLv3" element="霊" attack="物理" func="3(L+R)+80-STR" drop="オークキング(自称)｡しかし言うだけあって装備は豪華｡"></enemy>
-		<enemy id="m221" name="デスフラッターLv2" element="風" attack="物理" func="2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,6(L+R)+70-STR" drop="大型･凶暴化したカラス｡知能が高く狡猾な分､下手な猛禽類より手強い｡数もいるので要注意｡※たまにブラッド"></enemy>
-		<enemy id="m222" name="ブラッドフラッターLv3" element="風" attack="物理" func="6(L+R)+70-STR" drop="返り血にぬれた､赤くて3倍速い奴｡通称ブラッドフラッター｡"></enemy>
-		<enemy id="m311" name="トロルLv3" element="地" attack="物理" func="2(L+R)+200-STR,2(L+R)+200-STR,2(L+R)+200-STR,2(L+R)+200-STR,2(L+R)+200-STR,2(L+R)+200-STR,2(L+R)+200-STR,2(L+R)+200-STR,2(L+R)+200-STR,1(L+R)+300-STR" drop="人間の2~3倍はある大型の亜人類｡知能は低めで鈍いが当たると超痛い｡※たまにホームラン"></enemy>
-		<enemy id="m312" name="ファイヤートロルLv3" element="火" attack="物理魔法" func="3(L+R)+150-STR-INT" drop="弱点である火を克服？たいまつなど火で武装｡若干ながら火炎魔法も使う｡知恵がついたので鈍さもマシになっている。"></enemy>
-		<enemy id="m313" name="ホームラントロルLv4" element="霊" attack="物理" func="1(L+R)+300-STR" drop="ボーナスポイントがよりSTR↑INT↓な個体｡ミスターフルスイング｡"></enemy>
-		<enemy id="m321" name="レーベンオスLv3" element="地" attack="物理" func="4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,6(L+R)+150-STR" drop="小型の肉食恐竜｡腕が退化した代わりに肥大化した脚で､素早く飛び跳ねて喰らいついてくる｡※たまに繁殖期"></enemy>
-		<enemy id="m322" name="レーベンメスLv3" element="水" attack="魔法" func="3(L+R)+90-INT" drop="メスは知能が高く､水魔法Delugeを使って獲物を仕留める｡"></enemy>
-		<enemy id="m323" name="レーベン繁殖期Lv4" element="霊" attack="物理" func="6(L+R)+150-STR" drop="繁殖期のオスは闘争心が非常に強く､異常なまでの敏捷性と攻撃力を誇る｡さっさと逃げた方が得策｡"></enemy>
-		<enemy id="m3" name="ゴブリンLv1" element="地" attack="物理" func="1(L+R)+20-STR" drop="小鬼と呼ばれる子供くらいの亜人類(デミヒューマン)｡弱いが必ず群れで行動し､武器や道具を使う知能もあるので侮れない｡"></enemy>
-		<enemy id="m4" name="ゴブリンリーダーLv1" element="地" attack="物理" func="1(L+R)+30-STR" drop="ゴブリン隊長｡装備が一回りよい物になっている｡"></enemy>
-		<enemy id="m1101" name="触手1Lv4" element="地" attack="物理" func="6(L+R)+300-STR-DEX" drop="ﾍﾟｼﾍﾟｼ担当｡"></enemy>
-		<enemy id="m1102" name="触手2Lv4" element="地" attack="物理" func="4(L+R)+400-STR-DEX" drop="捕まえ担当｡"></enemy>
-		<enemy id="m1103" name="触手3Lv4" element="水" attack="魔法" func="7(L+R)+300-INT-DEX" drop="水しぶき担当｡"></enemy>
-		<enemy id="m1104" name="触手4Lv4" element="水" attack="魔法" func="5(L+R)+400-INT-DEX" drop="水弾担当｡"></enemy>
-		<enemy id="m1105" name="触手5Lv4" element="地" attack="物理" func="6(L+R)+300-STR-DEX" drop="ﾍﾟｼﾍﾟｼ担当｡"></enemy>
-		<enemy id="m1106" name="触手6Lv4" element="水" attack="魔法" func="7(L+R)+300-INT-DEX" drop="水しぶき担当｡"></enemy>
-		<enemy id="m1107" name="触手7Lv4" element="地" attack="物理" func="4(L+R)+400-STR-DEX" drop="捕まえ担当｡"></enemy>
-		<enemy id="m1108" name="触手8Lv4" element="水" attack="魔法" func="5(L+R)+400-INT-DEX" drop="水弾担当｡"></enemy>
-		<enemy id="m1109" name="ウォｰタｰガンLv4(命中判定)" element="水" attack="魔法" func="(L+R)-(DEX+KRM)/10" drop="墨霧で視界を遮断しているので回避には運がからむ｡"></enemy>
-		<enemy id="m1110" name="ウォｰタｰガンLv4(DM判定)※防御不能" element="水" attack="魔法" func="(L+R)+200-INT" drop="超高水圧の水鉄砲｡"></enemy>
-		<enemy id="m1111" name="本体(体当たり)Lv4/3回※防御不能" element="霊" attack="物理" func="(L+R)+600-STR-DEX-KRM" drop="覚悟を決めた巨体での突進｡"></enemy>
-		<enemy id="m1121" name="触手1&amp;2(怒)Lv5" element="地" attack="物理" func="10(L+R)+300-STR-DEX" drop="ﾍﾟｼﾍﾟｼ担当1&amp;2｡"></enemy>
-		<enemy id="m1122" name="触手3&amp;4(怒)Lv5" element="水" attack="魔法" func="12(L+R)+300-INT-DEX" drop="水しぶき担当1&amp;2｡"></enemy>
-		<enemy id="m1123" name="触手5(怒)Lv5" element="地" attack="物理" func="3(L+R)+600-STR-DEX" drop="捕まえ担当2(1は殉職)…1の仇だ！(怒)"></enemy>
-		<enemy id="m1124" name="触手6&amp;7(怒)Lv5" element="水" attack="魔法" func="8(L+R)+400-INT-DEX" drop="水弾担当1&amp;2｡"></enemy>
-		<enemy id="m1125" name="ウォｰタｰガンLv5(命中判定)" element="水" attack="魔法" func="(L+R)-(DEX+KRM)/10" drop="墨霧で視界を遮断しているので回避には運がからむ｡"></enemy>
-		<enemy id="m1126" name="ウォｰタｰガンLv5(DM判定)※防御不能" element="水" attack="魔法" func="(L+R)+200-INT" drop="超高水圧の水鉄砲｡"></enemy>
-		<enemy id="m1127" name="本体(体当たり：怒)Lv5/3回※防御不能" element="霊" attack="物理" func="(L+R)+600-STR-DEX-KRM" drop="覚悟を決めた巨体での突進｡"></enemy>
-		<enemy id="m1" name="ゴブリンLv1" element="地" attack="物理" func="1(L+R)+20-STR" drop="小鬼と呼ばれる子供くらいの亜人類(デミヒューマン)｡弱いが必ず群れで行動し､武器や道具を使う知能もあるので侮れない｡"></enemy>
-		<enemy id="m2" name="オークLv2" element="地" attack="物理" func="2(L+R)+60-STR" drop="豚野郎｡下衆で野蛮だが､太った人間くらいの強さや知能はあるのでやっかいだ｡"></enemy>
+		<enemy id="m623" name="ワーベアーLv7/2回" element="霊" attack="強石化(物理)" func="6(L+R)+450-STR" drop="">熊男｡なぜ熊が石化攻撃を…それは獣王の掟｡人型化というより立って戦うだけなので戦闘力はさほど変わらないが､元々獣系最強な上に凶暴化+知能となると手がつけられない｡※強石化は2重に受けると即死｡</enemy>
+		<enemy id="m622" name="ワータイガーLv6" element="地" attack="物理" func="7(L+R)+400-STR" drop="">虎男｡一般的?には人間に虎の霊などを憑依させるが､これも虎が凶暴化､さらに邪悪な意思により人型化して知能を与えられたもののようだ｡ﾊﾟｧﾜｧﾌｩﾘｬｱｧｧｰｰ!!</enemy>
+		<enemy id="m621" name="ワーウルフLv6" element="風" attack="物理" func="8(L+R)+350-STR" drop="">狼男｡吸血鬼の眷属であったり人の魔法強化であったりするが､これは森の狼が凶暴強化されたもの｡ﾊﾟﾜﾌﾘｬｱｧｧｰｰ!!</enemy>
+		<enemy id="m511" name="マイコニッドA Lv5" element="風" attack="毒(物理)" func="5(L+R)+250-STR-DEX" drop="">人型のキノコ｡キノコが人型を成したのか､人がキノコになったのか…戦闘力でなく､放出される多種多様で強力な胞子がやっかい｡毒タイプは風に乗せて毒胞子をバラまく｡</enemy>
+		<enemy id="m512" name="" element="マイコニッドB Lv5" attack="水" func="凍結(物理)" drop="5(L+R)+250-STR-DEX">凍結タイプ｡凍結胞子が付着して相手の活動停止を狙う…氷魔法を得意とした魔法使いが苗床(ベース)とか？</enemy>
+		<enemy id="m513" name="" element="マイコニッドC Lv5" attack="火" func="忘却(物理)" drop="5(L+R)+250-STR-DEX">忘却タイプ｡神経毒胞子で忘却はいいとして､なぜ火属性なのか…植物とか菌に火は無理だよなぁ｡</enemy>
+		<enemy id="m514" name="" element="マイコニッドD Lv5" attack="地" func="石化(物理)" drop="5(L+R)+250-STR-DEX">石化タイプ｡普通に大地の力で相手を地に返すべく石化胞子をバラまく｡</enemy>
+		<enemy id="m515" name="" element="マイコニッドE Lv5" attack="霊" func="呪い(物理)" drop="5(L+R)+250-STR-DEX">呪いタイプ｡これも普通に苗床(ベース)の怨念で呪いの胞子をバラまく｡</enemy>
+		<enemy id="m613" name="リザードマスターLv7/3回" element="霊" attack="物理魔法※防御不能/攻撃魔法無効" func="7(L+R)+600-STR-INT-DEX-KRM" drop="">リザードマンの族長で､一族に伝わる伝説の邪剣"イビルソード"を持つ｡その強さはすでにボスクラス｡※防御不能かつ攻撃魔法は効かないが例外アリ)｡</enemy>
+		<enemy id="m612" name="リザードメイジLv6" element="水" attack="凍結(魔法)" func="6(L+R)+250-INT" drop="">高齢にならないと魔法を使える程の知能は無く､必然的に個体数は少ないが､使うとなると水魔法を高Lvで使いこなしてくる｡</enemy>
+		<enemy id="m611" name="リザードマンLv6" element="水" attack="毒(物理)" func="7(L+R)+300-STR" drop="">名の通りのトカゲ人間｡知能も文化もそれなりにあるが非常に残虐(武器には毒が塗ってある)…というか"他生物を狩る事が全て"的な蛮族文化｡</enemy>
+		<enemy id="m522" name="アスティラゴア(怨霊)Lv6" element="霊" attack="物理魔法※防御不能" func="6(L+R)+300-STR-INT" drop="">さらにその脳髄に元の持ち主の怨念が取り付いたもの｡「オマエもコッチに来い…」と触手で絞め殺そうと…菌の本能と怨念で2重に怖い！！</enemy>
+		<enemy id="m2851" name="毒の鱗粉Lv7" element="風" attack="毒(物理)" func="7(L+R)+450-STR" drop="">その名の通り毒を含んだ鱗粉。吸い込むと危険。</enemy>
+		<enemy id="m2852" name="凍結の鱗粉Lv7" element="水" attack="凍結(魔法)" func="7(L+R)+450-INT" drop="">FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわりつくと凍結してしまう。</enemy>
+		<enemy id="m2853" name="忘却の鱗粉Lv7" element="風" attack="忘却(物理)" func="7(L+R)+450-DEX" drop="">脳に作用して幻覚を見せる鱗粉。夢の世界への片道切符。</enemy>
+		<enemy id="m2854" name="呪いの鱗粉Lv7" element="霊" attack="呪い(魔法)" func="7(L+R)+450-KRM" drop="">モスに殺された人間の怨念がこもった鱗粉。「オマエもこちらに来い」と迫ってくる。</enemy>
+		<enemy id="m2855" name="石化の鱗粉Lv7" element="地" attack="石化(物理魔法)" func=" 7(L+R)+600-STR-INT" drop="">吸い込んでも体にまとわりついても石化してしまう鱗粉。</enemy>
+		<enemy id="m2856" name="モス・ジャイアントLv7" element="霊" attack="毒(物理)" func="10(L+R)+600-STR-INT-DEX-KRM" drop="">頭部付近から発射される無数の毒針攻撃。最後まで遠距離攻撃かつ意地でも状態異常攻撃。</enemy>
+		<enemy id="m422" name="Gホーネット(興奮)Lv5" element="風" attack="物理(毒)" func="7(L+R)+250-STR-DEX" drop="">敵からの攻撃を受けたなど何かしらの理由で興奮して攻撃的になっている状態｡逃げた方がよい｡</enemy>
+		<enemy id="m421" name="ジャイアントホーネットLv4" element="風" attack="物理(毒)" func="5(L+R)+200-STR-DEX" drop="">数十cm-1m程の巨大なスズメバチ｡その攻撃的な容姿､素早さ､尾の巨大な毒針は見る者に大きな恐怖を与える｡</enemy>
+		<enemy id="m413" name="スコーピオンジャイアント(黒)Lv5" element="霊" attack="呪い+石化(物理)" func="4(L+R)+150-STR" drop="">魔王の呪力が世に放たれ形を成した姿…"魔のサソリ"とも言われ､なんと呪いで魔法を封じた上に石化させてくる｡</enemy>
+		<enemy id="m412" name="スコーピオンジャイアント(青)Lv4" element="地" attack="忘却(物理)" func="4(L+R)+150-STR" drop="">こちらは神経毒により忘却を引き起こすのでやっかい。それでSTRが下がるとさらに忘却しやすく…</enemy>
+		<enemy id="m411" name="スコーピオンジャイアント(赤)Lv4" element="地" attack="毒(物理)" func="4(L+R)+150-STR" drop="">1m以上もある巨大なサソリ｡大きなハサミ以上に尻尾の毒針攻撃に注意。</enemy>
+		<enemy id="m522" name="アスティラゴア(怨霊)Lv6" element="霊" attack="物理魔法※防御不能" func="6(L+R)+300-STR-INT" drop="">さらにその脳髄に元の持ち主の怨念が取り付いたもの｡「オマエもコッチに来い…」と触手で絞め殺そうと…菌の本能と怨念で2重に怖い！！</enemy>
+		<enemy id="m521" name="アスティラゴアLv5" element="地" attack="魔法※防御不能" func="5(L+R)+150-INT" drop="">走る脳髄｡その正体は死体の脳髄に寄生した菌で､脳の力を引き出して精神感応波で攻撃してくる｡その目的は…仲間を増やす事だ！！</enemy>
+		<enemy id="m511" name="マイコニッドA Lv5" element="風" attack="毒(物理)" func="5(L+R)+250-STR-DEX" drop="">人型のキノコ｡キノコが人型を成したのか､人がキノコになったのか…戦闘力でなく､放出される多種多様で強力な胞子がやっかい｡毒タイプは風に乗せて毒胞子をバラまく｡</enemy>
+		<enemy id="m512" name="マイコニッドB Lv5" element="水" attack="凍結(物理)" func="5(L+R)+250-STR-DEX" drop="">凍結タイプ｡凍結胞子が付着して相手の活動停止を狙う…氷魔法を得意とした魔法使いが苗床(ベース)とか？</enemy>
+		<enemy id="m513" name="マイコニッドC Lv5" element="火" attack="忘却(物理)" func="5(L+R)+250-STR-DEX" drop="">忘却タイプ｡神経毒胞子で忘却はいいとして､なぜ火属性なのか…植物とか菌に火は無理だよなぁ｡</enemy>
+		<enemy id="m514" name="マイコニッドD Lv5" element="地" attack="石化(物理)" func="5(L+R)+250-STR-DEX" drop="">石化タイプ｡普通に大地の力で相手を地に返すべく石化胞子をバラまく｡</enemy>
+		<enemy id="m515" name="マイコニッドE Lv5" element="霊" attack="呪い(物理)" func="5(L+R)+250-STR-DEX" drop="">呪いタイプ｡これも普通に苗床(ベース)の怨念で呪いの胞子をバラまく｡</enemy>
+		<enemy id="m611" name="リザードマンLv6" element="水" attack="毒(物理)" func="7(L+R)+300-STR" drop="">名の通りのトカゲ人間｡知能も文化もそれなりにあるが非常に残虐(武器には毒が塗ってある)…というか"他生物を狩る事が全て"的な蛮族文化｡</enemy>
+		<enemy id="m612" name="リザードメイジLv6" element="水" attack="凍結(魔法)" func="6(L+R)+250-INT" drop="">高齢にならないと魔法を使える程の知能は無く､必然的に個体数は少ないが､使うとなると水魔法を高Lvで使いこなしてくる｡</enemy>
+		<enemy id="m1206" name="マーベル(小手調べ/Lv3/1回)" element="風" attack="物理※攻撃魔法無効" func="4(L+R)+200-STR-DEX" drop="">小手調べ。明らかにこちらを下に見ているが…(1回)※攻撃魔法無効(特に意味は無いが)</enemy>
+		<enemy id="m1207" name="マーベル(本気/Lv4/2回)" element="風" attack="物理※攻撃魔法無効" func="5(L+R)+250-STR-DEX" drop="">本気でもこんなもん。井の中の蛙。(2回)※攻撃魔法無効(特に意味は無いが)</enemy>
+		<enemy id="m1304" name="ザシュマー(手加減/Lv4/2回)" element="火" attack="物理魔法" func="5(L+R)+250-STR-INT" drop="">まだ手加減しているが十分に強い。さすが上位吸血鬼。(2回)</enemy>
+		<enemy id="m1305" name="ザシュマー(本気/Lv5/3回)" element="火" attack="物理魔法" func="6(L+R)+300-STR-INT" drop="">再生してかなり本気になった。勝てるか？(3回)</enemy>
+		<enemy id="m1403" name="ゾマ(実験1/Lv5/5回)" element="地" attack="物理" func="6(L+R)+250-STR-DEX" drop="">実験1-君は延々と飛来する石つぶて(十数cm)にどこまで耐えられるか？(5回)</enemy>
+		<enemy id="m1404" name="ゾマ(実験2/Lv5/4回)" element="水" attack="魔法" func="6(L+R)+300-INT-DEX" drop="">実験2-今度は水球(数十cm)が君の頭に取り付いて窒息させようとしてくる…必死によけろ！(4回)</enemy>
+		<enemy id="m1405" name="ゾマ(実験3/Lv6/3回)" element="風" attack="物理魔法※防御/魔法防御不能" func="6(L+R)+200-KRM" drop="">実験3-お待ちかね？の電撃攻撃。防御できず回避も困難…気合だ！気合で耐えろ！※防御/魔法防御不能、6(L+R)＜KRMで回避(3回)。</enemy>
+		<enemy id="m111" name="グリーンスライムLv1" element="地" attack="物理" func="2(L+R)+10-STR,2(L+R)+10-STR,2(L+R)+10-STR,2(L+R)+10-STR,2(L+R)+10-STR,2(L+R)+10-STR,2(L+R)+10-STR,1(L+R)+30-STR" drop="">"ネチョネチョ"じゃなく"ボヨンボヨン"のほう｡なので意外と素早い｡日本RPGのザコオブザコ｡※たまにキング</enemy>
+		<enemy id="m112" name="レッドスライムLv1" element="火" attack="魔法" func="2(L+R)+10-INT" drop="">レッドスライム｡魔法を使うぞ！(だからどうした)</enemy>
+		<enemy id="m113" name="キングスライムLv1" element="霊" attack="物理" func="1(L+R)+30-STR" drop="">キングスライム｡仲間と合体した(特に理由無く)｡</enemy>
+		<enemy id="m121" name="ゴブリンLv1" element="地" attack="物理" func="1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,2(L+R)+30-STR" drop="">小鬼と呼ばれる子供くらいの亜人類(デミヒューマン)｡弱いが必ず群れで行動し､武器や道具を使う知能もあるので侮れない。※たまにマスター</enemy>
+		<enemy id="m122" name="ゴブリンリーダーLv1" element="地" attack="物理" func="1(L+R)+30-STR" drop="">ゴブリン隊長｡装備が一回りよい物になっている｡</enemy>
+		<enemy id="m123" name="ゴブリンマスターLv2" element="霊" attack="物理" func="2(L+R)+30-STR" drop="">ゴブリンを極めし者(天)｡</enemy>
+		<enemy id="m211" name="オークLv2" element="地" attack="物理" func="2(L+R)+60-STR,2(L+R)+60-STR,2(L+R)+60-STR,2(L+R)+60-STR,2(L+R)+60-STR,2(L+R)+60-STR,2(L+R)+60-STR,2(L+R)+60-STR,2(L+R)+60-STR,3(L+R)+80-STR" drop="">豚野郎｡下衆で野蛮で太った人間くらいの強さや知能はあるのでやっかいだ｡※たまにキング</enemy>
+		<enemy id="m212" name="オークメイジLv2" element="火" attack="魔法" func="2(L+R)+60-INT" drop="">オーガメイジでなく｡豚のクセに魔法を…いや豚さんは知能が高いんだぞ！本当だぞ！(犬猫よりは)</enemy>
+		<enemy id="m213" name="オークキングLv3" element="霊" attack="物理" func="3(L+R)+80-STR" drop="">オークキング(自称)｡しかし言うだけあって装備は豪華｡</enemy>
+		<enemy id="m221" name="デスフラッターLv2" element="風" attack="物理" func="2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,2(L+R)+50-STR,6(L+R)+70-STR" drop="">大型･凶暴化したカラス｡知能が高く狡猾な分､下手な猛禽類より手強い｡数もいるので要注意｡※たまにブラッド</enemy>
+		<enemy id="m222" name="ブラッドフラッターLv3" element="風" attack="物理" func="6(L+R)+70-STR" drop="">返り血にぬれた､赤くて3倍速い奴｡通称ブラッドフラッター｡</enemy>
+		<enemy id="m311" name="トロルLv3" element="地" attack="物理" func="2(L+R)+200-STR,2(L+R)+200-STR,2(L+R)+200-STR,2(L+R)+200-STR,2(L+R)+200-STR,2(L+R)+200-STR,2(L+R)+200-STR,2(L+R)+200-STR,2(L+R)+200-STR,1(L+R)+300-STR" drop="">人間の2~3倍はある大型の亜人類｡知能は低めで鈍いが当たると超痛い｡※たまにホームラン</enemy>
+		<enemy id="m312" name="ファイヤートロルLv3" element="火" attack="物理魔法" func="3(L+R)+150-STR-INT" drop="">弱点である火を克服？たいまつなど火で武装｡若干ながら火炎魔法も使う｡知恵がついたので鈍さもマシになっている。</enemy>
+		<enemy id="m313" name="ホームラントロルLv4" element="霊" attack="物理" func="1(L+R)+300-STR" drop="">ボーナスポイントがよりSTR↑INT↓な個体｡ミスターフルスイング｡</enemy>
+		<enemy id="m321" name="レーベンオスLv3" element="地" attack="物理" func="4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,6(L+R)+150-STR" drop="">小型の肉食恐竜｡腕が退化した代わりに肥大化した脚で､素早く飛び跳ねて喰らいついてくる｡※たまに繁殖期</enemy>
+		<enemy id="m322" name="レーベンメスLv3" element="水" attack="魔法" func="3(L+R)+90-INT" drop="">メスは知能が高く､水魔法Delugeを使って獲物を仕留める｡</enemy>
+		<enemy id="m323" name="レーベン繁殖期Lv4" element="霊" attack="物理" func="6(L+R)+150-STR" drop="">繁殖期のオスは闘争心が非常に強く､異常なまでの敏捷性と攻撃力を誇る｡さっさと逃げた方が得策｡</enemy>
+		<enemy id="m3" name="ゴブリンLv1" element="地" attack="物理" func="1(L+R)+20-STR" drop="">小鬼と呼ばれる子供くらいの亜人類(デミヒューマン)｡弱いが必ず群れで行動し､武器や道具を使う知能もあるので侮れない｡</enemy>
+		<enemy id="m4" name="ゴブリンリーダーLv1" element="地" attack="物理" func="1(L+R)+30-STR" drop="">ゴブリン隊長｡装備が一回りよい物になっている｡</enemy>
+		<enemy id="m1101" name="触手1Lv4" element="地" attack="物理" func="6(L+R)+300-STR-DEX" drop="">ﾍﾟｼﾍﾟｼ担当｡</enemy>
+		<enemy id="m1102" name="触手2Lv4" element="地" attack="物理" func="4(L+R)+400-STR-DEX" drop="">捕まえ担当｡</enemy>
+		<enemy id="m1103" name="触手3Lv4" element="水" attack="魔法" func="7(L+R)+300-INT-DEX" drop="">水しぶき担当｡</enemy>
+		<enemy id="m1104" name="触手4Lv4" element="水" attack="魔法" func="5(L+R)+400-INT-DEX" drop="">水弾担当｡</enemy>
+		<enemy id="m1105" name="触手5Lv4" element="地" attack="物理" func="6(L+R)+300-STR-DEX" drop="">ﾍﾟｼﾍﾟｼ担当｡</enemy>
+		<enemy id="m1106" name="触手6Lv4" element="水" attack="魔法" func="7(L+R)+300-INT-DEX" drop="">水しぶき担当｡</enemy>
+		<enemy id="m1107" name="触手7Lv4" element="地" attack="物理" func="4(L+R)+400-STR-DEX" drop="">捕まえ担当｡</enemy>
+		<enemy id="m1108" name="触手8Lv4" element="水" attack="魔法" func="5(L+R)+400-INT-DEX" drop="">水弾担当｡</enemy>
+		<enemy id="m1109" name="ウォｰタｰガンLv4(命中判定)" element="水" attack="魔法" func="(L+R)-(DEX+KRM)/10" drop="">墨霧で視界を遮断しているので回避には運がからむ｡</enemy>
+		<enemy id="m1110" name="ウォｰタｰガンLv4(DM判定)※防御不能" element="水" attack="魔法" func="(L+R)+200-INT" drop="">超高水圧の水鉄砲｡</enemy>
+		<enemy id="m1111" name="本体(体当たり)Lv4/3回※防御不能" element="霊" attack="物理" func="(L+R)+600-STR-DEX-KRM" drop="">覚悟を決めた巨体での突進｡</enemy>
+		<enemy id="m1110" name="触手からの脱出" element="地" attack="物理" func="10(L+R)⇔KRM+欠片の総数" drop="">入念な下準備と運を兼ね備えた者こそが生き残るのだ｡</enemy>
+		<enemy id="m1121" name="触手1&amp;2(怒)Lv5" element="地" attack="物理" func="10(L+R)+300-STR-DEX" drop="">ﾍﾟｼﾍﾟｼ担当1&amp;2｡</enemy>
+		<enemy id="m1122" name="触手3&amp;4(怒)Lv5" element="水" attack="魔法" func="12(L+R)+300-INT-DEX" drop="">水しぶき担当1&amp;2｡</enemy>
+		<enemy id="m1123" name="触手5(怒)Lv5" element="地" attack="物理" func="3(L+R)+600-STR-DEX" drop="">捕まえ担当2(1は殉職)…1の仇だ！(怒)</enemy>
+		<enemy id="m1124" name="触手6&amp;7(怒)Lv5" element="水" attack="魔法" func="8(L+R)+400-INT-DEX" drop="">水弾担当1&amp;2｡</enemy>
+		<enemy id="m1125" name="ウォｰタｰガンLv5(命中判定)" element="水" attack="魔法" func="(L+R)-(DEX+KRM)/10" drop="">墨霧で視界を遮断しているので回避には運がからむ｡</enemy>
+		<enemy id="m1126" name="ウォｰタｰガンLv5(DM判定)※防御不能" element="水" attack="魔法" func="(L+R)+200-INT" drop="">超高水圧の水鉄砲｡</enemy>
+		<enemy id="m1127" name="本体(体当たり：怒)Lv5/3回※防御不能" element="霊" attack="物理" func="(L+R)+600-STR-DEX-KRM" drop="">覚悟を決めた巨体での突進｡</enemy>
+		<enemy id="m1" name="ゴブリンLv1" element="地" attack="物理" func="1(L+R)+20-STR" drop="">小鬼と呼ばれる子供くらいの亜人類(デミヒューマン)｡弱いが必ず群れで行動し､武器や道具を使う知能もあるので侮れない｡</enemy>
+		<enemy id="m2" name="オークLv2" element="地" attack="物理" func="2(L+R)+60-STR" drop="">豚野郎｡下衆で野蛮だが､太った人間くらいの強さや知能はあるのでやっかいだ｡</enemy>
 	</enemies>
 	<results>
 		<result id="r2101" name="ワーベアーと戦った" level="5">♪あるーひ♪もりのなか♪くまさんにー♪であーった♪</result>
@@ -266,10 +260,10 @@
 		<result id="r251" name="ｶﾓﾝｶﾓﾝｶﾓﾝ♪ﾀﾞｲﾀ○ﾝ3～♪" level="1">…あれ？ダイオ○ジャってこのくだりやってたっけ？</result>
 		<result id="r406" name="うるさいやつらに出会った" level="1">CV…男=古川登○夫､女=平○文､でお願いしますｗ</result>
 	</results>
-	<license>
+	<licence>
 		<work name="stream-with-robins-1(コマドリの棲む沢)" category="bgm" creator="sounddictionary.info/ambient-1/" url=""></work>
-	</license>
-	<scene id="2101" enemies="m621,m622,m623" result="r2101">
+	</licence>
+	<scene id="2101" enemies="m621,m622,m623" bgm="@battle03" result="r2101">
 ん？…ワーウルフが、まるで前衛のごとく後ろにいる”何か”にうながされて出てきた…
 同様にワータイガーも…その後ろにいる大きな影は…？
 その影はその大きさでまだ屈んでいたらしく、ゆっくりと立ち上がり…さらに大きい影となって現れた！
@@ -346,7 +340,7 @@
 [ザシュマーについての説明を見る](443 "f1302")
 [ゾマについての説明を見る](444 "f1407")
 </scene>
-	<scene id="2111" enemies="m511,m512,m513,m514,m515" result="r2111">
+	<scene id="2111" enemies="m511,m512,m513,m514,m515" bgm="@talk01" result="r2111">
 ズル…グチョ…
 みなさんは「人型の大きなキノコ」と聞くと、こんな感じでかろうじて動くキノコを想像されるだろう。
 確かに聞く話ではそういう奴も…いやその方が多いらしいのだが、俺が今まで出くわした奴はみんな…やっぱり今回も…
@@ -389,7 +383,7 @@
 [西へ](2111)
 [戻る（東へ）](2131,2132,2132,2132,2132,2132,2132,2132)
 </scene>
-	<scene id="2211" enemies="m511,m512,m513,m514,m515" result="r2111">
+	<scene id="2211" enemies="m511,m512,m513,m514,m515" bgm="@talk01" result="r2111">
 ズル…グチョ…
 みなさんは「人型の大きなキノコ」と聞くと、こんな感じでかろうじて動くキノコを想像されるだろう。
 確かに聞く話ではそういう奴も…いやその方が多いらしいのだが、俺が今まで出くわした奴はみんな…やっぱり今回も…
@@ -419,7 +413,7 @@
 [ザシュマーについての説明を見る](443 "f1302")
 [ゾマについての説明を見る](444 "f1407")
 </scene>
-	<scene id="2221" enemies="m611,m611,m612,m613" result="r2221">
+	<scene id="2221" enemies="m611,m611,m612,m613" bgm="@battle03" result="r2221">
 リザードマン…だよな？
 ゴツイ鎧を着た１回り大きな奴が、ドッシリと切り株に腰をかけて静かに目を閉じている…
 その両脇を固める奴らがひざまづいている…？
@@ -516,7 +510,7 @@
 [ザシュマーについての説明を見る](443 "f1302")
 [ゾマについての説明を見る](444 "f1407")
 </scene>
-	<scene id="2231" enemies="m522,m522,m522,m522" result="r2291">
+	<scene id="2231" enemies="m522,m522,m522,m522" bgm="@talk01" result="r2291">
 うっげぇー…「アスティラゴア」だ…
 
 アスティラゴア…見た目は動く脳髄であるが、その正体は死体の脳に寄生する菌（カビ）の一種である。
@@ -542,7 +536,7 @@
 [ザシュマーについての説明を見る](443 "f1302")
 [ゾマについての説明を見る](444 "f1407")
 </scene>
-	<scene id="2321" enemies="m621,m622,m623" result="r2101">
+	<scene id="2321" enemies="m621,m622,m623" bgm="@battle03" result="r2101">
 ん？…ワーウルフが、まるで前衛のごとく後ろにいる”何か”にうながされて出てきた…
 同様にワータイガーも…その後ろにいる大きな影は…？
 その影はその大きさでまだ屈んでいたらしく、ゆっくりと立ち上がり…さらに大きい影となって現れた！
@@ -622,7 +616,7 @@
 [ザシュマーについての説明を見る](443 "f1302")
 [ゾマについての説明を見る](444 "f1407")
 </scene>
-	<scene id="2331" enemies="m522,m522,m522,m522" result="r2291">
+	<scene id="2331" enemies="m522,m522,m522,m522" bgm="@talk01" result="r2291">
 うっげぇー…「アスティラゴア」だ…
 
 アスティラゴア…見た目は動く脳髄であるが、その正体は死体の脳に寄生する菌（カビ）の一種である。
@@ -649,7 +643,7 @@
 [ザシュマーについての説明を見る](443 "f1302")
 [ゾマについての説明を見る](444 "f1407")
 </scene>
-	<scene id="2341" enemies="m611,m611,m612,m613" result="r2221">
+	<scene id="2341" enemies="m611,m611,m612,m613" bgm="@battle03" result="r2221">
 リザードマン…だよな？
 ゴツイ鎧を着た１回り大きな奴が、ドッシリと切り株に腰をかけて静かに目を閉じている…
 その両脇を固める奴らがひざまづいている…？
@@ -743,7 +737,7 @@
 [ザシュマーについての説明を見る](443 "f1302")
 [ゾマについての説明を見る](444 "f1407")
 </scene>
-	<scene id="2431" enemies="m621,m622,m623" result="r2101">
+	<scene id="2431" enemies="m621,m622,m623" bgm="@battle03" result="r2101">
 ん？…ワーウルフが、まるで前衛のごとく後ろにいる”何か”にうながされて出てきた…
 同様にワータイガーも…その後ろにいる大きな影は…？
 その影はその大きさでまだ屈んでいたらしく、ゆっくりと立ち上がり…さらに大きい影となって現れた！
@@ -774,7 +768,7 @@
 [ザシュマーについての説明を見る](443 "f1302")
 [ゾマについての説明を見る](444 "f1407")
 </scene>
-	<scene id="2441" enemies="m622,m622,m622">
+	<scene id="2441" enemies="m622,m622,m622" bgm="@talk01">
 木の向こうに何か大きな獣がいる…何頭か影は見えているが…あまり隠れる気も無いようだ。
 なら大型の肉食獣…ライオン、いや森なら虎か？
 予想通りといった感じで虎が現れたのだが…
@@ -800,7 +794,7 @@
 [ザシュマーについての説明を見る](443 "f1302")
 [ゾマについての説明を見る](444 "f1407")
 </scene>
-	<scene id="2451">
+	<scene id="2451" bgm="@talk01">
 はぁ…はぁ…なんつー場所だ…超強力なモンスターの巣じゃねーか…
 
 しかも奥に行くほどに凶悪さが増していく…
@@ -929,7 +923,7 @@
 
 [戻る（南へ）](2421,2423,2423,2423,2423,2422,2422,2422)
 </scene>
-	<scene id="2541" bgm="@talk01">
+	<scene id="2541" bgm="None">
 群がる強敵達を倒して進んだその先には…
 
 聞いた通り、こちらにもほぼ同じ大きさの巨大な御神木がもう一本、立っているのが見えてきた。
@@ -948,7 +942,7 @@
 [オーケーボーイズ！ウィアゴーイン！！](2804 "f1407")
 [ムリ…かえゆ…](2451)
 </scene>
-	<scene id="2542">
+	<scene id="2542" bgm="@talk01">
 ふむ、弟の方は元気？だろうか？
 
 邪気はだいぶ晴れたものの、相変わらず凶悪なモンスターに囲まれてはいる訳だが…
@@ -979,7 +973,7 @@
 
 [戻る](2542)
 </scene>
-	<scene id="2551" enemies="m611,m611,m612,m613" result="r2221">
+	<scene id="2551" enemies="m611,m611,m612,m613" bgm="@battle03" result="r2221">
 リザードマン…だよな？
 ゴツイ鎧を着た１回り大きな奴が、ドッシリと切り株に腰をかけて静かに目を閉じている…
 その両脇を固める奴らがひざまづいている…？
@@ -1024,7 +1018,7 @@
 [ザシュマーについての説明を見る](443 "f1302")
 [ゾマについての説明を見る](444 "f1407")
 </scene>
-	<scene id="2561" enemies="m611,m611,m612,m612">
+	<scene id="2561" enemies="m611,m611,m612,m612" bgm="@talk01">
 リザードマンか･･面倒な奴に…ん？
 なにやら奥で指示を出してる奴がいるな…ハッキリとした上下関係とはめずらしい。奴らは大体互いを狩りのライバルとして対抗心ムキ出しなもんだが…
 そうか、よく見れば奥の奴はソードやジャベリンといった武器を持っていない…つまり魔法が使える＝高齢の個体か…蛮勇が賞賛される奴らにあってそれは確かにめずらしい。
@@ -1079,7 +1073,7 @@
 [南へ](2481 "-f1204")
 [南へ](2481,2482,2483 "f1204")
 </scene>
-	<scene id="2593" bgm="SilentlyCaution">
+	<scene id="2593" bgm="@talk01">
 ここをこのまま北へ抜ければ森の外だが…
 
 森の主（ぬし）の所へ寄ろうかな？
@@ -4912,11 +4906,9 @@ FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわり�
 経験や勘を信じて身を滅ぼす､というのはよくある話。
 （ノーマル）
 
-${if mCHANGE-AIR}
-・中央（水上）をCHANGE-AIRで突っ切る
+・中央（水上）をCHANGE-AIRで突っ切る　※要CHANGE-AIR
 天の啓示か､はたまた究極のせっかちさんか。
 （非推奨：ハード）
-${/if}
 
 
 [右側（東）から迂回する](1202 "-f1210")
@@ -7242,7 +7234,7 @@ DMというか死を恐れないので大変危険。
 
 [旅立つ！](1201)
 </scene>
-	<scene id="1110">
+	<scene id="1110" enemies="m1110">
 万全を期するためにいったん逃げる…君の選択は正しかったかもしれないが運が悪かった、いや慎重さが足らなかったと言うべきか。
 
 霧に隠れてすでに奴の触手の1本が君の退路を断っていた…そう、近付き過ぎたのだ。
@@ -7250,10 +7242,8 @@ DMというか死を恐れないので大変危険。
 慎重に、敵に後ろを見せずに後退した事も災いして、君はあっさりと奴の触手に捕らわれてしまった…。
 君の冒険はここまでだ…と言いたいところだが最後の悪あがきの運試しだ。
 
-君が今所持している七星欠片の総数とKRM（Lv数をかけた数値）を足した数値が、以下の式を上回るかどうかダイスを振って判定せよ。なお同数だった場合はやり直しとする。
+君が今所持している七星欠片の総数とKRM（Lv数をかけて指輪分を足した数値）を足した数値が、以下の式を上回るかどうかダイスを振って判定せよ。なお同数だった場合はやり直しとする。
 ※欠片を使用してのブーストも有効とする（この場合は土星を１つ使用してKRMを基本値分UPし、それを反映して判定できる）。
-
-●【10(L+R)】⇔【KRM(基本値×Lv+指輪)+欠片の総数】…入念な下準備と運を兼ね備えた者こそが生き残るのだ。
 
 
 [上回った](1111)
