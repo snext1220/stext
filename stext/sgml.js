@@ -932,12 +932,31 @@
       $('#mp', dialog).val(save_data.chara.mp);
       $('[name="state"]', dialog).each(function() {
         var state = $(this).attr('value');
-        if(state ===  save_data.chara.state) {
+        if(state === save_data.chara.state) {
           $(this).prop('checked', true);
         } else {
           $(this).prop('checked', false);
         }
       });
+      // 状態異常に応じて、スタイルを付与
+      if (save_data.chara.state === 'poison') {
+        $('#hp', dialog).addClass('dialog_strong');
+        $('#str', dialog).removeClass('dialog_disabled');
+        $('#int', dialog).removeClass('dialog_disabled');
+      } else if (save_data.chara.state === 'forget') {
+        $('#hp', dialog).removeClass('dialog_strong');
+        if (save_data.chara.str < save_data.chara.int) {
+          $('#int', dialog).addClass('dialog_disabled');
+          $('#str', dialog).removeClass('dialog_disabled');
+        } else {
+          $('#str', dialog).addClass('dialog_disabled');
+          $('#int', dialog).removeClass('dialog_disabled');
+        }
+      } else {
+        $('#hp', dialog).removeClass('dialog_strong');
+        $('#str', dialog).removeClass('dialog_disabled');
+        $('#int', dialog).removeClass('dialog_disabled');
+      }
       $('#ellapsed_scene', dialog).text(save_data.ellapsed_scene + ' scene');
       $('#free1', dialog).val(save_data.chara.free1);
       $('#free2', dialog).val(save_data.chara.free2);
@@ -1110,8 +1129,14 @@
         'INT:<span class="status_v">' + save_data.chara.int + '</span>　' +
         'DEX:<span class="status_v">' + save_data.chara.dex + '</span>　' +
         'KRM:<span class="status_v">' + save_data.chara.krm + '</span>　｜　' +
-        '<span class="status_v">' + Common.state_names[save_data.chara.state] + '</span>　'
+        '<span id="status_state" class="status_v">' + Common.state_names[save_data.chara.state] + '</span>　'
       );
+      // 状態異常の場合は強調表示
+      if (save_data.chara.state) {
+        $('#status_state').addClass('status_strong');
+      } else {
+        $('#status_state').removeClass('status_strong');
+      }
     },
 
     // 本文中のSGML式 ${...} を解析
@@ -1821,8 +1846,8 @@
       target.on('click', '#restart #tmp_continue', function(e) {
         Util.initJobs();
         Util.initDialog();
-        // 再開時に経過日数の加算分を減算
-        save_data.ellapsed_scene--;
+        // 再開時に経過日数の加算分を減算（廃止）
+        // save_data.ellapsed_scene--;
         var num = save_data.scene;
         Util.createScene(num, { reverse: true });
         //history.pushState(num, 'Scene ' + num);

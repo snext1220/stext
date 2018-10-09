@@ -364,3 +364,17 @@ table.item_list img {
   padding: 0 15px;
 }
 */
+
+.status_strong {
+  font-weight: bold !important;
+  color: Red;
+}
+
+.dialog_strong {
+  background-color: Red !important;
+  color: #fff !important;
+}
+
+.dialog_disabled {
+  background-color: #666 !important;
+}
