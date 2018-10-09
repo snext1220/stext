@@ -337,6 +337,9 @@
           job: '',
           // 状態異常
           state: '',
+          // 石化／忘却の経過シーン数
+          stone_scene: 0,
+          forget_scene: 0,
           // HP最大値
           hp_m: hp_m,
           // HP現在値
@@ -363,7 +366,8 @@
           krm: krm_i,
           // 自由ステータス
           free1: 0,
-          free2: 0
+          free2: 0,
+          free3: 0
         },
         // 所有している七惑星の欠片（月、火星、水星、木星、金星、土星、太陽）
         stars: [0, 0, 0, 0, 0, 0, 0],
@@ -938,25 +942,8 @@
           $(this).prop('checked', false);
         }
       });
-      // 状態異常に応じて、スタイルを付与
-      if (save_data.chara.state === 'poison') {
-        $('#hp', dialog).addClass('dialog_strong');
-        $('#str', dialog).removeClass('dialog_disabled');
-        $('#int', dialog).removeClass('dialog_disabled');
-      } else if (save_data.chara.state === 'forget') {
-        $('#hp', dialog).removeClass('dialog_strong');
-        if (save_data.chara.str < save_data.chara.int) {
-          $('#int', dialog).addClass('dialog_disabled');
-          $('#str', dialog).removeClass('dialog_disabled');
-        } else {
-          $('#str', dialog).addClass('dialog_disabled');
-          $('#int', dialog).removeClass('dialog_disabled');
-        }
-      } else {
-        $('#hp', dialog).removeClass('dialog_strong');
-        $('#str', dialog).removeClass('dialog_disabled');
-        $('#int', dialog).removeClass('dialog_disabled');
-      }
+      // 状態異常に応じてスタイルを設定
+      Util.setStateStyle();
       $('#ellapsed_scene', dialog).text(save_data.ellapsed_scene + ' scene');
       $('#free1', dialog).val(save_data.chara.free1);
       $('#free2', dialog).val(save_data.chara.free2);
@@ -1136,6 +1123,31 @@
         $('#status_state').addClass('status_strong');
       } else {
         $('#status_state').removeClass('status_strong');
+      }
+    },
+
+    // 現在の状態異常に応じてスタイル（ダイアログ）を変更
+    setStateStyle: function() {
+      var poison = $('[name="state"][value="poison"]').prop('checked');
+      var forget = $('[name="state"][value="forget"]').prop('checked');
+
+      if (poison) {
+        $('#hp', dialog).addClass('dialog_strong');
+        $('#str', dialog).removeClass('dialog_disabled');
+        $('#int', dialog).removeClass('dialog_disabled');
+      } else if (forget) {
+        $('#hp', dialog).removeClass('dialog_strong');
+        if (save_data.chara.str < save_data.chara.int) {
+          $('#int', dialog).addClass('dialog_disabled');
+          $('#str', dialog).removeClass('dialog_disabled');
+        } else {
+          $('#str', dialog).addClass('dialog_disabled');
+          $('#int', dialog).removeClass('dialog_disabled');
+        }
+      } else {
+        $('#hp', dialog).removeClass('dialog_strong');
+        $('#str', dialog).removeClass('dialog_disabled');
+        $('#int', dialog).removeClass('dialog_disabled');
       }
     },
 
@@ -1682,6 +1694,7 @@
         // $('#dialog_body #dex_d').text('（' + delta[2] + '）');
         // $('#dialog_body #krm_d').text('（' + delta[3] + '）');
         $('#dialog_body #state_desc').text(delta[4]);
+        Util.setStateStyle();
       });
 
       // 星の減算処理（magic：魔法情報、index：星番号0～6、name：星の名前）
