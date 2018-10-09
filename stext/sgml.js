@@ -618,6 +618,14 @@
       save_data.flags = flags;
     },
 
+    // 現在の状態異常に応じてステータスを更新
+    updateStates: function() {
+      // 毒の場合はシーンごとにHP-1
+      if (save_data.chara.state === 'poison') {
+        save_data.chara.hp -= 1;
+      }
+    },
+
     // @stars属性（at_stars）の値に応じて、セーブデータのstarsプロパティを更新
     updateStars: function(at_stars) {
       if(!at_stars) { return; }
@@ -1259,6 +1267,7 @@
         // 現在のシーンのフラグ情報／アイテム／Free欄／実績情報を反映
         Util.updateItems(scene.attr('items'));
         Util.updateFlags(scene.attr('flags'));
+        Util.updateStates();
         Util.updateStars(scene.attr('stars'));
         Util.updateFrees(scene.attr('free1'), scene.attr('free2'));
         Util.updateResults(scene.attr('result'));
