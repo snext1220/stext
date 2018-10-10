@@ -509,8 +509,9 @@
       if (cond.indexOf('o') === 0) {
         // 「oSTR6+」のような文字列を分解
         var cond_set = cond.match(
-          /o(hp|mp|str|int|dex|krm|freei|freeii)\s*(\d{1,})(\+|-)\s*/i);
+          /o(hp|mp|str|int|dex|krm|freei|freeii|freeiii)\s*(\d{1,})(\+|-)\s*/i);
         cond_set[1] = cond_set[1].toLowerCase();
+        cond_set[1] = cond_set[1].replace('freeiii', 'free3');
         cond_set[1] = cond_set[1].replace('freeii', 'free2');
         cond_set[1] = cond_set[1].replace('freei',  'free1');
         var current_value = save_data.chara[cond_set[1]];
@@ -697,14 +698,17 @@
       return true;
     },
 
-    // @free1（at_free1）, @free2（at_free2）の値に応じて、
-    // セーブデータのfree1、free2プロパティを更新
-    updateFrees: function(at_free1, at_free2) {
+    // @free1（at_free1）, @free2（at_free2）, @free3（at_free3）の値に応じて、
+    // セーブデータのfree1、free2、free3プロパティを更新
+    updateFrees: function(at_free1, at_free2, at_free3) {
       if (at_free1) {
         save_data.chara.free1 = Number(save_data.chara.free1) + Number(at_free1);
       }
       if (at_free2) {
         save_data.chara.free2 = Number(save_data.chara.free2) + Number(at_free2);
+      }
+      if (at_free3) {
+        save_data.chara.free2 = Number(save_data.chara.free3) + Number(at_free3);
       }
     },
 
@@ -962,11 +966,14 @@
           $(this).prop('checked', false);
         }
       });
+      $('#stone_scene', dialog).text(save_data.chara.stone_scene);
+      $('#forget_scene', dialog).text(save_data.chara.forget_scene);
       // 状態異常に応じてスタイルを設定
       Util.setStateStyle();
       $('#ellapsed_scene', dialog).text(save_data.ellapsed_scene + ' scene');
       $('#free1', dialog).val(save_data.chara.free1);
       $('#free2', dialog).val(save_data.chara.free2);
+      $('#free3', dialog).val(save_data.chara.free3);
       $('#str', dialog).val(save_data.chara.str);
       $('#int', dialog).val(save_data.chara.int);
       $('#dex', dialog).val(save_data.chara.dex);
@@ -1281,7 +1288,7 @@
         Util.updateFlags(scene.attr('flags'));
         Util.updateStates();
         Util.updateStars(scene.attr('stars'));
-        Util.updateFrees(scene.attr('free1'), scene.attr('free2'));
+        Util.updateFrees(scene.attr('free1'), scene.attr('free2'), scene.attr('free3'));
         Util.updateResults(scene.attr('result'));
 
         // 現在のシーン番号を保存
@@ -1680,6 +1687,7 @@
         save_data.chara.mp = $('#dialog_body #mp').val();
         save_data.chara.free1 = $('#dialog_body #free1').val();
         save_data.chara.free2 = $('#dialog_body #free2').val();
+        save_data.chara.free3 = $('#dialog_body #free3').val();
         save_data.chara.str = $('#dialog_body #str').val();
         save_data.chara.int = $('#dialog_body #int').val();
         save_data.chara.dex = $('#dialog_body #dex').val();
@@ -1866,9 +1874,11 @@
       // 履歴情報の復帰
       $(window).on('popstate', function(e) {
         // 履歴から過去のセーブデータを復元
-        save_data = e.originalEvent.state;
-        Util.saveStorage();
-        Util.createScene(e.originalEvent.state.scene, { reverse: true });
+        if (e.originalEvent.state != null) {
+          save_data = e.originalEvent.state;
+          Util.saveStorage();
+          Util.createScene(e.originalEvent.state.scene, { reverse: true });
+        }        
       });
 
       // 再開画面（［はじめから］ボタン）
@@ -2218,6 +2228,7 @@
             if (attrs.stars !== undefined) { scene.attr('stars', attrs.stars); }
             if (attrs.free1 !== undefined) { scene.attr('free1', attrs.free1); }
             if (attrs.free2 !== undefined) { scene.attr('free2', attrs.free2); }
+            if (attrs.free3 !== undefined) { scene.attr('free3', attrs.free3); }
             if (attrs.bgm !== undefined) { scene.attr('bgm', attrs.bgm); }
             if (attrs.se !== undefined) { scene.attr('se', attrs.se); }
             if (attrs.allowMove !== undefined) { scene.attr('allowMove', attrs.allowMove); }

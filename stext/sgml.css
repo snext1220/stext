@@ -290,6 +290,10 @@ img.dice {
   /*height: 25px;*/
 }
 
+.free_cell input {
+  width: 45px !important;
+}
+
 #magic_run {
   padding-left: 25px;
   padding-right: 25px;

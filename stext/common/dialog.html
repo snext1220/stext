@@ -53,9 +53,11 @@
       <label><input type="radio" name="state" value="" />正常</label>
       <label><input type="radio" name="state" value="poison" />毒</label>
       <label><input type="radio" name="state" value="frozen" />凍結</label>
-      <label><input type="radio" name="state" value="stone" />石化</label>
+      <label><input type="radio" name="state" value="stone" />石化
+        (<span id="stone_scene">0</span>)</label>
       <label><input type="radio" name="state" value="curse" />呪い</label>
-      <label><input type="radio" name="state" value="forget" />忘却</label>
+      <label><input type="radio" name="state" value="forget" />忘却
+        (<span id="forget_scene">0</span>)</label>
       <div id="state_desc">－－－</div>
     </td>
   </tr>
@@ -88,14 +90,19 @@
       ／<span id="krm_i"></span></td>
   </tr>
     <th>FREE</th>
-    <td colspan="4" nowrap>
+    <td colspan="4" nowrap class="free_cell">
       <input type="button" class="spinner_down" value="-" />
       <input type="number" id="free1" />
       <input type="button" class="spinner_up" value="+" />
-      ・
+      ･
       <input type="button" class="spinner_down" value="-" />
       <input type="number" id="free2" />
-      <input type="button" class="spinner_up" value="+" /></td>
+      <input type="button" class="spinner_up" value="+" />
+      ･
+      <input type="button" class="spinner_down" value="-" />
+      <input type="number" id="free3" />
+      <input type="button" class="spinner_up" value="+" />
+    </td>
   </tr>
   </table>
   <hr />
