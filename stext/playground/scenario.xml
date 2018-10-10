@@ -35,7 +35,7 @@
 		<work name="ダンジョン" category="bgm" creator="Az" url="//venusaz.seesaa.net/"></work>
 		<work name="グーラン" category="picture" creator="Falcom" url=""></work>
 	</licence>
-	<scene id="0" flags="f05" stars="9,7,5,7,7,7,7" free1="10" free2="-5">
+	<scene id="0" flags="f05" stars="1,2,3,4,5,6,7" free1="10" free2="-5" free3="1">
 
 # タイトルテスト1
 ## タイトルテスト2
@@ -73,13 +73,9 @@ ${/if}
 [別ファイルへのリンク](3)
 [複合条件の検証](50)
 [キャラ条件の検証](16)
-[星が各7以上](2 "s7:7:7:7:7:7:7")
-[星の各7以上ない](2 "-s7:7:7:7:7:7:7")
-[星の総数49以上](2 "s49")
-[星の総数49未満](2 "-s49")
 [500,600,700](X)
 </scene>
-	<scene id="2" items="i01,i02,i03" flags="f01,f02,-f02,-f05" enemies="m01,m02,m03,m04" stars="-1,-2,-3,-4,-5,-6,-7" free1="7" free2="-2" bgm="" result="r01">
+	<scene id="2" items="i01,i02,i03" flags="f01,f02,-f02,-f05" enemies="m01,m02,m03,m04" stars="-5,-5,-5,-5,-5,-5,-5" free1="7" free2="-2" bgm="" result="r01">
 
 - 魔法ボタンの確認（HEAL、LIGHT-CROSS）
 - ステータスボタンの確認（STR&lt;5、HP&gt;50）
@@ -118,7 +114,7 @@ HEAL実行
 
 [アイテム／フラグ分岐](9)
 </scene>
-	<scene id="7" end="happy" bgm="last">
+	<scene id="7" end="happy">
 
 ハッピーエンドです！
 

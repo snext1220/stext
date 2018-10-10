@@ -708,7 +708,7 @@
         save_data.chara.free2 = Number(save_data.chara.free2) + Number(at_free2);
       }
       if (at_free3) {
-        save_data.chara.free2 = Number(save_data.chara.free3) + Number(at_free3);
+        save_data.chara.free3 = Number(save_data.chara.free3) + Number(at_free3);
       }
     },
 
