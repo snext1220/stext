@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--scenario：ルート要素 -->
+<!--シナリオデータのルート要素 -->
 <!--@title：シナリオのタイトル -->
 <!--@author：著者名 -->
 <!--@xmlns:xsi、@xsi:noNamespaceSchemaLocation：システム情報
     テンプレートの設定をそのまま利用してください。
-    編集時の補助設定なので、実行時にはなくても問題ありません。
-    -->
+    編集時の補助設定なので、実行時にはなくても問題ありません-->
 <scenario title="シナリオタイトル" author="著者名"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:noNamespaceSchemaLocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd">
 
-  <!--init：シナリオの初期化情報 -->
+  <!--シナリオの初期化情報 -->
   <init>
 
-    <!--constraint：シナリオ起動時に生成される種族／性別／年齢
+    <!--シナリオ起動時に生成される種族／性別／年齢を表す。
         すべてを許容する場合には指定しない -->
     <!--@race：種族（FIGHTER、WIZARD、DWARF、ELF）
         カンマ区切りで複数列記可 -->
@@ -21,7 +20,7 @@
     <!--@age：年齢（YOUNG、ADULT、OLD）。カンマ区切りで複数列記可-->
 	  <constraint race="FIGHTER,WIZARD" sex="FEMALE" age="YOUNG,ADULT"></constraint>
 
-    <!--bgm：シナリオに適用するbgm（すべて既定ならば省略可） -->
+    <!--シナリオに適用するbgm（すべて既定ならば省略可） -->
     <!--@main：メインテーマ（既定はmain）-->
     <!--@happy：ハッピーエンド（既定はhappy）-->
     <!--@bad：バッドエンド（既定はbad）-->
@@ -38,10 +37,10 @@
 		<bgm main="@field05" happy="@field04" bad="sigh"></bgm>
 	</init>
 
-  <!--items：アイテム情報-->
+  <!--アイテム情報-->
   <items>
 
-    <!--item：個々のアイテム（複数列挙可） -->
+    <!--個々のアイテム（複数列挙可） -->
     <!--@id：アイテムコード
     　　接頭辞は「i～」。シナリオ内で一意であること
         -->
@@ -50,65 +49,66 @@
     <item id="i01" name="こいし">何の変哲もない、石だ</item>
   </items>
 
-  <!--flags：フラグ情報 -->
+  <!--フラグ情報 -->
   <flags>
 
-    <!--flag：個々のフラグ情報（複数列挙可）
-        -->
+    <!--個々のフラグ情報（複数列挙可）-->
     <!--@id：フラグコード
-    　　接頭辞は「f～」。シナリオ内で一意であること
-        -->
+    　　接頭辞は「f～」。シナリオ内で一意であること-->
     <!--#text：フラグの表示名（15文字程度）。
         ステータス画面に粗筋替わりに表示されるので、できるだけ具体的な内容を。
-    　　但し、先頭が「*」で始まるものは、ステータス画面で表示されない隠しフラグと見なす
-        -->
+    　　但し、先頭が「*」で始まるものは、ステータス画面で表示されない隠しフラグと見なす -->
     <flag id="f01">「☆」の道を調べた。</flag>
-		<flag id="f02">*隠しフラグ</flag>
+    <flag id="f02">*隠しフラグ</flag>
   </flags>
 
-  <!--enemies：モンスター／罠情報-->
+  <!--モンスター／罠情報-->
   <enemies>
 
+    <!--敵／罠の情報 -->
+    <!--@id：敵コード
+        接頭辞「m～」。シナリオ内で一意であること -->
+    <!--@name：敵／罠の名前（10文字程度）-->
+    <!--@element：属性（敵のみ。地／火／水／風／霊）-->
+    <!--@attack：攻撃の種類（物理／魔法／毒／石化／凍結／呪い／忘却から1つ）-->
+    <!--@func：ダメージ式
+        例：2L+R-STR。Lは左のサイコロ、Rは右のサイコロ
+        @attackが状態異常の時は回避条件（例：DEX>5、WIZARDなど）
+        カンマ区切りで複数指定も可（その場合はランダムに式を選択） -->
+    <!--@drop：ドロップアイテム
+        「mon/3」で「月×3」、「free1/50/50Gold」で「50Gold」
+        無指定の場合は属性からドロップアイテムを確定 -->
+    <!--#text：モンスターの説明（50文字程度）-->
+    <enemy id="m01" name="人面岩" element="地" attack="物理"
+      func="L-STR" drop="tue/3">喋るだけで、硬い岩だ。</enemy>
+  </enemies>
 
-  <enemy id="m01" name="人面岩" element="地" attack="物理"
-    func="L-STR" drop="tue/3">喋るだけで、硬い岩だ。</enemy>
-  <!--
-  <enemy id="m99" name="モンスター／罠名" element="地"
-    attack="物理" func="式／回避条件">モンスター説明</enemy>
-  <enemy id="m98" name="モンスター／罠名" element="火"
-    attack="魔法" func="式／回避条件">モンスター説明</enemy>
-  <enemy id="m97" name="モンスター／罠名" element="水"
-    attack="毒" func="式／回避条件">モンスター説明</enemy>
-  <enemy id="m96" name="モンスター／罠名" element="風"
-    attack="凍結" func="式／回避条件">モンスター説明</enemy>
-  <enemy id="m95" name="モンスター／罠名" element="霊"
-    attack="石化" func="式／回避条件">モンスター説明</enemy>
-  <enemy id="m94" name="モンスター／罠名" element="霊"
-    attack="呪い" func="式／回避条件">モンスター説明</enemy>
-  <enemy id="m93" name="モンスター／罠名" element="霊"
-    attack="忘却" func="式／回避条件">モンスター説明</enemy>
-  -->
-</enemies>
+  <!--実績情報-->
+  <results>
 
-<!--実績情報-->
-<results>
-  <!--
-  <result id="r01" name="実績名" level="1">
-    実績の説明</result>
-  -->
+    <!--個々の実績情報（複数列挙可）-->
+    <!--@id　実績コード（接頭辞「r」。シナリオ内で一意であること） -->
+    <!--@name　実績名（ex. ガジガジネズミ） -->
+    <!--@level　難易度（1～5） -->
+    <!--text　実績の成立条件（ex. 隧道でネズミに食い殺された） -->
+    <result id="r01" name="冒険のはじまり" level="1">冒険を開始した</result>
 </results>
 
 <!--ライセンス情報-->
 <licence>
-  <!--
-	<work name="曲名" category="bgm" creator="作者名"
-    url="作品アドレス"></work>
-	<work name="画像名" category="picture" creator="作者名"
-    url="作品アドレス"></work>
-  -->
+
+  <!--作品情報（複数列挙可） -->
+  <!--@name：曲名（bgmの場合）、利用場所（pictureの場合。街、酒場など） -->
+  <!--@category：分類（bgm：音楽、picture：画像）-->
+  <!--@creator：作者 or サイト名 -->
+  <!--@url：参照先 -->
+  <work name="ダンジョン" category="bgm" creator="Az"
+    url="//venusaz.seesaa.net/"></work>
+  <work name="グーラン" category="picture" creator="Falcom"
+    url=""></work>
 </licence>
 
-<!--シナリオ本体-->
+<!--シナリオの各シーン-->
 <scene id="0">
   プロローグ
 </scene>
