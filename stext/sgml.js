@@ -1162,18 +1162,21 @@
       var int = $('#int', dialog);
       var dex = $('#dex', dialog);
       var krm = $('#krm', dialog);
+      var magic = $('#magic', dialog);
       var poison = $('[name="state"][value="poison"]').prop('checked');
       var frozen = $('[name="state"][value="frozen"]').prop('checked');
       var stone =  $('[name="state"][value="stone"]').prop('checked');
+      var curse =  $('[name="state"][value="curse"]').prop('checked');
       var forget = $('[name="state"][value="forget"]').prop('checked');
 
       // 状態異常スタイルをすべて解除
-      var clazz = 'dialog_poison dialog_frozen dialog_stone dialog_forget';
+      var clazz = 'dialog_poison dialog_frozen dialog_stone dialog_curse dialog_forget';
       hp.removeClass(clazz);
       str.removeClass(clazz);
       int.removeClass(clazz);
       dex.removeClass(clazz);
       krm.removeClass(clazz);
+      magic.removeClass(clazz);
 
       if (poison) {
         hp.addClass('dialog_poison');
@@ -1187,6 +1190,8 @@
         int.addClass('dialog_stone');
         dex.addClass('dialog_stone');
         krm.addClass('dialog_stone');
+      } else if (curse) {  
+        magic.addClass('dialog_curse');
       } else if (forget) {
         if (save_data.chara.str < save_data.chara.int) {
           int.addClass('dialog_forget');

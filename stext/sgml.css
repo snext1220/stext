@@ -392,6 +392,14 @@ table.item_list img {
   background-color: #696969 !important;
 }
 
+.dialog_curse {
+  background-color: #0000ff !important;
+}
+
+.dialog_curse option {
+  color: #fff !important;
+}
+
 .dialog_forget {
   background-color: #800080 !important;
   color: #fff !important;
