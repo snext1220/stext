@@ -113,6 +113,20 @@
 				</choice>
 				<choice>
 					<text>
+						<p order="1">星の総数49以上@s49</p>
+					</text>
+					<destination>2</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">星の総数49未満@-s49</p>
+					</text>
+					<destination>2</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
 						<p order="1">500,600,700</p>
 					</text>
 					<destination>999</destination>
@@ -204,6 +218,13 @@
 						<p order="1">エンディング（Bad）</p>
 					</text>
 					<destination>8</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">エンディング（bgm変更）</p>
+					</text>
+					<destination>33</destination>
 					<hidden>false</hidden>
 				</choice>
 				<choice>
@@ -807,6 +828,20 @@
 			<shiftable>true</shiftable>
 			<summary/>
 			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices/>
+		</section>
+		<section>
+			<number>33</number>
+			<shiftable>true</shiftable>
+			<summary>エンディング（bgm変更）</summary>
+			<text>
+				<p order="1">@@</p>
+				<p order="2">@bgm:@end3</p>
+				<p order="3">@@</p>
+				<p order="4"/>
+				<p order="5">エンディング（bgmを@end3）</p>
+			</text>
 			<backgroundcolour>#ffffff</backgroundcolour>
 			<choices/>
 		</section>

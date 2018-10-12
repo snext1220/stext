@@ -21,6 +21,10 @@
   background-position: right center;
 }
 
+.main_bad {
+  background-image: url(common/main_bad.png) !important;
+}
+
 #restart {
   background-image: url(common/restart_back.png);
   background-repeat: no-repeat;
@@ -374,11 +378,21 @@ table.item_list img {
   color: Red;
 }
 
-.dialog_strong {
+.dialog_poison {
   background-color: Red !important;
   color: #fff !important;
 }
 
-.dialog_disabled {
-  background-color: #666 !important;
+.dialog_frozen {
+  background-color: #1e90ff !important;
+  color: #fff !important;
+}
+
+.dialog_stone {
+  background-color: #696969 !important;
+}
+
+.dialog_forget {
+  background-color: #800080 !important;
+  color: #fff !important;
 }

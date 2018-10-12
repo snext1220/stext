@@ -1148,33 +1148,51 @@
       // 状態異常の場合は強調表示
       if (save_data.chara.state) {
         $('#status_state').addClass('status_strong');
+        target.addClass('main_bad');
       } else {
         $('#status_state').removeClass('status_strong');
+        target.removeClass('main_bad');
       }
     },
 
     // 現在の状態異常に応じてスタイル（ダイアログ）を変更
     setStateStyle: function() {
+      var hp = $('#hp', dialog);
+      var str = $('#str', dialog);
+      var int = $('#int', dialog);
+      var dex = $('#dex', dialog);
+      var krm = $('#krm', dialog);
       var poison = $('[name="state"][value="poison"]').prop('checked');
+      var frozen = $('[name="state"][value="frozen"]').prop('checked');
+      var stone =  $('[name="state"][value="stone"]').prop('checked');
       var forget = $('[name="state"][value="forget"]').prop('checked');
 
+      // 状態異常スタイルをすべて解除
+      var clazz = 'dialog_poison dialog_frozen dialog_stone dialog_forget';
+      hp.removeClass(clazz);
+      str.removeClass(clazz);
+      int.removeClass(clazz);
+      dex.removeClass(clazz);
+      krm.removeClass(clazz);
+
       if (poison) {
-        $('#hp', dialog).addClass('dialog_strong');
-        $('#str', dialog).removeClass('dialog_disabled');
-        $('#int', dialog).removeClass('dialog_disabled');
+        hp.addClass('dialog_poison');
+      } else if (frozen) {  
+        str.addClass('dialog_frozen');
+        int.addClass('dialog_frozen');
+        dex.addClass('dialog_frozen');
+        krm.addClass('dialog_frozen');
+      } else if (stone) {  
+        str.addClass('dialog_stone');
+        int.addClass('dialog_stone');
+        dex.addClass('dialog_stone');
+        krm.addClass('dialog_stone');
       } else if (forget) {
-        $('#hp', dialog).removeClass('dialog_strong');
         if (save_data.chara.str < save_data.chara.int) {
-          $('#int', dialog).addClass('dialog_disabled');
-          $('#str', dialog).removeClass('dialog_disabled');
+          int.addClass('dialog_forget');
         } else {
-          $('#str', dialog).addClass('dialog_disabled');
-          $('#int', dialog).removeClass('dialog_disabled');
+          str.addClass('dialog_forget');
         }
-      } else {
-        $('#hp', dialog).removeClass('dialog_strong');
-        $('#str', dialog).removeClass('dialog_disabled');
-        $('#int', dialog).removeClass('dialog_disabled');
       }
     },
 
