@@ -1320,6 +1320,9 @@
         // ストレージに反映＆履歴を追加
         Util.saveStorage();
         history.pushState(save_data, 'Scene ' + scene_num);
+      } else if (options.restore) {
+        // 復帰時は履歴の記録だけを実施
+        history.pushState(save_data, 'Scene ' + scene_num);
       }
 
       // シーンテキストの整形（カラーリング＆URL）
@@ -1916,7 +1919,7 @@
         // 再開時に経過日数の加算分を減算（廃止）
         // save_data.ellapsed_scene--;
         var num = save_data.scene;
-        Util.createScene(num, { reverse: true });
+        Util.createScene(num, { reverse: true, restore: true });
         //history.pushState(num, 'Scene ' + num);
         //Util.showSplash();
       }); 
