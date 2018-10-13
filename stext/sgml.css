@@ -385,7 +385,6 @@ table.item_list img {
 
 .dialog_frozen {
   background-color: #1e90ff !important;
-  color: #fff !important;
 }
 
 .dialog_stone {
@@ -396,11 +395,12 @@ table.item_list img {
   background-color: #0000ff !important;
 }
 
+/*
 .dialog_curse option {
-  color: #fff !important;
+  color: #000 !important;
 }
+*/
 
 .dialog_forget {
   background-color: #800080 !important;
-  color: #fff !important;
 }
