@@ -374,11 +374,33 @@ table.item_list img {
 }
 */
 
-.status_strong {
+/* 簡易ステータスでの状態異常表示 */
+.status_poison {
   font-weight: bold !important;
   color: Red;
 }
 
+.status_frozen {
+  font-weight: bold !important;
+  color: #1e90ff !important;
+}
+
+.status_stone {
+  font-weight: bold !important;
+  color: #696969 !important;
+}
+
+.status_curse {
+  font-weight: bold !important;
+  color: #0000ff !important;
+}
+
+.status_forget {
+  font-weight: bold !important;
+  color: #800080 !important;
+}
+
+/* ダイアログでの状態異常表示 */
 .dialog_poison {
   background-color: Red !important;
   color: #fff !important;

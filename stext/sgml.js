@@ -1153,12 +1153,13 @@
         'KRM:<span class="status_v">' + save_data.chara.krm + '</span>　｜　' +
         '<span id="status_state" class="status_v">' + Common.state_names[save_data.chara.state] + '</span>　'
       );
-      // 状態異常の場合は強調表示
+      $('#status_state').removeClass('status_poison status_frozen status_stone status_curse status_forget');
+
+      // 状態異常の場合、文字色、背景画像を変更
       if (save_data.chara.state) {
-        $('#status_state').addClass('status_strong');
+        $('#status_state').addClass('status_' + save_data.chara.state);
         target.addClass('main_bad');
       } else {
-        $('#status_state').removeClass('status_strong');
         target.removeClass('main_bad');
       }
     },
