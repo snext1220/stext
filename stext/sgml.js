@@ -202,6 +202,13 @@
     state_names: { '': '正常', 'poison': '毒', 'frozen': '凍結', 'stone': '石化', 'curse': '呪い', 'forget': '忘却' }
   };
 
+  // Toastr共通設定
+  toastr.options.closeButton = true;
+  toastr.options.positionClass = "toast-bottom-left";
+  toastr.options.showDuration = 300;
+  toastr.options.hideDuration = 1000;
+  toastr.options.timeOut = 5000;
+
   // ユーティリティ
   var Util = {
     // min～maxの乱数を生成
@@ -726,7 +733,8 @@
         results[scenario_code] = [];
       }
       if(this.pushUnique(results[scenario_code], at_result) === true) {
-        this.toast('実績「' + results_map[at_result].name + '」を獲得');
+        toastr.success(results_map[at_result].name, '実績獲得');
+        //this.toast('実績「' + results_map[at_result].name + '」を獲得');
       }
       this.saveStorageGlobal();
     },
@@ -1295,7 +1303,7 @@
       // 条件式に応じて、処理を実施（魔法による星演算のみ）
       // 失敗時はトースト表示して、処理終了
       if(!Util.updateStarsByMagic(options.conditions)) {
-        Util.toast('星が不足しているようだ。');
+        toastr.warning('星が不足しているようだ。');
         return;
       }
 
@@ -1634,7 +1642,7 @@
           //history.pushState(num, 'Scene ' + num);
           Util.createScene(num);
         } else {
-          Util.toast('指定された番号には移動できないようだ');
+          toastr.warning('指定された番号には移動できないようだ');
         }
         e.preventDefault();
       });
@@ -1656,7 +1664,8 @@
       // 敵一覧をクリックで詳細情報を表示
       target.on('click', 'tr.enemy_row', function(e) {
         var enemy = enemies_map[$(this).attr('data-enemy')];
-        Util.toast('<b>' + enemy.name + '</b><br/>' + enemy.desc);
+        //Util.toast('<b>' + enemy.name + '</b><br/>' + enemy.desc);
+        toastr.info(enemy.desc, enemy.name);
       });
 
       // ダイス回転音を準備

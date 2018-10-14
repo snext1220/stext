@@ -9,6 +9,7 @@ People called this plugin.....**Sorcerian Text**.
 - jQuery
 - jQuery Markdown
 - Zoombox
+- toastr
 - vkBeautify（GBAT2SText only）
 
 ## Example

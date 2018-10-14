@@ -339,6 +339,7 @@ table.item_list img {
   cursor: pointer;
 }
 
+/*
 .toast{
   position: fixed;
   bottom: 10px;
@@ -351,8 +352,8 @@ table.item_list img {
   z-index: 1000;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
   font-size: 18px;
-  /*font-weight: bold;*/
 }
+*/
 
 .markdown-body table:not([class]) {
   border-collapse:collapse; 
