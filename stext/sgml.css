@@ -339,6 +339,14 @@ table.item_list img {
   cursor: pointer;
 }
 
+.enemy_drop {
+  border: outset 2px #000; 
+  background-color: #00C;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  width: 75px;
+}
 /*
 .toast{
   position: fixed;

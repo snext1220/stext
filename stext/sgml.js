@@ -198,6 +198,9 @@
       }
     },
 
+    // 星の表示名
+    star_names: { 'mon': '月', 'tue': '火星', 'wed': '水星', 'thu': '木星', 'fri': '金星', 'sat': '土星', 'sun': '太陽', '': null },
+
     // 状態異常＆攻撃の表示名
     state_names: { '': '正常', 'poison': '毒', 'frozen': '凍結', 'stone': '石化', 'curse': '呪い', 'forget': '忘却', 'physics': '物理', 'magic': '魔法' },
 
@@ -708,6 +711,12 @@
       return true;
     },
 
+    // star（キーsun、mon...）とvalue（加算値）で更新
+    updateStarById: function(star, value) {
+      var num = Object.keys(Common.star_names).indexOf(star);
+      save_data.stars[num] = Number(save_data.stars[num]) + Number(value);
+    },
+
     // @free1（at_free1）, @free2（at_free2）, @free3（at_free3）の値に応じて、
     // セーブデータのfree1、free2、free3プロパティを更新
     updateFrees: function(at_free1, at_free2, at_free3) {
@@ -767,37 +776,50 @@
     },
 
     // ドロップアイテムの生成
+    // 戻り値：オブジェクト（drop：data-dropの値、name：表示名）
     dropItem: function(enemy) {
       // drop属性がある場合は、こちらで生成
       if(enemy.drop) {
         var drops = enemy.drop.split('/');
-        var star_maps = { 'mon': '月', 'tue': '火星', 'wed': '水星', 'thu': '木星', 'fri': '金星', 'sat': '土星', 'sun': '太陽' };
-        var star_name = star_maps[drops[0]];
+        var star_name = Common.star_names[drops[0]];
         // 星指定の場合
         if (star_name) {
           var num = (drops[1] === '1' ? '' : '×' + drops[1]);
-          return star_name + num;
+          return {
+            drop: enemy.drop,
+            name: star_name + num
+          };
         // 星以外の指定の場合
         } else {
-          return drops[2];
+          return {
+            drop: enemy.drop,
+            name: drops[2]
+          };
         }
       }
-      // drop属性がない場合には、属性に基づいて生成
-      if(!enemy.element) { return ''; }
+      // drop属性がない場合には、element属性に基づいて生成
+      if(!enemy.element) {
+        return { name: null };
+      }
       var drop = {
-        '地': [ '木星', '火星', '土星', '－', '－' ],
-        '火': [ '火星', '太陽', '火星', '－', '－' ],
-        '水': [ '水星', '月', '金星', '－', '－' ],
-        '風': [ '金星', '水星', '月', '－', '－' ],
-        '霊': [ '土星', '太陽', '月', '－', '－' ],
         // ★暫定
-        'earth': [ '木星', '火星', '土星', '－', '－' ],
-        'fire': [ '火星', '太陽', '火星', '－', '－' ],
-        'water': [ '水星', '月', '金星', '－', '－' ],
-        'wind': [ '金星', '水星', '月', '－', '－' ],
-        'spirit': [ '土星', '太陽', '月', '－', '－' ]
+        '地': [ 'thu', 'tue', 'sat', '', '' ],
+        '火': [ 'tue', 'sun', 'tue', '', '' ],
+        '水': [ 'wed', 'mon', 'fri', '', '' ],
+        '風': [ 'fri', 'wed', 'mon', '', '' ],
+        '霊': [ 'sat', 'sun', 'mon', '', '' ],
+        // 新仕様
+        'earth': [ 'thu', 'tue', 'sat', '', '' ],
+        'fire': [ 'tue', 'sun', 'tue', '', '' ],
+        'water': [ 'wed', 'mon', 'fri', '', '' ],
+        'wind': [ 'fri', 'wed', 'mon', '', '' ],
+        'spirit': [ 'sat', 'sun', 'mon', '', '' ]
       };
-      return this.randomArray(drop[enemy.element]);
+      var tmp_d = Util.randomArray(drop[enemy.element]);
+      return {
+        drop: (tmp_d ? tmp_d + '/1' : ''),
+        name: Common.star_names[tmp_d]
+      };
     },
 
     // ダメージ式／回避方法を選択
@@ -1322,7 +1344,13 @@
           if(enemy.func) {
             row += Util.selectFunc(enemy.func);
           }
-          row += '</td><td>' + Util.dropItem(enemy);
+          row += '</td><td>'
+          var tmp_d = Util.dropItem(enemy); 
+          if (tmp_d.name) {
+            row += '<input type="button" class="enemy_drop" value="' + tmp_d.name + '" data-drop="' + tmp_d.drop + '"/>';
+          } else {
+            row += '－';
+          }
           row += '</td></tr>';
           e_table.append(row);
         }
@@ -1708,6 +1736,31 @@
         var enemy = enemies_map[$(this).attr('data-enemy')];
         //Util.toast('<b>' + enemy.name + '</b><br/>' + enemy.desc);
         toastr.info(enemy.desc, enemy.name);
+      });
+
+      // ドロップアイテムボタンでステータスを加算
+      target.on('click', 'input.enemy_drop', function(e) {
+        e.stopImmediatePropagation();
+        var drops = $(this).attr('data-drop').split('/');
+        if (drops.length === 2) {
+          // 星の加算（ex. tue/2）
+          Util.updateStarById(drops[0], drops[1]);
+          toastr.info(
+            Common.star_names[drops[0]] + 'の欠片を' + drops[1] + '個取得しました。',
+            'アイテム獲得'
+          );
+        } else {
+          // freeX属性の加算（ex. free1/50/50Gold）
+          var at_free1 = (drops[0] === 'free1' ? drops[1] : 0);
+          var at_free2 = (drops[0] === 'free2' ? drops[1] : 0);
+          var at_free3 = (drops[0] === 'free3' ? drops[1] : 0);
+          Util.updateFrees(at_free1, at_free2, at_free3);
+          toastr.info(
+            drops[2] + 'を取得しました。',
+            'アイテム獲得'
+          );
+        }
+        Util.saveStorage();
       });
 
       // ダイス回転音を準備
