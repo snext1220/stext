@@ -745,6 +745,7 @@
         results[scenario_code] = [];
       }
       if(this.pushUnique(results[scenario_code], at_result) === true) {
+        toastr.options.timeOut = 5000;
         toastr.success(results_map[at_result].name, '実績獲得');
         //this.toast('実績「' + results_map[at_result].name + '」を獲得');
       }
@@ -1372,6 +1373,7 @@
       // 条件式に応じて、処理を実施（魔法による星演算のみ）
       // 失敗時はトースト表示して、処理終了
       if(!Util.updateStarsByMagic(options.conditions)) {
+        toastr.options.timeOut = 4000;
         toastr.warning('星が不足しているようだ。');
         return;
       }
@@ -1712,6 +1714,7 @@
           //history.pushState(num, 'Scene ' + num);
           Util.createScene(num);
         } else {
+          toastr.options.timeOut = 4000;
           toastr.warning('指定された番号には移動できないようだ');
         }
         e.preventDefault();
@@ -1735,6 +1738,7 @@
       target.on('click', 'tr.enemy_row', function(e) {
         var enemy = enemies_map[$(this).attr('data-enemy')];
         //Util.toast('<b>' + enemy.name + '</b><br/>' + enemy.desc);
+        toastr.options.timeOut = 8000;
         toastr.info(enemy.desc, enemy.name);
       });
 
@@ -1745,6 +1749,7 @@
         if (drops.length === 2) {
           // 星の加算（ex. tue/2）
           Util.updateStarById(drops[0], drops[1]);
+          toastr.options.timeOut = 5000;
           toastr.info(
             Common.star_names[drops[0]] + 'の欠片を' + drops[1] + '個取得しました。',
             'アイテム獲得'
@@ -1755,6 +1760,7 @@
           var at_free2 = (drops[0] === 'free2' ? drops[1] : 0);
           var at_free3 = (drops[0] === 'free3' ? drops[1] : 0);
           Util.updateFrees(at_free1, at_free2, at_free3);
+          toastr.options.timeOut = 5000;
           toastr.info(
             drops[2] + 'を取得しました。',
             'アイテム獲得'
