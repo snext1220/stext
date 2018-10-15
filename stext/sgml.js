@@ -198,8 +198,11 @@
       }
     },
 
-    // 状態異常の表示名
-    state_names: { '': '正常', 'poison': '毒', 'frozen': '凍結', 'stone': '石化', 'curse': '呪い', 'forget': '忘却' }
+    // 状態異常＆攻撃の表示名
+    state_names: { '': '正常', 'poison': '毒', 'frozen': '凍結', 'stone': '石化', 'curse': '呪い', 'forget': '忘却', 'physics': '物理', 'magic': '魔法' },
+
+    // 属性の表示名
+    element_names: { 'earth': '地', 'fire': '火', 'water': '水', 'wind': '風', 'spirit': '霊' }
   };
 
   // Toastr共通設定
@@ -786,7 +789,13 @@
         '火': [ '火星', '太陽', '火星', '－', '－' ],
         '水': [ '水星', '月', '金星', '－', '－' ],
         '風': [ '金星', '水星', '月', '－', '－' ],
-        '霊': [ '土星', '太陽', '月', '－', '－' ]
+        '霊': [ '土星', '太陽', '月', '－', '－' ],
+        // ★暫定
+        'earth': [ '木星', '火星', '土星', '－', '－' ],
+        'fire': [ '火星', '太陽', '火星', '－', '－' ],
+        'water': [ '水星', '月', '金星', '－', '－' ],
+        'wind': [ '金星', '水星', '月', '－', '－' ],
+        'spirit': [ '土星', '太陽', '月', '－', '－' ]
       };
       return this.randomArray(drop[enemy.element]);
     },
@@ -1290,6 +1299,37 @@
       }
     },
    
+    createEnemyList: function(at_enemies) {
+      if(at_enemies) {
+        var e_table = 
+          $('<table class="enemy">');
+        var enemies = at_enemies.split(',');
+        for (var i = 0; i < enemies.length; i++) {
+          var enemy = enemies_map[enemies[i]];
+          var atk = Common.state_names[enemy.attack];
+
+          var row = '<tr class="enemy_row" data-enemy="' + enemies[i] + '"><th>' + enemy.name + '</th><td>';
+          if(enemy.element) {
+            row += '<img src="' + ROOT + COMMON + 'attr_' + enemy.element + '.png" title="' + Common.element_names[enemy.element] + '" /></a>　';
+          }
+          row += '</td><td>';
+          if (atk) {
+            row += '<img src="' + ROOT + COMMON + 'atk_' + enemy.attack + '.png" title="' + Common.state_names[enemy.attack] + '" /></a>　';
+          } else {
+            row += enemy.attack;
+          }
+          row += '</td><td>';
+          if(enemy.func) {
+            row += Util.selectFunc(enemy.func);
+          }
+          row += '</td><td>' + Util.dropItem(enemy);
+          row += '</td></tr>';
+          e_table.append(row);
+        }
+        e_table.insertBefore('a.scenebtn:first');
+      }
+    },
+
     // 現在のシーン情報を取得＆画面の生成
     // 引数scene_num：シーン番号
     // 引数options：オプション（reverse：戻るか、conditions：条件式）
@@ -1451,23 +1491,24 @@
       });
       $('a.scenepic').zoombox();
 
-      // シーンのモンスター情報を取得
-      if(scene.attr('enemies')) {
-        var e_table = 
-          $('<table class="enemy">');
-        var enemies = scene.attr('enemies').split(',');
-        for (var i = 0; i < enemies.length; i++) {
-          var enemy = enemies_map[enemies[i]];
-          var row = '<tr class="enemy_row" data-enemy="' + enemies[i] + '"><th>' + enemy.name;
-          if(enemy.element) { row += '（' + enemy.element + '）'; }
-          row += '</th><td>' + enemy.attack + '</td><td>';
-          if(enemy.func) { row += Util.selectFunc(enemy.func); }
-          row += '</td><td>' + this.dropItem(enemy);
-          row += '</td></tr>';
-          e_table.append(row);
-        }
-        e_table.insertBefore('a.scenebtn:first');
-      }
+      // シーンのモンスター情報をリスト化
+      Util.createEnemyList(scene.attr('enemies'));
+      // if(scene.attr('enemies')) {
+      //   var e_table = 
+      //     $('<table class="enemy">');
+      //   var enemies = scene.attr('enemies').split(',');
+      //   for (var i = 0; i < enemies.length; i++) {
+      //     var enemy = enemies_map[enemies[i]];
+      //     var row = '<tr class="enemy_row" data-enemy="' + enemies[i] + '"><th>' + enemy.name;
+      //     if(enemy.element) { row += '（' + enemy.element + '）'; }
+      //     row += '</th><td>' + enemy.attack + '</td><td>';
+      //     if(enemy.func) { row += Util.selectFunc(enemy.func); }
+      //     row += '</td><td>' + this.dropItem(enemy);
+      //     row += '</td></tr>';
+      //     e_table.append(row);
+      //   }
+      //   e_table.insertBefore('a.scenebtn:first');
+      // }
 
       // 現在のフラグ／アイテム情報を取得
       var flags = save_data.flags;
