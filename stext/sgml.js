@@ -1738,7 +1738,7 @@
       target.on('click', 'tr.enemy_row', function(e) {
         var enemy = enemies_map[$(this).attr('data-enemy')];
         //Util.toast('<b>' + enemy.name + '</b><br/>' + enemy.desc);
-        toastr.options.timeOut = 8000;
+        toastr.options.timeOut = 5000;
         toastr.info(enemy.desc, enemy.name);
       });
 
