@@ -62,143 +62,143 @@
 
 <!--モンスター情報-->
 <enemies>
-<enemy id="m01" name="人面岩" element="地"
-  attack="物理" func="L-STR">喋るだけで、硬い岩だ。</enemy>
-<enemy id="m02" name="人面岩の口" element="霊"
-  attack="魔法" func="R-INT">喋る口だ。牙はない。</enemy>
-<enemy id="m03" name="投げた石" element="地"
-  attack="物理" func="L+R-STR">君が投げた石だ。</enemy>
+<enemy id="m01" name="人面岩" element="earth"
+  attack="physics" func="L-STR">喋るだけで、硬い岩だ。</enemy>
+<enemy id="m02" name="人面岩の口" element="spirit"
+  attack="magic" func="R-INT">喋る口だ。牙はない。</enemy>
+<enemy id="m03" name="投げた石" element="earth"
+  attack="physics" func="L+R-STR">君が投げた石だ。</enemy>
 
-<enemy id="m04" name="一寸怒ったラット" element="地"
-  attack="物理" func="L-STR">ガジガジたち。一見、可愛い。</enemy>
-<enemy id="m05" name="怒ったラット" element="地"
-  attack="物理" func="L-STR+1">ガジガジたち。結構、凶暴。</enemy>
-<enemy id="m06" name="ラット" element="地"
-  attack="物理" func="L-STR-1">ガジガジたち。結構、可愛い。</enemy>
-<enemy id="m07" name="大ラット" element="地"
-  attack="物理" func="L+R-STR">ガジガジたちの親。あまり可愛くない。</enemy>
-<enemy id="m08" name="毒ラット" element="地"
-  attack="毒" func="L+STR>8">病原菌を持ったネズミ。汚れている。</enemy>
-<enemy id="m09" name="五月蠅いラット" element="地"
-  attack="魔法" func="L+R-INT">キーキーネズミ。気に障る。</enemy>
+<enemy id="m04" name="一寸怒ったラット" element="earth"
+  attack="physics" func="L-STR">ガジガジたち。一見、可愛い。</enemy>
+<enemy id="m05" name="怒ったラット" element="earth"
+  attack="physics" func="L-STR+1">ガジガジたち。結構、凶暴。</enemy>
+<enemy id="m06" name="ラット" element="earth"
+  attack="physics" func="L-STR-1">ガジガジたち。結構、可愛い。</enemy>
+<enemy id="m07" name="大ラット" element="earth"
+  attack="physics" func="L+R-STR">ガジガジたちの親。あまり可愛くない。</enemy>
+<enemy id="m08" name="毒ラット" element="earth"
+  attack="poison" func="L+STR>8">病原菌を持ったネズミ。汚れている。</enemy>
+<enemy id="m09" name="五月蠅いラット" element="earth"
+  attack="magic" func="L+R-INT">キーキーネズミ。気に障る。</enemy>
 
-<enemy id="m11" name="ヒドラの首A" element="地"
-  attack="物理" func="L+2R-STR">首。物理攻撃が痛い。</enemy>
-<enemy id="m12" name="ヒドラの首B" element="霊"
-  attack="魔法" func="2L+R-INT">首。魔法攻撃が痛い。</enemy>
-<enemy id="m13" name="ヒドラの首C" element="地"
-  attack="毒" func="STR+L>10">首。毒の息を撒き散らす。</enemy>
-<enemy id="m14" name="ヒドラの首D" element="水"
-  attack="凍結" func="STR+R>10">首。氷のブレスを吐く。</enemy>
-<enemy id="m15" name="ヒドラの首E" element="地"
-  attack="石化" func="INT+L>10">首。目から石化光線を発する。</enemy>
-<enemy id="m16" name="ヒドラの首F" element="霊"
-  attack="呪い" func="INT+R>10">首。触れられると呪われる。</enemy>
-<enemy id="m17" name="ヒドラの首G" element="地"
-  attack="忘却" func="L+R>8">首。睨まれると記憶が飛ぶ。</enemy>
-<enemy id="m18" name="ヒドラの首H" element="地"
-  attack="物理" func="2L+2R-STR">首。物理攻撃が凄く痛い。</enemy>
-<enemy id="m19" name="鈴木土下座ェ門" element="霊"
-  attack="物理" func="3L+3R-STR">ビ○ルダーに似ているが、きっと別もの</enemy>
+<enemy id="m11" name="ヒドラの首A" element="earth"
+  attack="physics" func="L+2R-STR">首。物理攻撃が痛い。</enemy>
+<enemy id="m12" name="ヒドラの首B" element="spirit"
+  attack="magic" func="2L+R-INT">首。魔法攻撃が痛い。</enemy>
+<enemy id="m13" name="ヒドラの首C" element="earth"
+  attack="poison" func="STR+L>10">首。毒の息を撒き散らす。</enemy>
+<enemy id="m14" name="ヒドラの首D" element="water"
+  attack="frozen" func="STR+R>10">首。氷のブレスを吐く。</enemy>
+<enemy id="m15" name="ヒドラの首E" element="earth"
+  attack="stone" func="INT+L>10">首。目から石化光線を発する。</enemy>
+<enemy id="m16" name="ヒドラの首F" element="spirit"
+  attack="curse" func="INT+R>10">首。触れられると呪われる。</enemy>
+<enemy id="m17" name="ヒドラの首G" element="earth"
+  attack="forget" func="L+R>8">首。睨まれると記憶が飛ぶ。</enemy>
+<enemy id="m18" name="ヒドラの首H" element="earth"
+  attack="physics" func="2L+2R-STR">首。物理攻撃が凄く痛い。</enemy>
+<enemy id="m19" name="鈴木土下座ェ門" element="spirit"
+  attack="physics" func="3L+3R-STR">ビ○ルダーに似ているが、きっと別もの</enemy>
 
-<enemy id="m21" name="三下オークA" element="地"
-  attack="物理" func="L-STR">見るからに雑魚。</enemy>
-<enemy id="m22" name="三下オークB" element="地"
-  attack="物理" func="R-INT">雑魚のそのまた手下。</enemy>
+<enemy id="m21" name="三下オークA" element="earth"
+  attack="physics" func="L-STR">見るからに雑魚。</enemy>
+<enemy id="m22" name="三下オークB" element="earth"
+  attack="physics" func="R-INT">雑魚のそのまた手下。</enemy>
 
-<enemy id="m23" name="バットA" element="風"
-  attack="物理" func="L-STR">蝙蝠。鬱陶しい。</enemy>
-<enemy id="m24" name="バットB" element="風"
-  attack="魔法" func="L-INT">蝙蝠。超音波も使う。</enemy>
-<enemy id="m25" name="バットC" element="風"
-  attack="物理" func="R-STR+2">蝙蝠。たまに強いのも。</enemy>
-<enemy id="m26" name="バットD" element="風"
-  attack="魔法" func="R-INT+2">蝙蝠。一寸強い超音波。</enemy>
-<enemy id="m27" name="バットE" element="風"
-  attack="毒" func="L+R>7">蝙蝠。たまに毒も。</enemy>
-<enemy id="m28" name="バットF" element="風"
-  attack="物理" func="L-STR+4">蝙蝠。結構強い。</enemy>
+<enemy id="m23" name="バットA" element="wind"
+  attack="physics" func="L-STR">蝙蝠。鬱陶しい。</enemy>
+<enemy id="m24" name="バットB" element="wind"
+  attack="magic" func="L-INT">蝙蝠。超音波も使う。</enemy>
+<enemy id="m25" name="バットC" element="wind"
+  attack="physics" func="R-STR+2">蝙蝠。たまに強いのも。</enemy>
+<enemy id="m26" name="バットD" element="wind"
+  attack="magic" func="R-INT+2">蝙蝠。一寸強い超音波。</enemy>
+<enemy id="m27" name="バットE" element="wind"
+  attack="poison" func="L+R>7">蝙蝠。たまに毒も。</enemy>
+<enemy id="m28" name="バットF" element="wind"
+  attack="physics" func="L-STR+4">蝙蝠。結構強い。</enemy>
 
-<enemy id="m31" name="強酸" element="水"
-  attack="物理" func="L+R-KRM+2">酸の池。なんでも溶かすぞ！</enemy>
+<enemy id="m31" name="強酸" element="water"
+  attack="physics" func="L+R-KRM+2">酸の池。なんでも溶かすぞ！</enemy>
 
-<enemy id="m32" name="ボガードA" element="地"
-  attack="物理" func="L+R-STR">毛むくじゃら。独りだと弱気。</enemy>
-<enemy id="m33" name="ボガードB" element="地"
-  attack="魔法" func="L+R-INT">集団では強気。相手をビビらせる！</enemy>
-<enemy id="m34" name="ボガードC" element="地"
-  attack="物理" func="L+R-STR+2">調子に乗らせると、一寸強い！</enemy>
+<enemy id="m32" name="ボガードA" element="earth"
+  attack="physics" func="L+R-STR">毛むくじゃら。独りだと弱気。</enemy>
+<enemy id="m33" name="ボガードB" element="earth"
+  attack="magic" func="L+R-INT">集団では強気。相手をビビらせる！</enemy>
+<enemy id="m34" name="ボガードC" element="earth"
+  attack="physics" func="L+R-STR+2">調子に乗らせると、一寸強い！</enemy>
 
-<enemy id="m35" name="スケルトン" element="霊"
-  attack="物理" func="L+R-STR+1">骨身を削って戦います。</enemy>
+<enemy id="m35" name="スケルトン" element="spirit"
+  attack="physics" func="L+R-STR+1">骨身を削って戦います。</enemy>
 
-<enemy id="m36" name="ペリュトン" element="風"
-  attack="物理" func="L+R-STR+2">なぜか岩を運んでいる勤勉な怪鳥。</enemy>
-<enemy id="m37" name="ペリュトン" element="風"
-  attack="物理" func="2L+R-STR">なぜか岩を運んでいる勤勉な怪鳥。</enemy>
-<enemy id="m38" name="ペリュトン" element="風"
-  attack="物理" func="L+R-STR">なぜか岩を運んでいる勤勉な怪鳥。</enemy>
+<enemy id="m36" name="ペリュトン" element="wind"
+  attack="physics" func="L+R-STR+2">なぜか岩を運んでいる勤勉な怪鳥。</enemy>
+<enemy id="m37" name="ペリュトン" element="wind"
+  attack="physics" func="2L+R-STR">なぜか岩を運んでいる勤勉な怪鳥。</enemy>
+<enemy id="m38" name="ペリュトン" element="wind"
+  attack="physics" func="L+R-STR">なぜか岩を運んでいる勤勉な怪鳥。</enemy>
 
-<enemy id="m40" name="凍ったマッドマン" element="水"
-  attack="物理" func="L+R-STR">泥のような形をした人間、もとい（ry</enemy>
-<enemy id="m41" name="狂ったマッドマン" element="水"
-  attack="物理" func="2L+R-STR">目標を見失って怒り狂った泥人形。</enemy>
-<enemy id="m42" name="マッドマン" element="水"
-  attack="物理" func="L+R-STR+1">泥のような形をした人間、もとい（ry</enemy>
-<enemy id="m43" name="激・マッドマン" element="水"
-  attack="物理" func="2L+2R-STR">猛攻する泥人形。とにかく激しい！</enemy>
+<enemy id="m40" name="凍ったマッドマン" element="water"
+  attack="physics" func="L+R-STR">泥のような形をした人間、もとい（ry</enemy>
+<enemy id="m41" name="狂ったマッドマン" element="water"
+  attack="physics" func="2L+R-STR">目標を見失って怒り狂った泥人形。</enemy>
+<enemy id="m42" name="マッドマン" element="water"
+  attack="physics" func="L+R-STR+1">泥のような形をした人間、もとい（ry</enemy>
+<enemy id="m43" name="激・マッドマン" element="water"
+  attack="physics" func="2L+2R-STR">猛攻する泥人形。とにかく激しい！</enemy>
 
-<enemy id="m45" name="オークの岩" element="火"
-  attack="物理" func="L+R-STR+1">オークが落とす岩。硬い！大きい！</enemy>
+<enemy id="m45" name="オークの岩" element="fire"
+  attack="physics" func="L+R-STR+1">オークが落とす岩。硬い！大きい！</enemy>
 
-<enemy id="m47" name="1～3のスライム" element="水"
-  attack="物理" func="L+R-STR+1">水滴状の愛い奴、ではない</enemy>
-<enemy id="m48" name="ゼロ目のスライム" element="水"
-  attack="物理" func="L+R-STR+4">うまる～ん♪</enemy>
-<enemy id="m49" name="1～2のスライム" element="水"
-  attack="物理" func="L+R-STR+1">水滴状の愛い奴、ではない</enemy>
+<enemy id="m47" name="1～3のスライム" element="water"
+  attack="physics" func="L+R-STR+1">水滴状の愛い奴、ではない</enemy>
+<enemy id="m48" name="ゼロ目のスライム" element="water"
+  attack="physics" func="L+R-STR+4">うまる～ん♪</enemy>
+<enemy id="m49" name="1～2のスライム" element="water"
+  attack="physics" func="L+R-STR+1">水滴状の愛い奴、ではない</enemy>
 
-<enemy id="m50" name="豚・ダークストーカー" element="霊"
-  attack="物理" func="L-STR+2">魔導士風の豚。結局はオークだ。</enemy>
-<enemy id="m51" name="豚・ダークストーカーA" element="霊"
-  attack="物理" func="L+R-STR">上級の豚。それなりに強い。</enemy>
-<enemy id="m52" name="豚・ダークストーカーB" element="火"
-  attack="魔法" func="L+R-INT">魔法も使える豚。</enemy>
-<enemy id="m53" name="豚・ダークストーカーC" element="水"
-  attack="魔法" func="2L-INT">通称・オークストーカー</enemy>
+<enemy id="m50" name="豚・ダークストーカー" element="spirit"
+  attack="physics" func="L-STR+2">魔導士風の豚。結局はオークだ。</enemy>
+<enemy id="m51" name="豚・ダークストーカーA" element="spirit"
+  attack="physics" func="L+R-STR">上級の豚。それなりに強い。</enemy>
+<enemy id="m52" name="豚・ダークストーカーB" element="fire"
+  attack="magic" func="L+R-INT">魔法も使える豚。</enemy>
+<enemy id="m53" name="豚・ダークストーカーC" element="water"
+  attack="magic" func="2L-INT">通称・オークストーカー</enemy>
 
-<enemy id="m55" name="ゴブリン" element="地"
-  attack="物理" func="L+R-STR+4">小柄の鬼。鋭い槍が痛い。</enemy>
-<enemy id="m56" name="ストローパー" element="霊"
-  attack="魔法" func="L+R-INT+2">見た目はただの円柱岩。中身は……</enemy>
-<enemy id="m57" name="ルー" element="火"
-  attack="魔法" func="2L+R-INT">無害な生き物だ。いぢめてはいけない。</enemy>
-<enemy id="m58" name="ケマゾツ" element="霊"
-  attack="物理" func="L+R-STR+2">異次元モグラ。叩けば消える。</enemy>
-<enemy id="m59" name="豚・バーサーカー" element="火"
-  attack="物理" func="L+R-STR+2">狂戦士。最強の豚だ！</enemy>
+<enemy id="m55" name="ゴブリン" element="earth"
+  attack="physics" func="L+R-STR+4">小柄の鬼。鋭い槍が痛い。</enemy>
+<enemy id="m56" name="ストローパー" element="spirit"
+  attack="magic" func="L+R-INT+2">見た目はただの円柱岩。中身は……</enemy>
+<enemy id="m57" name="ルー" element="fire"
+  attack="magic" func="2L+R-INT">無害な生き物だ。いぢめてはいけない。</enemy>
+<enemy id="m58" name="ケマゾツ" element="spirit"
+  attack="physics" func="L+R-STR+2">異次元モグラ。叩けば消える。</enemy>
+<enemy id="m59" name="豚・バーサーカー" element="fire"
+  attack="physics" func="L+R-STR+2">狂戦士。最強の豚だ！</enemy>
 
-<enemy id="m65" name="耐え難い悪臭" element="風"
-  attack="物理" func="2R-STR+2">左のダイスが1～3の場合。</enemy>
-<enemy id="m66" name="結構厳しい悪臭" element="風"
-  attack="魔法" func="2R-INT+2">左のダイスが4～6の場合。</enemy>
-<enemy id="m67" name="吐き気のこみ上げる臭い" element="風"
-  attack="魔法" func="2L-INT+2">右のダイスが1～3の場合。</enemy>
-<enemy id="m68" name="鼻を突く激臭" element="風"
-  attack="物理" func="2L-STR+2">右のダイスが4～6の場合。</enemy>
+<enemy id="m65" name="耐え難い悪臭" element="wind"
+  attack="physics" func="2R-STR+2">左のダイスが1～3の場合。</enemy>
+<enemy id="m66" name="結構厳しい悪臭" element="wind"
+  attack="magic" func="2R-INT+2">左のダイスが4～6の場合。</enemy>
+<enemy id="m67" name="吐き気のこみ上げる臭い" element="wind"
+  attack="magic" func="2L-INT+2">右のダイスが1～3の場合。</enemy>
+<enemy id="m68" name="鼻を突く激臭" element="wind"
+  attack="physics" func="2L-STR+2">右のダイスが4～6の場合。</enemy>
 
-<enemy id="m71" name="ニードル" element="地"
-  attack="物理" func="L+R-STR+3">飛び出た仕掛け針でめった刺し！</enemy>
-<enemy id="m72" name="毒ガス" element="風"
-  attack="毒" func="DEX>L+R">猛毒プシュー</enemy>
-<enemy id="m73" name="テレポーター" element="霊"
-  attack="忘却" func="DEX>L+R">記憶を一時的にテレポート！</enemy>
-<enemy id="m74" name="ミミック" element="地"
-  attack="物理" func="2L-STR+2">宝箱がパクリ。</enemy>
-<enemy id="m75" name="悪魔の目玉" element="霊"
-  attack="石化" func="KRM>L+R">魔力の籠ったひと睨みで…</enemy>
-<enemy id="m76" name="リッチの手" element="霊"
-  attack="魔法" func="L+R-INT+2">悪霊の手。恐怖で震えあがる。</enemy>
+<enemy id="m71" name="ニードル" element="earth"
+  attack="physics" func="L+R-STR+3">飛び出た仕掛け針でめった刺し！</enemy>
+<enemy id="m72" name="毒ガス" element="wind"
+  attack="poison" func="DEX>L+R">猛毒プシュー</enemy>
+<enemy id="m73" name="テレポーター" element="spirit"
+  attack="forget" func="DEX>L+R">記憶を一時的にテレポート！</enemy>
+<enemy id="m74" name="ミミック" element="earth"
+  attack="physics" func="2L-STR+2">宝箱がパクリ。</enemy>
+<enemy id="m75" name="悪魔の目玉" element="spirit"
+  attack="stone" func="KRM>L+R">魔力の籠ったひと睨みで…</enemy>
+<enemy id="m76" name="リッチの手" element="spirit"
+  attack="magic" func="L+R-INT+2">悪霊の手。恐怖で震えあがる。</enemy>
 </enemies>
 
 <!--実績トロフィー-->
