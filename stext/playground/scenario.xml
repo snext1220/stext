@@ -2,6 +2,7 @@
 <scenario
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd" title="動作確認シナリオ" author="Rio">
 	<init>
+		<meta description="皆に役立つプレイグラウンド" />
 		<constraint race="FIGHTER,WIZARD" sex="FEMALE" age="YOUNG,ADULT"></constraint>
 		<bgm main="@field05" happy="@field04" bad="@town01"></bgm>
 	</init>
@@ -87,7 +88,7 @@ ${/if}
 - free1、2をそれぞれ+7、-2
 - 実績r01を設定
 
-
+${tweet}ツイートボタンに反映されるテキスト${/tweet}
 
 [HEAL有効](4 "mHEAL")
 [HEAL無効](29 "-mHEAL")

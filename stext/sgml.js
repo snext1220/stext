@@ -54,6 +54,9 @@
   // 利用するストレージ
   var storage = localStorage;
 
+  // シーン単位のツイートメッセージ
+  var tweet_message;
+
   // 基本データ
   var Common = {
     // 男性の名前
@@ -896,6 +899,7 @@
     initScenario: function() {
       Util.initSavedata();
       Util.initDialog();
+      Util.createCommonTweet();
 
       // 最初のシーンを取得
       Util.createScene(0);
@@ -1313,6 +1317,7 @@
       }
     },
 
+    // ${if}による分岐制御
     ifCondition: function(match, cond, body) {
       if(save_data.flags.indexOf(cond) !== -1 ||
          save_data.items.indexOf(cond) !== -1) {
@@ -1321,7 +1326,48 @@
         return '';
       }
     },
-   
+
+    // Tweetボタンの生成
+    parseTweet: function(match, body) {
+      tweet_message = body;
+      return body;
+    },
+
+    // ツイートボタンを生成
+    // 引数type：標準（common）、シーン固有（custom）
+    // 引数msg：ツイート本文
+    // 引数cache：作成済みのツイートボタンを利用
+    createTweet: function(type, msg, cache) {
+      if (!msg) {
+        msg = '原作30周年記念企画「SORCERIAN Text」ユーザー参加型のゲームブック版ソーサリアン';
+      }
+      if (type === 'custom') {
+        var show = $('.socialbtn.twitter_custom');
+        var hide = $('.socialbtn.twitter');
+      } else {
+        var show = $('.socialbtn.twitter');
+        var hide = $('.socialbtn.twitter_custom');
+      }
+      if (!cache) {
+        show.empty();
+        show.append(
+          $('<a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-lang="ja" data-url="https://www.web-deli.com/sorcerian/next/stext.aspx" data-via="snext1220" data-related="snext1220" data-hashtags="falcom,snext">Tweet</a>').attr('data-text', msg)
+        ).append(
+          '<script src="https://platform.twitter.com/widgets.js" charset="UTF-8"></script>'
+        );
+      }
+      show.show();
+      hide.hide();
+    },
+
+    // シナリオ共通ツイートを生成
+    createCommonTweet: function() {
+      Util.createTweet('common',
+        $('init > meta', scenario_data).attr('description')
+      );
+    },
+
+    // 敵／罠リストの整形
     createEnemyList: function(at_enemies) {
       if(at_enemies) {
         var e_table = 
@@ -1364,6 +1410,9 @@
     // 引数options：オプション（reverse：戻るか、conditions：条件式）
     createScene: function(scene_num, options) {
       if (options === undefined) { options = {}; }
+
+      // ツイートメッセージを初期化
+      tweet_message = null;
 
       // エンディングフラグが立っている場合は、初期化処理を実行
       if(save_data.isEnded) {
@@ -1410,16 +1459,25 @@
       tmp_scene = tmp_scene.replace(/%\/%/gi, '</span>&nbsp;');
       tmp_scene = tmp_scene.replace(/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi,
         '<a href="$&" data-link="auto" target="_blank">$&</a>');
-      // ${text|ruby}の箇所をruby要素で修飾（ルビ）       
+        // ${text|ruby}の箇所をruby要素で修飾（ルビ）
       tmp_scene = tmp_scene.replace(/\${(.+?)\|(.+?)}/gi,
         '<ruby>$1<rp>（</rp><rt>$2</rt><rp>）</rp></ruby>');
       // ${if cond}...${/if}による条件分岐
       tmp_scene = tmp_scene.replace(/\${if[\s]+(.+?)}([\s\S]+?)\${\/if}/gi, this.ifCondition);
+      // ${tweet}...${/tweet}によるTwitter反映
+      tmp_scene = tmp_scene.replace(/\${tweet}([\s\S]+?)\${\/tweet}/gi, this.parseTweet);
       // ${...}の箇所を式の内容に応じて処理
       tmp_scene = tmp_scene.replace(/\${(.+?)}/gi, this.interpolation);
       target.html(tmp_scene);
       //target.text(scene.text());
       target.markdown();
+
+      // ツイートボタンの生成
+      if (tweet_message) {
+        Util.createTweet('custom', tweet_message);
+      } else {
+        Util.createTweet('common', null, true);
+      }
 
       // ヘッダーテキスト／コントロールパネルの生成
       $('<h5 id="scenario_title">' + 
@@ -2026,6 +2084,8 @@
       target.on('click', '#restart #tmp_continue', function(e) {
         Util.initJobs();
         Util.initDialog();
+        Util.createCommonTweet();
+
         // 再開時に経過日数の加算分を減算（廃止）
         // save_data.ellapsed_scene--;
         var num = save_data.scene;
