@@ -18,9 +18,9 @@
 		<flag id="f04">宿屋に泊まった</flag>
 	</flags>
 	<enemies>
-		<enemy id="m01" name="傭兵(長剣＋短剣)" element="地" attack="物理" func="(L+R)×4+R3-STR×2" drop="">落ちぶれて悪事に手を染めた元騎士</enemy>
-		<enemy id="m02" name="黒づくめA" element="水" attack="魔法" func="(L+R)×2-INT" drop="">魔道士が造り出した元人間の合成獣</enemy>
-		<enemy id="m03" name="黒づくめB" element="地" attack="魔法" func="(L+R)×2-INT" drop="">魔道士が造り出した元人間の合成獣</enemy>
+		<enemy id="m01" name="傭兵(長剣＋短剣)" element="earth" attack="physics" func="(L+R)×4+R3-STR×2" drop="">落ちぶれて悪事に手を染めた元騎士</enemy>
+		<enemy id="m02" name="黒づくめA" element="water" attack="magic" func="(L+R)×2-INT" drop="">魔道士が造り出した元人間の合成獣</enemy>
+		<enemy id="m03" name="黒づくめB" element="earth" attack="magic" func="(L+R)×2-INT" drop="">魔道士が造り出した元人間の合成獣</enemy>
 	</enemies>
 	<results>
 		<result id="r01" name="そーさりあん" level="1">リュフーの保護者になった</result>
@@ -62,8 +62,8 @@
 　　勇者よ、正しき心を持つ人の子よ……どうか……』
 
 **冒険の目的**
-　ペンタウァへの帰路で休息していた君は、
-　夢の中で謎の女から何かを頼まれたようだ。
+　${tweet}ペンタウァへの帰路で休息していた君は、
+　夢の中で謎の女から何かを頼まれたようだ。${/tweet}
 　しかし、聞き取れた言葉は断片的だった。
 　女は一体何を望んでいるのだろうか……？
 
