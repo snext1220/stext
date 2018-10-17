@@ -1363,7 +1363,7 @@
     // シナリオ共通ツイートを生成
     createCommonTweet: function() {
       Util.createTweet('common',
-        $('init > meta', scenario_data).attr('description')
+        $('init > intro', scenario_data).attr('description')
       );
     },
 
@@ -2327,13 +2327,20 @@
                   if (pc[2]) { cons.attr('sex',  pc[2]); }
                   if (pc[3]) { cons.attr('age',  pc[3]); }
                   cons.appendTo(inits);
+                // BGMの設定
                 } else if (tmp_para.indexOf('bgm') === 0) {
-                    var bgm = tmp_para.split(':')
-                    var initBgm = $('<bgm></bgm>');
-                    if (bgm[1]) { initBgm.attr('main', bgm[1]); }
-                    if (bgm[2]) { initBgm.attr('happy',bgm[2]); }
-                    if (bgm[3]) { initBgm.attr('bad',  bgm[3]); }
-                    initBgm.appendTo(inits);
+                  var bgm = tmp_para.split(':')
+                  var initBgm = $('<bgm></bgm>');
+                  if (bgm[1]) { initBgm.attr('main', bgm[1]); }
+                  if (bgm[2]) { initBgm.attr('happy',bgm[2]); }
+                  if (bgm[3]) { initBgm.attr('bad',  bgm[3]); }
+                  initBgm.appendTo(inits);
+                // ツイート文の設定
+                } else if (tmp_para.indexOf('intro') === 0) {
+                  var intro = tmp_para.split(':')
+                  var initIntro = $('<intro></intro>');
+                  if (intro[1]) { initIntro.attr('description', intro[1]); }
+                  initIntro.appendTo(inits);
                 // アイテム処理
                 } else if (tmp_para.indexOf('i') === 0) {
                   var item = tmp_para.split(':')
