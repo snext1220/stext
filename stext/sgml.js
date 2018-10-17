@@ -1377,7 +1377,12 @@
           var enemy = enemies_map[enemies[i]];
           var atk = Common.state_names[enemy.attack];
 
-          var row = '<tr class="enemy_row" data-enemy="' + enemies[i] + '"><th>' + enemy.name + '</th><td>';
+          var row = '<tr class="enemy_row" data-enemy="' + enemies[i] + '">';
+          row += '<th>';
+          if (enemies.length > 1) {
+            row += '<input type="checkbox" class="enemy_check" />';
+          }
+          row += enemy.name + '</th><td>';
           if(enemy.element) {
             row += '<img src="' + ROOT + COMMON + 'attr_' + enemy.element + '.png" title="' + Common.element_names[enemy.element] + '" /></a>　';
           }
@@ -1798,6 +1803,11 @@
         //Util.toast('<b>' + enemy.name + '</b><br/>' + enemy.desc);
         toastr.options.timeOut = 5000;
         toastr.info(enemy.desc, enemy.name);
+      });
+
+      // 敵撃破チェックでのイベント抑止
+      target.on('click', 'input.enemy_check', function(e) {
+        e.stopImmediatePropagation();
       });
 
       // ドロップアイテムボタンでステータスを加算
