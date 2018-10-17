@@ -5,6 +5,7 @@
 <!--v1.1 2018/3/17 挿絵追加。-->
 <!--v1.2 2018/4/1 トロフィー追加。-->
 <!--v1.3 2018/10/6 bgm仕様変更に対応。-->
+<!--v1.4 2018/10/18 敵の属性、攻撃種の仕様変更に対応。-->
 <scenario title="鉄腕の吸血姫" author="cocotori">
 <items>
 	<item id="i00" name="小さな鍵">どこかの鍵。翼の飾りがついている。</item>
@@ -14,14 +15,14 @@
 	<flag id="f01">思いとどまった</flag>
 </flags>
 <enemies>
-	<enemy id="m00" name="黒き獣" element="風" attack="物理" func="L - STR">狼のような、尖った鼻をもつ獣</enemy>
-	<enemy id="m01" name="吸血鬼" element="霊" attack="物理" func="L + R - STR">妖艶な女性の吸血鬼</enemy>
-	<enemy id="m02" name="上段攻撃" element="火" attack="物理" func="3 × (L + R) - STR">上から叩きつける</enemy>
-	<enemy id="m03" name="回し蹴り" element="地" attack="物理" func="3 x (L + R) - STR">反動をつけた強烈な蹴り</enemy>
-	<enemy id="m04" name="攻撃" element="地" attack="物理" func="3 x (L + R) - STR">鋭い刺突攻撃</enemy>
-	<enemy id="m05" name="光の槍" element="火" attack="魔法" func="5 x (L + R) - INT">赤く輝く灼熱の槍</enemy>
-	<enemy id="m06" name="拳の打ち合い" element="地" attack="物理" func="3 × (L + R) - 3 × STR">ぶつかり合う拳同士</enemy>
-	<enemy id="m07" name="白木の杭" element="風" attack="物理" func="5 × L - 2 × STR">吸血鬼退治アイテム</enemy>
+	<enemy id="m00" name="黒き獣" element="wind" attack="physics" func="L - STR">狼のような、尖った鼻をもつ獣</enemy>
+	<enemy id="m01" name="吸血鬼" element="spirit" attack="physics" func="L + R - STR">妖艶な女性の吸血鬼</enemy>
+	<enemy id="m02" name="上段攻撃" element="fire" attack="physics" func="3 × (L + R) - STR">上から叩きつける</enemy>
+	<enemy id="m03" name="回し蹴り" element="earth" attack="physics" func="3 x (L + R) - STR">反動をつけた強烈な蹴り</enemy>
+	<enemy id="m04" name="攻撃" element="earth" attack="physics" func="3 x (L + R) - STR">鋭い刺突攻撃</enemy>
+	<enemy id="m05" name="光の槍" element="fire" attack="magic" func="5 x (L + R) - INT">赤く輝く灼熱の槍</enemy>
+	<enemy id="m06" name="拳の打ち合い" element="earth" attack="physics" func="3 × (L + R) - 3 × STR">ぶつかり合う拳同士</enemy>
+	<enemy id="m07" name="白木の杭" element="wind" attack="physics" func="5 × L - 2 × STR">吸血鬼退治アイテム</enemy>
 </enemies>
 
 <licence>
