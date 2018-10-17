@@ -339,9 +339,17 @@ table.item_list img {
   cursor: pointer;
 }
 
+.enemy_row img {
+  vertical-align: middle;
+}
+
 .enemy_drop {
   border: outset 2px #000; 
   background-color: #990000;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  padding-top: 2px;
+  padding-bottom: 2px;
   color: #fff;
   cursor: pointer;
   text-align: center;
