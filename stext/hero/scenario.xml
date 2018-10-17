@@ -43,20 +43,20 @@
 
 <!--モンスター情報-->
 <enemies>
-  <enemy id="m1" name="騎士の石像" element="地"
-  attack="物理" func="---">剣で攻撃してくるが動きは鈍い</enemy>
-  <enemy id="m2" name="白い鳥" element="風"
-  attack="物理" func="---">群れで飛んできて突いてくる</enemy>
-  <enemy id="m3" name="狩人" element="地"
-  attack="物理" func="---">遠距離は弓・近距離は短剣で攻撃</enemy>
-  <enemy id="m4" name="皇帝の人形" element="地"
-  attack="魔法" func="---">剣から太陽光線を放ってくる</enemy>
-  <enemy id="m5" name="皇女の人形" element="地"
-  attack="魔法" func="---">杖から月の魔法を放ってくる</enemy>
-  <enemy id="m6" name="兵士の人形" element="地"
-  attack="魔法" func="---">一気に押し寄せ槍で攻撃してくる</enemy>
-  <enemy id="m7" name="蛇女" element="地"
-  attack="物理呪い" func="---">遠距離と近距離で攻撃が異なる</enemy>
+  <enemy id="m1" name="騎士の石像" element="earth"
+  attack="physics" func="---">剣で攻撃してくるが動きは鈍い</enemy>
+  <enemy id="m2" name="白い鳥" element="wind"
+  attack="physics" func="---">群れで飛んできて突いてくる</enemy>
+  <enemy id="m3" name="狩人" element="earth"
+  attack="physics" func="---">遠距離は弓・近距離は短剣で攻撃</enemy>
+  <enemy id="m4" name="皇帝の人形" element="earth"
+  attack="magic" func="---">剣から太陽光線を放ってくる</enemy>
+  <enemy id="m5" name="皇女の人形" element="earth"
+  attack="magic" func="---">杖から月の魔法を放ってくる</enemy>
+  <enemy id="m6" name="兵士の人形" element="earth"
+  attack="magic" func="---">一気に押し寄せ槍で攻撃してくる</enemy>
+  <enemy id="m7" name="蛇女" element="earth"
+  attack="curse" func="---">遠距離と近距離で攻撃が異なる</enemy>
 </enemies>
 
 <!--実績トロフィー-->
@@ -135,7 +135,7 @@
 　ふと脳裏に浮かんだ、あの本の冒頭に書かれた一節。
 　私は無意識の内にそれを声に出していた。
 
-　**『これは、貴方が絵本の世界を救うか否かの物語』**
+　**『${tweet}これは、貴方が絵本の世界を救うか否かの物語${/tweet}』**
 
 ------------------------------------------------------------
 **冒険の目的**
