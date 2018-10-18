@@ -339,6 +339,10 @@ table.item_list img {
   cursor: pointer;
 }
 
+.enemy_check {
+  transform: scale(1.3);
+}
+
 .enemy_row img {
   vertical-align: middle;
 }

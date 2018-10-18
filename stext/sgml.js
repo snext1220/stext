@@ -1351,7 +1351,7 @@
       if (!cache) {
         show.empty();
         show.append(
-          $('<a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-lang="ja" data-url="https://www.web-deli.com/sorcerian/next/stext.aspx" data-via="snext1220" data-related="snext1220" data-hashtags="falcom,snext">Tweet</a>').attr('data-text', msg)
+          $('<a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-lang="ja" data-url="https://www.web-deli.com/sorcerian/next/stext.aspx" data-via="snext1220" data-related="snext1220" data-hashtags="falcom,stext">Tweet</a>').attr('data-text', msg)
         ).append(
           '<script src="https://platform.twitter.com/widgets.js" charset="UTF-8"></script>'
         );
@@ -1378,15 +1378,14 @@
           var atk = Common.state_names[enemy.attack];
 
           var row = '<tr class="enemy_row" data-enemy="' + enemies[i] + '">';
-          row += '<th>';
           if (enemies.length > 1) {
-            row += '<input type="checkbox" class="enemy_check" />';
+            row += '<td><input type="checkbox" class="enemy_check" /></td>';
           }
-          row += enemy.name + '</th><td>';
+          row += '<th>';
           if(enemy.element) {
             row += '<img src="' + ROOT + COMMON + 'attr_' + enemy.element + '.png" title="' + Common.element_names[enemy.element] + '" /></a>　';
           }
-          row += '</td><td>';
+          row += enemy.name + '</th><td>';
           if (atk) {
             row += '<img src="' + ROOT + COMMON + 'atk_' + enemy.attack + '.png" title="' + Common.state_names[enemy.attack] + '" /></a>　';
           } else {
