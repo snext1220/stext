@@ -4,7 +4,7 @@
 	<init>
 		<constraint race="FIGHTER,WIZARD" sex="FEMALE" age="YOUNG,ADULT"></constraint>
 		<bgm main="@field05" happy="@field04" bad="@town01"></bgm>
-		<intro description="皆に役立つプレイグラウンド" />
+		<intro description="プレイグラウンドで動作を手軽に確認しよう！"></intro>
 	</init>
 	<items>
 		<item id="i01" name="こいし">何の変哲もない、石だ</item>
@@ -22,8 +22,8 @@
 	<enemies>
 		<enemy id="m01" name="人面岩" element="earth" attack="physics" func="L-STR" drop="tue/3">喋るだけで、硬い岩だ。</enemy>
 		<enemy id="m02" name="人面岩の口" element="spirit" attack="magic" func="R-INT" drop="free1/50/50Gold">喋る口だ。牙はない。</enemy>
-		<enemy id="m03" name="投げた石" element="earth" attack="physics" func="L+R-STR" drop="sat/1">君が投げた石だ。</enemy>
-		<enemy id="m04" name="一寸怒ったラット" element="earth" attack="物理" func="L-STR" drop="">ガジガジたち。一見、可愛い。</enemy>
+		<enemy id="m03" name="投げた石" element="wind" attack="physics" func="L+R-STR" drop="sat/1">君が投げた石だ。</enemy>
+		<enemy id="m04" name="一寸怒ったラット" element="fire" attack="物理" func="L-STR" drop="">ガジガジたち。一見、可愛い。</enemy>
 	</enemies>
 	<results>
 		<result id="r01" name="冒険のはじまり" level="1">冒険を開始した</result>
@@ -44,6 +44,7 @@
 
 文章です。
 **強調**です。
+~~打ち消し~~です。
 
 ${if f04}
 フラグf04を持っている時だけ表示されます。
@@ -62,7 +63,7 @@ ${/if}
 
 - このシナリオは、種族はFIGHTER,WIZARD、性別はFEMALE、年齢はYOUNG,ADULT限定です。
 - 初期状態で各星を1,2,3,4,5,6,7加算します。
-- free1を+10、free2を-5します。
+- free1を+10、free2を-5、free3を+1します。
 - 隠しフラグf05を追加します。
 
 ```
@@ -74,6 +75,10 @@ ${/if}
 [別ファイルへのリンク](3)
 [複合条件の検証](50)
 [キャラ条件の検証](16)
+[星の総数49以上](2 "s49")
+[星の総数49未満](2 "-s49")
+[星が1:2:3:4:5:6:8以上](2 "s1:2:3:4:5:6:8")
+[星が1:2:3:4:5:6:8未満](2 "-s1:2:3:4:5:6:8")
 [500,600,700](X)
 </scene>
 	<scene id="2" items="i01,i02,i03" flags="f01,f02,-f02,-f05" enemies="m01,m02,m03,m04" stars="-5,-5,-5,-5,-5,-5,-5" free1="7" free2="-2" bgm="" result="r01">
@@ -88,7 +93,7 @@ ${/if}
 - free1、2をそれぞれ+7、-2
 - 実績r01を設定
 
-${tweet}ツイートボタンに反映されるテキスト${/tweet}
+
 
 [HEAL有効](4 "mHEAL")
 [HEAL無効](29 "-mHEAL")
@@ -98,6 +103,7 @@ ${tweet}ツイートボタンに反映されるテキスト${/tweet}
 [次ページでフラグ／アイテム確認](6)
 [エンディング（Happy）](7)
 [エンディング（Bad）](8)
+[エンディング（bgm変更）](33)
 [ペンタウァ,42,43](Q)
 </scene>
 	<scene id="4">
@@ -254,6 +260,11 @@ HEAL実行
 	<scene id="30"></scene>
 	<scene id="31"></scene>
 	<scene id="32"></scene>
+	<scene id="33" bgm="@end03" end="bad">
+
+エンディング（bgmを@end03）
+
+</scene>
 	<scene id="41"></scene>
 	<scene id="42">
 正解！
@@ -342,6 +353,8 @@ HEAL実行
 - 乱数：${rand?1:20}
 - ランダムメッセージ:${msg?こんにちは:おはよう:こんばんは}
 - ルビ：私はペンタウァの${ソーサリアン|ゆうしゃ}、${銀狼|シルバーウルフ}です。
+- オリジナルのツイート：${tweet}分岐に成功したらバンザイ！${/tweet}
+
 
 
 </scene>

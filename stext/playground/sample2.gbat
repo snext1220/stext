@@ -21,7 +21,9 @@
 				<p order="12">- 乱数：${rand?1:20}</p>
 				<p order="13">- ランダムメッセージ:${msg?こんにちは:おはよう:こんばんは}</p>
 				<p order="14">- ルビ：私はペンタウァの${ソーサリアン|ゆうしゃ}、${銀狼|シルバーウルフ}です。</p>
-				<p order="15"/>
+				<p order="15">- オリジナルのツイート：${tweet}分岐に成功したらバンザイ！${/tweet}</p>
+				<p order="16"/>
+				<p order="17"/>
 			</text>
 			<backgroundcolour>#ffffff</backgroundcolour>
 			<choices/>
