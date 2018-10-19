@@ -14,7 +14,7 @@ People called this plugin.....**Sorcerian Text**.
 
 ## Example
 
-```
+```javascript
 $(function() {
   // Run Scenario（Production Mode）
   $('#main').startGame('scepter');
