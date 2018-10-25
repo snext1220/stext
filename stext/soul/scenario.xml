@@ -3,6 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd" title="魂の選択" author="ときのじ">
 	<init>
 		<bgm main="soul-main01" happy="soul-happy" bad="soul-bad"></bgm>
+　　　　<intro description="【魂の選択】ペンタウァへの帰路で休息していた君は、夢の中で謎の女から何かを頼まれたようだ。"></intro>
 	</init>
 	<items>
 		<item id="i01" name="緑石の首飾り">【所持者リュフー】武具の端材と清められた石で作ったお守り</item>
@@ -62,8 +63,8 @@
 　　勇者よ、正しき心を持つ人の子よ……どうか……』
 
 **冒険の目的**
-　${tweet}ペンタウァへの帰路で休息していた君は、
-　夢の中で謎の女から何かを頼まれたようだ。${/tweet}
+　ペンタウァへの帰路で休息していた君は、
+　夢の中で謎の女から何かを頼まれたようだ。
 　しかし、聞き取れた言葉は断片的だった。
 　女は一体何を望んでいるのだろうか……？
 
