@@ -3,6 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd" title="STextシナリオ開発道場" author="ときのじ">
 	<init>
 		<bgm main="@end01"></bgm>
+　　　　<intro description="【STextシナリオ開発道場】君はソーサリアンTextのシナリオを書こうと思っているソーサリアンの一人だ。"></intro>
 	</init>
 	<items></items>
 	<flags>
@@ -45,8 +46,8 @@
 
 
 
-　${tweet}君はソーサリアンTextのシナリオを書こうと思っている
-ソーサリアンの一人だ。${/tweet}
+　君はソーサリアンTextのシナリオを書こうと思っている
+ソーサリアンの一人だ。
 　しかし、シナリオを書く方法は一つではなく、それ故に君は、
 どのようにシナリオを作ればいいのか迷っていることだろう。
 
