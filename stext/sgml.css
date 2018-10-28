@@ -347,9 +347,22 @@ table.item_list img {
   vertical-align: middle;
 }
 
+.enemy_func {
+  border: outset 2px #000; 
+  background-color: #000066;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  width: 85px;
+}
+
 .enemy_drop {
   border: outset 2px #000; 
-  background-color: #990000;
+  background-color: #dc143c;
   margin-top: 2px;
   margin-bottom: 2px;
   padding-top: 2px;

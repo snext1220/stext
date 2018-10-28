@@ -54,6 +54,9 @@
   // 利用するストレージ
   var storage = localStorage;
 
+  // ダイスの現在値
+  var dice = [ 1, 1 ];
+
   // シーン単位のツイートメッセージ
   var tweet_message;
 
@@ -806,8 +809,9 @@
       if (num === undefined) { num = 1; }
       var html = '';
       for (var i = 0; i < num; i++) {
-        html += '<img src="' + ROOT + COMMON +'cube' + this.random(1, 6)
-          + '.png" class="dice" />';
+        // ダイスの値を保管
+        dice[i] = this.random(1, 6);
+        html += '<img src="' + ROOT + COMMON +'cube' + dice[i] + '.png" class="dice" />';
       }
       return html;
     },
@@ -1428,7 +1432,9 @@
           }
           row += '</td><td>';
           if(enemy.func) {
-            row += Util.selectFunc(enemy.func);
+            var tmp_func = Util.selectFunc(enemy.func);
+            row += '<input type="button" class="enemy_func" value="' + tmp_func + '" data-enemy="' + enemies[i] + '"/>';
+            //row += Util.selectFunc(enemy.func);
           }
           row += '</td><td>'
           var tmp_d = Util.dropItem(enemy); 
@@ -1843,6 +1849,87 @@
       // 敵撃破チェックでのイベント抑止
       target.on('click', 'input.enemy_check', function(e) {
         e.stopImmediatePropagation();
+      });
+
+      // ダメージボタンでステータスを加算
+      target.on('click', 'input.enemy_func', function(e) {
+        e.stopImmediatePropagation();
+        var damage = 0;
+        var func = $(this).val();
+        var enemy = $(this).attr('data-enemy');
+
+        // ダメージ式の解析
+        var func_re = /([\+\-]?)(\d*)(R|L|STR|INT|DEX|KRM|FREE1|FREE2|FREE3)?]?/gi;
+        var result;
+        while ((result = func_re.exec(func)) != null) {
+          var sign = 1; // 符号
+          var num = 1;  // 係数
+          var param = 1;  // パラメーター値
+          if (result[0] === '') { break; }
+          // 符号の決定
+          if (result[1] === '-') {
+            sign = -1;
+          }
+          // 係数の決定
+          if (result[2]) {
+            num = Number(result[1]);
+          }
+          // ステータス値の状態異常補正
+          var tmp_status = {
+            str: Number(save_data.chara.str),
+            int: Number(save_data.chara.int),
+            dex: Number(save_data.chara.dex),
+            krm: Number(save_data.chara.krm)
+          };
+          switch (save_data.chara.state) {
+            case 'frozen':
+              tmp_status.str -= 2; 
+              tmp_status.int -= 2; 
+              tmp_status.dex -= 2; 
+              tmp_status.krm -= 2; 
+              break;
+            case 'stone':
+              tmp_status.str -= 1; 
+              tmp_status.int -= 1; 
+              tmp_status.dex -= 1; 
+              tmp_status.krm -= 1; 
+              break;
+            case 'forget':
+            // 別途整合*************************
+              if (tmp_status.str > tmp_status.int) {
+                tmp_status.str = 0;
+              } else {
+                tmp_status.int = 0;
+              }
+          }
+          // パラメーター値の決定
+          switch (result[3]) {
+            case 'L':
+              param = dice[0];
+              break;
+            case 'R':
+              param = dice[1];
+              break;
+            case 'STR':
+            case 'INT':
+            case 'DEX':
+            case 'KRM':
+              param = tmp_status[result[3].toLowerCase()];
+              break;
+            default:
+              param = save_data.chara[result[3].toLowerCase()];
+              break;
+          }
+          // ダメージを加算
+          damage += sign * num * param;
+          console.log(damage);
+        }
+        // 
+        if (damage < 0) { damage = 0; }
+        
+
+        //console.log(func);
+        console.log(enemy);
       });
 
       // ドロップアイテムボタンでステータスを加算
