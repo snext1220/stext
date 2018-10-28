@@ -1384,6 +1384,8 @@
           row += '<th>';
           if(enemy.element) {
             row += '<img src="' + ROOT + COMMON + 'attr_' + enemy.element + '.png" title="' + Common.element_names[enemy.element] + '" /></a>　';
+          } else {
+            row += '<img src="' + ROOT + COMMON + 'attr_none.png" title="無" /></a>　';
           }
           row += enemy.name + '</th><td>';
           if (atk) {
