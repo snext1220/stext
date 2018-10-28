@@ -720,6 +720,39 @@
       save_data.stars[num] = Number(save_data.stars[num]) + Number(value);
     },
 
+    // @hp（at_hp）、@mp（at_mp）の値に応じて、
+    // セーブデータのhp、mpプロパティを更新
+    updateHpMp: function(at_hp, at_mp) {
+      // hp属性の処理
+      if (at_hp) {
+        // full指定で全快
+        if (at_hp === 'full') {
+          save_data.chara.hp = save_data.chara.hp_m;
+        } else {
+          // 「-5!2」で5∓2の意味
+          var hp = at_hp.split('!');
+          if (hp[1]) {
+            hp[0] = Number(hp[0]) + Util.random(-1 * Number(hp[1]), Number(hp[1]));
+          }
+          save_data.chara.hp = Number(save_data.chara.hp) + Number(hp[0]);
+        }
+      }
+      // mp属性の処理
+      if (at_mp) {
+        // full指定で全快
+        if (at_mp === 'full') {
+          save_data.chara.mp = save_data.chara.mp_m;
+        } else {
+          // 「-5!2」で5∓2の意味
+          var mp = at_mp.split('!');
+          if (mp[1]) {
+            mp[0] = Number(mp[0]) + Util.random(-1 * Number(mp[1]), Number(mp[1]));
+          }
+          save_data.chara.mp = Number(save_data.chara.mp) + Number(mp[0]);
+        }
+      }
+    },
+
     // @free1（at_free1）, @free2（at_free2）, @free3（at_free3）の値に応じて、
     // セーブデータのfree1、free2、free3プロパティを更新
     updateFrees: function(at_free1, at_free2, at_free3) {
@@ -1445,6 +1478,7 @@
         Util.updateFlags(scene.attr('flags'));
         Util.updateStates();
         Util.updateStars(scene.attr('stars'));
+        Util.updateHpMp(scene.attr('hp'), scene.attr('mp'));
         Util.updateFrees(scene.attr('free1'), scene.attr('free2'), scene.attr('free3'));
         Util.updateResults(scene.attr('result'));
 

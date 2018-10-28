@@ -81,7 +81,7 @@ ${/if}
 [星が1:2:3:4:5:6:8未満](2 "-s1:2:3:4:5:6:8")
 [500,600,700](X)
 </scene>
-	<scene id="2" items="i01,i02,i03" flags="f01,f02,-f02,-f05" enemies="m01,m02,m03,m04" stars="-5,-5,-5,-5,-5,-5,-5" free1="7" free2="-2" bgm="" result="r01">
+	<scene id="2" items="i01,i02,i03" hp="full" mp="-4!2" flags="f01,f02,-f02,-f05" enemies="m01,m02,m03,m04" stars="-5,-5,-5,-5,-5,-5,-5" free1="7" free2="-2" bgm="" result="r01">
 
 - 魔法ボタンの確認（HEAL、LIGHT-CROSS）
 - ステータスボタンの確認（STR&lt;5、HP&gt;50）
