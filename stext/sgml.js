@@ -1410,6 +1410,11 @@
         var e_table = 
           $('<table class="enemy">');
         var enemies = at_enemies.split(',');
+        e_table.append('<tr class="enemy_title">' +
+          '<th></th><th>名前／属性</th><th>攻撃</th>' +
+          '<th>ダメージ</th><th>ドロップ</th>' +
+        '</tr>');
+
         for (var i = 0; i < enemies.length; i++) {
           var enemy = enemies_map[enemies[i]];
           var atk = Common.state_names[enemy.attack];
@@ -1926,7 +1931,7 @@
         }
         // 
         if (damage < 0) { damage = 0; }
-        
+
 
         //console.log(func);
         console.log(enemy);

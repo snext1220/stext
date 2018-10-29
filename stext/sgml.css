@@ -68,6 +68,10 @@ table.enemy {
   margin-bottom: 30px;
 }
 
+table.enemy .enemy_title {
+  font-size: small;
+}
+
 table.enemy,
 table.enemy th,
 table.enemy td {
@@ -361,7 +365,7 @@ table.item_list img {
 }
 
 .enemy_drop {
-  border: outset 2px #000; 
+  border: outset 2px #f90; 
   background-color: #dc143c;
   margin-top: 2px;
   margin-bottom: 2px;
