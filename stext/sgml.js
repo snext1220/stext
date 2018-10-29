@@ -1412,6 +1412,8 @@
         var enemies = at_enemies.split(',');
         e_table.append('<tr class="enemy_title">' +
           (enemies.length > 1 ? '<th></th>' : '') +
+          //'<th>Name/Element</th><th>Attack</th>' +
+          //'<th>Damage</th><th>Drop</th>' +
           '<th>名前／属性</th><th>攻撃</th>' +
           '<th>ダメージ</th><th>戦利品</th>' +
         '</tr>');
