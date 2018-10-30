@@ -1937,8 +1937,13 @@
               case 'KRM':
                 param = tmp_status[result[3].toLowerCase()];
                 break;
-              default:
+              case 'FREE1':
+              case 'FREE2':
+              case 'FREE3':
                 param = save_data.chara[result[3].toLowerCase()];
+                break;
+              default:
+                param = 1;
                 break;
             }
             // ダメージを加算
