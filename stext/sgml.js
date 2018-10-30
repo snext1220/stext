@@ -1412,10 +1412,9 @@
         var enemies = at_enemies.split(',');
         e_table.append('<tr class="enemy_title">' +
           (enemies.length > 1 ? '<th></th>' : '') +
-          //'<th>Name/Element</th><th>Attack</th>' +
-          //'<th>Damage</th><th>Drop</th>' +
           '<th>名前／属性</th><th>攻撃</th>' +
-          '<th>ダメージ</th><th>戦利品</th>' +
+          '<th title="現在のダイス値に従って、ダメージを反映させます。ただし、状態異常は反映するのみで判定は手動です。">ダメージ</th>' +
+          '<th title="記載されたドロップアイテムをステータスに反映させます。">戦利品</th>' +
         '</tr>');
 
         for (var i = 0; i < enemies.length; i++) {
@@ -1440,8 +1439,12 @@
           }
           row += '</td><td>';
           if(enemy.func) {
-            var tmp_func = Util.selectFunc(enemy.func);
-            row += '<input type="button" class="enemy_func" value="' + tmp_func + '" data-enemy="' + enemies[i] + '"/>';
+            if (enemy.func.indexOf('*') === 0) {
+              row += Util.selectFunc(enemy.func.substring(1));
+            } else {
+              var tmp_func = Util.selectFunc(enemy.func);
+              row += '<input type="button" class="enemy_func" value="' + tmp_func + '" data-attack="' + enemy.attack + '"/>';
+            }
             //row += Util.selectFunc(enemy.func);
           }
           row += '</td><td>'
@@ -1864,80 +1867,103 @@
         e.stopImmediatePropagation();
         var damage = 0;
         var func = $(this).val();
-        var enemy = $(this).attr('data-enemy');
+        var attack = $(this).attr('data-attack');
 
-        // ダメージ式の解析
-        var func_re = /([\+\-]?)(\d*)(R|L|STR|INT|DEX|KRM|FREE1|FREE2|FREE3)?]?/gi;
-        var result;
-        while ((result = func_re.exec(func)) != null) {
-          var sign = 1; // 符号
-          var num = 1;  // 係数
-          var param = 1;  // パラメーター値
-          if (result[0] === '') { break; }
-          // 符号の決定
-          if (result[1] === '-') {
-            sign = -1;
+        // 状態異常の場合は記録
+        if ([ 'poison', 'frozen', 'stone', 'curse', 'forget' ].indexOf(attack) !== -1) {
+          save_data.chara.state = attack;
+          toastr.options.timeOut = 5000;
+          toastr.warning(
+            '「' + Common.state_names[attack] + '」を受けた！',
+            '状態異常'
+          );
+        } else {
+          // physics／magicの場合
+          // ダメージ式の解析
+          var func_re = /([\+\-]?)(\d*)(R|L|STR|INT|DEX|KRM|FREE1|FREE2|FREE3)?]?/gi;
+          var result;
+          while ((result = func_re.exec(func)) != null) {
+            var sign = 1; // 符号
+            var num = 1;  // 係数
+            var param = 1;  // パラメーター値
+            if (result[0] === '') { break; }
+            // 符号の決定
+            if (result[1] === '-') {
+              sign = -1;
+            }
+            // 係数の決定
+            if (result[2]) {
+              num = Number(result[1]);
+            }
+            // ステータス値の状態異常補正
+            var tmp_status = {
+              str: Number(save_data.chara.str),
+              int: Number(save_data.chara.int),
+              dex: Number(save_data.chara.dex),
+              krm: Number(save_data.chara.krm)
+            };
+            switch (save_data.chara.state) {
+              case 'frozen':
+                tmp_status.str -= 2; 
+                tmp_status.int -= 2; 
+                tmp_status.dex -= 2; 
+                tmp_status.krm -= 2; 
+                break;
+              case 'stone':
+                tmp_status.str -= 1; 
+                tmp_status.int -= 1; 
+                tmp_status.dex -= 1; 
+                tmp_status.krm -= 1; 
+                break;
+              case 'forget':
+                if (tmp_status.str < tmp_status.int) {
+                  tmp_status.int = 0;
+                } else {
+                  tmp_status.str = 0;
+                }
+                break;
+            }
+            // パラメーター値の決定
+            switch (result[3]) {
+              case 'L':
+                param = dice[0];
+                break;
+              case 'R':
+                param = dice[1];
+                break;
+              case 'STR':
+              case 'INT':
+              case 'DEX':
+              case 'KRM':
+                param = tmp_status[result[3].toLowerCase()];
+                break;
+              default:
+                param = save_data.chara[result[3].toLowerCase()];
+                break;
+            }
+            // ダメージを加算
+            damage += sign * num * param;
+            console.log(damage);
           }
-          // 係数の決定
-          if (result[2]) {
-            num = Number(result[1]);
+          // 負数はゼロに丸め
+          if (damage < 0) { damage = 0; }
+          if (attack === 'physics') {
+            save_data.chara.hp = Number(save_data.chara.hp) - damage;
+            var t_msg = 'HPに' + damage + 'のダメージ！（現在値：' + save_data.chara.hp + '）' ;
+          } else {
+            save_data.chara.mp = Number(save_data.chara.mp) - damage;
+            var t_msg = 'MPに' + damage + 'のダメージ！（現在値：' + save_data.chara.mp + '）' ;
           }
-          // ステータス値の状態異常補正
-          var tmp_status = {
-            str: Number(save_data.chara.str),
-            int: Number(save_data.chara.int),
-            dex: Number(save_data.chara.dex),
-            krm: Number(save_data.chara.krm)
-          };
-          switch (save_data.chara.state) {
-            case 'frozen':
-              tmp_status.str -= 2; 
-              tmp_status.int -= 2; 
-              tmp_status.dex -= 2; 
-              tmp_status.krm -= 2; 
-              break;
-            case 'stone':
-              tmp_status.str -= 1; 
-              tmp_status.int -= 1; 
-              tmp_status.dex -= 1; 
-              tmp_status.krm -= 1; 
-              break;
-            case 'forget':
-            // 別途整合*************************
-              if (tmp_status.str > tmp_status.int) {
-                tmp_status.str = 0;
-              } else {
-                tmp_status.int = 0;
-              }
+          if (damage === 0) {
+            t_msg = '敵からの攻撃を防ぎきった！';
           }
-          // パラメーター値の決定
-          switch (result[3]) {
-            case 'L':
-              param = dice[0];
-              break;
-            case 'R':
-              param = dice[1];
-              break;
-            case 'STR':
-            case 'INT':
-            case 'DEX':
-            case 'KRM':
-              param = tmp_status[result[3].toLowerCase()];
-              break;
-            default:
-              param = save_data.chara[result[3].toLowerCase()];
-              break;
-          }
-          // ダメージを加算
-          damage += sign * num * param;
-          console.log(damage);
+          toastr.options.timeOut = 5000;
+          toastr.warning(t_msg, '被ダメージ');
         }
-        // 
-        if (damage < 0) { damage = 0; }
-
-
+        Util.saveStorage();
+        Util.showSimpleStatus();
         //console.log(func);
-        console.log(enemy);
+        //console.log(enemy);
       });
 
       // ドロップアイテムボタンでステータスを加算
