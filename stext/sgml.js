@@ -1893,7 +1893,7 @@
             }
             // 係数の決定
             if (result[2]) {
-              num = Number(result[1]);
+              num = Number(result[2]);
             }
             // ステータス値の状態異常補正
             var tmp_status = {
@@ -1943,7 +1943,7 @@
             }
             // ダメージを加算
             damage += sign * num * param;
-            console.log(damage);
+            console.log('ダメージ：' + damage);
           }
           // 負数はゼロに丸め
           if (damage < 0) { damage = 0; }
