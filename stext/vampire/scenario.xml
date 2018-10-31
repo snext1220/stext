@@ -16,14 +16,14 @@
 	<flag id="f01">思いとどまった</flag>
 </flags>
 <enemies>
-	<enemy id="m00" name="黒き獣" element="wind" attack="physics" func="L - STR">狼のような、尖った鼻をもつ獣</enemy>
-	<enemy id="m01" name="吸血鬼" element="spirit" attack="physics" func="L + R - STR">妖艶な女性の吸血鬼</enemy>
-	<enemy id="m02" name="上段攻撃" element="fire" attack="physics" func="3L + 3R - STR">上から叩きつける</enemy>
-	<enemy id="m03" name="回し蹴り" element="earth" attack="physics" func="3L + 3R - STR">反動をつけた強烈な蹴り</enemy>
-	<enemy id="m04" name="攻撃" element="earth" attack="physics" func="3L + 3R - STR">鋭い刺突攻撃</enemy>
-	<enemy id="m05" name="光の槍" element="fire" attack="magic" func="5L + 5R - INT">赤く輝く灼熱の槍</enemy>
-	<enemy id="m06" name="拳の打ち合い" element="earth" attack="physics" func="3L + 3R - 3STR">ぶつかり合う拳同士</enemy>
-	<enemy id="m07" name="白木の杭" element="wind" attack="physics" func="5L - 2STR">吸血鬼退治アイテム</enemy>
+	<enemy id="m00" name="黒き獣" element="wind" attack="physics" func="L-STR">狼のような、尖った鼻をもつ獣</enemy>
+	<enemy id="m01" name="吸血鬼" element="spirit" attack="physics" func="L+R-STR">妖艶な女性の吸血鬼</enemy>
+	<enemy id="m02" name="上段攻撃" element="fire" attack="physics" func="3L+3R-STR">上から叩きつける</enemy>
+	<enemy id="m03" name="回し蹴り" element="earth" attack="physics" func="3L+3R-STR">反動をつけた強烈な蹴り</enemy>
+	<enemy id="m04" name="攻撃" element="earth" attack="physics" func="3L+3R-STR">鋭い刺突攻撃</enemy>
+	<enemy id="m05" name="光の槍" element="fire" attack="magic" func="5L+5R-INT">赤く輝く灼熱の槍</enemy>
+	<enemy id="m06" name="拳の打ち合い" element="earth" attack="physics" func="3L+3R-3STR">ぶつかり合う拳同士</enemy>
+	<enemy id="m07" name="白木の杭" element="wind" attack="physics" func="5L-2STR">吸血鬼退治アイテム</enemy>
 </enemies>
 
 <licence>
