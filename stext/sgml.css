@@ -361,7 +361,7 @@ table.item_list img {
   color: #fff;
   cursor: pointer;
   text-align: center;
-  width: 85px;
+  min-width: 85px;
 }
 
 .enemy_drop {
@@ -374,7 +374,7 @@ table.item_list img {
   color: #fff;
   cursor: pointer;
   text-align: center;
-  width: 75px;
+  min-width: 75px;
 }
 /*
 .toast{

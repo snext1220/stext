@@ -732,10 +732,10 @@
         if (at_hp === 'full') {
           save_data.chara.hp = save_data.chara.hp_m;
         } else {
-          // 「-5!2」で5∓2の意味
-          var hp = at_hp.split('!');
+          // 「-5..-1」で-5～-1の意味
+          var hp = at_hp.split('..');
           if (hp[1]) {
-            hp[0] = Number(hp[0]) + Util.random(-1 * Number(hp[1]), Number(hp[1]));
+            hp[0] = Util.random(Number(hp[0]), Number(hp[1]));
           }
           save_data.chara.hp = Number(save_data.chara.hp) + Number(hp[0]);
         }
@@ -746,10 +746,10 @@
         if (at_mp === 'full') {
           save_data.chara.mp = save_data.chara.mp_m;
         } else {
-          // 「-5!2」で5∓2の意味
-          var mp = at_mp.split('!');
+          // 「-5..-1」で-5～-1の意味
+          var mp = at_mp.split('..');
           if (mp[1]) {
-            mp[0] = Number(mp[0]) + Util.random(-1 * Number(mp[1]), Number(mp[1]));
+            mp[0] = Util.random(Number(mp[0]), Number(mp[1]));
           }
           save_data.chara.mp = Number(save_data.chara.mp) + Number(mp[0]);
         }
