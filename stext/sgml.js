@@ -1941,17 +1941,34 @@
       // ダメージボタンでステータスを加算
       target.on('click', 'input.enemy_func', function(e) {
         e.stopImmediatePropagation();
+        toastr.options.timeOut = 5000;
+
         var func = $(this).val();
         var attack = $(this).attr('data-attack');
 
         // 状態異常の場合は記録
         if ([ 'poison', 'frozen', 'stone', 'curse', 'forget' ].indexOf(attack) !== -1) {
-          save_data.chara.state = attack;
-          toastr.options.timeOut = 5000;
-          toastr.error(
-            '「' + Common.state_names[attack] + '」を受けた！',
-            '状態異常'
-          );
+          // 左辺・不等号・右辺に分割
+          var cond = func.split(/([<>])/);
+          var l_damage = Util.computeDamage(cond[0]);
+          var r_damage = Util.computeDamage(cond[2]);
+          if (cond[1] === '<') {
+            var canEscape = l_damage < r_damage;
+          } else {
+            var canEscape = l_damage > r_damage;
+          }
+          if (canEscape) {
+            toastr.info(
+              '回避に成功した。',
+              '状態異常'
+            );
+          } else {
+            save_data.chara.state = attack;
+            toastr.error(
+              '「' + Common.state_names[attack] + '」を受けた！',
+              '状態異常'
+            );
+          }
         } else {
           // physics／magicの場合、ダメージ式の解析
           var damage = Util.computeDamage(func);
@@ -1965,10 +1982,11 @@
             var t_msg = 'MPに' + damage + 'のダメージ！（現在値：' + save_data.chara.mp + '）' ;
           }
           if (damage === 0) {
-            t_msg = '敵からの攻撃を防ぎきった！';
+            t_msg = '敵の攻撃を防ぎきった！';
+            toastr.info(t_msg, '被ダメージ');  
+          } else {
+            toastr.error(t_msg, '被ダメージ');
           }
-          toastr.options.timeOut = 5000;
-          toastr.error(t_msg, '被ダメージ');
         }
         Util.saveStorage();
         Util.showSimpleStatus();
