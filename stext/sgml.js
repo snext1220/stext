@@ -2621,12 +2621,14 @@
             if (attrs.flags !== undefined) { scene.attr('flags', attrs.flags); }
             if (attrs.enemies !== undefined) { scene.attr('enemies', attrs.enemies); }
             if (attrs.stars !== undefined) { scene.attr('stars', attrs.stars); }
+            if (attrs.hp !== undefined) { scene.attr('hp', attrs.hp); }
+            if (attrs.mp !== undefined) { scene.attr('mp', attrs.mp); }
             if (attrs.free1 !== undefined) { scene.attr('free1', attrs.free1); }
             if (attrs.free2 !== undefined) { scene.attr('free2', attrs.free2); }
             if (attrs.free3 !== undefined) { scene.attr('free3', attrs.free3); }
             if (attrs.bgm !== undefined) { scene.attr('bgm', attrs.bgm); }
             if (attrs.se !== undefined) { scene.attr('se', attrs.se); }
-            if (attrs.allowMove !== undefined) { scene.attr('allowMove', attrs.allowMove); }
+            //if (attrs.allowMove !== undefined) { scene.attr('allowMove', attrs.allowMove); }
             if (attrs.result !== undefined) { scene.attr('result', attrs.result); }
             if (attrs.end !== undefined) { scene.attr('end', attrs.end); }
             scene.appendTo(result);
