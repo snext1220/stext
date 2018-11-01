@@ -64,18 +64,18 @@
 		<flag id="f202">魔法研究者と話した</flag>
 	</flags>
 	<enemies>
-		<enemy id="m623" name="ワーベアーLv7/2回" element="spirit" attack="強石化(物理)" func="6(L+R)+450-STR" drop="">熊男｡なぜ熊が石化攻撃を…それは獣王の掟｡人型化というより立って戦うだけなので戦闘力はさほど変わらないが､元々獣系最強な上に凶暴化+知能となると手がつけられない｡※強石化は2重に受けると即死｡</enemy>
-		<enemy id="m622" name="ワータイガーLv6" element="earth" attack="物理" func="7(L+R)+400-STR" drop="">虎男｡一般的?には人間に虎の霊などを憑依させるが､これも虎が凶暴化､さらに邪悪な意思により人型化して知能を与えられたもののようだ｡ﾊﾟｧﾜｧﾌｩﾘｬｱｧｧｰｰ!!</enemy>
-		<enemy id="m621" name="ワーウルフLv6" element="wind" attack="物理" func="8(L+R)+350-STR" drop="">狼男｡吸血鬼の眷属であったり人の魔法強化であったりするが､これは森の狼が凶暴強化されたもの｡ﾊﾟﾜﾌﾘｬｱｧｧｰｰ!!</enemy>
-		<enemy id="m511" name="マイコニッドA Lv5" element="wind" attack="毒(物理)" func="5(L+R)+250-STR-DEX" drop="">人型のキノコ｡キノコが人型を成したのか､人がキノコになったのか…戦闘力でなく､放出される多種多様で強力な胞子がやっかい｡毒タイプは風に乗せて毒胞子をバラまく｡</enemy>
-		<enemy id="m512" name="マイコニッドB Lv5" element="water" attack="凍結(物理)" func="5(L+R)+250-STR-DEX" drop="">凍結タイプ｡凍結胞子が付着して相手の活動停止を狙う…氷魔法を得意とした魔法使いが苗床(ベース)とか？</enemy>
-		<enemy id="m513" name="マイコニッドC Lv5" element="fire" attack="忘却(物理)" func="5(L+R)+250-STR-DEX" drop="">忘却タイプ｡神経毒胞子で忘却はいいとして､なぜ火属性なのか…植物とか菌に火は無理だよなぁ｡</enemy>
-		<enemy id="m514" name="マイコニッドD Lv5" element="earth" attack="石化(物理)" func="5(L+R)+250-STR-DEX" drop="">石化タイプ｡普通に大地の力で相手を地に返すべく石化胞子をバラまく｡</enemy>
-		<enemy id="m515" name="マイコニッドE Lv5" element="spirit" attack="呪い(物理)" func="5(L+R)+250-STR-DEX" drop="">呪いタイプ｡これも普通に苗床(ベース)の怨念で呪いの胞子をバラまく｡</enemy>
-		<enemy id="m613" name="リザードマスターLv7/3回" element="spirit" attack="物理魔法※防御不能/攻撃魔法無効" func="7(L+R)+600-STR-INT-DEX-KRM" drop="">リザードマンの族長で､一族に伝わる伝説の邪剣"イビルソード"を持つ｡その強さはすでにボスクラス｡※防御不能かつ攻撃魔法は効かないが例外アリ)｡</enemy>
-		<enemy id="m612" name="リザードメイジLv6" element="water" attack="凍結(魔法)" func="6(L+R)+250-INT" drop="">高齢にならないと魔法を使える程の知能は無く､必然的に個体数は少ないが､使うとなると水魔法を高Lvで使いこなしてくる｡</enemy>
-		<enemy id="m611" name="リザードマンLv6" element="water" attack="毒(物理)" func="7(L+R)+300-STR" drop="">名の通りのトカゲ人間｡知能も文化もそれなりにあるが非常に残虐(武器には毒が塗ってある)…というか"他生物を狩る事が全て"的な蛮族文化｡</enemy>
-		<enemy id="m522" name="アスティラゴア(怨霊)Lv6" element="霊" attack="物理魔法※防御不能" func="6(L+R)+300-STR-INT" drop="">さらにその脳髄に元の持ち主の怨念が取り付いたもの｡「オマエもコッチに来い…」と触手で絞め殺そうと…菌の本能と怨念で2重に怖い！！</enemy>
+		<enemy id="m623" name="ワーベアーLv7/強石化/耐2" element="spirit" attack="physics" func="6L+6R+450-STR-FREE1-10FREE2" drop="">熊男｡なぜ熊が石化攻撃を…それは獣王の掟｡人型化というより立って戦うだけなので戦闘力はさほど変わらないが､元々獣系最強な上に凶暴化+知能となると手がつけられない｡※強石化は2重に受けると即死｡</enemy>
+		<enemy id="m622" name="ワータイガーLv6" element="earth" attack="physics" func="7L+7R+400-STR-FREE1-10FREE2" drop="">虎男｡一般的?には人間に虎の霊などを憑依させるが､これも虎が凶暴化､さらに邪悪な意思により人型化して知能を与えられたもののようだ｡ﾊﾟｧﾜｧﾌｩﾘｬｱｧｧｰｰ!!</enemy>
+		<enemy id="m621" name="ワーウルフLv6" element="wind" attack="physics" func="8L+8R+350-STR-FREE1-10FREE2" drop="">狼男｡吸血鬼の眷属であったり人の魔法強化であったりするが､これは森の狼が凶暴強化されたもの｡ﾊﾟﾜﾌﾘｬｱｧｧｰｰ!!</enemy>
+		<enemy id="m511" name="マイコニッドA Lv5/毒" element="wind" attack="physics" func="5L+5R+250-STR-DEX-FREE1-10FREE2" drop="">人型のキノコ｡キノコが人型を成したのか､人がキノコになったのか…戦闘力でなく､放出される多種多様で強力な胞子がやっかい｡毒タイプは風に乗せて毒胞子をバラまく｡</enemy>
+		<enemy id="m512" name="マイコニッドB Lv5/凍結" element="water" attack="physics" func="5L+5R+250-STR-DEX-FREE1-10FREE2" drop="">凍結タイプ｡凍結胞子が付着して相手の活動停止を狙う…氷魔法を得意とした魔法使いが苗床(ベース)とか？</enemy>
+		<enemy id="m513" name="マイコニッドC Lv5/忘却" element="fire" attack="physics" func="5L+5R+250-STR-DEX-FREE1-10FREE2" drop="">忘却タイプ｡神経毒胞子で忘却はいいとして､なぜ火属性なのか…植物とか菌に火は無理だよなぁ｡</enemy>
+		<enemy id="m514" name="マイコニッドD Lv5/石化" element="earth" attack="physics" func="5L+5R+250-STR-DEX-FREE1-10FREE2" drop="">石化タイプ｡普通に大地の力で相手を地に返すべく石化胞子をバラまく｡</enemy>
+		<enemy id="m515" name="マイコニッドE Lv5/呪い" element="spirit" attack="physics" func="5L+5R+250-STR-DEX-FREE1-10FREE2" drop="">呪いタイプ｡これも普通に苗床(ベース)の怨念で呪いの胞子をバラまく｡</enemy>
+		<enemy id="m613" name="リザードマスターLv7/物魔/防不/魔無/耐3" element="spirit" attack="physics" func="7L+7R+600-STR-INT-DEX-KRM-FREE1-10FREE2" drop="">リザードマンの族長で､一族に伝わる伝説の邪剣"イビルソード"を持つ｡その強さはすでにボスクラス｡※防御不能かつ攻撃魔法は効かないが例外アリ)｡</enemy>
+		<enemy id="m612" name="リザードメイジLv6/凍結" element="water" attack="magic" func="6L+6R+250-INT-FREE1-10FREE2" drop="">高齢にならないと魔法を使える程の知能は無く､必然的に個体数は少ないが､使うとなると水魔法を高Lvで使いこなしてくる｡</enemy>
+		<enemy id="m611" name="リザードマンLv6/毒" element="water" attack="physics" func="7L+7R+300-STR-FREE1-10FREE2" drop="">名の通りのトカゲ人間｡知能も文化もそれなりにあるが非常に残虐(武器には毒が塗ってある)…というか"他生物を狩る事が全て"的な蛮族文化｡</enemy>
+		<enemy id="m522" name="アスティラゴア(怨霊)Lv6/物魔/防不" element="霊" attack="physics" func="6L+6R+300-STR-INT-FREE1-10FREE2" drop="">さらにその脳髄に元の持ち主の怨念が取り付いたもの｡「オマエもコッチに来い…」と触手で絞め殺そうと…菌の本能と怨念で2重に怖い！！</enemy>
 		<enemy id="m2851" name="毒の鱗粉Lv7" element="wind" attack="毒(物理)" func="7(L+R)+450-STR" drop="">その名の通り毒を含んだ鱗粉。吸い込むと危険。</enemy>
 		<enemy id="m2852" name="凍結の鱗粉Lv7" element="water" attack="凍結(魔法)" func="7(L+R)+450-INT" drop="">FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわりつくと凍結してしまう。</enemy>
 		<enemy id="m2853" name="忘却の鱗粉Lv7" element="fire" attack="忘却(物理)" func="7(L+R)+450-DEX" drop="">脳に作用して幻覚を見せる鱗粉。夢の世界への片道切符。</enemy>
@@ -87,15 +87,7 @@
 		<enemy id="m413" name="スコーピオンジャイアント(黒)Lv5" element="spirit" attack="呪い+石化(物理)" func="4(L+R)+150-STR" drop="">魔王の呪力が世に放たれ形を成した姿…"魔のサソリ"とも言われ､なんと呪いで魔法を封じた上に石化させてくる｡</enemy>
 		<enemy id="m412" name="スコーピオンジャイアント(青)Lv4" element="earth" attack="忘却(物理)" func="4(L+R)+150-STR" drop="">こちらは神経毒により忘却を引き起こすのでやっかい。それでSTRが下がるとさらに忘却しやすく…</enemy>
 		<enemy id="m411" name="スコーピオンジャイアント(赤)Lv4" element="earth" attack="毒(物理)" func="4(L+R)+150-STR" drop="">1m以上もある巨大なサソリ｡大きなハサミ以上に尻尾の毒針攻撃に注意。</enemy>
-		<enemy id="m522" name="アスティラゴア(怨霊)Lv6" element="spirit" attack="物理魔法※防御不能" func="6(L+R)+300-STR-INT" drop="">さらにその脳髄に元の持ち主の怨念が取り付いたもの｡「オマエもコッチに来い…」と触手で絞め殺そうと…菌の本能と怨念で2重に怖い！！</enemy>
 		<enemy id="m521" name="アスティラゴアLv5" element="earth" attack="魔法※防御不能" func="5(L+R)+150-INT" drop="">走る脳髄｡その正体は死体の脳髄に寄生した菌で､脳の力を引き出して精神感応波で攻撃してくる｡その目的は…仲間を増やす事だ！！</enemy>
-		<enemy id="m511" name="マイコニッドA Lv5" element="wind" attack="毒(物理)" func="5(L+R)+250-STR-DEX" drop="">人型のキノコ｡キノコが人型を成したのか､人がキノコになったのか…戦闘力でなく､放出される多種多様で強力な胞子がやっかい｡毒タイプは風に乗せて毒胞子をバラまく｡</enemy>
-		<enemy id="m512" name="マイコニッドB Lv5" element="water" attack="凍結(物理)" func="5(L+R)+250-STR-DEX" drop="">凍結タイプ｡凍結胞子が付着して相手の活動停止を狙う…氷魔法を得意とした魔法使いが苗床(ベース)とか？</enemy>
-		<enemy id="m513" name="マイコニッドC Lv5" element="fire" attack="忘却(物理)" func="5(L+R)+250-STR-DEX" drop="">忘却タイプ｡神経毒胞子で忘却はいいとして､なぜ火属性なのか…植物とか菌に火は無理だよなぁ｡</enemy>
-		<enemy id="m514" name="マイコニッドD Lv5" element="earth" attack="石化(物理)" func="5(L+R)+250-STR-DEX" drop="">石化タイプ｡普通に大地の力で相手を地に返すべく石化胞子をバラまく｡</enemy>
-		<enemy id="m515" name="マイコニッドE Lv5" element="spirit" attack="呪い(物理)" func="5(L+R)+250-STR-DEX" drop="">呪いタイプ｡これも普通に苗床(ベース)の怨念で呪いの胞子をバラまく｡</enemy>
-		<enemy id="m611" name="リザードマンLv6" element="water" attack="毒(物理)" func="7(L+R)+300-STR" drop="">名の通りのトカゲ人間｡知能も文化もそれなりにあるが非常に残虐(武器には毒が塗ってある)…というか"他生物を狩る事が全て"的な蛮族文化｡</enemy>
-		<enemy id="m612" name="リザードメイジLv6" element="water" attack="凍結(魔法)" func="6(L+R)+250-INT" drop="">高齢にならないと魔法を使える程の知能は無く､必然的に個体数は少ないが､使うとなると水魔法を高Lvで使いこなしてくる｡</enemy>
 		<enemy id="m1206" name="マーベル(小手調べ/Lv3/1回)" element="wind" attack="物理※攻撃魔法無効" func="4(L+R)+200-STR-DEX" drop="">小手調べ。明らかにこちらを下に見ているが…(1回)※攻撃魔法無効(特に意味は無いが)</enemy>
 		<enemy id="m1207" name="マーベル(本気/Lv4/2回)" element="wind" attack="物理※攻撃魔法無効" func="5(L+R)+250-STR-DEX" drop="">本気でもこんなもん。井の中の蛙。(2回)※攻撃魔法無効(特に意味は無いが)</enemy>
 		<enemy id="m1304" name="ザシュマー(手加減/Lv4/2回)" element="fire" attack="物理魔法" func="5(L+R)+250-STR-INT" drop="">まだ手加減しているが十分に強い。さすが上位吸血鬼。(2回)</enemy>
@@ -220,8 +212,8 @@
 この時点ですでに戦いを避けるべき相手と思うが、さらにイヤな事に何かしらの魔力を感じる…傷を受けるとロクな事にならない、イヤーな魔力が…
 
 ※ワーベアーについて
-・耐久力２…２回攻撃を当てなければ倒せない。
 ・強石化…２重に受けると即死、１ターンにつき全ステータス－１、５ターンで死亡。
+・耐久力２…２回攻撃を当てなければ倒せない。
 
 ※例によって各説明を見た後はブラウザの【戻る】機能で戻ってくる事。
 さもなければ君のこの戦いは【酔っ払いが酒場で見た夢】となるだろう。
@@ -383,9 +375,10 @@
 さあ、どうする？
 
 ※リザードマスターについて
-・耐久力３…３回攻撃を当てなければ倒せない。
+･物理魔法…計算結果のDMをMPからも手動で引く事。
 ・防御不能…あらゆる防御が不可能。PROTECT/HOLY-WATERは有効。
 ・攻撃魔法無効…収束NOILA-TEMのみ有効（減らせる耐久力は１）。
+・耐久力３…３回攻撃を当てなければ倒せない。
 
 ※例によって各説明を見た後はブラウザの【戻る】機能で戻ってくる事。
 さもなければ君のこの戦いは【酔っ払いが酒場で見た夢】となるだろう。
