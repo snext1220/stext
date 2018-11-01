@@ -1519,9 +1519,10 @@
               row += Util.selectFunc(enemy.func.substring(1));
             } else {
               var tmp_func = Util.selectFunc(enemy.func);
-              row += '<input type="button" class="enemy_func" value="' + tmp_func + '" data-attack="' + enemy.attack + '"/>';
+              //row += '<input type="button" class="enemy_func" value="' + tmp_func + '" data-attack="' + enemy.attack + '"/>';
+              row += '<div class="enemy_func" data-func="' + tmp_func + '" data-attack="' + enemy.attack + '">'
+                + tmp_func + '</div>';
             }
-            //row += Util.selectFunc(enemy.func);
           }
           row += '</td><td>'
           var tmp_d = Util.dropItem(enemy); 
@@ -1939,11 +1940,11 @@
       });
 
       // ダメージボタンでステータスを加算
-      target.on('click', 'input.enemy_func', function(e) {
+      target.on('click', 'div.enemy_func', function(e) {
         e.stopImmediatePropagation();
         toastr.options.timeOut = 5000;
 
-        var func = $(this).val();
+        var func = $(this).nsAttr('data-func');
         var attack = $(this).nsAttr('data-attack');
 
         // 状態異常の場合は記録
