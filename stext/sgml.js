@@ -478,19 +478,19 @@
       $('scene', scenario_data).each(function(index, scene){
         var tmp_s = $(scene);
         // 重複するidがあればエラー（さもなくばリストに追加）
-        if (tmp_scenes.indexOf(tmp_s.attr('id')) === -1) {
-          tmp_scenes.push(tmp_s.attr('id'));
+        if (tmp_scenes.indexOf(tmp_s.nsAttr('id')) === -1) {
+          tmp_scenes.push(tmp_s.nsAttr('id'));
         } else {
           error_messages.push({
-            scene_id: tmp_s.attr('id'),
+            scene_id: tmp_s.nsAttr('id'),
             message: 'scene－idが重複しています。'
           });
         }
         // 各種id値をチェック
-        checkId(items_map, tmp_s.attr('items'), tmp_s.attr('id'));
-        checkId(flags_map, tmp_s.attr('flags'), tmp_s.attr('id'));
-        checkId(enemies_map, tmp_s.attr('enemies'), tmp_s.attr('id'));
-        checkId(results_map, tmp_s.attr('result'), tmp_s.attr('id'));
+        checkId(items_map, tmp_s.nsAttr('items'), tmp_s.nsAttr('id'));
+        checkId(flags_map, tmp_s.nsAttr('flags'), tmp_s.nsAttr('id'));
+        checkId(enemies_map, tmp_s.nsAttr('enemies'), tmp_s.nsAttr('id'));
+        checkId(results_map, tmp_s.nsAttr('result'), tmp_s.nsAttr('id'));
       });
       return error_messages;
     },
@@ -1116,7 +1116,7 @@
       $('#hp', dialog).val(save_data.chara.hp);
       $('#mp', dialog).val(save_data.chara.mp);
       $('[name="state"]', dialog).each(function() {
-        var state = $(this).attr('value');
+        var state = $(this).nsAttr('value');
         if(state === save_data.chara.state) {
           $(this).prop('checked', true);
         } else {
@@ -1713,7 +1713,7 @@
       $('a.scenepic').zoombox();
 
       // シーンのモンスター情報をリスト化
-      Util.createEnemyList(scene.attr('enemies'));
+      Util.createEnemyList(scene.nsAttr('enemies'));
       // if(scene.attr('enemies')) {
       //   var e_table = 
       //     $('<table class="enemy">');
@@ -1743,7 +1743,7 @@
       //var multi_flags = $('a[title*=","]', target);
       var multi_flags = $('a[title]', target);
       multi_flags.each(function(index, elem) {
-        var multi_ids = $(elem).attr('title');
+        var multi_ids = $(elem).nsAttr('title');
         if (multi_ids.indexOf('-') !== 0) {
           // 通常のマルチフラグ処理（指定フラグ＆アイテムを全て所有でボタン表示）
           var show_flag = true; // ボタンを表示するか
@@ -1812,7 +1812,7 @@
       /* BGM再生 */
       // 再生すべきBGMのパスを生成
       var tmp_path = '';
-      var new_bgm = scene.attr('bgm');
+      var new_bgm = scene.nsAttr('bgm');
       // セーブデータに保存済みのパスを取得（空の場合はメイン）
       if (save_data.bgm) {
         tmp_path = save_data.bgm;
@@ -1845,15 +1845,15 @@
       /* BGM再生ココマデ */
 
       // シーン表示時に効果音を再生
-      if(scene.attr('se')) {
+      if(scene.nsAttr('se')) {
         //bgm.pause();
-        var se = new Audio(ROOT + scenario_code + '/' + BGM + SE + scene.attr('se') + '.mp3');
+        var se = new Audio(ROOT + scenario_code + '/' + BGM + SE + scene.nsAttr('se') + '.mp3');
         se.loop = false;
         se.play();
       }
 
       // エンディング処理（bgm属性が指定されている場合、エンディング曲に変更しない）
-      Util.endScenario(scene.attr('end'), (scene.attr('bgm') === undefined));
+      Util.endScenario(scene.nsAttr('end'), (scene.nsAttr('bgm') === undefined));
     }
   };
 
@@ -1879,8 +1879,8 @@
       /** EventListener **/
       // 移動ボタンをクリックで次のシーンに移動
       target.on('click', 'a.scenebtn', function(e) {
-        var num = $(this).attr('href');
-        var cond = $(this).attr('title');
+        var num = $(this).nsAttr('href');
+        var cond = $(this).nsAttr('title');
         // 複数移動先が指定されている場合、ランダムに選択
         if (num.indexOf(',') !== -1) {
           num = Util.randomArray(num.split(',')).trim();
@@ -1900,7 +1900,7 @@
       // 指定シーンに移動
       target.on('click', 'a.scene_move', function(e) {
         var num = $('#toscene').val();
-        var allow_num = $(this).attr('data-allow');
+        var allow_num = $(this).nsAttr('data-allow');
         if(Util.canSceneMove(num, allow_num)) {
           //history.pushState(num, 'Scene ' + num);
           Util.createScene(num);
@@ -1914,7 +1914,7 @@
       // 回答の成否を判定（文字列入力ボックス）
       target.on('click', 'a.quest_str', function(e) {
         var answer = $('#stranswer').val();
-        var yn = $(this).attr('data-yesno').split(',');
+        var yn = $(this).nsAttr('data-yesno').split(',');
         if(answer === yn[0]) {
           var to_move = yn[1];
         } else {
@@ -1927,7 +1927,7 @@
 
       // 敵一覧をクリックで詳細情報を表示
       target.on('click', 'tr.enemy_row', function(e) {
-        var enemy = enemies_map[$(this).attr('data-enemy')];
+        var enemy = enemies_map[$(this).nsAttr('data-enemy')];
         //Util.toast('<b>' + enemy.name + '</b><br/>' + enemy.desc);
         toastr.options.timeOut = 5000;
         toastr.info(enemy.desc, enemy.name);
@@ -1944,7 +1944,7 @@
         toastr.options.timeOut = 5000;
 
         var func = $(this).val();
-        var attack = $(this).attr('data-attack');
+        var attack = $(this).nsAttr('data-attack');
 
         // 状態異常の場合は記録
         if ([ 'poison', 'frozen', 'stone', 'curse', 'forget' ].indexOf(attack) !== -1) {
@@ -1995,7 +1995,7 @@
       // ドロップアイテムボタンでステータスを加算
       target.on('click', 'input.enemy_drop', function(e) {
         e.stopImmediatePropagation();
-        var drops = $(this).attr('data-drop').split('/');
+        var drops = $(this).nsAttr('data-drop').split('/');
         if (drops.length === 2) {
           // 星の加算（ex. tue/2）
           Util.updateStarById(drops[0], drops[1]);
