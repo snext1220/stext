@@ -287,10 +287,10 @@
       var constraint = $('init > constraint', scenario_data);
       var init_races, init_sex, init_ages;
       if (constraint) {
-        var init_races = constraint.attr('race');
+        var init_races = constraint.nsAttr('race');
         if (init_races) { init_races = init_races.split(','); }
-        var init_sex = constraint.attr('sex');
-        var init_ages = constraint.attr('age');
+        var init_sex = constraint.nsAttr('sex');
+        var init_ages = constraint.nsAttr('age');
         if (init_ages) { init_ages = init_ages.split(','); }
       }
       // 種族／性別で絞り込まれたpc_initからランダムに取得
@@ -1207,10 +1207,10 @@
       console.log('***********Licence Info.***********');
       var tmp_licence = { 'bgm': '音楽', 'picture': '画像' };
       $('licence > work', scenario_data).each(function() {
-        var licence_url = $(this).attr('url');
-        console.log($(this).attr('name') +
-          '(' + tmp_licence[$(this).attr('category')] + '): ' +
-          $(this).attr('creator') + ' ' +
+        var licence_url = $(this).nsAttr('url');
+        console.log($(this).nsAttr('name') +
+          '(' + tmp_licence[$(this).nsAttr('category')] + '): ' +
+          $(this).nsAttr('creator') + ' ' +
           (licence_url !== undefined ? licence_url : '')
         );        
       });
@@ -1476,7 +1476,7 @@
     // シナリオ共通ツイートを生成
     createCommonTweet: function() {
       Util.createTweet('common',
-        $('init > intro', scenario_data).attr('description')
+        $('init > intro', scenario_data).nsAttr('description')
       );
     },
 
@@ -1489,7 +1489,7 @@
         e_table.append('<tr class="enemy_title">' +
           (enemies.length > 1 ? '<th></th>' : '') +
           '<th>名前／属性</th><th>攻撃</th>' +
-          '<th title="現在のダイス値に従って、ダメージを反映させます。ただし、状態異常は反映するのみで判定は手動です。">ダメージ</th>' +
+          '<th title="現在のダイス値に従って、ダメージを反映させます。">ダメージ</th>' +
           '<th title="記載されたドロップアイテムをステータスに反映させます。">戦利品</th>' +
         '</tr>');
 
@@ -1567,13 +1567,13 @@
       // ［戻る］でない場合にだけシーンの自動化処理
       if (!options.reverse) {
         // 現在のシーンのフラグ情報／アイテム／Free欄／実績情報を反映
-        Util.updateItems(scene.attr('items'));
-        Util.updateFlags(scene.attr('flags'));
+        Util.updateItems(scene.nsAttr('items'));
+        Util.updateFlags(scene.nsAttr('flags'));
         Util.updateStates();
-        Util.updateStars(scene.attr('stars'));
-        Util.updateHpMp(scene.attr('hp'), scene.attr('mp'));
-        Util.updateFrees(scene.attr('free1'), scene.attr('free2'), scene.attr('free3'));
-        Util.updateResults(scene.attr('result'));
+        Util.updateStars(scene.nsAttr('stars'));
+        Util.updateHpMp(scene.nsAttr('hp'), scene.nsAttr('mp'));
+        Util.updateFrees(scene.nsAttr('free1'), scene.nsAttr('free2'), scene.nsAttr('free3'));
+        Util.updateResults(scene.nsAttr('result'));
 
         // 現在のシーン番号を保存
         save_data.scene = scene_num;
@@ -1615,7 +1615,7 @@
       // ヘッダーテキスト／コントロールパネルの生成
       $('<h5 id="scenario_title">' + 
         '<img id="ctrl_show" src="' + ROOT + COMMON + 'ctrl_show.png" /></a> ' +
-        $('scenario', scenario_data).attr('title') +
+        $('scenario', scenario_data).nsAttr('title') +
           '【' + scene_num + '】</span></h5>' + 
         '<div id="control_panel">' +
         '<img id="ctrl_home" src="' + ROOT + COMMON + 'ctrl_home.png" /></a>　' +
@@ -2335,19 +2335,19 @@
         // フラグ一覧を取得
         flags_map = {};
         $('flags > flag', scenario_data).each(function() {
-          flags_map[$(this).attr('id')] = $(this).text().trim();
+          flags_map[$(this).nsAttr('id')] = $(this).text().trim();
         });
       
         // モンスター覧を取得
         enemies_map = {};
         $('enemies > enemy', scenario_data).each(function() {
-          enemies_map[$(this).attr('id')] = {
-            name: $(this).attr('name'),
-            element: $(this).attr('element'),
-            attack: $(this).attr('attack'),
-            func: $(this).attr('func'),
-            drop: $(this).attr('drop'),
-            desc: $(this).text()
+          enemies_map[$(this).nsAttr('id')] = {
+            name: $(this).nsAttr('name'),
+            element: $(this).nsAttr('element'),
+            attack: $(this).nsAttr('attack'),
+            func: $(this).nsAttr('func'),
+            drop: $(this).nsAttr('drop'),
+            desc: $(this).text().trim()
           }
         });
         console.log(enemies_map);
@@ -2355,8 +2355,8 @@
         // アイテム一覧を取得
         items_map = {};
         $('items > item', scenario_data).each(function() {
-          items_map[$(this).attr('id')] = {
-            name: $(this).attr('name'),
+          items_map[$(this).nsAttr('id')] = {
+            name: $(this).nsAttr('name'),
             desc: $(this).text().trim()
           };
         });
@@ -2364,18 +2364,18 @@
         // 実績一覧を取得
         results_map = {};
         $('results > result', scenario_data).each(function() {
-          results_map[$(this).attr('id')] = {
-            name: $(this).attr('name'),
-            level: $(this).attr('level'),
+          results_map[$(this).nsAttr('id')] = {
+            name: $(this).nsAttr('name'),
+            level: $(this).nsAttr('level'),
             desc: $(this).text().trim()
           };
         });
 
         // BGM情報を取得
         var init_bgms = $('init > bgm', scenario_data);
-        var i_main = init_bgms.attr('main');
-        var i_happy = init_bgms.attr('happy');
-        var i_bad = init_bgms.attr('bad');
+        var i_main = init_bgms.nsAttr('main');
+        var i_happy = init_bgms.nsAttr('happy');
+        var i_bad = init_bgms.nsAttr('bad');
         bgms_map = {
           main: i_main === undefined ? 'main' : i_main,
           happy: i_happy === undefined ? 'happy' : i_happy,
@@ -2765,6 +2765,11 @@
         reader.readAsText(input, 'UTF-8');
         window.alert('リストアが完了しました。\r（起動している場合は）ゲーム画面をリロードしてください。');
       });      
+    },
+
+    // 空白除去版のattrメソッド
+    nsAttr: function(name) {
+      return $(this).attr(name).replace(/\s+/g, '');
     }
   });
 })(jQuery);
