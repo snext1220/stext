@@ -2769,7 +2769,9 @@
 
     // 空白除去版のattrメソッド
     nsAttr: function(name) {
-      return $(this).attr(name).replace(/\s+/g, '');
+      var v = $(this).attr(name);
+      if (!v) { return ''; }
+      return v.replace(/\s+/g, '');
     }
   });
 })(jQuery);
