@@ -19,9 +19,9 @@
 		<flag id="f04">宿屋に泊まった</flag>
 	</flags>
 	<enemies>
-		<enemy id="m01" name="傭兵(長剣＋短剣)" element="earth" attack="physics" func="(L+R)×4+R3-STR×2" drop="">落ちぶれて悪事に手を染めた元騎士</enemy>
-		<enemy id="m02" name="黒づくめA" element="water" attack="magic" func="(L+R)×2-INT" drop="">魔道士が造り出した元人間の合成獣</enemy>
-		<enemy id="m03" name="黒づくめB" element="earth" attack="magic" func="(L+R)×2-INT" drop="">魔道士が造り出した元人間の合成獣</enemy>
+		<enemy id="m01" name="傭兵(長剣＋短剣)" element="earth" attack="physics" func="4L+4R+3R-2STR" drop="">落ちぶれて悪事に手を染めた元騎士</enemy>
+		<enemy id="m02" name="黒づくめA" element="water" attack="magic" func="2L+2R-INT" drop="">魔道士が造り出した元人間の合成獣</enemy>
+		<enemy id="m03" name="黒づくめB" element="earth" attack="magic" func="2L+2R-INT" drop="">魔道士が造り出した元人間の合成獣</enemy>
 	</enemies>
 	<results>
 		<result id="r01" name="そーさりあん" level="1">リュフーの保護者になった</result>
@@ -722,7 +722,7 @@
 [次へ進む](20 "i02")
 [次へ進む](21 "-i02")
 </scene>
-	<scene id="19" bgm="no" se="se01">
+	<scene id="19" hp="-3" bgm="no" se="se01">
 　**痛ッ！？**
 
 　突然、君は腕に鋭い痛みを感じ、顔を歪めた！
@@ -755,8 +755,10 @@
 　　まあ、アンタがガキを素直に寄越せば手荒なことはしねぇが、
 　　どうだ？」
 
-[▼HPを3減らして次へ進む](22 "i02")
-[▼HPを3減らして次へ進む](23 "-i02")
+　%red%**▼HPに3ダメージを受けた！**%/%
+
+[次へ進む](22 "i02")
+[次へ進む](23 "-i02")
 </scene>
 	<scene id="20" items="-i02" enemies="m01,m02,m03" bgm="soul-boss">
 　**${sex?ふざけたことをッ！！:ふざけないでッ！！}**
