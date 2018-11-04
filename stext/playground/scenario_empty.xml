@@ -3,6 +3,13 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:noNamespaceSchemaLocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd">
 
+<!--初期化情報-->
+<init>
+  <constraint race="FIGHTER,WIZARD,DWARF,ELF" age="YOUNG,ADULT,OLD" />
+  <bgm main="@field05" happy="@field04" bad="@town01" />
+  <intro description="サンプルシナリオ紹介" />
+</init>
+
 <!--アイテム情報-->
 <items>
   <!--
@@ -20,20 +27,20 @@
 <!--モンスター／罠情報-->
 <enemies>
   <!--
-  <enemy id="m99" name="モンスター／罠名" element="地"
-    attack="物理" func="式／回避条件">モンスター説明</enemy>
-  <enemy id="m98" name="モンスター／罠名" element="火"
-    attack="魔法" func="式／回避条件">モンスター説明</enemy>
-  <enemy id="m97" name="モンスター／罠名" element="水"
-    attack="毒" func="式／回避条件">モンスター説明</enemy>
-  <enemy id="m96" name="モンスター／罠名" element="風"
-    attack="凍結" func="式／回避条件">モンスター説明</enemy>
-  <enemy id="m95" name="モンスター／罠名" element="霊"
-    attack="石化" func="式／回避条件">モンスター説明</enemy>
-  <enemy id="m94" name="モンスター／罠名" element="霊"
-    attack="呪い" func="式／回避条件">モンスター説明</enemy>
-  <enemy id="m93" name="モンスター／罠名" element="霊"
-    attack="忘却" func="式／回避条件">モンスター説明</enemy>
+  <enemy id="m99" name="モンスター／罠名" element="earth"
+    attack="physics" func="式／回避条件" drop="mon/2">モンスター説明</enemy>
+  <enemy id="m98" name="モンスター／罠名" element="fire"
+    attack="magic" func="式／回避条件" drop="free1/2/Food×2">モンスター説明</enemy>
+  <enemy id="m97" name="モンスター／罠名" element="water"
+    attack="poison" func="式／回避条件" drop="">モンスター説明</enemy>
+  <enemy id="m96" name="モンスター／罠名" element="wind"
+    attack="frozen" func="式／回避条件">モンスター説明</enemy>
+  <enemy id="m95" name="モンスター／罠名" element="spirit"
+    attack="stone" func="式／回避条件">モンスター説明</enemy>
+  <enemy id="m94" name="モンスター／罠名" element="spirit"
+    attack="curse" func="式／回避条件">モンスター説明</enemy>
+  <enemy id="m93" name="モンスター／罠名" element=""
+    attack="forger" func="式／回避条件">モンスター説明</enemy>
   -->
 </enemies>
 

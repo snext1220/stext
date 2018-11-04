@@ -3,6 +3,13 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:noNamespaceSchemaLocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd">
 
+<!--初期化情報-->
+<init>
+  <constraint race="FIGHTER,WIZARD,DWARF,ELF" age="YOUNG,ADULT,OLD" />
+  <bgm main="@field05" happy="@field04" bad="@town01" />
+  <intro description="サンプルシナリオ紹介" />
+</init>
+
 <!--アイテム情報-->
 <items>
   <item id="i99" name="アイテムA">えぇアイテムですわ</item>
@@ -15,10 +22,10 @@
 
 <!--モンスター／罠情報-->
 <enemies>
-  <enemy id="m99" name="キングドラゴン" element="霊"
-    attack="物理" func="4L-STR">ドラゴン・オヴ・ドラゴン</enemy>
-  <enemy id="m98" name="毒矢" element="地"
-    attack="毒" func="DEX>2L">毒がたっぷりと塗られた矢</enemy>
+  <enemy id="m99" name="キングドラゴン" element="spirit"
+    attack="physics" func="4L-STR" drop="sun/5">ドラゴン・オヴ・ドラゴン</enemy>
+  <enemy id="m98" name="毒矢" element="earth"
+    attack="posion" func="DEX>2L" drop="free1/50/50Gold">毒がたっぷりと塗られた矢</enemy>
 </enemies>
 
 <results>
@@ -29,9 +36,9 @@
 <!--ライセンス情報-->
 <licence>
 	<work name="メインテーマ" category="bgm" creator="Az"
-    url="http://www.web-deli.com/sorcerian/next/stext.aspx"></work>
+    url="//www.web-deli.com/sorcerian/next/stext.aspx"></work>
 	<work name="挿絵A" category="picture" creator="Tokinoji"
-    url="http://www.web-deli.com/sorcerian/next/gallery.aspx"></work>
+    url="//www.web-deli.com/sorcerian/next/gallery.aspx"></work>
 </licence>
 
 <!--シナリオ本体-->
@@ -45,6 +52,7 @@
 - フラグf99が立ちます（=> ステータスから確認しましょう）
 - アイテムi99を入手します（=> ステータスから確認しましょう）
 - 敵としてm98、99が登場します（=> 下に情報が表示されます）
+- ダメージ／ドロップアイテムはボタンクリックで反映されます。
 
 [敵に勝った](300)
 [敵に負けた（バッドエンド）](200)
