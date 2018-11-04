@@ -1813,7 +1813,7 @@
       /* BGM再生 */
       // 再生すべきBGMのパスを生成
       var tmp_path = '';
-      var new_bgm = scene.nsAttr('bgm');
+      var new_bgm = scene.attr('bgm');
       // セーブデータに保存済みのパスを取得（空の場合はメイン）
       if (save_data.bgm) {
         tmp_path = save_data.bgm;
@@ -1854,7 +1854,7 @@
       }
 
       // エンディング処理（bgm属性が指定されている場合、エンディング曲に変更しない）
-      Util.endScenario(scene.nsAttr('end'), (scene.nsAttr('bgm') === undefined));
+      Util.endScenario(scene.nsAttr('end'), (scene.attr('bgm') === undefined));
     }
   };
 
