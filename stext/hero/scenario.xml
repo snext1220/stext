@@ -44,48 +44,40 @@
 
 <!--モンスター情報-->
 <enemies>
-  <enemy id="m1" name="騎士の石像" element="earth"
-  attack="physics" func="*---" drop="no">剣で攻撃してくるが動きは鈍い</enemy>
-  <enemy id="m2" name="白い鳥" element="wind"
-  attack="physics" func="*---"  drop="no">群れで飛んできて突いてくる</enemy>
-  <enemy id="m3" name="狩人" element="earth"
-  attack="physics" func="*---"  drop="no">遠距離は弓・近距離は短剣で攻撃</enemy>
-  <enemy id="m4" name="皇帝の人形" element="earth"
+  <enemy id="m1" name="皇帝の人形" element="earth"
   attack="magic" func="4" drop="">剣から太陽光線を放ってくる</enemy>
-  <enemy id="m5" name="皇女の人形" element="earth"
+  <enemy id="m2" name="皇女の人形" element="earth"
   attack="magic" func="3" drop="">杖から月の魔法を放ってくる</enemy>
-  <enemy id="m6" name="兵士の人形" element="earth"
+  <enemy id="m3" name="兵士の人形" element="earth"
   attack="physics" func="4" drop="">一気に押し寄せ槍で攻撃してくる</enemy>
-  <enemy id="m7" name="左の落とし穴" element=""
-  attack="physics" func="3L" drop="no">深い落とし穴（物理ダメージ）</enemy>
-  <enemy id="m8" name="左の落とし穴" element=""
-  attack="magic" func="3L" drop="no">深い落とし穴（精神ダメージ）</enemy>
-  <enemy id="m9" name="右の落とし穴" element=""
-  attack="physics" func="3R" drop="no">深い落とし穴（物理ダメージ）</enemy>
-  <enemy id="m10" name="右の落とし穴" element=""
-  attack="magic" func="3R" drop="no">深い落とし穴（精神ダメージ）</enemy>
-  <enemy id="m11" name="落とし穴" element=""
-  attack="physics" func="5L+5R" drop="no">深い落とし穴（物理ダメージ）</enemy>
-  <enemy id="m12" name="落とし穴" element=""
-  attack="magic" func="5L+5R" drop="no">深い落とし穴（精神ダメージ）</enemy>
-  <enemy id="m13" name="蛇女" element="earth"
-  attack="curse" func="*---" drop="">遠距離と近距離で攻撃が異なる</enemy>
-  <enemy id="m14" name="魔力の短剣" element=""
-  attack="physics" func="3L+3R-DEX-KRM" drop="no">魔力で作られた短剣</enemy>
-  <enemy id="m15" name="魔力の短剣（加重状態）" element=""
-  attack="physics" func="4L+4R-3KRM" drop="no">魔力で作られた短剣（本数が多い）</enemy>
-  <enemy id="m16" name="魔力の短剣" element=""
-  attack="physics" func="4L+4R-DEX-2KRM" drop="no">魔力で作られた短剣（本数が多い）</enemy>
-  <enemy id="m17" name="古代魔法「　　　」" element="water"
-  attack="physics" func="8L+8R-INT-KRM" drop="no">全てを凍らせる古代魔法（人間には発音不可能／物理ダメージ）</enemy>
-  <enemy id="m18" name="古代魔法「　　　」" element="water"
-  attack="magic" func="8L+8R-INT-KRM" drop="no">全てを凍らせる古代魔法（人間には発音不可能／精神ダメージ）</enemy>
-  <enemy id="m19" name="魔力の短剣" element=""
-  attack="physics" func="L+R-DEX-KRM" drop="no">魔力で作られた短剣（本数が少ない）</enemy>
-  <enemy id="m20" name="生か死か" element=""
-  attack="physics" func="5L+5R-STR-DEX" drop="no">グリメルムの命を懸けた一撃（STR判定）</enemy>
-  <enemy id="m21" name="生か死か" element=""
-  attack="physics" func="5L+5R-INT-DEX" drop="no">グリメルムの命を懸けた一撃（INT判定）</enemy>
+  <enemy id="m4" name="左の落とし穴" element=""
+  attack="physics" func="3L" drop="">深い落とし穴（物理ダメージ）</enemy>
+  <enemy id="m5" name="左の落とし穴" element=""
+  attack="magic" func="3L" drop="">深い落とし穴（精神ダメージ）</enemy>
+  <enemy id="m6" name="右の落とし穴" element=""
+  attack="physics" func="3R" drop="">深い落とし穴（物理ダメージ）</enemy>
+  <enemy id="m7" name="右の落とし穴" element=""
+  attack="magic" func="3R" drop="">深い落とし穴（精神ダメージ）</enemy>
+  <enemy id="m8" name="落とし穴" element=""
+  attack="physics" func="5L+5R" drop="">深い落とし穴（物理ダメージ）</enemy>
+  <enemy id="m9" name="落とし穴" element=""
+  attack="magic" func="5L+5R" drop="">深い落とし穴（精神ダメージ）</enemy>
+  <enemy id="m10" name="魔力の短剣" element=""
+  attack="physics" func="3L+3R-DEX-KRM" drop="">魔力で作られた短剣</enemy>
+  <enemy id="m11" name="魔力の短剣（加重状態）" element=""
+  attack="physics" func="4L+4R-3KRM" drop="">魔力で作られた短剣（本数が多い）</enemy>
+  <enemy id="m12" name="魔力の短剣" element=""
+  attack="physics" func="4L+4R-DEX-2KRM" drop="">魔力で作られた短剣（本数が多い）</enemy>
+  <enemy id="m13" name="古代魔法「******」" element=""
+  attack="physics" func="8L+8R-INT-KRM" drop="">全てを凍らせる古代魔法（人間には発音不可能／物理ダメージ）</enemy>
+  <enemy id="m14" name="古代魔法「******」" element=""
+  attack="magic" func="8L+8R-INT-KRM" drop="">全てを凍らせる古代魔法（人間には発音不可能／精神ダメージ）</enemy>
+  <enemy id="m15" name="魔力の短剣" element=""
+  attack="physics" func="L+R-DEX-KRM" drop="">魔力で作られた短剣（本数が少ない）</enemy>
+  <enemy id="m16" name="生か死か" element=""
+  attack="physics" func="5L+5R-STR-DEX" drop="">グリメルムの命を懸けた一撃（STR判定）</enemy>
+  <enemy id="m17" name="生か死か" element=""
+  attack="physics" func="5L+5R-INT-DEX" drop="">グリメルムの命を懸けた一撃（INT判定）</enemy>
 </enemies>
 
 <!--実績トロフィー-->
@@ -396,7 +388,7 @@
 
 </scene>
 
-<scene id="01510" enemies="m1">
+<scene id="01510">
 　騎士の石像は、重々しい音を立てながら一歩、また一歩と近づいてくる。
 　君の身の丈を優に超えた石像が、巨大な剣を手に迫ってきているのである。
 
@@ -433,7 +425,7 @@
 　**STRまたはINTで判定「まだまだ　いくぜ！」**
 　※アイテムや魔法を使用する場合は、合計値が高い選択肢を選ぶ
 
-　ダイスを1回振り、2個のダイスの合計値＋STRまたはINTのどちらかの合計値が……
+　%blue%ダイスを1回振り、2個のダイスの合計値＋STRまたはINTのどちらかの合計値が……%/%
 
 [▼2～8の場合](02000)
 [▲9～22の場合](01700)
@@ -521,7 +513,7 @@
 
 </scene>
 
-<scene id="02110" enemies="m1">
+<scene id="02110">
 　両手で持った大剣を胸元に掲げた騎士の石像は、目を光らせて君の方にゆっくりと向かってきている。
 　君の身の丈を優に超えた石像が、巨大な剣を手に迫ってきているのである。
 
@@ -604,7 +596,7 @@
 
 </scene>
 
-<scene id="02600" enemies="m2" hp="-3">
+<scene id="02600" hp="-3">
 　得体の知れない場所では慎重な行動が大事だ。君は注意深く周囲を観察した。
 　特に異常はないと安堵した君だったが、ふと天井を見上げて仰天した。
 　天井から吊るされたシャンデリアに白い鳥の群れが止まっているではないか！
@@ -624,7 +616,7 @@
 
 </scene>
 
-<scene id="02700" enemies="m2" hp="-5" mp="-5">
+<scene id="02700" hp="-5" mp="-5">
 　意を決して足場へと跳んだ君は、予想よりもあっさりと足場に飛び移ることができた。
 　君はホッと胸を撫で下ろす。罠の棘が君を少しだけ弱気にしていたのかもしれない。
 　しかし、安堵したのは束の間。
@@ -641,7 +633,7 @@
 
 </scene>
 
-<scene id="02800" enemies="m2" hp="-3" mp="-3">
+<scene id="02800" hp="-3" mp="-3">
 　意を決して足場へと跳んだ君は、あっさりと足場に飛び移ることができた。
 　やはり自信満々に跳んだのが良かったのだろう。君は満足げに頷く。
 　しかし、安堵したのは束の間。
@@ -874,7 +866,7 @@
 
 </scene>
 
-<scene id="04600" enemies="m3">
+<scene id="04600">
 　一気に狩人との間合いを詰めると、狩人は近距離から弓が使えないと判断したのか、弓を捨てて短剣を手に足場から飛び降りてきた！
 　君にとってはそれが吉と出るか凶と出るかは分からないが、こうなった以上は狩人と戦うしか道はない。
 
@@ -2060,7 +2052,7 @@
 [次へ進む](11300)
 </scene>
 
-<scene id="11300" enemies="m4,m5,m6">
+<scene id="11300" enemies="m1,m2,m3">
 　・・・・・・・・・
 
 　・・・・・・
@@ -2085,7 +2077,7 @@
 
 </scene>
 
-<scene id="11400" enemies="m4,m5,m6">
+<scene id="11400" enemies="m1,m2,m3">
 　**ここで逃げてはソーサリアンが廃る！**
 
 　君は意地を張って引き続き兵士の人形と戦い続けた……。
@@ -2113,7 +2105,7 @@
 
 </scene>
 
-<scene id="11600" enemies="m4,m5,m6">
+<scene id="11600" enemies="m1,m2,m3">
 　……もうどのくらいの時間、この人形の大軍と戦っているのだろう……？
 
 　君は朦朧とする意識の中、ほぼ全自動とも言えるような作業的な動きで、単調な行動しかしない人形兵士と戦っていた。
@@ -2229,7 +2221,7 @@
 
 </scene>
 
-<scene id="12300" enemies="m4,m5,m6">
+<scene id="12300" enemies="m1,m2,m3">
 　**ごちゃごちゃ考えているよりも体当たりだ！**
 
 　考えることを止めた君は、再び人形の部屋まで戻ることにした。
@@ -2315,7 +2307,7 @@
 
 </scene>
 
-<scene id="12800" enemies="m4,m5,m6">
+<scene id="12800" enemies="m1,m2,m3">
 　**ごちゃごちゃ考えているよりも体当たりだ！**
 
 　考えることを止めた君は、再び人形の部屋まで戻ることにした。
@@ -2695,7 +2687,7 @@
 
 </scene>
 
-<scene id="15200" enemies="m7,m8">
+<scene id="15200" enemies="m4,m5">
 　君は今、身動きの取れない状態のまま、暗闇の中を風の抵抗を感じながら高速で落ちている。
 　扉自体に罠がなくても、その先に罠があるとか酷い……。
 
@@ -2714,7 +2706,7 @@
 
 </scene>
 
-<scene id="15300" enemies="m9,m10">
+<scene id="15300" enemies="m6,m7">
 　君は今、身動きの取れない状態のまま、暗闇の中を風の抵抗を感じながら高速で落ちている。
 
 　自分が先程までどのくらいの高さにいたのか、明確な階数なんかは分からない。
@@ -2811,7 +2803,7 @@
 
 </scene>
 
-<scene id="16000" enemies="m11,m12">
+<scene id="16000" enemies="m8,m9">
 　・・・・・・・・・
 
 　・・・・・・
@@ -3086,7 +3078,7 @@
 
 </scene>
 
-<scene id="17200" enemies="m13" stars="0,0,1,0,0,0,0">
+<scene id="17200" stars="0,0,1,0,0,0,0">
 　最後の一撃は見事に決まった！
 
 　蛇女は血泡を吐き散らしながら甲高い悲鳴を上げると、そのまま倒れ伏し、暫し痙攣した後に絶命した。
@@ -3105,8 +3097,6 @@
 
 　**★＜水星の欠片＞を【1個】手に入れた**
 　※ステータスSTARの欠片が自動加算される
-　※モンスターが＜七惑星の欠片＞をドロップした場合、
-　　ドロップアイテムボタンを押して欠片の数を増やすこと
 
 [次へ進む](17300)
 
@@ -4498,7 +4488,7 @@
 
 </scene>
 
-<scene id="21300" enemies="m14">
+<scene id="21300" enemies="m10">
 　グリメルムの外套から出現したのは光輝く刃――魔力の短剣とでも呼ぼうか――だった。切っ先は全て君に向いている。
 　それが僅かな時間差をつけて勢いよく射出されようとしている、まさにその瞬間、君は走り出していた！
 
@@ -4858,7 +4848,7 @@
 
 </scene>
 
-<scene id="22500" enemies="m14">
+<scene id="22500" enemies="m10">
 　**君の『時』が巻き戻ったッ！**
 
 　グリメルムの外套から出現したのは光輝く刃――魔力の短剣とでも呼ぼうか――だった。切っ先は全て君に向いている。
@@ -4925,7 +4915,7 @@
 
 </scene>
 
-<scene id="22800" enemies="m15">
+<scene id="22800" enemies="m11">
 　またあの大量の短剣を躱さなければいけないかと思うとうんざりするが、相手はこちらの武器が届かない高さにいるのだ。回避に徹するしかない。
 
 　次第に数を増してゆく魔力の光を見ると、先程の数よりも多い。
@@ -4983,7 +4973,7 @@
 
 </scene>
 
-<scene id="23100" flags="f17" enemies="m16">
+<scene id="23100" flags="f17" enemies="m12">
 　またあの大量の短剣を躱さなければいけないかと思うとうんざりするが、相手はこちらの武器が届かない高さにいるのだ。回避に徹するしかない。
 
 　次第に数を増してゆく魔力の光を見ると、先程の数よりも多い。
@@ -6473,7 +6463,7 @@ ${/if}
 
 </scene>
 
-<scene id="28400" enemies="m17,m18">
+<scene id="28400" enemies="m13,m14">
 　光を受けた途端、全身に大岩が衝突したかのような重い衝撃を受け、口から呻きが漏れ出た。
 　眩しくて前が見えない！　だが、意識だけは手放さないようにと必死に両手をかざし続ける。
 　＜HOLY WATER＞の結界が威力を半減している筈なのだが、恐ろしいほどの冷気が全身に吹き付け、急速に体温が奪われてゆく。
@@ -6844,7 +6834,7 @@ ${/if}
 
 </scene>
 
-<scene id="29600" enemies="m19">
+<scene id="29600" enemies="m15">
 　武器を構えて走る君と、額を押さえて立っているグリメルムとの距離が狭まってゆく。
 　どうかそのままでいてくれよ、と願いながら走る君であったが、現実はそう甘くはなかった。
 
@@ -6899,7 +6889,7 @@ ${/if}
 
 </scene>
 
-<scene id="29900" enemies="m20">
+<scene id="29900" enemies="m16">
 　もはや魔法では君を止められない。グリメルムはそう悟ったのだろう。
 　グリメルムは顔を上げると、その真紅の双眸で君を真っ直ぐに見据え、上体を低くするとほぼ同時に地を蹴った。一蹴りした体勢のまま迫り来る、その速度たるや一陣の黒き風の如く。
 
@@ -6928,7 +6918,7 @@ ${/if}
 
 </scene>
 
-<scene id="29901" enemies="m21">
+<scene id="29901" enemies="m17">
 　もはや魔法では君を止められない。グリメルムはそう悟ったのだろう。
 　グリメルムは顔を上げると、その真紅の双眸で君を真っ直ぐに見据え、上体を低くするとほぼ同時に地を蹴った。一蹴りした体勢のまま迫り来る、その速度たるや一陣の黒き風の如く。
 
