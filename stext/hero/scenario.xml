@@ -44,12 +44,6 @@
 
 <!--モンスター情報-->
 <enemies>
-  <enemy id="m1" name="騎士の石像" element="earth"
-  attack="physics" func="*---" drop="no">剣で攻撃してくるが動きは鈍い</enemy>
-  <enemy id="m2" name="白い鳥" element="wind"
-  attack="physics" func="*---"  drop="no">群れで飛んできて突いてくる</enemy>
-  <enemy id="m3" name="狩人" element="earth"
-  attack="physics" func="*---"  drop="no">遠距離は弓・近距離は短剣で攻撃</enemy>
   <enemy id="m4" name="皇帝の人形" element="earth"
   attack="magic" func="4" drop="">剣から太陽光線を放ってくる</enemy>
   <enemy id="m5" name="皇女の人形" element="earth"
@@ -57,35 +51,33 @@
   <enemy id="m6" name="兵士の人形" element="earth"
   attack="physics" func="4" drop="">一気に押し寄せ槍で攻撃してくる</enemy>
   <enemy id="m7" name="左の落とし穴" element=""
-  attack="physics" func="3L" drop="no">深い落とし穴（物理ダメージ）</enemy>
+  attack="physics" func="3L" drop="">深い落とし穴（物理ダメージ）</enemy>
   <enemy id="m8" name="左の落とし穴" element=""
-  attack="magic" func="3L" drop="no">深い落とし穴（精神ダメージ）</enemy>
+  attack="magic" func="3L" drop="">深い落とし穴（精神ダメージ）</enemy>
   <enemy id="m9" name="右の落とし穴" element=""
-  attack="physics" func="3R" drop="no">深い落とし穴（物理ダメージ）</enemy>
+  attack="physics" func="3R" drop="">深い落とし穴（物理ダメージ）</enemy>
   <enemy id="m10" name="右の落とし穴" element=""
-  attack="magic" func="3R" drop="no">深い落とし穴（精神ダメージ）</enemy>
+  attack="magic" func="3R" drop="">深い落とし穴（精神ダメージ）</enemy>
   <enemy id="m11" name="落とし穴" element=""
-  attack="physics" func="5L+5R" drop="no">深い落とし穴（物理ダメージ）</enemy>
+  attack="physics" func="5L+5R" drop="">深い落とし穴（物理ダメージ）</enemy>
   <enemy id="m12" name="落とし穴" element=""
-  attack="magic" func="5L+5R" drop="no">深い落とし穴（精神ダメージ）</enemy>
-  <enemy id="m13" name="蛇女" element="earth"
-  attack="curse" func="*---" drop="">遠距離と近距離で攻撃が異なる</enemy>
+  attack="magic" func="5L+5R" drop="">深い落とし穴（精神ダメージ）</enemy>
   <enemy id="m14" name="魔力の短剣" element=""
   attack="physics" func="3L+3R-DEX-KRM" drop="no">魔力で作られた短剣</enemy>
   <enemy id="m15" name="魔力の短剣（加重状態）" element=""
   attack="physics" func="4L+4R-3KRM" drop="no">魔力で作られた短剣（本数が多い）</enemy>
   <enemy id="m16" name="魔力の短剣" element=""
   attack="physics" func="4L+4R-DEX-2KRM" drop="no">魔力で作られた短剣（本数が多い）</enemy>
-  <enemy id="m17" name="古代魔法「　　　」" element="water"
-  attack="physics" func="8L+8R-INT-KRM" drop="no">全てを凍らせる古代魔法（人間には発音不可能／物理ダメージ）</enemy>
-  <enemy id="m18" name="古代魔法「　　　」" element="water"
-  attack="magic" func="8L+8R-INT-KRM" drop="no">全てを凍らせる古代魔法（人間には発音不可能／精神ダメージ）</enemy>
+  <enemy id="m17" name="古代魔法「　　　」" element=""
+  attack="physics" func="8L+8R-INT-KRM" drop="">全てを凍らせる古代魔法（人間には発音不可能／物理ダメージ）</enemy>
+  <enemy id="m18" name="古代魔法「　　　」" element=""
+  attack="magic" func="8L+8R-INT-KRM" drop="">全てを凍らせる古代魔法（人間には発音不可能／精神ダメージ）</enemy>
   <enemy id="m19" name="魔力の短剣" element=""
-  attack="physics" func="L+R-DEX-KRM" drop="no">魔力で作られた短剣（本数が少ない）</enemy>
+  attack="physics" func="L+R-DEX-KRM" drop="">魔力で作られた短剣（本数が少ない）</enemy>
   <enemy id="m20" name="生か死か" element=""
-  attack="physics" func="5L+5R-STR-DEX" drop="no">グリメルムの命を懸けた一撃（STR判定）</enemy>
+  attack="physics" func="5L+5R-STR-DEX" drop="">グリメルムの命を懸けた一撃（STR判定）</enemy>
   <enemy id="m21" name="生か死か" element=""
-  attack="physics" func="5L+5R-INT-DEX" drop="no">グリメルムの命を懸けた一撃（INT判定）</enemy>
+  attack="physics" func="5L+5R-INT-DEX" drop="">グリメルムの命を懸けた一撃（INT判定）</enemy>
 </enemies>
 
 <!--実績トロフィー-->
