@@ -24,9 +24,9 @@
 				<p order="15">f05:*進行管理用の隠しフラグ</p>
 				<p order="16"/>
 				<p order="17">m01:人面岩:earth:physics:L-STR:tue/3:喋るだけで、硬い岩だ。</p>
-				<p order="18">m02:人面岩の口:spirit:magic:R-INT:free1/50/50Gold:喋る口だ。牙はない。</p>
+				<p order="18">m02:人面岩の口:spirit:poison:R&gt;DEX:free1/50/50Gold:喋る口だ。牙はない。</p>
 				<p order="19">m03:投げた石:wind:physics:L+R-STR:sat/1:君が投げた石だ。</p>
-				<p order="20">m04:一寸怒ったラット:fire:物理:L-STR::ガジガジたち。一見、可愛い。</p>
+				<p order="20">m04:一寸怒ったラット:fire:物理:*L-STR::ガジガジたち。一見、可愛い。</p>
 				<p order="21"/>
 				<p order="22">r01:冒険のはじまり:1:冒険を開始した</p>
 				<p order="23">r02:いしのなかにいる！:2:凹んだ床を踏んでみた</p>
@@ -162,21 +162,24 @@
 				<p order="5">@stars:-5,-5,-5,-5,-5,-5,-5</p>
 				<p order="6">@free1:7</p>
 				<p order="7">@free2:-2</p>
-				<p order="8">@result:r01</p>
-				<p order="9">@bgm:</p>
-				<p order="10">@@</p>
-				<p order="11"/>
-				<p order="12">- 魔法ボタンの確認（HEAL、LIGHT-CROSS）</p>
-				<p order="13">- ステータスボタンの確認（STR&lt;5、HP&gt;50）</p>
-				<p order="14">- 文字列入力欄の確認（正答はペンタウァ）</p>
-				<p order="15">- フラグf01、f02を設定</p>
-				<p order="16">- 隠しフラグf05、非隠しフラグf02の削除（f02はコンソールにエラー）</p>
-				<p order="17">- アイテムi01、i02、i03を設定</p>
-				<p order="18">- 星のすべてを-5</p>
-				<p order="19">- free1、2をそれぞれ+7、-2</p>
-				<p order="20">- 実績r01を設定</p>
-				<p order="21"/>
-				<p order="22"/>
+				<p order="8">@hp:-5</p>
+				<p order="9">@mp:-7..-3</p>
+				<p order="10">@result:r01</p>
+				<p order="11">@bgm:</p>
+				<p order="12">@@</p>
+				<p order="13"/>
+				<p order="14">- 魔法ボタンの確認（HEAL、LIGHT-CROSS）</p>
+				<p order="15">- ステータスボタンの確認（STR&lt;5、HP&gt;50）</p>
+				<p order="16">- 文字列入力欄の確認（正答はペンタウァ）</p>
+				<p order="17">- フラグf01、f02を設定</p>
+				<p order="18">- 隠しフラグf05、非隠しフラグf02の削除（f02はコンソールにエラー）</p>
+				<p order="19">- アイテムi01、i02、i03を設定</p>
+				<p order="20">- HPを-5、MPを-7～-3（ランダム）</p>
+				<p order="21">- 星のすべてを-5</p>
+				<p order="22">- free1、2をそれぞれ+7、-2</p>
+				<p order="23">- 実績r01を設定</p>
+				<p order="24"/>
+				<p order="25"/>
 			</text>
 			<backgroundcolour>#ffffff</backgroundcolour>
 			<choices>
@@ -287,13 +290,15 @@
 				<p order="2">@flags:f04</p>
 				<p order="3">@items:-i03</p>
 				<p order="4">@bgm:last</p>
-				<p order="5">@@</p>
-				<p order="6"/>
-				<p order="7">- BGMが変更</p>
-				<p order="8">- 隠しフラグf04を追加（ステータス画面からは見られない）</p>
-				<p order="9">- アイテムi03を削除</p>
-				<p order="10"/>
-				<p order="11"/>
+				<p order="5">@hp:10</p>
+				<p order="6">@mp:full</p>
+				<p order="7">@@</p>
+				<p order="8"/>
+				<p order="9">- BGMが変更</p>
+				<p order="10">- 隠しフラグf04を追加（ステータス画面からは見られない）</p>
+				<p order="11">- アイテムi03を削除</p>
+				<p order="12">- HPを10（上限越え）、MPを上限Maxに</p>
+				<p order="13"/>
 			</text>
 			<backgroundcolour>#ffffff</backgroundcolour>
 			<choices>

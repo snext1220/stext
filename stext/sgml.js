@@ -738,6 +738,10 @@
             hp[0] = Util.random(Number(hp[0]), Number(hp[1]));
           }
           save_data.chara.hp = Number(save_data.chara.hp) + Number(hp[0]);
+          // 上限を超えた場合には上限丸め
+          if (save_data.chara.hp > save_data.chara.hp_m) {
+            save_data.chara.hp = save_data.chara.hp_m;
+          }
         }
       }
       // mp属性の処理
@@ -752,6 +756,10 @@
             mp[0] = Util.random(Number(mp[0]), Number(mp[1]));
           }
           save_data.chara.mp = Number(save_data.chara.mp) + Number(mp[0]);
+          // 上限を超えた場合には上限丸め
+          if (save_data.chara.mp > save_data.chara.mp_m) {
+            save_data.chara.mp = save_data.chara.mp_m;
+          }
         }
       }
     },
@@ -1812,35 +1820,47 @@
 
       /* BGM再生 */
       // 再生すべきBGMのパスを生成
-      var tmp_path = '';
-      var new_bgm = scene.attr('bgm');
-      // セーブデータに保存済みのパスを取得（空の場合はメイン）
-      if (save_data.bgm) {
-        tmp_path = save_data.bgm;
-        //tmp_path = '/bgm_' + save_data.bgm + '.mp3';
-      } else {
-        tmp_path = bgms_map.main;
-        //tmp_path = '/bgm.mp3';
-      }
-      // bgm属性による上書き
-      if(new_bgm !== undefined) {
-        if(new_bgm === '') {
-          tmp_path = bgms_map.main;
-          //tmp_path = '/bgm.mp3';
-        } else {
-          tmp_path = new_bgm;
-          //tmp_path = '/bgm_' + new_bgm + '.mp3';
-        }
-      }
-      var audio_path = Util.buildBgmPath(tmp_path);
-      //var audio_path = ROOT + scenario_code + tmp_path;
-
-      // 初期立ち上げ時、画面遷移時（bgm属性ありで、以前から変化した）に再生
-      if(!bgm ||
-        (bgm && new_bgm !== undefined && new_bgm !== save_data.bgm)) {
-        Util.playBgm(audio_path);
+      var new_bgm = scene.nsAttr('bgm');
+      if (options.reverse) {
+        // ［戻る］の挙動
+        // bgm属性が現在再生中のBGMと異なる場合、曲切替
         if (new_bgm !== undefined) {
-          save_data.bgm = new_bgm;
+          if(new_bgm === '') { new_bgm = bgms_map.main; }
+          if (bgm_name !== new_bgm) {
+            bgm_name = new_bgm;
+            Util.playBgm(Util.buildBgmPath(new_bgm));
+          }
+        }
+      } else {
+        var tmp_path = '';
+        // セーブデータに保存済みのパスを取得（空の場合はメイン）
+        if (save_data.bgm) {
+          tmp_path = save_data.bgm;
+        } else {
+          tmp_path = bgms_map.main;
+        }
+        // bgm属性による上書き
+        if(new_bgm !== undefined) {
+          if(new_bgm === '') {
+            tmp_path = bgms_map.main;
+          } else {
+            tmp_path = new_bgm;
+          }
+        }
+        var audio_path = Util.buildBgmPath(tmp_path);
+        // 現在再生中のBGMを保存
+        bgm_name = tmp_path;
+
+        // 初期立ち上げ時、画面遷移時（bgm属性ありで、以前から変化した）に再生
+        if(!bgm ||
+          (bgm && new_bgm !== undefined && new_bgm !== save_data.bgm)) {
+          Util.playBgm(audio_path);
+          if (new_bgm !== undefined) {
+            save_data.bgm = new_bgm;
+            // セーブデータ／履歴反映
+            Util.saveStorage();
+            history.replaceState(save_data, 'Scene ' + scene_num);
+          }
         }
       }
       /* BGM再生ココマデ */
@@ -1852,9 +1872,9 @@
         se.loop = false;
         se.play();
       }
-
+    
       // エンディング処理（bgm属性が指定されている場合、エンディング曲に変更しない）
-      Util.endScenario(scene.nsAttr('end'), (scene.attr('bgm') === undefined));
+      Util.endScenario(scene.nsAttr('end'), (scene.nsAttr('bgm') === undefined));
     }
   };
 
@@ -2771,7 +2791,7 @@
     // 空白除去版のattrメソッド
     nsAttr: function(name) {
       var v = $(this).attr(name);
-      if (!v) { return ''; }
+      if (v === undefined) { return; }
       return v.replace(/\s+/g, '');
     }
   });

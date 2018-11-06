@@ -20,11 +20,10 @@
 		<flag id="f05">*進行管理用の隠しフラグ</flag>
 	</flags>
 	<enemies>
-		<enemy id="m01" name="人面岩" element="earth" attack="poison" func="L>STR" drop="tue/3">喋るだけで、硬い岩だ。</enemy>
-		<enemy id="m02" name="人面岩の口" element="spirit" attack="magic" func="R-INT" drop="free1/50/50Gold">喋る口だ。牙はない。</enemy>
+		<enemy id="m01" name="人面岩" element="earth" attack="physics" func="L-STR" drop="tue/3">喋るだけで、硬い岩だ。</enemy>
+		<enemy id="m02" name="人面岩の口" element="spirit" attack="poison" func="R>DEX" drop="free1/50/50Gold">喋る口だ。牙はない。</enemy>
 		<enemy id="m03" name="投げた石" element="wind" attack="physics" func="L+R-STR" drop="sat/1">君が投げた石だ。</enemy>
 		<enemy id="m04" name="一寸怒ったラット" element="fire" attack="物理" func="*L-STR" drop="">ガジガジたち。一見、可愛い。</enemy>
-		<enemy id=" m05" name="  ス ぺー ス" element="fire" attack="物理" func="L - STR" drop="free3/100/100Gold">  ガジガジたち。一見、 可愛い。  </enemy>
 	</enemies>
 	<results>
 		<result id="r01" name="冒険のはじまり" level="1">冒険を開始した</result>
@@ -82,7 +81,7 @@ ${/if}
 [星が1:2:3:4:5:6:8未満](2 "-s1:2:3:4:5:6:8")
 [500,600,700](X)
 </scene>
-	<scene id="2" items="i01,i02,i03" hp="full" mp="-4..-1" flags="f01,f02,-f02,-f05" enemies="m01,m02,m03,m04" stars="-5,-5,-5,-5,-5,-5,-5" free1="7" free2="-2" bgm="" result="r01">
+	<scene id="2" items="i01,i02,i03" flags="f01,f02,-f02,-f05" enemies="m01,m02,m03,m04" stars="-5,-5,-5,-5,-5,-5,-5" hp="-5" mp="-7..-3" free1="7" free2="-2" bgm="" result="r01">
 
 - 魔法ボタンの確認（HEAL、LIGHT-CROSS）
 - ステータスボタンの確認（STR&lt;5、HP&gt;50）
@@ -90,6 +89,7 @@ ${/if}
 - フラグf01、f02を設定
 - 隠しフラグf05、非隠しフラグf02の削除（f02はコンソールにエラー）
 - アイテムi01、i02、i03を設定
+- HPを-5、MPを-7～-3（ランダム）
 - 星のすべてを-5
 - free1、2をそれぞれ+7、-2
 - 実績r01を設定
@@ -112,12 +112,12 @@ HEAL実行
 
 </scene>
 	<scene id="5"></scene>
-	<scene id="6" items="-i03" flags="f04" bgm="last">
+	<scene id="6" items="-i03" flags="f04" hp="10" mp="full" bgm="last">
 
 - BGMが変更
 - 隠しフラグf04を追加（ステータス画面からは見られない）
 - アイテムi03を削除
-
+- HPを10（上限越え）、MPを上限Maxに
 
 
 [アイテム／フラグ分岐](9)
