@@ -441,6 +441,10 @@
 
     // 再生すべきbgmのパスを生成
     buildBgmPath: function(base) {
+      // 指定ファイルが空ならば、メインテーマ
+      if (base === '') {
+        base = bgms_map.main;
+      }
       // 指定ファイルがSText標準の場合
       if (base.indexOf('@') === 0) {
         return ROOT + COMMON + BGM + base.substring(1) + '.mp3';
@@ -1819,6 +1823,19 @@
       // $('br.del').remove();
 
       /* BGM再生 */
+      var at_bgm = scene.nsAttr('bgm');
+      var new_bgm = save_data.bgm;
+      if (at_bgm !== undefined) {
+        new_bgm = at_bgm;
+      }
+      if (new_bgm !== bgm_name) {
+        Util.playBgm(Util.buildBgmPath(new_bgm));
+        bgm_name = new_bgm;
+        save_data.bgm = new_bgm;
+        Util.saveStorage();
+        history.replaceState(save_data, 'Scene ' + scene_num);
+      }
+      /*
       // 再生すべきBGMのパスを生成
       var new_bgm = scene.nsAttr('bgm');
       if (options.reverse) {
@@ -1863,6 +1880,7 @@
           }
         }
       }
+      */
       /* BGM再生ココマデ */
 
       // シーン表示時に効果音を再生
