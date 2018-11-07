@@ -2266,6 +2266,10 @@
 
       // 履歴情報の復帰
       $(window).on('popstate', function(e) {
+        // エンディングでは［戻る］は不可
+        if (save_data.isEnded) {
+          return;
+        }
         // 履歴から過去のセーブデータを復元
         if (e.originalEvent.state != null) {
           save_data = e.originalEvent.state;
