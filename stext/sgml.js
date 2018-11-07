@@ -946,7 +946,6 @@
         }
         // ダメージを加算
         damage += sign * num * param;
-        console.log('ダメージ：' + damage);
       }
       return damage;
     },
@@ -1727,22 +1726,6 @@
 
       // シーンのモンスター情報をリスト化
       Util.createEnemyList(scene.nsAttr('enemies'));
-      // if(scene.attr('enemies')) {
-      //   var e_table = 
-      //     $('<table class="enemy">');
-      //   var enemies = scene.attr('enemies').split(',');
-      //   for (var i = 0; i < enemies.length; i++) {
-      //     var enemy = enemies_map[enemies[i]];
-      //     var row = '<tr class="enemy_row" data-enemy="' + enemies[i] + '"><th>' + enemy.name;
-      //     if(enemy.element) { row += '（' + enemy.element + '）'; }
-      //     row += '</th><td>' + enemy.attack + '</td><td>';
-      //     if(enemy.func) { row += Util.selectFunc(enemy.func); }
-      //     row += '</td><td>' + this.dropItem(enemy);
-      //     row += '</td></tr>';
-      //     e_table.append(row);
-      //   }
-      //   e_table.insertBefore('a.scenebtn:first');
-      // }
 
       // 現在のフラグ／アイテム情報を取得
       var flags = save_data.flags;
@@ -1803,24 +1786,6 @@
       // 現時点で非表示になっているボタンと、その直後の改行を削除
       $('.scenebtn:hidden + br', target).remove();
       $('a[title]:hidden', target).remove();
-      // $('a[title]:hidden', target).remove();
-      // // シーンボタンの間の余計なbrを除去
-      // $('.scenebtn + br', target).each(function(index, elem) {
-      //   var next = elem.nextSibling;
-      //   while (next !== null && 
-      //     next.nodeType === 1 &&
-      //     next.nodeName.toLowerCase() === 'br')
-      //   /* ||
-      //     (next.nodeType === 3 &&
-      //       (next.nodeValue === '' ||
-      //         (/^[\s\n\r]{1,}$/g).test(next.nodeValue)
-      //       )
-      //     ))*/ {
-      //       $(next).addClass('del');
-      //       next = next.nextSibling;
-      //   }
-      // });
-      // $('br.del').remove();
 
       /* BGM再生 */
       // save_data.bgm→bgm属性の順で再生曲を設定
@@ -2324,29 +2289,7 @@
         // save_data.ellapsed_scene--;
         var num = save_data.scene;
         Util.createScene(num, { reverse: true, restore: true });
-        //history.pushState(num, 'Scene ' + num);
-        //Util.showSplash();
       }); 
-
-      // スプラッシュ画面クリック時に音楽を再生
-      // $(document).on('touchstart', '.zoombox_mask', function() {
-      //   if(global_save_data.bgm && bgm.paused) {
-      //     bgm.play();
-      //   }
-      // });
-
-      // スプラッシュ画面クリック時に音楽を再生
-      /*
-      var bgm_error = function(e) {
-        if (e.target.classList.contains('zoombox_mask')) {
-          if(bgm != null && bgm.paused && global_save_data.bgm) {
-            bgm.play();
-          }
-        }
-      };
-      document.addEventListener('click', bgm_error, true);
-      document.addEventListener('touchstart', bgm_error, true);
-      */
       /** EventListener **/
 
       // グローバルセーブデータが存在しない場合は初期化
@@ -2392,7 +2335,6 @@
             desc: $(this).text().trim()
           }
         });
-        console.log(enemies_map);
 
         // アイテム一覧を取得
         items_map = {};
@@ -2423,7 +2365,6 @@
           happy: i_happy === undefined ? 'happy' : i_happy,
           bad: i_bad === undefined ? 'bad' : i_bad
         };
-        console.log(bgms_map);
 
         // デバッグモードではシナリオのデータ検証
         if (debug_mode === true) {
@@ -2727,7 +2668,6 @@
         var blob = new Blob([ data ], { 'type': 'application/octet-stream' });
         var anchor = document.createElement('a');
         anchor.href = window.URL.createObjectURL(blob);
-        var today = new Date();
         anchor.download = scena_id + '-' + (new Date()).getTime()  + '.stext';
         document.body.appendChild(anchor);
         anchor.click();
@@ -2755,17 +2695,6 @@
               }
               dl(scenario, content);
             });
-          // 旧コード（削除予定）
-          // for (var i = 0; i < storage.length; i++) {
-          //   var key = storage.key(i);
-          //   var value = storage[key];
-          //   if (/^[a-z0-9_]+$/gi.test(key) &&
-          //     key !== 'playground_editor' &&
-          //     /^{(.*)}$/.test(value)) {
-          //     content += key + '\n';
-          //     content += storage[key] + '\n';
-          //   }
-          // }
         } else {
           content = storage[scenario];
           if (!content) {
