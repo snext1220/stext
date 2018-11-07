@@ -1823,14 +1823,17 @@
       // $('br.del').remove();
 
       /* BGM再生 */
+      // save_data.bgm→bgm属性の順で再生曲を設定
       var at_bgm = scene.nsAttr('bgm');
       var new_bgm = save_data.bgm;
       if (at_bgm !== undefined) {
         new_bgm = at_bgm;
       }
+      // 再生すべき曲が現在の曲と異なれば、曲を切り替え
       if (new_bgm !== bgm_name) {
         Util.playBgm(Util.buildBgmPath(new_bgm));
         bgm_name = new_bgm;
+        // セーブデータ、履歴も反映
         save_data.bgm = new_bgm;
         Util.saveStorage();
         history.replaceState(save_data, 'Scene ' + scene_num);
