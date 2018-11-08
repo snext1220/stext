@@ -21,10 +21,10 @@
 	</results>
 	<license>
 		<work name="天照" creator="えむゆーず" category="bgm" url="https://dova-s.jp/_contents/author/profile245.html"></work>
-		<work name="百花繚乱" creator="天休ひさし" category="happy_end" url="http://109-music.com/"></work>
-		<work name="燦々雨" creator="Yuli" category="bad_end" url="http://yacft.com/"></work>
-		<work name="毘沙門天" creator="663highl" category="挿絵" url="https://commons.wikimedia.org/wiki/File:Todaiji05s3200.jpg"></work>
-		<work name="上杉謙信" creator="Public domain" category="紹介" url="https://commons.wikimedia.org/wiki/File:Uesugi_Kenshin.jpg"></work>
+		<work name="百花繚乱" creator="天休ひさし" category="bgm" url="http://109-music.com/"></work>
+		<work name="燦々雨" creator="Yuli" category="bgm" url="http://yacft.com/"></work>
+		<work name="毘沙門天" creator="663highl" category="picture" url="https://commons.wikimedia.org/wiki/File:Todaiji05s3200.jpg"></work>
+		<work name="上杉謙信" creator="Public domain" category="picture" url="https://commons.wikimedia.org/wiki/File:Uesugi_Kenshin.jpg"></work>
 	</license>
 	<scene id="0">
 *** 序章 ***
