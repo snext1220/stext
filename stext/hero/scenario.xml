@@ -108,25 +108,25 @@
 
 <!--ライセンス情報-->
 <licence>
-  <work name="メインテーマ" category="音楽" creator="Az" url="http://venusaz.seesaa.net/"></work>
-  <work name="少女の部屋" category="音楽" creator="TAM Music Factory" url="https://www.tam-music.com/"></work>
-  <work name="ボスバトル" category="音楽" creator="Az" url="http://venusaz.seesaa.net/"></work>
-  <work name="トゥルー、ノーマルエンド" category="音楽" creator="Az" url="http://venusaz.seesaa.net/"></work>
-  <work name="バッドエンド" category="音楽" creator="Az" url="http://venusaz.seesaa.net/"></work>
-  <work name="異次元塔ディ・メンジェス" category="音楽" creator="MusMus" url="http://musmus.main.jp/"></work>
-  <work name="少女は英雄を語りて" category="画像" creator="とくし" url="https://sites.google.com/site/rtdneta/"></work>
-  <work name="しぬでないぞ" category="画像" creator="ときのじ"></work>
-  <work name="DS5～そして最下層へ～" category="画像" creator="ときのじ"></work>
-  <work name="七枚の鏡" category="画像" creator="ときのじ"></work>
-  <work name="収集家グリメルム" category="画像" creator="助っ人S、ときのじ"></work>
-  <work name="夢の終わり" category="画像" creator="ときのじ"></work>
-  <work name="その瞳はもう何も映さない" category="画像" creator="ときのじ"></work>
-  <work name="綴り手の民の少女" category="画像" creator="ときのじ"></work>
-  <work name="青空と海と後ろ姿の女性" category="素材画像" creator="GAHAG | 著作権フリー写真・イラスト素材集" url="http://gahag.net/"></work>
-  <work name="青空と雲の風景でアハ体験" category="素材画像" creator="GAHAG | 著作権フリー写真・イラスト素材集" url="http://gahag.net/"></work>
-  <work name="magic34.jpg" category="素材画像" creator="あやえも研究所" url="http://ayaemo.skr.jp/"></work>
-  <work name="blood04.jpg" category="素材画像" creator="あやえも研究所" url="http://ayaemo.skr.jp/"></work>
-  <work name="570533_m_wi" category="素材画像" creator="無料写真素材 写真AC" url="https://www.photo-ac.com/"></work>
+  <work name="メインテーマ" category="bgm" creator="Az" url="http://venusaz.seesaa.net/"></work>
+  <work name="少女の部屋" category="bgm" creator="TAM Music Factory" url="https://www.tam-music.com/"></work>
+  <work name="ボスバトル" category="bgm" creator="Az" url="http://venusaz.seesaa.net/"></work>
+  <work name="トゥルー、ノーマルエンド" category="bgm" creator="Az" url="http://venusaz.seesaa.net/"></work>
+  <work name="バッドエンド" category="bgm" creator="Az" url="http://venusaz.seesaa.net/"></work>
+  <work name="異次元塔ディ・メンジェス" category="bgm" creator="MusMus" url="http://musmus.main.jp/"></work>
+  <work name="少女は英雄を語りて" category="picture" creator="とくし" url="https://sites.google.com/site/rtdneta/"></work>
+  <work name="しぬでないぞ" category="picture" creator="ときのじ"></work>
+  <work name="DS5～そして最下層へ～" category="picture" creator="ときのじ"></work>
+  <work name="七枚の鏡" category="picture" creator="ときのじ"></work>
+  <work name="収集家グリメルム" category="picture" creator="助っ人S、ときのじ"></work>
+  <work name="夢の終わり" category="picture" creator="ときのじ"></work>
+  <work name="その瞳はもう何も映さない" category="picture" creator="ときのじ"></work>
+  <work name="綴り手の民の少女" category="picture" creator="ときのじ"></work>
+  <work name="青空と海と後ろ姿の女性" category="picture" creator="GAHAG | 著作権フリー写真・イラスト素材集" url="http://gahag.net/"></work>
+  <work name="青空と雲の風景でアハ体験" category="picture" creator="GAHAG | 著作権フリー写真・イラスト素材集" url="http://gahag.net/"></work>
+  <work name="magic34.jpg" category="picture" creator="あやえも研究所" url="http://ayaemo.skr.jp/"></work>
+  <work name="blood04.jpg" category="picture" creator="あやえも研究所" url="http://ayaemo.skr.jp/"></work>
+  <work name="570533_m_wi" category="picture" creator="無料写真素材 写真AC" url="https://www.photo-ac.com/"></work>
 </licence>
 
 <!--シナリオ（プロローグ）-->
