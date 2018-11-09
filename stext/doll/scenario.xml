@@ -8,6 +8,7 @@
 <!--v1.4 2018/1/12 happyEnd曲変更。ライセンス情報追加。-->
 <!--v1.5 2018/4/1 トロフィー追加。-->
 <!--v1.6 2018/10/6 bgm仕様変更に対応。-->
+<!--v1.7 2018/11/9 ライセンス表記のミスを修正。-->
 <scenario title="プレアオブ・ドールズ" author="cocotori">
 <items>
 </items>
@@ -22,19 +23,19 @@
 
 </enemies>
 <licence>
-	<work name="白い星が散った夜" category="音楽" creator="Hagall" url="http://hagall.hacca.jp"></work>
-	<work name="N30_49" category="音楽" creator="AZ"></work>
-	<work name="町" category="画像" creator="PIXNIO" url="https://pixnio.com"></work>
-	<work name="酒場" category="画像" creator="エジマーダー研究所" url="http://ejimurder.dojin.com/"></work>
-	<work name="服屋、雑貨屋" category="画像" creator="KONOKA" url="http://konoka.sakura.ne.jp/index.html"></work>
-	<work name="町夜景" category="画像" creator="Gold Fish House" url="http://kingyo25.fc2web.com/newhp/index2.html"></work>
-	<work name="森" category="画像" creator="Communicate Station Laboratory" url="http://csl.no-ip.org/indexj.html"></work>
-	<work name="洋館内部" category="画像" creator="Classic Root." url="http://classicroot.web.fc2.com"></work>
-	<work name="人形部屋、桟橋" category="画像" creator="写真素材 足成" url="http://www.ashinari.com"></work>
-	<work name="薄暗い洋室（改変）" category="画像" creator="あやえも研究所" url="http://ayaemo.skr.jp"></work>
-	<work name="薄暗い洋室（改変元）" category="画像" creator="futureshape (Creative Commons license http://creativecommons.org/licenses/by/2.0/deed.en)" url="https://www.flickr.com/photos/futureshape/1799932497/"></work>
-	<work name="石膏" category="画像" creator="niur" url="http://niur.net/index.php"></work>
-	<work name="ED絵" category="画像" creator="ときのじ"></work>
+	<work name="白い星が散った夜" category="bgm" creator="Hagall" url="http://hagall.hacca.jp"></work>
+	<work name="N30_49" category="bgm" creator="AZ"></work>
+	<work name="町" category="picture" creator="PIXNIO" url="https://pixnio.com"></work>
+	<work name="酒場" category="picture" creator="エジマーダー研究所" url="http://ejimurder.dojin.com/"></work>
+	<work name="服屋、雑貨屋" category="picture" creator="KONOKA" url="http://konoka.sakura.ne.jp/index.html"></work>
+	<work name="町夜景" category="picture" creator="Gold Fish House" url="http://kingyo25.fc2web.com/newhp/index2.html"></work>
+	<work name="森" category="picture" creator="Communicate Station Laboratory" url="http://csl.no-ip.org/indexj.html"></work>
+	<work name="洋館内部" category="picture" creator="Classic Root." url="http://classicroot.web.fc2.com"></work>
+	<work name="人形部屋、桟橋" category="picture" creator="写真素材 足成" url="http://www.ashinari.com"></work>
+	<work name="薄暗い洋室（改変）" category="picture" creator="あやえも研究所" url="http://ayaemo.skr.jp"></work>
+	<work name="薄暗い洋室（改変元）" category="picture" creator="futureshape (Creative Commons license http://creativecommons.org/licenses/by/2.0/deed.en)" url="https://www.flickr.com/photos/futureshape/1799932497/"></work>
+	<work name="石膏" category="picture" creator="niur" url="http://niur.net/index.php"></work>
+	<work name="ED絵" category="picture" creator="ときのじ"></work>
 </licence>
 
 <!--実績トロフィー-->
