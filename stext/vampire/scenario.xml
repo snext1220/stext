@@ -7,6 +7,7 @@
 <!--v1.3 2018/10/6 bgm仕様変更に対応。-->
 <!--v1.4 2018/10/18 敵の属性、攻撃種の仕様変更に対応。-->
 <!--v1.5 2018/10/31 新戦闘計算式に修正。-->
+<!--v1.6 2018/11/9 ライセンス表記のミスを修正。-->
 <scenario title="鉄腕の吸血姫" author="cocotori">
 <items>
 	<item id="i00" name="小さな鍵">どこかの鍵。翼の飾りがついている。</item>
@@ -27,21 +28,21 @@
 </enemies>
 
 <licence>
-	<work name="深淵の回廊" category="音楽" creator="Abstract Hope" url="http://bungakuseinen.com/"></work>
-	<work name="木星" category="音楽" creator="Music is VFR" url="http://musicisvfr.com/"></work>
-	<work name="blade and impulse" category="音楽" creator="SULDRA COMPANY" url="http://sildra.main.jp/index.php"></work><!--使わないかも-->
-	<work name="破魔" category="音楽" creator="SULDRA COMPANY" url="http://sildra.main.jp/index.php"></work>
-	<work name="N30_39" category="音楽" creator="AZ" url=""></work>
-	<work name="cocoon-r-005.jpg" category="画像" creator="COCOON" url="http://cocoon.daa.jp"></work>
-	<work name="cocoon-a115.jpg" category="画像" creator="COCOON" url="http://cocoon.daa.jp"></work>
-	<work name="Chambre-n054.jpg" category="画像" creator="La Chambre claire" url="http://joy.moo.jp"></work>
-	<work name="cocoon-a52.jpg" category="画像" creator="COCOON" url="http://cocoon.daa.jp"></work>
-	<work name="orangestar-20150618115141.png" category="画像" creator="小島アジコ" url="http://orangestar.hatenadiary.jp/entry/2015/06/18/190000"></work>
-	<work name="ayaemo-fantasy12-day.jpg（改変）" category="画像" creator="あやえも研究所" url="http://ayaemo.skr.jp"></work>
-	<work name="ayaemo-fantasy12-day.jpg（改変元）" category="画像" creator="foxypar4 (Creative Commons license http://creativecommons.org/licenses/by/2.0/deed.en)" url="http://www.flickr.com/photos/foxypar4/3313167875/"></work>
-	<work name="ayaemo-fantasy11-day.jpg（改変）" category="画像" creator="あやえも研究所" url="http://ayaemo.skr.jp"></work>
-	<work name="ayaemo-fantasy11-day.jpg（改変元）" category="画像" creator="Martin Pettitt (Creative Commons license http://creativecommons.org/licenses/by/2.0/deed.en)" url="http://www.flickr.com/photos/mdpettitt/5099932962/"></work>
-	<work name="キャラ挿絵2枚" category="画像" creator="ときのじ"></work>
+	<work name="深淵の回廊" category="bgm" creator="Abstract Hope" url="http://bungakuseinen.com/"></work>
+	<work name="木星" category="bgm" creator="Music is VFR" url="http://musicisvfr.com/"></work>
+	<work name="blade and impulse" category="bgm" creator="SULDRA COMPANY" url="http://sildra.main.jp/index.php"></work><!--使わないかも-->
+	<work name="破魔" category="bgm" creator="SULDRA COMPANY" url="http://sildra.main.jp/index.php"></work>
+	<work name="N30_39" category="bgm" creator="AZ" url=""></work>
+	<work name="cocoon-r-005.jpg" category="picture" creator="COCOON" url="http://cocoon.daa.jp"></work>
+	<work name="cocoon-a115.jpg" category="picture" creator="COCOON" url="http://cocoon.daa.jp"></work>
+	<work name="Chambre-n054.jpg" category="picture" creator="La Chambre claire" url="http://joy.moo.jp"></work>
+	<work name="cocoon-a52.jpg" category="picture" creator="COCOON" url="http://cocoon.daa.jp"></work>
+	<work name="orangestar-20150618115141.png" category="picture" creator="小島アジコ" url="http://orangestar.hatenadiary.jp/entry/2015/06/18/190000"></work>
+	<work name="ayaemo-fantasy12-day.jpg（改変）" category="picture" creator="あやえも研究所" url="http://ayaemo.skr.jp"></work>
+	<work name="ayaemo-fantasy12-day.jpg（改変元）" category="picture" creator="foxypar4 (Creative Commons license http://creativecommons.org/licenses/by/2.0/deed.en)" url="http://www.flickr.com/photos/foxypar4/3313167875/"></work>
+	<work name="ayaemo-fantasy11-day.jpg（改変）" category="picture" creator="あやえも研究所" url="http://ayaemo.skr.jp"></work>
+	<work name="ayaemo-fantasy11-day.jpg（改変元）" category="picture" creator="Martin Pettitt (Creative Commons license http://creativecommons.org/licenses/by/2.0/deed.en)" url="http://www.flickr.com/photos/mdpettitt/5099932962/"></work>
+	<work name="キャラ挿絵2枚" category="picture" creator="ときのじ"></work>
 	
 </licence>
 
