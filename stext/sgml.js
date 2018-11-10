@@ -49,7 +49,7 @@
 
   // 現在再生中のBGM
   var bgm;
-  var bgm_name; // 名前（bgm_*.mp3の「*」のみ。メインは空）
+  var bgm_name; // 名前（bgm属性の指定値「@field01」など。メインは空）
 
   // 利用するストレージ
   var storage = localStorage;
@@ -1441,14 +1441,74 @@
       }
     },
 
+    // 条件式（単一）を判定し、true／falseを返す
+    conditionSingle: function(cond) {
+      cond = cond.trim();
+      return save_data.flags.indexOf(cond) !== -1 ||
+        save_data.items.indexOf(cond) !== -1 ||
+        Util.canUseMagicByName(cond) ||
+        Util.ifStatus(cond) ||
+        Util.isCharaState(cond) ||
+        Util.hasStars(cond) ||
+        Util.hasResult(cond);
+    },
+
+    // 引数org_cond（条件式cond,cond,...）の判定
+    // すべてのcondがtrueである
+    conditionAllTrue: function(org_cond) {
+      var result = true;
+      var conds = org_cond.split(',');
+      for (var i = 0; i < conds.length; i++) {
+        if (!Util.conditionSingle(conds[i])) {
+          result = false;
+          break;
+        }
+      }
+      return result;
+    },
+
+    // 複数の条件式による判定
+    judgeMultiCondition: function(org_cond) {
+      if (org_cond.indexOf('-') !== 0) {
+        // 指定の条件をすべて満たしていれば真
+        if (Util.conditionAllTrue(org_cond)) {
+          return true;
+        }
+      } else {
+        // 指定の条件をすべて満たしていなければ真
+        if (!Util.conditionAllTrue(org_cond.substring(1))) {
+          return true;
+        }
+      }
+      return false;
+    },
+
+    // 条件式によるシーンボタンの表示／非表示
+    showSceneButton: function() {
+      $('a[title]', target).hide();
+      var scene_button = $('a[title]', target);
+      scene_button.each(function(index, elem) {
+        if(Util.judgeMultiCondition($(elem).nsAttr('title'))) {
+          $(elem).show();
+        }
+      });
+    },
+
     // ${if}による分岐制御
     ifCondition: function(match, cond, body) {
+      if(Util.judgeMultiCondition(cond)) {
+        return body;
+      } else {
+        return '';
+      }
+      /*
       if(save_data.flags.indexOf(cond) !== -1 ||
          save_data.items.indexOf(cond) !== -1) {
         return body;
       } else {
         return '';
       }
+      */
     },
 
     // Tweetボタンの生成
@@ -1727,6 +1787,9 @@
       // シーンのモンスター情報をリスト化
       Util.createEnemyList(scene.nsAttr('enemies'));
 
+      // 条件付きボタンの表示／非表示
+      Util.showSceneButton();
+      /*
       // 現在のフラグ／アイテム情報を取得
       var flags = save_data.flags;
       var items = save_data.items;
@@ -1782,6 +1845,7 @@
           }
         }
       });
+      */
 
       // 現時点で非表示になっているボタンと、その直後の改行を削除
       $('.scenebtn:hidden + br', target).remove();
