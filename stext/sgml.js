@@ -1470,7 +1470,7 @@
     // 引数org_condの判定（&、|を可能に）
     conditionFull: function(org_cond) {
       var eval_str = '';
-      var ope = /([\&\|\!\(\)]{1})/;
+      var ope = /([\&\|\!\(\)]{1,2})/;
       var conds = org_cond.split(ope);
   console.log(conds);
       for (var i = 0; i < conds.length; i++) {
