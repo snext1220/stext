@@ -1467,18 +1467,40 @@
       return result;
     },
 
-    // 複数の条件式による判定
-    judgeMultiCondition: function(org_cond) {
-      if (org_cond.indexOf('-') !== 0) {
-        // 指定の条件をすべて満たしていれば真
-        if (Util.conditionAllTrue(org_cond)) {
-          return true;
+    // 引数org_condの判定（&、|を可能に）
+    conditionFull: function(org_cond) {
+      var eval_str = '';
+      var ope = /([\&\|\!\(\)]{1})/;
+      var conds = org_cond.split(ope);
+  console.log(conds);
+      for (var i = 0; i < conds.length; i++) {
+        var c = conds[i];
+        if (!c) { continue; }
+        if (ope.test(c)) {
+          eval_str += c;
+        } else {
+          if (c.indexOf('-') !== 0) {
+            eval_str += Util.conditionSingle(c);
+          } else {
+            eval_str += !Util.conditionSingle(c.substring(1));
+          }
         }
+      }
+  console.log(eval_str);
+      return eval(eval_str);
+    },
+
+    // 条件式の種類に応じて、呼び出しのメソッドを切り替え
+    // 将来的に、ここでconditionXxxxxメソッドを切り替えていく
+    judgeMultiCondition: function(org_cond) {
+      if (/([\&\|\!\(\)]{1})/.test(org_cond)) {
+        return Util.conditionFull(org_cond);
+      } else if (org_cond.indexOf('-') !== 0) {
+        // 指定の条件をすべて満たしていれば真
+        return Util.conditionAllTrue(org_cond);
       } else {
         // 指定の条件をすべて満たしていなければ真
-        if (!Util.conditionAllTrue(org_cond.substring(1))) {
-          return true;
-        }
+        return !Util.conditionAllTrue(org_cond.substring(1));
       }
       return false;
     },
