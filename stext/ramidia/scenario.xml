@@ -44,11 +44,11 @@
   </enemy>
 </enemies>
 <licence>
-	<work name="N30_26" category="音楽" creator="AZ" url="https://soundcloud.com/venus-az"></work>
-	<work name="N30_31" category="音楽" creator="AZ" url="https://soundcloud.com/venus-az"></work>
-	<work name="N30_48" category="音楽" creator="AZ" url="https://soundcloud.com/venus-az"></work>
-	<work name="ramidia1.png" category="挿絵" creator="ときのじ" url="http://tokinojis1.blog.fc2.com/"></work>
-	<work name="ramidia2.png" category="挿絵" creator="ときのじ" url="http://tokinojis1.blog.fc2.com/"></work>
+	<work name="N30_26" category="bgm" creator="AZ" url="https://soundcloud.com/venus-az"></work>
+	<work name="N30_31" category="bgm" creator="AZ" url="https://soundcloud.com/venus-az"></work>
+	<work name="N30_48" category="bgm" creator="AZ" url="https://soundcloud.com/venus-az"></work>
+	<work name="ramidia1.png" category="picture" creator="ときのじ" url="http://tokinojis1.blog.fc2.com/"></work>
+	<work name="ramidia2.png" category="picture" creator="ときのじ" url="http://tokinojis1.blog.fc2.com/"></work>
 </licence>
 <results>
   <result id="r01" name="森からの帰還" level="1">
