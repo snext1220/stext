@@ -64,7 +64,7 @@
 		<flag id="f202">魔法研究者と話した</flag>
 	</flags>
 	<enemies>
-		<enemy id="m623" name="ワーベアーLv7/強石化/耐2" element="spirit" attack="physics" func="6L+6R+450-STR-FREE1-10FREE2" drop="">熊男｡なぜ熊が石化攻撃を…それは獣王の掟｡人型化というより立って戦うだけなので戦闘力はさほど変わらないが､元々獣系最強な上に凶暴化+知能となると手がつけられない｡※強石化は2重に受けると即死｡</enemy>
+		<enemy id="m623" name="ワーベアーLv7/強石化/耐久力2" element="spirit" attack="physics" func="6L+6R+450-STR-FREE1-10FREE2" drop="">熊男｡なぜ熊が石化攻撃を…それは獣王の掟｡人型化というより立って戦うだけなので戦闘力はさほど変わらないが､元々獣系最強な上に凶暴化+知能となると手がつけられない｡※強石化は2重に受けると即死｡</enemy>
 		<enemy id="m622" name="ワータイガーLv6" element="earth" attack="physics" func="7L+7R+400-STR-FREE1-10FREE2" drop="">虎男｡一般的?には人間に虎の霊などを憑依させるが､これも虎が凶暴化､さらに邪悪な意思により人型化して知能を与えられたもののようだ｡ﾊﾟｧﾜｧﾌｩﾘｬｱｧｧｰｰ!!</enemy>
 		<enemy id="m621" name="ワーウルフLv6" element="wind" attack="physics" func="8L+8R+350-STR-FREE1-10FREE2" drop="">狼男｡吸血鬼の眷属であったり人の魔法強化であったりするが､これは森の狼が凶暴強化されたもの｡ﾊﾟﾜﾌﾘｬｱｧｧｰｰ!!</enemy>
 		<enemy id="m511" name="マイコニッドA Lv5/毒" element="wind" attack="physics" func="5L+5R+250-STR-DEX-FREE1-10FREE2" drop="">人型のキノコ｡キノコが人型を成したのか､人がキノコになったのか…戦闘力でなく､放出される多種多様で強力な胞子がやっかい｡毒タイプは風に乗せて毒胞子をバラまく｡</enemy>
@@ -72,32 +72,40 @@
 		<enemy id="m513" name="マイコニッドC Lv5/忘却" element="fire" attack="physics" func="5L+5R+250-STR-DEX-FREE1-10FREE2" drop="">忘却タイプ｡神経毒胞子で忘却はいいとして､なぜ火属性なのか…植物とか菌に火は無理だよなぁ｡</enemy>
 		<enemy id="m514" name="マイコニッドD Lv5/石化" element="earth" attack="physics" func="5L+5R+250-STR-DEX-FREE1-10FREE2" drop="">石化タイプ｡普通に大地の力で相手を地に返すべく石化胞子をバラまく｡</enemy>
 		<enemy id="m515" name="マイコニッドE Lv5/呪い" element="spirit" attack="physics" func="5L+5R+250-STR-DEX-FREE1-10FREE2" drop="">呪いタイプ｡これも普通に苗床(ベース)の怨念で呪いの胞子をバラまく｡</enemy>
-		<enemy id="m613" name="リザードマスターLv7/物魔/防不/魔無/耐3" element="spirit" attack="physics" func="7L+7R+600-STR-INT-DEX-KRM-FREE1-10FREE2" drop="">リザードマンの族長で､一族に伝わる伝説の邪剣"イビルソード"を持つ｡その強さはすでにボスクラス｡※防御不能かつ攻撃魔法は効かないが例外アリ)｡</enemy>
+		<enemy id="m613" name="リザードマスターLv7/物理魔法/防御不能/魔法無効/耐久力3" element="spirit" attack="physics" func="7L+7R+600-STR-INT-DEX-KRM-FREE1-10FREE2" drop="">リザードマンの族長で､一族に伝わる伝説の邪剣"イビルソード"を持つ｡その強さはすでにボスクラス｡※防御不能かつ攻撃魔法は効かないが例外アリ)｡</enemy>
 		<enemy id="m612" name="リザードメイジLv6/凍結" element="water" attack="magic" func="6L+6R+250-INT-FREE1-10FREE2" drop="">高齢にならないと魔法を使える程の知能は無く､必然的に個体数は少ないが､使うとなると水魔法を高Lvで使いこなしてくる｡</enemy>
 		<enemy id="m611" name="リザードマンLv6/毒" element="water" attack="physics" func="7L+7R+300-STR-FREE1-10FREE2" drop="">名の通りのトカゲ人間｡知能も文化もそれなりにあるが非常に残虐(武器には毒が塗ってある)…というか"他生物を狩る事が全て"的な蛮族文化｡</enemy>
-		<enemy id="m522" name="アスティラゴア(怨霊)Lv6/物魔/防不" element="霊" attack="physics" func="6L+6R+300-STR-INT-FREE1-10FREE2" drop="">さらにその脳髄に元の持ち主の怨念が取り付いたもの｡「オマエもコッチに来い…」と触手で絞め殺そうと…菌の本能と怨念で2重に怖い！！</enemy>
-		<enemy id="m2851" name="毒の鱗粉Lv7" element="wind" attack="毒(物理)" func="7(L+R)+450-STR" drop="">その名の通り毒を含んだ鱗粉。吸い込むと危険。</enemy>
-		<enemy id="m2852" name="凍結の鱗粉Lv7" element="water" attack="凍結(魔法)" func="7(L+R)+450-INT" drop="">FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわりつくと凍結してしまう。</enemy>
-		<enemy id="m2853" name="忘却の鱗粉Lv7" element="fire" attack="忘却(物理)" func="7(L+R)+450-DEX" drop="">脳に作用して幻覚を見せる鱗粉。夢の世界への片道切符。</enemy>
-		<enemy id="m2854" name="呪いの鱗粉Lv7" element="spirit" attack="呪い(魔法)" func="7(L+R)+450-KRM" drop="">モスに殺された人間の怨念がこもった鱗粉。「オマエもこちらに来い」と迫ってくる。</enemy>
-		<enemy id="m2855" name="石化の鱗粉Lv7" element="earth" attack="石化(物理魔法)" func=" 7(L+R)+600-STR-INT" drop="">吸い込んでも体にまとわりついても石化してしまう鱗粉。</enemy>
-		<enemy id="m2856" name="モス・ジャイアントLv7" element="spirit" attack="毒(物理)" func="10(L+R)+600-STR-INT-DEX-KRM" drop="">頭部付近から発射される無数の毒針攻撃。最後まで遠距離攻撃かつ意地でも状態異常攻撃。</enemy>
-		<enemy id="m422" name="Gホーネット(興奮)Lv5" element="wind" attack="物理(毒)" func="7(L+R)+250-STR-DEX" drop="">敵からの攻撃を受けたなど何かしらの理由で興奮して攻撃的になっている状態｡逃げた方がよい｡</enemy>
-		<enemy id="m421" name="ジャイアントホーネットLv4" element="wind" attack="物理(毒)" func="5(L+R)+200-STR-DEX" drop="">数十cm-1m程の巨大なスズメバチ｡その攻撃的な容姿､素早さ､尾の巨大な毒針は見る者に大きな恐怖を与える｡</enemy>
-		<enemy id="m413" name="スコーピオンジャイアント(黒)Lv5" element="spirit" attack="呪い+石化(物理)" func="4(L+R)+150-STR" drop="">魔王の呪力が世に放たれ形を成した姿…"魔のサソリ"とも言われ､なんと呪いで魔法を封じた上に石化させてくる｡</enemy>
-		<enemy id="m412" name="スコーピオンジャイアント(青)Lv4" element="earth" attack="忘却(物理)" func="4(L+R)+150-STR" drop="">こちらは神経毒により忘却を引き起こすのでやっかい。それでSTRが下がるとさらに忘却しやすく…</enemy>
-		<enemy id="m411" name="スコーピオンジャイアント(赤)Lv4" element="earth" attack="毒(物理)" func="4(L+R)+150-STR" drop="">1m以上もある巨大なサソリ｡大きなハサミ以上に尻尾の毒針攻撃に注意。</enemy>
-		<enemy id="m521" name="アスティラゴアLv5" element="earth" attack="魔法※防御不能" func="5(L+R)+150-INT" drop="">走る脳髄｡その正体は死体の脳髄に寄生した菌で､脳の力を引き出して精神感応波で攻撃してくる｡その目的は…仲間を増やす事だ！！</enemy>
-		<enemy id="m1206" name="マーベル(小手調べ/Lv3/1回)" element="wind" attack="物理※攻撃魔法無効" func="4(L+R)+200-STR-DEX" drop="">小手調べ。明らかにこちらを下に見ているが…(1回)※攻撃魔法無効(特に意味は無いが)</enemy>
-		<enemy id="m1207" name="マーベル(本気/Lv4/2回)" element="wind" attack="物理※攻撃魔法無効" func="5(L+R)+250-STR-DEX" drop="">本気でもこんなもん。井の中の蛙。(2回)※攻撃魔法無効(特に意味は無いが)</enemy>
-		<enemy id="m1304" name="ザシュマー(手加減/Lv4/2回)" element="fire" attack="物理魔法" func="5(L+R)+250-STR-INT" drop="">まだ手加減しているが十分に強い。さすが上位吸血鬼。(2回)</enemy>
-		<enemy id="m1305" name="ザシュマー(本気/Lv5/3回)" element="fire" attack="物理魔法" func="6(L+R)+300-STR-INT" drop="">再生してかなり本気になった。勝てるか？(3回)</enemy>
-		<enemy id="m1403" name="ゾマ(実験1/Lv5/5回)" element="earth" attack="物理" func="6(L+R)+250-STR-DEX" drop="">実験1-君は延々と飛来する石つぶて(十数cm)にどこまで耐えられるか？(5回)</enemy>
-		<enemy id="m1404" name="ゾマ(実験2/Lv5/4回)" element="water" attack="魔法" func="6(L+R)+300-INT-DEX" drop="">実験2-今度は水球(数十cm)が君の頭に取り付いて窒息させようとしてくる…必死によけろ！(4回)</enemy>
-		<enemy id="m1405" name="ゾマ(実験3/Lv6/3回)" element="wind" attack="物理魔法※防御/魔法防御不能" func="6(L+R)+200-KRM" drop="">実験3-お待ちかね？の電撃攻撃。防御できず回避も困難…気合だ！気合で耐えろ！※防御/魔法防御不能、6(L+R)＜KRMで回避(3回)。</enemy>
-		<enemy id="m111" name="グリーンスライムLv1" element="earth" attack="物理" func="2(L+R)+10-STR,2(L+R)+10-STR,2(L+R)+10-STR,2(L+R)+10-STR,2(L+R)+10-STR,2(L+R)+10-STR,2(L+R)+10-STR,1(L+R)+30-STR" drop="">"ネチョネチョ"じゃなく"ボヨンボヨン"のほう｡なので意外と素早い｡日本RPGのザコオブザコ｡※たまにキング</enemy>
-		<enemy id="m112" name="レッドスライムLv1" element="fire" attack="魔法" func="2(L+R)+10-INT" drop="">レッドスライム｡魔法を使うぞ！(だからどうした)</enemy>
-		<enemy id="m113" name="キングスライムLv1" element="spirit" attack="物理" func="1(L+R)+30-STR" drop="">キングスライム｡仲間と合体した(特に理由無く)｡</enemy>
+		<enemy id="m522" name="アスティラゴア(怨霊)Lv6/物理魔法/防御不能" element="spirit" attack="physics" func="6L+6R+300-STR-INT-FREE1-10FREE2" drop="">さらにその脳髄に元の持ち主の怨念が取り付いたもの｡「オマエもコッチに来い…」と触手で絞め殺そうと…菌の本能と怨念で2重に怖い！！</enemy>
+		<enemy id="m2851" name="毒の鱗粉Lv7/毒" element="wind" attack="physics" func="7L+7R+450-STR-FREE1-10FREE2" drop="">その名の通り毒を含んだ鱗粉。吸い込むと危険。</enemy>
+		<enemy id="m2852" name="凍結の鱗粉Lv7/凍結" element="water" attack="magic" func="7L+7R+450-INT-FREE1-10FREE2" drop="">FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわりつくと凍結してしまう。</enemy>
+		<enemy id="m2853" name="忘却の鱗粉Lv7/忘却" element="fire" attack="physics" func="7L+7R+450-DEX-FREE1-10FREE2" drop="">脳に作用して幻覚を見せる鱗粉。夢の世界への片道切符。</enemy>
+		<enemy id="m2854" name="呪いの鱗粉Lv7/呪い" element="spirit" attack="magic" func="7L+7R+450-KRM-FREE1-10FREE2" drop="">モスに殺された人間の怨念がこもった鱗粉。「オマエもこちらに来い」と迫ってくる。</enemy>
+		<enemy id="m2855" name="石化の鱗粉Lv7/石化/物理魔法" element="earth" attack="physics" func=" 7L+7R+600-STR-INT-FREE1-10FREE2" drop="">吸い込んでも体にまとわりついても石化してしまう鱗粉。</enemy>
+		<enemy id="m2856" name="モス・ジャイアントLv7/毒" element="spirit" attack="physics" func="10L+10R+600-STR-INT-DEX-KRM-FREE1-10FREE2" drop="">頭部付近から発射される無数の毒針攻撃。最後まで遠距離攻撃かつ意地でも状態異常攻撃。</enemy>
+		<enemy id="m422" name="Gホーネット(興奮)Lv5/毒" element="wind" attack="physics" func="7L+7R+250-STR-DEX-FREE1-10FREE2" drop="">敵からの攻撃を受けたなど何かしらの理由で興奮して攻撃的になっている状態｡逃げた方がよい｡</enemy>
+		<enemy id="m421" name="ジャイアントホーネットLv4/毒" element="wind" attack="physics" func="5L+5R+200-STR-DEX-FREE1-10FREE2" drop="">数十cm-1m程の巨大なスズメバチ｡その攻撃的な容姿､素早さ､尾の巨大な毒針は見る者に大きな恐怖を与える｡</enemy>
+		<enemy id="m413" name="スコーピオンジャイアント(黒)Lv5/呪い+石化" element="spirit" attack="magic" func="4L+4R+150-INT-FREE1-10FREE2" drop="">魔王の呪力が世に放たれ形を成した姿…"魔のサソリ"とも言われ､なんと呪いで魔法を封じた上に石化させてくる｡</enemy>
+		<enemy id="m412" name="スコーピオンジャイアント(青)Lv4/忘却" element="earth" attack="physics" func="4L+4R+150-STR-FREE1-10FREE2" drop="">こちらは神経毒により忘却を引き起こすのでやっかい。それでSTRが下がるとさらに忘却しやすく…</enemy>
+		<enemy id="m411" name="スコーピオンジャイアント(赤)Lv4/毒" element="earth" attack="physics" func="4L+4R+150-STR-FREE1-10FREE2" drop="">1m以上もある巨大なサソリ｡大きなハサミ以上に尻尾の毒針攻撃に注意。</enemy>
+		<enemy id="m522" name="アスティラゴア(怨霊)Lv6/物理魔法/防御不能" element="spirit" attack="physics" func="6L+6R+300-STR-INT-FREE1-10FREE2" drop="">さらにその脳髄に元の持ち主の怨念が取り付いたもの｡「オマエもコッチに来い…」と触手で絞め殺そうと…菌の本能と怨念で2重に怖い！！</enemy>
+		<enemy id="m521" name="アスティラゴアLv5/防御不能" element="earth" attack="magic" func="5L+5R+150-INT-FREE1-10FREE2" drop="">走る脳髄｡その正体は死体の脳髄に寄生した菌で､脳の力を引き出して精神感応波で攻撃してくる｡その目的は…仲間を増やす事だ！！</enemy>
+		<enemy id="m511" name="マイコニッドA Lv5/毒" element="wind" attack="physics" func="5L+5R+250-STR-DEX-FREE1-10FREE2" drop="">人型のキノコ｡キノコが人型を成したのか､人がキノコになったのか…戦闘力でなく､放出される多種多様で強力な胞子がやっかい｡毒タイプは風に乗せて毒胞子をバラまく｡</enemy>
+		<enemy id="m512" name="マイコニッドB Lv5/凍結" element="water" attack="physics" func="5L+5R+250-STR-DEX-FREE1-10FREE2" drop="">凍結タイプ｡凍結胞子が付着して相手の活動停止を狙う…氷魔法を得意とした魔法使いが苗床(ベース)とか？</enemy>
+		<enemy id="m513" name="マイコニッドC Lv5/忘却" element="fire" attack="physics" func="5L+5R+250-STR-DEX-FREE1-10FREE2" drop="">忘却タイプ｡神経毒胞子で忘却はいいとして､なぜ火属性なのか…植物とか菌に火は無理だよなぁ｡</enemy>
+		<enemy id="m514" name="マイコニッドD Lv5/石化" element="earth" attack="physics" func="5L+5R+250-STR-DEX-FREE1-10FREE2" drop="">石化タイプ｡普通に大地の力で相手を地に返すべく石化胞子をバラまく｡</enemy>
+		<enemy id="m515" name="マイコニッドE Lv5/呪い" element="spirit" attack="physics" func="5L+5R+250-STR-DEX-FREE1-10FREE2" drop="">呪いタイプ｡これも普通に苗床(ベース)の怨念で呪いの胞子をバラまく｡</enemy>
+		<enemy id="m611" name="リザードマンLv6/毒" element="water" attack="physics" func="7L+7R+300-STR-FREE1-10FREE2" drop="">名の通りのトカゲ人間｡知能も文化もそれなりにあるが非常に残虐(武器には毒が塗ってある)…というか"他生物を狩る事が全て"的な蛮族文化｡</enemy>
+		<enemy id="m612" name="リザードメイジLv6/凍結" element="water" attack="magic" func="6L+6R+250-INT-FREE1-10FREE2" drop="">高齢にならないと魔法を使える程の知能は無く､必然的に個体数は少ないが､使うとなると水魔法を高Lvで使いこなしてくる｡</enemy>
+		<enemy id="m1206" name="マーベル(小手調べ)Lv3/魔法無効/耐久力1" element="wind" attack="physics" func="4L+4R+200-STR-DEX-FREE1-10FREE2" drop="">小手調べ。明らかにこちらを下に見ているが…耐久力1､攻撃魔法無効(特に意味は無いが)</enemy>
+		<enemy id="m1207" name="マーベル(本気)Lv4/魔法無効/耐久力2" element="wind" attack="physics" func="5L+5R+250-STR-DEX-FREE1-10FREE2" drop="">本気でもこんなもん。井の中の蛙。耐久力2､攻撃魔法無効(特に意味は無いが)</enemy>
+		<enemy id="m1304" name="ザシュマー(手加減)Lv4/物理魔法/耐久力2" element="fire" attack="physics" func="5L+5R+250-STR-INT-FREE1-10FREE2" drop="">まだ手加減しているが十分に強い…さすが上位吸血鬼｡※耐久力2</enemy>
+		<enemy id="m1305" name="ザシュマー(本気)Lv5/物理魔法/耐久力3" element="fire" attack="physics" func="6L+6R+300-STR-INT-FREE1-10FREE2" drop="">再生してかなり本気になった。勝てるか？※耐久力3</enemy>
+		<enemy id="m1403" name="ゾマ(実験1)Lv5/5回" element="earth" attack="physics" func="6L+6R+250-STR-DEX-FREE1-10FREE2" drop="">実験1-君は延々と飛来する石つぶて(十数cm)にどこまで耐えられるか？※5回</enemy>
+		<enemy id="m1404" name="ゾマ(実験2)Lv5/4回" element="water" attack="magic" func="6L+6R+300-INT-DEX-FREE1-10FREE2" drop="">実験2-今度は水球(数十cm)が君の頭に取り付いて窒息させようとしてくる…必死によけろ！※4回</enemy>
+		<enemy id="m1405" name="ゾマ(実験3)Lv6/物理魔法/(魔法)防御不能/3回" element="wind" attack="physics" func="6L+6R+200-KRM" drop="-FREE1-10FREE2">実験3-お待ちかね？の電撃攻撃。防御できず回避も困難…気合だ！気合で耐えろ！※防御&amp;魔法防御不能/6(L+R)＜KRMで回避/3回</enemy>
+		<enemy id="m111" name="グリーンスライムLv1" element="earth" attack="physics" func="2L+2R+10-STR-FREE1-10FREE2,2L+2R+10-STR-FREE1-10FREE2,2L+2R+10-STR-FREE1-10FREE2,2L+2R+10-STR-FREE1-10FREE2,2L+2R+10-STR-FREE1-10FREE2,2L+2R+10-STR-FREE1-10FREE2,L+R+30-STR-FREE1-10FREE2" drop="">"ネチョネチョ"じゃなく"ボヨンボヨン"のほう｡なので意外と素早い｡日本RPGのザコオブザコ｡※たまにキング</enemy>
+		<enemy id="m112" name="レッドスライムLv1" element="fire" attack="magic" func="2L+2R+10-INT-FREE1-10FREE2" drop="">レッドスライム｡魔法を使うぞ！(だからどうした)</enemy>
+		<enemy id="m113" name="キングスライムLv1" element="spirit" attack="physics" func="L+R+30-STR-FREE1-10FREE2" drop="">キングスライム｡仲間と合体した(特に理由無く)｡</enemy>
 		<enemy id="m121" name="ゴブリンLv1" element="earth" attack="物理" func="1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,1(L+R)+20-STR,2(L+R)+30-STR" drop="">小鬼と呼ばれる子供くらいの亜人類(デミヒューマン)｡弱いが必ず群れで行動し､武器や道具を使う知能もあるので侮れない。※たまにマスター</enemy>
 		<enemy id="m122" name="ゴブリンリーダーLv1" element="earth" attack="物理" func="1(L+R)+30-STR" drop="">ゴブリン隊長｡装備が一回りよい物になっている｡</enemy>
 		<enemy id="m123" name="ゴブリンマスターLv2" element="spirit" attack="物理" func="2(L+R)+30-STR" drop="">ゴブリンを極めし者(天)｡</enemy>
@@ -112,29 +120,46 @@
 		<enemy id="m321" name="レーベンオスLv3" element="earth" attack="物理" func="4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,4(L+R)+90-STR,6(L+R)+150-STR" drop="">小型の肉食恐竜｡腕が退化した代わりに肥大化した脚で､素早く飛び跳ねて喰らいついてくる｡※たまに繁殖期</enemy>
 		<enemy id="m322" name="レーベンメスLv3" element="water" attack="魔法" func="3(L+R)+90-INT" drop="">メスは知能が高く､水魔法Delugeを使って獲物を仕留める｡</enemy>
 		<enemy id="m323" name="レーベン繁殖期Lv4" element="spirit" attack="物理" func="6(L+R)+150-STR" drop="">繁殖期のオスは闘争心が非常に強く､異常なまでの敏捷性と攻撃力を誇る｡さっさと逃げた方が得策｡</enemy>
-		<enemy id="m3" name="ゴブリンLv1" element="earth" attack="物理" func="1(L+R)+20-STR" drop="">小鬼と呼ばれる子供くらいの亜人類(デミヒューマン)｡弱いが必ず群れで行動し､武器や道具を使う知能もあるので侮れない｡</enemy>
-		<enemy id="m4" name="ゴブリンリーダーLv1" element="earth" attack="物理" func="1(L+R)+30-STR" drop="">ゴブリン隊長｡装備が一回りよい物になっている｡</enemy>
-		<enemy id="m1101" name="触手1Lv4" element="earth" attack="物理" func="6(L+R)+300-STR-DEX" drop="">ﾍﾟｼﾍﾟｼ担当｡</enemy>
-		<enemy id="m1102" name="触手2Lv4" element="earth" attack="物理" func="4(L+R)+400-STR-DEX" drop="">捕まえ担当｡</enemy>
-		<enemy id="m1103" name="触手3Lv4" element="water" attack="魔法" func="7(L+R)+300-INT-DEX" drop="">水しぶき担当｡</enemy>
-		<enemy id="m1104" name="触手4Lv4" element="water" attack="魔法" func="5(L+R)+400-INT-DEX" drop="">水弾担当｡</enemy>
-		<enemy id="m1105" name="触手5Lv4" element="earth" attack="物理" func="6(L+R)+300-STR-DEX" drop="">ﾍﾟｼﾍﾟｼ担当｡</enemy>
-		<enemy id="m1106" name="触手6Lv4" element="water" attack="魔法" func="7(L+R)+300-INT-DEX" drop="">水しぶき担当｡</enemy>
-		<enemy id="m1107" name="触手7Lv4" element="earth" attack="物理" func="4(L+R)+400-STR-DEX" drop="">捕まえ担当｡</enemy>
-		<enemy id="m1108" name="触手8Lv4" element="water" attack="魔法" func="5(L+R)+400-INT-DEX" drop="">水弾担当｡</enemy>
-		<enemy id="m1109" name="ウォｰタｰガンLv4(命中判定)" element="water" attack="魔法" func="(L+R)-(DEX+KRM)/10" drop="">墨霧で視界を遮断しているので回避には運がからむ｡</enemy>
-		<enemy id="m1110" name="ウォｰタｰガンLv4(DM判定)※防御不能" element="water" attack="魔法" func="(L+R)+200-INT" drop="">超高水圧の水鉄砲｡</enemy>
-		<enemy id="m1111" name="本体(体当たり)Lv4/3回※防御不能" element="spirit" attack="物理" func="(L+R)+600-STR-DEX-KRM" drop="">覚悟を決めた巨体での突進｡</enemy>
-		<enemy id="m1120" name="触手からの脱出" element="earth" attack="物理" func="10(L+R)⇔KRM+欠片の総数" drop="">入念な下準備と運を兼ね備えた者こそが生き残るのだ｡</enemy>
-		<enemy id="m1121" name="触手1&amp;2(怒)Lv5" element="earth" attack="物理" func="10(L+R)+300-STR-DEX" drop="">ﾍﾟｼﾍﾟｼ担当1&amp;2｡</enemy>
-		<enemy id="m1122" name="触手3&amp;4(怒)Lv5" element="water" attack="魔法" func="12(L+R)+300-INT-DEX" drop="">水しぶき担当1&amp;2｡</enemy>
-		<enemy id="m1123" name="触手5(怒)Lv5" element="earth" attack="物理" func="3(L+R)+600-STR-DEX" drop="">捕まえ担当2(1は殉職)…1の仇だ！(怒)</enemy>
-		<enemy id="m1124" name="触手6&amp;7(怒)Lv5" element="water" attack="魔法" func="8(L+R)+400-INT-DEX" drop="">水弾担当1&amp;2｡</enemy>
-		<enemy id="m1125" name="ウォｰタｰガンLv5(命中判定)" element="water" attack="魔法" func="(L+R)-(DEX+KRM)/10" drop="">墨霧で視界を遮断しているので回避には運がからむ｡</enemy>
-		<enemy id="m1126" name="ウォｰタｰガンLv5(DM判定)※防御不能" element="water" attack="魔法" func="(L+R)+200-INT" drop="">超高水圧の水鉄砲｡</enemy>
-		<enemy id="m1127" name="本体(体当たり：怒)Lv5/3回※防御不能" element="spirit" attack="物理" func="(L+R)+600-STR-DEX-KRM" drop="">覚悟を決めた巨体での突進｡</enemy>
-		<enemy id="m1" name="ゴブリンLv1" element="earth" attack="物理" func="1(L+R)+20-STR" drop="">小鬼と呼ばれる子供くらいの亜人類(デミヒューマン)｡弱いが必ず群れで行動し､武器や道具を使う知能もあるので侮れない｡</enemy>
-		<enemy id="m2" name="オークLv2" element="earth" attack="物理" func="2(L+R)+60-STR" drop="">豚野郎｡下衆で野蛮だが､太った人間くらいの強さや知能はあるのでやっかいだ｡</enemy>
+		<enemy id="m121" name="ゴブリンLv1" element="earth" attack="physics" func="L+R+20-STR-FREE1-10FREE2,L+R+20-STR-FREE1-10FREE2,L+R+20-STR-FREE1-10FREE2,L+R+20-STR-FREE1-10FREE2,L+R+20-STR-FREE1-10FREE2,L+R+20-STR-FREE1-10FREE2,L+R+20-STR-FREE1-10FREE2,L+R+20-STR-FREE1-10FREE2,L+R+20-STR-FREE1-10FREE2,L+R+20-STR-FREE1-10FREE2,L+R+20-STR-FREE1-10FREE2,2L+2R+30-STR-FREE1-10FREE2" drop="">小鬼と呼ばれる子供くらいの亜人類(デミヒューマン)｡弱いが必ず群れで行動し､武器や道具を使う知能もあるので侮れない。※たまにマスター</enemy>
+		<enemy id="m122" name="ゴブリンリーダーLv1" element="earth" attack="physics" func="L+R+30-STR-FREE1-10FREE2" drop="">ゴブリン隊長｡装備が一回りよい物になっている｡</enemy>
+		<enemy id="m123" name="ゴブリンマスターLv2" element="spirit" attack="physics" func="2L+2R+30-STR-FREE1-10FREE2" drop="">ゴブリンを極めし者(天)｡</enemy>
+		<enemy id="m221" name="デスフラッターLv2" element="wind" attack="physics" func="2L+2R+50-STR-FREE1-10FREE2,2L+2R+50-STR-FREE1-10FREE2,2L+2R+50-STR-FREE1-10FREE2,2L+2R+50-STR-FREE1-10FREE2,2L+2R+50-STR-FREE1-10FREE2,2L+2R+50-STR-FREE1-10FREE2,2L+2R+50-STR-FREE1-10FREE2,2L+2R+50-STR-FREE1-10FREE2,2L+2R+50-STR-FREE1-10FREE2,2L+2R+50-STR-FREE1-10FREE2,2L+2R+50-STR-FREE1-10FREE2,2L+2R+50-STR-FREE1-10FREE2,2L+2R+50-STR-FREE1-10FREE2,2L+2R+50-STR-FREE1-10FREE2,2L+2R+50-STR-FREE1-10FREE2,2L+2R+50-STR-FREE1-10FREE2,2L+2R+50-STR-FREE1-10FREE2,2L+2R+50-STR-FREE1-10FREE2,2L+2R+50-STR-FREE1-10FREE2,2L+2R+50-STR-FREE1-10FREE2,2L+2R+50-STR-FREE1-10FREE2,2L+2R+50-STR-FREE1-10FREE2,2L+2R+50-STR-FREE1-10FREE2,6L+6R+70-STR-FREE1-10FREE2" drop="">大型･凶暴化したカラス｡知能が高く狡猾な分､下手な猛禽類より手強い｡数もいるので要注意｡※たまにブラッド</enemy>
+		<enemy id="m211" name="オークLv2" element="earth" attack="physics" func="2L+2R+60-STR-FREE1-10FREE2,2L+2R+60-STR-FREE1-10FREE2,2L+2R+60-STR-FREE1-10FREE2,2L+2R+60-STR-FREE1-10FREE2,2L+2R+60-STR-FREE1-10FREE2,2L+2R+60-STR-FREE1-10FREE2,2L+2R+60-STR-FREE1-10FREE2,2L+2R+60-STR-FREE1-10FREE2,2L+2R+60-STR-FREE1-10FREE2,3L+3R+80-STR-FREE1-10FREE2" drop="">豚野郎｡下衆で野蛮で太った人間くらいの強さや知能はあるのでやっかいだ｡※たまにキング</enemy>
+		<enemy id="m212" name="オークメイジLv2" element="fire" attack="magic" func="2L+2R+60-INT-FREE1-10FREE2" drop="">オーガメイジでなく｡豚のクセに魔法を…いや豚さんは知能が高いんだぞ！本当だぞ！(犬猫よりは)</enemy>
+		<enemy id="m311" name="トロルLv3" element="earth" attack="physics" func="2L+2R+200-STR-FREE1-10FREE2,2L+2R+200-STR-FREE1-10FREE2,2L+2R+200-STR-FREE1-10FREE2,2L+2R+200-STR-FREE1-10FREE2,2L+2R+200-STR-FREE1-10FREE2,2L+2R+200-STR-FREE1-10FREE2,2L+2R+200-STR-FREE1-10FREE2,2L+2R+200-STR-FREE1-10FREE2,2L+2R+200-STR-FREE1-10FREE2,L+R+300-STR-FREE1-10FREE2" drop="">人間の2~3倍はある大型の亜人類｡知能は低めで鈍いが当たると超痛い｡※たまにホームラン</enemy>
+		<enemy id="m312" name="ファイヤートロルLv3/物理魔法" element="fire" attack="physics" func="3L+3R+150-STR-INT-FREE1-10FREE2" drop="">弱点である火を克服？たいまつなど火で武装｡若干ながら火炎魔法も使う｡知恵がついたので鈍さもマシになっている。</enemy>
+		<enemy id="m321" name="レーベンオスLv3" element="earth" attack="physics" func="4L+4R+90-STR-FREE1-10FREE2,4L+4R+90-STR-FREE1-10FREE2,4L+4R+90-STR-FREE1-10FREE2,4L+4R+90-STR-FREE1-10FREE2,4L+4R+90-STR-FREE1-10FREE2,4L+4R+90-STR-FREE1-10FREE2,4L+4R+90-STR-FREE1-10FREE2,4L+4R+90-STR-FREE1-10FREE2,4L+4R+90-STR-FREE1-10FREE2,4L+4R+90-STR-FREE1-10FREE2,4L+4R+90-STR-FREE1-10FREE2,4L+4R+90-STR-FREE1-10FREE2,4L+4R+90-STR-FREE1-10FREE2,4L+4R+90-STR-FREE1-10FREE2,4L+4R+90-STR-FREE1-10FREE2,4L+4R+90-STR-FREE1-10FREE2,4L+4R+90-STR-FREE1-10FREE2,4L+4R+90-STR-FREE1-10FREE2,4L+4R+90-STR-FREE1-10FREE2,4L+4R+90-STR-FREE1-10FREE2,4L+4R+90-STR-FREE1-10FREE2,4L+4R+90-STR-FREE1-10FREE2,4L+4R+90-STR-FREE1-10FREE2,6L+6R+150-STR-FREE1-10FREE2" drop="">小型の肉食恐竜｡腕が退化した代わりに肥大化した脚で､素早く飛び跳ねて喰らいついてくる｡※たまに繁殖期</enemy>
+		<enemy id="m322" name="レーベンメスLv3" element="water" attack="magic" func="3L+3R+90-INT-FREE1-10FREE2" drop="">メスは知能が高く､水魔法Delugeを使って獲物を仕留める｡</enemy>
+		<enemy id="m3" name="ゴブリンLv1" element="earth" attack="physics" func="L+R+20-STR-FREE1-10FREE2" drop="">小鬼と呼ばれる子供くらいの亜人類(デミヒューマン)｡弱いが必ず群れで行動し､武器や道具を使う知能もあるので侮れない｡</enemy>
+		<enemy id="m4" name="ゴブリンリーダーLv1" element="earth" attack="physics" func="L+R+30-STR-FREE1-10FREE2" drop="">ゴブリン隊長｡装備が一回りよい物になっている｡</enemy>
+		<enemy id="m222" name="ブラッドフラッターLv3" element="spirit" attack="physics" func="6L+6R+70-STR-FREE1-10FREE2" drop="">返り血にぬれた､赤くて3倍速い奴｡通称ブラッドフラッター｡</enemy>
+		<enemy id="m323" name="レーベン繁殖期Lv4" element="spirit" attack="physics" func="6L+6R+150-STR-FREE1-10FREE2" drop="">繁殖期のオスは闘争心が非常に強く､異常なまでの敏捷性と攻撃力を誇る｡さっさと逃げた方が得策｡</enemy>
+		<enemy id="m313" name="ホームラントロルLv4" element="spirit" attack="physics" func="L+R+300-STR-FREE1-10FREE2" drop="">ボーナスポイントがよりSTR↑INT↓な個体｡ミスターフルスイング｡</enemy>
+		<enemy id="m213" name="オークキングLv3" element="spirit" attack="physics" func="3L+3R+80-STR-FREE1-10FREE2" drop="">オークキング(自称)｡しかし言うだけあって装備は豪華｡</enemy>
+		<enemy id="m1101" name="触手1Lv4" element="earth" attack="physics" func="6L+6R+300-STR-DEX-FREE1-10FREE2" drop="">ﾍﾟｼﾍﾟｼ担当｡</enemy>
+		<enemy id="m1102" name="触手2Lv4" element="earth" attack="physics" func="4L+4R+400-STR-DEX-FREE1-10FREE2" drop="">捕まえ担当｡</enemy>
+		<enemy id="m1103" name="触手3Lv4" element="water" attack="magic" func="7L+7R+300-INT-DEX-FREE1-10FREE2" drop="">水しぶき担当｡</enemy>
+		<enemy id="m1104" name="触手4Lv4" element="water" attack="magic" func="5L+5R+400-INT-DEX-FREE1-10FREE2" drop="">水弾担当｡</enemy>
+		<enemy id="m1105" name="触手5Lv4" element="earth" attack="physics" func="6(L+R)+300-STR-DEX-FREE1-10FREE2" drop="">ﾍﾟｼﾍﾟｼ担当｡</enemy>
+		<enemy id="m1106" name="触手6Lv4" element="water" attack="magic" func="7(L+R)+300-INT-DEX-FREE1-10FREE2" drop="">水しぶき担当｡</enemy>
+		<enemy id="m1107" name="触手7Lv4" element="earth" attack="physics" func="4(L+R)+400-STR-DEX-FREE1-10FREE2" drop="">捕まえ担当｡</enemy>
+		<enemy id="m1108" name="触手8Lv4" element="water" attack="magic" func="5(L+R)+400-INT-DEX-FREE1-10FREE2" drop="">水弾担当｡</enemy>
+		<enemy id="m1109" name="ウォｰタｰガン命中判定Lv4" element="water" attack="命中判定" func="(L+R)-(DEX+KRM)/10" drop="">墨霧で視界を遮断しているので回避には運がからむ｡</enemy>
+		<enemy id="m1110" name="ウォｰタｰガンDM判定Lv4/防御不能" element="water" attack="magic" func="L+R+200-INT-FREE1-10FREE2" drop="">超高水圧の水鉄砲｡</enemy>
+		<enemy id="m1111" name="本体体当たりLv4/防御不能/耐久力3" element="spirit" attack="physics" func="L+R+600-STR-DEX-KRM-FREE1-10FREE2" drop="">覚悟を決めた巨体での突進｡</enemy>
+		<enemy id="m1120" name="触手からの脱出" element="" attack="捕縛" func="10(L+R)⇔KRM+欠片の総数" drop="">入念な下準備と運を兼ね備えた者こそが生き残るのだ｡</enemy>
+		<enemy id="m1121" name="触手1&amp;2Lv5" element="earth" attack="physics" func="10L+10R+300-STR-DEX-FREE1-10FREE2" drop="">ﾍﾟｼﾍﾟｼ担当1&amp;2｡</enemy>
+		<enemy id="m1122" name="触手3&amp;4Lv5" element="water" attack="magic" func="12L+12R+300-INT-DEX-FREE1-10FREE2" drop="">水しぶき担当1&amp;2｡</enemy>
+		<enemy id="m1123" name="触手5Lv5" element="earth" attack="physics" func="3L+R3+600-STR-DEX-FREE1-10FREE2" drop="">捕まえ担当2(1は殉職)…1の仇だ！(怒)</enemy>
+		<enemy id="m1124" name="触手6&amp;7Lv5" element="water" attack="magic" func="8L+8R+400-INT-DEX-FREE1-10FREE2" drop="">水弾担当1&amp;2｡</enemy>
+		<enemy id="m1125" name="ウォｰタｰガン命中判定Lv5" element="water" attack="命中判定" func="(L+R)-(DEX+KRM)/10" drop="">墨霧で視界を遮断しているので回避には運がからむ｡</enemy>
+		<enemy id="m1126" name="ウォｰタｰガンDM判定Lv5/防御不能" element="water" attack="magic" func="L+R+200-INT-FREE1-10FREE2" drop="">超高水圧の水鉄砲｡</enemy>
+		<enemy id="m1127" name="本体体当たりLv5/防御不能/耐久力3" element="spirit" attack="physics" func="L+R+600-STR-DEX-KRM-FREE1-10FREE2" drop="">覚悟を決めた巨体での突進｡</enemy>
+		<enemy id="m1" name="ゴブリンLv1" element="earth" attack="physics" func="L+R+20-STR-FREE1-10FREE2" drop="">小鬼と呼ばれる子供くらいの亜人類(デミヒューマン)｡弱いが必ず群れで行動し､武器や道具を使う知能もあるので侮れない｡</enemy>
+		<enemy id="m2" name="オークLv2" element="earth" attack="physics" func="2L+2R+60-STR-FREE1-10FREE2" drop="">豚野郎｡下衆で野蛮だが､太った人間くらいの強さや知能はあるのでやっかいだ｡</enemy>
+		<enemy id="m5" name="ゴブリンLv1/毒" element="earth" attack="physics" func="L+R+10-STR-FREE1-10FREE2" drop="">※チュートリアル専用特殊敵</enemy>
+		<enemy id="m6" name="オークLv2/物理魔法" element="earth" attack="physics" func="2L+2R+20-STR-INT-FREE1-10FREE2" drop="">※チュートリアル専用特殊敵</enemy>
+		<enemy id="m7" name="トロルLv3/防御不能/魔法無効/耐久力2" element="earth" attack="physics" func="3L+3R+30-STR-FREE1-10FREE2" drop="">※チュートリアル専用特殊敵</enemy>
 	</enemies>
 	<results>
 		<result id="r2101" name="ワーベアーと戦った" level="5">♪あるーひ♪もりのなか♪くまさんにー♪であーった♪</result>
@@ -377,7 +402,7 @@
 ※リザードマスターについて
 ･物理魔法…計算結果のDMをMPからも手動で引く事。
 ・防御不能…あらゆる防御が不可能。PROTECT/HOLY-WATERは有効。
-・攻撃魔法無効…収束NOILA-TEMのみ有効（減らせる耐久力は１）。
+・（攻撃）魔法無効…収束NOILA-TEMのみ有効（減らせる耐久力は１）。
 ・耐久力３…３回攻撃を当てなければ倒せない。
 
 ※例によって各説明を見た後はブラウザの【戻る】機能で戻ってくる事。
@@ -4943,7 +4968,7 @@ FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわり�
 ともかく、戦いは始まった。
 
 ※この戦闘はボス戦扱いなので、終わるまでを【１戦闘】としブーストや魔法の効果はそれに準じて継続するものとする。
-※Lvや説明の後に書かれている回数が耐久力で､その回数分戦って生き残れば勝利となるが…
+※Lvや説明の後に書かれている耐久力の回数分戦って生き残れば勝利となるが…
 ・防御しても耐久力は減らない(当たり前)。
 ※攻撃魔法無効｡一応､高Lv防御魔法の使い手なので…原則通り､NOILA-TEMを収束させた場合のみ効果がある=【耐久力を１回分減らす】が､コイツ弱いからもったいないわな…
 ※EXP/欠片は１回戦う（耐久力を１回分減らす）ごとに得てよい。
@@ -4960,7 +4985,7 @@ FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわり�
 ここはひとつ、力の差というものを身をもって知ってもらうとしようか。
 
 ※この戦闘はボス戦扱いなので、終わるまでを【１戦闘】としブーストや魔法の効果はそれに準じて継続するものとする。
-※Lvや説明の後に書かれている回数が耐久力で､その回数分戦って生き残れば勝利となるが…
+※Lvや説明の後に書かれている耐久力の回数分戦って生き残れば勝利となるが…
 ・防御しても耐久力は減らない(当たり前)。
 ※攻撃魔法無効｡一応､高Lv防御魔法の使い手なので…原則通り､NOILA-TEMを収束させた場合のみ効果がある=【耐久力を１回分減らす】が､コイツ弱いからもったいないわな…
 ※EXP/欠片は１回戦う（耐久力を１回分減らす）ごとに得てよい。
@@ -5194,7 +5219,7 @@ FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわり�
 そうだったんですかー…いや戦いは避けられないようだが、一応手加減は望めそうだ…やぁってやるぜ！（弱気に強気）
 
 ※この戦闘はボス戦扱いなので、終わるまでを【１戦闘】としブーストや魔法の効果はそれに準じて継続するものとする。
-※Lvや説明の後に書かれている回数が耐久力で､その回数分戦って生き残れば勝利となるが…
+※Lvや説明の後に書かれている耐久力の回数分戦って生き残れば勝利となるが…
 ・防御しても耐久力は減らない(当たり前)。
 ・攻撃魔法は属性を合わせれば効果はあるが、【耐久力を１回分減らす】だけとする（DMは受けない）。
 ※EXP/欠片は１回戦う（耐久力を１回分減らす）ごとに得てよい。
@@ -5213,7 +5238,7 @@ FREEZEの魔法で低温の結晶をまとわせた鱗粉。体にまとわり�
 えぇー…
 
 ※この戦闘はボス戦扱いなので、終わるまでを【１戦闘】としブーストや魔法の効果はそれに準じて継続するものとする。
-※Lvや説明の後に書かれている回数が耐久力で､その回数分戦って生き残れば勝利となるが…
+※Lvや説明の後に書かれている耐久力の回数分戦って生き残れば勝利となるが…
 ・防御しても耐久力は減らない(当たり前)。
 ・攻撃魔法は属性を合わせれば効果はあるが、【耐久力を１回分減らす】だけとする（DMは受けない）。
 ※EXP/欠片は１回戦う（耐久力を１回分減らす）ごとに得てよい。
@@ -5397,7 +5422,7 @@ CHANGE-AIRで空気となった君は颯爽と水面の上を駆ける…
 だめだ、性格は気のいい爺さんでも、基本はリッチーだ。
 
 ※この戦闘はボス戦扱いなので、終わるまでを【１戦闘】としブーストや魔法の効果はそれに準じて継続するものとする（例外は以下に記す）。
-またこれはゾマの実験であり、君はただ単に【攻撃に耐える】（実験説明の最後に書かれている回数分）だけなので、基本は防御するように（したかったら攻撃してもいいがゾマに当たる事は無いし、それでゾマからの攻撃がゆるむ事も無い）。
+またこれはゾマの実験であり、君はただ単に【攻撃に耐える】（実験の名前や説明の最後に書かれている回数分）だけなので、基本は防御するように（したかったら攻撃してもいいがゾマに当たる事は無いし、それでゾマからの攻撃がゆるむ事も無い）。
 さらに【盾防御に成功した場合は回避に成功】したものとしてDMを受けなくてもよい。
 魔法防御（PROTECT/HOLY-WATER）の効果はあるが、この実験限りとする（ゾマが次の実験でリセットする）。
 RESURRECTも効果はこの実験限りだが、弊害？として各実験につき１度使用できる。
@@ -5421,7 +5446,7 @@ REJUVENATEはゾマに感知されてキャンセルされるので、無効。
 君「じゃ、じゃあすぐで…」
 
 ※この戦闘はボス戦扱いなので、終わるまでを【１戦闘】としブーストや魔法の効果はそれに準じて継続するものとする（例外は以下に記す）。
-またこれはゾマの実験であり、君はただ単に【攻撃に耐える】（実験説明の最後に書かれている回数分）だけなので、基本は防御するように（したかったら攻撃してもいいがゾマに当たる事は無いし、それでゾマからの攻撃がゆるむ事も無い）。
+またこれはゾマの実験であり、君はただ単に【攻撃に耐える】（実験の名前や説明の最後に書かれている回数分）だけなので、基本は防御するように（したかったら攻撃してもいいがゾマに当たる事は無いし、それでゾマからの攻撃がゆるむ事も無い）。
 さらに【盾防御に成功した場合は回避に成功】したものとしてDMを受けなくてもよい。
 魔法防御（PROTECT/HOLY-WATER）の効果はあるが、この実験限りとする（ゾマが次の実験でリセットする）。
 RESURRECTも効果はこの実験限りだが、弊害？として各実験につき１度使用できる。
@@ -5444,7 +5469,7 @@ REJUVENATEはゾマに感知されてキャンセルされるので、無効。
 ゾマ「よし、ラストじゃ、死ぬ直前までいってみようかの？」
 たぁ　すぅ　けぇ　てぇ　ーーーーー！！！！！
 
-※この攻撃は【防御（通常防御/盾防御とも）できず】、【魔法防御（PROTECT/HOLY-WATER）の効果も無く】、【攻撃魔法も属性を合わせても効果は無い】が、盾防御同様の計算で【6(L+R)をKRMが上回った場合は回避】とする。Lv軽減と武器防具によるDM軽減はしてよい。
+※この攻撃は【防御（通常防御/盾防御とも）できず】、【魔法防御（PROTECT/HOLY-WATER）の効果も無く】、【攻撃魔法も属性を合わせても効果は無い】が、盾防御同様の計算で【6(L+R)をKRMが上回った場合は回避】とする。
 RESURRECTも効果はこの実験限りだが、弊害？として各実験につき１度使用できる。
 REJUVENATEはゾマに感知されてキャンセルされるので、無効。
 回数分耐えたなら次へ。
@@ -5571,7 +5596,7 @@ REJUVENATEはゾマに感知されてキャンセルされるので、無効。
 だめだ、性格は気のいい爺さんでも、基本はリッチーだ。
 
 ※この戦闘はボス戦扱いなので、終わるまでを【１戦闘】としブーストや魔法の効果はそれに準じて継続するものとする（例外は以下に記す）。
-またこれはゾマの実験であり、君はただ単に【攻撃に耐える】（実験説明の最後に書かれている回数分）だけなので、基本は防御するように（したかったら攻撃してもいいがゾマに当たる事は無いし、それでゾマからの攻撃がゆるむ事も無い）。
+またこれはゾマの実験であり、君はただ単に【攻撃に耐える】（実験の名前や説明の最後に書かれている回数分）だけなので、基本は防御するように（したかったら攻撃してもいいがゾマに当たる事は無いし、それでゾマからの攻撃がゆるむ事も無い）。
 さらに【盾防御に成功した場合は回避に成功】したものとしてDMを受けなくてもよい。
 魔法防御（PROTECT/HOLY-WATER）の効果はあるが、この実験限りとする（ゾマが次の実験でリセットする）。
 RESURRECTも効果はこの実験限りだが、弊害？として各実験につき１度使用できる。
@@ -5612,7 +5637,7 @@ REJUVENATEはゾマに感知されてキャンセルされるので、無効。
 だめだ、性格は気のいい爺さんでも、基本はリッチーだ。
 
 ※この戦闘はボス戦扱いなので、終わるまでを【１戦闘】としブーストや魔法の効果はそれに準じて継続するものとする（例外は以下に記す）。
-またこれはゾマの実験であり、君はただ単に【攻撃に耐える】（実験説明の最後に書かれている回数分）だけなので、基本は防御するように（したかったら攻撃してもいいがゾマに当たる事は無いし、それでゾマからの攻撃がゆるむ事も無い）。
+またこれはゾマの実験であり、君はただ単に【攻撃に耐える】（実験の名前や説明の最後に書かれている回数分）だけなので、基本は防御するように（したかったら攻撃してもいいがゾマに当たる事は無いし、それでゾマからの攻撃がゆるむ事も無い）。
 さらに【盾防御に成功した場合は回避に成功】したものとしてDMを受けなくてもよい。
 魔法防御（PROTECT/HOLY-WATER）の効果はあるが、この実験限りとする（ゾマが次の実験でリセットする）。
 RESURRECTも効果はこの実験限りだが、弊害？として各実験につき１度使用できる。
@@ -7061,12 +7086,12 @@ DMというか死を恐れないので大変危険。
 
 これが最後の勝負！！
 
-※まず1つ目の式でウォーターガンの命中数を決定し（この式にLv軽減は入らない）、次にそのウォーターガンの1発あたりのDMを決定（この式にはLv軽減を入れる）、それに従ったDMを受けること。それをくぐり抜けた後、本体と戦う（本体の式にもLv軽減は入れる）。
-この3つの判定は連続で行うこと（間に魔法やブーストをはさむ事はできない）。
+※まず1段目の式でウォーターガンの命中数を決定し（手動計算）、次の2段目の式でそのウォーターガンの1発あたりのDMが決定される（自動計算）ので、1段目の式で決定した回数分2段目の式をクリックしてDMを受ける事。それをくぐり抜けた後、本体と戦う（自動計算）。
+この3つの判定は連続で行う事（間に魔法やブーストをはさむ事はできない）。
 この一連の判定を1回する事で本体への1回の攻撃とし、本体への攻撃3回で撃破とする。
-ダイスはそれぞれの判定ごとに振ること。
-攻撃魔法は属性を合わせれば効果はあるが本体に対してのみで、その魔法攻撃は攻撃開始とみなすので（つまりその魔法の前に2回魔法を使ってもよい）その直後にウォーターガンの命中/DM判定を行ってDMを受けること（本体からの攻撃は受けずに撃破までの3回の攻撃の内1回を与えた事になる、最後の1回＝3回目の場合はそれで倒すのでその後のウォーターガンは受けない）。
-ウォーターガン/体当たりともに通常の防御も盾防御も(盾無し時の回避も含め)不可とする(PROTECT/HOLY-WATERでのみDMを1/2にできる)｡
+ダイスはそれぞれの判定ごとに振る事。
+攻撃魔法は属性を合わせれば効果はあるが本体に対してのみで、その魔法攻撃を攻撃開始とみなすので（つまりその魔法の前に2回、攻撃以外の準備の魔法を使ってもよい）その場合は順序は逆になるが、本体にDMを与えた直後にウォーターガンの命中/DM判定を行ってそのDMを受ける事（本体からの攻撃は受けずにDMを与えた事になる、最後の1回＝3回目の場合はそれで倒すのでその後のウォーターガンは受けなくともよい）。
+ウォーターガン/体当たりともに通常の防御も盾防御も不可とする(盾無し時の回避は体当たりのみ可)が、PROTECT/HOLY-WATERは有効。
 ウォーターガンの命中/DM判定ではEXPは得られないが、表示されている欠片（×2）は判定直後に得てよい。
 本体（体当たり）の判定が終わって1回の攻撃が終了した後に、1回分のEXP（同Lvなら10×2）と本体に表示されている欠片を得るものとする。
 
@@ -7251,12 +7276,12 @@ HP/MP両方の上限値も現在値も1/2にして（端数切捨、このボス
 
 これが最後の勝負！！
 
-※まず1つ目の式でウォーターガンの命中数を決定し（この式にLv軽減は入らない）、次にそのウォーターガンの1発あたりのDMを決定（この式にはLv軽減を入れる）、それに従ったDMを受けること。それをくぐり抜けた後、本体と戦う（本体の式にもLv軽減は入れる）。
-この3つの判定は連続で行うこと（間に魔法やブーストをはさむ事はできない）。
+※まず1段目の式でウォーターガンの命中数を決定し（手動計算）、次の2段目の式でそのウォーターガンの1発あたりのDMが決定される（自動計算）ので、1段目の式で決定した回数分2段目の式をクリックしてDMを受ける事。それをくぐり抜けた後、本体と戦う（自動計算）。
+この3つの判定は連続で行う事（間に魔法やブーストをはさむ事はできない）。
 この一連の判定を1回する事で本体への1回の攻撃とし、本体への攻撃3回で撃破とする。
-ダイスはそれぞれの判定ごとに振ること。
-攻撃魔法は属性を合わせれば効果はあるが本体に対してのみで、その魔法攻撃を1回の攻撃とみなすので（つまりその魔法の前に2回魔法を使ってもよい）その直後にウォーターガンの命中/DM判定を行ってDMを受けること（本体からの攻撃は受けずに撃破までの3回の攻撃の内1回を与えた事になる、最後の1回＝3回目の場合はそれで倒すのでその後のウォーターガンは受けない）。
-ウォーターガン/体当たりともに通常の防御も盾防御も(盾無し時の回避も含め)不可とする(PROTECT/HOLY-WATERでのみDMを1/2にできる)｡
+ダイスはそれぞれの判定ごとに振る事。
+攻撃魔法は属性を合わせれば効果はあるが本体に対してのみで、その魔法攻撃を攻撃開始とみなすので（つまりその魔法の前に2回、攻撃以外の準備の魔法を使ってもよい）その場合は順序は逆になるが、本体にDMを与えた直後にウォーターガンの命中/DM判定を行ってそのDMを受ける事（本体からの攻撃は受けずにDMを与えた事になる、最後の1回＝3回目の場合はそれで倒すのでその後のウォーターガンは受けなくともよい）。
+ウォーターガン/体当たりともに通常の防御も盾防御も不可とする(盾無し時の回避は体当たりのみ可)が、PROTECT/HOLY-WATERは有効。
 ウォーターガンの命中/DM判定ではEXPは得られないが、表示されている欠片（×2）は判定直後に得てよい。
 本体（体当たり）の判定が終わって1回の攻撃が終了した後に、1回分のEXP（同Lvなら10×2）と本体に表示されている欠片を得るものとする。
 ※相変わらず怒りで命中率が落ちているので、本体（体当たり）の判定時に偶数が出た場合は回避とする（攻撃は与える）。
@@ -9045,11 +9070,12 @@ HP/MP両方の上限値も現在値も1/2にして（端数切捨、このボス
 ※ここは基本を集めた場所ではあるが､中でもさらに「コレをざっと読んだら戦闘始めてもいいよー」という最低限のものには【※】を付けておいた｡
 逆にコレだけは読んで欲しいと思う｡
 
+[%red%New%/%※自動計算について１](417)
 [※戦闘について…基本ルール/計算](411)
-[%red%Newｱﾘ%/%※複数の敵との戦闘について](412)
+[※複数の敵との戦闘について](412)
 [※戦闘からの逃亡について](414)
-[%red%Newｱﾘ%/%※Lv制について](415)
-[%red%Newｱﾘ%/%防御（通常防御や盾防御など）および防御不能について](413)
+[※Lv制について](415)
+[防御（通常防御や盾防御など）および防御不能について](413)
 [戦闘式計算の詳細](416)
 [戻る](401)
 </scene>
@@ -9057,10 +9083,10 @@ HP/MP両方の上限値も現在値も1/2にして（端数切捨、このボス
 ★チュートリアル魔法その他編
 
 
-[%red%Newｱﾘ%/%魔法について１](421)
-[%red%Newｱﾘ%/%七星欠片について](423)
-[%red%Newｱﾘ%/%戦闘時の行動制限について](424)
-[%red%Newｱﾘ%/%状態異常について1](425)
+[魔法について１](421)
+[七星欠片について](423)
+[戦闘時の行動制限について](424)
+[状態異常について１](425)
 [%red%New！%/%新たな強敵について](427)
 [戻る](401)
 </scene>
@@ -9070,13 +9096,13 @@ HP/MP両方の上限値も現在値も1/2にして（端数切捨、このボス
 
 [戦闘の心構え](431)
 [武器防具の有効性](432)
-[%red%Newｱﾘ%/%状態異常への対処](433)
-[%red%Newｱﾘ%/%恐怖の第四部隊](434)
+[状態異常への対処](433)
+[恐怖の第四部隊](434)
 [NPCの存在](435)
 [高効率LvUP法](436)
 [死亡時の再開方法について](437)
 [いろいろな簡易プレイ方について](438)
-[フリーステータスの活用について](439)
+[%red%New%/%フリーステータスの活用について](439)
 [マッピングのススメ](440)
 [戻る](401)
 </scene>
@@ -9087,10 +9113,10 @@ HP/MP両方の上限値も現在値も1/2にして（端数切捨、このボス
 
 
 [欠片袋/箱について](441 "f1106")
-[%red%New！%/%マーベル(聖戦士)について](442 "f1204")
-[%red%New！%/%ザシュマー(吸血鬼)について](443 "f1302")
-[%red%New！%/%ゾマ(リッチー)について](444 "f1407")
-[%red%New！%/%ココネちゃんの一人旅戦闘講座](445 "f1251")
+[マーベル(聖戦士)について](442 "f1204")
+[ザシュマー(吸血鬼)について](443 "f1302")
+[ゾマ(リッチー)について](444 "f1407")
+[ココネちゃんの一人旅戦闘講座](445 "f1251")
 [戻る](401)
 </scene>
 	<scene id="406" result="r406">
@@ -9303,6 +9329,63 @@ EXPが255に達してLvUPしたら0にする事｡255を上回った分は次に
 
 [戻る](402)
 </scene>
+	<scene id="417">
+●自動計算について１
+
+ついに戦闘の計算を自動で行ってくれる機能が付いたので、当シナリオも当然のごとく対応させていただいた｡それによって､このチュートリアルでの戦闘の説明は大半がその内部で行われている事の内訳的なものになったが､いくつかの要素は自動対応できなかった､もしくは自動化にそぐわなかったため､手動でやるべき事はまだまだある｡そこらへんを手順にそって説明していく｡
+
+まず戦闘前の準備として
+1.フリーステータスに入れる数値は左から順に…【防具などによる最終DM軽減数値の合計】/【現在のLv】/【現在のEXP】とする事｡
+詳細は【フリーステータスの活用について】を参照｡
+
+敵と遭遇したら､まずは戦闘前の準備【戦闘時の行動制限や時間進行のルール/呼称についてを参照】の後に戦闘を始める訳だが…
+
+2.まずはダイスをクリックしてダイスを振って数値を出す｡
+自動計算は現在のダイスの数値に基いて行われるので､忘れずに振る事｡
+
+3.そのダイスの数値でまずは盾防御の成否を判定する(手動)｡
+盾防御は自動計算対応していないので手動で行う【防御（通常防御や盾防御など）および防御不能についてを参照】｡
+表示されている計算式が【n(L+R)】で無くなっているが､【nL+nR】で必ずnは同数値となっているので同じ事だ｡
+その成否結果を覚えておいて…
+
+4.そして【ダメージ(計算式)】をクリックすると【自動で計算されたDM数値が､攻撃の欄が剣アイコンの場合はHP/杖アイコンの場合はMPから引かれ､その内容が半透明のウィンドウに表示される】｡
+ここで注意してほしいのが【盾防御に成功していても1/2でない通常のDMが引かれてしまう】という事で､盾防御に成功している場合は【そのDM数値を確認して手動で半分のDMを元に戻す(増やす)】必要がある｡
+さらに注意してほしいのが【半透明のウィンドウに表示されるDM数値は少し経つと消えてしまう】ので素早く確認/記憶するように｡
+
+5.それでその敵を倒したなら､計算式の右にある【戦利品】をクリックすると表示されている物(基本的には星)が入手できる(ステータスウィンドゥに自動で加わる)｡
+さらに左端のチェックボックスをクリックしてチェックを入れておくと､すでに倒した敵がわかりやすいだろう｡
+
+
+[自動計算について２](418)
+</scene>
+	<scene id="418" enemies="m5,m6,m7">
+●自動計算について２
+
+自動計算対応に伴って敵表示が変わっているので､順に説明していく｡
+基本的なルールとしては､名前とLvの後に/で区切って書かれているのは自動計算されない､つまり【手動で処理しなければならない要素】と覚えてもらいたい｡
+
+まずは1段目の敵｡【毒】と書かれているので､計算結果のDMが自Lv×10を超えた場合は､状態異常の毒をステータスウィンドゥを開いて手動で付与する事｡※【状態異常について】を参照｡
+
+次に2段目の敵｡【物理魔法】とあるが攻撃アイコンは剣で計算結果もHPからしか引かれない｡なのでHPから引かれたDM数値と同じ数値を､ステータスウィンドゥを開いて手動でMPからも引く事｡
+
+さらに3段目の敵｡【防御不能】/【魔法無効】/【耐久力2】と詰め込んだが､これらは特に自動化での変化は無いのでそれぞれの要素に対応してほしい｡※【新たな強敵について】を参照｡
+
+
+[自動計算について３](419)
+</scene>
+	<scene id="419">
+●自動計算について３
+
+すでに説明した通り､各種防御やPROTECT/HOLY-WATERによりDMが1/2となる場合には､自動で引かれたDMを1/2分戻す=回復するわけだが､その際に原則としては端数は切上なのだが…
+
+手間を軽減するために【2回分を1回にまとめてもよい】ものとする｡
+具体例としては待機敵が2体いて計算式が同じなら､1体目の計算式をクリックして受けた通常のDM(1/1)をそのまま1/2×2としてもよい､という事｡
+当然厳密には端数が出る場合はトータルのDMが1下がり､それが生死を分ける可能性もあるが､まあそこは利便性を優先という事で(もちろんこだわってキチンと計算してもよい)｡
+さらに計算式が同じなら､指定敵の攻撃を盾防御した分(1/2)と待機敵1体からの攻撃防御分(1/2)をまとめたりもできるので､手間はドンドン減らせるぞ｡
+
+
+[戻る](402)
+</scene>
 	<scene id="421">
 ●魔法について1
 
@@ -9497,10 +9580,10 @@ Lv2敵3体で自分Lv2の場合は､EXPは10×3×2=60､欠片は(2-2+2)×3=6�
 また､耐久力のある敵を指定して戦った際には基本通り直下の敵を1/2DMを受けて倒してかまわないが､耐久力のある敵の直上の敵を指定して戦った場合は､その耐久力のある敵にはDMを与える(耐久力を減らす)事はできない｡
 これは「耐久力のある敵は基本的に中ボス扱いで格が高く､それとの戦いにザコが巻き込まれる事はあっても､それがザコとの戦いに巻き込まれるような事は無い」という事である｡
 %red%New!!%/%
-●攻撃魔法無効について
-【攻撃魔法無効】とある敵に対しては､例え属性を合わせてもその名の通り攻撃魔法は効かない｡
+●(攻撃)魔法無効について
+【魔法無効】とある敵に対しては､例え属性を合わせてもその名の通り攻撃魔法が効かない｡
 ただし､原則として【NOILA-TEMを拡散ではなく､収束して撃った場合にのみ効果がある】ものとする｡
-どういう事かというと､NOILA-TEMをその攻撃魔法無効の敵1体に対してのみ使った場合に効果があり(その効果も原則としては耐久力を1減らすのみであるが)､他の敵(攻撃魔法無効でない)がいてもそちらには効果が無い=倒せない､という事だ｡
+どういう事かというと､NOILA-TEMをその魔法無効の敵1体に対してのみ使った場合に効果があり(その効果も原則としては耐久力を1減らすのみであるが)､他の敵(魔法無効でない)がいてもそちらには効果が無い=倒せない､という事だ｡
 こちらもやはりザコと言うよりは実質中ボスに相当する敵で､その敵ごとに特殊なルールが設けられている場合が多いので､そちらを参照の事｡
 %red%New!!%/%
 ●防御不能攻撃について
@@ -9704,21 +9787,14 @@ Lv制の管理が面倒だという人は､折半案としてLv制のみを無�
 	<scene id="439">
 ●フリーステータスの活用について
 
-フリーステータス(STRなどの下にある自由数値記入欄)の使い方について､オススメのものをいくつか｡
+フリーステータス(STRなどの下にある自由数値記入欄)の使い方についてだが､戦闘の自動計算への対応のため【どこに何の数値を入れるか】を決めさせてもらう事となった｡
 
-・EXP…常に上昇していくので必須かと｡
-ただLvUPまで減少はしないので､他の複雑な変動数値にあててもいいかも｡
-メモ欄にメモだと【戦闘終了後にまとめて加算】になるだろうし､それだとLvUPの瞬間の恩恵を活用しにくいのでやはり常に管理するのがオススメ｡
+・FREE1(左)…ここには防具などによる【最終DM軽減数値の合計】を入れてもらう｡つまり盾のDM-○/鎧のDM-○/NPCによるDM-○(あれば)の合計｡カイトシールド(DM-5)/ブレストプレート(DM-20)なら5+20=25で【25】を入れる｡
 
-・Lv…最もシンプルだがこれこそメモ欄でいいのでは？
-「今Lvいくつだっけ？」となる段階では使ってもいいが｡
+・FREE2(中)…ここには【現在のLv】を入れる｡Lv3なら【3】だ｡
 
-・Lv軽減など…これは実質上のLv表示も兼ねるがこれだけだとやはり不要かと｡なので防具分の軽減も足すといい｡
-例えば【Lv2/チェインメイル】なら【Lv軽減20+防具軽減10】＝【30】など｡
+・FREE3(右)…ここに何の数値を入れるかは一応自由だが､実質的には【EXP】を入れる事になる｡なぜかと言えばEXPは戦闘中常に上昇していくため､メモ欄にメモしていくのは現実的に厳しい｡手間を減らして【戦闘終了後にまとめて加算】だとLvUPの瞬間の恩恵を活用しにくいので､やはり常に加算するには残ったこのFREE3に入れるしかないだろう｡
 
-・能力軽減など…これは敵ごとに変わるが､同敵×4や複数の能力を計算するボス戦でオススメ｡
-例えば敵からの減算がSTRのみの場合【Lv2/STR8/ロングソード/チェインメイル】なら【STR8×3=24+武器STR12+Lv軽減20+防具軽減10】＝【66】でこれを書いておけば､後は敵攻撃力から引くだけでよくなる｡
-ボス戦では最大で全ての能力値を減算に組み込むので､フリーステータスにそのつど減算の合計値を入れていく事をオススメする｡
 
 [戻る](404)
 </scene>
