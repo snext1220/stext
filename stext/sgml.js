@@ -1436,6 +1436,10 @@
           return Util.random(Number(m_params[0]), Number(m_params[1]));
         case 'msg' :
           return Util.randomArray(m_params);
+        case 'input' :
+          return '<input type="button" class="spinner_down sgml" value="-" />'
+            + '<input type="number" class="sgml" value="' + m_params[0] + '" />'
+            + '<input type="button" class="spinner_up sgml" value="+" />';
         default :
           return sub;
       }
@@ -2253,13 +2257,13 @@
       });
 
       // ［+］スピナーで直前のテキストボックス値をインクリメント
-      target.parent().on('click', '#dialog_body .spinner_up', function(e) {
+      target.parent().on('click', '#dialog_body .spinner_up, .spinner_up', function(e) {
         var prev = $(this).prev();
         prev.val(Number(prev.val()) + 1);
       });
 
       // ［-］スピナーで直後のテキストボックス値をインクリメント
-      target.parent().on('click', '#dialog_body .spinner_down', function(e) {
+      target.parent().on('click', '#dialog_body .spinner_down, .spinner_down', function(e) {
         var next = $(this).next();
         next.val(Number(next.val()) - 1);
       });

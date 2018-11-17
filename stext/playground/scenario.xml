@@ -54,6 +54,8 @@ ${if f05}
 ${/if}
 ---
 
+${input?50}
+
 - 自動リンクのテスト（http://d.hatena.ne.jp/sorcerian/20180128）
 
 1. みんな、%blue%ソーサリアン%/%！
