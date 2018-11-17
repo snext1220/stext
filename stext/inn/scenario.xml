@@ -60,10 +60,10 @@
 </results>
 
 <licence>
-  <work name="ダンジョン" category="bgm" creator="Az"
+  <work name="すべての楽曲" category="bgm" creator="Az"
     url="//venusaz.seesaa.net/"></work>
-  <work name="グーラン" category="picture" creator="Falcom"
-    url=""></work>
+  <work name="風の精霊さん?" category="picture" creator="豊島ゆーさく（コミック版ソーサリアン「メデューサの首」より）" />
+  <work name="その他の原作キャプチャ" category="picture" creator="Falcom" />
 </licence>
 
 <scene id="0">
@@ -178,7 +178,7 @@ ${珍しい|得体のしれない}アイテムが鎮座ましましている。
 宿屋の客室はひっそりと。
 
 当たり前だ。
-昼間から宿屋にだべっている者など、そうはいない。
+昼間から自室に籠っている者など、更にいない。
 
 となれば、無人の間に忍び込んでみたくなる、
 欲望がムクムクと。
@@ -525,7 +525,7 @@ ${珍しい|得体のしれない}アイテムが鎮座ましましている。
 ![グーランから渡された謎の画像](quiz.png)
 
 [beef/cake,2200,2300](Q)
-[金が足りなかった！](6000)
+[金が足りなかった！（すごすごと部屋に戻る）](6000)
 </scene>
 
 <scene id="2200" items="i05" flags="f01" result="r21">
@@ -1112,7 +1112,7 @@ ${input?0}
 君はジョセフィーヌちゃんのプリチィなお尻を見失ってしまう
 （ジョセフィーヌちゃんとの距離は以下のボックスで管理すると良い）。
 
-${input?15}
+${input?0}
 
 敵は、ジョセフィーヌちゃんを目の敵にするミミズ野郎、
 もとい、魔導士ゲルフスの正体なんである。
