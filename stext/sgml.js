@@ -208,7 +208,7 @@
     star_names: { 'mon': '月', 'tue': '火星', 'wed': '水星', 'thu': '木星', 'fri': '金星', 'sat': '土星', 'sun': '太陽', '': null },
 
     // 状態異常＆攻撃の表示名
-    state_names: { '': '正常', 'poison': '毒', 'frozen': '凍結', 'stone': '石化', 'curse': '呪い', 'forget': '忘却', 'physics': '物理', 'magic': '魔法' },
+    state_names: { '': '正常', 'poison': '毒', 'frozen': '凍結', 'stone': '石化', 'curse': '呪い', 'forget': '忘却', 'physics': '物理', 'magic': '魔法', 'both': '物理／魔法', 'free1': 'FREE1', 'free2': 'FREE2', 'free3': 'FREE3' },
 
     // 属性の表示名
     element_names: { 'earth': '地', 'fire': '火', 'water': '水', 'wind': '風', 'spirit': '霊' }
@@ -1606,7 +1606,7 @@
           }
           row += enemy.name + '</th><td>';
           if (atk) {
-            row += '<img src="' + ROOT + COMMON + 'atk_' + enemy.attack + '.png" title="' + Common.state_names[enemy.attack] + '" /></a>　';
+            row += '<img src="' + ROOT + COMMON + 'atk_' + enemy.attack + '.png" title="' + atk + '" /></a>　';
           } else {
             row += enemy.attack;
           }
@@ -2071,12 +2071,35 @@
           var damage = Util.computeDamage(func);
           // 負数はゼロに丸め
           if (damage < 0) { damage = 0; }
-          if (attack === 'physics') {
-            save_data.chara.hp = Number(save_data.chara.hp) - damage;
-            var t_msg = 'HPに' + damage + 'のダメージ！（現在値：' + save_data.chara.hp + '）' ;
-          } else {
-            save_data.chara.mp = Number(save_data.chara.mp) - damage;
-            var t_msg = 'MPに' + damage + 'のダメージ！（現在値：' + save_data.chara.mp + '）' ;
+          switch (attack) {
+            case 'physics' :
+              save_data.chara.hp = Number(save_data.chara.hp) - damage;
+              var t_msg = 'HPに' + damage + 'のダメージ！（現在値：' + save_data.chara.hp + '）' ;
+              break;
+            case 'magic' :
+              save_data.chara.mp = Number(save_data.chara.mp) - damage;
+              var t_msg = 'MPに' + damage + 'のダメージ！（現在値：' + save_data.chara.mp + '）' ;
+              break;
+            case 'both' :
+              save_data.chara.hp = Number(save_data.chara.hp) - damage;
+              save_data.chara.mp = Number(save_data.chara.mp) - damage;
+              var t_msg = 'HP/MPに' + damage + 'のダブルダメージ！（現在値hp/mp：' + save_data.chara.hp +
+                '/' + save_data.chara.mp + '）' ;
+              break;
+            case 'free1' :
+              save_data.chara.free1 = Number(save_data.chara.free1) - damage;
+              var t_msg = 'FREE1に' + damage + 'のダメージ！（現在値：' + save_data.chara.free1 + '）' ;
+              break;
+            case 'free2' :
+              save_data.chara.free2 = Number(save_data.chara.free2) - damage;
+              var t_msg = 'FREE2に' + damage + 'のダメージ！（現在値：' + save_data.chara.free2 + '）' ;
+              break;
+            case 'free3' :
+              save_data.chara.free3 = Number(save_data.chara.free3) - damage;
+              var t_msg = 'FREE3に' + damage + 'のダメージ！（現在値：' + save_data.chara.free3 + '）' ;
+              break;
+            default :
+              break;
           }
           if (damage === 0) {
             t_msg = '敵の攻撃を防ぎきった！';

@@ -37,6 +37,9 @@
     func="2L+R-STR,L+2R-INT">ニョロニョロ…斬っても斬っても、襲ってくるぞ！</enemy>
   <enemy id="m16" name="クラブ" element="earth" attack="physics"
     func="L+R-STR+7,L+R-INT+7,L+R-DEX+7,L+R-KRM+7">クラブという名の長ドスだ！</enemy>
+  <enemy id="m17" name="ダブルデビルス" element="" attack="free1"
+    func="10">何故、俺を狙わない！？</enemy>
+
 </enemies>
 
 <results>
@@ -681,7 +684,7 @@ HP／MPともに10ずつ減らさなければならない。
 [ホコリを被った＜きのぼう＞を調べてみる](3300)
 </scene>
 
-<scene id="3100" items="i02" flags="f02" result="r31" bgm="@battle02">
+<scene id="3100" items="i02" flags="f02" enemies="m17" result="r31" bgm="@battle02">
 （―――……！）
 
 熱線が、君の頬を掠める。
@@ -710,10 +713,8 @@ HP／MPともに10ずつ減らさなければならない。
 判定に失敗するたびに、
 宿屋の修理代として10Goldを支払わなければならない。
 
-総損害額は、以下の欄にメモしておいて、
-あとで歯ぎしりしながら［FREE1］に反映すること。
-
-${input?0}
+総損害額は、
+下の［ダメージ式］からきっちり反映すること。
 
 （なんて、えげつない攻撃だ！）
 
