@@ -168,6 +168,23 @@
 嗚呼、誉れ高きダメ人間よーー！
 </work>
 
+<work id="shadow" title="常闇から来たる影" author="ときのじ" unpublished="true">
+<img src="./images2/stext15.png" height="120"
+  title="常闇から来たる影" align="left" class="left" />
+<p class="award">ドラゴンモードVol.2（連作シナリオ）</p>
+
+君の眼前には『盗賊たちの塔』と呼ばれる塔が建っている。
+
+過去には邪竜の召喚に悪魔の暗躍と、そんな曰くが付きまとう塔に、君は『ある勅命』を受けてやって来た。
+それは、何らかの原因で塔の地下の封印から解き放たれたシャドードラゴンが完全復活を遂げぬよう討伐するためだ。
+しかし、無限の命を持つ竜を完全に滅ぼすことはできない上に、竜を封じる力を持つカルーン王国の姫君も何者かに攫われてしまったのだという。
+
+ソーサリアンよ、他の者達が姫君の行方を捜索している間、シャドードラゴンを討伐して無力化し、再封印までの時間を稼ぐのだ！
+
+<p class="award">2018年12月20日公開予定</p>
+
+</work>
+
 </scenario>
 
 <utility>
@@ -282,7 +299,7 @@ SText Playgroundは、ブラウザー上で動作するソーサリアン Text�
 <future>
 <work title="終焉のゼロ（仮）" author="リオ" unpublished="2018年12月"></work>
 
-<work title="常闇から来たる影（仮）" author="ときのじ" unpublished="2018年12月"></work>
+<work title="常闇から来たる影" author="ときのじ" unpublished="2018年12月"></work>
 
 <work title="金竜の陰謀（仮）" author="ちゃなさん" unpublished="2019年3月"></work>
 
