@@ -1617,8 +1617,9 @@
             } else {
               var tmp_func = Util.selectFunc(enemy.func);
               //row += '<input type="button" class="enemy_func" value="' + tmp_func + '" data-attack="' + enemy.attack + '"/>';
+              // 改行対応で「>」の前に空白を挿入
               row += '<div class="enemy_func" data-func="' + tmp_func + '" data-attack="' + enemy.attack + '">'
-                + tmp_func + '</div>';
+                + tmp_func.replace('>', ' >') + '</div>';
             }
           }
           row += '</td><td>'
