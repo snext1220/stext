@@ -168,7 +168,7 @@
 嗚呼、誉れ高きダメ人間よーー！
 </work>
 
-<work id="begin" title="終焉のゼロ" author="リオ" unpublished="true">
+<work id="begin" title="終焉のゼロ" author="リオ">
 <img src="./stext/begin/capture/intro.png" height="200"
   title="終焉のゼロ" align="left" class="left" />
 <p class="award">ドラゴンモード序章（連作シナリオ）</p>
@@ -181,8 +181,6 @@
 圧倒的な暴力。
 
 君たちは血塗れた神殿を逃れ、ペンタウァへ辺境の異変を知らせなければならない。疲弊した仲間たちを引き連れて、追手の化生を退けながら。
-
-<p class="award">2018年12月20日公開予定</p>
 </work>
 
 <work id="shadow" title="常闇から来たる影" author="ときのじ" unpublished="true">
