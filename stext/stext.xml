@@ -168,10 +168,26 @@
 嗚呼、誉れ高きダメ人間よーー！
 </work>
 
+<work id="begin" title="終焉のゼロ" author="リオ" unpublished="true">
+<img src="./stext/begin/capture/intro.png" height="200"
+  title="終焉のゼロ" align="left" class="left" />
+<p class="award">ドラゴンモード序章（連作シナリオ）</p>
+
+そこは、ペンタウァ南方のマスグレーヴ神殿。
+戦略的にもほとんど意味を為さない――ただ、辺境の魔性を警戒するための砦を兼ねた、小さな神殿。
+
+そこを襲ったのは混沌（カオス）、あるいは虚無。
+圧倒的な暴力。
+
+君たちは神殿を逃れ、ペンタウァへ辺境の異変を知らせなければならない。疲弊した仲間たちを引き連れて、追手の化生を退けながら。
+
+<p class="award">2018年12月20日公開予定</p>
+</work>
+
 <work id="shadow" title="常闇から来たる影" author="ときのじ" unpublished="true">
 <img src="./images2/stext15.png" height="120"
   title="常闇から来たる影" align="left" class="left" />
-<p class="award">ドラゴンモードVol.2（連作シナリオ）</p>
+<p class="award">ドラゴンモード本編Vol.1（連作シナリオ）</p>
 
 君の眼前には『盗賊たちの塔』と呼ばれる塔が建っている。
 
@@ -182,7 +198,6 @@
 ソーサリアンよ、他の者達が姫君の行方を捜索している間、シャドードラゴンを討伐して無力化し、再封印までの時間を稼ぐのだ！
 
 <p class="award">2018年12月20日公開予定</p>
-
 </work>
 
 </scenario>
