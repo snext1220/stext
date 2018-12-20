@@ -155,7 +155,7 @@
 その占星術において、世界に並ぶ者の無いこのワシが、おぬしの性格・将来を占ってやろうというのじゃ、ありがた過ぎて涙が出ようというものじゃろうて？
 </work>
 
-<work id="inn" title="トラベラーズ☆イン" author="リオ" series="ミニミニ30祭Vol.5（30Scene限定シナリオ）"
+<work id="inn" title="トラベラーズ☆イン" author="リオ" series="ミニミニ30祭（30Scene限定シナリオ）"
   tags="ミニゲーム" published="2018-11-19" level="2" scenes="30"
   comment="宿屋の中で繰り広げられるミニゲーム集です。初期リリースから追加された諸機能も活用しているので、シナリオ作成の寸例としてもご利用ください。">
 <img src="./images/mini/s03.png" height="120"
@@ -172,7 +172,7 @@
 嗚呼、誉れ高きダメ人間よーー！
 </work>
 
-<work id="begin" title="終焉のゼロ" author="リオ" series="ドラゴンモード序章（連作シナリオ）"
+<work id="begin" title="終焉のゼロ" author="リオ" series="連作ドラゴンモード"
   tags="タワーディフェンス" published="2018-12-20" level="2" scenes="51"
   comment="後先考えずに「ペンタウァちょっとヤバスな状況」になってるわけですが、あとは本編組の作者の皆々さまのお力で、ペンタウァ（＝拡げてしまった風呂敷）を救ってやってくださいまし。">
 <img src="./stext/begin/capture/intro.png" height="150"
