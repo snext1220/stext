@@ -3,7 +3,9 @@
 
 <scenario>
 
-<work id="scepter" title="新・消えた王様の杖" author="リオ">
+<work id="scepter" title="新・消えた王様の杖" author="リオ" series=""
+  tags="リメイク,チュートリアル" published="2017-12-20" level="2" scenes="253"
+  comment="古臭いゲームブックの世界で、新たな杖の物語。こんなお話もありかな、と寛容な心で遊んでいただければ幸いです。「新・～」シリーズは、今後も拡大していければと思うので、協力者緩募です。">
 <img src="./images2/stext01.png" height="120"
   title="新・消えた王様の杖" align="right" class="right" />
 ペンタウァ王家の象徴＜おうさまのつえ＞が、オークによって盗まれてしまう。
@@ -153,7 +155,9 @@
 その占星術において、世界に並ぶ者の無いこのワシが、おぬしの性格・将来を占ってやろうというのじゃ、ありがた過ぎて涙が出ようというものじゃろうて？
 </work>
 
-<work id="inn" title="トラベラーズ☆イン" author="リオ">
+<work id="inn" title="トラベラーズ☆イン" author="リオ" series="ミニミニ30祭Vol.5（30Scene限定シナリオ）"
+  tags="ミニゲーム" published="2018-11-19" level="2" scenes="30"
+  comment="宿屋の中で繰り広げられるミニゲーム集です。初期リリースから追加された諸機能も活用しているので、シナリオ作成の寸例としてもご利用ください。">
 <img src="./images/mini/s03.png" height="120"
   title="トラベラーズ☆イン" align="right" class="right" />
 <p class="award">ミニミニ30祭Vol.5（30Scene限定シナリオ）</p>
@@ -168,7 +172,9 @@
 嗚呼、誉れ高きダメ人間よーー！
 </work>
 
-<work id="begin" title="終焉のゼロ" author="リオ">
+<work id="begin" title="終焉のゼロ" author="リオ" series="ドラゴンモード序章（連作シナリオ）"
+  tags="タワーディフェンス" published="2018-12-20" level="2" scenes="51"
+  comment="後先考えずに「ペンタウァちょっとヤバスな状況」になってるわけですが、あとは本編組の作者の皆々さまのお力で、ペンタウァ（＝拡げてしまった風呂敷）を救ってやってくださいまし。">
 <img src="./stext/begin/capture/intro.png" height="150"
   title="終焉のゼロ" align="left" class="left" />
 <p class="award">ドラゴンモード序章（連作シナリオ）</p>
@@ -311,11 +317,11 @@ SText Playgroundは、ブラウザー上で動作するソーサリアン Text�
 </utility>
 
 <future>
+<work title="時を超えた協力者（仮）" author="cocotori" unpublished="2019年1月"></work>
+
+<work title="ドラゴンネゴシエーター（仮）" author="Salvador" unpublished="2019年2月"></work>
+
 <work title="金竜の陰謀（仮）" author="ちゃなさん" unpublished="2019年3月"></work>
-
-<work title="時を超えた協力者（仮）" author="cocotori" unpublished="2019年4月"></work>
-
-<work title="ドラゴンネゴシエーター（仮）" author="Salvador" unpublished="2019年5月"></work>
 
 <work title="七星の名の下に（仮）" author="リオ" unpublished="2019年6月"></work>
 
