@@ -4,6 +4,7 @@
 	<init>
 		<constraint race="FIGHTER,WIZARD" sex="FEMALE" age="YOUNG,ADULT"></constraint>
 		<bgm main="@field05" happy="@field04" bad="@town01"></bgm>
+		<label free1="食物" free2="Gold"></label>
 		<intro description="プレイグラウンドで動作を手軽に確認しよう！"></intro>
 	</init>
 	<items>
@@ -22,7 +23,7 @@
 	<enemies>
 		<enemy id="m01" name="人面岩" element="earth" attack="physics" func="L-STR" drop="tue/3">喋るだけで、硬い岩だ。</enemy>
 		<enemy id="m02" name="人面岩の口" element="spirit" attack="poison" func="R>DEX" drop="free1/50/50Gold">喋る口だ。牙はない。</enemy>
-		<enemy id="m03" name="投げた石" element="wind" attack="both" func="L+R-STR" drop="sat/1">君が投げた石だ。</enemy>
+		<enemy id="m03" name="投げた石" element="wind" attack="physics" func="L+R-STR" drop="sat/1">君が投げた石だ。</enemy>
 		<enemy id="m04" name="一寸怒ったラット" element="fire" attack="物理" func="*L-STR" drop="">ガジガジたち。一見、可愛い。</enemy>
 	</enemies>
 	<results>
@@ -54,8 +55,6 @@ ${if f05}
 ${/if}
 ---
 
-${input?50}
-
 - 自動リンクのテスト（http://d.hatena.ne.jp/sorcerian/20180128）
 
 1. みんな、%blue%ソーサリアン%/%！
@@ -84,7 +83,6 @@ ${input?50}
 [500,600,700](X)
 </scene>
 	<scene id="2" items="i01,i02,i03" flags="f01,f02,-f02,-f05" enemies="m01,m02,m03,m04" stars="-5,-5,-5,-5,-5,-5,-5" hp="-5" mp="-7..-3" free1="7" free2="-2" bgm="" result="r01">
-	<![CDATA[
 
 - 魔法ボタンの確認（HEAL、LIGHT-CROSS）
 - ステータスボタンの確認（STR&lt;5、HP&gt;50）
@@ -97,17 +95,6 @@ ${input?50}
 - free1、2をそれぞれ+7、-2
 - 実績r01を設定
 
-${if f01&f02&i02&oHP40+}
-f01,f02,i02,oHP40+が揃っている時だけ表示されます。
-${/if}
-
-${if -f01,f02,i05,oHP40+}
-f01,f02,i05,oHP40+が揃っていない時だけ表示されます。
-${/if}
-
-${if !(f01&f02&i05&oHP50+)}
-f01,f02,i05,oHP40+が揃っていない時だけ表示されます。++
-${/if}
 
 
 [HEAL有効](4 "mHEAL")
@@ -120,7 +107,6 @@ ${/if}
 [エンディング（Bad）](8)
 [エンディング（bgm変更）](33)
 [ペンタウァ,42,43](Q)
-]]>
 </scene>
 	<scene id="4">
 HEAL実行
