@@ -947,7 +947,9 @@
         // ダメージを加算
         damage += sign * num * param;
       }
-      return damage;
+      // ダメージ補正
+      damage *= Number($('#damage_delta').val());
+      return Math.floor(damage);
     },
 
     // ダメージ式／回避方法を選択
@@ -1594,7 +1596,10 @@
         e_table.append('<tr class="enemy_title">' +
           (enemies.length > 1 ? '<th></th>' : '') +
           '<th>名前／属性</th><th>攻撃</th>' +
-          '<th title="現在のダイス値に従って、ダメージを反映させます。">ダメージ</th>' +
+          '<th title="現在のダイス値に従って、ダメージを反映させます。">ダメージ ' +
+          '<select id="damage_delta"><option value="2">x2</option>' + 
+          '<option value="1" selected>x1</option><option value="0.5">x1/2</option>' +
+          '<option value="0.25">x1/4</option></select></th>' +
           '<th title="記載されたドロップアイテムをステータスに反映させます。">戦利品</th>' +
         '</tr>');
 
@@ -2626,6 +2631,13 @@
                   if (bgm[2]) { initBgm.attr('happy',bgm[2]); }
                   if (bgm[3]) { initBgm.attr('bad',  bgm[3]); }
                   initBgm.appendTo(inits);
+                } else if (tmp_para.indexOf('label') === 0) {
+                  var label = tmp_para.split(':')
+                  var initLabel = $('<label></label>');
+                  if (label[1]) { initLabel.attr('free1', label[1]); }
+                  if (label[2]) { initLabel.attr('free2', label[2]); }
+                  if (label[3]) { initLabel.attr('free3', label[3]); }
+                  initLabel.appendTo(inits);
                 // ツイート文の設定
                 } else if (tmp_para.indexOf('intro') === 0) {
                   var intro = tmp_para.split(':')
@@ -2646,7 +2658,7 @@
                   $('<flag></flag>')
                     .attr('id', flag[0])
                     .text(flag[1])
-                    .appendTo(flags);          
+                    .appendTo(flags);
                 // 敵／罠の処理
                 } else if (tmp_para.indexOf('m') === 0) {
                   var enemy = tmp_para.split(':')

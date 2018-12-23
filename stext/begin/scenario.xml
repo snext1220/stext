@@ -77,7 +77,7 @@
     <enemy id="m401" name="ドラゴンナイト（物理攻撃）" element=""
         attack="free1" func="2L+2R-STR-INT" drop="">リザードマンの上位種だ。混沌はさらに力を増しているのだろうか。</enemy>
     <enemy id="m402" name="ドラゴンナイト（龍化）" element=""
-        attack="free1" func="2L+2R-DEX-KRM" drop="">リザードマンの上位種だ。混沌は君を更に虚無へと引き込んでいく……</enemy>
+        attack="magic" func="2L+2R-DEX-KRM" drop="">リザードマンの上位種だ。混沌は君を更に虚無へと引き込んでいく……</enemy>
 
     <enemy id="m403" name="敵の第四波" element=""
         attack="free2" func="L+R" drop="">少人数に分散した君たちは、敵に抗すべくもなく、狩られていく……</enemy>
