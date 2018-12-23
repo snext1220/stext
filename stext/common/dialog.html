@@ -31,7 +31,7 @@
 <hr />
 <form>
   <div id="status_basic">
-  <table style="width:90%">
+  <table border="0" style="width:90%">
   <tr>
     <th>HP</th>
     <td nowrap>
@@ -89,7 +89,42 @@
       <input type="button" class="spinner_up" value="+" />
       ／<span id="krm_i"></span></td>
   </tr>
+  <tr>
     <th>FREE</th>
+    <td colspan="4" nowrap class="free_cell">
+      <ul>
+      <li>
+      <input type="button" class="spinner_down" value="-" />
+      <input type="number" id="free1" />
+      <input type="button" class="spinner_up" value="+" />
+      <span class="free-label">
+        <br />
+        <span id="free-label1"></span>
+      </span>
+      </li>
+      <li>
+      ･
+      <input type="button" class="spinner_down" value="-" />
+      <input type="number" id="free2" />
+      <input type="button" class="spinner_up" value="+" />
+      <span class="free-label">
+          <br />
+          <span id="free-label2"></span>
+        </span>
+      </li>
+      <li>
+      ･
+      <input type="button" class="spinner_down" value="-" />
+      <input type="number" id="free3" />
+      <input type="button" class="spinner_up" value="+" />
+      <span class="free-label">
+        <br />
+        <span id="free-label3"></span>
+      </span>
+      </li>
+      </ul>
+    </td>
+    <!--
     <td colspan="4" nowrap class="free_cell">
       <input type="button" class="spinner_down" value="-" />
       <input type="number" id="free1" />
@@ -103,6 +138,7 @@
       <input type="number" id="free3" />
       <input type="button" class="spinner_up" value="+" />
     </td>
+    -->
   </tr>
   </table>
   <hr />

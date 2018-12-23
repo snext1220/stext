@@ -165,6 +165,22 @@ img.dice {
   cursor: pointer;
 }
 
+#dialog_body .free_cell ul {
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+
+#dialog_body .free_cell li {
+  width: 33%;
+  margin: 0px;
+  padding: 0px;
+  font-size: small;
+  list-style-type: none;
+  text-align: right;
+  float: left;
+}
+
 #dialog_bonus {
   background-image: url(common/dialog_bonus_back.png);
   background-repeat: no-repeat;

@@ -1057,6 +1057,14 @@
             ROOT + COMMON + String(save_data.chara.sex).toLowerCase() + '_' +
               String(save_data.chara.age).toLowerCase() + '_' + 
               String(save_data.chara.race).toLowerCase() + '.png');
+          
+          // FREE1～3のラベルを設定
+          var flabel = $('init > label', scenario_data);
+          if (flabel) {
+            $('#free-label1', dialog).text(flabel.nsAttr('free1'));
+            $('#free-label2', dialog).text(flabel.nsAttr('free2'));
+            $('#free-label3', dialog).text(flabel.nsAttr('free3'));
+          }
 
           // 職業選択ボックスを生成
           var job_box = $('#job', dialog);
