@@ -28,8 +28,10 @@
 </work>
 
 <work id="doll" title="プレアオブ・ドールズ" author="cocotori"
-  url="https://goo.gl/or97iR">
-<img src="./images2/stext04.jpg" height="120"
+  url="https://goo.gl/or97iR" 
+  tags="探索" published="2018-1-12" level="1" scenes="24"
+  comment="人とは少し違う人形との、触れ合いを楽しんでもらえたらと思います。">
+<img src="./stext/doll/capture/intro.png"  height="120"
     align="right" class="right" title="プレアオブ・ドールズ" />
 王都ペンタウァで人形が関わる猟奇事件に巻き込まれる。犯人の姿に、かつての知り合いを感じたあなたは、討伐隊に志願することになる。
 
@@ -62,8 +64,10 @@
 「読書好きも読書嫌いも、この際問わぬ。勇気ある者はこの『消える本』の謎に挑んではくれないだろうか」
 </work>
 
-<work id="vampire" title="鉄腕の吸血姫" author="cocotori">
-<img src="./images2/stext06.png" height="120"
+<work id="vampire" title="鉄腕の吸血姫" author="cocotori" 
+  tags="探索" published="2018-3-17" level="1" scenes="39"
+  comment="吸血鬼と言うより物理で殴る肉体派が出来上がりました。ダークでハードな感じを目指してみました。">
+<img src="./stext/vampire/capture/intro.png"  height="120"
   title="鉄腕の吸血姫" align="left" class="left" />
 薄暗い部屋であなたは目覚める。首筋に噛み跡。伝承では、吸血鬼に血を吸われた者は、間もなく同じ道をたどるという。絶望的状況に追い込まれたあなた。
 
@@ -98,8 +102,10 @@
 エティスはそんなロマンシアの首都、ラミディアに魔の気配を感じるという。君は魔の正体を探るべく、ロマンシアへ向かった。
 </work>
 
-<work id="cat" title="わたしのネコを探して" author="cocotori">
-<img src="./images2/stext09.png" height="120"
+<work id="cat" title="わたしのネコを探して" author="cocotori" series="ミニミニ30祭（30Scene限定シナリオ）"
+  tags="探索" published="2018-10-16" level="1" scenes="25"
+  comment="ネコと言ったらネコなのです。">
+<img src="./stext/cat/capture/intro.png"  height="120"
   title="わたしのネコを探して" align="right" class="right" />
 <p class="award">ミニミニ30祭Vol.1 （30Scene限定シナリオ）</p>
 「ネコを探してほしいの」
