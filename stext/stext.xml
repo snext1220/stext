@@ -53,7 +53,7 @@
 道中、あなたは様々な懐かしい面々に会うことになるでしょう。中にはかつての強敵だったあの人も……。そして、ペンタウァを滅ぼしにかかる「災厄」の正体とは……？（<a href="https://twitter.com/ChanaGame" target="other">ちゃな</a>）
 </work>
 
-<work id="hero" title="少女は英雄を語りて" author="ときのじ" series="" tags="リメイク,探索" published="2018-02-13" level="3" scenes="339"
+<work id="hero" title="少女は英雄を語りて" author="ときのじ" series="" tags="リメイク,探索" published="2018-02-13" updated="2018-11-13" level="3" scenes="339"
   comment="SText版としてシナリオを再構成した、オリジナルとは少々異なる英雄物語です。今まで以上に登場人物の個性が伝わるような作品に仕上がっていたら嬉しいですね。">
 <img src="./stext/hero/capture/intro.gif" height="120"
   title="少女は英雄を語りて" align="right" class="right" />
@@ -120,7 +120,7 @@
 </work>
 
 <work id="soul" title="魂の選択" author="ときのじ" series="ミニミニ30祭（30Scene限定シナリオ）"
-  tags="読み物系" published="2018-08-10" level="1" scenes="30"
+  tags="読み物系" published="2018-08-10" updated="2018-12-24" level="1" scenes="30"
   comment="ソーサリアンが突然パーパリアンやマーマリアンになります。幼女との観光をお楽しみください。">
 <img src="./stext/begin/soul/intro.png" height="120"
   title="魂の選択" align="left" class="left" />
@@ -202,7 +202,7 @@
 </work>
 
 <work id="shadow" title="常闇から来たる影" author="ときのじ" series="連作ドラゴンモード"
-  tags="盗賊たちの塔,探索" published="2018-12-20" level="3" scenes="70"
+  tags="盗賊たちの塔,探索" published="2018-12-20" updated="2018-12-24" level="3" scenes="70"
   comment="ガラティーンに思い入れがあり「盗賊たちの塔」も印象的なシナリオだったので、その繋がりからこの竜を選びました。まさに「盗賊たちの塔・後伝」になりましたね。趣味に全振りするの楽しかったです。">
 <img src="./stext/shadow/capture/intro.png" height="120"
   title="常闇から来たる影" align="right" class="right" />
@@ -288,7 +288,7 @@ SText Playgroundは、ブラウザー上で動作するソーサリアン Text�
 この場を借りて、雪かきの合間に(?)作者すら把握してない全ルートをコンプリートし、しかも、フローチャート化してくださったRYU（<a href="https://twitter.com/ishikawanonoich" target="other">@ishikawanonoich</a>）さんに心から御礼申し上げます。
 </work>
 
-<work id="trial" title="STextシナリオ開発道場" author="ときのじ" backup="true">
+<work id="trial" title="STextシナリオ開発道場" author="ときのじ" updated="2018-11-13" backup="true">
 <img src="./stext/trial/capture/intro.png" height="120"
   title="STextシナリオ開発道場" align="right" class="right" />
 「ソーサリアンTextのシナリオを書いてみたい！」
