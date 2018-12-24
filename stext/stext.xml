@@ -17,7 +17,9 @@
 誉れ高き勇者よ、しぬでないぞよ（By 王さま）。
 </work>
 
-<work id="zero" title="ゼロの創造" author="Salvador">
+<work id="zero" title="ゼロの創造" author="Salvador" series=""
+  tags="" published="" updated="" level="" scenes=""
+  comment="">
 <img src="./images2/gallery/tn/d11.gif" height="120" title="ゼロの創造"
   align="left" class="left" />
 かつて、創造神がこの世に大いなる恵みを与えていた時代があったという。常に世界には新しい発見があり、人々は新天地の開拓に乗り出していった時代だった。人々は創造神を信じ、その光臨を願っていた。それを創造神信仰と呼ぶ。
@@ -41,7 +43,9 @@
 </work>
 
 <work id="tempest" title="災厄の夜 - テンペスト・ナイト -"
-  author="ちゃなさん" guest="true">
+  author="ちゃなさん" guest="true" series=""
+  tags="" published="" updated="" level="" scenes=""
+  comment="">
 <img src="./images2/world1.gif" height="120"
   title="災厄の夜 - テンペスト・ナイト -" align="left" class="left" />
 <p class="award">ゲストさま投稿作品（記念すべき第1号！）</p>
@@ -79,7 +83,9 @@
 </work>
 
 <work id="slayer" title="その名はドラゴンスレイヤー" author="RYUさん"
-  guest="true">
+  guest="true" series=""
+  tags="" published="" updated="" level="" scenes=""
+  comment="">
 <img src="./images2/gallery/tn/d25.gif" height="120"
   title="その名はドラゴンスレイヤー" align="right" class="right" />
 <p class="award">ゲストさま投稿作品第2弾（第2部を公開中）</p>
@@ -94,7 +100,9 @@
 <p class="award">第3部は2019年3月公開予定です。</p>
 </work>
 
-<work id="ramidia" title="ラミディアの魔法使い" author="Salvador">
+<work id="ramidia" title="ラミディアの魔法使い" author="Salvador" series=""
+  tags="" published="" updated="" level="" scenes=""
+  comment="">
 <img src="./images2/stext08.png" height="160"
   title="ラミディアの魔法使い" align="left" class="left" />
 北方の広大な森の中にある王国、ロマンシア。この国は数年前まで火山の噴火や地震が相次ぎ、さらに伝染病まで流行るという災厄に見舞われていた。災厄の元凶は、この地に古くから棲んでいた竜に取り憑いた邪神ヴァイデスであったという。
@@ -137,7 +145,9 @@
 ――この物語の結末を決めるのは、君の【魂の在り方】次第。
 </work>
 
-<work id="kenshin" title="戦国ソーサリアン外伝・上杉謙信の章" author="Salvador">
+<work id="kenshin" title="戦国ソーサリアン外伝・上杉謙信の章" author="Salvador" series=""
+  tags="" published="" updated="" level="" scenes=""
+  comment="">
 <img src="./images2/stext11.jpg" height="200"
   title="戦国ソーサリアン外伝・上杉謙信の章" align="right" class="right" />
 <p class="award">ミニミニ30祭Vol.3（30Scene限定?シナリオ）</p>
@@ -152,7 +162,9 @@
 
 </work>
 
-<work id="fortune" title="ソーサリアン性格診断占い" author="RYUさん" guest="true">
+<work id="fortune" title="ソーサリアン性格診断占い" author="RYUさん" guest="true" series=""
+  tags="" published="" updated="" level="" scenes=""
+  comment="">
 <img src="./images2/stextU3.png" height="120"
   title="ソーサリアン性格診断占い" align="left" class="left" />
 <p class="award">ミニミニ30祭Vol.4（30Scene限定シナリオ）</p>
