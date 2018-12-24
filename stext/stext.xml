@@ -52,8 +52,9 @@
 道中、あなたは様々な懐かしい面々に会うことになるでしょう。中にはかつての強敵だったあの人も……。そして、ペンタウァを滅ぼしにかかる「災厄」の正体とは……？（<a href="https://twitter.com/ChanaGame" target="other">ちゃな</a>）
 </work>
 
-<work id="hero" title="少女は英雄を語りて" author="ときのじ">
-<img src="./images2/gallery/tn/d33.gif" height="120"
+<work id="hero" title="少女は英雄を語りて" author="ときのじ" series="" tags="リメイク,探索" published="2018-02-13" level="3" scenes="339"
+  comment="SText版としてシナリオを再構成した、オリジナルとは少々異なる英雄物語です。今まで以上に登場人物の個性が伝わるような作品に仕上がっていたら嬉しいですね。">
+<img src="./stext/hero/capture/intro.gif" height="120"
   title="少女は英雄を語りて" align="right" class="right" />
 君は『消える本』の噂を聞いたことがあるだろうか？手にした筈なのに消えている、読んだ筈なのに覚えていない。そんな不思議な本の噂を。
 
@@ -115,8 +116,10 @@
 ゆるめのテイストに彩られた、探索物シナリオです。ペンタウァの町をうろうろしながら、いろいろな人の話を聞いてみてください。
 </work>
 
-<work id="soul" title="魂の選択" author="ときのじ">
-<img src="./images2/stext10.png" height="120"
+<work id="soul" title="魂の選択" author="ときのじ" series="ミニミニ30祭（30Scene限定シナリオ）"
+  tags="読み物系" published="2018-08-10" level="1" scenes="30"
+  comment="ソーサリアンが突然パーパリアンやマーマリアンになります。幼女との観光をお楽しみください。">
+<img src="./stext/begin/soul/intro.png" height="120"
   title="魂の選択" align="left" class="left" />
 <p class="award">ミニミニ30祭Vol.2<br />（30Scene限定シナリオ）</p>
 一つの冒険を終えたソーサリアンの君は、ペンタウァへの帰路で木陰に入り、休息を取っていた。
@@ -195,8 +198,10 @@
 君たちは血塗れた神殿を逃れ、ペンタウァへ辺境の異変を知らせなければならない。疲弊した仲間たちを引き連れて、追手の化生を退けながら。
 </work>
 
-<work id="shadow" title="常闇から来たる影" author="ときのじ">
-<img src="./images2/stext15.png" height="120"
+<work id="shadow" title="常闇から来たる影" author="ときのじ" series="連作ドラゴンモード"
+  tags="盗賊たちの塔,探索" published="2018-12-20" level="3" scenes="70"
+  comment="ガラティーンに思い入れがあり「盗賊たちの塔」も印象的なシナリオだったので、その繋がりからこの竜を選びました。まさに「盗賊たちの塔・後伝」になりましたね。趣味に全振りするの楽しかったです。">
+<img src="./stext/shadow/capture/intro.png" height="120"
   title="常闇から来たる影" align="right" class="right" />
 <p class="award">ドラゴンモード本編Vol.1（連作シナリオ）</p>
 
@@ -281,7 +286,7 @@ SText Playgroundは、ブラウザー上で動作するソーサリアン Text�
 </work>
 
 <work id="trial" title="STextシナリオ開発道場" author="ときのじ" backup="true">
-<img src="./images2/stextU5.png" height="120"
+<img src="./stext/trial/capture/intro.png" height="120"
   title="STextシナリオ開発道場" align="right" class="right" />
 「ソーサリアンTextのシナリオを書いてみたい！」
 
