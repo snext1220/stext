@@ -4,9 +4,9 @@
 <scenario>
 
 <work id="scepter" title="新・消えた王様の杖" author="リオ" series=""
-  tags="リメイク,チュートリアル" published="2017-12-20" level="2" scenes="253"
+  tags="リメイク,チュートリアル" published="2017-12-20" updated="2018-11-02" level="2" scenes="253"
   comment="古臭いゲームブックの世界で、新たな杖の物語。こんなお話もありかな、と寛容な心で遊んでいただければ幸いです。「新・～」シリーズは、今後も拡大していければと思うので、協力者緩募です。">
-<img src="./images2/stext01.png" height="120"
+<img src="./stext/scepter/capture/intro.png" height="120"
   title="新・消えた王様の杖" align="right" class="right" />
 ペンタウァ王家の象徴＜おうさまのつえ＞が、オークによって盗まれてしまう。
 
@@ -28,7 +28,6 @@
 </work>
 
 <work id="doll" title="プレアオブ・ドールズ" author="cocotori"
-  url="https://goo.gl/or97iR" 
   tags="探索" published="2018-1-12" updated="2018-11-9"
   level="1" scenes="24"
   comment="人とは少し違う人形との、触れ合いを楽しんでもらえたらと思います。">
@@ -168,8 +167,8 @@
 </work>
 
 <work id="inn" title="トラベラーズ☆イン" author="リオ" series="ミニミニ30祭（30Scene限定シナリオ）"
-  tags="ミニゲーム" published="2018-11-19" level="2" scenes="30"
-  comment="宿屋の中で繰り広げられるミニゲーム集です。初期リリースから追加された諸機能も活用しているので、シナリオ作成の寸例としてもご利用ください。">
+  tags="ミニゲーム" published="2018-11-19" updated="2018-11-26" level="2" scenes="30"
+  comment="宿屋の中で繰り広げられるミニゲーム集です。初期リリースから追加された諸機能もフル活用しているので、シナリオ作成の寸例としてもご利用戴けるのではないかと。">
 <img src="./images/mini/s03.png" height="120"
   title="トラベラーズ☆イン" align="right" class="right" />
 <p class="award">ミニミニ30祭Vol.5（30Scene限定シナリオ）</p>
@@ -185,8 +184,8 @@
 </work>
 
 <work id="begin" title="終焉のゼロ - ドラゴンモード0 -" author="リオ" series="連作ドラゴンモード"
-  tags="タワーディフェンス" published="2018-12-20" level="2" scenes="51"
-  comment="後先考えずに「ペンタウァちょっとヤバスな状況」になってるわけですが、あとは本編組の作者の皆々さまのお力で、ペンタウァ（＝拡げてしまった風呂敷）を救ってやってくださいまし。">
+  tags="タワーディフェンス" published="2018-12-20" updated="2018-12-23" level="2" scenes="51"
+  comment="連作の序章ということで、雰囲気ゲーに特化。結局どうなったのか、は本編組の皆さまにお任せしたいと思います ;-)">
 <img src="./stext/begin/capture/intro.png" height="150"
   title="終焉のゼロ" align="left" class="left" />
 <p class="award">ドラゴンモード序章（連作シナリオ）</p>
