@@ -772,13 +772,25 @@
     // セーブデータのfree1、free2、free3プロパティを更新
     updateFrees: function(at_free1, at_free2, at_free3) {
       if (at_free1) {
-        save_data.chara.free1 = Number(save_data.chara.free1) + Number(at_free1);
+        if (at_free1.indexOf('@') === 0) {
+          save_data.chara.free1 = Number(at_free1.substring(1));
+        } else {
+          save_data.chara.free1 = Number(save_data.chara.free1) + Number(at_free1);
+        }
       }
       if (at_free2) {
-        save_data.chara.free2 = Number(save_data.chara.free2) + Number(at_free2);
+        if (at_free2.indexOf('@') === 0) {
+          save_data.chara.free2 = Number(at_free2.substring(1));
+        } else {
+          save_data.chara.free2 = Number(save_data.chara.free2) + Number(at_free2);
+        }
       }
       if (at_free3) {
-        save_data.chara.free3 = Number(save_data.chara.free3) + Number(at_free3);
+        if (at_free3.indexOf('@') === 0) {
+          save_data.chara.free3 = Number(at_free3.substring(1));
+        } else {
+          save_data.chara.free3 = Number(save_data.chara.free3) + Number(at_free3);
+        }
       }
     },
 
