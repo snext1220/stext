@@ -383,6 +383,7 @@ table.item_list img {
   border: outset 2px #000; 
   background-color: #000ccc;
   font-size: small;
+  word-wrap: break-word;
   margin-top: 2px;
   margin-bottom: 2px;
   padding-top: 2px;
