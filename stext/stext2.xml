@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<stext>
+
+<scenario>
+
+<work id="scepter" title="新・消えた王様の杖" author="リオ" level="2" published="2017-12-20" />
+<work id="zero" title="ゼロの創造" author="Salvador" level="2" published="2017-12-20" />
+<work id="doll" title="プレアオブ・ドールズ" author="cocotori" level="2" published="2017-12-20" />
+<work id="tempest" title="災厄の夜 - テンペスト・ナイト -" author="ちゃなさん" level="2" published="2017-12-20" />
+<work id="hero" title="少女は英雄を語りて" author="ときのじ" level="2" published="2017-12-20" />
+<work id="vampire" title="鉄腕の吸血姫" author="cocotori" level="2" published="2017-12-20" />
+<work id="slayer" title="その名はドラゴンスレイヤー" author="RYUさん" level="2" published="2017-12-20" />
+<work id="ramidia" title="ラミディアの魔法使い" author="Salvador" level="2" published="2017-12-20" />
+<work id="cat" title="わたしのネコを探して" author="cocotori" level="2" published="2017-12-20" />
+<work id="soul" title="魂の選択" author="ときのじ" level="2" published="2017-12-20" />
+<work id="kenshin" title="戦国ソーサリアン外伝・上杉謙信の章" author="Salvador" level="2" published="2017-12-20" />
+<work id="fortune" title="ソーサリアン性格診断占い" author="RYUさん" level="2" published="2017-12-20" />
+<work id="inn" title="トラベラーズ☆イン" author="リオ" level="2" published="2017-12-20" />
+<work id="begin" title="終焉のゼロ - ドラゴンモード0 -" author="リオ" level="2" published="2017-12-20" />
+<work id="shadow" title="常闇から来たる影" author="ときのじ" level="2" published="2017-12-20" />
+
+<!--公開予定-->
+<work title="時を超えた協力者（仮）" author="cocotori" published="!2019-01"></work>
+<work title="ドラゴンネゴシエーター（仮）" author="Salvador" published="!2019-02"></work>
+<work title="金竜の陰謀（仮）" author="ちゃなさん" published="!2019-03"></work>
+<work title="七星の名の下に（仮）" author="リオ" published="!2019-06"></work>
+<work title="名無しの剣士" author="ときのじ" published="!"></work>
+<work title="新・囚われた魔法使い" author="Salvador" published="!"></work>
+<work title="嗚呼、ジョセフィーヌよ、何処へ往く" author="リオ"  published="!"></work>
+<work title="消された王さまの杖" author="リオ" published="!"></work>
+<work title="新・アマゾンの剣" author="リオ" published="!"></work>
+<work title="新・それいけ！ドトーのトライアスロン" author="リオ" published="!"></work>
+</scenario>
+
+<utility>
+<work title="STextシナリオ制作用 BGM素材" author="AZ">
+<![CDATA[
+以下は、ソーサリアン Textのシナリオを制作／公開する際に利用できるBGM素材です（2018年12月時点で全20曲を公開中）。これら素材を利用して、是非、あなたの物語を余に――もとい、世に送り出してやってください。
+
+<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/611106111%3Fsecret_token%3Ds-2tzI5&amp;color=%23a86681&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
+
+音楽ファイルをダウンロードするには、以下のリンクからSoundCloudのページに移動した上で、曲目リストの右端から［...］－［Download］を選択してください（すべてまとめてのダウンロードはできません）。
+
+<p><a href="https://soundcloud.com/venus-az/sets/sorcerian-text-original-sounds/s-2tzI5" class="external" target="manual">SORCERIAN Text Original Sound</a></p>
+
+※<span class="award">SText以外の利用は禁止</span>とさせて戴きますので、ご了承ください。
+]]>
+</work>
+
+<work title="GBAT to SText" author="リオ">
+<![CDATA[
+<img src="./images_blog/stext_gbat0.png" height="120"
+  title="GBATメイン画面" align="left" class="left" />
+GBAT（GameBook Authoring Tool）は、ゲームブックシナリオをチャート化しながら執筆できるGUIツール。シナリオのフローをリアルタイムにチャート化するので、全体を見渡しつつ、執筆を進められます。
+
+GBAT to STextは、このGBATで作成された.gbatファイルをSText形式に変換するためのツールです。GBAT（Free版）は100パラグラフの制限がありますが、GBAT to STextは複数の.gbatファイルを統合できますので、大きなシナリオの執筆にも活用できます。
+
+---
+
+<form>
+<input id="gbat" type="file" accept=".gbat" multiple="multiple" /> &lt;- 変換する.gbatファイルを指定
+</form>
+
+---
+
+SText固有の定義をGBATで表す方法については、以下のマニュアルも参照してください。
+
+<a href="http://d.hatena.ne.jp/sorcerian/20180131" target="manual" class="external">ソーサリアンText開発者向けマニュアル（GBAT to SText編）</a>
+]]>
+</work>
+
+<work title="SText Playground" author="リオ">
+<![CDATA[
+<img src="./images_blog/gbat_play3.png" height="120"
+  title="Playground実行画面" align="right" class="right" />
+
+SText Playgroundは、ブラウザー上で動作するソーサリアン Textのシナリオ実行環境です。ソフトウェアのインストールなどが不要なので、手軽に実行できるのが特徴です。
+
+画像の表示、音声の再生には非対応ですが、それ以外の機能はほぼサポートしているので、シナリオの動作確認に活用ください。
+
+構文ハイライト機能付きの簡易エディターを備え、テンプレート／.gbatファイルのインポートから、作成したシナリオのストレージ保存、ダウンロードなどにも対応しているので、簡易なシナリオであれば、Playgroundひとつで完結して執筆作業を進めることも可能です。
+
+<a href="playground.aspx" target="stext" class="startbtn">SText Playgroundを起動する</a>
+
+使い方などは、以下のマニュアルも参照してください。
+
+<a href="http://d.hatena.ne.jp/sorcerian/20180125" target="manual" class="external">ソーサリアンText開発者向けマニュアル（環境準備編）</a>
+]]>
+</work>
+
+<work title="もっと攻略したい" author="RYUさん他" guest="true" other="true">
+<![CDATA[
+<img src="./images2/stextU3.png" height="120"
+  title="もっと攻略したい" align="left" class="left" />
+ソーサリアン Textをもっと攻略したい、あるいは行き詰ったという人のために。
+
+シナリオのデッド＆リトライを支援するセーブデータ一覧、全ルートのコンプリートを目指す人のために簡易フローチャート（PDF版）などをまとめてみました（今後は、完全版フローチャートも作成予定です）。是非、攻略のお供にご利用ください！
+
+- <a href="../flow/scepter.pdf" target="manual" class="external">「新・消えた王様の杖」簡易フローチャート（作・RYUさん）</a>
+- <a href="http://d.hatena.ne.jp/sorcerian/20180205" target="manual" class="external">「新・消えた王様の杖」セーブデータ一覧（作・リオ）</a>
+- <a href="http://d.hatena.ne.jp/sorcerian/20180416" target="manual" class="external">「新・消えた王様の杖」一日一ネタ（作・リオ）</a>
+- <a href="../flow/zero.pdf" target="manual" class="external">「ゼロの創造」簡易フローチャート（作・RYUさん）</a>
+- <a href="../flow/temp.pdf" target="manual" class="external">「災厄の夜」簡易フローチャート（作・RYUさん）</a>
+- 「少女は英雄を語りて」簡易フローチャート（作・RYUさん）<span class="award">作成中</span>
+
+この場を借りて、雪かきの合間に(?)作者すら把握してない全ルートをコンプリートし、しかも、フローチャート化してくださったRYU（<a href="https://twitter.com/ishikawanonoich" target="other">@ishikawanonoich</a>）さんに心から御礼申し上げます。
+]]>
+</work>
+
+<work id="trial" title="STextシナリオ開発道場" author="ときのじ" updated="2018-11-13" backup="true">
+<![CDATA[
+<img src="./stext/trial/capture/intro.png" height="120"
+  title="STextシナリオ開発道場" align="right" class="right" />
+「ソーサリアンTextのシナリオを書いてみたい！」
+
+君はそう思ったことはないだろうか？もしシナリオを書いてみたいと思ったのであれば、この先にある道場は、きっと君の助けになることだろう。何故なら、その道場とは「ソーサリアンTextのシナリオを書きたい」というソーサリアンの願いをぱぱっと叶える特別メニューが揃っているからだ。
+
+道場には、君のようにシナリオを書こうと勉強している者もいれば、シナリオの書き方を分かり易く教えてくれる者もいる。そんなペンタウァの勇者達のやり取りがなかなかに賑やかで、見学しているだけでも楽しいかもしれないぞ。
+
+さぁ、君もソーサリアンの一人となって、ソーサリアンTextのシナリオの書き方を学ぼう！
+
+<a href="https://goo.gl/zJ2rvp" class="startbtn">修行に入る</a>
+
+道場で基本的な使い方を学んだ後は、以下のページでより実践的なノウハウも確認してほしい。
+
+<a href="http://d.hatena.ne.jp/sorcerian/20180429" target="manual" class="external">開発者向け実践テクニック集（作・リオ）</a>
+]]>
+</work>
+
+<work title="ユーザーディスクツール" author="リオ">
+<![CDATA[
+<img src="./images2/stextU6.png" height="120"
+  title="ユーザーディスクツール" align="left" class="left" />
+ユーザーディスクツールは、ブラウザーで保存されているSTextのセーブデータを.stextファイルとして出力（バックアップ）したり、バックアップしておいた.stextファイルを復旧（リストア）するためのツールです。
+
+シナリオ内の分岐を繰り返しリトライしたい場合などにご活用ください。
+
+---
+
+<form>
+<p><select id="scenario">
+  <option value="all">全シナリオデータ</option>
+  <option value="sorcerian_text">基本情報（実績／ボーナス）</option>
+</select>  <input type="button" id="backup" value="バックアップ" /></p>
+<p><input type="file" id="restore" accept=".stext" /> &lt;- 復旧する.stextファイルを指定</p>
+</form>
+
+---
+
+バックアップしたファイルの名前は、リストア時のキーとなっているため、リネームしないで、そのままご利用ください。また、「全シナリオデータ」をリストアした場合、バックアップ後～リストア前に取得した実績／ボーナスアイテムは削除されるので、注意してください。
+]]>
+</work>
+
+</utility>
+</stext>

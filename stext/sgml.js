@@ -1519,6 +1519,13 @@
     // 条件式の種類に応じて、呼び出しのメソッドを切り替え
     // 将来的に、ここでconditionXxxxxメソッドを切り替えていく
     judgeMultiCondition: function(org_cond) {
+      org_cond = org_cond.replace('#NOT#', '!');
+      org_cond = org_cond.replace('#AND#', '&');
+      org_cond = org_cond.replace('#OR#', '|');
+      org_cond = org_cond.replace('#L#', '(');
+      org_cond = org_cond.replace('#R#', ')');
+
+
       if (/([\&\|\!\(\)]{1})/.test(org_cond)) {
         return Util.conditionFull(org_cond);
       } else if (org_cond.indexOf('-') !== 0) {
@@ -1710,8 +1717,21 @@
         history.pushState(save_data, 'Scene ' + scene_num);
       }
 
-      // シーンテキストの整形（カラーリング＆URL）
+      // シーンテキストの整形
       var tmp_scene = scene.text();
+      // 新規構文のエスケープ処理
+      tmp_scene = tmp_scene.replace(/(\[.+?\]\(\d{1,} ")(.+?)("\))/gi, function(match, sub1, sub2, sub3) {
+        console.log(sub1);
+        console.log(sub2);
+        console.log(sub3);
+        sub2 = sub2.replace('!', '#NOT#');
+        sub2 = sub2.replace('&', '#AND#');
+        sub2 = sub2.replace('|', '#OR#');
+        sub2 = sub2.replace('(', '#L#');
+        sub2 = sub2.replace(')', '#R#');
+        return sub1 + sub2 + sub3;
+      });
+      // カラーリング＆URL処理
       tmp_scene = tmp_scene.replace(/%(blue|red|purple|white)%/gi, '&nbsp;<span style="color:$1">');
       tmp_scene = tmp_scene.replace(/%\/%/gi, '</span>&nbsp;');
       tmp_scene = tmp_scene.replace(/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi,

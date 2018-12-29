@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<scenario title="終焉のゼロ" author="Rio"
+<scenario title="終焉のゼロ - ドラゴンモード0 -" author="リオ"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:noNamespaceSchemaLocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd">
 
 <!--初期化情報-->
 <init>
-  <constraint race="FIGHTER,DWARF" age="OLD" />
-  <intro description="【終焉のゼロ】連作ドラゴンモード序章。迫りくる混沌を逃れながら、傷ついた兵士たちと共にペンタウァへ撤退せよ。タワーディフェンス型システム搭載"></intro>
-  <label free1="実兵力" free2="上限兵力" free3="混沌との距離" />
+<constraint race="FIGHTER,DWARF" age="OLD" />
+<label free1="実兵力" free2="上限兵力" free3="混沌との距離" />
+<intro series="連作ドラゴンモード" extra1="ドラゴンモード序章（連作シナリオ）" tags="タワーディフェンス"
+  comment="連作の序章ということで、雰囲気ゲーに特化。結局どうなったのか、は本編組の皆さまにお任せしたいと思います ;-)"
+  description="【終焉のゼロ】連作ドラゴンモード序章。迫りくる混沌を逃れながら、傷ついた兵士たちと共にペンタウァへ撤退せよ。タワーディフェンス型システム搭載">
+そこは、ペンタウァ南方に位置するマスグレーヴ神殿。
+戦略的にもほとんど意味を為さない――ただ、辺境の魔性を警戒するための砦を兼ねた、小さな神殿。
+
+そこを襲ったのは混沌（カオス）、
+あるいは虚無。
+圧倒的な暴力。
+
+君たちは血塗れた神殿を逃れ、ペンタウァへ辺境の異変を知らせなければならない。疲弊した仲間たちを引き連れて、追手の化生を退けながら。</intro>
 </init>
 
 <!--アイテム情報-->
