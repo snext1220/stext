@@ -26,6 +26,57 @@
 				<p order="17"/>
 			</text>
 			<backgroundcolour>#ffffff</backgroundcolour>
+			<choices>
+				<choice>
+					<text>
+						<p order="1">複合条件0@!f03</p>
+					</text>
+					<destination>10</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">複合条件1@f01&amp;(f02|i01)</p>
+					</text>
+					<destination>10</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">複合条件2@!(f01&amp;f02&amp;i01)</p>
+					</text>
+					<destination>10</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">複合条件3@f01&amp;f02&amp;i01</p>
+					</text>
+					<destination>10</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">複合条件4@f01|f02|i01</p>
+					</text>
+					<destination>10</destination>
+					<hidden>false</hidden>
+				</choice>
+				<choice>
+					<text>
+						<p order="1">複合条件5@f01&amp;!f02&amp;i01</p>
+					</text>
+					<destination>10</destination>
+					<hidden>false</hidden>
+				</choice>
+			</choices>
+		</section>
+		<section>
+			<number>10</number>
+			<shiftable>true</shiftable>
+			<summary>link</summary>
+			<text/>
+			<backgroundcolour>#ffffff</backgroundcolour>
 			<choices/>
 		</section>
 	</sections>
