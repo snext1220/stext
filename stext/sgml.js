@@ -1332,7 +1332,16 @@
         'STR:<span class="status_v">' + save_data.chara.str + '</span>　' +
         'INT:<span class="status_v">' + save_data.chara.int + '</span>　' +
         'DEX:<span class="status_v">' + save_data.chara.dex + '</span>　' +
-        'KRM:<span class="status_v">' + save_data.chara.krm + '</span>　｜　' +
+        'KRM:<span class="status_v">' + save_data.chara.krm + '</span>　｜　' + 
+        (
+          $('init > label', scenario_data).length !== 0 ?
+            '<br />' +
+            'FREE1:<span class="status_v">' + save_data.chara.free1 + '</span>　' +
+            'FREE2:<span class="status_v">' + save_data.chara.free2 + '</span>　' +
+            'FREE3:<span class="status_v">' +
+            save_data.chara.free3 + '</span>　｜　' :
+          ''
+        ) +
         '<span id="status_state" class="status_v">' + Common.state_names[save_data.chara.state] + '</span>　'
       );
       $('#status_state').removeClass('status_poison status_frozen status_stone status_curse status_forget');
