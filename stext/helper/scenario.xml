@@ -1880,7 +1880,7 @@ STATUS画面を開き、所持欄を確認すること。
 
 [戻る](22)
 </scene>
-	<scene id="51" end="good">
+	<scene id="51" bgm="@end01d" result="r01" end="good">
 
 まだ、倒すべきドラゴンは残っている。
 各地で厄災を振りまく敵を討伐し終わるまで。
