@@ -213,7 +213,7 @@
 </work>
 
 <work id="shadow" title="常闇から来たる影" author="ときのじ" series="連作ドラゴンモード"
-  tags="盗賊たちの塔,探索" published="2018-12-20" updated="2018-12-24" level="3" scenes="70"
+  tags="盗賊たちの塔,探索" published="2018-12-20" updated="2019-01-04" level="3" scenes="70"
   comment="ガラティーンに思い入れがあり「盗賊たちの塔」も印象的なシナリオだったので、その繋がりからこの竜を選びました。まさに「盗賊たちの塔・後伝」になりましたね。趣味に全振りするの楽しかったです。">
 <img src="./stext/shadow/capture/intro.png" height="120"
   title="常闇から来たる影" align="right" class="right" />
@@ -227,7 +227,7 @@
 
 ソーサリアンよ、他の者達が姫君の行方を捜索している間、シャドードラゴンを討伐して無力化し、再封印までの時間を稼ぐのだ！
 
-<p class="award">このシナリオを解放するには、Scenario 2「ゼロの創造」の実績1を取得している必要があります！</p>
+<p class="award">このシナリオを解放するには、Scenario 2「ゼロの創造」の実績「宣教師の正体」を取得している必要があります！</p>
 </work>
 
 </scenario>
@@ -342,11 +342,13 @@ SText Playgroundは、ブラウザー上で動作するソーサリアン Text�
 </utility>
 
 <future>
-<work title="時を超えた協力者（仮）" author="cocotori" unpublished="2019年1月"></work>
-
-<work title="ドラゴンネゴシエーター（仮）" author="Salvador" unpublished="2019年2月"></work>
+<work title="裏切り者の流儀" author="山田賢治さん" unpublished="2019年1月"></work>
 
 <work title="金竜の陰謀（仮）" author="ちゃなさん" unpublished="2019年3月"></work>
+
+<work title="時を超えた協力者" author="cocotori" unpublished="2019年4月"></work>
+
+<work title="ドラゴンネゴシエーター（仮）" author="Salvador" unpublished="2019年5月"></work>
 
 <work title="七星の名の下に（仮）" author="リオ" unpublished="2019年6月"></work>
 
