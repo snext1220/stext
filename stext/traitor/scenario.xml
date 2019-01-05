@@ -14,17 +14,26 @@
 		<flag id="f5">３日め</flag>
 		<flag id="f6">４日め</flag>
 	</flags>	
-	
+
+	<enemies>
+		<enemy id="m01" name="ヒドラ" element="water" attack="physics" func="3L+3R-DEX-freeI-freeII" drop="">多首竜</enemy>
+		<enemy id="m02" name="レッドドラゴン" element="fire" attack="magic" func="5L+1R-INT-freeI-freeII" drop="">赤竜</enemy>
+		<enemy id="m03" name="ティエンルン" element="wind" attack="physics" func="2L+4R-DEX-freeI-freeII" drop="">天竜</enemy>
+		<enemy id="m04" name="ファイアードラゴン" element="fire" attack="physics" func="4L+2R-STR-freeI-freeII" drop="">火竜</enemy>
+		<enemy id="m05" name="邪神ザンダー" element="spirit" attack="both" func="2L+6R-STR-INT-freeI-freeII" drop="">邪神</enemy>
+		<enemy id="m06" name="ヴァイデス" element="earth" attack="both" func="4L+4R-STR-INT-freeI-freeII" drop="">偽王</enemy>
+
+	</enemies>
 	<items>
 		<item id="i1" name="ドラゴンスレイヤーJr">ドラゴンスレイヤーを模した剣。本家には劣るものの、対ドラゴン特効を持った銘刀</item>
 		<item id="i2" name="ドラゴンランスJr">対ドラゴン特効を持った名槍。</item>
 	</items>
 	
 	<results>
-		<result id="r00" name="アゾルバ脱出" >アゾルバ脱出</result>
-		<result id="r14" name="goto14" >goto14</result>
-		<result id="r66" name="竜の宴" >竜の宴</result>
-		<result id="r99" name="アゾルバ解放" >アゾルバ解放</result>
+		<result id="r00" name="アゾルバ脱出" level="2">アゾルバ脱出</result>
+		<result id="r14" name="goto14" level="1">goto14</result>
+		<result id="r66" name="竜の宴" level="1">竜の宴</result>
+		<result id="r99" name="アゾルバ解放" level="3">アゾルバ解放</result>
 	</results>
 
 	<licence>
@@ -63,7 +72,7 @@
 　アゾルバ国王クリフト４世は、問うてきた。
 
 [そのとおりだ。邪悪な気配を感じる。](1 "r06:scepter,r08:soul")
-[どうだろうか。邪悪な気配は感じるが。](2 "r06:scepter,r08:soul")soul")
+[どうだろうか。邪悪な気配は感じるが。](2 "r06:scepter,r08:soul")
 [そのとおりだ。邪悪な気配を感じる。（内容確認用）](1)
 [どうだろうか。邪悪な気配は感じるが。（内容確認用）](2)
 
@@ -219,7 +228,7 @@
 </scene>
 
 
-	<scene id="9" items="i2" bgm="ballad">
+	<scene id="9" items="i2" bgm="ballad" free2="15">
 　話題に出ていた宝物庫の周辺を探ってみると、魔法使いヴェルメリオと騎士団長フィアンマが扉周辺で会話していた。
 「やはり例の槍は相当な神力が付与されていると見ていいでしょう」と魔法使い。
 「興味は尽きないが相性が悪そうだ。触れるだけでこちらが怪我をしそうでな」と騎士団長。
@@ -266,7 +275,7 @@
 </scene>
 
 
-	<scene id="10" items="i1" bgm="ballad">
+	<scene id="10" items="i1" bgm="ballad" free1="20">
 　話に聞いた牢屋へとやってきた。
 　牢番は一瞬、けげんな顔をした。
 「あの好き者の道化だけは入れるなと言われてるけんど、道化でなけりゃあいいんでないかいな」
@@ -388,61 +397,56 @@
 </scene>
 
 
-	<scene id="21" bgm="boss">
+	<scene id="21" bgm="boss" enemies="m01" >
 「宰相のマレーだ」
 　そう宣言したと同時に、宰相の身体が変貌しつつあった。
 「見事だ……」王は巨大な影を見上げながら言った。「もし、こやつを討伐できるなら、さらに良いのだが」
 　王宮の中央には、蛇竜ヒドラが鎮座していた。
-
-■ヒドラ
+　勇者よ。戦い、勝利せよ。
 
 [討伐完了](30)
 </scene>
 
 
-	<scene id="22" bgm="boss">
+	<scene id="22" bgm="boss" enemies="m02" >
 「魔法使いヴェルメリオだ」
 　そう宣言したと同時に、軍師の身体が変貌しつつあった。
 「見事だ……」王は巨大な影を見上げながら言った。「もし、こやつを討伐できるなら、さらに良いのだが」
 　王宮の中央には、赤竜レッドドラゴンが鎮座していた。
-
-■レッドドラゴン
+　勇者よ。戦い、勝利せよ。
 
 [討伐完了](30)
 </scene>
 
 
-	<scene id="23" bgm="boss">
+	<scene id="23" bgm="boss" enemies="m03" >
 「戦士長ルフトだ」
 　そう宣言したと同時に、戦士長の身体が変貌しつつあった。
 「見事だ……」王は巨大な影を見上げながら言った。「もし、こやつを討伐できるなら、さらに良いのだが」
 　王宮の中央には、天龍ティエンルンが鎮座していた。
-
-■ティエンルン
+　勇者よ。戦い、勝利せよ。
 
 [討伐完了](30)
 </scene>
 
 
-	<scene id="24" bgm="boss">
+	<scene id="24" bgm="boss" enemies="m04" >
 「騎士団長フィアンマだ」
 　そう宣言したと同時に、騎士団長の身体が変貌しつつあった。
 「見事だ……」王は巨大な影を見上げながら言った。「もし、こやつを討伐できるなら、さらに良いのだが」
 　王宮の中央には、炎竜ファイアードラゴンが鎮座していた。
-
-■ファイアードラゴン
+　勇者よ。戦い、勝利せよ。
 
 [討伐完了](30)
 </scene>
 
 
-	<scene id="25" bgm="boss">
+	<scene id="25" bgm="boss" enemies="m05" >
 「神官長ボウサイトだ」
 　そう宣言したと同時に、神官長の身体が変貌しつつあった。
 「見事だ……」王は巨大な影を見上げながら言った。「もし、こやつを討伐できるなら、さらに良いのだが」
 　王宮の中央には、邪神ザンダーが鎮座していた。
-
-■邪神ザンダー
+　勇者よ。戦い、勝利せよ。
 
 [討伐完了](30)
 </scene>
@@ -465,7 +469,7 @@
 </scene>
 
 
-	<scene id="27" bgm="boss">
+	<scene id="27" bgm="boss" enemies="m06" >
 「裏切り者は……国王その人だ！」
 　一瞬、王宮内が凍りついた。当然だ。なんという不遜な指摘か。
 　その場で首を刎ねられてもおかしくない言動だ。
@@ -481,14 +485,12 @@
 　叫ぶ邪竜に、王の威厳はもうない。
 「そうするさ！」
 　竜を狩れ、勇者よ。
-　
-■邪竜ヴァイデス
 
 [討伐完了](32)
 </scene>
 
 
-	<scene id="28" bgm="bigboss">
+	<scene id="28" bgm="bigboss" enemies="m06" >
 「裏切り者は……全員だ！」
 　高らかに宣言し、ドラゴンランスJrを王宮の床の大理石に突き立てる。
 　その場にいる全員が、いかづちに打たれたように全身を硬直させる。
@@ -506,8 +508,6 @@
 　叫ぶ邪竜に、王の威厳はもうない。
 「そうするさ！」
 　竜を狩れ、勇者よ。
-　
-■邪竜ヴァイデス
 
 [任務完遂](33)
 
