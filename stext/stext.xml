@@ -18,9 +18,9 @@
 誉れ高き勇者よ、しぬでないぞよ（By 王さま）。
 </work>
 
-<work id="zero" title="ゼロの創造" author="Salvador" series=""
-  tags="" published="" updated="" level="" scenes="" results="" clears=""
-  comment="">
+<work id="zero" title="ゼロの創造" author="Salvador" series="はじまりのゼロ"
+  tags="探索" published="2018-01-04" updated="2018-10-25" level="2" scenes="151" results="3" clears="r03"
+  comment="創造神キーヤへの思いを綴った作品です。">
 <img src="./images2/gallery/tn/d11.gif" height="120" title="ゼロの創造"
   align="left" class="left" />
 かつて、創造神がこの世に大いなる恵みを与えていた時代があったという。常に世界には新しい発見があり、人々は新天地の開拓に乗り出していった時代だった。人々は創造神を信じ、その光臨を願っていた。それを創造神信仰と呼ぶ。
@@ -45,8 +45,8 @@
 
 <work id="tempest" title="災厄の夜 - テンペスト・ナイト -"
   author="ちゃなさん" guest="true" series=""
-  tags="" published="" updated="" level="" scenes="" results="" clears=""
-  comment="">
+  tags="探索、魔法" published="2018-01-20" updated="" level="2" scenes="125" results="" clears=""
+  comment="原作の基本15シナリオから舞台、作中人物、アイテム等をお借りした、総集編的なシナリオです。原作同様、七星の組み合わせで全32種類の魔法を開発することができます。">
 <img src="./images2/world1.gif" height="120"
   title="災厄の夜 - テンペスト・ナイト -" align="left" class="left" />
 <p class="award">ゲストさま投稿作品（記念すべき第1号！）</p>
@@ -84,9 +84,9 @@
 </work>
 
 <work id="slayer" title="その名はドラゴンスレイヤー" author="RYUさん"
-  guest="true" series="" results="" clears=""
-  tags="" published="" updated="" level="" scenes=""
-  comment="">
+  guest="true" series="シリーズ化…するかも？" results="" clears=""
+  tags="戦闘型３ＤダンジョンＲＰＧ" published="2018-05-20" updated="2018-11-29" level="謎解き的には低く、戦闘的には高い" scenes="500"
+  comment="(e)ゲームブックをどこまでコンピューターＲＰＧに近付けられるか？に挑戦した本末転倒な一作。ザナドゥなどのリアルタイム世代に向けた内容やネタが多いです。ゲーム化や漫画化（うすい）も募集中。">
 <img src="./images2/gallery/tn/d25.gif" height="120"
   title="その名はドラゴンスレイヤー" align="right" class="right" />
 <p class="award">ゲストさま投稿作品第2弾（第2部を公開中）</p>
@@ -102,8 +102,8 @@
 </work>
 
 <work id="ramidia" title="ラミディアの魔法使い" author="Salvador" series=""
-  tags="" published="" updated="" level="" scenes="" results="" clears=""
-  comment="">
+  tags="探索" published="2018-06-25" updated="2018-10-25" level="3" scenes="168" results="3" clears="r03"
+  comment="ゲームブック版ロマンシア（監修・宮本恒之）のキャラクタが多数登場します。ロマンシアの後日談シナリオです。">
 <img src="./images2/stext08.png" height="160"
   title="ラミディアの魔法使い" align="left" class="left" />
 北方の広大な森の中にある王国、ロマンシア。この国は数年前まで火山の噴火や地震が相次ぎ、さらに伝染病まで流行るという災厄に見舞われていた。災厄の元凶は、この地に古くから棲んでいた竜に取り憑いた邪神ヴァイデスであったという。
@@ -146,9 +146,9 @@
 ――この物語の結末を決めるのは、君の【魂の在り方】次第。
 </work>
 
-<work id="kenshin" title="戦国ソーサリアン外伝・上杉謙信の章" author="Salvador" series=""
-  tags="" published="" updated="" level="" scenes="" results="" clears=""
-  comment="">
+<work id="kenshin" title="戦国ソーサリアン外伝・上杉謙信の章" author="Salvador" series="ミニミニ30祭（30Scene限定シナリオ）"
+  tags="探索" published="2018-09-21" updated="2018-10-25" level="2" scenes="48" results="3" clears="r03"
+  comment="戦国ソーサリアンのスピンオフシナリオです。懐かしい人物も登場しますよ。">
 <img src="./images2/stext11.jpg" height="200"
   title="戦国ソーサリアン外伝・上杉謙信の章" align="right" class="right" />
 <p class="award">ミニミニ30祭Vol.3（30Scene限定?シナリオ）</p>
@@ -164,8 +164,8 @@
 </work>
 
 <work id="fortune" title="ソーサリアン性格診断占い" author="RYUさん" guest="true" series=""
-  tags="" published="" updated="" level="" scenes="" results="" clears=""
-  comment="">
+  tags="性格診断、占い" published="2018-10-15" updated="2015-10-25" level="?" scenes="30" results="" clears=""
+  comment="結果を全て手動で直接用意するという超アナログ仕様（普通は自動生成でしょう）。しかも内容はほぼキャラ絵や人の好みに対するディスに終始します…冗句（ジョーク）ですよ？">
 <img src="./images2/stextU3.png" height="120"
   title="ソーサリアン性格診断占い" align="left" class="left" />
 <p class="award">ミニミニ30祭Vol.4（30Scene限定シナリオ）</p>
@@ -229,6 +229,28 @@
 ソーサリアンよ、他の者達が姫君の行方を捜索している間、シャドードラゴンを討伐して無力化し、再封印までの時間を稼ぐのだ！
 
 <p class="award">このシナリオを解放するには、Scenario 2「ゼロの創造」の実績「宣教師の正体」を取得している必要があります！</p>
+</work>
+
+<work id="traitor" title="裏切り者の流儀" author="山田賢治さん" unpublished="true" guest="true" series="連作ドラゴンモード"
+  tags="アゾルバ王宮" published="" updated="" level="3" scenes="33" results="" clears=""
+  comment="本のゲームブックには紙の良さがあり、電子書籍のゲームブックには電子本ならではの面白さがあります。「ではSTextは、ゲームブックにどんな可能性を見せてくれるだろうか」という思いで、ゲームブック用マークアップ言語に挑戦しました。これは「かなりの低負担でシナリオ作成ができ、そこそこ数値がいじれる、自動計算してくれるゲームブック」であると受け止めています。RPGツクールよりも気楽にインタラクティブなゲームを作りたいなら、現実的な選択肢の一つと言えると思います。プレイしてみて興味が湧いたら、創り手としての参加も待ってます！">
+<img src="./stext/traitor/capture/intro.png" height=""
+  title="常闇から来たる影" align="left" class="left"/>
+<p class="award">ドラゴンモード本編Vol.2（連作シナリオ）</p>
+
+「この中に裏切り者がいる」
+　アゾルバ国王クリフト４世は、唐突に言い放った。
+「余をたばかろうとする輩がいるのだ」
+　円卓の間は、一気に騒然となった。
+　当然だ。
+　近隣諸国や蛮族との戦いにそなえて、クリフト王自身が集めた人材なのだから。
+　その中に裏切り者がいるとなると、これは大問題だ。
+
+　王の杖を奪還したペンタウァの勇者にして、ウィルードに再び風をもたらした賢者、そして竜を狩る者として名を上げてきた結果、自分はアゾルバの王宮に招かれた。それは、この国に邪悪なる竜の影が差しているとの噂ゆえだった。
+
+　真相を見極め、陰謀渦巻く王宮から無事に脱出せよ。ソーサリアン！
+
+<p class="award">2019年1月21日公開予定です。</p>
 </work>
 
 </scenario>
@@ -343,7 +365,7 @@ SText Playgroundは、ブラウザー上で動作するソーサリアン Text�
 </utility>
 
 <future>
-<work title="裏切り者の流儀" author="山田賢治さん" unpublished="2019年1月"></work>
+<work title="黄泉へ送るレクイエム" author="咲華さん" unpublished="2019年2月"></work>
 
 <work title="金竜の陰謀（仮）" author="ちゃなさん" unpublished="2019年3月"></work>
 
