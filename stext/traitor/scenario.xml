@@ -4,6 +4,7 @@
 	<init>
 <bgm happy="end" bad="ballad"></bgm>
 		<intro description="裏切り者の流儀"></intro>
+		<label free1="ドラゴンスレイヤーJr効果" free2="ドラゴンランスJr効果"></label>
 	</init>
 	
 	<flags>
