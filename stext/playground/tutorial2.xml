@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scenario title="チュートリアル" author="Rio"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd">
+
+<init>
+  <bgm main="@field05" happy="@field04" bad="@town01" />
+</init>
+
+<scene id="0">
+# 敵／罠を配置しよう！
+
+冒険／ダンジョンと言えば、まずは
+
+
+
+
+</scene>
+
+<scene id="0">
+
+</scene>
+
+
+</scenario>
+
+

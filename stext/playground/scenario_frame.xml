@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scenario title="チュートリアル" author="Rio"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd">
+
+<init>
+  <bgm main="@field05" happy="@field04" bad="@town01" />
+  <intro description="Twitterツイート用テキスト" />
+</init>
+
+<enemies>
+<enemy id="m011" name="モンスター011" element="earth"
+  attack="physics" func="L+R-STR" drop="mon/2">
+  モンスター011</enemy>
+<enemy id="m012" name="モンスター012" element="fire"
+  attack="magic" func="L+R-INT" drop="tue/2">
+  モンスター012</enemy>
+<enemy id="m021" name="モンスター021" element="water"
+  attack="both" func="2L+R-DEX-10" drop="wed/2">
+  モンスター021</enemy>
+<enemy id="m022" name="モンスター022" element="wind"
+  attack="poison" func="2L+R>DEX" drop="thu/3">
+  モンスター022</enemy>
+<enemy id="m031" name="モンスター031" element="spirit"
+  attack="stone" func="L+R>KRM+2" drop="wed/2">
+  モンスター031</enemy>
+<enemy id="m032" name="モンスター032" element=""
+  attack="forget" func="L>3" drop="fri/1">
+  モンスター032</enemy>
+
+<enemy id="m051" name="モンスター051" element="earth"
+  attack="physics" func="L+R-STR" drop="mon/2">
+  モンスター051</enemy>
+<enemy id="m052" name="モンスター052" element="fire"
+  attack="magic" func="L+R-INT" drop="tue/2">
+  モンスター052</enemy>
+<enemy id="m061" name="モンスター061" element="water"
+  attack="both" func="2L+R-DEX-10" drop="wed/2">
+  モンスター061</enemy>
+<enemy id="m062" name="モンスター062" element="wind"
+  attack="poison" func="2L+R>DEX" drop="thu/3">
+  モンスター062</enemy>
+<enemy id="m071" name="モンスター071" element="spirit"
+  attack="stone" func="L+R>KRM+2" drop="wed/2">
+  モンスター071</enemy>
+<enemy id="m072" name="モンスター072" element=""
+  attack="forget" func="L>3" drop="fri/1">
+  モンスター072</enemy>
+
+<enemy id="m091" name="モンスター091" element="earth"
+  attack="physics" func="L+R-STR" drop="mon/2">
+  モンスター091</enemy>
+<enemy id="m092" name="モンスター092" element="fire"
+  attack="magic" func="L+R-INT" drop="tue/2">
+  モンスター092</enemy>
+<enemy id="m101" name="モンスター101" element="water"
+  attack="both" func="2L+R-DEX-10" drop="wed/2">
+  モンスター101</enemy>
+<enemy id="m102" name="モンスター102" element="wind"
+  attack="poison" func="2L+R>DEX" drop="thu/3">
+  モンスター102</enemy>
+<enemy id="m111" name="モンスター111" element="spirit"
+  attack="stone" func="L+R>KRM+2" drop="wed/2">
+  モンスター111</enemy>
+<enemy id="m112" name="モンスター112" element=""
+  attack="forget" func="L>3" drop="fri/1">
+  モンスター112</enemy>
+
+<enemy id="m131" name="モンスター131" element="earth"
+  attack="physics" func="L+R-STR" drop="mon/2">
+  モンスター131</enemy>
+<enemy id="m132" name="モンスター132" element="fire"
+  attack="magic" func="L+R-INT" drop="tue/2">
+  モンスター132</enemy>
+<enemy id="m141" name="モンスター141" element="water"
+  attack="both" func="2L+R-DEX-10" drop="wed/2">
+  モンスター141</enemy>
+<enemy id="m142" name="モンスター142" element="wind"
+  attack="poison" func="2L+R>DEX" drop="thu/3">
+  モンスター142</enemy>
+<enemy id="m151" name="モンスター151" element="spirit"
+  attack="stone" func="L+R>KRM+2" drop="wed/2">
+  モンスター151</enemy>
+<enemy id="m152" name="モンスター152" element=""
+  attack="forget" func="L>3" drop="fri/1">
+  モンスター152</enemy>
+
+<enemy id="m171" name="モンスター171" element="earth"
+  attack="physics" func="L+R-STR" drop="mon/2">
+  モンスター171</enemy>
+<enemy id="m172" name="モンスター172" element="fire"
+  attack="magic" func="L+R-INT" drop="tue/2">
+  モンスター172</enemy>
+<enemy id="m181" name="モンスター181" element="water"
+  attack="both" func="2L+R-DEX-10" drop="wed/2">
+  モンスター181</enemy>
+<enemy id="m182" name="モンスター182" element="wind"
+  attack="poison" func="2L+R>DEX" drop="thu/3">
+  モンスター182</enemy>
+<enemy id="m191" name="モンスター191" element="spirit"
+  attack="stone" func="L+R>KRM+2" drop="wed/2">
+  モンスター191</enemy>
+<enemy id="m192" name="モンスター192" element=""
+  attack="forget" func="L>3" drop="fri/1">
+  モンスター192</enemy>
+</enemies>
+
+<flags>
+<flag id="f01">フラグ01</flag>
+<flag id="f02">フラグ02</flag>
+<flag id="f03">フラグ03</flag>
+<flag id="f05">フラグ05</flag>
+<flag id="f06">フラグ06</flag>
+<flag id="f07">フラグ07</flag>
+<flag id="f09">フラグ09</flag>
+<flag id="f10">フラグ10</flag>
+<flag id="f11">フラグ11</flag>
+<flag id="f13">フラグ13</flag>
+<flag id="f14">フラグ14</flag>
+<flag id="f15">フラグ15</flag>
+<flag id="f17">フラグ17</flag>
+<flag id="f18">フラグ18</flag>
+<flag id="f19">フラグ19</flag>
+</flags>
+
+<items>
+<item id="i01" name="アイテム01">アイテム01です</item>
+<item id="i02" name="アイテム02">アイテム02です</item>
+<item id="i03" name="アイテム03">アイテム03です</item>
+<item id="i05" name="アイテム05">アイテム05です</item>
+<item id="i06" name="アイテム06">アイテム06です</item>
+<item id="i07" name="アイテム07">アイテム07です</item>
+<item id="i09" name="アイテム09">アイテム09です</item>
+<item id="i10" name="アイテム10">アイテム10です</item>
+<item id="i11" name="アイテム11">アイテム11です</item>
+<item id="i13" name="アイテム13">アイテム13です</item>
+<item id="i14" name="アイテム14">アイテム14です</item>
+<item id="i15" name="アイテム15">アイテム15です</item>
+<item id="i17" name="アイテム17">アイテム17です</item>
+<item id="i18" name="アイテム18">アイテム18です</item>
+<item id="i19" name="アイテム19">アイテム19です</item>
+</items>
+
+<results>
+<result id="r01" name="ハッピーエンド" level="5">
+    ハッピーエンドに辿り着いた</result>
+<result id="r02" name="バッドエンド" level="3">
+    バッドエンドに辿り着いた</result>
+</results>
+
+<scene id="0">
+ここには、プロローグ／冒険の目的を書きます。
+
+君の目の前には、3つの扉が並んでいる。
+
+[左の扉を開く](1)
+[中央の扉を開く](2)
+[右の扉を開く](3)
+</scene>
+
+<scene id="1" flags="f01" items="i01" enemies="m011,m012">
+左の部屋に入った。
+
++ フラグf01が立ちます（=> ステータスから確認しましょう）
++ アイテムi01を入手します（=> ステータスから確認しましょう）
++ 敵としてm011、012が登場します（=> 下に情報が表示されます）
++ ダメージ／ドロップアイテムはボタンクリックでステータスに反映されます。
+
+[先へ進もう](4)
+</scene>
+
+<scene id="2" flags="f02" items="i02" enemies="m021,m022">
+中央の部屋に入った。
+
++ フラグf02が立ちます（=> ステータスから確認しましょう）
++ アイテムi02を入手します（=> ステータスから確認しましょう）
++ 敵としてm021、022が登場します（=> 下に情報が表示されます）
++ ダメージ／ドロップアイテムはボタンクリックでステータスに反映されます。
+
+[先へ進もう](4)
+</scene>
+
+<scene id="3" flags="f03" items="i03" enemies="m031,m032">
+右の部屋に入った。
+
++ フラグf03が立ちます（=> ステータスから確認しましょう）
++ アイテムi03を入手します（=> ステータスから確認しましょう）
++ 敵としてm031、032が登場します（=> 下に情報が表示されます）
++ ダメージ／ドロップアイテムはボタンクリックでステータスに反映されます。
+
+[先へ進もう](4)
+</scene>
+
+<scene id="4">
+先へ進んだ君は、十字路に辿り着く。
+
+[左の路を進む](5)
+[真っすぐ進む](6)
+[右の路を進む](7)
+</scene>
+
+<scene id="5" flags="f05" items="i05" enemies="m051,m052">
+左には部屋があった。
+
++ フラグf05が立ちます（=> ステータスから確認しましょう）
++ アイテムi05を入手します（=> ステータスから確認しましょう）
++ 敵としてm051、052が登場します（=> 下に情報が表示されます）
++ ダメージ／ドロップアイテムはボタンクリックでステータスに反映されます。
+
+[先へ進もう](8)
+</scene>
+
+<scene id="6" flags="f06" items="i06" enemies="m061,m062">
+真っすぐ行くと、部屋があった。
+
++ フラグf06が立ちます（=> ステータスから確認しましょう）
++ アイテムi06を入手します（=> ステータスから確認しましょう）
++ 敵としてm061、062が登場します（=> 下に情報が表示されます）
++ ダメージ／ドロップアイテムはボタンクリックでステータスに反映されます。
+
+[先へ進もう](8)
+</scene>
+
+<scene id="7" flags="f07" items="i07" enemies="m071,m072">
+左には部屋があった。
+
++ フラグf07が立ちます（=> ステータスから確認しましょう）
++ アイテムi07を入手します（=> ステータスから確認しましょう）
++ 敵としてm071、072が登場します（=> 下に情報が表示されます）
++ ダメージ／ドロップアイテムはボタンクリックでステータスに反映されます。
+
+[先へ進もう](8)
+</scene>
+
+<scene id="8">
+先へ進んだ君は、魔法使いに出会う。
+魔法使いは、言った。
+
+「汝は天を選ぶか、地を選ぶか、人を選ぶか」
+
+[天を選ぶ](9)
+[地を選ぶ](10)
+[人を選ぶ](11)
+</scene>
+
+<scene id="9" flags="f09" items="i09" enemies="m091,m092">
+天を選んだ君は、天使の力を得た。
+
++ フラグf09が立ちます（=> ステータスから確認しましょう）
++ アイテムi09を入手します（=> ステータスから確認しましょう）
++ 敵としてm091、092が登場します（=> 下に情報が表示されます）
++ ダメージ／ドロップアイテムはボタンクリックでステータスに反映されます。
+
+[先へ進もう](12)
+</scene>
+
+<scene id="10" flags="f10" items="i10" enemies="m101,m102">
+地を選んだ君は、大地の力を得た。
+
++ フラグf10が立ちます（=> ステータスから確認しましょう）
++ アイテムi10を入手します（=> ステータスから確認しましょう）
++ 敵としてm101、102が登場します（=> 下に情報が表示されます）
++ ダメージ／ドロップアイテムはボタンクリックでステータスに反映されます。
+
+[先へ進もう](12)
+</scene>
+
+<scene id="11" flags="f11" items="i11" enemies="m111,m112">
+人を選んだ君は、人であり続けた。
+
++ フラグf11が立ちます（=> ステータスから確認しましょう）
++ アイテムi11を入手します（=> ステータスから確認しましょう）
++ 敵としてm111、112が登場します（=> 下に情報が表示されます）
++ ダメージ／ドロップアイテムはボタンクリックでステータスに反映されます。
+
+[先へ進もう](12)
+</scene>
+
+<scene id="12">
+君は、最後の敵を前にした。
+
+[戦う](13)
+[降伏を呼びかける](14)
+[逃げる](15)
+</scene>
+
+<scene id="13" flags="f13" items="i13" enemies="m131,m132">
+最終決戦の時だ。
+
++ フラグf13が立ちます（=> ステータスから確認しましょう）
++ アイテムi13を入手します（=> ステータスから確認しましょう）
++ 敵としてm131、132が登場します（=> 下に情報が表示されます）
++ ダメージ／ドロップアイテムはボタンクリックでステータスに反映されます。
+
+[先へ進もう](16)
+</scene>
+
+<scene id="14" flags="f14" items="i14" enemies="m141,m142">
+君は敵に降伏を呼び掛けた。
+
++ フラグf14が立ちます（=> ステータスから確認しましょう）
++ アイテムi14を入手します（=> ステータスから確認しましょう）
++ 敵としてm141、142が登場します（=> 下に情報が表示されます）
++ ダメージ／ドロップアイテムはボタンクリックでステータスに反映されます。
+
+[先へ進もう](16)
+</scene>
+
+<scene id="15" flags="f15" items="i15" enemies="m151,m152">
+君は敵を前に逃げ出した。
+
++ フラグf15が立ちます（=> ステータスから確認しましょう）
++ アイテムi15を入手します（=> ステータスから確認しましょう）
++ 敵としてm151、152が登場します（=> 下に情報が表示されます）
++ ダメージ／ドロップアイテムはボタンクリックでステータスに反映されます。
+
+[先へ進もう](16)
+</scene>
+
+<scene id="16">
+主を失った洞窟は崩落を開始する...
+
+[入口へ走る](17)
+[EXITを唱える](18)
+[諦めて死を待つ](19)
+</scene>
+
+<scene id="17" flags="f17" items="i17" enemies="m171,m172">
+君は入口へ向けて入り出した！
+
++ フラグf17が立ちます（=> ステータスから確認しましょう）
++ アイテムi17を入手します（=> ステータスから確認しましょう）
++ 敵としてm171、172が登場します（=> 下に情報が表示されます）
++ ダメージ／ドロップアイテムはボタンクリックでステータスに反映されます。
+
+[ハッピーエンドへ](20)
+</scene>
+
+<scene id="18" flags="f18" items="i18" enemies="m181,m182">
+君はEXITの呪文を唱えた！
+
++ フラグf18が立ちます（=> ステータスから確認しましょう）
++ アイテムi18を入手します（=> ステータスから確認しましょう）
++ 敵としてm181、182が登場します（=> 下に情報が表示されます）
++ ダメージ／ドロップアイテムはボタンクリックでステータスに反映されます。
+
+[ハッピーエンドへ](20)
+</scene>
+
+<scene id="19" flags="f19" items="i19" enemies="m191,m192">
+諦めた君は、その場で目を閉じた
+
++ フラグf19が立ちます（=> ステータスから確認しましょう）
++ アイテムi19を入手します（=> ステータスから確認しましょう）
++ 敵としてm191、192が登場します（=> 下に情報が表示されます）
++ ダメージ／ドロップアイテムはボタンクリックでステータスに反映されます。
+
+[バッドエンドへ](21)
+</scene>
+
+<scene id="20" end="happy" result="r01">
+君の戦いは終わった。
+
+（Happy End）
+</scene>
+
+<scene id="21" end="bad" result="r02">
+君は死んでしまった。
+
+（Bad End）
+</scene>
+
+</scenario>
