@@ -17,12 +17,12 @@
 	</flags>	
 
 	<enemies>
-		<enemy id="m01" name="ヒドラ" element="water" attack="physics" func="3L+3R-DEX-freeI-freeII" drop="">多首竜</enemy>
-		<enemy id="m02" name="レッドドラゴン" element="fire" attack="magic" func="5L+1R-INT-freeI-freeII" drop="">赤竜</enemy>
-		<enemy id="m03" name="ティエンルン" element="wind" attack="physics" func="2L+4R-DEX-freeI-freeII" drop="">天竜</enemy>
-		<enemy id="m04" name="ファイアードラゴン" element="fire" attack="physics" func="4L+2R-STR-freeI-freeII" drop="">火竜</enemy>
-		<enemy id="m05" name="邪神ザンダー" element="spirit" attack="both" func="2L+6R-STR-INT-freeI-freeII" drop="">邪神</enemy>
-		<enemy id="m06" name="ヴァイデス" element="earth" attack="both" func="4L+4R-STR-INT-freeI-freeII" drop="">偽王</enemy>
+		<enemy id="m01" name="ヒドラ" element="water" attack="physics" func="3L+3R-DEX-free1-free2" drop="">多首竜</enemy>
+		<enemy id="m02" name="レッドドラゴン" element="fire" attack="magic" func="5L+1R-INT-free1-free2" drop="">赤竜</enemy>
+		<enemy id="m03" name="ティエンルン" element="wind" attack="physics" func="2L+4R-DEX-free1-free2" drop="">天竜</enemy>
+		<enemy id="m04" name="ファイアードラゴン" element="fire" attack="physics" func="4L+2R-STR-free1-free2" drop="">火竜</enemy>
+		<enemy id="m05" name="邪神ザンダー" element="spirit" attack="both" func="2L+6R-STR-INT-free1-free2" drop="">邪神</enemy>
+		<enemy id="m06" name="ヴァイデス" element="earth" attack="both" func="4L+4R-STR-INT-free1-free2" drop="">偽王</enemy>
 
 	</enemies>
 	<items>
@@ -42,6 +42,7 @@
 	</licence>
 	
 	<scene id="0" bgm="@none">
+<![CDATA[
 
 「この中に裏切り者がいる」
 　アゾルバ国王クリフト４世は、唐突に言い放った。
@@ -72,16 +73,18 @@
 「そなたは、どう思う」
 　アゾルバ国王クリフト４世は、問うてきた。
 
+
+${if !(r06:scepter&r08:soul)}%red%
+　※このシナリオを解放するには、
+　　Scenario 1「新・消えた王様の杖」の実績**「オタクの称号」**
+　　Scenario 10「魂の選択」の実績**「ありがと！」**
+　　を取得している必要があります！%/%
+${/if}
+
+
 [そのとおりだ。邪悪な気配を感じる。](1 "r06:scepter,r08:soul")
 [どうだろうか。邪悪な気配は感じるが。](2 "r06:scepter,r08:soul")
-[そのとおりだ。邪悪な気配を感じる。（内容確認用）](1)
-[どうだろうか。邪悪な気配は感じるが。（内容確認用）](2)
 
-%red%
-　※このシナリオを解放するには、
-　　Scenario 1「新・消えた王様の杖」の実績**「オタクの称号（人面岩の謎解きをクリアした）」**
-　　Scenario 10「魂の選択」の実績**「ありがと！（「そーさりあん、またね！」）」**
-　　を取得している必要があります！%/%
 </scene>
 
 
