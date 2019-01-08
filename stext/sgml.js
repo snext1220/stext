@@ -1335,11 +1335,11 @@
         'KRM:<span class="status_v">' + save_data.chara.krm + '</span>　｜　' + 
         (
           $('init > label', scenario_data).length !== 0 ?
-            '<br />' +
-            'FREE1:<span class="status_v">' + save_data.chara.free1 + '</span>　' +
-            'FREE2:<span class="status_v">' + save_data.chara.free2 + '</span>　' +
-            'FREE3:<span class="status_v">' +
-            save_data.chara.free3 + '</span>　｜　' :
+            '<br /><span style="color: #808080">' +
+            'F1:<span class="status_v">' + save_data.chara.free1 + '</span>　' +
+            'F2:<span class="status_v">' + save_data.chara.free2 + '</span>　' +
+            'F3:<span class="status_v">' +
+            save_data.chara.free3 + '</span></span>　｜　' :
           ''
         ) +
         '<span id="status_state" class="status_v">' + Common.state_names[save_data.chara.state] + '</span>　'
