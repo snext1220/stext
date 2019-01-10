@@ -163,7 +163,7 @@
 
 </work>
 
-<work id="fortune" title="ソーサリアン性格診断占い" author="RYUさん" guest="true" series=""
+<work id="fortune" title="ソーサリアン性格診断占い" author="RYUさん" guest="true" series="ミニミニ30祭（30Scene限定シナリオ）"
   tags="性格診断,占い" published="2018-10-15" updated="2015-10-25" level="1" scenes="30" results="18"
   clears="r14,r15,r16,r17,r18,r19,r20,r21,r22,r23,r24,r25,r26,r27,r28,r29,r30"
   comment="結果を全て手動で直接用意するという超アナログ仕様（普通は自動生成でしょう）。しかも内容はほぼキャラ絵や人の好みに対するディスに終始します…冗句（ジョーク）ですよ？">
