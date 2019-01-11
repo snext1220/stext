@@ -1249,7 +1249,7 @@
       });
       console.log('***********Licence Info.***********');
 
-      $('<p><a href="#" onclick="location.reload(true)" class="scenebtn">' +
+      $('<p><a href="#" id="end_reload" class="scenebtn">' +
         '最初から冒険に挑戦する</a></p>').insertBefore($('#cubes', target));
 
       // エンディングフラグ
@@ -2031,6 +2031,10 @@
       /** EventListener **/
       // 移動ボタンをクリックで次のシーンに移動
       target.on('click', 'a.scenebtn', function(e) {
+        // エンド時のボタンであれば処理を終了
+        if (e.target.id === 'end_reload') {
+          return;
+        }
         var num = $(this).nsAttr('href');
         var cond = $(this).nsAttr('title');
         // 複数移動先が指定されている場合、ランダムに選択
@@ -2047,6 +2051,18 @@
         }
 
         e.preventDefault();
+      });
+
+      // 終了時のリロード（Playgroundのみ確認ダイアログ）
+      target.on('click', '#end_reload', function(e) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        if (scenario_code === 'playground') {
+          if (!confirm('ページをリロードしても宜しいですか？\nリロード時には、エディター上の編集内容も削除されます。シナリオ編集中の場合は、内容を保存してください。')) {
+            return;
+          }
+        }
+        location.reload(true);
       });
 
       // 指定シーンに移動
