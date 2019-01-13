@@ -1,6 +1,7 @@
 <html>
 <head>
 <title>Playground α</title>
+<meta charset="UTF-8" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis-network.min.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css"
   href="https://code.jquery.com/ui/1.10.0/themes/dark-hive/jquery-ui.css" />
@@ -20,6 +21,8 @@ $(function() {
     var nodes = [];
     var edges = [];
     var link = /\[(.+?)\]\((\d{1,})(?: "(.+?)")?\)/gi;
+    var range = $('#genrange').val().split('-');
+    if (!range[1]) { range[1] = 99999999; }
 
     var parser = new DOMParser();
     var data = parser.parseFromString($('#myscenario').val(), 'text/xml');
@@ -27,12 +30,18 @@ $(function() {
       var s = $(this);
       var id = s.attr('id');
       var body = s.text();
+
+      if (Number(id) < Number(range[0]) || Number(id) > Number(range[1])) { return true; }
+      
       nodes.push({
         id: id,
-        label: id + ': ' + body.substring(0, 8)
+        font: { multi: true }, 
+        label: id + ': ' + body.substring(0, 8),
+        color: id == 0 ? { background: 'Red' }: {}
       });
-      
+      console.log(nodes);
       while((result = link.exec(body)) !== null) {
+        if (Number(result) < Number(range[0]) || Number(result) > Number(range[1])) { return true; }
         edges.push({
           from: id,
           to: result[2],
@@ -40,7 +49,7 @@ $(function() {
         });
       }
     });
-
+console.log(edges);
     var network = new vis.Network(
       document.getElementById('myflow'),
       {
@@ -52,6 +61,13 @@ $(function() {
         nodes: {
           shape: 'box',
           size: 20,
+          font: {
+            boldital: { color: 'pink' }, // <i><b>aaa</b></i>タグのカラー
+            ital: { background: 'Red', color: 'White' },  // <i>aaa</i>タグのカラー
+            mono: { color: 'blue' }, // <code>aaa</code>タグのカラー
+            bold: { color: 'purple' }, // <b>aaa</b>タグのカラー
+            color: 'black', // タグなしのノードの文字の色
+        },
           color: 'skyblue'
         },
         edges: {
@@ -114,6 +130,7 @@ var network = new vis.Network(container, data, options);
 </script>
 </head>
 <body>
+生成範囲：<input id="genrange" type="text" placeholder="「start-end」の形式"/>
 <input id="genflow" type="button" value="フローチャート生成" /><br />
 <textarea id="myscenario" cols="80" rows="10"></textarea>
 <div id="myflow"></div>
