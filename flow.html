@@ -37,7 +37,7 @@ $(function() {
         id: id,
         font: { multi: true }, 
         label: id + ': ' + body.substring(0, 8),
-        color: id == 0 ? { background: 'Red' }: {}
+        color: (id == 0 ? { background: 'Purple' }: (s.attr('end') ? {  background: 'Lime' } : {}))
       });
       console.log(nodes);
       while((result = link.exec(body)) !== null) {
