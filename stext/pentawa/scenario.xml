@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scenario title="シナリオタイトル" author="著者名"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd">
+
+<!--初期化情報-->
+<init>
+  <constraint race="FIGHTER,WIZARD,DWARF,ELF" age="YOUNG,ADULT,OLD" />
+  <bgm main="@field05" happy="@field04" bad="@town01" />
+  <intro description="サンプルシナリオ紹介" />
+</init>
+
+<!--アイテム情報-->
+<items>
+  <!--
+  <item id="i99" name="アイテム名">アイテム説明</item>
+  -->
+</items>
+
+<!--フラグ情報-->
+<flags>
+  <!--
+  <flag id="f99">フラグ説明</flag>
+  -->
+</flags>
+
+<!--モンスター／罠情報-->
+<enemies>
+  <!--
+  <enemy id="m99" name="モンスター／罠名" element="earth"
+    attack="physics" func="式／回避条件" drop="mon/2">モンスター説明</enemy>
+  <enemy id="m98" name="モンスター／罠名" element="fire"
+    attack="magic" func="式／回避条件" drop="free1/2/Food×2">モンスター説明</enemy>
+  <enemy id="m97" name="モンスター／罠名" element="water"
+    attack="poison" func="式／回避条件" drop="">モンスター説明</enemy>
+  <enemy id="m96" name="モンスター／罠名" element="wind"
+    attack="frozen" func="式／回避条件">モンスター説明</enemy>
+  <enemy id="m95" name="モンスター／罠名" element="spirit"
+    attack="stone" func="式／回避条件">モンスター説明</enemy>
+  <enemy id="m94" name="モンスター／罠名" element="spirit"
+    attack="curse" func="式／回避条件">モンスター説明</enemy>
+  <enemy id="m93" name="モンスター／罠名" element=""
+    attack="forger" func="式／回避条件">モンスター説明</enemy>
+  -->
+</enemies>
+
+<!--実績情報-->
+<results>
+  <!--
+  <result id="r01" name="実績名" level="1">
+    実績の説明</result>
+  -->
+</results>
+
+<!--ライセンス情報-->
+<licence>
+  <!--
+	<work name="曲名" category="bgm" creator="作者名"
+    url="作品アドレス"></work>
+	<work name="画像名" category="picture" creator="作者名"
+    url="作品アドレス"></work>
+  -->
+</licence>
+
+<!--シナリオ本体-->
+<scene id="0">
+（近代歴史家の記述より）
+
+### ペンタウァ暦724年12月1日、キングドラゴン＝ガルシス斃れる
+
+ソーサリアンの最大の、そして最後とも言える功績だ。無論、暗黒王たるガルシスが完全に消滅したわけではない。しかし、この事件がペンタウァの転機になったことは間違いないだろう。各地の妖も一斉に息を潜め、この後、いわば「冒険と神秘の時代」は終焉へと進んでいったのだ。
+
+### ペンタウァ暦728年5月14日、科学文化省が設けられる
+
+ほんの10年前には、＜科学＞のような得体のしれないものが、どうして国家の礎を担う地位を占めようと思ったろうか。翻って、魔法省はすっかり閑散としてしまった。もちろん、今なお魔法省の一員であることは名誉あることであるが、もはやそれは名前だけのものだ。
+
+### ペンタウァ暦730年7月27日、ペンタウァ北部の魔族掃討が完了
+
+以前であれば、華々しく号外で飾られたであろう偉業も、ここ数年は人々にとってあまり顧みられるものではなくなっているようだ。一般の都民にとって、冒険も魔族も別世界のお伽噺のように感じられているのかもしれない。
+
+私がそのような出来事に注目したのも、むしろ＜偉業＞の扱いが世間ではあまりに小さかったためだ。その日、王都新聞の一面はガス灯によって王都が不夜城となったことを華々しく扱っていた。
+
+### ペンタウァ暦735年6月28日、蒸気機関車がペンタウァ大陸を縦断する
+
+わずか10年足らずで、奇っ怪な鉄のおもちゃがまさかペンタウァの大地を駆けることになろうとは。まだ貴族だけの乗り物ではあるようだが、いつかはすべての民が機関車に乗って旅する時代がやってくるのではないだろうか。
+
+最近では、飛行機なるものも開発されようとしているらしい。
+
+### ペンタウァ暦736年12月4日、辺境にヴァンパイアが現れる
+
+久々に大きな事件だ。辺境地方であるため、ペンタウァの民に対する被害はほとんど出ていないようだが、ここしばらくなかったほどに強い魔力を持ったヴァンパイアであるようで、周辺の生物や妖精たちが狂暴化しているという話も聞く。
+
+王の招集に応じて、このところ出番もなかった冒険者たちが続々と旅立っているようだ。もっとも、色めきだっているのは冒険者や一部の者たちだけで、人々の興味は専ら、今夜開演のオペラ「仮面の貴公子」の出来栄えにあるようだ。実際、今回の事件も王都の人間にはさほど知られることなく収束していくのだろう。
+
+そう、もう妖と幻獣の時代は終わったのだから。
+</scene>
+<!--
+<scene id="100" items="-i01,i02" flags="f01,f02" enemies="m01,m02"
+  end="happy" se="hoge" result="r01">
+  本文
+</scene>
+<scene id="200" items="-i01,i02" flags="f01,f02" enemies="m01,m02"
+  end="bad" se="hoge">
+  本文
+</scene>
+-->
+</scenario>

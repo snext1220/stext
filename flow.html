@@ -1,0 +1,121 @@
+<html>
+<head>
+<title>Playground α</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis-network.min.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css"
+  href="https://code.jquery.com/ui/1.10.0/themes/dark-hive/jquery-ui.css" />
+<style>
+#myflow {
+  width: 600px;
+  height: 400px;
+  border: 1px solid lightgray;
+}
+</style>
+<script src="https://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+<script>
+$(function() {
+  $('#genflow').click(function(e) {
+    var nodes = [];
+    var edges = [];
+    var link = /\[(.+?)\]\((\d{1,})(?: "(.+?)")?\)/gi;
+
+    var parser = new DOMParser();
+    var data = parser.parseFromString($('#myscenario').val(), 'text/xml');
+    $('scene', data).each(function(index, elem) {
+      var s = $(this);
+      var id = s.attr('id');
+      var body = s.text();
+      nodes.push({
+        id: id,
+        label: id + ': ' + body.substring(0, 8)
+      });
+      
+      while((result = link.exec(body)) !== null) {
+        edges.push({
+          from: id,
+          to: result[2],
+          label: result[3] ? result[3] : ''
+        });
+      }
+    });
+
+    var network = new vis.Network(
+      document.getElementById('myflow'),
+      {
+        nodes: new vis.DataSet(nodes),
+        edges: new vis.DataSet(edges)
+      },
+      {
+        physics: false,
+        nodes: {
+          shape: 'box',
+          size: 20,
+          color: 'skyblue'
+        },
+        edges: {
+          arrows: 'to', // エッジに矢印を付けて有向グラフにする
+          smooth: false // falseにするとエッジが直線になる
+        }
+      }
+    );
+  });
+
+
+/*
+// ノードの定義
+var nodes = new vis.DataSet([
+    { id: 1, label: 'Node 1' },
+    { id: 2, font: { multi: true }, label: '<b>Node 2</b>' },
+    { id: 3, font: { multi: true }, label: '<code>Node 3</code>' },
+    { id: 4, font: { multi: true }, label: '<i>Node 4</i>' },
+    { id: 5, font: { multi: true }, label: '<i><b>Node 5</b></i>' }
+]);
+
+// エッジの定義
+var edges = new vis.DataSet([
+    { from: 1, to: 3 },
+    { from: 1, to: 2 },
+    { from: 2, to: 4 },
+    { from: 2, to: 5 },
+    { from: 3, to: 3 }
+]);
+
+// グラフの定義(ノードとエッジ)
+var data = {
+    nodes: nodes,
+    edges: edges
+};
+var options = {
+    physics: false, // 物理シミュレーションをオフにする
+    nodes: {
+        shape: 'box', // ノードの形をellipseからboxに
+        size: 20, //　ノードの大きさ
+
+        font: {
+            boldital: { color: 'pink' }, // <i><b>aaa</b></i>タグのカラー
+            ital: { color: 'orange' },  // <i>aaa</i>タグのカラー
+            mono: { color: 'blue' }, // <code>aaa</code>タグのカラー
+            bold: { color: 'purple' }, // <b>aaa</b>タグのカラー
+            color: 'yellow', // タグなしのノードの文字の色
+        },
+        color: "skyblue" // ノードカラー
+    },
+    edges: {
+        arrows: 'to', // エッジに矢印を付けて有向グラフにする
+        smooth: false // falseにするとエッジが直線になる
+    },
+};
+var container = document.getElementById('myflow');
+var network = new vis.Network(container, data, options);
+*/
+});
+</script>
+</head>
+<body>
+<input id="genflow" type="button" value="フローチャート生成" /><br />
+<textarea id="myscenario" cols="80" rows="10"></textarea>
+<div id="myflow"></div>
+</body>
+</html>
