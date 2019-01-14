@@ -7,8 +7,8 @@
   href="https://code.jquery.com/ui/1.10.0/themes/dark-hive/jquery-ui.css" />
 <style>
 #myflow {
-  width: 600px;
-  height: 400px;
+  width: 800px;
+  height: 600px;
   border: 1px solid lightgray;
 }
 </style>
@@ -17,11 +17,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
 <script>
 $(function() {
+  var network;
+
   $('#genflow').click(function(e) {
     var nodes = [];
     var edges = [];
     var link = /\[(.+?)\]\((\d{1,})(?: "(.+?)")?\)/gi;
     var range = $('#genrange').val().split('-');
+    if (!range[0]) { range[0] = 0; }
     if (!range[1]) { range[1] = 99999999; }
 
     var parser = new DOMParser();
@@ -39,7 +42,7 @@ $(function() {
         label: id + ': ' + body.substring(0, 8),
         color: (id == 0 ? { background: 'Purple' }: (s.attr('end') ? {  background: 'Lime' } : {}))
       });
-      console.log(nodes);
+//console.log(nodes);
       while((result = link.exec(body)) !== null) {
         if (Number(result) < Number(range[0]) || Number(result) > Number(range[1])) { return true; }
         edges.push({
@@ -49,8 +52,8 @@ $(function() {
         });
       }
     });
-console.log(edges);
-    var network = new vis.Network(
+//console.log(edges);
+    network = new vis.Network(
       document.getElementById('myflow'),
       {
         nodes: new vis.DataSet(nodes),
@@ -61,71 +64,23 @@ console.log(edges);
         nodes: {
           shape: 'box',
           size: 20,
-          font: {
-            boldital: { color: 'pink' }, // <i><b>aaa</b></i>タグのカラー
-            ital: { background: 'Red', color: 'White' },  // <i>aaa</i>タグのカラー
-            mono: { color: 'blue' }, // <code>aaa</code>タグのカラー
-            bold: { color: 'purple' }, // <b>aaa</b>タグのカラー
-            color: 'black', // タグなしのノードの文字の色
-        },
           color: 'skyblue'
         },
         edges: {
-          arrows: 'to', // エッジに矢印を付けて有向グラフにする
-          smooth: false // falseにするとエッジが直線になる
+          arrows: 'to',
+          smooth: false
         }
       }
     );
+
+    network.on('click', function(e) {
+      var id = this.getNodeAt(e.pointer.DOM);
+      if (id) {
+        alert($('scene#' + this.getNodeAt(e.pointer.DOM), data)
+          .text().substring(0, 1000));
+      }
+    });
   });
-
-
-/*
-// ノードの定義
-var nodes = new vis.DataSet([
-    { id: 1, label: 'Node 1' },
-    { id: 2, font: { multi: true }, label: '<b>Node 2</b>' },
-    { id: 3, font: { multi: true }, label: '<code>Node 3</code>' },
-    { id: 4, font: { multi: true }, label: '<i>Node 4</i>' },
-    { id: 5, font: { multi: true }, label: '<i><b>Node 5</b></i>' }
-]);
-
-// エッジの定義
-var edges = new vis.DataSet([
-    { from: 1, to: 3 },
-    { from: 1, to: 2 },
-    { from: 2, to: 4 },
-    { from: 2, to: 5 },
-    { from: 3, to: 3 }
-]);
-
-// グラフの定義(ノードとエッジ)
-var data = {
-    nodes: nodes,
-    edges: edges
-};
-var options = {
-    physics: false, // 物理シミュレーションをオフにする
-    nodes: {
-        shape: 'box', // ノードの形をellipseからboxに
-        size: 20, //　ノードの大きさ
-
-        font: {
-            boldital: { color: 'pink' }, // <i><b>aaa</b></i>タグのカラー
-            ital: { color: 'orange' },  // <i>aaa</i>タグのカラー
-            mono: { color: 'blue' }, // <code>aaa</code>タグのカラー
-            bold: { color: 'purple' }, // <b>aaa</b>タグのカラー
-            color: 'yellow', // タグなしのノードの文字の色
-        },
-        color: "skyblue" // ノードカラー
-    },
-    edges: {
-        arrows: 'to', // エッジに矢印を付けて有向グラフにする
-        smooth: false // falseにするとエッジが直線になる
-    },
-};
-var container = document.getElementById('myflow');
-var network = new vis.Network(container, data, options);
-*/
 });
 </script>
 </head>
