@@ -232,8 +232,8 @@
 <p class="award">このシナリオを解放するには、Scenario 2「ゼロの創造」の実績「宣教師の正体」を取得している必要があります！</p>
 </work>
 
-<work id="traitor" title="裏切り者の流儀" author="山田賢治さん" unpublished="true" guest="true" series="連作ドラゴンモード"
-  tags="アゾルバ王宮" published="" updated="" level="2" scenes="33" results="4" clears="r99"
+<work id="traitor" title="裏切り者の流儀" author="山田賢治さん" guest="true" series="連作ドラゴンモード"
+  tags="アゾルバ王宮" published="2019-01-21" updated="" level="2" scenes="33" results="4" clears="r99"
   comment="本のゲームブックには紙の良さがあり、電子書籍のゲームブックには電子本ならではの面白さがあります。「ではSTextは、ゲームブックにどんな可能性を見せてくれるだろうか」という思いで、ゲームブック用マークアップ言語に挑戦しました。これは「かなりの低負担でシナリオ作成ができ、そこそこ数値がいじれる、自動計算してくれるゲームブック」であると受け止めています。RPGツクールよりも気楽にインタラクティブなゲームを作りたいなら、現実的な選択肢の一つと言えると思います。プレイしてみて興味が湧いたら、創り手としての参加も待ってます！">
 <img src="./stext/traitor/capture/intro.png" height=""
   title="常闇から来たる影" align="left" class="left"/>
@@ -251,7 +251,7 @@
 
 　真相を見極め、陰謀渦巻く王宮から無事に脱出せよ。ソーサリアン！
 
-<p class="award">2019年1月21日公開予定です。</p>
+<p class="award">このシナリオを解放するには、Scenario 1「新・消えた王様の杖」の実績「オタクの称号」、Scenario 10「魂の選択」の実績「ありがと！」を取得している必要があります！</p>
 </work>
 
 </scenario>
