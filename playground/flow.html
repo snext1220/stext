@@ -61,6 +61,21 @@ $(function() {
       },
       {
         physics: false,
+        interaction:{hover:true},
+  			manipulation: {
+	  			//enabled: true
+          addNode: function(data, callback) {
+            data.id = 1;
+            data.label = 'TEST';
+            data.hoge = 'HOHOHO';
+            console.log(data);
+            callback(data);
+
+          },
+          editEdge: function(data, callback) {
+            console.log(data);
+          }
+		  	},
         nodes: {
           shape: 'box',
           size: 20,
@@ -81,12 +96,28 @@ $(function() {
       }
     });
   });
+
+  var objToArray = function objectToArray(obj) {
+    return Object.keys(obj).map(function (key) {
+      obj[key].id = key;
+      return obj[key];
+    });
+  }
+
+  $('#export').click(function() {
+      var nodes = objToArray(network.getPositions());
+      nodes.forEach(function (elem, index) {
+        elem.connections = network.getConnectedNodes(index);
+      });
+      console.log(JSON.stringify(nodes, undefined, 2));
+  });
 });
 </script>
 </head>
 <body>
 生成範囲：<input id="genrange" type="text" placeholder="「start-end」の形式"/>
-<input id="genflow" type="button" value="フローチャート生成" /><br />
+<input id="genflow" type="button" value="フローチャート生成" />
+<input id="export" type="button" value="エクスポート" /><br />
 <textarea id="myscenario" cols="80" rows="10"></textarea>
 <div id="myflow"></div>
 </body>
