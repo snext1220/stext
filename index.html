@@ -23,7 +23,14 @@ $(function() {
   }
   var id = result['id'];
   if(id) {
-    $('#main').startGame(id, true);
+    // New Playground対応
+    if (id === 'pg2') {
+      $('#main').startGame(
+        localStorage.getItem('pg2_run'), true);
+        //localStorage.removeItem('pg2_run');
+    } else {
+      $('#main').startGame(id, true);
+    }
   }
 
   $.get('./stext/stext.xml').done(function(data) {

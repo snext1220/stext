@@ -1,88 +1,258 @@
 $(function () {
-  var scenario = {
-    title: 'Untitled',
-    author: 'Unnamed',
-    init: {
-      constraint: {
-        race: '',
-        sex: '',
-        age: ''
-      },
-      bgm: {
-        main: '',
-        happy: '',
-        bad: ''
-      },
-      label: {
-        free1: '',
-        free2: '',
-        free3: ''
-      },
-      intro: {
-        description: ''
-      },
-    },
+  // 共通データ
+  let Common = {
+    // ストレージの保存名（ロード時）
+    LOAD_NAME: 'pg2_load',
+    // ストレージの保存名（実行時）、ウィンドウ名
+    RUN_NAME: 'pg2_run'
+  }
 
-    items: [
-      {
-        id: 'i01',
-        name: 'Item-01',
-        text: 'Item description...'
+  // 共通関数
+  let Util = {
+    // 指定されたシーンを取得
+    getSceneById: function(id) {
+      return scenario.scenes.find(function(elem) {
+        return elem.id === id; 
+      });
+    },
+    // 指定されたエッジを取得
+    getEdgeById: function(id) {
+      return scenario.edges.find(function(elem) {
+        return elem.id === id; 
+      });
+    },
+    // 指定されたオブジェクトを要素に変換
+    // @params name：要素名、data：変換対象のオブジェクト
+    // @return 生成された要素（jQuery obj）、中身が空の場合はfalse
+    objToElement: function(name, data) {
+      let flag = false;
+      let result = $(`<${name}></${name}>`);
+      for (let key of Object.keys(data)) {
+        if (data[key]) {
+          if (key === 'text') {
+            result.text(data[key]);
+          } else if (key === 'label') {
+            ; // なにもしない
+          } else {
+            result.attr(key, data[key]);
+          }
+          flag = true;
+        }
       }
-    ],
-    flags: [
-      {
-        id: 'f01',
-        text: 'Flag description...'
+      if (flag) {
+        return result;
       }
-    ],
-    enemies: [
-      {
-        id: 'm01',
-        name: 'Enemy-01',
-        element: 'earth',
-        attack: 'physics',
-        func: 'L+R-STR',
-        drop: 'mon/2',
-        text: 'Enemy description...'
+      return false;
+    },
+    // 指定されたid値のシーン移動ボタンを生成
+    // return：生成された移動ボタン（改行区切り文字列）
+    createMoveButton: function(id) {
+      let result = [];
+      scenario.edges.forEach(function(value) {
+        if (value.from === id) {
+          if (value.condition) {
+            result.push(`[${value.label}](${value.to} "${value.condition}")`);
+          } else {
+            result.push(`[${value.label}](${value.to})`);
+          }
+        }
+      });
+      return result.join('\n');
+    },
+    // 現在のシナリオデータからscenario.xmlを生成
+    // 戻り値：XML文字列
+    createXml: function() {
+      let result = $('<scenario ' +
+        'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ' +
+        'xsi:noNamespaceSchemaLocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd">' +
+        '</scenario>');
+      let inits = $('<init></init>');
+      let items = $('<items></items>');
+      let flags = $('<flags></flags>');
+      let enemies = $('<enemies></enemies>');
+      let results = $('<results></results>');
+      let licence = $('<licence></licence>');
+      // scenario要素
+      result.attr('title', scenario.title);
+      result.attr('author', scenario.author);
+      // init要素
+      let constraint = Util.objToElement('constraint', scenario.init.constraint);
+      if (constraint) { inits.append(constraint); }
+      let bgm = Util.objToElement('bgm', scenario.init.bgm);
+      if (bgm) { inits.append(bgm); }
+      let label = Util.objToElement('label', scenario.init.label);
+      if (label) { inits.append(label); }
+      result.append(inits);
+      // items要素
+      for (let t_item of scenario.items) {
+        let item = Util.objToElement('item', t_item);
+        if (item) { items.append(item); }
       }
-    ],
-    results: [
-      {
-        id: 'r01',
-        name: 'Result-01',
-        level: 1,
-        text: 'Result description...'
+      result.append(items);
+      // flags要素
+      for (let t_flag of scenario.flags) {
+        let flag = Util.objToElement('flag', t_flag);
+        if (flag) { flags.append(flag); }
       }
-    ],
-    licence: [
-      {
-        name: 'Bgm-01',
-        category: 'bgm',
-        creator: 'SText',
-        url: 'https://example.com/'
+      result.append(flags);
+      // enemies要素
+      for (let t_enemy of scenario.enemies) {
+        let enemy = Util.objToElement('enemy', t_enemy);
+        if (enemy) { enemies.append(enemy); }
       }
-    ],
-    scenes: [
-      {
-        id: 0,
-        summary: 'プロローグ',
-        label: '0:\nプロローグ'
-      },
-      {
-        id: 1,
-        summary: '本文',
-        label: '1:\n本文'
+      result.append(enemies);
+      // results要素
+      for (let t_result of scenario.results) {
+        let result = Util.objToElement('result', t_result);
+        if (result) { results.append(result); }
       }
-    ],
-    edges: [
-      {
-        from: 0,
-        to: 1,
-        label: '次へ'
+      result.append(results);
+      // licence要素
+      for (let t_work of scenario.licence) {
+        let work = Util.objToElement('work', t_work);
+        if (work) { licence.append(work); }
       }
-    ]
+      result.append(licence);
+      // scene要素
+      for (let t_scene of scenario.scenes) {
+        let scene = Util.objToElement('scene', t_scene);
+        scene.text(scene.text() + '\n\n' +
+          Util.createMoveButton(scene.attr('id')));
+        if (scene) { result.append(scene); }
+      }
+      // 整形したものを出力
+      return vkbeautify.xml('<?xml version="1.0" encoding="utf-8"?>\n' +
+        result.get(0).outerHTML);
+    },
+    // データをダウンロード
+    // @params content：データ本体、name：ファイル名
+    download: function(content, name) {
+      var blob = new Blob([ content ],
+        { 'type': 'application/octet-stream' });
+      var anchor = document.createElement('a');
+      anchor.href = window.URL.createObjectURL(blob);
+      anchor.download = name;
+      document.body.appendChild(anchor);
+      anchor.click();
+      document.body.removeChild(anchor);
+    }
   };
+
+  // シナリオデータ
+  let scenario = JSON.parse(sessionStorage.getItem(Common.LOAD_NAME));
+  sessionStorage.removeItem(Common.LOAD_NAME);
+  if (!scenario) {
+    scenario = {
+      title: 'Untitled',
+      author: 'Unnamed',
+      init: {
+        constraint: {
+          race: '',
+          sex: '',
+          age: ''
+        },
+        bgm: {
+          main: '',
+          happy: '',
+          bad: ''
+        },
+        label: {
+          free1: '',
+          free2: '',
+          free3: ''
+        },
+        intro: {
+          description: ''
+        },
+      },
+
+      items: [
+        {
+          id: 'i01',
+          name: 'Item-01',
+          text: 'Item description...'
+        }
+      ],
+      flags: [
+        {
+          id: 'f01',
+          text: 'Flag description...'
+        }
+      ],
+      enemies: [
+        {
+          id: 'm01',
+          name: 'Enemy-01',
+          element: 'earth',
+          attack: 'physics',
+          func: 'L+R-STR',
+          drop: 'mon/2',
+          text: 'Enemy description...'
+        }
+      ],
+      results: [
+        {
+          id: 'r01',
+          name: 'Result-01',
+          level: 1,
+          text: 'Result description...'
+        }
+      ],
+      licence: [
+        {
+          name: 'Bgm-01',
+          category: 'bgm',
+          creator: 'SText',
+          url: 'https://example.com/'
+        }
+      ],
+      scenes: [
+        {
+          id: '0',
+          summary: 'プロローグ',
+          label: '0:\nプロローグ',
+          text: 'ここにプロローグを書きます。'
+        },
+        {
+          id: '1',
+          summary: '本文',
+          label: '1:\n本文',
+          text: 'ここからが本文です。'
+        }
+      ],
+      edges: [
+        {
+          from: '0',
+          to: '1',
+          label: '次へ'
+        }
+      ]
+    };
+  }
+
+  // 基本情報を初期化
+  $('#title').val(scenario.title);
+  $('#author').val(scenario.author);
+  $('#constraint-race').val(scenario.init.constraint.race);
+  $('#constraint-sex').val(scenario.init.constraint.sex);
+  $('#constraint-age').val(scenario.init.constraint.age);
+  $('#bgm-main').val(scenario.init.bgm.main);
+  $('#bgm-happy').val(scenario.init.bgm.happy);
+  $('#bgm-bad').val(scenario.init.bgm.bad);
+  $('#label-free1').val(scenario.init.label.free1);
+  $('#label-free2').val(scenario.init.label.free2);
+  $('#label-free3').val(scenario.init.label.free3);
+  $('#intro-description').val(scenario.init.intro.description);
+
+  // 基本情報配下の入力値を反映
+  $('#basic input').change(function(e) {
+    let id = e.target.id.split('-');
+    if (id.length === 1) {
+      scenario[id[0]] = $(this).val();
+    } else {
+      scenario.init[id[0]][id[1]] = $(this).val();
+    }
+  });
 
   // ダイアログを初期化
   $('#scene-dialog').dialog({
@@ -127,8 +297,18 @@ $(function () {
           };
           $('#scene-dialog').dialog('open');
         },
-        editEdge: function(data, callback) {
+        addEdge: function(data,callback) {
+          scenario.edges.push(data);
+          callback(data);
+        },
+        editEdge: false,
+        deleteNode: function(data, callback) {
           console.log(data);
+          // 未実装
+        },
+        deleteEdge: function(data, callback) {
+          console.log(data);
+          // 未実装
         }
       },
       nodes: {
@@ -143,33 +323,67 @@ $(function () {
     }
   );
 
-  network.on('select', function(e) {
+  // ノード選択時にフォームに反映
+  network.on('selectNode', function(e) {
     let id = this.getNodeAt(e.pointer.DOM);
     if (id !== undefined) {
-      // 問題あり
-      let scene = scenario.scenes[id];
+      $('#edit-area').tabs('option', 'active', 6);
+      let scene = Util.getSceneById(id);
       $('#scene-select #id').text(scene.id);
       $('#scene-select #summary').val(scene.summary);
-      $('#scene-select #bgm').val(scene.bgm);
-      $('#scene-select #se').val(scene.se);
+      $('#scene-select #end').val(scene.end);
       $('#scene-select #items').val(scene.items);
       $('#scene-select #flags').val(scene.flags);
       $('#scene-select #enemies').val(scene.enemies);
+      $('#scene-select #bgm').val(scene.bgm);
+      $('#scene-select #se').val(scene.se);
       $('#scene-select #hp').val(scene.hp);
       $('#scene-select #mp').val(scene.mp);
       $('#scene-select #stars').val(scene.stars);
       $('#scene-select #free1').val(scene.free1);
       $('#scene-select #free1').val(scene.free2);
       $('#scene-select #free3').val(scene.free3);
-      editor.setValue(scene.text);
+      if (scene.text) {
+        editor.setValue(scene.text);
+      } else {
+        editor.setValue('');
+      }
+      editor.focus();
     }
   });
 
-  // 
-  $('#scene-select input').on('input', function(e) {
-    let id = $('#scene-select #id').text();
+  // エッジ選択時にフォームに反映
+  network.on('selectEdge', function(e) {
+    let id = this.getEdgeAt(e.pointer.DOM);
+    if (id !== undefined) {
+      $('#edit-area').tabs('option', 'active', 7);
+      let edge = Util.getEdgeById(id);
+      $('#edge #id').val(edge.id);
+      $('#edge #from').text(edge.from);
+      $('#edge #to').text(edge.to);
+      $('#edge #label').val(edge.label);
+      $('#edge #condition').val(edge.condition);
+    }
   });
 
+  // ［シーン］タブ内での更新
+  $('#scene-select input').on('input', function(e) {
+    let id = $('#scene-select #id').text();
+    if (id) {
+      let scene = Util.getSceneById(id);
+      scene[e.target.id] = $(this).val();
+    }
+  });
+
+  // ［リンク］タブ内での更新
+  $('#edge input').on('input', function(e) {
+    let id = $('#edge #id').val();
+    if (id) {
+      let edge = Util.getEdgeById(id);
+      edge[e.target.id] = $(this).val();
+    }
+    network.redraw();
+  });
 
   // SlickGridの共通オプション
   let grid_opts = {
@@ -287,17 +501,26 @@ $(function () {
   editor.setTheme('ace/theme/chrome');
   editor.session.setMode('ace/mode/markdown');
 
+  // エディター内の反映
+  editor.on('change', function(e) {
+    let id = $('#scene-select #id').text();
+    if (id) {
+      let scene = Util.getSceneById(id);
+      scene.text = editor.getValue();
+    }
+  });
+  
   // タブの生成
   $('#edit-area').tabs();
 
   // レイアウトの区切り線
+  /*
   $('#main').split({
     orientation: 'vertical',
     limit: 10,
     position: '50%'
   });
 
-  /*
   $('#scene-select').split({
     orientation: 'horizontal',
     limit: 10,
@@ -306,11 +529,63 @@ $(function () {
   */
   
   // コントロールパネル
-  // シナリオのセーブ
-  $('#ctrl_save').click(function(e) {
-    console.log(scenario);
+  // ［テスト実行］ボタン
+  $('#ctrl_run').click(function(e) {
+    localStorage.setItem(Common.RUN_NAME, Util.createXml());
+    window.open('../index.html?id=pg2', Common.RUN_NAME);
   });
 
+  // ［タグ追加］ボタン
+  $('#ctrl_tag').click(function(e) {
+    window.alert('未実装です。従来のPlaygroundからMarkdown修飾だけを残したものを提供予定です。');
+  });
 
+  // ［セーブ］ボタン
+  $('#ctrl_save').click(function(e) {
+    window.alert('データをブラウザーに保存しました。');
+    console.log(scenario);
+    localStorage.setItem('pg2_save', JSON.stringify(scenario));
+  });
 
+  // ［ダウンロード］ボタン
+  $('#ctrl_dl').click(function(e){
+    $('#dl-menu').css({
+      display: 'block',
+      top: e.pageY,
+      left: e.pageX
+    });
+  });
+
+  // ［ダウンロード］ボタン（コンテキストメニュー）
+  $('#dl-menu li').click(function(e) {
+    if ($(this).data('command') === 'json') {
+      Util.download(JSON.stringify(scenario), 'stext.json');
+    } else {
+      Util.download(Util.createXml(), 'scenario.xml');
+    }
+    $('#dl-menu').css('display', 'none');
+  });
+
+  // ［ヘルプ］ボタン
+  $('#ctrl_help').click(function(e) {
+    window.alert('未実装です。現状相当を提供予定です。');
+  });
+
+  // ファイルをPlaygroundにロード
+  $('#ctrl_load').change(function(e) {
+    let inputs = $(this).get(0).files;
+    let reader = new FileReader();
+    $(reader).on('load', function() {
+      sessionStorage.setItem(Common.LOAD_NAME, reader.result);
+      location.reload();
+    });
+    reader.readAsText(inputs[0], 'UTF-8');
+  });
+
+  // コンテキストメニューの削除
+  $(':not(#dl-menu)').click(function(e) {
+    if (e.target.id !== 'ctrl_dl') {
+      $('#dl-menu').css('display', 'none');
+    }
+  });
 });

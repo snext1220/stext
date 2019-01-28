@@ -74,7 +74,31 @@ label {
     color: #fff;
 }
 
+/* コンテキストメニュー */
+.cxt {
+    position: absolute;
+    display: none;
+    z-index: 99;
+    padding: 0px;
+    border-width: 1px;
+    border-style: solid;
+    background-color: #e8e8e8;
+  }
+  
+.cxt li {
+    padding: 5px 15px 5px 15px;
+    list-style: none;
+    border-bottom-color: #ccc;
+    border-bottom-width: 1px;
+    border-bottom-style: dotted;
+    color: #000;
+    cursor: pointer;
+}
 
+.cxt li.sep {
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+}
 
 
 
@@ -87,29 +111,4 @@ label {
   .pg_command img {
     margin-right: 5px;
     cursor: pointer;
-  }
-  
-  #addmenu {
-    position: absolute;
-    display: none;
-    z-index: 99;
-    padding: 0px;
-    border-width: 1px;
-    border-style: solid;
-    background-color: #e8e8e8;
-  }
-  
-  #addmenu li {
-    padding: 5px 15px 5px 15px;
-    list-style: none;
-    border-bottom-color: #ccc;
-    border-bottom-width: 1px;
-    border-bottom-style: dotted;
-    color: #000;
-    cursor: pointer;
-  }
-  
-  #addmenu li.sep {
-    border-bottom-width: 2px;
-    border-bottom-style: solid;
   }
