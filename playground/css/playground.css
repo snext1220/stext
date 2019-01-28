@@ -1,0 +1,115 @@
+body {
+    background-color: #000;
+}
+
+fieldset {
+    margin-bottom: 20px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+#control {
+    height: 30px;
+    width: 1150px;
+    margin: 0 auto;
+    border: 1px solid #000;
+    background-color: #000;
+    color: #fff;
+}
+
+#main {
+    width: 1150px;
+    height: 550px;
+    margin: 0 auto;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#flow-area {
+    float:left;
+    width: 600px;
+    height: 99%;
+    border: 1px solid #000;
+    background-color: #fff;
+}
+
+#edit-area {
+    float: right;
+    width: 540px;
+    height: 99%;
+    border: 1px solid #000;
+    background-color: #fff;
+}
+
+
+.tab-panel {
+    height: 150px;
+    border: 1px solid #f00;
+}
+
+.config-grid {
+    widows: 100%;
+    height: 95%;
+}
+
+#scene-editor {
+    width: 100%;
+    height: 230px;
+    margin-bottom: 15px;
+    border: 1px solid #000;
+}
+
+#footer {
+    height: 30px;
+    width: 1150px;
+    margin: 0 auto;
+    border: 1px solid #000;
+    background-color: #000;
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+/* 未使用 */
+  .pg_command img {
+    margin-right: 5px;
+    cursor: pointer;
+  }
+  
+  #addmenu {
+    position: absolute;
+    display: none;
+    z-index: 99;
+    padding: 0px;
+    border-width: 1px;
+    border-style: solid;
+    background-color: #e8e8e8;
+  }
+  
+  #addmenu li {
+    padding: 5px 15px 5px 15px;
+    list-style: none;
+    border-bottom-color: #ccc;
+    border-bottom-width: 1px;
+    border-bottom-style: dotted;
+    color: #000;
+    cursor: pointer;
+  }
+  
+  #addmenu li.sep {
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+  }

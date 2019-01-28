@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<link rel="shortcut icon" href="https://d.hatena.ne.jp/images/diary/sorcerian/favicon.ico" />
+<title>SORCERIAN Text Playground</title>
+<!--vis.js-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis-network.min.css" />
+<!--SlickGrid-->
+<link rel="stylesheet" href="slick-lib/slick.grid.css" />
+<!--jQuery UI-->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.0/themes/redmond/jquery-ui.css" />
+<!--Other-->
+<link rel="stylesheet" href="css/jquery.splitter.css" />
+<link rel="stylesheet" href="slick-lib/examples.css" />
+<!--Playground-->
+<link rel="stylesheet" href="css/playground.css" />
+</head>
+<body>
+<div id="control">
+  <a href="https://www.web-deli.com/sorcerian/next/stext.aspx">
+    <img src="https://www.web-deli.com/sorcerian/next/images/gamebook_header.png"
+      alt="ソーサリアン Next" height="100%" border="0" />
+  </a>
+  <span class="pg_command">
+    <img id="ctrl_run" src="../stext/common/pg_run.png" title="シナリオを実行" />
+    <img id="ctrl_tag" src="../stext/common/pg_tag.png" title="カーソル位置にタグを追加" />
+    <img id="ctrl_clear" src="../stext/common/pg_clear.png" title="クリア" />
+    <img id="ctrl_save" src="../stext/common/pg_save.png" title="ブラウザーに保存" />
+    <img id="ctrl_dl" src="../stext/common/pg_dl.png" title="ダウンロード" />
+    <img id="ctrl_help" src="../stext/common/pg_help.png" title="マニュアルを参照" />
+  </span>
+  ｜<input id="ctrl_load" type="file" accept=".gbat" multiple />
+</div>
+<div id="main" class="clearfix">
+  <div id="flow-area"></div>
+  <div id="edit-area">
+    <ul>
+      <li><a href="#basic">基本情報</a></li>
+      <li><a href="#items">アイテム</a></li>
+      <li><a href="#flags">フラグ</a></li>
+      <li><a href="#enemies">敵／罠</a></li>
+      <li><a href="#results">実績</a></li>
+      <li><a href="#works">ライセンス</a></li>
+      <li><a href="#scene">シーン</a></li>
+      <li><a href="#edge">リンク</a></li>
+    </ul>
+    <div id="basic" class="tab-panel">
+      <form>
+        <fieldset>
+          <legend>基本情報</legend>
+          <label>タイトル：
+            <input id="title" type="text" size="15" /></label>
+          <label>作者：
+            <input id="author" type="text" size="15" /></label>
+        </fieldset>
+        <fieldset>
+          <legend>キャラ制約</legend>
+            <label>種族：
+              <input id="constraint-race" type="text" size="15" /></label>
+            <label>性別：
+              <input id="constraint-sex" type="text" size="15" /></label>
+            <label>年齢：
+              <input id="constraint-age" type="text" size="15" /></label>
+        </fieldset>
+        <fieldset>
+          <legend>BGM</legend>
+            <label>main：
+              <input id="bgm-main" type="text" size="15" /></label>
+            <label>happy：
+              <input id="bgm-happy" type="text" size="15" /></label>
+            <label>bad：
+              <input id="bgm-bad" type="text" size="15" /></label>
+          </fieldset>
+          <fieldset>
+            <legend>FREEラベル</legend>
+              <label>Free1：
+                <input id="label-free1" type="text" size="15" /></label>
+              <label>free2：
+                <input id="label-free2" type="text" size="15" /></label>
+              <label>free3：
+                <input id="label-free3" type="text" size="15" /></label>
+          </fieldset>
+          <fieldset>
+            <legend>Twitter</legend>
+              <label>紹介文：
+                <input id="intro-description" type="text" size="70" /></label>
+          </fieldset>
+          <input id="basic_save" type="button" value="保存" />
+      </form>
+    </div>
+    <div id="items" class="tab-panel">
+      <p>アイテム情報を入力してください。</p>
+      <div id="items_grid" class="config-grid"></div>
+    </div>
+    <div id="flags" class="tab-panel">
+      <div id="flags_grid" class="config-grid"></div>
+    </div>
+    <div id="enemies" class="tab-panel">
+      <div id="enemies_grid" class="config-grid"></div>
+    </div>
+    <div id="results" class="tab-panel">
+      <div id="results_grid" class="config-grid"></div>
+    </div>
+    <div id="works" class="tab-panel">
+      <div id="works_grid" class="config-grid"></div>
+    </div>
+    <div id="scene" class="tab-panel">
+      <!--<div id="scene_unselect">
+        <p>フローから対象のシーンを選択してください。</p>
+      </div>-->
+      <div id="scene-select">
+        <div id="scene-editor"></div>
+        <div id="scene-attr">
+          <form>
+            <fieldset>
+              <legend>基本</legend>
+              <label>id：
+                <span id="id"></span>&nbsp;&nbsp;
+              <label>サマリー：
+                <input id="summary" type="text" size="30" /></label>
+              <label>End：
+                <input id="end" type="text" size="10" /></label>
+              <p></p>
+              <label>BGM：
+                  <input id="bgm" type="text" size="15" /></label>
+              <label>効果音：
+                <input id="se" type="text" size="15" /></label>
+              </fieldset>
+            <fieldset>
+              <legend>取得／登場</legend>
+              <label>アイテム：
+                <input id="items" type="text" size="15" /></label>
+              <label>フラグ：
+                <input id="flags" type="text" size="15" /></label>
+              <label>敵：
+                <input id="enemies" type="text" size="15" /></label>
+            </fieldset>
+            <fieldset>
+              <legend>ステータス</legend>
+              <label>HP：
+                <input id="hp" type="text" size="15" /></label>
+              <label>MP：
+                <input id="mp" type="text" size="15" /></label>
+              <label>STARS：
+                <input id="stars" type="text" size="15" /></label>
+              <p></p>
+              <label>FREE1：
+                <input id="free1" type="text" size="15" /></label>
+              <label>FREE2：
+                <input id="free2" type="text" size="15" /></label>
+              <label>FREE3：
+                <input id="free3" type="text" size="15" /></label>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="edge">
+      <p>エッジを編集します。</p>
+    </div>
+  </div>
+</div>
+<div id="footer">
+    <address>Developed by SORCERIAN Text Team.</address>
+</div>
+
+<!--ダイアログ-->
+<div id="scene-dialog" title="Add scene">
+  <div>
+    <label>id：<br />
+      <input id="node-id" type="text" size="5" /></label>
+  </div>
+  <div>
+    <label>サマリー：<br />
+      <input id="node-summary" type="text" size="20" /></label>
+  </div>
+  <div>
+    <input id="node-add" type="button" value="追加" />
+    <input id="node-cancel" type="button" value="キャンセル" />
+  </div>
+</div>
+
+<!--jQuery & jQuery UI-->
+<script src="https://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+<!--vis.js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+<!--SlickGrid-->
+<script src="slick-lib/lib/jquery.event.drag-2.3.0.js"></script>
+<script src="slick-lib/slick.core.js"></script>
+<script src="slick-lib/plugins/slick.cellrangedecorator.js"></script>
+<script src="slick-lib/plugins/slick.cellrangeselector.js"></script>
+<script src="slick-lib/plugins/slick.cellselectionmodel.js"></script>
+<script src="slick-lib/slick.formatters.js"></script>
+<script src="slick-lib/slick.editors.js"></script>
+<script src="slick-lib/slick.grid.js"></script>
+<!--Ace Editor-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.3.0/ace.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.3.0/ext-language_tools.js"></script>
+<!--Other-->
+<script src="lib/jquery.splitter.js"></script>
+<!--Playground-->
+<script src="lib/playground.js"></script>
+</body>
+</html>
