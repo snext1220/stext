@@ -609,6 +609,9 @@ $(function () {
   $('#edit-area').tabs();
   Util.disableTab();
 
+  // タグ入力ボックス（保留）
+  //$('.tagsin').tagsInput();
+
   // レイアウトの区切り線
   /*
   $('#main').split({
