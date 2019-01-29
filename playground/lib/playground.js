@@ -1,6 +1,6 @@
 $(function () {
   // フローチャート
-  let network;
+  let network = null;
   // 共通データ
   let Common = {
     // ストレージの保存名（ロード時）
@@ -48,6 +48,7 @@ $(function () {
     },
     // 指定範囲でフローチャートを生成
     createNetwork: function() {
+      Util.destroyNetwork();
       let from = $('#range-from').val();
       let to = $('#range-to').val();
       if (!from) { from = 0; }
@@ -75,9 +76,17 @@ $(function () {
                 data.id = $('#node-id').val();
                 data.summary = $('#node-summary').val();
                 data.label = data.id + ':\n' + data.summary;
-                $('#scene-dialog').dialog('close');
-                scenario.scenes.push(data);
-                callback(data);
+                // 重複チェック
+                if (scenario.scenes.some(function(value) { return value.id === data.id })) {
+                  window.alert('重複したidは登録できません。');
+                  callback(null);
+                  return;
+                } else {
+                  $('#scene-dialog').dialog('close');
+                  // データの追加
+                  scenario.scenes.push(data);
+                  callback(data);
+                }
               }.bind(this, data, callback);
               document.getElementById('node-cancel').onclick = function() {
                 $('#scene-dialog').dialog('close');
@@ -92,6 +101,7 @@ $(function () {
               let edge = Util.getEdgeById(data.id);
               edge.from = data.from;
               edge.to = data.to;
+              Util.disableTab();
               callback(data);
             },
             deleteNode: function(data, callback) {
@@ -167,6 +177,13 @@ $(function () {
           $('#edge #condition').val(edge.condition);
         }
       });
+    },
+    // ネットワークを初期化
+    destroyNetwork: function() {
+      if (network !== null) {
+        network.destroy();
+        network = null;
+      }
     },
     // 指定されたid値のシーン移動ボタンを生成
     // return：生成された移動ボタン（改行区切り文字列）
@@ -406,7 +423,8 @@ $(function () {
       my: 'left top',
     },
     open: function() {
-      // 初期化
+      $('#node-id').val('');
+      $('#node-summary').val('');
     }
   });
 
@@ -437,7 +455,7 @@ $(function () {
   });
 
   // ［シーン］タブ内での更新
-  $('#scene-select input').on('input', function(e) {
+  $('#scene-select input, #scene-select select').on('change', function(e) {
     let id = $('#scene-select #id').text();
     if (id) {
       let scene = Util.getSceneById(id);
@@ -468,7 +486,7 @@ $(function () {
   let item_cols = [
     { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text },
     { id: 'name', name: '名前', field: 'name', width: 80, editor: Slick.Editors.Text },
-    { id: 'text', name: '説明', field: 'text', width: 200, editor: Slick.Editors.Text }
+    { id: 'text', name: '説明', field: 'text', width: 300, editor: Slick.Editors.Text }
   ];
 
   // アイテム一覧の描画
@@ -485,7 +503,7 @@ $(function () {
   // フラグ一覧
   let flag_cols = [
     { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text },
-    { id: 'text', name: '説明', field: 'text', width: 200, editor: Slick.Editors.Text }
+    { id: 'text', name: '説明', field: 'text', width: 300, editor: Slick.Editors.Text }
   ];
 
   // フラグ一覧の描画
@@ -503,10 +521,15 @@ $(function () {
   let enemy_cols = [
     { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text },
     { id: 'name', name: '名前', field: 'name', width: 80, editor: Slick.Editors.Text },
-    { id: 'element', name: '属性', field: 'element', editor: Slick.Editors.Text },
+    { id: 'element', name: '属性', field: 'element', editor: SelectEditor,
+      options: [ '', 'earth', 'water', 'fire', 'wind', 'spirit' ] },
+    { id: 'attack', name: '攻撃', field: 'attack', width: 80, editor: SelectEditor,
+      options: [ '', 'physics', 'magic', 'both', 'free1', 'free2', 'free3',
+        'poison', 'frozen', 'stone', 'curse', 'forget' ] },
     { id: 'func', name: 'ダメージ式', field: 'func', width: 80,
       editor: Slick.Editors.LongText },
-    { id: 'drop', name: 'ドロップ', field: 'drop', width: 80, editor: Slick.Editors.Text },
+    { id: 'drop', name: 'ドロップ', field: 'drop', width: 80, editor: AutoCompleteEditor,
+      dataSource: [ 'mon/', 'tue/', 'wed/', 'thu/', 'fri/', 'sat/', 'sun/', 'free1/', 'free2/', 'free3', ] },
     { id: 'text', name: '説明', field: 'text', width: 180, editor: Slick.Editors.LongText }
   ];
 
@@ -525,7 +548,8 @@ $(function () {
   let result_cols = [
     { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text },
     { id: 'name', name: '名前', field: 'name', width: 100, editor: Slick.Editors.Text },
-    { id: 'level', name: 'Lv.', field: 'level', width: 30, editor: Slick.Editors.Integer },
+    { id: 'level', name: 'Lv.', field: 'level', width: 30, editor: SelectEditor,
+      options: [ '1', '2', '3', '4', '5' ] },
     { id: 'text', name: '説明', field: 'text', width: 150, editor: Slick.Editors.Text }
   ];
 
@@ -543,9 +567,10 @@ $(function () {
   // ライセンス一覧
   let work_cols = [
     { id: 'name', name: '名前', field: 'name', width: 100, editor: Slick.Editors.Text },
-    { id: 'category', name: '分類', field: 'category', width: 50, editor: Slick.Editors.Text },
+    { id: 'category', name: '分類', field: 'category', width: 50, editor: SelectEditor,
+      options: [ 'bgm', 'picture' ] },
     { id: 'creator', name: '作者', field: 'creator', width: 80, editor: Slick.Editors.Text },
-    { id: 'url', name: 'URL', field: 'url', width: 120, editor: Slick.Editors.Text }
+    { id: 'url', name: 'URL', field: 'url', width: 250, editor: Slick.Editors.Text }
   ];
 
   // ライセンス一覧の描画
@@ -679,6 +704,7 @@ $(function () {
     '.xml形式（STextの実行形式）を.json形式（Playgroundの内部形式）に変換することはできません。.json形式のファイルは保管しておくことをお勧めします。',
     'Playgroundでは、将来的に.html形式での出力も検討しています。条件分岐、音楽機能などは利用できなくなりますが、Kindle配信などしている人にはニーズがあります、か？？？',
     '.json形式（Playgroundの内部形式）のファイルは、Playground上部のファイル選択ボタンからインポート＆編集できます。',
+    'New Playgroundでは、個々のシーンをNode、リンクをEdgeと呼びます。',
     'フィルター機能を利用することで、フローチャートに表示するシーン範囲を限定し、大きなシナリオでも見やすく表示できます。',
     'New Playgroundは現在、プロトタイプ版です。本番シナリオの編集にはまだ利用しないようにしてください。',
     'New Playgroundは現在、プロトタイプ版です。ご利用に際しては、データのバックアップ／保存を小まめに行うようにしてください。'
