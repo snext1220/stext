@@ -19,6 +19,10 @@ label {
     color: #fff;
 }
 
+#control * {
+    vertical-align: top;
+}
+
 #main {
     width: 1150px;
     height: 550px;
@@ -41,7 +45,7 @@ label {
 
 #edit-area {
     float: right;
-    width: 540px;
+    width: 535px;
     height: 99%;
     border: 1px solid #000;
     background-color: #fff;
@@ -93,6 +97,11 @@ label {
     border-bottom-style: dotted;
     color: #000;
     cursor: pointer;
+}
+
+.cxt a {
+    color: #000;
+    text-decoration: none;
 }
 
 .cxt li.sep {

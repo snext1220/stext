@@ -1,11 +1,13 @@
 $(function () {
+  // フローチャート
+  let network;
   // 共通データ
   let Common = {
     // ストレージの保存名（ロード時）
     LOAD_NAME: 'pg2_load',
     // ストレージの保存名（実行時）、ウィンドウ名
     RUN_NAME: 'pg2_run'
-  }
+  };
 
   // 共通関数
   let Util = {
@@ -44,6 +46,128 @@ $(function () {
       }
       return false;
     },
+    // 指定範囲でフローチャートを生成
+    createNetwork: function() {
+      let from = $('#range-from').val();
+      let to = $('#range-to').val();
+      if (!from) { from = 0; }
+      if (!to) { from = 99999; }
+  
+      // フローチャートの生成
+      network = new vis.Network(
+        document.getElementById('flow-area'),
+        {
+          //nodes: new vis.DataSet(scenario.scenes),
+          nodes: new vis.DataSet(
+            scenario.scenes.filter(function(value){
+              return value.id >= from && value.id <= to;
+            })
+          ),
+          edges: new vis.DataSet(scenario.edges)
+        },
+        {
+          physics: false,
+          interaction:{hover:true},
+          manipulation: {
+            //enabled: true
+            addNode: function(data, callback) {
+              document.getElementById('node-add').onclick = function(data, callback) {
+                data.id = $('#node-id').val();
+                data.summary = $('#node-summary').val();
+                data.label = data.id + ':\n' + data.summary;
+                $('#scene-dialog').dialog('close');
+                scenario.scenes.push(data);
+                callback(data);
+              }.bind(this, data, callback);
+              document.getElementById('node-cancel').onclick = function() {
+                $('#scene-dialog').dialog('close');
+              };
+              $('#scene-dialog').dialog('open');
+            },
+            addEdge: function(data,callback) {
+              scenario.edges.push(data);
+              callback(data);
+            },
+            editEdge: function(data, callback) {
+              let edge = Util.getEdgeById(data.id);
+              edge.from = data.from;
+              edge.to = data.to;
+              callback(data);
+            },
+            deleteNode: function(data, callback) {
+              let node = Util.getSceneById(data.nodes[0]);
+              scenario.scenes = scenario.scenes.filter(function(value) {
+                return value.id !== node.id;
+              });
+              scenario.edges = scenario.edges.filter(function(value) {
+                return value.from !== node.id && value.to !== node.id;
+              });
+              Util.disableTab();
+              callback(data);
+            },
+            deleteEdge: function(data, callback) {
+              scenario.edges = scenario.edges.filter(function(value) {
+                return value.id === data.id;
+              });
+              Util.disableTab();
+              callback(data);
+            }
+          },
+          nodes: {
+            shape: 'box',
+            size: 20,
+            color: 'skyblue'
+          },
+          edges: {
+            arrows: 'to',
+            smooth: false
+          }
+        }
+      );
+  
+      // ノード選択時にフォームに反映
+      network.on('selectNode', function(e) {
+        let id = this.getNodeAt(e.pointer.DOM);
+        if (id !== undefined) {
+          Util.enableTab(6);
+          let scene = Util.getSceneById(id);
+          $('#scene-select #id').text(scene.id);
+          $('#scene-select #summary').val(scene.summary);
+          $('#scene-select #end').val(scene.end);
+          $('#scene-select #items').val(scene.items);
+          $('#scene-select #flags').val(scene.flags);
+          $('#scene-select #enemies').val(scene.enemies);
+          $('#scene-select #bgm').val(scene.bgm);
+          $('#scene-select #se').val(scene.se);
+          $('#scene-select #hp').val(scene.hp);
+          $('#scene-select #mp').val(scene.mp);
+          $('#scene-select #stars').val(scene.stars);
+          $('#scene-select #free1').val(scene.free1);
+          $('#scene-select #free1').val(scene.free2);
+          $('#scene-select #free3').val(scene.free3);
+          if (scene.text) {
+            editor.setValue(scene.text);
+          } else {
+            editor.setValue('');
+          }
+          editor.focus();
+        }
+      });
+  
+      // エッジ選択時にフォームに反映
+      network.on('selectEdge', function(e) {
+        let id = this.getEdgeAt(e.pointer.DOM);
+        if (id !== undefined) {
+          Util.enableTab(7);
+          let edge = Util.getEdgeById(id);
+          $('#edge #id').val(edge.id);
+          $('#edge #from').text(edge.from);
+          $('#edge #to').text(edge.to);
+          $('#edge #label').val(edge.label);
+          $('#edge #condition').val(edge.condition);
+        }
+      });
+    },
     // 指定されたid値のシーン移動ボタンを生成
     // return：生成された移動ボタン（改行区切り文字列）
     createMoveButton: function(id) {
@@ -58,6 +182,18 @@ $(function () {
         }
       });
       return result.join('\n');
+    },
+    // 指定されたidのタブを有効化＆フォーカス
+    enableTab: function(id) {
+      $('#edit-area')
+        .tabs('enable', id)
+        .tabs('option', 'active', id);
+    },
+    // ［シーン］［リンク］タブを無効化
+    disableTab: function() {
+      $('#edit-area')
+        .tabs('option', 'active', 0)
+        .tabs('option', 'disabled', [ 6, 7 ]);
     },
     // 現在のシナリオデータからscenario.xmlを生成
     // 戻り値：XML文字列
@@ -230,6 +366,9 @@ $(function () {
     };
   }
 
+  // フローチャートの初期化
+  Util.createNetwork();
+
   // 基本情報を初期化
   $('#title').val(scenario.title);
   $('#author').val(scenario.author);
@@ -254,10 +393,10 @@ $(function () {
     }
   });
 
-  // ダイアログを初期化
+  // ダイアログを初期化（シーン生成）
   $('#scene-dialog').dialog({
     autoOpen: false,
-    width: 200,
+    width: 320,
     show: 500,
     hide: 500,
     modal: true,
@@ -271,98 +410,29 @@ $(function () {
     }
   });
 
-  // フローチャートの生成
-  let network = new vis.Network(
-    document.getElementById('flow-area'),
-    {
-      nodes: new vis.DataSet(scenario.scenes),
-      edges: new vis.DataSet(scenario.edges)
+  // ダイアログを初期化（範囲指定）
+  $('#range-dialog').dialog({
+    autoOpen: false,
+    width: 400,
+    show: 500,
+    hide: 500,
+    modal: true,
+    position: {
+      of : '#flow-area',
+      at: 'left top',
+      my: 'left top',
     },
-    {
-      physics: false,
-      interaction:{hover:true},
-      manipulation: {
-        //enabled: true
-        addNode: function(data, callback) {
-          document.getElementById('node-add').onclick = function(data, callback) {
-            data.id = $('#node-id').val();
-            data.summary = $('#node-summary').val();
-            data.label = data.id + ':\n' + data.summary;
-            $('#scene-dialog').dialog('close');
-            scenario.scenes.push(data);
-            callback(data);
-          }.bind(this, data, callback);
-          document.getElementById('node-cancel').onclick = function() {
-            $('#scene-dialog').dialog('close');
-          };
-          $('#scene-dialog').dialog('open');
-        },
-        addEdge: function(data,callback) {
-          scenario.edges.push(data);
-          callback(data);
-        },
-        editEdge: false,
-        deleteNode: function(data, callback) {
-          console.log(data);
-          // 未実装
-        },
-        deleteEdge: function(data, callback) {
-          console.log(data);
-          // 未実装
-        }
+    buttons: {
+      '絞り込み': function() {
+        Util.createNetwork();
+        $(this).dialog('close');
       },
-      nodes: {
-        shape: 'box',
-        size: 20,
-        color: 'skyblue'
-      },
-      edges: {
-        arrows: 'to',
-        smooth: false
+      'キャンセル': function() {
+        $(this).dialog('close');
       }
-    }
-  );
-
-  // ノード選択時にフォームに反映
-  network.on('selectNode', function(e) {
-    let id = this.getNodeAt(e.pointer.DOM);
-    if (id !== undefined) {
-      $('#edit-area').tabs('option', 'active', 6);
-      let scene = Util.getSceneById(id);
-      $('#scene-select #id').text(scene.id);
-      $('#scene-select #summary').val(scene.summary);
-      $('#scene-select #end').val(scene.end);
-      $('#scene-select #items').val(scene.items);
-      $('#scene-select #flags').val(scene.flags);
-      $('#scene-select #enemies').val(scene.enemies);
-      $('#scene-select #bgm').val(scene.bgm);
-      $('#scene-select #se').val(scene.se);
-      $('#scene-select #hp').val(scene.hp);
-      $('#scene-select #mp').val(scene.mp);
-      $('#scene-select #stars').val(scene.stars);
-      $('#scene-select #free1').val(scene.free1);
-      $('#scene-select #free1').val(scene.free2);
-      $('#scene-select #free3').val(scene.free3);
-      if (scene.text) {
-        editor.setValue(scene.text);
-      } else {
-        editor.setValue('');
-      }
-      editor.focus();
-    }
-  });
-
-  // エッジ選択時にフォームに反映
-  network.on('selectEdge', function(e) {
-    let id = this.getEdgeAt(e.pointer.DOM);
-    if (id !== undefined) {
-      $('#edit-area').tabs('option', 'active', 7);
-      let edge = Util.getEdgeById(id);
-      $('#edge #id').val(edge.id);
-      $('#edge #from').text(edge.from);
-      $('#edge #to').text(edge.to);
-      $('#edge #label').val(edge.label);
-      $('#edge #condition').val(edge.condition);
+    },
+    open: function() {
+      // 初期化
     }
   });
 
@@ -512,6 +582,7 @@ $(function () {
   
   // タブの生成
   $('#edit-area').tabs();
+  Util.disableTab();
 
   // レイアウトの区切り線
   /*
@@ -559,7 +630,7 @@ $(function () {
   // ［ダウンロード］ボタン（コンテキストメニュー）
   $('#dl-menu li').click(function(e) {
     if ($(this).data('command') === 'json') {
-      Util.download(JSON.stringify(scenario), 'stext.json');
+      Util.download(vkbeautify.json(JSON.stringify(scenario)), 'stext.json');
     } else {
       Util.download(Util.createXml(), 'scenario.xml');
     }
@@ -568,7 +639,17 @@ $(function () {
 
   // ［ヘルプ］ボタン
   $('#ctrl_help').click(function(e) {
-    window.alert('未実装です。現状相当を提供予定です。');
+    $('#help-menu').css({
+      display: 'block',
+      top: e.pageY,
+      left: e.pageX
+    });
+  });
+
+  // ［フィルター］ボタン
+  $('#ctrl_filter').click(function(e) {
+    console.log('TEST');
+    $('#range-dialog').dialog('open');
   });
 
   // ファイルをPlaygroundにロード
@@ -583,9 +664,29 @@ $(function () {
   });
 
   // コンテキストメニューの削除
-  $(':not(#dl-menu)').click(function(e) {
+  $(':not(#dl-menu,#help-menu)').click(function(e) {
     if (e.target.id !== 'ctrl_dl') {
       $('#dl-menu').css('display', 'none');
     }
+    if (e.target.id !== 'ctrl_help') {
+      $('#help-menu').css('display', 'none');
+    }
   });
+
+  // TIPS表示
+  let tips = [
+    'Playgroundのデータは、.json形式（Playgroundの内部形式）、または、.xml形式（STextの実行形式）のいずれかで保存できます。',
+    '.xml形式（STextの実行形式）を.json形式（Playgroundの内部形式）に変換することはできません。.json形式のファイルは保管しておくことをお勧めします。',
+    'Playgroundでは、将来的に.html形式での出力も検討しています。条件分岐、音楽機能などは利用できなくなりますが、Kindle配信などしている人にはニーズがあります、か？？？',
+    '.json形式（Playgroundの内部形式）のファイルは、Playground上部のファイル選択ボタンからインポート＆編集できます。',
+    'フィルター機能を利用することで、フローチャートに表示するシーン範囲を限定し、大きなシナリオでも見やすく表示できます。',
+    'New Playgroundは現在、プロトタイプ版です。本番シナリオの編集にはまだ利用しないようにしてください。',
+    'New Playgroundは現在、プロトタイプ版です。ご利用に際しては、データのバックアップ／保存を小まめに行うようにしてください。'
+  ];
+  toastr.options.closeButton = true;
+  toastr.options.positionClass = 'toast-bottom-full-width';
+  toastr.options.showDuration = 300;
+  toastr.options.hideDuration = 1000;
+  toastr.options.timeOut = 7000;
+  toastr.info(tips[Math.floor(Math.random() * tips.length)], 'TIPS');
 });
