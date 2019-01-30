@@ -271,6 +271,7 @@ $(function () {
   
       // エッジ選択時にフォームに反映
       network.on('selectEdge', function(e) {
+        if (e.nodes.length !== 0) { return; }
         let id = this.getEdgeAt(e.pointer.DOM);
         if (id !== undefined) {
           Util.enableTab(7);
@@ -429,7 +430,6 @@ $(function () {
       });
       var link = /\[(.+?)\]\((\d{1,})(?: "(.+?)")?\)/gi;
       $('scene', s_data).each(function(i, elem) {
-        result.scenes.push(Util.elementToObj($(elem), true));
         let body = $(elem).text();
         while((link_result = link.exec(body)) !== null) {
           result.edges.push({
@@ -438,12 +438,49 @@ $(function () {
             label: link_result[1] ? link_result[1] : ''
           });
         }
+        result.scenes.push(
+          Util.elementToObj(
+            $(elem).text(body.replace(link, '').trim()), true));
       });
-
-console.log(result);
       return JSON.stringify(result);
-
     },
+
+    // アンカータグの生成（createHtml用）
+    createLinkTag: function(id) {
+      let result = [];
+      scenario.edges.forEach(function(value) {
+        if (value.from === id) {
+          result.push(`<a href="#${value.to}">［${value.label}］</a>`);
+        }
+      });
+      return result.join('<br />');
+    },
+
+    // 現在のシナリオデータをHTML形式に変換
+    createHtml() {
+      let html = $('<html></html>')
+        .append(
+          $('<head></head>')
+            .append(
+              $('<meta></meta>').attr('charset', 'UTF-8'))
+            .append(
+              $('<title></title>').text(scenario.title))
+        );
+      let body = $('<body></body>');
+      scenario.scenes.forEach(function(value) {
+        $('<div></div>')
+          .attr('id', value.id)
+          .html('<h3>【' + value.id + '】</h3>' +
+            value.text.replace(/\n/gi, '<br />')
+            + '<br />' + Util.createLinkTag(value.id)
+            + '<hr />')
+          .appendTo(body);
+      });
+      html.append(body);
+      return '<!DOCTYPE html>' +
+        html.get(0).outerHTML;
+    },
+
     // データをダウンロード
     // @params content：データ本体、name：ファイル名
     download: function(content, name) {
@@ -547,6 +584,10 @@ console.log(result);
     if (id) {
       let scene = Util.getSceneById(id);
       scene[e.target.id] = $(this).val();
+      if (e.target.id === 'summary') {
+        scene.label = scene.id + ':\n' + scene.summary;
+        Util.createNetwork();
+      }
     }
   });
 
@@ -557,7 +598,9 @@ console.log(result);
       let edge = Util.getEdgeById(id);
       edge[e.target.id] = $(this).val();
     }
-    network.redraw();
+    if (e.target.id === 'label') {
+      Util.createNetwork();
+    }
   });
 
   // SlickGridの共通オプション
@@ -787,11 +830,26 @@ console.log(result);
 
   // ［ダウンロード］ボタン（コンテキストメニュー）
   $('#dl-menu li').click(function(e) {
+    switch($(this).data('command')) {
+      case 'json':
+        Util.download(vkbeautify.json(JSON.stringify(scenario)), 'stext.json');  
+        break;
+      case 'xml':
+        Util.download(Util.createXml(), 'scenario.xml');
+        break;
+      case 'html':
+        Util.download(Util.createHtml(), 'scenario.html');
+        break;
+      default:
+        console.log('Unknown Error!!');
+    }
+    /*
     if ($(this).data('command') === 'json') {
       Util.download(vkbeautify.json(JSON.stringify(scenario)), 'stext.json');
     } else {
       Util.download(Util.createXml(), 'scenario.xml');
     }
+    */
     $('#dl-menu').css('display', 'none');
   });
 
@@ -840,7 +898,7 @@ console.log(result);
   // TIPS表示
   let tips = [
     'Playgroundのデータは、.json形式（Playgroundの内部形式）、または、.xml形式（STextの実行形式）のいずれかで保存できます。',
-    '.xml形式（STextの実行形式）を.json形式（Playgroundの内部形式）に変換することはできません。.json形式のファイルは保管しておくことをお勧めします。',
+    'scenario.xml（STextの実行形式）を.json形式（Playgroundの内部形式）に変換することも可能です。既存のシナリオをNew Playgroundにインポートして、どんどん動作確認してみましょう。',
     'Playgroundでは、将来的に.html形式での出力も検討しています。条件分岐、音楽機能などは利用できなくなりますが、Kindle配信などしている人にはニーズがあります、か？？？',
     '.json形式（Playgroundの内部形式）のファイルは、Playground上部のファイル選択ボタンからインポート＆編集できます。',
     'New Playgroundでは、個々のシーンをNode、リンクをEdgeと呼びます。',
