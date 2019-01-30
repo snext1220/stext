@@ -6,7 +6,112 @@ $(function () {
     // ストレージの保存名（ロード時）
     LOAD_NAME: 'pg2_load',
     // ストレージの保存名（実行時）、ウィンドウ名
-    RUN_NAME: 'pg2_run'
+    RUN_NAME: 'pg2_run',
+    // 初期データ
+    INIT_DATA_EMPTY: {
+      title: '',
+      author: '',
+      init: {
+        constraint: {},
+        bgm: {},
+        label: {},
+        intro: {},
+      },
+      items: [],
+      flags: [],
+      enemies: [],
+      results: [],
+      licence: [],
+      scenes: [],
+      edges: []
+    },
+    // 初期データ
+    INIT_DATA: {
+      title: 'Untitled',
+      author: 'Unnamed',
+      init: {
+        constraint: {
+          race: '',
+          sex: '',
+          age: ''
+        },
+        bgm: {
+          main: '',
+          happy: '',
+          bad: ''
+        },
+        label: {
+          free1: '',
+          free2: '',
+          free3: ''
+        },
+        intro: {
+          description: ''
+        },
+      },
+
+      items: [
+        {
+          id: 'i01',
+          name: 'Item-01',
+          text: 'Item description...'
+        }
+      ],
+      flags: [
+        {
+          id: 'f01',
+          text: 'Flag description...'
+        }
+      ],
+      enemies: [
+        {
+          id: 'm01',
+          name: 'Enemy-01',
+          element: 'earth',
+          attack: 'physics',
+          func: 'L+R-STR',
+          drop: 'mon/2',
+          text: 'Enemy description...'
+        }
+      ],
+      results: [
+        {
+          id: 'r01',
+          name: 'Result-01',
+          level: 1,
+          text: 'Result description...'
+        }
+      ],
+      licence: [
+        {
+          name: 'Bgm-01',
+          category: 'bgm',
+          creator: 'SText',
+          url: 'https://example.com/'
+        }
+      ],
+      scenes: [
+        {
+          id: '0',
+          summary: 'プロローグ',
+          label: '0:\nプロローグ',
+          text: 'ここにプロローグを書きます。'
+        },
+        {
+          id: '1',
+          summary: '本文',
+          label: '1:\n本文',
+          text: 'ここからが本文です。'
+        }
+      ],
+      edges: [
+        {
+          from: '0',
+          to: '1',
+          label: '次へ'
+        }
+      ]
+    }
   };
 
   // 共通関数
@@ -277,6 +382,59 @@ $(function () {
       return vkbeautify.xml('<?xml version="1.0" encoding="utf-8"?>\n' +
         result.get(0).outerHTML);
     },
+    // 指定された要素（jQueryオブジェクト）をオブジェクトに変換
+    elementToObj: function(obj, isLabel) {
+      let result = {};
+      let t_obj = obj.get(0);
+      if (t_obj) {
+        let attrs = t_obj.attributes;
+        for (let attr of attrs) {
+          result[attr.name] = attr.value;
+        }
+        if (t_obj.textContent) {
+          result.text = t_obj.textContent;
+        }
+        if (isLabel) {
+          result.label = t_obj.id + ':\n' + t_obj.getAttribute('summary');
+        }
+      }
+      return result;
+    },
+
+    // 指定されたscenario.xml（文字列）からJSON形式を生成
+    createJson(data) {
+      let result = $.extend(true, {}, Common.INIT_DATA_EMPTY);
+      let parser = new DOMParser();
+      let s_data = parser.parseFromString(data, 'text/xml');
+      result.title = $('scenario', s_data).attr('title');
+      result.author = $('scenario', s_data).attr('author');
+      result.init.constraint = Util.elementToObj($('init > constraint', s_data));
+      result.init.bgm = Util.elementToObj($('init > bgm', s_data));
+      result.init.label = Util.elementToObj($('init > label', s_data));
+      result.init.into = Util.elementToObj($('init > label', s_data));
+      $('items > item', s_data).each(function(i, elem) {
+        result.items.push(Util.elementToObj($(elem)));
+      });
+      $('flags > flag', s_data).each(function(i, elem) {
+        result.flags.push(Util.elementToObj($(elem)));
+      });
+      $('enemies > enemy', s_data).each(function(i, elem) {
+        result.enemies.push(Util.elementToObj($(elem)));
+      });
+      $('results > result', s_data).each(function(i, elem) {
+        result.results.push(Util.elementToObj($(elem)));
+      });
+      $('licence > work', s_data).each(function(i, elem) {
+        result.licence.push(Util.elementToObj($(elem)));
+      });
+      $('scene', s_data).each(function(i, elem) {
+        result.scenes.push(Util.elementToObj($(elem), true));
+      });
+
+console.log(result);
+      return JSON.stringify(result);
+
+    },
     // データをダウンロード
     // @params content：データ本体、name：ファイル名
     download: function(content, name) {
@@ -292,95 +450,15 @@ $(function () {
   };
 
   // シナリオデータ
-  let scenario = JSON.parse(sessionStorage.getItem(Common.LOAD_NAME));
-  sessionStorage.removeItem(Common.LOAD_NAME);
+  let scenario;
+  try {
+    scenario = JSON.parse(sessionStorage.getItem(Common.LOAD_NAME));
+    sessionStorage.removeItem(Common.LOAD_NAME);
+  } catch(e) {
+    console.log(e);
+  }
   if (!scenario) {
-    scenario = {
-      title: 'Untitled',
-      author: 'Unnamed',
-      init: {
-        constraint: {
-          race: '',
-          sex: '',
-          age: ''
-        },
-        bgm: {
-          main: '',
-          happy: '',
-          bad: ''
-        },
-        label: {
-          free1: '',
-          free2: '',
-          free3: ''
-        },
-        intro: {
-          description: ''
-        },
-      },
-
-      items: [
-        {
-          id: 'i01',
-          name: 'Item-01',
-          text: 'Item description...'
-        }
-      ],
-      flags: [
-        {
-          id: 'f01',
-          text: 'Flag description...'
-        }
-      ],
-      enemies: [
-        {
-          id: 'm01',
-          name: 'Enemy-01',
-          element: 'earth',
-          attack: 'physics',
-          func: 'L+R-STR',
-          drop: 'mon/2',
-          text: 'Enemy description...'
-        }
-      ],
-      results: [
-        {
-          id: 'r01',
-          name: 'Result-01',
-          level: 1,
-          text: 'Result description...'
-        }
-      ],
-      licence: [
-        {
-          name: 'Bgm-01',
-          category: 'bgm',
-          creator: 'SText',
-          url: 'https://example.com/'
-        }
-      ],
-      scenes: [
-        {
-          id: '0',
-          summary: 'プロローグ',
-          label: '0:\nプロローグ',
-          text: 'ここにプロローグを書きます。'
-        },
-        {
-          id: '1',
-          summary: '本文',
-          label: '1:\n本文',
-          text: 'ここからが本文です。'
-        }
-      ],
-      edges: [
-        {
-          from: '0',
-          to: '1',
-          label: '次へ'
-        }
-      ]
-    };
+    scenario = $.extend(true, {}, Common.INIT_DATA);
   }
 
   // フローチャートの初期化
@@ -486,12 +564,21 @@ $(function () {
   let item_cols = [
     { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text },
     { id: 'name', name: '名前', field: 'name', width: 80, editor: Slick.Editors.Text },
-    { id: 'text', name: '説明', field: 'text', width: 300, editor: Slick.Editors.Text }
+    { id: 'text', name: '説明', field: 'text', width: 300, editor: Slick.Editors.Text },
+    {id: 'delete', name: '削除', field: '', width: 35,
+     formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
   ];
 
   // アイテム一覧の描画
   let items_grid = new Slick.Grid('#items_grid', scenario.items, item_cols, grid_opts);
   items_grid.setSelectionModel(new Slick.CellSelectionModel());
+  // 既存行の削除
+  items_grid.onClick.subscribe(function (e, args) {
+    if ($(e.target).hasClass('btn-delete')) {
+      scenario.items.splice(args.row, 1);
+      items_grid.invalidate();
+    }
+  });
   items_grid.onAddNewRow.subscribe(function (e, args) {
     var item = args.item;
     items_grid.invalidateRow(scenario.items.length);
@@ -503,12 +590,22 @@ $(function () {
   // フラグ一覧
   let flag_cols = [
     { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text },
-    { id: 'text', name: '説明', field: 'text', width: 300, editor: Slick.Editors.Text }
+    { id: 'text', name: '説明', field: 'text', width: 300, editor: Slick.Editors.Text },
+    {id: 'delete', name: '削除', field: '', width: 35,
+     formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
   ];
 
   // フラグ一覧の描画
   let flags_grid = new Slick.Grid('#flags_grid', scenario.flags, flag_cols, grid_opts);
   flags_grid.setSelectionModel(new Slick.CellSelectionModel());
+  // 既存行の削除
+  flags_grid.onClick.subscribe(function (e, args) {
+    if ($(e.target).hasClass('btn-delete')) {
+      scenario.flags.splice(args.row, 1);
+      flags_grid.invalidate();
+    }
+  });
+  // 新規行の追加
   flags_grid.onAddNewRow.subscribe(function (e, args) {
     var item = args.item;
     flags_grid.invalidateRow(scenario.flags.length);
@@ -530,12 +627,20 @@ $(function () {
       editor: Slick.Editors.LongText },
     { id: 'drop', name: 'ドロップ', field: 'drop', width: 80, editor: AutoCompleteEditor,
       dataSource: [ 'mon/', 'tue/', 'wed/', 'thu/', 'fri/', 'sat/', 'sun/', 'free1/', 'free2/', 'free3', ] },
-    { id: 'text', name: '説明', field: 'text', width: 180, editor: Slick.Editors.LongText }
+    { id: 'text', name: '説明', field: 'text', width: 180, editor: Slick.Editors.LongText },
+    {id: 'delete', name: '削除', field: '', width: 35,
+    formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
   ];
 
   // 敵一覧の描画
   let enemies_grid = new Slick.Grid('#enemies_grid', scenario.enemies, enemy_cols, grid_opts);
   enemies_grid.setSelectionModel(new Slick.CellSelectionModel());
+  enemies_grid.onClick.subscribe(function (e, args) {
+    if ($(e.target).hasClass('btn-delete')) {
+      scenario.enemies.splice(args.row, 1);
+      enemies_grid.invalidate();
+    }
+  });
   enemies_grid.onAddNewRow.subscribe(function (e, args) {
     var item = args.item;
     enemies_grid.invalidateRow(scenario.enemies.length);
@@ -550,12 +655,20 @@ $(function () {
     { id: 'name', name: '名前', field: 'name', width: 100, editor: Slick.Editors.Text },
     { id: 'level', name: 'Lv.', field: 'level', width: 30, editor: SelectEditor,
       options: [ '1', '2', '3', '4', '5' ] },
-    { id: 'text', name: '説明', field: 'text', width: 150, editor: Slick.Editors.Text }
+    { id: 'text', name: '説明', field: 'text', width: 150, editor: Slick.Editors.Text },
+    {id: 'delete', name: '削除', field: '', width: 35,
+    formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
   ];
 
   // 実績一覧の描画
   let results_grid = new Slick.Grid('#results_grid', scenario.results, result_cols, grid_opts);
   results_grid.setSelectionModel(new Slick.CellSelectionModel());
+  results_grid.onClick.subscribe(function (e, args) {
+    if ($(e.target).hasClass('btn-delete')) {
+      scenario.results.splice(args.row, 1);
+      results_grid.invalidate();
+    }
+  });
   results_grid.onAddNewRow.subscribe(function (e, args) {
     var item = args.item;
     results_grid.invalidateRow(scenario.results.length);
@@ -567,15 +680,23 @@ $(function () {
   // ライセンス一覧
   let work_cols = [
     { id: 'name', name: '名前', field: 'name', width: 100, editor: Slick.Editors.Text },
-    { id: 'category', name: '分類', field: 'category', width: 50, editor: SelectEditor,
+    { id: 'category', name: '分類', field: 'category', width: 70, editor: SelectEditor,
       options: [ 'bgm', 'picture' ] },
     { id: 'creator', name: '作者', field: 'creator', width: 80, editor: Slick.Editors.Text },
-    { id: 'url', name: 'URL', field: 'url', width: 250, editor: Slick.Editors.Text }
+    { id: 'url', name: 'URL', field: 'url', width: 230, editor: Slick.Editors.Text },
+    {id: 'delete', name: '削除', field: '', width: 35,
+    formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } } 
   ];
 
   // ライセンス一覧の描画
   let works_grid = new Slick.Grid('#works_grid', scenario.licence, work_cols, grid_opts);
   works_grid.setSelectionModel(new Slick.CellSelectionModel());
+  works_grid.onClick.subscribe(function (e, args) {
+    if ($(e.target).hasClass('btn-delete')) {
+      scenario.licence.splice(args.row, 1);
+      works_grid.invalidate();
+    }
+  });
   works_grid.onAddNewRow.subscribe(function (e, args) {
     var item = args.item;
     works_grid.invalidateRow(scenario.licence.length);
@@ -683,9 +804,15 @@ $(function () {
   // ファイルをPlaygroundにロード
   $('#ctrl_load').change(function(e) {
     let inputs = $(this).get(0).files;
+    let name = inputs[0].name;
     let reader = new FileReader();
     $(reader).on('load', function() {
-      sessionStorage.setItem(Common.LOAD_NAME, reader.result);
+      // .json or .xml
+      if (name.endsWith('.json')) {
+        sessionStorage.setItem(Common.LOAD_NAME, reader.result);
+      } else {
+        sessionStorage.setItem(Common.LOAD_NAME, Util.createJson(reader.result));
+      }
       location.reload();
     });
     reader.readAsText(inputs[0], 'UTF-8');
