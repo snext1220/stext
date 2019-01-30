@@ -427,8 +427,17 @@ $(function () {
       $('licence > work', s_data).each(function(i, elem) {
         result.licence.push(Util.elementToObj($(elem)));
       });
+      var link = /\[(.+?)\]\((\d{1,})(?: "(.+?)")?\)/gi;
       $('scene', s_data).each(function(i, elem) {
         result.scenes.push(Util.elementToObj($(elem), true));
+        let body = $(elem).text();
+        while((link_result = link.exec(body)) !== null) {
+          result.edges.push({
+            from: elem.id,
+            to: link_result[2],
+            label: link_result[1] ? link_result[1] : ''
+          });
+        }
       });
 
 console.log(result);
