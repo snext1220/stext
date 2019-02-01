@@ -32,6 +32,15 @@
     <img id="ctrl_help" src="../stext/common/pg_help.png" title="マニュアルを参照" />
   </span>
   ｜<input id="ctrl_filter" type="button" value="フィルター" />
+  ｜<select id="ctrl_template">
+    <option value="">テンプレートを選択</option>
+    <option value="empty.json">空のテンプレート</option>
+    <option value="sample5.json">シンプルサンプル</option>
+    <option value="sample20.json">20sceneサンプル</option>
+    <option value="dragon.json">ドラゴンモード例</option>
+    <option value="function.json">機能テスト</option>
+    <option value="storage">マイストレージ</option>
+    </select>
   ｜<input id="ctrl_load" type="file" accept=".json,.xml" />
 </div>
 <div id="main" class="clearfix">
@@ -66,14 +75,13 @@
               <input id="constraint-age" type="text" size="20" /></label>
         </fieldset>
         <fieldset>
-          <legend>BGM</legend>
+          <legend>BGM（<a href="https://soundcloud.com/venus-az/sets/sorcerian-text-original-sounds/s-2tzI5" target="help">標準BGMリスト</a>）</legend>
           <label>main：
             <input id="bgm-main" type="text" size="15" /></label>
           <label>happy：
             <input id="bgm-happy" type="text" size="15" /></label>
           <label>bad：
             <input id="bgm-bad" type="text" size="15" /></label>
-          <!--<p>※SText標準BGMは<a href="https://soundcloud.com/venus-az/sets/sorcerian-text-original-sounds/s-2tzI5" terget="help">こちらから確認</a>できます！</p>-->
         </fieldset>
         <fieldset>
           <legend>FREEラベル</legend>
@@ -130,7 +138,7 @@
                   <option value=""></option>
                   <option value="happy">happy</option>
                   <option value="bad">bad</option>
-                </select>
+                </select></label>
               <p></p>
               <label>アイテム：
                   <input id="items" type="text" class="tagsin" size="15" /></label>
@@ -196,6 +204,13 @@
         <label>正解文字列（テキスト入力のみ）：
           <input id="correct" type="text" size="10" /></label>
       </fieldset>
+      <p>
+        <ul>
+          <li>「標準」以外のリンクは、リンク先の数だけEdgeを設置します。</li>
+          <li>ランダムリンクのラベル／条件式はひとつだけが認識されます。</li>
+          <li>正解文字列は正解リンクに指定してください。</li>
+        </ul>
+      </p>
     </div>
   </div>
 </div>

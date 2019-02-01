@@ -3,9 +3,12 @@ $(function () {
   let network = null;
   // 共通データ
   let Common = {
-    // ストレージの保存名（ロード時）
+    HELP_URL: 'https://sorcerian.hateblo.jp/entry/2018/11/01/211745#',
+    // マイストレージの名前
+    MY_STORAGE: 'pg2_save',
+    // ストレージの一時保存名（ロード時）
     LOAD_NAME: 'pg2_load',
-    // ストレージの保存名（実行時）、ウィンドウ名
+    // ストレージの一時保存名（実行時）、ウィンドウ名
     RUN_NAME: 'pg2_run',
     // 初期データ
     INIT_DATA_EMPTY: {
@@ -665,6 +668,20 @@ $(function () {
     }
   });
 
+  // ダイナミックヘルプ（基本情報）
+  $('#basic label').dblclick(function(e) {
+    let id = $(this).find('input, select').attr('id').split('-')[1];
+    window.open(Common.HELP_URL + id, 'help');
+  });
+
+  // ダイナミックヘルプ（シーン情報）
+  $('#scene label').dblclick(function(e) {
+    let id = $(this).find('input, select').attr('id');
+    window.open(Common.HELP_URL + id, 'help');
+  });
+
+
+
   // ダイアログを初期化（シーン生成）
   $('#scene-dialog').dialog({
     autoOpen: false,
@@ -795,6 +812,9 @@ $(function () {
     scenario.flags.push(item);
     flags_grid.updateRowCount();
     flags_grid.render();
+  });
+  flags_grid.onHeaderClick.subscribe(function (e, args) {
+     window.open(Common.HELP_URL + 'flag');
   });
 
   // 敵一覧
@@ -947,7 +967,7 @@ $(function () {
   $('#ctrl_save').click(function(e) {
     window.alert('データをブラウザーに保存しました。');
     console.log(scenario);
-    localStorage.setItem('pg2_save', JSON.stringify(scenario));
+    localStorage.setItem(Common.MY_STORAGE, JSON.stringify(scenario));
   });
 
   // ［ダウンロード］ボタン
@@ -999,6 +1019,29 @@ $(function () {
     $('#range-dialog').dialog('open');
   });
 
+  // テンプレート選択
+  $('#ctrl_template').change(function(e) {
+    var selected = $(this).val();
+    if (selected === 'storage') {
+      var save = localStorage.getItem(Common.MY_STORAGE);
+      if (save) {
+        sessionStorage.setItem(Common.LOAD_NAME, save);
+        location.reload();
+      } else {
+        window.alert('セーブデータは存在しません。');
+      }
+    } else {
+      if (selected) {
+        $.ajax('./template/' + selected, {
+          dataType: 'text'
+        }).done(function(data) {
+          sessionStorage.setItem(Common.LOAD_NAME, data);
+          location.reload();
+        });
+      }
+    }
+  });
+
   // ファイルをPlaygroundにロード
   $('#ctrl_load').change(function(e) {
     let inputs = $(this).get(0).files;
@@ -1033,6 +1076,7 @@ $(function () {
     'Playgroundでは、将来的に.html形式での出力も検討しています。条件分岐、音楽機能などは利用できなくなりますが、Kindle配信などしている人にはニーズがあります、か？？？',
     '.json形式（Playgroundの内部形式）のファイルは、Playground上部のファイル選択ボタンからインポート＆編集できます。',
     'New Playgroundでは、個々のシーンをNode、リンクをEdgeと呼びます。',
+    'フォーム上のラベルをダブルクリックすることで、該当する項目のヘルプページを表示できます。',
     'フィルター機能を利用することで、フローチャートに表示するシーン範囲を限定し、大きなシナリオでも見やすく表示できます。',
     'New Playgroundは現在、プロトタイプ版です。本番シナリオの編集にはまだ利用しないようにしてください。',
     'New Playgroundは現在、プロトタイプ版です。ご利用に際しては、データのバックアップ／保存を小まめに行うようにしてください。'

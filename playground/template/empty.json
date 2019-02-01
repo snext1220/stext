@@ -1,0 +1,86 @@
+{
+	"title": "Untitled",
+	"author": "Unnamed",
+	"init": {
+		"constraint": {
+			"race": "",
+			"sex": "",
+			"age": ""
+		},
+		"bgm": {
+			"main": "",
+			"happy": "",
+			"bad": ""
+		},
+		"label": {
+			"free1": "",
+			"free2": "",
+			"free3": ""
+		},
+		"intro": {
+			"description": ""
+		}
+	},
+	"items": [
+		{
+			"id": "i01",
+			"name": "Item-01",
+			"text": "Item description..."
+		}
+	],
+	"flags": [
+		{
+			"id": "f01",
+			"text": "Flag description..."
+		}
+	],
+	"enemies": [
+		{
+			"id": "m01",
+			"name": "Enemy-01",
+			"element": "earth",
+			"attack": "physics",
+			"func": "L+R-STR",
+			"drop": "mon/2",
+			"text": "Enemy description..."
+		}
+	],
+	"results": [
+		{
+			"id": "r01",
+			"name": "Result-01",
+			"level": 1,
+			"text": "Result description..."
+		}
+	],
+	"licence": [
+		{
+			"name": "Bgm-01",
+			"category": "bgm",
+			"creator": "SText",
+			"url": "https://example.com/"
+		}
+	],
+	"scenes": [
+		{
+			"id": "0",
+			"summary": "プロローグ",
+			"label": "0:\nプロローグ",
+			"text": "ここにプロローグを書きます。"
+		},
+		{
+			"id": "1",
+			"summary": "本文",
+			"label": "1:\n本文",
+			"text": "ここからが本文です。"
+		}
+	],
+	"edges": [
+		{
+			"from": "0",
+			"to": "1",
+			"label": "次へ",
+			"id": "e2ac4141-8fe6-4b60-b32f-e4db1b5b0482"
+		}
+	]
+}

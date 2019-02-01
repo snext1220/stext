@@ -1,0 +1,164 @@
+{
+	"title": "サンプルシナリオ",
+	"author": "Rio",
+	"init": {
+		"constraint": {
+			"race": "FIGHTER,WIZARD,DWARF,ELF",
+			"age": "YOUNG,ADULT,OLD"
+		},
+		"bgm": {
+			"main": "@field05",
+			"happy": "@field04",
+			"bad": "@town01"
+		},
+		"label": {},
+		"intro": {},
+		"into": {}
+	},
+	"items": [
+		{
+			"id": "i99",
+			"name": "アイテムA",
+			"text": "えぇアイテムですわ"
+		}
+	],
+	"flags": [
+		{
+			"id": "f99",
+			"text": "物語が進みました。"
+		}
+	],
+	"enemies": [
+		{
+			"id": "m99",
+			"name": "キングドラゴン",
+			"element": "spirit",
+			"attack": "physics",
+			"func": "4L-STR",
+			"drop": "sun/5",
+			"text": "ドラゴン・オヴ・ドラゴン"
+		},
+		{
+			"id": "m98",
+			"name": "毒矢",
+			"element": "earth",
+			"attack": "poison",
+			"func": "DEX>2L",
+			"drop": "free1/50/50Gold",
+			"text": "毒がたっぷりと塗られた矢"
+		}
+	],
+	"results": [
+		{
+			"id": "r01",
+			"name": "冒険のはじまり",
+			"level": "1",
+			"text": "\n  冒険を開始した"
+		}
+	],
+	"licence": [
+		{
+			"name": "メインテーマ",
+			"category": "bgm",
+			"creator": "Az",
+			"url": "//www.web-deli.com/sorcerian/next/stext.aspx"
+		},
+		{
+			"name": "挿絵A",
+			"category": "picture",
+			"creator": "Tokinoji",
+			"url": "//www.web-deli.com/sorcerian/next/gallery.aspx"
+		}
+	],
+	"scenes": [
+		{
+			"id": "0",
+			"text": "ここにプロローグを書きます。",
+			"label": "0:\nnull"
+		},
+		{
+			"id": "100",
+			"items": "i99",
+			"flags": "f99",
+			"enemies": "m99,m98",
+			"result": "r01",
+			"text": "- フラグf99が立ちます（=> ステータスから確認しましょう）\n- アイテムi99を入手します（=> ステータスから確認しましょう）\n- 敵としてm98、99が登場します（=> 下に情報が表示されます）\n- ダメージ／ドロップアイテムはボタンクリックで反映されます。",
+			"label": "100:\nnull"
+		},
+		{
+			"id": "200",
+			"end": "bad",
+			"text": "バッドエンディングです。\nセーブデータは初期化されます。\n\n(End)",
+			"label": "200:\nnull"
+		},
+		{
+			"id": "300",
+			"text": "以下のボタンは、それぞれ条件を満たした場合にだけ表示されます。\n\n魔法ボタンを有効にするには、あらかじめステータスから必要な星を追加します。",
+			"label": "300:\nnull"
+		},
+		{
+			"id": "400",
+			"end": "happy",
+			"text": "ハッピーエンディングです。\nセーブデータは初期化されます。\n\n(End)",
+			"label": "400:\nnull"
+		}
+	],
+	"edges": [
+		{
+			"from": "0",
+			"to": "100",
+			"label": "次へ",
+			"condition": "",
+			"order": 1,
+			"id": "543d7222-51b9-4dda-8350-18b7bd44a717"
+		},
+		{
+			"from": "100",
+			"to": "300",
+			"label": "敵に勝った",
+			"condition": "",
+			"order": 1,
+			"id": "f5801645-cb69-4494-89f0-5fcbf146cee5"
+		},
+		{
+			"from": "100",
+			"to": "200",
+			"label": "敵に負けた（バッドエンド）",
+			"condition": "",
+			"order": 2,
+			"id": "6f84ed1b-55c2-4682-9e31-9c648e722b98"
+		},
+		{
+			"from": "300",
+			"to": "400",
+			"label": "フラグf99がある場合に表示",
+			"condition": "f99",
+			"order": 1,
+			"id": "e316ea94-9fe1-47ef-8f41-a5cf4526cc9a"
+		},
+		{
+			"from": "300",
+			"to": "400",
+			"label": "フラグf88がない場合に表示",
+			"condition": "-f88",
+			"order": 2,
+			"id": "a163f7e7-0f59-4360-982e-d191493ce6b0"
+		},
+		{
+			"from": "300",
+			"to": "400",
+			"label": "アイテムi99がある場合に表示",
+			"condition": "i99",
+			"order": 3,
+			"id": "617ac680-95d9-4925-8eb6-81bfb4141831"
+		},
+		{
+			"from": "300",
+			"to": "400",
+			"label": "魔法HEALを使える場合に表示",
+			"condition": "mHEAL",
+			"order": 4,
+			"id": "03a117eb-50f1-4bb0-9875-2442835c31ac"
+		}
+	]
+}
