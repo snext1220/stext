@@ -279,8 +279,11 @@ $(function () {
           $('#edge #id').val(edge.id);
           $('#edge #from').text(edge.from);
           $('#edge #to').text(edge.to);
+          $('#edge #order').val(edge.order);
           $('#edge #label').val(edge.label);
           $('#edge #condition').val(edge.condition);
+          $('#edge #type').val(edge.type);
+          $('#edge #correct').val(edge.correct);
         }
       });
     },
@@ -291,19 +294,92 @@ $(function () {
         network = null;
       }
     },
+    // テキスト入力リンクの生成（For createMoveButton）
+    createQuestLink: function(group) {
+      let tmp_correct = '';
+      let tmp_to = [];
+      for (let value of group) {
+        if (value.correct) {
+          tmp_to[0] = value.to;
+          tmp_correct = value.correct;
+        } else {
+          tmp_to[1] = value.to;
+        }
+      }
+      return `[${tmp_correct},${tmp_to.join(',')}](Q)`;
+    },
+    // 自由移動リンクの生成（For createMoveButton）
+    createFreeLink: function(group) {
+      let tmp_to = [];
+      for (let value of group) {
+        tmp_to.push(value.to);
+      }
+      return `[${tmp_to.join(',')}](X)`;
+    },
+    // ランダムリンクの生成（For createMoveButton）
+    createRandomLink: function(group) {
+      let tmp_label = '';
+      let tmp_condition = '';
+      let tmp_to = [];
+      for (let value of group) {
+        if (value.condition) { tmp_condition = value.condition; }
+        if (value.label) { tmp_label = value.label; }
+        tmp_to.push(value.to);
+      }
+      if (tmp_condition) {
+        return `[${tmp_label}](${tmp_to.join(',')} "${tmp_condition}")`;
+      } else {
+        return `[${tmp_label}](${tmp_to.join(',')})`;
+      }
+    },
+    // 標準リンクの生成（For createMoveButton）
+    createStandardLink: function(group) {
+      let value = group[0];
+      if (value.condition) {
+        return `[${value.label}](${value.to} "${value.condition}")`;
+      } else {
+        return `[${value.label}](${value.to})`;
+      }
+    },
     // 指定されたid値のシーン移動ボタンを生成
     // return：生成された移動ボタン（改行区切り文字列）
     createMoveButton: function(id) {
+      // 最終的な移動ボタン
       let result = [];
-      scenario.edges.forEach(function(value) {
-        if (value.from === id) {
-          if (value.condition) {
-            result.push(`[${value.label}](${value.to} "${value.condition}")`);
-          } else {
-            result.push(`[${value.label}](${value.to})`);
-          }
+      // グループ化されたEdge（orderの同じものをまとめた二次元配列）
+      let output = [];
+      scenario.edges.filter(function(value) {
+        return value.from === id;
+      }).sort(function(v1, v2) {
+        if (!v1.order) { v1.order = 0; }
+        if (!v2.order) { v2.order = 0; }
+        return Number(v1.order) - Number(v2.order);
+      })
+      .forEach(function(value){
+        let last_out = output[output.length - 1];
+        if (last_out && last_out[0].order === value.order) {
+          last_out.push(value);
+        } else {
+          output.push([ value ]);
         }
       });
+
+      for (let group of output) {
+        switch(group[0].type) {
+          case 'Q':
+            result.push(Util.createQuestLink(group));
+            break;
+          case 'X':
+            result.push(Util.createFreeLink(group));
+            break;
+          case 'R':
+            result.push(Util.createRandomLink(group));
+            break;
+          default:
+            result.push(Util.createStandardLink(group));
+            break;
+        }
+      }
       return result.join('\n');
     },
     // 指定されたidのタブを有効化＆フォーカス
@@ -383,7 +459,7 @@ $(function () {
       return vkbeautify.xml('<?xml version="1.0" encoding="utf-8"?>\n' +
         result.get(0).outerHTML);
     },
-    // 指定された要素（jQueryオブジェクト）をオブジェクトに変換
+    // 指定された要素（jQueryオブジェクト）をオブジェクトに変換（For createJson）
     elementToObj: function(obj, isLabel) {
       let result = {};
       let t_obj = obj.get(0);
@@ -428,15 +504,70 @@ $(function () {
       $('licence > work', s_data).each(function(i, elem) {
         result.licence.push(Util.elementToObj($(elem)));
       });
-      var link = /\[(.+?)\]\((\d{1,})(?: "(.+?)")?\)/gi;
+      var link = /\[(.+?)\]\(([\dQX,]{1,})(?: "(.+?)")?\)/gi;
       $('scene', s_data).each(function(i, elem) {
         let body = $(elem).text();
+        let order = 0;
         while((link_result = link.exec(body)) !== null) {
-          result.edges.push({
-            from: elem.id,
-            to: link_result[2],
-            label: link_result[1] ? link_result[1] : ''
-          });
+          order++;
+          let tmp_to = link_result[2];
+          let tmp_condition = link_result[3] ? link_result[3] : '';
+          let tmp_label = link_result[1];
+          switch(tmp_to) {
+            case 'Q':
+              tmp_label = tmp_label.split(',');
+              result.edges.push({
+                from: elem.id,
+                to: tmp_label[1],
+                label: '',
+                type: 'Q',
+                correct: tmp_label[0],
+                order: order
+              });
+              result.edges.push({
+                from: elem.id,
+                to: tmp_label[2],
+                label: '',
+                type: 'Q',
+                order: order
+              });
+              break;
+            case 'X':
+              tmp_label = tmp_label.split(',');
+              for (let tmp of tmp_label) {
+                result.edges.push({
+                  from: elem.id,
+                  to: tmp,
+                  label: '',
+                  type: 'X',
+                  order: order
+                });
+              }
+              break;
+            default:
+              if (tmp_to.indexOf(',') === -1) {
+                result.edges.push({
+                  from: elem.id,
+                  to: tmp_to,
+                  label: tmp_label,
+                  condition: tmp_condition,
+                  order: order
+                });
+              } else {
+                tmp_to = tmp_to.split(',');
+                for (let tmp of tmp_to) {
+                  result.edges.push({
+                    from: elem.id,
+                    to: tmp,
+                    label: tmp_label,
+                    type: 'R',
+                    condition: tmp_condition,
+                    order: order
+                  });
+                }
+              }
+              break;
+          }
         }
         result.scenes.push(
           Util.elementToObj(
@@ -592,7 +723,7 @@ $(function () {
   });
 
   // ［リンク］タブ内での更新
-  $('#edge input').on('input', function(e) {
+  $('#edge input, #edge select').on('input', function(e) {
     let id = $('#edge #id').val();
     if (id) {
       let edge = Util.getEdgeById(id);

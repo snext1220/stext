@@ -52,14 +52,14 @@
         <fieldset>
           <legend>基本情報</legend>
           <label>タイトル：
-            <input id="title" type="text" size="15" /></label>
+            <input id="title" type="text" size="25" /></label>
           <label>作者：
             <input id="author" type="text" size="15" /></label>
         </fieldset>
         <fieldset>
           <legend>キャラ制約</legend>
             <label>種族：
-              <input id="constraint-race" type="text" size="25" /></label>
+              <input id="constraint-race" type="text" size="28" /></label>
             <label>性別：
               <input id="constraint-sex" type="text" size="15" /></label>
             <label>年齢：
@@ -167,7 +167,7 @@
       </div>
     </div>
     <div id="edge">
-      <p>エッジを編集します。</p>
+      <p>リンク（Edge）を編集します。</p>
       <input id="id" type="hidden" />
       <fieldset>
         <legend>基本</legend>
@@ -175,17 +175,32 @@
           <span id="from"></span>&nbsp;～&nbsp;</label>
         <label>to：
           <span id="to"></span></label>
-        <p></p>
+        <label>表示順序：
+          <input id="order" type="text" size="3" /></label>  
+          <p></p>
         <label>キャプション：
-          <input id="label" type="text" size="20" /></label>
+          <input id="label" type="text" size="30" /></label>
         <label>条件式：
           <input id="condition" type="text" size="25" /></label>
+      </fieldset>
+      <fieldset>
+        <legend>特殊</legend>
+        <label>種別：
+          <select id="type">
+            <option value="">標準</option>
+            <option value="R">ランダム</option>
+            <option value="X">自由移動</option>
+            <option value="Q">テキスト入力</option>
+          </select>
+        </label>
+        <label>正解文字列（テキスト入力のみ）：
+          <input id="correct" type="text" size="10" /></label>
       </fieldset>
     </div>
   </div>
 </div>
 <div id="footer">
-  <address>Developed by SORCERIAN Text Team.</address>
+  <address>Developed by SORCERIAN Text Team. 2017-</address>
 </div>
 
 <!--ダイアログ（シーン）-->
