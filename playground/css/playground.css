@@ -51,7 +51,6 @@ label {
     background-color: #fff;
 }
 
-
 .tab-panel {
     height: 150px;
     border: 1px solid #f00;
@@ -62,11 +61,17 @@ label {
     height: 400px;
 }
 
+@font-face {
+    font-family: 'empty';
+    src: url('empty.woff') format('woff');
+}
+
 #scene-editor {
     width: 100%;
     height: 230px;
     margin-bottom: 15px;
     border: 1px solid #000;
+    font-family: empty !important;
 }
 
 #footer {
