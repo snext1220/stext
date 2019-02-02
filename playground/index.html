@@ -95,7 +95,7 @@
         <fieldset>
           <legend>Twitter</legend>
             <label>紹介文：
-              <input id="intro-description" type="text" size="85" /></label>
+              <input id="intro-description" type="text" size="70" /></label>
         </fieldset>
       </form>
     </div>
@@ -250,6 +250,24 @@
   </p>
   -->
 </div>
+
+<!--コンテキストメニュー（タグ追加）-->
+<ul id="tag-menu" class="cxt">
+    <li id="tag-red" data-command="red">%red%</li>
+    <li id="tag-blue" data-command="blue">%blue%</li>
+    <li id="tag-white" data-command="white" class="sep">%white%</li>
+    <li id="tag-if" data-command="if">${if}</li>
+    <li id="tag-input" data-command="*input">%red%</li>
+    <li id="tag-ruby" data-command="*ruby" class="sep">%red%</li>
+    <li id="tag-title" data-command="*title">${title}</li>
+    <li id="tag-race" data-command="*race">${race}</li>
+    <li id="tag-sex" data-command="*sex">${sex}</li>
+    <li id="tag-state" data-command="*state">${state}</li>
+    <li id="tag-age" data-command="*age">${age}</li>
+    <li id="tag-random" data-command="*random">${random}</li>
+    <li id="tag-msg" data-command="*msg" class="sep">${msg}</li>
+    <li id="tag-tweet" data-command="tweet">${tweet}</li>
+  </ul>
 
 <!--コンテキストメニュー（ダウンロード）-->
 <ul id="dl-menu" class="cxt">

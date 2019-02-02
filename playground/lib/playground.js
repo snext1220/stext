@@ -960,7 +960,39 @@ $(function () {
 
   // ［タグ追加］ボタン
   $('#ctrl_tag').click(function(e) {
-    window.alert('未実装です。従来のPlaygroundからMarkdown修飾だけを残したものを提供予定です。');
+    $('#tag-menu').css({
+      display: 'block',
+      top: e.pageY,
+      left: e.pageX
+    });
+  });
+
+  // ［タグ追加］ボタン（コンテキストメニュー）
+  $('#tag-menu li').click(function(e) {
+    var command = {
+      'red': '%red%$0%/%',
+      'blue': '%blue%$0%/%',
+      'white': '%white%$0%/%',
+      '*ruby': '${text|ruby}',
+      'if': '${if condition}$0${/if}',
+      '*input': '${input?0}',
+      '*title': '${title}',
+      '*race': '${race?FIG:WIZ:DWA:ELF}',
+      '*sex': '${sex?M:F}',
+      '*state': '${state?NOR:POI:FRO:STO:FOR}',
+      '*age': '${age?Y:A:O}',
+      '*random': '${rand?min:max}',
+      '*msg': '${msg?str1:str2:...}',
+      'tweet': '${tweet}%0%${/tweet}',
+    };
+    let comm = command[$(this).data('command')];
+    if (comm.startsWith('*')) {
+      editor.insert(comm);
+    } else {
+      editor.insert(comm.replace('$0', editor.getCopyText()));
+    }
+    editor.focus();
+    $('#tag-menu').css('display', 'none');
   });
 
   // ［セーブ］ボタン
@@ -1060,12 +1092,15 @@ $(function () {
   });
 
   // コンテキストメニューの削除
-  $(':not(#dl-menu,#help-menu)').click(function(e) {
+  $(':not(.cxt)').click(function(e) {
     if (e.target.id !== 'ctrl_dl') {
       $('#dl-menu').css('display', 'none');
     }
     if (e.target.id !== 'ctrl_help') {
       $('#help-menu').css('display', 'none');
+    }
+    if (e.target.id !== 'ctrl_tag') {
+      $('#tag-menu').css('display', 'none');
     }
   });
 
