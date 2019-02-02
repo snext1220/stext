@@ -63,7 +63,8 @@ label {
 
 @font-face {
     font-family: 'empty';
-    src: url('empty.woff') format('woff');
+    /*src: url('empty.woff') format('woff');*/
+    src: url('ime_jp_rp.woff') format('woff');
 }
 
 #scene-editor {
@@ -71,7 +72,14 @@ label {
     height: 230px;
     margin-bottom: 15px;
     border: 1px solid #000;
-    font-family: empty !important;
+    font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-variant-east-asian: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    /*font-family: empty, Monaco, Menlo, Ubuntu Mono, Consolas, source-code-pro, monospace !important;*/
 }
 
 #footer {
