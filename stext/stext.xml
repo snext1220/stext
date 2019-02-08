@@ -183,7 +183,7 @@
 <work id="inn" title="トラベラーズ☆イン" author="リオ" series="ミニミニ30祭（30Scene限定シナリオ）"
   tags="ミニゲーム" published="2018-11-19" updated="2018-11-26" level="2" scenes="30" results="17" clears="r71"
   comment="宿屋の中で繰り広げられるミニゲーム集です。初期リリースから追加された諸機能もフル活用しているので、シナリオ作成の寸例としてもご利用戴けるのではないかと。">
-<img src="./images/mini/s03.png" height="120"
+<img src="./stext/inn/capture/intro.png" height="120"
   title="トラベラーズ☆イン" align="right" class="right" />
 <p class="award">ミニミニ30祭Vol.5（30Scene限定シナリオ）</p>
 
