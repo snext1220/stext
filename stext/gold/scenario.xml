@@ -20,14 +20,14 @@
 		<flag id="f05">*隠しフラグ</flag>
 	</flags>
 	<enemies>
-		<enemy id="m01" name="ブレイズメア" element="fire" attack="physics" func="2L-STR" drop="free2/1/reward">燃え盛る炎に包まれた馬</enemy>
-		<enemy id="m02" name="ウインドメア" element="wind" attack="physics" func="L+R-DEX" drop="free2/1/reward">逆巻く嵐をまとった馬</enemy>
-		<enemy id="m03" name="フロストメア" element="water" attack="magic" func="2R-INT" drop="FREE2/1/reward">凍り付いた馬</enemy>
-		<enemy id="m04" name="ストーンメア" element="earth" attack="physics" func="L+5-STR" drop="free2/1/reward">岩のような皮膚に覆われた馬</enemy>
-		<enemy id="m05" name="ソウルメア" element="spirit" attack="forget" func="KRM>L" drop="free2/1/reward">実体を持たない馬</enemy>
-		<enemy id="m06" name="ロイヤルガード" element="earth" attack="physics" func="L-STR" drop="free2/1/reward">城を守る兵士</enemy>
-		<enemy id="m07" name="ロイヤルナイト" element="earth" attack="physics" func="L+R-STR" drop="free2/1/reward">城を守る騎士</enemy>
-		<enemy id="m08" name="ボブ" element="earth" attack="physics" func="2L+R-STR" drop="free2/1/reward">武器と防具の店の主人</enemy>
+		<enemy id="m01" name="ブレイズメア" element="fire" attack="physics" func="2L-STR" drop="">燃え盛る炎に包まれた馬</enemy>
+		<enemy id="m02" name="ウインドメア" element="wind" attack="physics" func="L+R-DEX" drop="">逆巻く嵐をまとった馬</enemy>
+		<enemy id="m03" name="フロストメア" element="water" attack="magic" func="2R-INT" drop="">凍り付いた馬</enemy>
+		<enemy id="m04" name="ストーンメア" element="earth" attack="physics" func="L+5-STR" drop="">岩のような皮膚に覆われた馬</enemy>
+		<enemy id="m05" name="ソウルメア" element="spirit" attack="forget" func="KRM>L" drop="">実体を持たない馬</enemy>
+		<enemy id="m06" name="ロイヤルガード" element="earth" attack="physics" func="L-STR" drop="">城を守る兵士</enemy>
+		<enemy id="m07" name="ロイヤルナイト" element="earth" attack="physics" func="L+R-STR" drop="">城を守る騎士</enemy>
+		<enemy id="m08" name="ボブ" element="earth" attack="physics" func="2L+R-STR" drop="">武器と防具の店の主人</enemy>
 		<enemy id="m09" name="幻惑の輝き" element="" attack="curse" func="KRM>99" drop="">何者かの悪意に満ちた呪い</enemy>
 		<enemy id="m10" name="悪夢の終わり" element="" attack="physics" func="FREE1" drop="">長く惑わされた後遺症</enemy>
 		<enemy id="m11" name="燃え盛る金竜の吐息" element="fire" attack="physics" func="3L-STR" drop="">全てを焼き尽くす</enemy>
@@ -37,7 +37,7 @@
 		<enemy id="m15" name="邪悪なる金竜の逆鱗" element="spirit" attack="both" func="3L+2R-STR-INT" drop="">狙う者には容赦しない</enemy>
 		<enemy id="m16" name="衝撃波のブレス" element="" attack="both" func="2L+9R+43-STR-DEX" drop="">あとには何も残らない……</enemy>
 		<enemy id="m17" name="ゴールドドラゴン" element="" attack="both" func="2L+2R-STR-INT-DEX-KRM" drop="">力と傲慢に溺れし金色の竜</enemy>
-		<enemy id="m18" name="ルワン" element="earth" attack="physics" func="L+R-STR" drop="free2/1/reward">不老不死の砂漠王</enemy>
+		<enemy id="m18" name="ルワン" element="earth" attack="physics" func="L+R-STR" drop="">不老不死の砂漠王</enemy>
 		<enemy id="m19" name="殺生の罪" element="" attack="magic" func="5FREE2" drop="">知らぬこととはいえ、あなたが手にかけたのは……</enemy>
 	</enemies>
 	<results>
@@ -75,7 +75,8 @@
 **　主人公のCLASS（種族及び性別）/AGE（年代）によって、就ける職業の内訳は異なります。**
 **　どんな主人公でもシナリオをクリアすることは可能ですが、主人公によって難易度や攻略ルートが変わります。**
 
-${if !(r06:scepter&amp;r08:soul)}%red%このシナリオを解放するには、Scenario 4「災厄の夜　-テンペスト・ナイト-」の実績（新たなる夜明け）、及びScenario 7「その名はドラゴンスレーヤー」の実績（娘を助けて武器屋を通常営業に戻した）を取得している必要があります！%/%
+${if !(r06:scepter&amp;r08:soul)}%red%このシナリオを解放するには、Scenario 4「災厄の夜　-テンペスト・ナイト-」の実績（新たなる夜明け）、及びScenario 7「その名はドラゴンスレイヤー」の実績（娘を助けて武器屋を通常営業に戻した）を取得している必要があります！%/%
+${/if}
 
 [冒険に出発する](2 "r1056:slayer,r01:tempest")
 </scene>
@@ -235,7 +236,7 @@ ${if !(r06:scepter&amp;r08:soul)}%red%このシナリオを解放するには、
 
 [宝物庫を後にする](3)
 </scene>
-	<scene id="10" enemies="m06,m07">
+	<scene id="10" enemies="m06,m07" free2="+2">
 
 「何奴！」
 　扉の向こう側には、声のした通り、衛士長ともう一人兵士がいた。
@@ -263,7 +264,7 @@ ${/if}
 　彼女の口調が変わった。軽やかな声質は同じだが、その音色には人を人とも思わないような冷徹さが込められている。
 「どうやらあなたも術が解けかけているようですね。でも、目覚めの時までにはまだ時間がありますよ。もうしばらく、ゆっくり休むと良いでしょう。そう、取り返しがつかぬことになるまでね！」
 　そう言って彼女は懐から一つの宝石を取り出した。見事にカッティングされた大粒のダイヤモンドだ。だがその宝石は、光を反射して七色に輝いている。そのあまりにも美しいきらめきに、あなたの目はくぎ付けになってしまう。
-　これは幻惑の術だ！すぐに目を逸らさねば、相手の術中に落ちてしまう。あなたの頭の中にどんどん霞がかかっていく……
+　この宝石を何とかしなければ、相手の術中に落ちてしまう。あなたの頭の中にどんどん霞がかかっていく……
 
 [なす術もない](46)
 [目覚めの薬を飲む](49 "i02")
@@ -309,7 +310,7 @@ ${/if}
 [城内に入る](3)
 [ペンタウァから逃げ出す](50)
 </scene>
-	<scene id="14" enemies="m08">
+	<scene id="14" enemies="m08" free2="+1">
 
 　あなたは、ボブが主人を務める「武器と防具の店」を訪れた。
 　扉を開けたあなたの目の前に、なんとボブが仁王立ちして斧を構えている！
@@ -735,7 +736,7 @@ ${/if}
 
 [店を出る](13)
 </scene>
-	<scene id="36" enemies="m01,m02,m03,m04,m05">
+	<scene id="36" enemies="m01,m02,m03,m04,m05" free2="+5">
 
 　あなたは両開きの扉を開けて中に足を踏み入れた。
 　奥に一歩進んでみて、あなたは戦慄した。
@@ -939,7 +940,7 @@ ${/if}
 　ルワンの口調が変わった。渋い声質は同じだが、その音色には人を人とも思わないような冷徹さが込められている。
 「どうやらお前も術が解けかけているようだな。だが、目覚めの時までにはまだ時間がある。もうしばらく、ゆっくり休むと良いだろう。そう、取り返しがつかぬことになるまでな！」
 　そう言って彼は懐から一つの宝石を取り出した。見事にカッティングされた大粒のダイヤモンドだ。だがその宝石は、光を反射して七色に輝いている。そのあまりにも美しいきらめきに、あなたの目は釘付けになってしまう。
-　これは幻惑の術だ！すぐに目を逸らさねば、相手の術中に落ちてしまう。あなたの頭の中にどんどん霞がかかっていく……
+　すぐに宝石をなんとかしなければ、相手の術中に落ちてしまう。あなたの頭の中にどんどん霞がかかっていく……
 
 [なす術もない](46)
 [目覚めの薬を飲む](49 "i02")
@@ -963,6 +964,8 @@ ${/if}
 [金竜の逆鱗を狙う](7)
 </scene>
 	<scene id="49" enemies="m10,m19" bgm="@talk02">
+
+**　このシーンでは、魔法は使えません。**
 
 　次の瞬間、目の前が急激に展開した。
 　あなたは、王城の広間にただ一人でたたずんでいた。王様も、ルワンも、エスメレーの姿もない。
