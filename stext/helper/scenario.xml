@@ -5,18 +5,16 @@
 	<items>
 		<item id="i10" name="メモ1">ドラゴンの名は、ナイトメア</item>
 		<item id="i11" name="メモ2">ドラゴンは、あなたが作り出した</item>
-		<item id="i12" name="メモ3">あなたはかつて、破れた</item>
+		<item id="i12" name="メモ3">あなたはかつて、敗れた</item>
 		<item id="i13" name="メモ1">メモには何も書かれていない</item>
 		<item id="i14" name="メモ2">メモには何も書かれていない</item>
 		<item id="i15" name="メモ3">メモには何も書かれていない</item>
 	</items>
-	<flags>
-		<flag id="f01">*過去編</flag>
-	</flags>
+	<flags></flags>
 	<enemies>
-		<enemy id="m01" name="戦闘結果" element="" attack="physics" func="10" drop="戦闘結果"></enemy>
-		<enemy id="m02" name="戦闘結果" element="" attack="physics" func="20" drop="戦闘結果"></enemy>
-		<enemy id="m03" name="戦闘結果" element="" attack="physics" func="99" drop="戦闘結果"></enemy>
+		<enemy id="m01" name="戦闘結果" element="" attack="physics" func="10" drop="">戦闘結果</enemy>
+		<enemy id="m02" name="戦闘結果" element="" attack="physics" func="20" drop="">戦闘結果</enemy>
+		<enemy id="m03" name="戦闘結果" element="" attack="physics" func="99" drop="">戦闘結果</enemy>
 	</enemies>
 	<results>
 		<result id="r11" name="EXPLOSION" level="1">魔法使用実績</result>
@@ -24,17 +22,12 @@
 		<result id="r13" name="STAR　BLADE" level="1">魔法使用実績</result>
 		<result id="r14" name="LIGHT　CROSS" level="1">魔法使用実績</result>
 		<result id="r15" name="名手" level="2">戦闘中に記憶を失う回数が最小だった</result>
-		<result id="r01" name="ナイトメアドラゴン討伐完" level="3">時を越えた友とともに</result>
+		<result id="r01" name="時を越えた友とともに" level="3">ナイトメアドラゴン討伐完</result>
 	</results>
 	<licence>
 		<work name="enemy-below" category="bgm" creator="ポラッカ" url="//cnoc.web.fc2.com/"></work>
 		<work name="cavalry" category="bgm" creator="ベンズ" url="//www.sougetsu-on.net/"></work>
 	</licence>
-	
-	<!--履歴：-->
-<!--2019/1/3 rev.0.9  新規作成-->
-<!--2019/1/4 rev.0.91  誤字修正、解放条件の実績追加-->
-	
 	<scene id="0" bgm="cnoc-enemy-below">
 
 
@@ -1446,7 +1439,7 @@ ${/if}
 
 いつの日か次なる来訪者が
 この遺跡の闇を払ってくれるまで。
-その魂救われることはないだろう。
+その魂、救われることはないだろう。
 
 各地で、滅びを呼ぶ竜たちが復活を果たしている。
 終焉のときは近い。
@@ -1565,7 +1558,7 @@ STATUS画面を開き、所持欄を確認すること。
 	<scene id="42">
 どうせ避けきれないならば、と。
 ソーサリアンは逆方向に飛ぶ。
-一泊置いて、その体に叩きつけられるドラゴンの尾。
+一拍置いて、その体に叩きつけられるドラゴンの尾。
 
 その衝撃を少しでも殺そうと、そのまま逆らわず
 吹き飛ばされる。
@@ -1805,7 +1798,7 @@ STATUS画面を開き、所持欄を確認すること。
 
 この快挙、すぐさまペンタウァ王宮に報告せねばならない。
 最凶の敵、キングドラゴン討伐の作戦は刻々と進んでいる。
-今回のドラゴン退治により戦況にも変化あることだろう。
+今回のドラゴン退治により戦況にも変化があることだろう。
 
 歩き出そうとして――胸をかすめる耐え難い、痛み。
 誰か、この隣にいたのではなかったか？
