@@ -1776,7 +1776,13 @@
         '<img id="audio_onoff" src="' + ROOT + COMMON + 'ctrl_audio_' +
           (global_save_data.bgm ? 'on' : 'off') + '.png" />　' +
         '<img id="ctrl_reload" src="' + ROOT + COMMON + 'ctrl_results.png" />　' +
+        '<img id="ctrl_back_res" src="' + ROOT + COMMON + 'ctrl_results.png" />　' +
+        '<input id="ctrl_input_reload" type="file" />' +
         '<img id="ctrl_help" src="' + ROOT + COMMON + 'ctrl_help.png" />' +
+        '<ul id="ctrl_backup_menu" class="cxt">' +
+        '<li data-command="backup">Backup</li>' + 
+        '<li data-command="restore">Restore</li>' + 
+        '</ul>' +
         '</div>')
         .prependTo(target);
 
@@ -2427,6 +2433,39 @@
             height: 200
           });
         });
+      });
+
+      // バックアップ／リストアメニューの表示
+      target.on('click', '#ctrl_back_res', function(e) {
+        $('#ctrl_backup_menu').css({
+          display: 'block',
+          top: e.pageY,
+          left: e.pageX
+        });
+      });
+
+      // バックアップ／リストアの実行
+      target.on('click', '#ctrl_backup_menu li', function(e) {
+        var comm = $(this).attr('data-command');
+        console.log(comm)
+        if (comm === 'backup') {
+          window.alert('バックアップは実装中です。');
+        } else {
+          $('#ctrl_input_reload').click();
+        }
+      });
+
+      // ファイル選択でリストア開始
+      target.on('change', '#ctrl_input_reload',function() {
+        window.alert('リストアは実装中です');
+        console.log('OK');
+      });
+      
+      // コンテキストメニューの破棄
+      $(':not(#ctrl_backup_menu)').click(function(e) {
+        if (e.target.id !== 'ctrl_back_res') {
+          $('#ctrl_backup_menu').css('display', 'none');
+        }
       });
 
       // ヘルプボタンでページ移動

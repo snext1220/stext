@@ -51,16 +51,47 @@ h5#scenario_title {
   margin-top: 10px;
 }
 
+/* コントロールパネル */
 #control_panel {
   margin: 0 auto;
-  width: 95%;
+  width: 98%;
 }
 
 #control_panel img {
-  margin-left: 4px;
+  margin-left: 0px;
   width: 62px;
   height: 62px;
   cursor: pointer;
+}
+
+#control_panel input[type="file"] {
+  display: none;
+}
+
+/* コンテキストメニュー */
+.cxt {
+  position: absolute;
+  display: none;
+  z-index: 99;
+  padding: 0px;
+  border-width: 1px;
+  border-style: solid;
+  background-color: #e8e8e8;
+}
+
+.cxt li {
+  padding: 5px 15px 5px 15px;
+  list-style: none;
+  border-bottom-color: #ccc;
+  border-bottom-width: 1px;
+  border-bottom-style: dotted;
+  color: #000;
+  cursor: pointer;
+}
+
+.cxt li.sep {
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
 }
 
 table.enemy {
