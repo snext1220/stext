@@ -439,6 +439,48 @@
       });
     },
 
+    // セーブデータのダウンロード処理
+    // 引数scena_id：シナリオコード、data：データ本体
+    downloadSavedata: function(scena_id, data) {
+      var blob = new Blob([ data ], { 'type': 'application/octet-stream' });
+      var anchor = document.createElement('a');
+      anchor.href = window.URL.createObjectURL(blob);
+      anchor.download = scena_id + '-' + (new Date()).getTime()  + '.stext';
+      document.body.appendChild(anchor);
+      anchor.click();
+      document.body.removeChild(anchor);
+    },
+
+    // セーブデータをリストア
+    // 引数el：ファイル入力ボックス（Element）、
+    // done：リストア終了時の処理（function）
+    restoreSaveData: function(el, done) {
+      var input = el.files[0];
+      var fname = input.name.split('-')[0];
+      var reader = new FileReader();
+      $(reader).on('load', function() {
+        if (fname === 'all') {
+          var data = reader.result.split('\n');
+          var key = '';
+          var value = '';
+          for (var i = 0; i < data.length; i++) {
+            if (i % 2 === 0) {
+              key = data[i];
+            } else {
+              value = data[i];
+              if (value) {
+                storage[key] = value;
+              }
+            }
+          }
+        } else {
+          storage[fname] = reader.result;
+        }
+        done();
+      });
+      reader.readAsText(input, 'UTF-8');
+    },
+
     // 再生すべきbgmのパスを生成
     buildBgmPath: function(base) {
       // 指定ファイルが空ならば、メインテーマ
@@ -1776,8 +1818,8 @@
         '<img id="audio_onoff" src="' + ROOT + COMMON + 'ctrl_audio_' +
           (global_save_data.bgm ? 'on' : 'off') + '.png" />　' +
         '<img id="ctrl_reload" src="' + ROOT + COMMON + 'ctrl_results.png" />　' +
-        '<img id="ctrl_back_res" src="' + ROOT + COMMON + 'ctrl_results.png" />　' +
-        '<input id="ctrl_input_reload" type="file" />' +
+        '<img id="ctrl_back_res" src="' + ROOT + COMMON + 'ctrl_reload.png" />　' +
+        '<input id="ctrl_input_restore" type="file" />' +
         '<img id="ctrl_help" src="' + ROOT + COMMON + 'ctrl_help.png" />' +
         '<ul id="ctrl_backup_menu" class="cxt">' +
         '<li data-command="backup">Backup</li>' + 
@@ -2447,18 +2489,25 @@
       // バックアップ／リストアの実行
       target.on('click', '#ctrl_backup_menu li', function(e) {
         var comm = $(this).attr('data-command');
-        console.log(comm)
-        if (comm === 'backup') {
-          window.alert('バックアップは実装中です。');
-        } else {
-          $('#ctrl_input_reload').click();
+        switch(comm) {
+          case 'backup':
+            Util.downloadSavedata(scenario_code, storage[scenario_code]);
+            break;
+          case 'restore': 
+            $('#ctrl_input_restore').click();
+            break;
+          default:
+            console.log('Backup/Restore Error!!');
+            break;
         }
       });
 
       // ファイル選択でリストア開始
-      target.on('change', '#ctrl_input_reload',function() {
-        window.alert('リストアは実装中です');
-        console.log('OK');
+      target.on('change', '#ctrl_input_restore',function() {
+        Util.restoreSaveData(this, function() {
+          window.alert('リストアに成功しました。\nゲームを再起動します。');
+          location.reload();
+        });
       });
       
       // コンテキストメニューの破棄
@@ -2896,17 +2945,6 @@
     // this：ボタン
     // 引数selector：シナリオコードを表すフォーム要素（セレクター式）
     backupData: function(selector) {
-      // ダウンロード処理
-      var dl = function(scena_id, data) {
-        var blob = new Blob([ data ], { 'type': 'application/octet-stream' });
-        var anchor = document.createElement('a');
-        anchor.href = window.URL.createObjectURL(blob);
-        anchor.download = scena_id + '-' + (new Date()).getTime()  + '.stext';
-        document.body.appendChild(anchor);
-        anchor.click();
-        document.body.removeChild(anchor);
-      };
-
       $(this).click(function() {
         var content = '';
         var storage = localStorage;
@@ -2926,7 +2964,7 @@
                   content += tmp_data + '\n';
                 }
               }
-              dl(scenario, content);
+              Util.downloadSavedata(scenario, content);
             });
         } else {
           content = storage[scenario];
@@ -2934,7 +2972,7 @@
             window.alert('データが存在しません！');
             return;
           }
-          dl(scenario, content);
+          Util.downloadSavedata(scenario, content);
         }
       });
     },
@@ -2943,32 +2981,10 @@
     // this：ファイル選択ボックス
     restoreData: function() {
       $(this).change(function() {
-        var input = this.files[0];
-        var fname = input.name.split('-')[0];
-        var reader = new FileReader();
-        $(reader).on('load', function() {
-          var data = reader.result.split('\n');
-          var storage = localStorage;
-          if (fname === 'all') {
-            var key = '';
-            var value = '';
-            for (var i = 0; i < data.length; i++) {
-              if (i % 2 === 0) {
-                key = data[i];
-              } else {
-                value = data[i];
-                if (value) {
-                  storage[key] = value;
-                }
-              }
-            }
-          } else {
-            storage[fname] = reader.result;
-          }
+        Util.restoreSaveData(this, function() {
+          window.alert('リストアが完了しました。\r（起動している場合は）ゲーム画面をリロードしてください。');
         });
-        reader.readAsText(input, 'UTF-8');
-        window.alert('リストアが完了しました。\r（起動している場合は）ゲーム画面をリロードしてください。');
-      });      
+      });
     },
 
     // 空白除去版のattrメソッド
