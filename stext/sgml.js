@@ -2580,16 +2580,22 @@
         scenario_data = result;
 
         // タイトル／メタ情報に反映
-        document.title = $('scenario', scenario_data).nsAttr('title') + '｜ソーサリアン Text';
+        var title = $('scenario', scenario_data).nsAttr('title') + '｜ソーサリアン Text';
+        var keywords, description;
         var intro = $('intro', scenario_data);
         if (intro.length > 0) {
-          var keywords = intro.nsAttr('keywords');
-          var description = intro.nsAttr('description');
-          if (!keywords) { keywords = 'ゲームブック, ソーサリアン, SORCERIAN, eGB, ドラゴンスレイヤー, Falcom'; }
-          if (!description) { description = 'ソーサリアンの世界を古典的なゲームブックの形式で再現しようという試み。誰でも参加できるeゲームブック・プラットフォーム'; }
-          $('meta[name="keywords"]').attr('content', 'ゲームブック, ソーサリアン, eGB, ' + keywords);
-          $('meta[name="description"]').attr('content', description);
+          keywords = intro.nsAttr('keywords');
+          description = intro.nsAttr('description');
         }
+        if (!keywords) { keywords = 'ゲームブック, ソーサリアン, SORCERIAN, eGB, ドラゴンスレイヤー, Falcom'; }
+        if (!description) { description = 'ソーサリアンの世界を古典的なゲームブックの形式で再現しようという試み。誰でも参加できるeゲームブック・プラットフォーム'; }
+        document.title = title;
+        $('meta[name="keywords"]').attr('content', 'ゲームブック, ソーサリアン, eGB, ' + keywords);
+        $('meta[name="description"]').attr('content', description);
+        $('meta[property="og:url"]').attr('content', 'https://web-deli.com/sorcerian/text/game.aspx?id=' + scenario_code);
+        $('meta[property="og:title"]').attr('content', title);
+        $('meta[property="og:description"]').attr('content', description);
+        $('meta[property="og:image"]').attr('content', 'https://web-deli.com/sorcerian/text/stext/' + scenario_code + '/capture/intro.png');
 
         // 魔法の星を演算（配列末尾に「星の種類 数...」を設定）
         for(var key in Common.magic) {
