@@ -6,7 +6,7 @@
 <init>
   <constraint sex="MALE" />
   <bgm main="@town03" happy="@end01" bad="@town01" />
-  <intro description="冒険者が集う宿屋「トラベラーズイン」。宿屋に屯った君の目的はーーまだない。" />
+  <intro keywords="ミニゲーム,ネタ" description="冒険者が集う宿屋「トラベラーズイン」。宿屋に屯った君の目的はーーまだない。" />
 </init>
 
 <items>

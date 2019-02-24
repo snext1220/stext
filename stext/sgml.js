@@ -2579,6 +2579,18 @@
         // シナリオデータを取得
         scenario_data = result;
 
+        // タイトル／メタ情報に反映
+        document.title = $('scenario', scenario_data).nsAttr('title') + '｜ソーサリアン Text';
+        var intro = $('intro', scenario_data);
+        if (intro.length > 0) {
+          var keywords = intro.nsAttr('keywords');
+          var description = intro.nsAttr('description');
+          if (!keywords) { keywords = 'ゲームブック, ソーサリアン, SORCERIAN, eGB, ドラゴンスレイヤー, Falcom'; }
+          if (!description) { description = 'ソーサリアンの世界を古典的なゲームブックの形式で再現しようという試み。誰でも参加できるeゲームブック・プラットフォーム'; }
+          $('meta[name="keywords"]').attr('content', 'ゲームブック, ソーサリアン, eGB, ' + keywords);
+          $('meta[name="description"]').attr('content', description);
+        }
+
         // 魔法の星を演算（配列末尾に「星の種類 数...」を設定）
         for(var key in Common.magic) {
           var magic = Common.magic[key];

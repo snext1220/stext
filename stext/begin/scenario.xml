@@ -7,7 +7,7 @@
 <init>
 <constraint race="FIGHTER,DWARF" age="OLD" />
 <label free1="実兵力" free2="上限兵力" free3="混沌との距離" />
-<intro description="【終焉のゼロ】連作ドラゴンモード序章。迫りくる混沌を逃れながら、傷ついた兵士たちと共にペンタウァへ撤退せよ。タワーディフェンス型システム搭載"></intro>
+<intro keywords="ドラゴンモード" description="【終焉のゼロ】連作ドラゴンモード序章。迫りくる混沌を逃れながら、傷ついた兵士たちと共にペンタウァへ撤退せよ。タワーディフェンス型システム搭載"></intro>
 </init>
 
 <!--アイテム情報-->

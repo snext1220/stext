@@ -5,6 +5,7 @@
 
 <init>
 	<bgm main="@field05" happy="@field04" bad="@town01"></bgm>
+  <intro keywords="探索,リメイク,王さまの杖" description="古臭いゲームブックの世界で、新たな杖の物語。あまたのバッドエンドを回収しつつ、ついでに杖も探してね♪" />
 </init>
 
 <!--アイテム情報-->
