@@ -4,15 +4,11 @@
 	<init>
 		<bgm main="@field02" happy="@end02" bad="@end03"></bgm>
 	</init>
-	<items>
-		<item id="i01" name="Item-01">Item description...</item>
-	</items>
+	<items></items>
 	<flags>
 		<flag id="f01">板を設置しなかった</flag>
 	</flags>
-	<enemies>
-		<enemy id="m01" name="Enemy-01" element="earth" attack="physics" func="L+R-STR" drop="mon/2">Enemy description...</enemy>
-	</enemies>
+	<enemies></enemies>
 	<results>
 		<result id="r01" name="失敗は成功の基……？" level="1">同じ失敗をすることだってあるよね</result>
 		<result id="r02" name="休息は大事" level="2">皆休もうね</result>
@@ -26,9 +22,7 @@
 		<result id="r10" level="4" name="何処へでも奏でましょう">何処で演奏してもきっと届くよね</result>
 		<result id="r11" level="4" name="黄泉へ送るレクイエム">どうか安らかに……</result>
 	</results>
-	<licence>
-		<work name="Bgm-01" category="bgm" creator="SText" url="https://example.com/"></work>
-	</licence>
+	<licence></licence>
 	<scene id="0" summary="プロローグ">以前―――というほど決して短い期間ではないが―――暗黒の魔導士が悪しき力を使用し、ペンタウァを支配しようとした洞窟がある。
 暗黒の魔導士が封じられ、幾年が過ぎ、その洞窟はもはやその面影を感じることもなく、魔物も現れなくなっていた。
 人々はその中で採れる新鮮な食材や水を使っていたほどだ。
@@ -992,8 +986,7 @@ NORMAL END
 貴方はそのまま剣を再度振り、同じ鱗の部分を叩きつける……っ！
 
 [手応えあった！](63)</scene>
-	<scene id="67" x="67.435449870158" y="1012.593094065821" summary="TRUEEND" end="happy" bgm="@end02" result="r11">
-    それから数日が過ぎた。
+	<scene id="67" x="67.435449870158" y="1012.593094065821" summary="TRUEEND" end="happy" bgm="@end02" result="r11">それから数日が過ぎた。
 
     ―――ん？
 
@@ -1047,7 +1040,7 @@ NORMAL END
 
     手紙ありがとう。演奏会を楽しみにしています―――
 
-  </scene>
+</scene>
 	<scene id="68" x="155.51255267389638" y="997.2753370564752" summary="TRUE2">「感謝だなんて……私のほうが感謝するべきなのに……っ
 あのような演奏でいいのなら……そんなたくさんたくさん奏でさせていただくのに……っ！」
 「そんなことが……ソーサリアンさん、助けてくれてありがとうございました。
@@ -1100,7 +1093,7 @@ NORMAL END
 
 振り落とした勢いがそのまま跳ね返されたため、その衝撃で貴方は後ろへ倒れてしまい、頭を打ってしまった……。
 
-▼hpを1減らす
+▼hpが1減った
 
 [大人しく石を置く](32)</scene>
 </scenario>
