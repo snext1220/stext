@@ -21,7 +21,7 @@
 <work id="zero" title="ゼロの創造" author="Salvador" series=""
   tags="探索" published="2018-01-04" updated="2018-10-25" level="3" scenes="151" results="3" clears="r03"
   comment="創造神キーヤへの思いを綴った作品です。">
-<img src="./images2/gallery/tn/d11.gif" height="120" title="ゼロの創造"
+<img src="./stext/zero/capture/intro.png" height="120" title="ゼロの創造"
   align="left" class="left" />
 かつて、創造神がこの世に大いなる恵みを与えていた時代があったという。常に世界には新しい発見があり、人々は新天地の開拓に乗り出していった時代だった。人々は創造神を信じ、その光臨を願っていた。それを創造神信仰と呼ぶ。
 
@@ -47,7 +47,7 @@
   author="ちゃなさん" guest="true" series=""
   tags="探索,魔法" published="2018-01-20" updated="2018-10-25" level="2" scenes="125" results="16" clears="r01"
   comment="原作の基本15シナリオから舞台、作中人物、アイテム等をお借りした、総集編的なシナリオです。原作同様、七星の組み合わせで全32種類の魔法を開発することができます。">
-<img src="./images2/world1.gif" height="120"
+<img src="./stext/tempest/capture/intro.png" height="120"
   title="災厄の夜 - テンペスト・ナイト -" align="left" class="left" />
 <p class="award">ゲストさま投稿作品（記念すべき第1号！）</p>
 舞台はオリジナルのソーサリアンから数十年後のペンタウァ。666年に一度訪れるという未曾有の危機に、あなたはたった独りで立ち向かうことになります。
@@ -84,10 +84,10 @@
 </work>
 
 <work id="slayer" title="その名はドラゴンスレイヤー" author="RYUさん"
-  guest="true" series="" results="56" clears="r2151,r2531,r2641,r2121,r2903,r856"
+  guest="true" series="" results="56" clears="r10000"
   tags="戦闘型3DダンジョンRPG" published="2018-05-20" updated="2018-11-29" level="5" scenes="488"
   comment="(e)ゲームブックをどこまでコンピューターRPGに近付けられるか？に挑戦した本末転倒な一作。ザナドゥなどのリアルタイム世代に向けた内容やネタが多いです。ゲーム化や漫画化（うすい）も募集中。シリーズ化は…するかも？">
-<img src="./images2/gallery/tn/d25.gif" height="120"
+<img src="./stext/slayer/capture/intro.png" height="120"
   title="その名はドラゴンスレイヤー" align="right" class="right" />
 <p class="award">ゲストさま投稿作品第2弾（第2部を公開中）</p>
 「ドラゴンスレイヤーが見つかった？」
@@ -104,7 +104,7 @@
 <work id="ramidia" title="ラミディアの魔法使い" author="Salvador" series=""
   tags="探索" published="2018-06-25" updated="2018-10-25" level="3" scenes="168" results="3" clears="r03"
   comment="ゲームブック版ロマンシア（監修・宮本恒之）のキャラクタが多数登場します。ロマンシアの後日談シナリオです。">
-<img src="./images2/stext08.png" height="160"
+<img src="./stext/ramidia/capture/intro.png" height="160"
   title="ラミディアの魔法使い" align="left" class="left" />
 北方の広大な森の中にある王国、ロマンシア。この国は数年前まで火山の噴火や地震が相次ぎ、さらに伝染病まで流行るという災厄に見舞われていた。災厄の元凶は、この地に古くから棲んでいた竜に取り憑いた邪神ヴァイデスであったという。
 
@@ -149,7 +149,7 @@
 <work id="kenshin" title="戦国ソーサリアン外伝・上杉謙信の章" author="Salvador" series="ミニミニ30祭（30Scene限定シナリオ）"
   tags="探索" published="2018-09-21" updated="2018-10-25" level="2" scenes="48" results="3" clears="r03"
   comment="戦国ソーサリアンのスピンオフシナリオです。懐かしい人物も登場しますよ。">
-<img src="./images2/stext11.jpg" height="200"
+<img src="./stext/kenshin/capture/intro.png" height="200"
   title="戦国ソーサリアン外伝・上杉謙信の章" align="right" class="right" />
 <p class="award">ミニミニ30祭Vol.3（30Scene限定?シナリオ）</p>
 
@@ -167,7 +167,7 @@
   tags="性格診断,占い" published="2018-10-15" updated="2015-10-25" level="1" scenes="30" results="18"
   clears="r14,r15,r16,r17,r18,r19,r20,r21,r22,r23,r24,r25,r26,r27,r28,r29,r30"
   comment="結果を全て手動で直接用意するという超アナログ仕様（普通は自動生成でしょう）。しかも内容はほぼキャラ絵や人の好みに対するディスに終始します…冗句（ジョーク）ですよ？">
-<img src="./images2/stextU3.png" height="120"
+<img src="./stext/fortune/capture/intro.png" height="120"
   title="ソーサリアン性格診断占い" align="left" class="left" />
 <p class="award">ミニミニ30祭Vol.4（30Scene限定シナリオ）</p>
 
@@ -252,6 +252,25 @@
 　真相を見極め、陰謀渦巻く王宮から無事に脱出せよ。ソーサリアン！
 
 <p class="award">このシナリオを解放するには、Scenario 1「新・消えた王様の杖」の実績「オタクの称号」、Scenario 10「魂の選択」の実績「ありがと！」を取得している必要があります！</p>
+</work>
+
+<work id="requiem" title="黄泉へ送るレクイエム" author="咲華さん" unpublished="true" guest="true" series="連作ドラゴンモード"
+  tags="暗黒の魔導士,探索" published="" updated="" level="2" scenes="68" results="11" clears="r11"
+  comment="ゲームブックシナリオを書くのは初めてで、終始ワクワクドキドキしながら作っていました。この竜を選んだのは私がソーサリアンにハマったきっかけの竜であり、シナリオだったからです。別名「暗黒の魔導士・後伝」……になっていたら嬉しい限りです。こんなドラゴンとソーサリアンの関係もいかがでしょうか？">
+<img src="./stext/requiem/capture/intro.png" height=""
+  title="黄泉へ送るレクイエム"  align="right" class="right"/>
+<p class="award">ドラゴンモード本編Vol.3（連作シナリオ）</p>
+
+―――悪魔に魂を売り渡した暗黒の魔道士がいた。
+彼はペンタウァを我が物にしようと国はずれの洞窟にて企んでいたが、ソーサリアンと魔道士によって阻止され、召喚されたモンスターたちは黄泉へと送られた。
+それから年月は経ち。
+奇しくもその洞窟近くにて多くのモンスターが続出した。中には怪我人も出ている。
+このままではペンタウァの人々の命が危ない。
+ソーサリアンよ、名だたる勇者よ。
+急に現れ出したモンスター達の討伐、及び原因の追究を至急お願いする。
+ペンタウァの人々の平穏をどうか取り戻してくれ―――！
+
+<p class="award">2019年2月25日公開予定です。</p>
 </work>
 
 </scenario>
@@ -366,13 +385,11 @@ SText Playgroundは、ブラウザー上で動作するソーサリアン Text�
 </utility>
 
 <future>
-<work title="黄泉へ送るレクイエム" author="咲華さん" unpublished="2019年2月"></work>
-
-<work title="金竜の陰謀（仮）" author="ちゃなさん" unpublished="2019年3月"></work>
+<work title="金竜の陰謀" author="ちゃなさん" unpublished="2019年3月"></work>
 
 <work title="時を超えた協力者" author="cocotori" unpublished="2019年4月"></work>
 
-<work title="ドラゴンネゴシエーター（仮）" author="Salvador" unpublished="2019年5月"></work>
+<work title="ドラゴンネゴシエーター" author="Salvador" unpublished="2019年5月"></work>
 
 <work title="七星の名の下に" author="リオ"></work>
 
