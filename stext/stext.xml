@@ -254,8 +254,8 @@
 <p class="award">このシナリオを解放するには、Scenario 1「新・消えた王様の杖」の実績「オタクの称号」、Scenario 10「魂の選択」の実績「ありがと！」を取得している必要があります！</p>
 </work>
 
-<work id="requiem" title="黄泉へ送るレクイエム" author="咲華さん" unpublished="true" guest="true" series="連作ドラゴンモード"
-  tags="暗黒の魔導士,探索" published="" updated="" level="2" scenes="68" results="11" clears="r11"
+<work id="requiem" title="黄泉へ送るレクイエム" author="咲華さん" guest="true" series="連作ドラゴンモード"
+  tags="暗黒の魔導士,探索" published="2019-02-25" updated="" level="2" scenes="68" results="11" clears="r11"
   comment="ゲームブックシナリオを書くのは初めてで、終始ワクワクドキドキしながら作っていました。この竜を選んだのは私がソーサリアンにハマったきっかけの竜であり、シナリオだったからです。別名「暗黒の魔導士・後伝」……になっていたら嬉しい限りです。こんなドラゴンとソーサリアンの関係もいかがでしょうか？">
 <img src="./stext/requiem/capture/intro.png" height=""
   title="黄泉へ送るレクイエム"  align="right" class="right"/>
@@ -272,7 +272,7 @@
 　急に現れ出したモンスター達の討伐、及び原因の追究を至急お願いする。
 　ペンタウァの人々の平穏をどうか取り戻してくれ―――！
 
-<p class="award">2019年2月25日公開予定です。</p>
+<p class="award">このシナリオを解放するには、Scenario 5「少女は英雄を語りて」の実績「絵本の世界」、Scenario 12「ソーサリアン性格診断占い」の実績「さあ無に還ろう」を取得している必要があります！</p>
 </work>
 
 </scenario>
