@@ -1818,7 +1818,7 @@
         '<img id="audio_onoff" src="' + ROOT + COMMON + 'ctrl_audio_' +
           (global_save_data.bgm ? 'on' : 'off') + '.png" />　' +
         '<img id="ctrl_reload" src="' + ROOT + COMMON + 'ctrl_results.png" />　' +
-        '<img id="ctrl_back_res" src="' + ROOT + COMMON + 'ctrl_reload.png" />　' +
+        '<img id="ctrl_back_res" src="' + ROOT + COMMON + 'ctrl_backup.png" />　' +
         '<input id="ctrl_input_restore" type="file" accept=".stext" />' +
         '<img id="ctrl_help" src="' + ROOT + COMMON + 'ctrl_help.png" />' +
         '<ul id="ctrl_backup_menu" class="cxt">' +
