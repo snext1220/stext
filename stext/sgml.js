@@ -2432,7 +2432,7 @@
 
       // ホームボタンでページ移動
       target.on('click', '#ctrl_home', function(e) {
-        location.href = 'http://www.web-deli.com/sorcerian/next/stext.aspx';
+        location.href = 'https://www.web-deli.com/sorcerian/text/';
       });
 
       // 実績情報を表示（旧リロードボタン）
