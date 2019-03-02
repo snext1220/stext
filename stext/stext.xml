@@ -87,7 +87,7 @@
   guest="true" series="" results="56" clears="r10000"
   tags="戦闘型3DダンジョンRPG" published="2018-05-20" updated="2018-11-29" level="5" scenes="488"
   comment="(e)ゲームブックをどこまでコンピューターRPGに近付けられるか？に挑戦した本末転倒な一作。ザナドゥなどのリアルタイム世代に向けた内容やネタが多いです。ゲーム化や漫画化（うすい）も募集中。シリーズ化は…するかも？">
-<img src="./stext/slayer/capture/intro.png" height="120"
+<img src="./stext/slayer/capture/intro.png" height="190"
   title="その名はドラゴンスレイヤー" align="right" class="right" />
 <p class="award">ゲストさま投稿作品第2弾（第2部を公開中）</p>
 「ドラゴンスレイヤーが見つかった？」
@@ -236,7 +236,7 @@
   tags="アゾルバ王宮" published="2019-01-21" updated="" level="2" scenes="33" results="4" clears="r99"
   comment="本のゲームブックには紙の良さがあり、電子書籍のゲームブックには電子本ならではの面白さがあります。「ではSTextは、ゲームブックにどんな可能性を見せてくれるだろうか」という思いで、ゲームブック用マークアップ言語に挑戦しました。これは「かなりの低負担でシナリオ作成ができ、そこそこ数値がいじれる、自動計算してくれるゲームブック」であると受け止めています。RPGツクールよりも気楽にインタラクティブなゲームを作りたいなら、現実的な選択肢の一つと言えると思います。プレイしてみて興味が湧いたら、創り手としての参加も待ってます！">
 <img src="./stext/traitor/capture/intro.png" height=""
-  title="常闇から来たる影" align="left" class="left"/>
+  title="裏切り者の流儀" align="left" class="left"/>
 <p class="award">ドラゴンモード本編Vol.2（連作シナリオ）</p>
 
 「この中に裏切り者がいる」
@@ -291,7 +291,7 @@
 </work>
 
 <work title="GBAT to SText" author="リオ">
-<img src="./images_blog/stext_gbat0.png" height="120"
+<img src="./image/util/gbat.png" height="120"
   title="GBATメイン画面" align="left" class="left" />
 GBAT（GameBook Authoring Tool）は、ゲームブックシナリオをチャート化しながら執筆できるGUIツール。シナリオのフローをリアルタイムにチャート化するので、全体を見渡しつつ、執筆を進められます。
 
@@ -311,7 +311,7 @@ SText固有の定義をGBATで表す方法については、以下のマニュ�
 </work>
 
 <work title="SText Playground" author="リオ">
-<img src="./images_blog/gbat_play3.png" height="120"
+<img src="./image/util/pg.png" height="120"
   title="Playground実行画面" align="right" class="right" />
 
 SText Playgroundは、ブラウザー上で動作するソーサリアン Textのシナリオ実行環境です。ソフトウェアのインストールなどが不要なので、手軽に実行できるのが特徴です。
@@ -328,7 +328,7 @@ SText Playgroundは、ブラウザー上で動作するソーサリアン Text�
 </work>
 
 <work title="もっと攻略したい" author="RYUさん他" guest="true" other="true">
-<img src="./images2/stextU3.png" height="120"
+<img src="./image/util/util.png" height="120"
   title="もっと攻略したい" align="left" class="left" />
 ソーサリアン Textをもっと攻略したい、あるいは行き詰ったという人のために。
 
@@ -345,7 +345,7 @@ SText Playgroundは、ブラウザー上で動作するソーサリアン Text�
 </work>
 
 <work id="trial" title="STextシナリオ開発道場" author="ときのじ" updated="2018-11-13" backup="true">
-<img src="./stext/trial/capture/intro.png" height="120"
+<img src="./image/util/trial.png" height="120"
   title="STextシナリオ開発道場" align="right" class="right" />
 「ソーサリアンTextのシナリオを書いてみたい！」
 
@@ -363,7 +363,7 @@ SText Playgroundは、ブラウザー上で動作するソーサリアン Text�
 </work>
 
 <work title="ユーザーディスクツール" author="リオ">
-<img src="./images2/stextU6.png" height="120"
+<img src="./image/util/backup.png" height="120"
   title="ユーザーディスクツール" align="left" class="left" />
 ユーザーディスクツールは、ブラウザーで保存されているSTextのセーブデータを.stextファイルとして出力（バックアップ）したり、バックアップしておいた.stextファイルを復旧（リストア）するためのツールです。
 
