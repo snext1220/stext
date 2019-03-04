@@ -20,18 +20,19 @@
 </head>
 <body>
 <div id="control">
-  <a href="https://www.web-deli.com/sorcerian/next/stext.aspx" target="_blank">
-    <img src="https://www.web-deli.com/sorcerian/next/images/gamebook_header.png"
-      alt="ソーサリアン Next" height="100%" border="0" />
+  <a href="https://web-deli.com/sorcerian/text/" target="_blank">
+    <img src="../stext/common/pg_logo.png"
+      alt="ソーサリアン Text" height="100%" border="0" />
   </a>
   <span class="pg_command">
     <img id="ctrl_run" src="../stext/common/pg_run.png" title="シナリオを実行" />
+    <img id="ctrl_filter" src="../stext/common/pg_filter.png" title="表示シーンを絞り込み" />
     <img id="ctrl_tag" src="../stext/common/pg_tag.png" title="カーソル位置にタグを追加" />
+    <img id="ctrl_import" src="../stext/common/pg_import.png" title="シナリオをインポート" />
     <img id="ctrl_save" src="../stext/common/pg_save.png" title="ブラウザーに保存" />
     <img id="ctrl_dl" src="../stext/common/pg_dl.png" title="ダウンロード" />
     <img id="ctrl_help" src="../stext/common/pg_help.png" title="マニュアルを参照" />
   </span>
-  ｜<input id="ctrl_filter" type="button" value="フィルター" />
   ｜<select id="ctrl_template">
     <option value="">テンプレートを選択</option>
     <option value="empty.json">空のテンプレート</option>
@@ -41,7 +42,7 @@
     <option value="function.json">機能テスト</option>
     <option value="storage">マイストレージ</option>
     </select>
-  ｜<input id="ctrl_load" type="file" accept=".json,.xml" />
+    <input id="ctrl_load" type="file" accept=".json,.xml" />
 </div>
 <div id="main" class="clearfix">
   <div id="flow-area"></div>

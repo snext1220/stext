@@ -1074,6 +1074,11 @@ $(function () {
     }
   });
 
+  // ［インポート］ボタンで選択ボックスを表示
+  $('#ctrl_import').click(function(e) {
+    $('#ctrl_load').click();
+  });
+
   // ファイルをPlaygroundにロード
   $('#ctrl_load').change(function(e) {
     let inputs = $(this).get(0).files;

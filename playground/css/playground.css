@@ -23,6 +23,10 @@ label {
     vertical-align: top;
 }
 
+#ctrl_load {
+    display: none; 
+}
+
 #main {
     width: 1150px;
     height: 570px;
