@@ -955,7 +955,12 @@ $(function () {
   // ［テスト実行］ボタン
   $('#ctrl_run').click(function(e) {
     localStorage.setItem(Common.RUN_NAME, Util.createXml());
-    window.open('../index.html?id=pg2', Common.RUN_NAME);
+    // 本番環境／テスト環境の振り分け
+    if (location.host === 'localhost') {
+      window.open('../index.html?id=pg2', Common.RUN_NAME);
+    } else {
+      window.open('../game.aspx?id=pg2', Common.RUN_NAME);
+    }
   });
 
   // ［タグ追加］ボタン
@@ -996,11 +1001,11 @@ $(function () {
   });
 
   // ［セーブ］ボタン
-  $('#ctrl_save').click(function(e) {
-    window.alert('データをブラウザーに保存しました。');
-    console.log(scenario);
-    localStorage.setItem(Common.MY_STORAGE, JSON.stringify(scenario));
-  });
+  // $('#ctrl_save').click(function(e) {
+  //   window.alert('データをブラウザーに保存しました。');
+  //   console.log(scenario);
+  //   localStorage.setItem(Common.MY_STORAGE, JSON.stringify(scenario));
+  // });
 
   // ［ダウンロード］ボタン
   $('#ctrl_dl').click(function(e){
@@ -1022,6 +1027,11 @@ $(function () {
         break;
       case 'html':
         Util.download(Util.createHtml(), 'scenario.html');
+        break;
+      case 'storage':
+        window.alert('データをブラウザーに保存しました。');
+        console.log(scenario);
+        localStorage.setItem(Common.MY_STORAGE, JSON.stringify(scenario));
         break;
       default:
         console.log('Unknown Error!!');

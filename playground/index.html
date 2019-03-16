@@ -29,8 +29,8 @@
     <img id="ctrl_filter" src="../stext/common/pg_filter.png" title="表示シーンを絞り込み" />
     <img id="ctrl_tag" src="../stext/common/pg_tag.png" title="カーソル位置にタグを追加" />
     <img id="ctrl_import" src="../stext/common/pg_import.png" title="シナリオをインポート" />
-    <img id="ctrl_save" src="../stext/common/pg_save.png" title="ブラウザーに保存" />
-    <img id="ctrl_dl" src="../stext/common/pg_dl.png" title="ダウンロード" />
+    <!-- <img id="ctrl_save" src="../stext/common/pg_save.png" title="ブラウザーに保存" /> -->
+    <img id="ctrl_dl" src="../stext/common/pg_dl.png" title="シナリオを保存" />
     <img id="ctrl_help" src="../stext/common/pg_help.png" title="マニュアルを参照" />
   </span>
   ｜<select id="ctrl_template">
@@ -277,9 +277,10 @@
   <li id="dl-json" data-command="json">.json（Playground Native）</li>
   <li id="dl-xml"  data-command="xml">.xml（Scenario data）</li>
   <li id="dl-html"  data-command="html">.html（For Browser）</li>
+  <li id="dl-storage" data-command="storage">ブラウザーに保存</li>
 </ul>
 
-<!--コンテキストメニュー（ダウンロード）-->
+<!--コンテキストメニュー（ヘルプ）-->
 <ul id="help-menu" class="cxt">
   <li id="help_pg"><a href="https://sorcerian.hateblo.jp/entries/2018/01/25" target="help">Playground入門</a></li>
   <li id="help_ref"><a href="https://sorcerian.hateblo.jp/entry/2018/11/01/211745" target="help">タグリファレンス</a></li>
@@ -312,5 +313,18 @@
 <script src="lib/jquery.splitter.js"></script>
 <!--Playground-->
 <script src="lib/playground.js"></script>
+<!--Ptengine解析-->
+<script type="text/javascript">
+window._pt_lt = new Date().getTime();
+window._pt_sp_2 = [];
+_pt_sp_2.push('setAccount,17003b62');
+var _protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+(function() {
+    var atag = document.createElement('script'); atag.type = 'text/javascript'; atag.async = true;
+    atag.src = _protocol + 'js.ptengine.jp/pta.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(atag, s);
+})();
+</script>
 </body>
 </html>
