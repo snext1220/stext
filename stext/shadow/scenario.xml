@@ -2220,7 +2220,7 @@ ${if f14}
 
 　%purple%**BAD END「砕け散った想い」**%/%
 ${/if}
-${if -r06:shadow}%red%
+${if -r08:shadow}%red%
 　※一部の実績取得条件には、Scenario 2「ゼロの創造」の
 　　実績取得率が関係しているものも含まれています%/%
 ${/if}
@@ -2815,7 +2815,7 @@ ${/if}
 %purple%
 　**DRAGON MODE -ANOTHER END-
 　「シャドードラゴン・封印完了」**%/%
-${if -r06:shadow}%red%
+${if -r08:shadow}%red%
 　※一部の実績取得条件には、Scenario 2「ゼロの創造」の
 　　実績取得率が関係しているものも含まれています%/%
 ${/if}
@@ -3096,7 +3096,7 @@ ${/if}
 　その苦難の道に大いなる祝福があらんことを！
 
 　%blue%**DRAGON MODE「シャドードラゴン・封印完了」**%/%
-${if -r06:shadow}%red%
+${if -r08:shadow}%red%
 　※一部の実績取得条件には、Scenario 2「ゼロの創造」の
 　　実績取得率が関係しているものも含まれています%/%
 ${/if}
