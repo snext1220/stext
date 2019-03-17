@@ -786,6 +786,9 @@ $(function () {
     items_grid.updateRowCount();
     items_grid.render();
   });
+  items_grid.onHeaderClick.subscribe(function (e, args) {
+    window.open(Common.HELP_URL + 'item', 'help');
+  });
 
   // フラグ一覧
   let flag_cols = [
@@ -814,7 +817,7 @@ $(function () {
     flags_grid.render();
   });
   flags_grid.onHeaderClick.subscribe(function (e, args) {
-     window.open(Common.HELP_URL + 'flag');
+     window.open(Common.HELP_URL + 'flag', 'help');
   });
 
   // 敵一覧
@@ -851,6 +854,9 @@ $(function () {
     enemies_grid.updateRowCount();
     enemies_grid.render();
   });
+  enemies_grid.onHeaderClick.subscribe(function (e, args) {
+    window.open(Common.HELP_URL + 'enemy', 'help');
+  });
 
   // 実績一覧
   let result_cols = [
@@ -879,6 +885,9 @@ $(function () {
     results_grid.updateRowCount();
     results_grid.render();
   });
+  results_grid.onHeaderClick.subscribe(function (e, args) {
+    window.open(Common.HELP_URL + 'result', 'help');
+  });
 
   // ライセンス一覧
   let work_cols = [
@@ -906,6 +915,9 @@ $(function () {
     scenario.licence.push(item);
     works_grid.updateRowCount();
     works_grid.render();
+  });
+  works_grid.onHeaderClick.subscribe(function (e, args) {
+    window.open(Common.HELP_URL + 'work', 'help');
   });
 
   // エディターの生成
