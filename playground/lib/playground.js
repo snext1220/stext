@@ -956,7 +956,7 @@ $(function () {
   $('#ctrl_run').click(function(e) {
     localStorage.setItem(Common.RUN_NAME, Util.createXml());
     // 本番環境／テスト環境の振り分け
-    if (location.host === 'localhost') {
+    if (location.host.indexOf('web-deli.com') === -1) {
       window.open('../index.html?id=pg2', Common.RUN_NAME);
     } else {
       window.open('../game.aspx?id=pg2', Common.RUN_NAME);
