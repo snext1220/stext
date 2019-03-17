@@ -275,6 +275,27 @@
 <p class="award">このシナリオを解放するには、Scenario 5「少女は英雄を語りて」の実績「絵本の世界」、Scenario 12「ソーサリアン性格診断占い」の実績「さあ無に還ろう」を取得している必要があります！</p>
 </work>
 
+<work id="gold" title="金竜の陰謀" author="ちゃなさん" unpublished="true" guest="true" series="連作ドラゴンモード"
+  tags="呪われたオアシス" published="" updated="" level="3" scenes="64" results="12" clears="r10"
+  comment="ソーサリアンTEXTの「職業システム」を活用したシナリオです。ランダムに生成されるプレイヤーキャラによってクリア手順が若干異なります。砂漠王ルワンと「元祖」ゴールドドラゴンの強さを存分にお楽しみください。
+なお、特定のキャラでしか取得できない実績があります。100%を目指す方はご注意ください。">
+<img src="./stext/gold/capture/intro.png" height="120"
+  title="金竜の陰謀"  align="left" class="left"/>
+<p class="award">ドラゴンモード本編Vol.4（連作シナリオ）</p>
+
+「もうすぐペンタウァは陥落するぜ」「早く逃げなければ……」
+　キングドラゴン復活の噂に浮足立つペンタウァを訪れたのは、ローブをまとった一人の男。
+「ペンタウァの王よ。まさかこの顔見忘れたわけではあるまい」
+
+　不敵に笑うその男は、敵か、味方か？
+　変貌してしまったペンタウァを元に戻すことはできるのか？
+　そして、幻惑の霧が晴れた時、ソーサリアンに残酷な真実が突きつけられる……！
+
+　ソーサリアンよ、この陰謀を解き明かし、金竜の脅威からペンタウァを救うのだ！
+
+<p class="award">2019年3月25日公開予定です。</p>
+</work>
+
 </scenario>
 
 <utility>
@@ -387,8 +408,6 @@ SText Playgroundは、ブラウザー上で動作するソーサリアン Text�
 </utility>
 
 <future>
-<work title="金竜の陰謀" author="ちゃなさん" unpublished="2019年3月"></work>
-
 <work title="時を超えた協力者" author="cocotori" unpublished="2019年4月"></work>
 
 <work title="ドラゴンネゴシエーター" author="Salvador" unpublished="2019年5月"></work>
