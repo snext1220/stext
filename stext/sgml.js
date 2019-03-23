@@ -2504,6 +2504,11 @@
 
       // ファイル選択でリストア開始
       target.on('change', '#ctrl_input_restore',function() {
+        // 現在のシナリオコードと不一致はエラー
+        if (scenario_code !== this.files[0].name.split('-')[0]) {
+          window.alert('失敗：現在のシナリオ以外のバックアップはUtilityページからリストアしてください。');
+          return;
+        }
         Util.restoreSaveData(this, function() {
           window.alert('リストアに成功しました。\nゲームを再起動します。');
           location.reload();
