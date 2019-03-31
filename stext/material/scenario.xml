@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<scenario title="SText Data Book" author="著者名"
+<scenario title="STextデータブック" author="STextチーム"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:noNamespaceSchemaLocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd">
 
@@ -19,6 +19,7 @@
 
 <!--モンスター／罠情報-->
 <enemies>
+  <enemy id="m7010" name="グリーンスライムLv1" element="earth" attack="physics" func="2L+2R+10-STR-FREE1-10FREE2">本文を参照</enemy>
 </enemies>
 
 <!--実績情報-->
@@ -39,6 +40,9 @@
 
 フォーマットも最低限揃えていきたいとは思いますが、あまり無理をしても仕方がないので、様子を見つつ。
 まずは、ご参考までに。
+
+現在は、ドラスレのスライムデータのみ入れています。
+
 
 ```
 A long time ago,so long ago that memories did not exist.
@@ -89,9 +93,11 @@ Sorcerian.
 
 ### モンスター
 
+%red%紹介文は1項目／シーンにて%/%
+
 #### フィールド
 
-[グリーンスライムLv1](1010)
+[グリーンスライムLv1](7010)
 
 #### 森林
 
@@ -99,14 +105,14 @@ Sorcerian.
 
 ### 登場人物
 
-[ほげほげ](1010)
+[ほげほげ](7010)
 
 ### アイテム
 
-[ほげほげ](1010)
+[ほげほげ](7010)
 </scene>
 
-<scene id="1010">
+<scene id="7010" enemies="m7010">
 ## グリーンスライムLv1
 
 ### 特性
@@ -121,17 +127,20 @@ Sorcerian.
 
 ここはドラスレ固有？他シナでの設置は難しいかも。
 
-パラメーター ｜ 値
-HP | 75
-MP | 75
-STR | 6
-INT | 6
-DEX | 7
-KRM | 5
-FREE1 | 0
-FREE2 | 1
+| パラメーター | 値 |
+| -- | -- |
+| HP | 75 |
+| MP | 75 |
+| STR | 6 |
+| INT | 6 |
+| DEX | 7 |
+| KRM | 5 |
+| FREE1 | 0 |
+| FREE2 | 1 |
 
-おそらく下に標準のenemy表示をする想定かと思われますが、現時点では割愛しています。
+%red%enemy番号は競合を防ぐため、idと一致させること。%/%
+
+[戻る](7000)
 </scene>
 
 <scene id="10000">
