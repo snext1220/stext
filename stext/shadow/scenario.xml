@@ -6,7 +6,7 @@
   <constraint race="FIGHTER" sex="MALE" age="YOUNG"></constraint>
   <bgm main="@field03" happy="@field04" bad="@town01"></bgm>
   <label free1="―" free2="―" free3="―"/>
-  <intro description="【常闇から来たる影】"></intro>
+  <intro keywords="ドラゴンモード" description="【常闇から来たる影】連作ドラゴンモード本編Vol.1　盗賊たちの塔の地下で封印から解き放たれたシャドードラゴンを討伐し、再び封印せよ。特定条件でルート分岐"></intro>
 </init>
 
 <!--アイテム情報-->
