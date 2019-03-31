@@ -2584,7 +2584,8 @@
         // シナリオデータを取得
         scenario_data = result;
 
-        // タイトル／メタ情報に反映
+        // タイトル／メタ情報に反映（サーバーサイドに移動）
+        /*
         var title = $('scenario', scenario_data).nsAttr('title') + '｜ソーサリアン Text';
         var keywords, description;
         var intro = $('intro', scenario_data);
@@ -2601,6 +2602,7 @@
         $('meta[property="og:title"]').attr('content', title);
         $('meta[property="og:description"]').attr('content', description);
         $('meta[property="og:image"]').attr('content', 'https://web-deli.com/sorcerian/text/stext/' + scenario_code + '/capture/intro.png');
+        */
 
         // 魔法の星を演算（配列末尾に「星の種類 数...」を設定）
         for(var key in Common.magic) {
