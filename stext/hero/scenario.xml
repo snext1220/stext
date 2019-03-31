@@ -4,7 +4,7 @@
 <!--楽曲情報-->
 <init>
 　<bgm main="@field01" happy="@end03" bad="@town01"></bgm>
-　<intro description="【少女は英雄を語りて】これは、貴方が絵本の世界を救うか否かの物語。"></intro>
+　<intro keywords="探索,リメイク,絵本" description="【少女は英雄を語りて】「これは、貴方が絵本の世界を救うか否かの物語」　SText版としてリメイクした物語重視の探索型シナリオ"></intro>
 </init>
 
 <!--アイテム情報-->
