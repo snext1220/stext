@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scenario title="SText Data Book" author="著者名"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd">
+
+<!--初期化情報-->
+<init>
+  <bgm main="@field05" happy="@field04" bad="@town01" />
+  <intro description="サンプルシナリオ紹介" />
+</init>
+
+<!--アイテム情報-->
+<items>
+</items>
+
+<!--フラグ情報-->
+<flags>
+</flags>
+
+<!--モンスター／罠情報-->
+<enemies>
+</enemies>
+
+<!--実績情報-->
+<results>
+</results>
+
+<!--ライセンス情報-->
+<licence>
+</licence>
+
+<!--シナリオ本体-->
+<scene id="0">
+# SORCERIAN Text Data Book
+
+プロトタイプ版です。
+
+現時点では、緩い形での賛同（参加表明）があった方のシナリオのみを暫定的に入れていますが、もちろん、同じ要領で対応シナリオはどんどん増やしていければと。
+
+フォーマットも最低限揃えていきたいとは思いますが、あまり無理をしても仕方がないので、様子を見つつ。
+まずは、ご参考までに。
+
+```
+A long time ago,so long ago that memories did not exist.
+
+Love was not wide spread among the people
+and it was magic or might that ruled the lands.
+
+There were men that set our on precarious adventures
+in order to test their strength and courage.
+
+People called these men.....
+
+
+Sorcerian.
+```
+
+[新・消えた王様の杖](1000)
+[災厄の夜 - テンペスト・ナイト](4000)
+[少女は英雄を語りて](5000)
+[その名はドラゴンスレイヤー](7000)
+[魂の選択](10000)
+[トラベラーズ☆イン](13000)
+[終焉のゼロ - ドラゴンモード0 -](14000)
+[常闇から来たる影](15000)
+[金竜の陰謀](18000)
+</scene>
+
+<scene id="1000">
+## 新・消えた王様の杖
+</scene>
+
+<scene id="4000">
+## 災厄の夜 - テンペスト・ナイト
+</scene>
+
+<scene id="5000">
+## 少女は英雄を語りて
+</scene>
+
+<scene id="7000">
+## その名はドラゴンスレイヤー
+
+シナリオ単位に、インデックスページを設けます。
+
+モンスター以外を扱う場合には、以下のように見出しで区切ってください。
+＃モンスターのみの場合は見出しは付けません。
+もちろん、「舞台」「実績」など、ここで挙げた以外の見出しも可能です。
+
+### モンスター
+
+#### フィールド
+
+[グリーンスライムLv1](1010)
+
+#### 森林
+
+#### ＊＊＊＊＊＊＊＊＊
+
+### 登場人物
+
+[ほげほげ](1010)
+
+### アイテム
+
+[ほげほげ](1010)
+</scene>
+
+<scene id="1010">
+## グリーンスライムLv1
+
+### 特性
+
+…知能が無いためか緊張感無く街の近くに現れるスライム…
+のどかさが増すだけだが一応倒しておくべきか。
+趣味がスライムいじめとは言われない程度に。
+
+%red%図などを加えるならば、ここで%/%
+
+### 想定パラメータ
+
+ここはドラスレ固有？他シナでの設置は難しいかも。
+
+パラメーター ｜ 値
+HP | 75
+MP | 75
+STR | 6
+INT | 6
+DEX | 7
+KRM | 5
+FREE1 | 0
+FREE2 | 1
+
+おそらく下に標準のenemy表示をする想定かと思われますが、現時点では割愛しています。
+</scene>
+
+<scene id="10000">
+## 魂の選択
+</scene>
+
+<scene id="13000">
+## トラベラーズ☆イン
+</scene>
+
+<scene id="14000">
+## 終焉のゼロ - ドラゴンモード0 -
+</scene>
+
+<scene id="15000">
+## 常闇から来たる影
+</scene>
+
+<scene id="18000">
+## 金竜の陰謀
+</scene>
+
+<!--
+<scene id="100" items="-i01,i02" flags="f01,f02" enemies="m01,m02"
+  end="happy" se="hoge" result="r01">
+  本文
+</scene>
+<scene id="200" items="-i01,i02" flags="f01,f02" enemies="m01,m02"
+  end="bad" se="hoge">
+  本文
+</scene>
+-->
+</scenario>
