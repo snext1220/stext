@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd" title="魂の選択" author="ときのじ">
 	<init>
 		<bgm main="soul-main01" happy="soul-happy" bad="soul-bad"></bgm>
-　　　　<intro description="【魂の選択】ペンタウァへの帰路で休息していた君は、夢の中で謎の女から何かを頼まれたようだ。"></intro>
+　　　　<intro keywords="観光,少女" description="【魂の選択】ペンタウァへの帰路で休息していた君は、夢の中で謎の女から何かを頼まれたようだ。勇者とケモ耳っ子との交流を描いた読み物系シナリオ"></intro>
 	</init>
 	<items>
 		<item id="i01" name="緑石の首飾り">【所持者リュフー】武具の端材と清められた石で作ったお守り</item>
