@@ -54,6 +54,7 @@
 
 	<init>
 		<bgm main="bgm" happy="@field04"></bgm>
+		<intro keywords="" description="ノベル風シナリオ第二弾。戦いと命、そして覚悟の物語――急げ、夜が明ける前に。"></intro>
 	</init>
 
 <scene id="0">
