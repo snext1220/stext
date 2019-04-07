@@ -9,6 +9,7 @@
 <!--v1.5 2018/4/1 トロフィー追加。-->
 <!--v1.6 2018/10/6 bgm仕様変更に対応。-->
 <!--v1.7 2018/11/9 ライセンス表記のミスを修正。-->
+<!--v1.8 2019/4/7 introタグを追加。-->
 <scenario title="プレアオブ・ドールズ" author="cocotori">
 <items>
 </items>
@@ -48,6 +49,7 @@
 
 	<init>
 		<bgm main="bgm" happy="@end03"></bgm>
+		<intro keywords="" description="王都ペンタウァを騒がす、人形が関わる猟奇事件の物語。人は、人形は。その想いは届くことはあるのだろうか。悲しき人形と心の物語。"></intro>
 	</init>
 
 	<scene id="0" bgm="bgm">
