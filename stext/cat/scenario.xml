@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--v1.1 2018/10/6 bgm仕様変更に対応。-->
-
+<!--v1.2 2019/4/7 introタグを追加。-->
 
 <scenario
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd" title="わたしのネコを探して" author="cocotori">
@@ -32,6 +32,7 @@
 	
 	<init>
 		<bgm main="@field02" happy="@end02"></bgm>
+		<intro keywords="ミニミニ30祭" description="ゆるめのテイストに彩られた、探索物シナリオ。ペンタウァの町をうろうろしながら、いろいろな人の話を聞いてみてください。"></intro>
 	</init>
 	
 	<scene id="0" items="i03,i04">
