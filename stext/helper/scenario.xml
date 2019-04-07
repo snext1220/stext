@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <scenario
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd" title="時を越えた協力者" author="cocotori">
-	<init></init>
+	<init>
+		<intro keywords="ドラゴンモード" description="己が何者かもわからぬまま、闇の霧包まれし遺跡を突き進め。忘れることなかれ。あなたは一人ではない。"></intro>
+	</init>
+	
+	
 	<items>
 		<item id="i10" name="メモ1">ドラゴンの名は、ナイトメア</item>
 		<item id="i11" name="メモ2">ドラゴンは、あなたが作り出した</item>
@@ -27,11 +31,18 @@
 	<licence>
 		<work name="enemy-below" category="bgm" creator="ポラッカ" url="//cnoc.web.fc2.com/"></work>
 		<work name="cavalry" category="bgm" creator="ベンズ" url="//www.sougetsu-on.net/"></work>
+		<work name="洞窟（改変）" category="picture" creator="あやえも研究所" url="//ayaemo.skr.jp"></work>
+		<work name="洞窟（改変元）" category="picture" creator="Klearchos Kapoutsis (Creative Commons license http://creativecommons.org/licenses/by/2.0/deed.en)" url="//www.flickr.com/photos/klearchos/3863567622/"></work>
+		<work name="蛇" category="picture" creator="すしぱく" url="//www.pakutaso.com/"></work>
+		<work name="フクロウ" category="picture" creator="GAHAG" url="//gahag.net/"></work>
+		<work name="ドラゴン" category="picture" creator="Freepik" url="//www.freepik.com"></work>
+		<work name="協力者" category="picture" creator="cocotori" url=""></work>
 	</licence>
 	
 	
 <!--v0.9 2019/2/18 初版。-->
 <!--v0.91 2019/3/30 微修正。new playgroundにて出力。-->	
+<!--v0.92 2019/4/7 画像を追加。-->	
 	
 	<scene id="0" bgm="cnoc-enemy-below" summary="目覚め">はっと意識を取り戻す。
 
@@ -82,6 +93,8 @@
 Scenario 3「プレアオブ・ドールズ」の実績**「誰のためでもない、その旅路に祝福を」**
 Scenario 13「トラベラーズ☆イン」の実績**「宿泊は有料」**
 を取得している必要があります！%/%
+
+![洞窟](ayaemo-fantasy-in08-night-dark.jpg)
 
 [進む](2 "r04:doll&amp;r61:inn")</scene>
 	<scene id="2" bgm="cnoc-enemy-below" summary="ルール説明">ごつごつした岩肌の通路を抜け、
@@ -252,7 +265,11 @@ HPという項目がある。
 
 [1 教えを請う](7)
 [2 甘言だ。切って捨てる](8)
-[3 締め上げる](15)</scene>
+[3 締め上げる](15)
+
+![蛇](pakutaso-FSC-bo-runishikihebi-TP-Vr.jpg)
+
+</scene>
 	<scene id="7">蛇はゆらゆらと長い胴体を振りつつ、語りだす。
 
 「自分のことをソーサリアンなどと抜かしたな？
@@ -759,7 +776,12 @@ ${/if}
 [1 お前は何者だ？](17)
 [2 舞い戻ったとは？](29 "-i11")
 [2 この先は、すでに知っている](50 "i11")
-[3 先手を打つ](30)</scene>
+[3 先手を打つ](30)
+
+![フクロウ](gahag-0037972155-1r.jpg)
+
+
+</scene>
 	<scene id="23" enemies="m03" bgm="@none" summary="扉前：準備不足">きれいに整備された階段が現れた。
 
 **もっとも、すでにところどころひび割れ、隙間からは奈落の底が覗える。**
@@ -1617,6 +1639,8 @@ STATUS画面を開き、所持欄を確認すること。
 振り払う。
 綺麗な弧を描き宙を舞うドラゴンの首。
 
+![ナイトメアドラゴン](freepik-318666-P99K85-981r.jpg)
+
 
 [次へ](53)</scene>
 	<scene id="48" bgm="@end01d" summary="閃光の中で">閃光。
@@ -1646,6 +1670,9 @@ STATUS画面を開き、所持欄を確認すること。
 手はすり抜けていくのみ。
 
 **再び閃光。**
+
+
+![協力者](helper.jpg)
 
 ---
 
@@ -1681,6 +1708,8 @@ STATUS画面を開き、所持欄を確認すること。
 いてもたってもいられず。
 何を言えばいいか形にならず。
 ただ、頭を下げた――
+
+
 
 [エンド](51)</scene>
 	<scene id="49">不思議な気分だ。
