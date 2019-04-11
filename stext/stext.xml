@@ -296,6 +296,25 @@
 <p class="award">このシナリオを解放するには、Scenario 4「災厄の夜　-テンペスト・ナイト-」の実績（新たなる夜明け）、及びScenario 7「その名はドラゴンスレイヤー」の実績（娘を助けて武器屋を通常営業に戻した）を取得している必要があります！</p>
 </work>
 
+
+<work id="helper" title="時を越えた協力者" author="cocotori"  series="連作ドラゴンモード"
+  tags="ループもの" published="2019-04-25" updated="2019-04-25" level="3" scenes="53" results="6" clears="r01"
+  comment=" ">
+<img src="./stext/helper/capture/intro.png" height="120"
+  title="時を越えた協力者"  align="left" class="left"/>
+<p class="award">ドラゴンモード本編Vol.5（連作シナリオ）</p>
+
+その日、目覚めしたソーサリアンは己のことを忘れていた。更には、己の任務を。
+闇の霧の満たされる迷宮で、戸惑いつつも深淵を目指せ。
+敵は最奥。そこに倒すべき悪夢の竜がいる。
+ただ一つ忘れてはならないこと。あなたは一人ではない。
+
+<p class="award">Scenario 3「プレアオブ・ドールズ」の実績「誰のためでもない、その旅路に祝福を」、及びScenario 13「トラベラーズ☆イン」の実績「宿泊は有料」を取得している必要があります！</p>
+</work>
+
+
+
+
 </scenario>
 
 <utility>
@@ -408,7 +427,7 @@ SText Playgroundは、ブラウザー上で動作するソーサリアン Text�
 </utility>
 
 <future>
-<work title="時を超えた協力者" author="cocotori" unpublished="2019年4月"></work>
+<work title="時を超えた協力者" author="cocotori" unpublished="2019年4月25日"></work>
 
 <work title="ドラゴンネゴシエーター" author="Salvador" unpublished="2019年5月"></work>
 
