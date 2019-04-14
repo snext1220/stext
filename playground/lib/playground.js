@@ -213,22 +213,30 @@ $(function () {
               callback(data);
             },
             deleteNode: function(data, callback) {
-              let node = Util.getSceneById(data.nodes[0]);
-              scenario.scenes = scenario.scenes.filter(function(value) {
-                return value.id !== node.id;
-              });
-              scenario.edges = scenario.edges.filter(function(value) {
-                return value.from !== node.id && value.to !== node.id;
-              });
-              Util.disableTab();
-              callback(data);
+              if (confirm('Sceneを削除しても良いですか？')) {
+                let node = Util.getSceneById(data.nodes[0]);
+                scenario.scenes = scenario.scenes.filter(function(value) {
+                  return value.id !== node.id;
+                });
+                scenario.edges = scenario.edges.filter(function(value) {
+                  return value.from !== node.id && value.to !== node.id;
+                });
+                Util.disableTab();
+                callback(data);
+              } else {
+                callback(null);
+              }
             },
             deleteEdge: function(data, callback) {
-              scenario.edges = scenario.edges.filter(function(value) {
-                return value.id === data.id;
-              });
-              Util.disableTab();
-              callback(data);
+              if (confirm('Edgeを削除しても良いですか？')) {
+                scenario.edges = scenario.edges.filter(function(value) {
+                  return value.id === data.id;
+                });
+                Util.disableTab();
+                callback(data);
+              } else {
+                callback(null);
+              }
             }
           },
           nodes: {
