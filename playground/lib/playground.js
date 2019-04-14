@@ -131,6 +131,19 @@ $(function () {
         return elem.id === id; 
       });
     },
+    // 指定されたエッジの情報をフォームに反映
+    setEdgeInfo: function(id) {
+      Util.enableTab(7);
+      let edge = Util.getEdgeById(id);
+      $('#edge #id').val(edge.id);
+      $('#edge #from').text(edge.from);
+      $('#edge #to').text(edge.to);
+      $('#edge #order').val(edge.order);
+      $('#edge #label').val(edge.label);
+      $('#edge #condition').val(edge.condition);
+      $('#edge #type').val(edge.type);
+      $('#edge #correct').val(edge.correct);
+    },
     // 指定されたオブジェクトを要素に変換
     // @params name：要素名、data：変換対象のオブジェクト
     // @return 生成された要素（jQuery obj）、中身が空の場合はfalse
@@ -239,6 +252,24 @@ $(function () {
               }
             }
           },
+          locale: 'ja',
+          locales: {
+            ja: {
+              edit: 'Edit',
+              del: 'Delete Selected',
+              back: 'Back',
+              addNode: 'Add Scene',
+              addEdge: 'Add Link',
+              editNode: 'Edit Scene',
+              editEdge: 'Edit Link',
+              addDescription: 'Click in an empty space to place a new scene.',
+              edgeDescription: 'Click on a scene and drag the link to another scene to connect them.',
+              editEdgeDescription: 'Click on the control points and drag them to a scene to connect to it.',
+              createEdgeError: 'Cannot link edges to a cluster.',
+              deleteClusterError: 'Clusters cannot be deleted.',
+              editClusterError: 'Clusters cannot be edited.'
+            }
+          },
           nodes: {
             shape: 'box',
             size: 20,
@@ -290,24 +321,38 @@ $(function () {
             editor.setValue('');
           }
           editor.focus();
+
+          // リンクリストを生成
+          $('#scene-select #edges-list').empty();
+          $('#scene-select #edges-list').append(
+            '<option value="" selected>編集するリンクを選択</option>');
+          scenario.edges.forEach(function(value) {
+            if (value.from === id) {
+              $('<option></option>')
+                .attr('value', value.id)
+                .text(`${value.to}: ${value.label}`)
+                .appendTo('#scene-select #edges-list');
+            }
+          });
         }
       });
   
       // エッジ選択時にフォームに反映
       network.on('selectEdge', function(e) {
         if (e.nodes.length !== 0) { return; }
-        let id = this.getEdgeAt(e.pointer.DOM);
+        let id = network.getEdgeAt(e.pointer.DOM);
         if (id !== undefined) {
-          Util.enableTab(7);
-          let edge = Util.getEdgeById(id);
-          $('#edge #id').val(edge.id);
-          $('#edge #from').text(edge.from);
-          $('#edge #to').text(edge.to);
-          $('#edge #order').val(edge.order);
-          $('#edge #label').val(edge.label);
-          $('#edge #condition').val(edge.condition);
-          $('#edge #type').val(edge.type);
-          $('#edge #correct').val(edge.correct);
+          Util.setEdgeInfo(id);
+          // Util.enableTab(7);
+          // let edge = Util.getEdgeById(id);
+          // $('#edge #id').val(edge.id);
+          // $('#edge #from').text(edge.from);
+          // $('#edge #to').text(edge.to);
+          // $('#edge #order').val(edge.order);
+          // $('#edge #label').val(edge.label);
+          // $('#edge #condition').val(edge.condition);
+          // $('#edge #type').val(edge.type);
+          // $('#edge #correct').val(edge.correct);
         }
       });
     },
@@ -678,6 +723,14 @@ $(function () {
   $('#label-free2').val(scenario.init.label.free2);
   $('#label-free3').val(scenario.init.label.free3);
   $('#intro-description').val(scenario.init.intro.description);
+  // シーンリストを生成
+  // $('#scenes-list').empty();
+  // for (let scene of scenario.scenes) {
+  //   $('<option></option>')
+  //     .attr('value', scene.id)
+  //     .text(scene.label)
+  //     .appendTo('#scenes-list');
+  // }
 
   // 基本情報配下の入力値を反映
   $('#basic input').change(function(e) {
@@ -748,7 +801,7 @@ $(function () {
   });
 
   // ［シーン］タブ内での更新
-  $('#scene-select input, #scene-select select').on('change', function(e) {
+  $('#scene-select input, #scene-select select:not(.no-update)').on('change', function(e) {
     let id = $('#scene-select #id').text();
     if (id) {
       let scene = Util.getSceneById(id);
@@ -758,6 +811,12 @@ $(function () {
         Util.createNetwork();
       }
     }
+  });
+
+  // ［シーン］タブ内でのエッジ選択
+  $('#scene-select #edges-list').on('change', function(e) {
+    network.selectEdges([ $(this).val() ]);
+    Util.setEdgeInfo($(this).val());
   });
 
   // ［リンク］タブ内での更新
