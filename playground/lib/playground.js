@@ -809,6 +809,7 @@ $(function () {
       if (e.target.id === 'summary') {
         scene.label = scene.id + ':\n' + scene.summary;
         Util.createNetwork();
+        network.selectNodes([ scene.id ]);
       }
     }
   });
@@ -828,6 +829,7 @@ $(function () {
     }
     if (e.target.id === 'label') {
       Util.createNetwork();
+      network.selectEdges([ id ]);
     }
   });
 
