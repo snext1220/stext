@@ -242,11 +242,23 @@ $(function () {
           nodes: {
             shape: 'box',
             size: 20,
-            color: 'skyblue'
+            color: {
+              background: 'skyblue',
+              highlight: {
+                border: '#f00',
+                background: '#f90',
+              }
+            }
           },
           edges: {
             arrows: 'to',
-            smooth: false
+            smooth: false,
+            color: {
+              color: 'skyblue',
+              hover: '#f90',
+              highlight: '#f00'
+            }
+
           }
         }
       );

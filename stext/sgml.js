@@ -1786,11 +1786,11 @@
       tmp_scene = tmp_scene.replace(/%\/%/gi, '</span>&nbsp;');
       tmp_scene = tmp_scene.replace(/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi,
         '<a href="$&" data-link="auto" target="_blank">$&</a>');
-        // ${text|ruby}の箇所をruby要素で修飾（ルビ）
-      tmp_scene = tmp_scene.replace(/\${(.+?)\|(.+?)}/gi,
-        '<ruby>$1<rp>（</rp><rt>$2</rt><rp>）</rp></ruby>');
       // ${if cond}...${/if}による条件分岐
       tmp_scene = tmp_scene.replace(/\${if[\s]+(.+?)}([\s\S]+?)\${\/if}/gi, this.ifCondition);
+      // ${text|ruby}の箇所をruby要素で修飾（ルビ）
+      tmp_scene = tmp_scene.replace(/\${(.+?)\|(.+?)}/gi,
+        '<ruby>$1<rp>（</rp><rt>$2</rt><rp>）</rp></ruby>');
       // ${tweet}...${/tweet}によるTwitter反映
       tmp_scene = tmp_scene.replace(/\${tweet}([\s\S]+?)\${\/tweet}/gi, this.parseTweet);
       // ${...}の箇所を式の内容に応じて処理
