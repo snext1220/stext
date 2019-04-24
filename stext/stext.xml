@@ -301,7 +301,7 @@
   tags="ループもの" published="2019-04-25" updated="2019-04-25" level="3" scenes="53" results="6" clears="r01" unpublished="2019年4月25日"
   comment="とにかく迷ってほしくてこのシナリオを作りました。大丈夫、トンネルには必ず出口があります。">
 <img src="./stext/helper/capture/intro.png" height="120"
-  title="時を越えた協力者"  align="left" class="left"/>
+  title="時を越えた協力者"  align="right" class="right"/>
 <p class="award">ドラゴンモード本編Vol.5（連作シナリオ）</p>
 
 その日、目覚めしたソーサリアンは己のことを忘れていた。更には、己の任務を。
@@ -430,7 +430,6 @@ SText Playgroundは、ブラウザー上で動作するソーサリアン Text�
 </utility>
 
 <future>
-<work title="時を超えた協力者" author="cocotori" unpublished="2019年4月25日"></work>
 
 <work title="ドラゴンネゴシエーター" author="Salvador" unpublished="2019年5月"></work>
 
