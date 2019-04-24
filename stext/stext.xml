@@ -298,7 +298,7 @@
 
 
 <work id="helper" title="時を越えた協力者" author="cocotori"  series="連作ドラゴンモード"
-  tags="ループもの" published="2019-04-25" updated="2019-04-25" level="3" scenes="53" results="6" clears="r01"
+  tags="ループもの" published="2019-04-25" updated="2019-04-25" level="3" scenes="53" results="6" clears="r01" unpublished="2019年4月25日"
   comment="とにかく迷ってほしくてこのシナリオを作りました。大丈夫、トンネルには必ず出口があります。">
 <img src="./stext/helper/capture/intro.png" height="120"
   title="時を越えた協力者"  align="left" class="left"/>
@@ -310,6 +310,9 @@
 ただ一つ忘れてはならないこと。あなたは一人ではない。
 
 <p class="award">Scenario 3「プレアオブ・ドールズ」の実績「誰のためでもない、その旅路に祝福を」、及びScenario 13「トラベラーズ☆イン」の実績「宿泊は有料」を取得している必要があります！</p>
+
+<p class="award">公開日：2019年4月25日</p>
+
 </work>
 
 
