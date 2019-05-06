@@ -303,8 +303,7 @@ img.dice {
 }
 
 #dialog_body input {
-  height: 30px;
-  width: 30px;
+  height: 25px;
 }
 
 #dialog_body input[type="number"], #dialog_body select, #dialog_body textarea,
