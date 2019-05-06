@@ -1774,11 +1774,19 @@
         console.log(sub1);
         console.log(sub2);
         console.log(sub3);
-        sub2 = sub2.replace('!', '#NOT#');
-        sub2 = sub2.replace('&', '#AND#');
-        sub2 = sub2.replace('|', '#OR#');
-        sub2 = sub2.replace('(', '#L#');
-        sub2 = sub2.replace(')', '#R#');
+        sub2 = sub2.split('!').join('#NOT#');
+        sub2 = sub2.split('&').join('#AND#');
+        sub2 = sub2.split('|').join('#OR#');
+        sub2 = sub2.split('(').join('#L#');
+        sub2 = sub2.split(')').join('#R#');
+
+        // sub2 = sub2.replace('!', '#NOT#');
+        // sub2 = sub2.replace('&', '#AND#');
+        // sub2 = sub2.replace('|', '#OR#');
+        // sub2 = sub2.replace('(', '#L#');
+        // sub2 = sub2.replace(')', '#R#');
+        
+        console.log(sub1 + sub2 + sub3);
         return sub1 + sub2 + sub3;
       });
       // カラーリング＆URL処理

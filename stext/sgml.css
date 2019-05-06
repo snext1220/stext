@@ -303,12 +303,13 @@ img.dice {
 }
 
 #dialog_body input {
-  height: 25px;
+  height: 30px;
+  width: 30px;
 }
 
 #dialog_body input[type="number"], #dialog_body select, #dialog_body textarea,
 input[type="number"].sgml {
-  border-radius: 3px;
+  border-radius: 0px;
   background-color: #cad4ff;
   font-size: large;
 }
