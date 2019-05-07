@@ -7,15 +7,15 @@
 		<intro description="ドラゴンスレイヤー発見騒動から始まる激しい戦いの旅…裏に潜む強大な敵の正体を突き止めろ！ゲームブックで遊ぶ戦闘型３ＤダンジョンＲＰＧ！"></intro>
 	</init>
 	<items>
-		<item id="i3360" name="エリクサー(特)">死ぬと自動で発動し､そのまま生き返る､真のエリクサー</item>
+		<item id="i3360" name="エリクサー(特)">死亡時に生き返る真のエリクサー</item>
 		<item id="i4221" name="隼の剣">STR+30/DEX+15/戦闘最初に敵1体を倒せる</item>
 		<item id="i4222" name="イージスの盾">DEX+20/DM-20/盾防御時のDM無効化</item>
 		<item id="i4223" name="リフレクス">DM-50/DEX+5/指定敵の魔法を反射</item>
 		<item id="i4224" name="ブラックリング(未装備)">重魔法の星消費半分</item>
-		<item id="i4225" name="ブラックリング(第1段階)"></item>
+		<item id="i4225" name="ブラックリング(第1段階)">INT+99/INT関与&amp;魔法使用時MP-5/重魔法の星消費半分</item>
 		<item id="i2535" name="エリクサー(並)">HP/MP/状態異常を全回復</item>
 		<item id="i2857" name="イビルクリスタル">赤黒く鳴動する不気味な水晶玉</item>
-		<item id="i2903" name="タリスマン(小)">KRM+1 タリスマンになり始めの小石にヒモをつけたペンダント</item>
+		<item id="i2903" name="タリスマン(小)">KRM+1/タリスマンになり始めの小石</item>
 		<item id="i1201" name="平たい石">水面を跳ねやすい平たい石だ</item>
 		<item id="i1209" name="蔓のミサンガ">草の蔓(つる)で編まれた簡素な腕輪</item>
 		<item id="i2005" name="木の枝">拒絶の森の入口の枝だ</item>
@@ -124,10 +124,8 @@
 		<enemy id="m4111" name="突風" element="" attack="距離" func="*3(L+R)-(STR÷10)+(準備行動回数×2)" drop="thu/3">嵐の風をコントロールして集中させる凄まじい突風｡風速50m？</enemy>
 		<enemy id="m4110" name="突風Lv9" element="" attack="both" func="10L+10R+555-STR-INT-FREE1-10FREE2" drop="sat/3">嵐の風をコントロールして集中させる凄まじい突風｡風速50m？</enemy>
 		<enemy id="m4120" name="ダッシュ" element="" attack="ダッシュ" func="*(DEX÷10)-(準備行動回数×2)" drop="wed/3">ﾀﾞｯｼｭ､ﾀﾞｰｯｼｭ､ﾀﾞｯｼｭ!!</enemy>
-		<enemy id="m4131" name="電撃(回避)" element="" attack="both" func="*3(L+R)＜＞{(DEX+KRM)÷10}+最終距離-(準備行動回数×2)※右側が上回ったなら回避成功｡" drop="fri/3">雷雲の雷を集めて放つ､恐るべき電撃｡その電圧は数千万ボルトにも達する｡</enemy>
-		<enemy id="m4130" name="電撃(DM)Lv9/防御不能/魔法防御不能" element="" attack="both" func="20L+20R+999-STR-INT-DEX-KRM-FREE1-10FREE2" drop="sun/3">雷雲の雷を集めて放つ､恐るべき電撃｡その電圧は数千万ボルトにも達する｡</enemy>
 		<enemy id="m4131" name="電撃" element="" attack="回避" func="*3(L+R)＜＞{(DEX+KRM)÷10}+最終距離-(準備行動回数×2)※右側が上回ったなら回避成功｡" drop="fri/3">雷雲の雷を集めて放つ､恐るべき電撃｡その電圧は数千万ボルトにも達する｡</enemy>
-		<enemy id="m4130" name="電撃Lv9/防御不能/魔法防御不能" element="" attack="both" func="20L+20R+999-STR-INT-DEX-KRM-FREE1-10FREE2" drop="sun/3">雷雲の雷を集めて放つ､恐るべき電撃｡その電圧は数千万ボルトにも達する｡@enemies</enemy>
+		<enemy id="m4130" name="電撃Lv9/防御不能/魔法防御不能" element="" attack="both" func="20L+20R+999-STR-INT-DEX-KRM-FREE1-10FREE2" drop="sun/3">雷雲の雷を集めて放つ､恐るべき電撃｡その電圧は数千万ボルトにも達する｡</enemy>
 		<enemy id="m4140" name="突進Lv9【距離0-2】/魔法防御不能/耐久力9" element="" attack="physics" func="30L+30R+999-STR-INT-DEX-KRM-FREE1-10FREE2" drop="tue/3">スピードとパワーが物理の限界を超えたその攻撃は､牙/角/爪のどこが当たっても致命傷となる｡</enemy>
 		<enemy id="m4141" name="突進Lv9【距離3-5】/魔法防御不能/耐久力9" element="" attack="physics" func="24L+24R+999-STR-INT-DEX-KRM-FREE1-10FREE2" drop="tue/3">スピードとパワーが物理の限界を超えたその攻撃は､牙/角/爪のどこが当たっても致命傷となる｡</enemy>
 		<enemy id="m4142" name="突進Lv9【距離6-10】/魔法防御不能/耐久力9" element="" attack="physics" func="14L+14R+999-STR-INT-DEX-KRM-FREE1-10FREE2" drop="tue/3">スピードとパワーが物理の限界を超えたその攻撃は､牙/角/爪のどこが当たっても致命傷となる｡</enemy>
