@@ -314,6 +314,23 @@
 </work>
 
 
+<work id="negotiator" title="ドラゴンネゴシエーター" author="Salvador" unpublished="true" series="連作ドラゴンモード"
+  tags="ペトスの祭壇,推理" published="" updated="" level="2" scenes="39" results="4" clears="r04"
+  comment="あなたの武器は剣や魔法ではなく「交渉」です。一風変わったドラゴンモードをお楽しみください。">
+<img src="./stext/negotiator/capture/intro.png" height="120"
+  title="ドラゴンネゴシエーター"  align="left" class="left"/>
+<p class="award">ドラゴンモード本編Vol.6（連作シナリオ）</p>
+
+ペンタウァの北方にあるレムス山の洞窟で、かつて勇者によって斃されたアイスドラゴンが復活したという。
+　ペンタウァ北部の穀倉地帯を大寒波が覆いつくしたのは、アイスドラゴンの影響と考えられた。
+
+穀物が芽吹く春が訪れる前にこの災厄を退けないと、国全体に深刻な飢饉が広がってしまう。
+　この災厄を退けるため、君は一刻も早く装備を整え、レムスへ出発しなければならない・・・と思っていた。
+
+・・・王は意外な言葉を口にしたのだ。
+
+<p class="award">2019年5月27日公開予定です。</p>
+</work>
 
 
 </scenario>
@@ -428,8 +445,6 @@ SText Playgroundは、ブラウザー上で動作するソーサリアン Text�
 </utility>
 
 <future>
-
-<work title="ドラゴンネゴシエーター" author="Salvador" unpublished="2019年5月"></work>
 
 <work title="七星の名の下に" author="リオ"></work>
 
