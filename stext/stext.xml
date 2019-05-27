@@ -314,8 +314,8 @@
 </work>
 
 
-<work id="negotiator" title="ドラゴンネゴシエーター" author="Salvador" unpublished="true" series="連作ドラゴンモード"
-  tags="ペトスの祭壇,推理" published="" updated="" level="2" scenes="39" results="4" clears="r04"
+<work id="negotiator" title="ドラゴンネゴシエーター" author="Salvador" series="連作ドラゴンモード"
+  tags="ペトスの祭壇,推理" published="2019-05-27" updated="2019-05-27" level="2" scenes="39" results="4" clears="r04"
   comment="あなたの武器は剣や魔法ではなく「交渉」です。一風変わったドラゴンモードをお楽しみください。">
 <img src="./stext/negotiator/capture/intro.png" height="120"
   title="ドラゴンネゴシエーター"  align="left" class="left"/>
@@ -325,11 +325,11 @@
 　ペンタウァ北部の穀倉地帯を大寒波が覆いつくしたのは、アイスドラゴンの影響と考えられた。
 
 穀物が芽吹く春が訪れる前にこの災厄を退けないと、国全体に深刻な飢饉が広がってしまう。
-　この災厄を退けるため、君は一刻も早く装備を整え、レムスへ出発しなければならない・・・と思っていた。
+　君は一刻も早く装備を整え、レムスへ出発しなければならない・・・と思っていた。
 
 ・・・王は意外な言葉を口にしたのだ。
 
-<p class="award">2019年5月27日公開予定です。</p>
+<p class="award">このシナリオを解放するには、Scenario 6「鉄腕の吸血姫」の実績「手を取り、ともに生きる」、Scenario 8「ラミディアの魔法使い」の実績「ロマンシアの宝剣」を取得している必要があります！</p>
 </work>
 
 
