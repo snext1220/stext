@@ -442,14 +442,20 @@
     // セーブデータのダウンロード処理
     // 引数scena_id：シナリオコード、data：データ本体
     downloadSavedata: function(scena_id, data) {
-      var blob = new Blob([ data ], { 'type': 'application/octet-stream' });
-      //saveAs(blob, scena_id + '-' + (new Date()).getTime()  + '.stext');
-      var anchor = document.createElement('a');
-      anchor.href = window.URL.createObjectURL(blob);
-      anchor.download = scena_id + '-' + (new Date()).getTime()  + '.stext';
-      document.body.appendChild(anchor);
-      anchor.click();
-      document.body.removeChild(anchor);
+      var ua = navigator.userAgent.toLowerCase();
+      if (ua.indexOf('safari') !== -1 &&
+        ua.indexOf('chrome') === -1 && ua.indexOf('edge') === -1){
+          window.open('./stext/download.php?id=' + scena_id +
+          '&data=' + data);
+      } else {
+        var blob = new Blob([ data ], { 'type': 'application/octet-stream' });
+        var anchor = document.createElement('a');
+        anchor.href = window.URL.createObjectURL(blob);
+        anchor.download = scena_id + '-' + (new Date()).getTime()  + '.stext';
+        document.body.appendChild(anchor);
+        anchor.click();
+        document.body.removeChild(anchor);
+      }
     },
 
     // セーブデータをリストア
