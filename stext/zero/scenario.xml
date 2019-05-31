@@ -2,6 +2,7 @@
 <scenario title="ゼロの創造" author="Salvador">
 <init>
 	<bgm main="bgm" happy="@end03" bad="@castle01"></bgm>
+	<intro keywords="探索" description="ソーサリアンの創造神キーヤへの思いを綴ったシナリオです。" />
 </init>
 <items>
   <item id="i1" name="ベニテングタケ">幻覚作用のある毒キノコ。宗教儀式に利用される</item>
@@ -41,14 +42,23 @@
   <enemy id="m5" name="ダークユニコーン" element="earth" attack="physics" func="2L+R-STR">
     魔法によって凶暴化したユニコーン
   </enemy>
+  <enemy id="m6" name="マンティコア" element="earth" attack="physics" func="L+R">
+    マンティコアの爪による攻撃
+  </enemy>
+  <enemy id="m7" name="カオスの結界" element="earth" attack="physics" func="L+R">
+    結界による物理ダメージ
+  </enemy>
+  <enemy id="m8" name="カオスの結界" element="earth" attack="magic" func="L+R">
+    結界による精神ダメージ
+  </enemy>
 </enemies>
 <licence>
-	<work name="Moon-ruins" category="音楽" creator="ユーフルカ" url="http://wingless-seraph.net/material-music_dangeon.html"></work>
-	<work name="プロローグ" category="画像" creator="mizuncoo" url="https://mizuncoonote.blogspot.jp/"></work>
-	<work name="ブザッティ" category="画像" creator="mizuncoo" url="https://mizuncoonote.blogspot.jp/"></work>
-	<work name="エピローグ" category="画像" creator="とくし" url="https://sites.google.com/site/rtdneta/"></work>
-	<work name="N30_48" category="音楽" creator="AZ" url="https://soundcloud.com/venus-az"></work>
-	<work name="N30_49" category="音楽" creator="AZ" url="https://soundcloud.com/venus-az"></work>
+	<work name="Moon-ruins" category="bgm" creator="ユーフルカ" url="http://wingless-seraph.net/material-music_dangeon.html"></work>
+	<work name="プロローグ" category="picture" creator="mizuncoo" url="https://mizuncoonote.blogspot.jp/"></work>
+	<work name="ブザッティ" category="picture" creator="mizuncoo" url="https://mizuncoonote.blogspot.jp/"></work>
+	<work name="エピローグ" category="picture" creator="とくし" url="https://sites.google.com/site/rtdneta/"></work>
+	<work name="N30_48" category="bgm" creator="AZ" url="https://soundcloud.com/venus-az"></work>
+	<work name="N30_49" category="bgm" creator="AZ" url="https://soundcloud.com/venus-az"></work>
 </licence>
 <results>
   <result id="r01" name="宣教師の正体" level="1">
@@ -754,6 +764,7 @@
 君はヒポグリフと戦わなければならない。
 
 [ヒポグリフを倒した](03109)
+[HPが0以下になった](05312)
 
 </scene>
   <scene id="03109" items="i1">
@@ -808,7 +819,7 @@
 [村はずれの洞窟](04108)
 
 </scene>
-  <scene id="04003" flags="f5">
+  <scene id="04003" flags="f5" hp="1">
 
 君は宿屋の扉を開け、中に入った。
 宿屋の主人が面倒くさそうに奥から出て来る。
@@ -825,7 +836,7 @@
 ガマはそれが不満だったのか、君の背中に「ゲコ」と声を掛けた。
 
 君は案内された部屋でしばしの仮眠を取った。
-(HPを +1 する事)
+(HPが1回復した)
 
 君は目を覚ました。
 外はすっかり暗くなっている。
@@ -870,7 +881,7 @@
 
 
 </scene>
-  <scene id="04006">
+  <scene id="04006" hp="2">
 
 君が麦畑を歩いていると、農夫が近づいてきた。
 
@@ -886,7 +897,7 @@
 農夫は別のキノコを君に手渡した。
 
 君は栄養価の高いマッシュルームを食べた。
-(HPを +2 する事)
+(HPが2回復した)
 
 どこへ行きますか？
 [村の入口](04001)
@@ -1220,13 +1231,17 @@
 
 
 </scene>
-  <scene id="05310" flags="f6" result="r01" stars="1,1,1,1,1,1,1">
+  <scene id="05310" enemies="m6">
 
 額への渾身の一撃は、マンティコアに致命傷を与えた。
 しかし、マンティコアの爪は君を切り裂き、君もまた深いダメージを負った。
+(下の「ダメージ」ボタンをクリックする事)
 
-(表示されている２つのダイスの値の合計をHPから引く事。
- HPが0以下になったら、ゲームオーバーです)
+[HPが1以上である](05311)
+[HPが0以下になった](05312)
+
+</scene>
+  <scene id="05311" flags="f6" result="r01" stars="1,1,1,1,1,1,1">
 
 ドサリ、とマンティコアは横倒しとなり、動く事は無かった。
 君はマンティコアを倒したのだ。
@@ -1236,6 +1251,11 @@
 
 [君は酒屋の主人の元にかけよった](05710)
 
+</scene>
+  <scene id="05312" end="bad">
+
+君の意識は薄れていき、ついに倒れた。
+冒険はここまでだ…。
 
 </scene>
   <scene id="05410" end="bad">
@@ -1412,6 +1432,8 @@ EXPLOSIONはマンティコアの致命的なダメージを与えた。
 
 
 [４人の盗賊を倒した](06203)
+[HPが0以下になった](05312)
+
 
 </scene>
   <scene id="06203">
@@ -1473,6 +1495,8 @@ EXPLOSIONはマンティコアの致命的なダメージを与えた。
 
 
 [盗賊たちを倒した](06206)
+[HPが0以下になった](05312)
+
 
 </scene>
   <scene id="06206" items="i2" flags="f9" >
@@ -1753,6 +1777,7 @@ EXPLOSIONはマンティコアの致命的なダメージを与えた。
 君は短刀を持った３人の盗賊と戦わなければならない。
 
 [盗賊たちを倒した](08210)
+[HPが0以下になった](05312)
 
 </scene>
   <scene id="08210" items="i3" flags="f10" >
@@ -1838,8 +1863,13 @@ EXPLOSIONはマンティコアの致命的なダメージを与えた。
 君が部屋に入ると蛇の尾を持つ鶏のような怪物、コカトリスが襲い掛かってきた。
 君はこのモンスターと戦わなければならない。
 
+[コカトリスを倒した](10102)
+[HPが0以下になった](05312)
+
+</scene>
+  <scene id="10102">
+
 この部屋には、東、西、北の壁に扉がある。
-コカトリスを倒したら、下の選択をする事。
 
 どこへ行きますか？
 [東](10003)
@@ -1866,8 +1896,13 @@ EXPLOSIONはマンティコアの致命的なダメージを与えた。
 君が部屋に入ると黒い一角獣、ダークユニコーンが襲い掛かってきた。
 君はこのモンスターと戦わなければならない。
 
+[ダークユニコーンを倒した](10104)
+[HPが0以下になった](05312)
+
+</scene>
+  <scene id="10104">
+
 この部屋には西、南、北の壁に扉がある。
-ダークユニコーンを倒したら、下の選択をする事。
 
 どこへ行きますか？
 [西](10006)
@@ -1906,8 +1941,13 @@ EXPLOSIONはマンティコアの致命的なダメージを与えた。
 デスチャロナだ。
 君はこのモンスターと戦わなければならない。
 
+[デスチャロナを倒した](10107)
+[HPが0以下になった](05312)
+
+</scene>
+  <scene id="10107">
+
 この部屋にも四方の壁に扉がある。
-デスチャロナを倒したら、下の選択をする事。
 
 どこへ行きますか？
 [東](10008)
@@ -2020,6 +2060,8 @@ EXPLOSIONはマンティコアの致命的なダメージを与えた。
 コカトリスとデスチャロナだ。
 
 [戦いに勝利したら魔女の家の扉を叩く](11103)
+[HPが0以下になった](05312)
+
 
 </scene>
   <scene id="11103" items="i4" flags="f13" stars="1,1,1,1,1,1,1">
@@ -2201,8 +2243,13 @@ EXPLOSIONはマンティコアの致命的なダメージを与えた。
 君が部屋に入ると蛇の尾を持つ鶏のような怪物、コカトリスが襲い掛かってきた。
 君はこのモンスターと戦わなければならない。
 
+[コカトリスを倒した](12102)
+[HPが0以下になった](05312)
+
+</scene>
+  <scene id="12102">
+
 この部屋には、東、西、北の壁に扉がある。
-コカトリスを倒したら、下の選択をする事。
 
 どこへ行きますか？
 [東](12003)
@@ -2229,8 +2276,13 @@ EXPLOSIONはマンティコアの致命的なダメージを与えた。
 君が部屋に入ると黒い一角獣、ダークユニコーンが襲い掛かってきた。
 君はこのモンスターと戦わなければならない。
 
+[ダークユニコーンを倒した](12104)
+[HPが0以下になった](05312)
+
+</scene>
+  <scene id="12104">
+
 この部屋には、西、南、北の壁に扉がある。
-ダークユニコーンを倒したら、下の選択をする事。
 
 どこへ行きますか？
 [西](12006)
@@ -2450,15 +2502,19 @@ EXPLOSIONはマンティコアの致命的なダメージを与えた。
 [NOILA-TEMを唱える](13006 "mNOILA-TEM")
 
 </scene>
-  <scene id="13002">
+  <scene id="13002"  enemies="m7,m8">
 
 君は＜金の卵＞を確実に当てるため、ブザッティに接近した。
 ブザッティはまだ君に気づいていないようだ。
 もう少しで射程圏内というところまで来たところで、
 君の身体にドンッと凄まじい衝撃が走った。
+(下の「ダメージ」ボタンを２つともクリックする事)
 
-(表示されているダイスの値の合計値をHPとMPから引く事。
- HP、MPどちらかが0以下になった場合はゲームオーバーです)
+[HPとMPが両方とも1以上である](13102)
+[HPとMPのどちらかが0以下になった](05312)
+
+</scene>
+  <scene id="13102">
 
 この見えない壁は、ブザッティの周囲に張られた結界だ。
 
