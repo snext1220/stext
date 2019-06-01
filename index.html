@@ -13,10 +13,24 @@
 <meta property="og:description" content="" />
 <meta property="og:image" content="https://web-deli.com/sorcerian/text/" />
 
+<!-- <link rel="stylesheet" href="https://www.web-deli.com/sorcerian/next/css/main.css" /> -->
 <link rel="stylesheet" href="./stext/zoombox.css" />
 <link rel="stylesheet" href="./stext/toastr.min.css" />
 <link rel="stylesheet" href="./stext/sgml.css" />
-<style>#main { font-size: 16px; }</style>
+<style>
+.main {
+  border: 1px solid #000;
+	margin-bottom: 10px;
+	font-size: small;
+	color: Black;
+	background-color: White;
+	width: 100%;
+	max-width: 550px;
+	min-height: 560px;
+	padding: 10px;
+	text-align:left;
+}
+</style>
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="./stext/zoombox.js"></script>
 <script src="./stext/jquery.markdown.js"></script>
@@ -81,8 +95,12 @@ $(function() {
   <option value="playground">プレイグラウンド</option>
 </select>
 </div>
-<div id="main">
+<div class="main game" style="margin: 0 auto; width: 95%;">
+  <!-- <dl class="desc"> -->
+  <div id="main">
   SGML（Sorcerian Gamebook Markup Language） Initialized...
+  </div>
+  <!-- </dl> -->
 </div>
 <div style="text-align: center;">
   <select id="scenario">

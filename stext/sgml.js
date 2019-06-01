@@ -2444,14 +2444,14 @@
 
       // ダイアログをクローズ（汎用版）
       target.parent().on('click', '.dialog_back', function(e) {
-        $(this).parent('.dialog').slideUp(500);
-        target.slideDown(500);
+        $(this).parent('.dialog').fadeOut(500);
+        target.fadeIn(500);
       });
 
       // ボーナスアイテム一覧を表示
       target.on('click', '#ctrl_bonus', function(e) {
-        dialog_elem['bonus_list'].slideDown(1000);
-        target.slideUp(500);
+        dialog_elem['bonus_list'].fadeIn(1000);
+        target.fadeOut(500);
         // $.zoombox.html(dialog_item.html(), {
         //   width: 650,
         //   height: 450
