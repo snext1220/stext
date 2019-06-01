@@ -116,14 +116,18 @@ table.enemy td {
   border-bottom: 1px solid #ccc;
 }
 
+.xbtn {
+  width: 100%;
+}
+
 input.scene_move {
-  width: 80%;
+  width: 70%;
   height: 20px;
   background-color: #ff9;  
 }
 
 input.quest_str {
-  width: 80%;
+  width: 70%;
   height: 20px;
   background-color: #0fc;  
 }

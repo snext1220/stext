@@ -1920,7 +1920,7 @@
         .text('移動する')
         .before('<input type="number" id="toscene" class="scene_move" />')
         .add('#toscene')
-        .wrapAll('<div></div>');
+        .wrapAll('<div class="xbtn"></div>');
 
       // 文字列入力用ボタンの整形
       var tmp_strinput = $('a[href="Q"]', target);
@@ -1931,7 +1931,7 @@
         .text('回答する')
         .before('<input type="text" id="stranswer" class="quest_str" />')
         .add('#stranswer')
-        .wrapAll('<div></div>');
+        .wrapAll('<div class="xbtn"></div>');
 
       // 挿絵の整形
       var a_img = $('a:has(img)', target);
