@@ -2,6 +2,7 @@
   // ルートパス
   var ROOT = 'stext/';
   var COMMON  = 'common/'
+  var DIALOG  = 'dialog/'
   var CAPTURE  = 'capture/'
   var BGM = 'bgm/'
   var SE = 'se/'
@@ -43,6 +44,9 @@
   // ダイアログ本体（ステータスダイアログ／アイテムリスト）
   var dialog;
   var dialog_item;
+
+  // ダイアログ本体（改訂版）
+  var dialog_elem = {};
 
   // デバッグモードか
   var debug_mode = false;
@@ -1098,6 +1102,19 @@
       //Util.showSplash();
     },
 
+    // ダイアログのテンプレートをロード
+    // path：テンプレート、callback：読み込み後の処理
+    loadDialog: function(path, callback) {
+      $.get(ROOT + COMMON + DIALOG + path + '.html')
+      .done(function(data) {
+        var tmp_dialog = $(data);
+        callback(tmp_dialog);
+        // 初期化済みのダイアログを保存
+        dialog_elem[path] = tmp_dialog;
+        dialog_elem[path].insertBefore(target).hide();
+      })
+    },
+
     // ダイアログを初期化
     initDialog: function() {
       $('#dialog_body').remove();
@@ -1148,9 +1165,10 @@
         });
 
       // ボーナスアイテムダイアログを初期化
-      $.get(ROOT + COMMON + 'dialog_list.html')
-        .done(function(data) {
-          dialog_item = $(data);
+      Util.loadDialog('bonus_list', function(dialog_item) {
+      //$.get(ROOT + COMMON + 'dialog_list.html')
+        //.done(function(data) {
+        //  dialog_item = $(data);
 
           // グッドアイテムを一覧表示
           for(var i = 0; i < 24; i++) {
@@ -1829,7 +1847,7 @@
         '<div id="control_panel">' +
         '<img id="ctrl_home" src="' + ROOT + COMMON + 'ctrl_home.png" /></a>　' +
         '<img id="status_open" src="' + ROOT + COMMON + 'ctrl_status.png" />　' +
-        '<img id="item_list" src="' + ROOT + COMMON + 'ctrl_bonus.png" />　' +
+        '<img id="ctrl_bonus" src="' + ROOT + COMMON + 'ctrl_bonus.png" />　' +
         '<img id="audio_onoff" src="' + ROOT + COMMON + 'ctrl_audio_' +
           (global_save_data.bgm ? 'on' : 'off') + '.png" />　' +
         '<img id="ctrl_reload" src="' + ROOT + COMMON + 'ctrl_results.png" />　' +
@@ -2424,16 +2442,24 @@
         next.val(Number(next.val()) - 1);
       });
 
+      // ダイアログをクローズ（汎用版）
+      target.parent().on('click', '.dialog_back', function(e) {
+        $(this).parent('.dialog').slideUp(500);
+        target.slideDown(500);
+      });
+
       // ボーナスアイテム一覧を表示
-      target.on('click', '#item_list', function(e) {
-        $.zoombox.html(dialog_item.html(), {
-          width: 650,
-          height: 450
-        });
+      target.on('click', '#ctrl_bonus', function(e) {
+        dialog_elem['bonus_list'].slideDown(1000);
+        target.slideUp(500);
+        // $.zoombox.html(dialog_item.html(), {
+        //   width: 650,
+        //   height: 450
+        // });
       });
 
       // ボーナスアイテムリストをクリックでアイテムの説明を表示
-      $(document).on('click', '#dialog_list img.bonus_item', function(e) {
+      $(document).on('click', '#bonus_list img', function(e) {
         var id = e.target.id;
         var o_bonus_item;
         if (id.startsWith('gi')) {
@@ -2441,8 +2467,11 @@
         } else {
           o_bonus_item = Common.global_items.bad[id];
         }
-        $('#dialog_list #bonus_msg').text(o_bonus_item.name + '（' +
-          o_bonus_item.desc + '）');
+
+        toastr.success(o_bonus_item.desc, o_bonus_item.name);
+
+        //$('#dialog_list #bonus_msg').text(o_bonus_item.name + '（' +
+        //  o_bonus_item.desc + '）');
       });
 
       // ホームボタンでページ移動

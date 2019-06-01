@@ -540,3 +540,44 @@ table.item_list img {
 .dialog_forget {
   background-color: #800080 !important;
 }
+
+
+/* ボーナスアイテムリスト（改定） */
+#bonus_list {
+  border: solid 1px #000;
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  width: 100%;
+  max-width: 550px;
+  min-height: 500px;
+  padding: 20px;
+  margin: 0 auto;
+}
+  
+#bonus_list .item_list {
+  background-color: #000;
+	margin: 0px auto;
+	padding: 0px;
+	box-sizing: border-box;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+#bonus_list .item_list li {
+	list-style: none;
+	border: solid 1px #000;
+	background-color: #fff;
+  padding: 10px;
+	box-sizing: border-box;
+	margin: 0px;
+	flex: 0 0 130px;
+	color: #fff;
+}
+
+#bonus_list .item_list img {
+  cursor: pointer;
+  width: 100%;
+}
