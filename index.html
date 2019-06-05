@@ -16,7 +16,11 @@
 <!-- <link rel="stylesheet" href="https://www.web-deli.com/sorcerian/next/css/main.css" /> -->
 <link rel="stylesheet" href="./stext/zoombox.css" />
 <link rel="stylesheet" href="./stext/toastr.min.css" />
+<link rel="stylesheet" href="./stext/sm-core-css.css" />
+<link rel="stylesheet" href="./stext/sm-blue.css" />
+<link rel="stylesheet" href="./stext/sm-custom.css" />
 <link rel="stylesheet" href="./stext/sgml.css" />
+
 <style>
 .main {
   border: 1px solid #000;
@@ -36,6 +40,7 @@
 <script src="./stext/jquery.markdown.js"></script>
 <script src="./stext/toastr.min.js"></script>
 <script src="./stext/vkbeautify.js"></script>
+<script src="./stext/jquery.smartmenus.js"></script>
 <script src="./stext/sgml.js"></script>
 <script>
 $(function() {
@@ -84,11 +89,90 @@ $(function() {
   $('#restore').restoreData();
   // GBAT2STextの有効化（テスト用）
   $('#gbat').gbat2stext();
+
+  // メニューの制御
+  var mainmenu = $('#main-menu');
+  mainmenu.smartmenus({
+    subMenusSubOffsetX: 1,
+    subMenusSubOffsetY: -8
+  });
+
+  var $mainMenuState = $('#main-menu-state');
+  if ($mainMenuState.length) {
+    // animate mobile menu
+    $mainMenuState.change(function(e) {
+      var $menu = $('#main-menu');
+      if (this.checked) {
+        $menu.hide().slideDown(250, function() { $menu.css('display', ''); });
+      } else {
+        $menu.show().slideUp(250, function() { $menu.css('display', ''); });
+      }
+    });
+    // hide mobile menu beforeunload
+    $(window).bind('beforeunload unload', function() {
+      if ($mainMenuState[0].checked) {
+        $mainMenuState[0].click();
+      }
+    });
+  }
+
+  // プラグイン化の時に消す
+  var target = $('#main');
+
+  // ダイアログ生成関数
+  var openDialog = function(e) {
+    e.preventDefault();
+    $('#' + e.data.name).fadeIn(1000);
+    target.fadeOut(500);
+  };
+
+  // ダイアログを表示
+  mainmenu.on('click', '#menu_status', { name: 'dialog_body' }, openDialog);
+  mainmenu.on('click', '#menu_bonus',  { name: 'bonus_list'  }, openDialog);
+
 });
 </script>
 </head>
 <body>
-<div style="text-align: center;">
+
+<!--Nabigation Menu-->
+<nav class="main-nav" role="navigation">
+
+<!-- Mobile menu toggle button (hamburger/x icon) -->
+<input id="main-menu-state" type="checkbox" />
+<label class="main-menu-btn" for="main-menu-state">
+  <span class="main-menu-btn-icon"></span> Toggle main menu visibility
+</label>
+
+<h2 class="nav-brand"><a href="#">SORCERIAN Text（No Run）</a></h2>
+
+<!-- Sample menu definition -->
+<ul id="main-menu" class="sm sm-blue">
+  <li><a id="menu_status" href="#">Status</a></li>
+  <li><a href="#">Battle</a></li>
+  <li><a href="#">Info</a>
+    <ul>
+      <li><a href="#">Items</a></li>
+      <li><a href="#">Flags</a></li>
+      <li><a href="#">Results</a></li>
+      <li><a id="menu_bonus" href="#">Bonus</a></li>
+    </ul>
+  </li>
+  <li><a href="#">System</a>
+    <ul>
+      <li><a href="#">Backup</a></li>
+      <li><a href="#">Restore</a></li>
+      <li><a href="#">Sound</a></li>
+      <li><a href="#">Help</a></li>
+      <li><a href="#">Exit</a></li>
+    </ul>
+  </li>
+</ul>
+</nav>
+
+
+
+<div style="text-align: center; margin-top: 70px;">
 <select id="select_scenario">
   <option value="" selected>シナリオを選択してください</option>
   <option value="test">テストシナリオ</option>
