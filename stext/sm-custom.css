@@ -1,6 +1,7 @@
 .main-nav {
   position: fixed;
   width: 100%;
+  max-height: 50px;
   top: 0;
   left: 0;
   background: #3092c0;
