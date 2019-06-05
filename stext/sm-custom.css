@@ -1,5 +1,6 @@
 .main-nav {
   position: fixed;
+  z-index: 999;
   width: 100%;
   max-height: 50px;
   top: 0;
