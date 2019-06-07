@@ -1,5 +1,33 @@
 <div id="bonus_list" class="dialog">
-<h3 class="dialog_back">←←←</h3>
+<style>
+/* 暫定 */
+.d_ctrl {
+  margin: 0px auto;
+  margin-bottom: 15px;
+	padding: 0px;
+	box-sizing: border-box;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.d_ctrl li {
+	list-style: none;
+  padding: 10px;
+	box-sizing: border-box;
+	margin: 0px;
+  flex: 0 0 80px;
+  height: 80px;
+  border: 1px solid #fff;
+}
+</style>
+<ul class="d_ctrl">
+  <li class="dialog_back">←←←</li>
+  <li id="d_ctrl_magic">Magic</li>
+  <li id="d_ctrl_items">Items & Flags</li>
+  <li id="d_ctrl_memo">Memo</li>
+</ul>
 <ul class="item_list">
   <li><img id="gi01" /></li>
   <li><img id="gi02" /></li>
