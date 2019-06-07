@@ -1,0 +1,26 @@
+<div id="battle_sheet" class="dialog_root">
+  <h3 class="dialog_back">←←←</h3>
+  <table class="enemy">
+  <thead>
+  <tr class="enemy_title">
+    <th></th>
+    <th>名前／属性</th>
+    <th>攻撃</th>
+    <th title="現在のダイス値に従って、ダメージを反映させます。">
+      ダメージ 
+      <select id="damage_delta">
+        <option value="2">x2</option>' + 
+        <option value="1" selected>x1</option>
+        <option value="0.5">x1/2</option>
+        <option value="0.25">x1/4</option>
+      </select>
+    </th>
+    <th title="記載されたドロップアイテムをステータスに反映させます。">戦利品</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  <div id="simple_status"></div>
+  <center id="dices"></center>
+</div>

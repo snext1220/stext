@@ -1164,6 +1164,12 @@
           dialog.insertBefore(target).hide();
         });
 
+      // 戦闘シートダイアログを初期化
+      Util.loadDialog('battle_sheet', function(d_battle) {
+        $('#dices', d_battle).html(Util.cube(2));
+        Util.showSimpleStatus();
+      });
+
       // ボーナスアイテムダイアログを初期化
       Util.loadDialog('bonus_list', function(dialog_item) {
       //$.get(ROOT + COMMON + 'dialog_list.html')
@@ -2444,14 +2450,70 @@
 
       // ダイアログをクローズ（汎用版）
       target.parent().on('click', '.dialog_back', function(e) {
-        $(this).parent('.dialog').fadeOut(500);
+        $(this).parents('.dialog_root').fadeOut(500);
         target.fadeIn(500);
+      });
+
+      // バトルシートを表示（暫定）
+      $('#main-menu').on('click', '#menu_battle', function(e) {
+        var d_battle = dialog_elem['battle_sheet'];
+        var d_body = $('tbody', d_battle);
+        d_body.empty();
+
+        var enemies = $('scene#' + save_data.scene, scenario_data).nsAttr('enemies');
+        // enemies属性が空であれば終了
+        if (!enemies) { return; }
+        
+        enemies = enemies.split(',');
+        for (var i = 0; i < enemies.length; i++) {
+          var enemy = enemies_map[enemies[i]];
+          var atk = Common.state_names[enemy.attack];
+
+          var row = '<tr class="enemy_row" data-enemy="' + enemies[i] + '">';
+          row += '<td><input type="checkbox" class="enemy_check" /></td>';
+          row += '<th>';
+          if(enemy.element) {
+            row += '<img src="' + ROOT + COMMON + 'attr_' + enemy.element + '.png" title="' + Common.element_names[enemy.element] + '" /></a>　';
+          } else {
+            row += '<img src="' + ROOT + COMMON + 'attr_none.png" title="無" /></a>　';
+          }
+          row += enemy.name + '</th><td>';
+          if (atk) {
+            row += '<img src="' + ROOT + COMMON + 'atk_' + enemy.attack + '.png" title="' + atk + '" /></a>　';
+          } else {
+            row += enemy.attack;
+          }
+          row += '</td><td>';
+          if(enemy.func) {
+            if (enemy.func.indexOf('*') === 0) {
+              row += Util.selectFunc(enemy.func.substring(1));
+            } else {
+              var tmp_func = Util.selectFunc(enemy.func);
+              // 改行対応で「>」の前に空白を挿入
+              row += '<div class="enemy_func" data-func="' + tmp_func + '" data-attack="' + enemy.attack + '">'
+                + tmp_func + '</div>';
+            }
+          }
+          row += '</td><td>'
+          var tmp_d = Util.dropItem(enemy); 
+          if (tmp_d.name) {
+            row += '<input type="button" class="enemy_drop" value="' + tmp_d.name + '" data-drop="' + tmp_d.drop + '"/>';
+          } else {
+            row += '－';
+          }
+          row += '</td></tr>';
+          d_body.append(row);
+        }
+
+        // ダイアログの表示
+        d_battle.show(500);
+        //target.hide();
       });
 
       // ボーナスアイテム一覧を表示
       target.on('click', '#ctrl_bonus', function(e) {
         dialog_elem['bonus_list'].fadeIn(1000);
-        target.fadeOut(500);
+        //target.fadeOut(500);
         // $.zoombox.html(dialog_item.html(), {
         //   width: 650,
         //   height: 450
