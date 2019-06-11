@@ -332,6 +332,24 @@
 <p class="award">このシナリオを解放するには、Scenario 6「鉄腕の吸血姫」の実績「手を取り、ともに生きる」、Scenario 8「ラミディアの魔法使い」の実績「ロマンシアの宝剣」を取得している必要があります！</p>
 </work>
 
+<work id="apart" title="怪竜奇術のソーサリアン・アパート" author="座間翔" series="連作ドラゴンモード"
+  tags="現代もの" published="2019-08" updated="" level="2" scenes="30" results="1" clears="r01"
+  comment="" unpublished="true">
+<img src="./stext/begin/capture/intro.png" height="150"
+  title="怪竜奇術のソーサリアン・アパート"  align="right" class="right"/>
+<p class="award">ドラゴンモード本編Vol.7（連作シナリオ）</p>
+
+気が付くと、人の気配のないアパートの廊下にいた。
+老朽化が激しく、蛍光灯は不規則な明滅を繰り返している。
+
+というか「アパート」ってなんだ…？「蛍光灯」って…？
+知らないはずの言葉を知っている。でもそれがどんな物なのかは、今朝見ていたはずの夢のように頭の中から消えていく。
+
+“ねえ、皆はここに来たことがある？
+それとも、
+もしかして私たちは…”
+<p class="award">本シナリオは近日公開予定です。</p>
+</work>
 
 </scenario>
 
