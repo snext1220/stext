@@ -586,3 +586,11 @@ table.item_list img {
   cursor: pointer;
   width: 100%;
 }
+
+
+/* モバイル非表示 */
+@media (max-width: 768px) {
+  .pconly {
+    display: none;
+  }
+}
