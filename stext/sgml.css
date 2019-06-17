@@ -587,6 +587,12 @@ table.item_list img {
   width: 100%;
 }
 
+/* Renewal */
+.dialog_root {
+  background-image: url(common/renewal/wp.png);
+  background-repeat: no-repeat;
+  background-position: right top;
+}
 
 /* モバイル非表示 */
 @media (max-width: 768px) {
