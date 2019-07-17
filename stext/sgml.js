@@ -1115,6 +1115,18 @@
       })
     },
 
+    // すべてのダイアログを閉じた後、指定のダイアログをオープン
+    // path：ダイアログのキー
+    openDialogById: function(path) {
+      for(key in dialog_elem) {
+        if (path === key) {
+          dialog_elem[key].fadeIn(500);
+        } else {
+          dialog_elem[key].hide();
+        }
+      }
+    },
+
     // ダイアログを初期化
     initDialog: function() {
       $('#dialog_body').remove();
@@ -1213,7 +1225,11 @@
                 attr('src', ROOT + COMMON + 'gi99.png');
             }
           }
-        });
+      });
+      
+      // 実績ダイアログを初期化
+      Util.loadDialog('result_list', function(dialog) {
+      });
     },
 
     // ステータスダイアログを生成
@@ -2101,7 +2117,7 @@
   $.fn.extend({
     startGame: function(code, debug) {
       scenario_code = code;
-      target = this;
+      dialog_elem['main'] = target = this;
       if(!debug) { debug = false; }
       debug_mode = debug;
 
@@ -2462,7 +2478,7 @@
 
         var enemies = $('scene#' + save_data.scene, scenario_data).nsAttr('enemies');
         // enemies属性が空でなければテーブルを表示
-        if (enemies) {        
+        if (enemies) {
           enemies = enemies.split(',');
           for (var i = 0; i < enemies.length; i++) {
             var enemy = enemies_map[enemies[i]];
@@ -2512,7 +2528,8 @@
 
       // ボーナスアイテム一覧を表示
       target.on('click', '#ctrl_bonus', function(e) {
-        dialog_elem['bonus_list'].fadeIn(1000);
+        Util.openDialogById('bonus_list');
+        //dialog_elem['bonus_list'].fadeIn(1000);
         //target.fadeOut(500);
         // $.zoombox.html(dialog_item.html(), {
         //   width: 650,
@@ -2521,7 +2538,7 @@
       });
 
       // ボーナスアイテムリストをクリックでアイテムの説明を表示
-      $(document).on('click', '#bonus_list img', function(e) {
+      $(document).on('click', '#bonus_list .item_list img', function(e) {
         var id = e.target.id;
         var o_bonus_item;
         if (id.startsWith('gi')) {
@@ -2543,14 +2560,15 @@
 
       // 実績情報を表示（旧リロードボタン）
       target.on('click', '#ctrl_reload', function(e) {
-        $.get(ROOT + COMMON + 'dialog_result.html')
-        .done(function(data) {
+        //$.get(ROOT + COMMON + 'dialog_result.html')
+        //.done(function(data) {
           // 実績の数
           var result_count = 0;
           // 獲得した実績の数
           var get_result = 0;
           var trophy = [ '', 'ノーマル', 'ブロンズ', 'シルバー', 'ゴールド', 'プラチナ' ];
-          var dialog_results = $(data);
+          //var dialog_results = $(data);
+          var dialog_results = dialog_elem['result_list'];
           Object.keys(results_map).forEach(function(key){
             result_count++;
             if (global_save_data['results'][scenario_code] !== undefined &&            
@@ -2575,12 +2593,13 @@
           // 到達度を反映
           var result_rate = (get_result / result_count * 100).toFixed(1);
           $('#result_rate', dialog_results).text('Rate:' + result_rate + '%');
-          $.zoombox.html(dialog_results.html(),
-          {
-            width: 480,
-            height: 200
-          });
-        });
+          Util.openDialogById('result_list');
+          // $.zoombox.html(dialog_results.html(),
+          // {
+          //   width: 480,
+          //   height: 200
+          // });
+        // });
       });
 
       // バックアップ／リストアメニューの表示
