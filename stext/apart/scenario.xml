@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scenario title="シナリオタイトル" author="著者名"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd">
+
+<!--初期化情報-->
+<init>
+  <constraint race="FIGHTER,WIZARD,DWARF,ELF" age="YOUNG,ADULT,OLD" />
+  <bgm main="@field05" happy="@field04" bad="@town01" />
+  <intro description="サンプルシナリオ紹介" />
+</init>
+
+<!--アイテム情報-->
+<items>
+  <!--
+  <item id="i99" name="アイテム名">アイテム説明</item>
+  -->
+</items>
+
+<!--フラグ情報-->
+<flags>
+  <!--
+  <flag id="f99">フラグ説明</flag>
+  -->
+</flags>
+
+<!--モンスター／罠情報-->
+<enemies>
+  <!--
+  <enemy id="m99" name="モンスター／罠名" element="earth"
+    attack="physics" func="式／回避条件" drop="mon/2">モンスター説明</enemy>
+  <enemy id="m98" name="モンスター／罠名" element="fire"
+    attack="magic" func="式／回避条件" drop="free1/2/Food×2">モンスター説明</enemy>
+  <enemy id="m97" name="モンスター／罠名" element="water"
+    attack="poison" func="式／回避条件" drop="">モンスター説明</enemy>
+  <enemy id="m96" name="モンスター／罠名" element="wind"
+    attack="frozen" func="式／回避条件">モンスター説明</enemy>
+  <enemy id="m95" name="モンスター／罠名" element="spirit"
+    attack="stone" func="式／回避条件">モンスター説明</enemy>
+  <enemy id="m94" name="モンスター／罠名" element="spirit"
+    attack="curse" func="式／回避条件">モンスター説明</enemy>
+  <enemy id="m93" name="モンスター／罠名" element=""
+    attack="forger" func="式／回避条件">モンスター説明</enemy>
+  -->
+</enemies>
+
+<!--実績情報-->
+<results>
+  <!--
+  <result id="r01" name="実績名" level="1">
+    実績の説明</result>
+  -->
+</results>
+
+<!--ライセンス情報-->
+<licence>
+  <!--
+	<work name="曲名" category="bgm" creator="作者名"
+    url="作品アドレス"></work>
+	<work name="画像名" category="picture" creator="作者名"
+    url="作品アドレス"></work>
+  -->
+</licence>
+
+<!--シナリオ本体-->
+<scene id="0">
+  プロローグ
+</scene>
+<!--
+<scene id="100" items="-i01,i02" flags="f01,f02" enemies="m01,m02"
+  end="happy" se="hoge" result="r01">
+  本文
+</scene>
+<scene id="200" items="-i01,i02" flags="f01,f02" enemies="m01,m02"
+  end="bad" se="hoge">
+  本文
+</scene>
+-->
+</scenario>

@@ -8,7 +8,7 @@
 		<intro description="プレイグラウンドで動作を手軽に確認しよう！"></intro>
 	</init>
 	<items>
-		<item id="i01" name="こいし">何の変哲もない、石だ</item>
+		<item id="i01" shared="true" name="こいし">何の変哲もない、石だ</item>
 		<item id="i02" name="ひとにぎりのすな">グーランの、なれの果てだ</item>
 		<item id="i03" name="きのぼう">豚（猫）いじめのための?棒</item>
 		<item id="i04" name="かれは">どこかで懐に紛れ込んだのだろうか？</item>
@@ -133,7 +133,7 @@ HEAL実行
 
 [アイテム／フラグ分岐](9)
 </scene>
-	<scene id="7" end="happy">
+	<scene id="7" end="happy" nexts="a1,a2,a3">
 
 ハッピーエンドです！
 

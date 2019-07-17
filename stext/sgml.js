@@ -265,6 +265,12 @@
       return str.substr(1);
     },
 
+    // オブジェクトをディープコピー
+    deepCopyObject: function(obj) {
+      var tmp_obj = JSON.stringify(obj);
+      return JSON.parse(tmp_obj);
+    },
+
     // セーブデータをストレージに保存
     saveStorage: function() {
       storage[scenario_code] = JSON.stringify(save_data);
@@ -1321,9 +1327,34 @@
       target.slideUp(500);
     },
 
-    // エンディングの処理（resultはhappy／bad、changeBgmはBGMを変更するか）
-    endScenario: function(result, changeBgm) {
+    // セーブデータを次のシナリオに複製
+    // nexts：コピー先のシナリオ（配列）
+    copyNextScenario: function(nexts) {
+      var c_save = Util.deepCopyObject(save_data);
+      c_save.chara.state = '';
+      c_save.chara.stone_scene = 0;
+      c_save.chara.forget_scene = 0;
+      c_save.chara.free1 = 0;
+      c_save.chara.free2 = 0;
+      c_save.chara.free3 = 0;
+      c_save.items = c_save.items.filter(function(id) {
+        return (items_map[id].shared !== undefined);
+      });
+      c_save.flags = [];
+      c_save.scene = 0;
+      c_save.ellapsed_scene = 0;
+      c_save.bgm = '';
+      c_save.isEnded = false;
+
+      for (var i = 0; i < nexts.length; i++) {
+        localStorage[nexts[i].trim()] = JSON.stringify(c_save);
+      }
+    },
+
+    // エンディングの処理（resultはhappy／bad、nextは次のシナリオ、changeBgmはBGMを変更するか）
+    endScenario: function(result, next, changeBgm) {
       if(!result) { return; }
+      Util.copyNextScenario(next.split(','));
 
       // エンディングでライセンス情報を表示
       console.log('***********Licence Info.***********');
@@ -2107,7 +2138,7 @@
       }
     
       // エンディング処理（bgm属性が指定されている場合、エンディング曲に変更しない）
-      Util.endScenario(scene.nsAttr('end'), (scene.nsAttr('bgm') === undefined));
+      Util.endScenario(scene.nsAttr('end'), scene.nsAttr('nexts'), (scene.nsAttr('bgm') === undefined));
     }
   };
 
@@ -2766,6 +2797,7 @@
         $('items > item', scenario_data).each(function() {
           items_map[$(this).nsAttr('id')] = {
             name: $(this).nsAttr('name'),
+            shared: $(this).nsAttr('shared'),
             desc: $(this).text().trim()
           };
         });
@@ -2774,7 +2806,7 @@
         results_map = {};
         $('results > result', scenario_data).each(function() {
           results_map[$(this).nsAttr('id')] = {
-            name: $(this).nsAttr('name'),
+            name: $(this).attr('name'),
             level: $(this).nsAttr('level'),
             desc: $(this).text().trim()
           };
