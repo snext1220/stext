@@ -1354,7 +1354,9 @@
     // エンディングの処理（resultはhappy／bad、nextは次のシナリオ、changeBgmはBGMを変更するか）
     endScenario: function(result, next, changeBgm) {
       if(!result) { return; }
-      Util.copyNextScenario(next.split(','));
+      if(next) {
+        Util.copyNextScenario(next.split(','));
+      }
 
       // エンディングでライセンス情報を表示
       console.log('***********Licence Info.***********');
