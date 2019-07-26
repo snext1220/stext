@@ -84,13 +84,16 @@
 　**国王より**
 
 ![DRAGON MODE](king01.png)
-${if !(r15:begin&amp;r10:shadow&amp;r99:traitor&amp;r11:requiem&amp;r10:gold&amp;r01:helper&amp;r04:negotiatoro)}%red%
+${if !(r15:begin&amp;r10:shadow&amp;r99:traitor&amp;r11:requiem&amp;r12:gold&amp;r01:helper&amp;r04:negotiator)}%red%
 　※最終決戦に挑む資格を得るには、
 　　ドラゴンモード「プロローグ」から「本編Vol.6」までの
-　　**「シナリオクリア実績」**を取得している必要があります！%/%
+　　**「シナリオクリア実績」**を取得している必要があります！
+　　（序章『True_Beginning』、Vol.1『封印』、Vol.2『アゾルバ解放』、
+　　　Vol.3『黄泉へ送るレクイエム』、Vol.4『始まりの終わり』、
+　　　Vol.5『時を越えた友とともに』、Vol.6『称号の栄誉』）%/%
 ${/if}
 
-[ドラゴンモード - エピローグ -](1 "r15:begin&amp;r10:shadow&amp;r99:traitor&amp;r11:requiem&amp;r10:gold&amp;r01:helper&amp;r04:negotiatoro")
+[ドラゴンモード - エピローグ -](1 "r15:begin,r10:shadow,r99:traitor,r11:requiem,r12:gold,r01:helper,r04:negotiator")
 </scene>
 
 <scene id="1" items="i01,i02" se="se01">
