@@ -2602,6 +2602,7 @@
           var trophy = [ '', 'ノーマル', 'ブロンズ', 'シルバー', 'ゴールド', 'プラチナ' ];
           //var dialog_results = $(data);
           var dialog_results = dialog_elem['result_list'];
+          $('.result_list', dialog_results).empty();
           Object.keys(results_map).forEach(function(key){
             result_count++;
             if (global_save_data['results'][scenario_code] !== undefined &&            
