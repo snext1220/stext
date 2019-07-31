@@ -349,6 +349,21 @@
 <p class="award">本シナリオは近日公開予定です。</p>
 </work>
 
+<work id="king" title="終末の双王 - ドラゴンモード -" author="ときのじ" series="連作ドラゴンモード"
+  tags="ドラゴンとたたかう" published="2019-07-26" updated="" level="3" scenes="" results="10" clears="r99"
+  comment="「企画にご参加いただいた皆様のシナリオ設定を活かした作品にしよう」「原作のドラゴンとたたかうの雰囲気を出すには」と考えながら執筆しました。
+STextならではの「ドラゴンとたたかう」をお楽しみください。">
+<img src="./stext/king/capture/intro.png" height="120"
+  title="終末の双王 - ドラゴンモード -"  align="left" class="left"/>
+<p class="award">ドラゴンモード終章（連作シナリオ）</p>
+
+これは、勇気と知略をもって竜に挑み、生還した勇者にのみ託される戦いである。
+
+混沌の王に挑む覚悟がある者よ、いざ決戦の地へ赴くのだ。
+
+<p class="award">本シナリオ（後編）は8月公開予定です。</p>
+</work>
+
 </scenario>
 
 <utility>
