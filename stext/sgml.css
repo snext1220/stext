@@ -594,6 +594,14 @@ table.item_list img {
   background-position: right top;
 }
 
+.result_list td {
+  border-collapse: collapse;
+  margin-left: 0;
+  text-align: left;
+  line-height: 1.5;
+  border-bottom: 1px solid #ccc;
+}
+
 /* モバイル非表示 */
 @media (max-width: 768px) {
   .pconly {
