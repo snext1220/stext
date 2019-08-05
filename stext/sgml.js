@@ -2571,7 +2571,7 @@
       });
 
       // ボーナスアイテムリストをクリックでアイテムの説明を表示
-      $(document).on('click', '#bonus_list .item_list img', function(e) {
+      $(document).on('click', '#bonus_list .item_list img.bonus_item', function(e) {
         var id = e.target.id;
         var o_bonus_item;
         if (id.startsWith('gi')) {

@@ -583,8 +583,11 @@ table.item_list img {
 }
 
 #bonus_list .item_list img {
-  cursor: pointer;
   width: 100%;
+}
+
+#bonus_list .item_list img.bonus_item {
+  cursor: pointer;
 }
 
 /* Renewal */
