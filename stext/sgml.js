@@ -1122,11 +1122,15 @@
     },
 
     // すべてのダイアログを閉じた後、指定のダイアログをオープン
-    // path：ダイアログのキー
-    openDialogById: function(path) {
+    // path：ダイアログのキー、isSide：サイドメニューとして表示するか
+    openDialogById: function(path, isSide) {
       for(key in dialog_elem) {
         if (path === key) {
-          dialog_elem[key].fadeIn(500);
+          if (isSide) {
+            $.sidr('open', key);
+          } else {
+            dialog_elem[key].fadeIn(500);
+          }
         } else {
           dialog_elem[key].hide();
         }
@@ -1850,7 +1854,8 @@
       // シーンテキストの整形
       var tmp_scene = scene.text();
       // 新規構文のエスケープ処理
-      tmp_scene = tmp_scene.replace(/(\[.+?\]\(\d{1,} ")(.+?)("\))/gi, function(match, sub1, sub2, sub3) {
+      //tmp_scene = tmp_scene.replace(/(\[.+?\]\(\d{1,} ")(.+?)("\))/gi, function(match, sub1, sub2, sub3) {
+      tmp_scene = tmp_scene.replace(/(\[.+?\]\([\d,]{1,} ")(.+?)("\))/gi, function(match, sub1, sub2, sub3) {
         console.log(sub1);
         console.log(sub2);
         console.log(sub3);
