@@ -827,6 +827,59 @@
       }
     },
 
+    // @str（at_str）, @int（at_int）, @dex（at_dex）,@krm（at_krm）の値に応じて、
+    // セーブデータのstr、int、dex、krmプロパティを更新
+    updateStr2Krm: function(at_str, at_int, at_dex, at_krm) {
+      // str属性の処理
+      if (at_str) {
+        // full指定で初期値に
+        if (at_str === 'full') {
+          save_data.chara.str = save_data.chara.str_i;
+        // @num指定で、指定値を設定
+        } else if (at_str.indexOf('@') === 0) {
+          save_data.chara.str = Number(at_str.substring(1));
+        } else {
+          save_data.chara.str = Number(save_data.chara.str) + Number(at_str);
+        }
+      }
+      // int属性の処理
+      if (at_int) {
+        // full指定で初期値に
+        if (at_int === 'full') {
+          save_data.chara.int = save_data.chara.int_i;
+        // @num指定で、指定値を設定
+        } else if (at_str.indexOf('@') === 0) {
+          save_data.chara.int = Number(at_int.substring(1));
+        } else {
+          save_data.chara.int = Number(save_data.chara.int) + Number(at_int);
+        }
+      }
+      // dex属性の処理
+      if (at_dex) {
+        // full指定で初期値に
+        if (at_dex === 'full') {
+          save_data.chara.dex = save_data.chara.dex_i;
+        // @num指定で、指定値を設定
+        } else if (at_dex.indexOf('@') === 0) {
+          save_data.chara.dex = Number(at_dex.substring(1));
+        } else {
+          save_data.chara.dex = Number(save_data.chara.dex) + Number(at_dex);
+        }
+      }
+      // krm属性の処理
+      if (at_krm) {
+        // full指定で初期値に
+        if (at_krm === 'full') {
+          save_data.chara.krm = save_data.chara.krm_i;
+        // @num指定で、指定値を設定
+        } else if (at_krm.indexOf('@') === 0) {
+          save_data.chara.krm = Number(at_krm.substring(1));
+        } else {
+          save_data.chara.krm = Number(save_data.chara.krm) + Number(at_krm);
+        }
+      }
+    },
+
     // @free1（at_free1）, @free2（at_free2）, @free3（at_free3）の値に応じて、
     // セーブデータのfree1、free2、free3プロパティを更新
     updateFrees: function(at_free1, at_free2, at_free3) {
@@ -1187,10 +1240,10 @@
         });
 
       // 戦闘シートダイアログを初期化
-      Util.loadDialog('battle_sheet', function(d_battle) {
-        $('#dices', d_battle).html(Util.cube(2));
-        Util.showSimpleStatus();
-      });
+      // Util.loadDialog('battle_sheet', function(d_battle) {
+      //   $('#dices', d_battle).html(Util.cube(2));
+      //   Util.showSimpleStatus();
+      // });
 
       // ボーナスアイテムダイアログを初期化
       Util.loadDialog('bonus_list', function(dialog_item) {
@@ -1799,6 +1852,7 @@
           e_table.append(row);
         }
         e_table.insertBefore('a.scenebtn:first');
+        e_table.wrap('<div id="enemy_table"></div>');
       }
     },
 
@@ -1837,6 +1891,7 @@
         Util.updateStates();
         Util.updateStars(scene.nsAttr('stars'));
         Util.updateHpMp(scene.nsAttr('hp'), scene.nsAttr('mp'));
+        Util.updateStr2Krm(scene.nsAttr('str'), scene.nsAttr('int'), scene.nsAttr('dex'), scene.nsAttr('krm'));
         Util.updateFrees(scene.nsAttr('free1'), scene.nsAttr('free2'), scene.nsAttr('free3'));
         Util.updateResults(scene.nsAttr('result'));
 
@@ -1960,7 +2015,7 @@
       }
 
       // サイコロの表示
-      target.append('<center id="cubes">' + Util.cube(2) + '</center>');
+      target.append('<div id="sidr_cubes"><center id="cubes">' + Util.cube(2) + '</center></div>');
       // 簡易ステータス表示
       $('<div id="simple_status"></div>').insertBefore('#cubes');
       this.showSimpleStatus();
@@ -2234,7 +2289,7 @@
       });
 
       // 敵一覧をクリックで詳細情報を表示
-      target.on('click', 'tr.enemy_row', function(e) {
+      $(document).on('click', 'tr.enemy_row', function(e) {
         var enemy = enemies_map[$(this).nsAttr('data-enemy')];
         //Util.toast('<b>' + enemy.name + '</b><br/>' + enemy.desc);
         toastr.options.timeOut = 5000;
@@ -2242,12 +2297,13 @@
       });
 
       // 敵撃破チェックでのイベント抑止
-      target.on('click', 'input.enemy_check', function(e) {
+      $(document).on('click', 'input.enemy_check', function(e) {
         e.stopImmediatePropagation();
       });
 
       // ダメージボタンでステータスを加算
-      target.on('click', 'div.enemy_func', function(e) {
+      $(document).on('click', 'div.enemy_func', function(e) {
+      //target.on('click', 'div.enemy_func', function(e) {
         e.stopImmediatePropagation();
         toastr.options.timeOut = 5000;
 
@@ -2324,7 +2380,7 @@
       });
 
       // ドロップアイテムボタンでステータスを加算
-      target.on('click', 'input.enemy_drop', function(e) {
+      $(document).on('click', 'input.enemy_drop', function(e) {
         e.stopImmediatePropagation();
         var drops = $(this).nsAttr('data-drop').split('/');
         if (drops.length === 2) {
@@ -2363,7 +2419,9 @@
       };
         
       // サイコロをリロード
-      target.on('click', '#cubes', function(e) {
+      $(document).on('click', '#cubes', function(e) {
+      //target.on('click', '#cubes', function(e) {
+        console.log('cube');
         ad.play();
         rotate_count = 1;
         rotateCube(this);
@@ -2510,6 +2568,12 @@
 
       // バトルシートを表示（暫定）
       $('#main-menu').on('click', '#menu_battle', function(e) {
+        $('#menu_battle').sidr({
+          displace: false,
+          renaming: false,
+          source: '#enemy_table, #sidr_cubes'
+        });
+        /*
         var d_battle = dialog_elem['battle_sheet'];
         var d_body = $('tbody', d_battle);
         d_body.empty();
@@ -2560,8 +2624,10 @@
         }
         
         // ダイアログの表示
-        d_battle.show(500);
+        Util.openDialogById('battle_sheet', true);
+        //d_battle.show(500);
         //target.hide();
+        */
       });
 
       // ボーナスアイテム一覧を表示
