@@ -1424,12 +1424,18 @@
           '(' + tmp_licence[$(this).nsAttr('category')] + '): ' +
           $(this).nsAttr('creator') + ' ' +
           (licence_url !== undefined ? licence_url : '')
-        );        
+        );
       });
       console.log('***********Licence Info.***********');
 
-      $('<p><a href="#" id="end_reload" class="scenebtn">' +
-        '最初から冒険に挑戦する</a></p>').insertBefore($('#cubes', target));
+      // end属性によってリンクを分岐
+      if (result === 'bad') {
+        $('<p><a href="#" id="end_reload" class="scenebtn">' +
+          '最初から冒険に挑戦する</a></p>').insertBefore($('#cubes', target));
+      } else if (result === 'happy') {
+        $('<p><a href="#" id="end_exit" class="scenebtn">' +
+          'ペンタウァに帰還する</a></p>').insertBefore($('#cubes', target));
+      }
 
       // エンディングフラグ
       save_data.isEnded = true;
@@ -2226,10 +2232,15 @@
       /** EventListener **/
       // 移動ボタンをクリックで次のシーンに移動
       target.on('click', 'a.scenebtn', function(e) {
-        // エンド時のボタンであれば処理を終了
+        // バッドエンド時のボタンであれば処理を終了
         if (e.target.id === 'end_reload') {
           return;
+        // ハッピーエンド時のボタンであればトップへ
+        } else if (e.target.id === 'end_exit') {
+          location.href = 'https://www.web-deli.com/sorcerian/text/';
+          return;
         }
+
         var num = $(this).nsAttr('href');
         var cond = $(this).nsAttr('title');
         // 複数移動先が指定されている場合、ランダムに選択
