@@ -1859,6 +1859,8 @@
           row += '</td></tr>';
           e_table.append(row);
         }
+      } else {
+        e_table.append('<p>ここには、モンスターの気配はないようだ。</p>');
       }
       //e_table.insertBefore('a.scenebtn:first');
       e_table.prependTo('#sidr');
@@ -2040,13 +2042,14 @@
         });
       }
 
+      $('<div id="sidr_close">閉じる</div>').appendTo('#sidr');
       // 簡易ステータス表示
-      $('<div id="simple_status"></div>').appendTo('#sidr');
+      $('<div id="simple_status"></div>').insertBefore('#sidr_close');
       //$('<div id="simple_status"></div>').insertBefore('#cubes');
       this.showSimpleStatus();
       
       // サイコロの表示
-      $('<center id="cubes">' + Util.cube(2) + '</center>').appendTo('#sidr');
+      $('<center id="cubes">' + Util.cube(2) + '</center>').insertBefore('#simple_status');
       // target.append('<div id="sidr_cubes"><center id="cubes">' + Util.cube(2) + '</center></div>');
 
       // 移動ボタンの整形
@@ -2522,6 +2525,11 @@
       target.parent().on('click', '#dialog_body #status_close', function(e) {
         dialog.slideUp(500);
         target.slideDown(500);
+      });
+
+      // サイドバーを閉じる
+      target.on('click', '#sidr_close', function(e) {
+        $.sidr('close');
       });
 
       // 状態異常のステータスへの反映（ステータスダイアログ）
