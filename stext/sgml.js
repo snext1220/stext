@@ -1431,10 +1431,10 @@
       // end属性によってリンクを分岐
       if (result === 'bad') {
         $('<p><a href="#" id="end_reload" class="scenebtn">' +
-          '最初から冒険に挑戦する</a></p>').insertBefore($('#cubes', target));
+          '最初から冒険に挑戦する</a></p>').appendTo(target);
       } else if (result === 'happy') {
         $('<p><a href="#" id="end_exit" class="scenebtn">' +
-          'ペンタウァに帰還する</a></p>').insertBefore($('#cubes', target));
+          'ペンタウァに帰還する</a></p>').appendTo(target);
       }
 
       // エンディングフラグ
@@ -2000,9 +2000,25 @@
         .prependTo(target);
       
       // サイドパネル表示ボタンの生成
-      $('<div id="side_show">Battle Sheet</div>').insertBefore('#scenario_title');
+      var side_p = $('<div id="side_show">Battle Sheet</div>');
+      if (scene.nsAttr('enemies')) {
+        side_p.css('background-color', 'Red');
+      }
+      side_p.insertBefore('#scenario_title');
+
       // サイドパネル
       $('<div id="sidr"></div>').insertBefore('#scenario_title');
+
+      // シーンのモンスター情報をリスト化
+      Util.createEnemyList(scene.nsAttr('enemies'));
+
+      $('<div id="sidr_close">閉じる</div>').appendTo('#sidr');
+      // 簡易ステータス表示
+      $('<div id="simple_status"></div>').insertBefore('#sidr_close');
+      this.showSimpleStatus();
+      
+      // サイコロの表示
+      $('<center id="cubes">' + Util.cube(2) + '</center>').insertBefore('#simple_status');
 
       // パネル非表示状態になっている場合、パネルを非表示に
       if(!global_save_data.panel) {
@@ -2041,16 +2057,6 @@
           Util.createScene($('#debug_panel #debug_id').val());
         });
       }
-
-      $('<div id="sidr_close">閉じる</div>').appendTo('#sidr');
-      // 簡易ステータス表示
-      $('<div id="simple_status"></div>').insertBefore('#sidr_close');
-      //$('<div id="simple_status"></div>').insertBefore('#cubes');
-      this.showSimpleStatus();
-      
-      // サイコロの表示
-      $('<center id="cubes">' + Util.cube(2) + '</center>').insertBefore('#simple_status');
-      // target.append('<div id="sidr_cubes"><center id="cubes">' + Util.cube(2) + '</center></div>');
 
       // 移動ボタンの整形
       $('a', target).addClass('scenebtn');
@@ -2092,68 +2098,8 @@
       });
       $('a.scenepic').zoombox();
 
-      // シーンのモンスター情報をリスト化
-      Util.createEnemyList(scene.nsAttr('enemies'));
-
       // 条件付きボタンの表示／非表示
       Util.showSceneButton();
-      /*
-      // 現在のフラグ／アイテム情報を取得
-      var flags = save_data.flags;
-      var items = save_data.items;
-
-      // title属性付きのボタンを非表示（ただし、「-～」を表示状態に）
-      $('a[title]', target).hide();
-      $('a[title^="-"]', target).show();
-
-      // 指定のフラグ＆アイテムを所持している場合にだけボタンを表示（複数フラグ＆アイテム対応）
-      //var multi_flags = $('a[title*=","]', target);
-      var multi_flags = $('a[title]', target);
-      multi_flags.each(function(index, elem) {
-        var multi_ids = $(elem).nsAttr('title');
-        if (multi_ids.indexOf('-') !== 0) {
-          // 通常のマルチフラグ処理（指定フラグ＆アイテムを全て所有でボタン表示）
-          var show_flag = true; // ボタンを表示するか
-          var multi_ids_values = multi_ids.split(',');
-          for (var i = 0; i < multi_ids_values.length; i++) {
-            if (flags.indexOf(multi_ids_values[i].trim()) === -1 &&
-              items.indexOf(multi_ids_values[i].trim()) === -1 &&
-              !Util.canUseMagicByName(multi_ids_values[i].trim()) &&
-              !Util.ifStatus(multi_ids_values[i].trim()) &&
-              !Util.isCharaState(multi_ids_values[i].trim()) &&
-              !Util.hasStars(multi_ids_values[i].trim()) &&
-              !Util.hasResult(multi_ids_values[i].trim())) {
-              show_flag = false;
-              break;
-            }
-          }
-          // 全フラグが存在すればボタンを表示
-          if (show_flag) {
-            $(elem).show();
-          }
-        } else {
-          // 「-」付きのマルチフラグ処理
-          var hide_flag = true; // ボタンを非表示にするか
-          var multi_ids_values = multi_ids.substring(1).split(',');
-          for (var i = 0; i < multi_ids_values.length; i++) {
-            if (flags.indexOf(multi_ids_values[i].trim()) === -1 &&
-              items.indexOf(multi_ids_values[i].trim()) === -1 &&
-              !Util.canUseMagicByName(multi_ids_values[i].trim()) &&
-              !Util.ifStatus(multi_ids_values[i].trim()) &&
-              !Util.isCharaState(multi_ids_values[i].trim()) &&
-              !Util.hasStars(multi_ids_values[i].trim()) &&
-              !Util.hasResult(multi_ids_values[i].trim())) {
-              hide_flag = false;
-              break;
-            }
-          }
-          // 全フラグが存在すればボタンを非表示に
-          if (hide_flag) {
-            $(elem).hide();
-          }
-        }
-      });
-      */
 
       // 現時点で非表示になっているボタンと、その直後の改行を削除
       $('.scenebtn:hidden + br', target).remove();
@@ -2175,52 +2121,6 @@
         Util.saveStorage();
         history.replaceState(save_data, 'Scene ' + scene_num);
       }
-      /*
-      // 再生すべきBGMのパスを生成
-      var new_bgm = scene.nsAttr('bgm');
-      if (options.reverse) {
-        // ［戻る］の挙動
-        // bgm属性が現在再生中のBGMと異なる場合、曲切替
-        if (new_bgm !== undefined) {
-          if(new_bgm === '') { new_bgm = bgms_map.main; }
-          if (bgm_name !== new_bgm) {
-            bgm_name = new_bgm;
-            Util.playBgm(Util.buildBgmPath(new_bgm));
-          }
-        }
-      } else {
-        var tmp_path = '';
-        // セーブデータに保存済みのパスを取得（空の場合はメイン）
-        if (save_data.bgm) {
-          tmp_path = save_data.bgm;
-        } else {
-          tmp_path = bgms_map.main;
-        }
-        // bgm属性による上書き
-        if(new_bgm !== undefined) {
-          if(new_bgm === '') {
-            tmp_path = bgms_map.main;
-          } else {
-            tmp_path = new_bgm;
-          }
-        }
-        var audio_path = Util.buildBgmPath(tmp_path);
-        // 現在再生中のBGMを保存
-        bgm_name = tmp_path;
-
-        // 初期立ち上げ時、画面遷移時（bgm属性ありで、以前から変化した）に再生
-        if(!bgm ||
-          (bgm && new_bgm !== undefined && new_bgm !== save_data.bgm)) {
-          Util.playBgm(audio_path);
-          if (new_bgm !== undefined) {
-            save_data.bgm = new_bgm;
-            // セーブデータ／履歴反映
-            Util.saveStorage();
-            history.replaceState(save_data, 'Scene ' + scene_num);
-          }
-        }
-      }
-      */
       /* BGM再生ココマデ */
 
       // シーン表示時に効果音を再生

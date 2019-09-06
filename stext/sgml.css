@@ -626,6 +626,13 @@ table.item_list img {
   z-index: 999;
 }
 
+#side_show:hover {
+  width: 80px;
+  background-image: url(common/ctrl_battle.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
 /* サイドメニュー */
 .sidr {
   width: 500px !important;
