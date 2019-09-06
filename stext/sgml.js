@@ -1537,6 +1537,9 @@
       } else {
         target.removeClass('main_bad');
       }
+
+      // サイドバーを更新
+      Util.createSidebar();
     },
 
     // 現在の状態異常に応じてスタイル（ダイアログ）を変更
@@ -1801,9 +1804,8 @@
 
     // 敵／罠リストの整形
     createEnemyList: function(at_enemies) {
+      var e_table = $('<table class="enemy">');
       if(at_enemies) {
-        var e_table = 
-          $('<table class="enemy">');
         var enemies = at_enemies.split(',');
         e_table.append('<tr class="enemy_title">' +
           (enemies.length > 1 ? '<th></th>' : '') +
@@ -1857,9 +1859,22 @@
           row += '</td></tr>';
           e_table.append(row);
         }
-        e_table.insertBefore('a.scenebtn:first');
-        e_table.wrap('<div id="enemy_table"></div>');
       }
+      //e_table.insertBefore('a.scenebtn:first');
+      e_table.prependTo('#sidr');
+      e_table.wrap('<div id="enemy_table"></div>');
+
+      // サイドバーを更新
+      Util.createSidebar();
+    },
+
+    // サイドバーを生成
+    createSidebar: function() {
+      $('#side_show').sidr({
+        displace: false,
+        renaming: false,
+        //source: '#enemy_table, #sidr_cubes'
+      });
     },
 
     // 現在のシーン情報を取得＆画面の生成
@@ -1981,6 +1996,11 @@
         '</ul>' +
         '</div>')
         .prependTo(target);
+      
+      // サイドパネル表示ボタンの生成
+      $('<div id="side_show">Battle Sheet</div>').insertBefore('#scenario_title');
+      // サイドパネル
+      $('<div id="sidr"></div>').insertBefore('#scenario_title');
 
       // パネル非表示状態になっている場合、パネルを非表示に
       if(!global_save_data.panel) {
@@ -2020,11 +2040,14 @@
         });
       }
 
-      // サイコロの表示
-      target.append('<div id="sidr_cubes"><center id="cubes">' + Util.cube(2) + '</center></div>');
       // 簡易ステータス表示
-      $('<div id="simple_status"></div>').insertBefore('#cubes');
+      $('<div id="simple_status"></div>').appendTo('#sidr');
+      //$('<div id="simple_status"></div>').insertBefore('#cubes');
       this.showSimpleStatus();
+      
+      // サイコロの表示
+      $('<center id="cubes">' + Util.cube(2) + '</center>').appendTo('#sidr');
+      // target.append('<div id="sidr_cubes"><center id="cubes">' + Util.cube(2) + '</center></div>');
 
       // 移動ボタンの整形
       $('a', target).addClass('scenebtn');
@@ -2575,70 +2598,6 @@
       target.parent().on('click', '.dialog_back', function(e) {
         $(this).parents('.dialog_root').fadeOut(500);
         target.fadeIn(500);
-      });
-
-      // バトルシートを表示（暫定）
-      $('#main-menu').on('click', '#menu_battle', function(e) {
-        $('#menu_battle').sidr({
-          displace: false,
-          renaming: false,
-          source: '#enemy_table, #sidr_cubes'
-        });
-        /*
-        var d_battle = dialog_elem['battle_sheet'];
-        var d_body = $('tbody', d_battle);
-        d_body.empty();
-
-        var enemies = $('scene#' + save_data.scene, scenario_data).nsAttr('enemies');
-        // enemies属性が空でなければテーブルを表示
-        if (enemies) {
-          enemies = enemies.split(',');
-          for (var i = 0; i < enemies.length; i++) {
-            var enemy = enemies_map[enemies[i]];
-            var atk = Common.state_names[enemy.attack];
-
-            var row = '<tr class="enemy_row" data-enemy="' + enemies[i] + '">';
-            row += '<td><input type="checkbox" class="enemy_check" /></td>';
-            row += '<th>';
-            if(enemy.element) {
-              row += '<img src="' + ROOT + COMMON + 'attr_' + enemy.element + '.png" title="' + Common.element_names[enemy.element] + '" /></a>　';
-            } else {
-              row += '<img src="' + ROOT + COMMON + 'attr_none.png" title="無" /></a>　';
-            }
-            row += enemy.name + '</th><td>';
-            if (atk) {
-              row += '<img src="' + ROOT + COMMON + 'atk_' + enemy.attack + '.png" title="' + atk + '" /></a>　';
-            } else {
-              row += enemy.attack;
-            }
-            row += '</td><td>';
-            if(enemy.func) {
-              if (enemy.func.indexOf('*') === 0) {
-                row += Util.selectFunc(enemy.func.substring(1));
-              } else {
-                var tmp_func = Util.selectFunc(enemy.func);
-                // 改行対応で「>」の前に空白を挿入
-                row += '<div class="enemy_func" data-func="' + tmp_func + '" data-attack="' + enemy.attack + '">'
-                  + tmp_func + '</div>';
-              }
-            }
-            row += '</td><td>'
-            var tmp_d = Util.dropItem(enemy); 
-            if (tmp_d.name) {
-              row += '<input type="button" class="enemy_drop" value="' + tmp_d.name + '" data-drop="' + tmp_d.drop + '"/>';
-            } else {
-              row += '－';
-            }
-            row += '</td></tr>';
-            d_body.append(row);
-          }
-        }
-        
-        // ダイアログの表示
-        Util.openDialogById('battle_sheet', true);
-        //d_battle.show(500);
-        //target.hide();
-        */
       });
 
       // ボーナスアイテム一覧を表示

@@ -610,6 +610,21 @@ table.item_list img {
   border-bottom: 1px solid #ccc;
 }
 
+/* サイドメニュー表示ボタン */
+#side_show {
+  writing-mode: vertical-rl;
+  width: 30px;
+  height: 100px;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  position: fixed;
+  top: 100px;
+  right: 0px;
+  padding-top: 7px; 
+  cursor: pointer;
+}
+
 /* サイドメニュー */
 .sidr {
   width: 500px !important;
