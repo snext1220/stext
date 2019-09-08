@@ -1860,7 +1860,7 @@
           e_table.append(row);
         }
       } else {
-        e_table.append('<p>ここには、モンスターの気配はないようだ。</p>');
+        //e_table.append('<p>ここには、モンスターの気配はないようだ。</p>');
       }
       //e_table.insertBefore('a.scenebtn:first');
       e_table.prependTo('#sidr');

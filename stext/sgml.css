@@ -616,6 +616,7 @@ table.item_list img {
   width: 30px;
   height: 100px;
   background-color: black;
+  border: 1px #fff solid;
   color: white;
   font-weight: bold;
   position: fixed;
