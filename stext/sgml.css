@@ -44,6 +44,7 @@ h5#scenario_title {
   font-size: small;
   font-weight: bold;
   text-align: center;
+  opacity: 1.0;
 }
 
 #simple_status .status_v {
@@ -637,6 +638,7 @@ table.item_list img {
 /* サイドメニュー */
 .sidr {
   width: 500px !important;
+  opacity: 0.9;
 }
 
 .sidr.left {
@@ -660,7 +662,7 @@ table.item_list img {
 
 @media (max-width: 768px) {
   .sidr {
-    width: 100% !important;
+    width: 98% !important;
   }
 }
 
