@@ -100,6 +100,7 @@ h5#scenario_title {
 
 table.enemy {
   width: 100%;
+  margin-top: 10px;
   margin-bottom: 30px;
 }
 
@@ -638,7 +639,7 @@ table.item_list img {
 /* サイドメニュー */
 .sidr {
   width: 500px !important;
-  opacity: 0.93;
+  opacity: 0.9;
   box-shadow: 0 0 5px 5px rgb(168, 166, 166) !important;
 }
 
