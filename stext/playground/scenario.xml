@@ -7,6 +7,16 @@
 		<label free1="食物" free2="Gold"></label>
 		<intro description="プレイグラウンドで動作を手軽に確認しよう！"></intro>
 	</init>
+	<texts>
+		<text id="t0">
+共通**ルール**です！
+
++ その1
++ その2
++ その3
+
+%red%どうでしょうか？%/%</text>
+	</texts>
 	<items>
 		<item id="i01" shared="true" name="こいし">何の変哲もない、石だ</item>
 		<item id="i02" name="ひとにぎりのすな">グーランの、なれの果てだ</item>
@@ -45,6 +55,8 @@
 文章です。
 **強調**です。
 ~~打ち消し~~です。
+
+${import t0}
 
 ${if f04}
 フラグf04を持っている時だけ表示されます。

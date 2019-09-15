@@ -1542,6 +1542,14 @@
       Util.createSidebar();
     },
 
+    // 共通ルールを取得＆反映
+    showRuleText: function() {
+      $('#common_rule')
+        .text(
+          $('texts > text#t0', scenario_data).text())
+        .markdown();
+    },
+
     // 現在の状態異常に応じてスタイル（ダイアログ）を変更
     setStateStyle: function() {
       var hp = $('#hp', dialog);
@@ -1745,6 +1753,12 @@
       });
     },
 
+    // ${import}によるテキストインポート
+    importText: function(match, id) {
+      return $('texts > text#' + id, scenario_data)
+        .text();
+    },
+
     // ${if}による分岐制御
     ifCondition: function(match, cond, body) {
       if(Util.judgeMultiCondition(cond)) {
@@ -1931,6 +1945,8 @@
 
       // シーンテキストの整形
       var tmp_scene = scene.text();
+      // インポート処理
+      tmp_scene = tmp_scene.replace(/\${import[\s]+(.+?)}/gi, this.importText);
       // 新規構文のエスケープ処理
       //tmp_scene = tmp_scene.replace(/(\[.+?\]\(\d{1,} ")(.+?)("\))/gi, function(match, sub1, sub2, sub3) {
       tmp_scene = tmp_scene.replace(/(\[.+?\]\([\d,]{1,} ")(.+?)("\))/gi, function(match, sub1, sub2, sub3) {
@@ -2019,6 +2035,10 @@
       
       // サイコロの表示
       $('<center id="cubes">' + Util.cube(2) + '</center>').insertBefore('#simple_status');
+
+      // 共通ルールの表示
+      $('<div id="common_rule"></div>').appendTo('#sidr');
+      Util.showRuleText();
 
       // パネル非表示状態になっている場合、パネルを非表示に
       if(!global_save_data.panel) {
