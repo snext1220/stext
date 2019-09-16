@@ -125,6 +125,47 @@ $(function () {
         return elem.id === id; 
       });
     },
+    // 指定されたシーンの情報をフォームに反映
+    setSceneInfo: function(id) {
+      if (id !== undefined) {
+        Util.enableTab(6);
+        let scene = Util.getSceneById(id);
+        $('#scene-select #id').text(scene.id);
+        $('#scene-select #summary').val(scene.summary);
+        $('#scene-select #end').val(scene.end);
+        $('#scene-select #items').val(scene.items);
+        $('#scene-select #flags').val(scene.flags);
+        $('#scene-select #enemies').val(scene.enemies);
+        $('#scene-select #result').val(scene.result);
+        $('#scene-select #bgm').val(scene.bgm);
+        $('#scene-select #se').val(scene.se);
+        $('#scene-select #hp').val(scene.hp);
+        $('#scene-select #mp').val(scene.mp);
+        $('#scene-select #stars').val(scene.stars);
+        $('#scene-select #free1').val(scene.free1);
+        $('#scene-select #free1').val(scene.free2);
+        $('#scene-select #free3').val(scene.free3);
+        if (scene.text) {
+          editor.setValue(scene.text);
+        } else {
+          editor.setValue('');
+        }
+        editor.focus();
+
+        // リンクリストを生成
+        $('#scene-select #edges-list').empty();
+        $('#scene-select #edges-list').append(
+          '<option value="" selected>編集するリンクを選択</option>');
+        scenario.edges.forEach(function(value) {
+          if (value.from === id) {
+            $('<option></option>')
+              .attr('value', value.id)
+              .text(`${value.to}: ${value.label}`)
+              .appendTo('#scene-select #edges-list');
+          }
+        });
+      }
+    },
     // 指定されたエッジを取得
     getEdgeById: function(id) {
       return scenario.edges.find(function(elem) {
@@ -297,44 +338,45 @@ $(function () {
       // ノード選択時にフォームに反映
       network.on('selectNode', function(e) {
         let id = this.getNodeAt(e.pointer.DOM);
-        if (id !== undefined) {
-          Util.enableTab(6);
-          let scene = Util.getSceneById(id);
-          $('#scene-select #id').text(scene.id);
-          $('#scene-select #summary').val(scene.summary);
-          $('#scene-select #end').val(scene.end);
-          $('#scene-select #items').val(scene.items);
-          $('#scene-select #flags').val(scene.flags);
-          $('#scene-select #enemies').val(scene.enemies);
-          $('#scene-select #result').val(scene.result);
-          $('#scene-select #bgm').val(scene.bgm);
-          $('#scene-select #se').val(scene.se);
-          $('#scene-select #hp').val(scene.hp);
-          $('#scene-select #mp').val(scene.mp);
-          $('#scene-select #stars').val(scene.stars);
-          $('#scene-select #free1').val(scene.free1);
-          $('#scene-select #free1').val(scene.free2);
-          $('#scene-select #free3').val(scene.free3);
-          if (scene.text) {
-            editor.setValue(scene.text);
-          } else {
-            editor.setValue('');
-          }
-          editor.focus();
+        Util.setSceneInfo(id);
+        // if (id !== undefined) {
+        //   Util.enableTab(6);
+        //   let scene = Util.getSceneById(id);
+        //   $('#scene-select #id').text(scene.id);
+        //   $('#scene-select #summary').val(scene.summary);
+        //   $('#scene-select #end').val(scene.end);
+        //   $('#scene-select #items').val(scene.items);
+        //   $('#scene-select #flags').val(scene.flags);
+        //   $('#scene-select #enemies').val(scene.enemies);
+        //   $('#scene-select #result').val(scene.result);
+        //   $('#scene-select #bgm').val(scene.bgm);
+        //   $('#scene-select #se').val(scene.se);
+        //   $('#scene-select #hp').val(scene.hp);
+        //   $('#scene-select #mp').val(scene.mp);
+        //   $('#scene-select #stars').val(scene.stars);
+        //   $('#scene-select #free1').val(scene.free1);
+        //   $('#scene-select #free1').val(scene.free2);
+        //   $('#scene-select #free3').val(scene.free3);
+        //   if (scene.text) {
+        //     editor.setValue(scene.text);
+        //   } else {
+        //     editor.setValue('');
+        //   }
+        //   editor.focus();
 
-          // リンクリストを生成
-          $('#scene-select #edges-list').empty();
-          $('#scene-select #edges-list').append(
-            '<option value="" selected>編集するリンクを選択</option>');
-          scenario.edges.forEach(function(value) {
-            if (value.from === id) {
-              $('<option></option>')
-                .attr('value', value.id)
-                .text(`${value.to}: ${value.label}`)
-                .appendTo('#scene-select #edges-list');
-            }
-          });
-        }
+        //   // リンクリストを生成
+        //   $('#scene-select #edges-list').empty();
+        //   $('#scene-select #edges-list').append(
+        //     '<option value="" selected>編集するリンクを選択</option>');
+        //   scenario.edges.forEach(function(value) {
+        //     if (value.from === id) {
+        //       $('<option></option>')
+        //         .attr('value', value.id)
+        //         .text(`${value.to}: ${value.label}`)
+        //         .appendTo('#scene-select #edges-list');
+        //     }
+        //   });
+        // }
       });
   
       // エッジ選択時にフォームに反映
@@ -723,14 +765,6 @@ $(function () {
   $('#label-free2').val(scenario.init.label.free2);
   $('#label-free3').val(scenario.init.label.free3);
   $('#intro-description').val(scenario.init.intro.description);
-  // シーンリストを生成
-  // $('#scenes-list').empty();
-  // for (let scene of scenario.scenes) {
-  //   $('<option></option>')
-  //     .attr('value', scene.id)
-  //     .text(scene.label)
-  //     .appendTo('#scenes-list');
-  // }
 
   // 基本情報配下の入力値を反映
   $('#basic input').change(function(e) {
@@ -1198,6 +1232,28 @@ $(function () {
       location.reload();
     });
     reader.readAsText(inputs[0], 'UTF-8');
+  });
+
+  // シーン選択ボックス クリック時に最新情報に更新
+  $('#ctrl_scene').mousedown(function(e) {
+    $('#ctrl_scene').empty();
+    $('<option></option>')
+      .attr('value', '')
+      .text('編集するシーンを選択')
+      .appendTo('#ctrl_scene');
+      for (let scene of scenario.scenes) {
+        $('<option></option>')
+          .attr('value', scene.id)
+          .text(scene.label)
+          .appendTo('#ctrl_scene');
+      }
+  });
+
+  // シーン選択ボックス 選択時にシーン移動
+  $('#ctrl_scene').change(function(e) {
+    let id = $(this).val();
+    Util.setSceneInfo(id);
+    network.selectNodes([ id ]);
   });
 
   // コンテキストメニューの削除
