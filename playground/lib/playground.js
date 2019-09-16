@@ -1242,9 +1242,13 @@ $(function () {
       .text('編集するシーンを選択')
       .appendTo('#ctrl_scene');
       for (let scene of scenario.scenes) {
+        label = scene.label;
+        if (scene.id == 0 || scene.end) {
+          label = '★' + label;
+        }
         $('<option></option>')
           .attr('value', scene.id)
-          .text(scene.label)
+          .text(label)
           .appendTo('#ctrl_scene');
       }
   });
