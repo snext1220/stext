@@ -50,7 +50,7 @@ label {
 #edit-area {
     float: right;
     width: 600px;
-    height: 99%;
+    min-height: 570px; /*99%;*/
     border: 1px solid #000;
     background-color: #fff;
 }

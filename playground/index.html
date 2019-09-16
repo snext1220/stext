@@ -56,10 +56,11 @@
   <div id="flow-area"></div>
   <div id="edit-area">
     <ul>
-      <li><a href="#basic">基本情報</a></li>
+      <li><a href="#basic">基本</a></li>
+      <li><a href="#texts">テキスト</a></li>
       <li><a href="#items">アイテム</a></li>
       <li><a href="#flags">フラグ</a></li>
-      <li><a href="#enemies">敵／罠</a></li>
+      <li><a href="#enemies">敵</a></li>
       <li><a href="#results">実績</a></li>
       <li><a href="#works">ライセンス</a></li>
       <li><a href="#scene">シーン</a></li>
@@ -107,13 +108,11 @@
             <label>紹介文：
               <input id="intro-description" type="text" size="70" /></label>
         </fieldset>
-        <!--
-        <fieldset>
-          <legend>シーンリスト</legend>
-            <select id="scenes-list" size="3"></select>
-        </fieldset>
-        -->
       </form>
+    </div>
+    <div id="texts" class="tab-panel">
+      <p>埋め込みテキストを入力してください。</p>
+      <div id="texts_grid" class="config-grid"></div>
     </div>
     <div id="items" class="tab-panel">
       <p>アイテム情報を入力してください。</p>
@@ -184,6 +183,15 @@
                 <input id="mp" type="text" size="10" /></label>
               <label>STARS：
                 <input id="stars" type="text" size="10" /></label>
+              <p></p>
+              <label>STR：
+                <input id="str" type="text" size="10" /></label>
+              <label>INT：
+                <input id="int" type="text" size="10" /></label>
+              <label>DEX：
+                <input id="dex" type="text" size="10" /></label>
+              <label>KRM：
+                <input id="krm" type="text" size="10" /></label>  
               <p></p>
               <label>FREE1：
                 <input id="free1" type="text" size="10" /></label>

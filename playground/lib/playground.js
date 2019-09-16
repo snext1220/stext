@@ -20,6 +20,7 @@ $(function () {
         label: {},
         intro: {},
       },
+      texts: [],
       items: [],
       flags: [],
       enemies: [],
@@ -52,7 +53,12 @@ $(function () {
           description: ''
         },
       },
-
+      texts: [
+        {
+          id: 't0',
+          text: ''
+        }
+      ],
       items: [
         {
           id: 'i01',
@@ -128,7 +134,7 @@ $(function () {
     // 指定されたシーンの情報をフォームに反映
     setSceneInfo: function(id) {
       if (id !== undefined) {
-        Util.enableTab(6);
+        Util.enableTab(7);
         let scene = Util.getSceneById(id);
         $('#scene-select #id').text(scene.id);
         $('#scene-select #summary').val(scene.summary);
@@ -174,7 +180,7 @@ $(function () {
     },
     // 指定されたエッジの情報をフォームに反映
     setEdgeInfo: function(id) {
-      Util.enableTab(7);
+      Util.enableTab(8);
       let edge = Util.getEdgeById(id);
       $('#edge #id').val(edge.id);
       $('#edge #from').text(edge.from);
@@ -503,7 +509,7 @@ $(function () {
     disableTab: function() {
       $('#edit-area')
         .tabs('option', 'active', 0)
-        .tabs('option', 'disabled', [ 6, 7 ]);
+        .tabs('option', 'disabled', [ 7, 8 ]);
     },
     // 現在のシナリオデータからscenario.xmlを生成
     // 戻り値：XML文字列
@@ -788,8 +794,6 @@ $(function () {
     window.open(Common.HELP_URL + id, 'help');
   });
 
-
-
   // ダイアログを初期化（シーン生成）
   $('#scene-dialog').dialog({
     autoOpen: false,
@@ -875,6 +879,33 @@ $(function () {
     asyncEditorLoading: false,
     autoEdit: false
   };
+
+  // 埋め込みテキスト一覧
+  let text_cols = [
+    { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text },
+    { id: 'text', name: '本文', field: 'text', width: 500, editor: Slick.Editors.LongText }
+  ];
+
+  // テキスト一覧の描画
+  let texts_grid = new Slick.Grid('#texts_grid', scenario.texts, text_cols, grid_opts);
+  texts_grid.setSelectionModel(new Slick.CellSelectionModel());
+  // 既存行の削除
+  texts_grid.onClick.subscribe(function (e, args) {
+    if ($(e.target).hasClass('btn-delete')) {
+      scenario.texts.splice(args.row, 1);
+      texts_grid.invalidate();
+    }
+  });
+  texts_grid.onAddNewRow.subscribe(function (e, args) {
+    var item = args.item;
+    texts_grid.invalidateRow(scenario.texts.length);
+    scenario.texts.push(item);
+    texts_grid.updateRowCount();
+    texts_grid.render();
+  });
+  texts_grid.onHeaderClick.subscribe(function (e, args) {
+    window.open(Common.HELP_URL + 'text', 'help');
+  });
 
   // アイテム一覧
   let item_cols = [
