@@ -1543,10 +1543,16 @@
     },
 
     // 共通ルールを取得＆反映
-    showRuleText: function() {
+    showRuleText: function(rule) {
+      if (rule === undefined) {
+        rule = '99999';
+      }
       $('#common_rule')
-        .text(
-          $('texts > text#t0', scenario_data).text())
+        .html(
+          Util.decorateText(
+            $('scene#' + rule, scenario_data).text()
+          )
+        )
         .markdown();
     },
 
@@ -1755,7 +1761,7 @@
 
     // ${import}によるテキストインポート
     importText: function(match, id) {
-      return $('texts > text#' + id, scenario_data)
+      return $('scene#' + id, scenario_data)
         .text();
     },
 
@@ -1893,6 +1899,37 @@
       });
     },
 
+    // シーン内のテキストを修飾
+    // 引数tmp_scene：シーンテキスト
+    decorateText: function(tmp_scene) {
+      // インポート処理
+      tmp_scene = tmp_scene.replace(/\${import[\s]+(.+?)}/gi, this.importText);
+      // 新規構文のエスケープ処理
+      tmp_scene = tmp_scene.replace(/(\[.+?\]\([\d,]{1,} ")(.+?)("\))/gi, function(match, sub1, sub2, sub3) {
+        sub2 = sub2.split('!').join('#NOT#');
+        sub2 = sub2.split('&').join('#AND#');
+        sub2 = sub2.split('|').join('#OR#');
+        sub2 = sub2.split('(').join('#L#');
+        sub2 = sub2.split(')').join('#R#');
+        return sub1 + sub2 + sub3;
+      });
+      // カラーリング＆URL処理
+      tmp_scene = tmp_scene.replace(/%(blue|red|purple|white)%/gi, '&nbsp;<span style="color:$1">');
+      tmp_scene = tmp_scene.replace(/%\/%/gi, '</span>&nbsp;');
+      tmp_scene = tmp_scene.replace(/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi,
+        '<a href="$&" data-link="auto" target="_blank">$&</a>');
+      // ${if cond}...${/if}による条件分岐
+      tmp_scene = tmp_scene.replace(/\${if[\s]+(.+?)}([\s\S]+?)\${\/if}/gi, this.ifCondition);
+      // ${text|ruby}の箇所をruby要素で修飾（ルビ）
+      tmp_scene = tmp_scene.replace(/\${(.+?)\|(.+?)}/gi,
+        '<ruby>$1<rp>（</rp><rt>$2</rt><rp>）</rp></ruby>');
+      // ${tweet}...${/tweet}によるTwitter反映
+      tmp_scene = tmp_scene.replace(/\${tweet}([\s\S]+?)\${\/tweet}/gi, this.parseTweet);
+      // ${...}の箇所を式の内容に応じて処理
+      tmp_scene = tmp_scene.replace(/\${(.+?)}/gi, this.interpolation);
+      return tmp_scene;
+    },
+
     // 現在のシーン情報を取得＆画面の生成
     // 引数scene_num：シーン番号
     // 引数options：オプション（reverse：戻るか、conditions：条件式）
@@ -1944,46 +1981,49 @@
       }
 
       // シーンテキストの整形
-      var tmp_scene = scene.text();
-      // インポート処理
-      tmp_scene = tmp_scene.replace(/\${import[\s]+(.+?)}/gi, this.importText);
-      // 新規構文のエスケープ処理
-      //tmp_scene = tmp_scene.replace(/(\[.+?\]\(\d{1,} ")(.+?)("\))/gi, function(match, sub1, sub2, sub3) {
-      tmp_scene = tmp_scene.replace(/(\[.+?\]\([\d,]{1,} ")(.+?)("\))/gi, function(match, sub1, sub2, sub3) {
-        console.log(sub1);
-        console.log(sub2);
-        console.log(sub3);
-        sub2 = sub2.split('!').join('#NOT#');
-        sub2 = sub2.split('&').join('#AND#');
-        sub2 = sub2.split('|').join('#OR#');
-        sub2 = sub2.split('(').join('#L#');
-        sub2 = sub2.split(')').join('#R#');
+      //var tmp_scene = scene.text();
+      // // インポート処理
+      // tmp_scene = tmp_scene.replace(/\${import[\s]+(.+?)}/gi, this.importText);
+      // // 新規構文のエスケープ処理
+      // //tmp_scene = tmp_scene.replace(/(\[.+?\]\(\d{1,} ")(.+?)("\))/gi, function(match, sub1, sub2, sub3) {
+      // tmp_scene = tmp_scene.replace(/(\[.+?\]\([\d,]{1,} ")(.+?)("\))/gi, function(match, sub1, sub2, sub3) {
+      //   console.log(sub1);
+      //   console.log(sub2);
+      //   console.log(sub3);
+      //   sub2 = sub2.split('!').join('#NOT#');
+      //   sub2 = sub2.split('&').join('#AND#');
+      //   sub2 = sub2.split('|').join('#OR#');
+      //   sub2 = sub2.split('(').join('#L#');
+      //   sub2 = sub2.split(')').join('#R#');
 
-        // sub2 = sub2.replace('!', '#NOT#');
-        // sub2 = sub2.replace('&', '#AND#');
-        // sub2 = sub2.replace('|', '#OR#');
-        // sub2 = sub2.replace('(', '#L#');
-        // sub2 = sub2.replace(')', '#R#');
+      //   // sub2 = sub2.replace('!', '#NOT#');
+      //   // sub2 = sub2.replace('&', '#AND#');
+      //   // sub2 = sub2.replace('|', '#OR#');
+      //   // sub2 = sub2.replace('(', '#L#');
+      //   // sub2 = sub2.replace(')', '#R#');
         
-        console.log(sub1 + sub2 + sub3);
-        return sub1 + sub2 + sub3;
-      });
-      // カラーリング＆URL処理
-      tmp_scene = tmp_scene.replace(/%(blue|red|purple|white)%/gi, '&nbsp;<span style="color:$1">');
-      tmp_scene = tmp_scene.replace(/%\/%/gi, '</span>&nbsp;');
-      tmp_scene = tmp_scene.replace(/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi,
-        '<a href="$&" data-link="auto" target="_blank">$&</a>');
-      // ${if cond}...${/if}による条件分岐
-      tmp_scene = tmp_scene.replace(/\${if[\s]+(.+?)}([\s\S]+?)\${\/if}/gi, this.ifCondition);
-      // ${text|ruby}の箇所をruby要素で修飾（ルビ）
-      tmp_scene = tmp_scene.replace(/\${(.+?)\|(.+?)}/gi,
-        '<ruby>$1<rp>（</rp><rt>$2</rt><rp>）</rp></ruby>');
-      // ${tweet}...${/tweet}によるTwitter反映
-      tmp_scene = tmp_scene.replace(/\${tweet}([\s\S]+?)\${\/tweet}/gi, this.parseTweet);
-      // ${...}の箇所を式の内容に応じて処理
-      tmp_scene = tmp_scene.replace(/\${(.+?)}/gi, this.interpolation);
-      target.html(tmp_scene);
+      //   console.log(sub1 + sub2 + sub3);
+      //   return sub1 + sub2 + sub3;
+      // });
+      // // カラーリング＆URL処理
+      // tmp_scene = tmp_scene.replace(/%(blue|red|purple|white)%/gi, '&nbsp;<span style="color:$1">');
+      // tmp_scene = tmp_scene.replace(/%\/%/gi, '</span>&nbsp;');
+      // tmp_scene = tmp_scene.replace(/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi,
+      //   '<a href="$&" data-link="auto" target="_blank">$&</a>');
+      // // ${if cond}...${/if}による条件分岐
+      // tmp_scene = tmp_scene.replace(/\${if[\s]+(.+?)}([\s\S]+?)\${\/if}/gi, this.ifCondition);
+      // // ${text|ruby}の箇所をruby要素で修飾（ルビ）
+      // tmp_scene = tmp_scene.replace(/\${(.+?)\|(.+?)}/gi,
+      //   '<ruby>$1<rp>（</rp><rt>$2</rt><rp>）</rp></ruby>');
+      // // ${tweet}...${/tweet}によるTwitter反映
+      // tmp_scene = tmp_scene.replace(/\${tweet}([\s\S]+?)\${\/tweet}/gi, this.parseTweet);
+      // // ${...}の箇所を式の内容に応じて処理
+      // tmp_scene = tmp_scene.replace(/\${(.+?)}/gi, this.interpolation);
+
+      // シーンテキストの整形
+      //target.html(tmp_scene);
       //target.text(scene.text());
+      target.html(Util.decorateText(scene.text()));
       target.markdown();
 
       // ツイートボタンの生成
@@ -2038,7 +2078,7 @@
 
       // 共通ルールの表示
       $('<div id="common_rule"></div>').appendTo('#sidr');
-      Util.showRuleText();
+      Util.showRuleText(scene.nsAttr('rule'));
 
       // パネル非表示状態になっている場合、パネルを非表示に
       if(!global_save_data.panel) {

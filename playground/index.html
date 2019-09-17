@@ -9,8 +9,9 @@
 <!--SlickGrid-->
 <link rel="stylesheet" href="slick-lib/slick.grid.css" />
 <!--jQuery UI-->
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.0/themes/redmond/jquery-ui.css" />
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/redmond/jquery-ui.css" />
 <!--Other-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.sidr/2.2.1/stylesheets/jquery.sidr.light.min.css" />
 <link rel="stylesheet" href="css/toastr.min.css" />
 <link rel="stylesheet" href="css/jquery.tagsinput-revisited.css" />
 <link rel="stylesheet" href="css/jquery.splitter.css" />
@@ -45,11 +46,6 @@
     <input id="ctrl_load" type="file" accept=".json,.xml" />
   ｜<select id="ctrl_scene">
       <option value="">編集するシーンを選択</option>
-      <!-- <option value=""></option>
-      <option value=""></option>
-      <option value=""></option>
-      <option value=""></option>
-      <option value=""></option> -->
     </select>
 </div>
 <div id="main" class="clearfix">
@@ -57,7 +53,6 @@
   <div id="edit-area">
     <ul>
       <li><a href="#basic">基本</a></li>
-      <li><a href="#texts">テキスト</a></li>
       <li><a href="#items">アイテム</a></li>
       <li><a href="#flags">フラグ</a></li>
       <li><a href="#enemies">敵</a></li>
@@ -109,10 +104,6 @@
               <input id="intro-description" type="text" size="70" /></label>
         </fieldset>
       </form>
-    </div>
-    <div id="texts" class="tab-panel">
-      <p>埋め込みテキストを入力してください。</p>
-      <div id="texts_grid" class="config-grid"></div>
     </div>
     <div id="items" class="tab-panel">
       <p>アイテム情報を入力してください。</p>
@@ -249,6 +240,14 @@
   <address>Developed by SORCERIAN Text Team. 2017-</address>
 </div>
 
+<!--サイドパネル-->
+<div id="sidr_items">
+  <table id="sidr_items_list"></table>
+  <div id="sidr_items_submit" class="sidr-btn sidr-ok">確定</div>
+  <div id="sidr_items_close" class="sidr-btn">閉じる</div>
+</div>
+
+
 <!--ダイアログ（シーン）-->
 <div id="scene-dialog" title="Add Scene">
   <div>
@@ -317,7 +316,7 @@
   
 <!--jQuery & jQuery UI-->
 <script src="https://code.jquery.com/jquery-1.8.3.min.js"></script>
-<script src="https://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 <!--vis.js-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
 <!--SlickGrid-->
@@ -335,6 +334,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.3.0/ace.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.3.0/ext-language_tools.js"></script>
 <!--Other-->
+<script src="../stext/jquery.sidr.min.js"></script>
 <script src="lib/jquery.tagsinput-revisited.js"></script>
 <script src="lib/vkbeautify.js"></script>
 <script src="lib/toastr.min.js"></script>

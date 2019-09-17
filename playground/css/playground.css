@@ -126,8 +126,28 @@ label {
     border-bottom-style: solid;
 }
 
+/* サイドパネル */
+.sidr-elem {
+    margin-bottom: 5px;
+    font-size: large;
+    text-align: center;
+    width: 88%;
+}
 
+.sidr-btn {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #000;
+    background-color: #a02;
+    color: #fff;
+    text-align: center;
+    width: 80%;
+    cursor: pointer;
+}
 
+.sidr-ok {
+   background-color: #20a;
+}
 
 
 

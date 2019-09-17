@@ -20,7 +20,6 @@ $(function () {
         label: {},
         intro: {},
       },
-      texts: [],
       items: [],
       flags: [],
       enemies: [],
@@ -53,12 +52,6 @@ $(function () {
           description: ''
         },
       },
-      texts: [
-        {
-          id: 't0',
-          text: ''
-        }
-      ],
       items: [
         {
           id: 'i01',
@@ -134,7 +127,7 @@ $(function () {
     // 指定されたシーンの情報をフォームに反映
     setSceneInfo: function(id) {
       if (id !== undefined) {
-        Util.enableTab(7);
+        Util.enableTab(6);
         let scene = Util.getSceneById(id);
         $('#scene-select #id').text(scene.id);
         $('#scene-select #summary').val(scene.summary);
@@ -180,7 +173,7 @@ $(function () {
     },
     // 指定されたエッジの情報をフォームに反映
     setEdgeInfo: function(id) {
-      Util.enableTab(8);
+      Util.enableTab(7);
       let edge = Util.getEdgeById(id);
       $('#edge #id').val(edge.id);
       $('#edge #from').text(edge.from);
@@ -838,6 +831,54 @@ $(function () {
     }
   });
 
+  //［シーン］タブ内でのアイテム処理
+  $('#scene-select #items').sidr({
+    name: 'sidr_items',
+    displace: false,
+    onOpen: function() {
+      $('#sidr_items_list').empty();
+      for(let item of scenario.items) {
+        $('#sidr_items_list').append(`
+          <tr>
+            <td>
+              <label>＋<input type="checkbox"
+                 class="sidr-items-plus" value="${item.id}" /></label>
+            </td>
+            <td class="sidr-elem"><span>${item.name}</span></td>
+            <td>
+              <label>－<input type="checkbox"
+                class="sidr-items-minus" value="${item.id}" /></label>
+            </td>
+          </tr>
+        `);
+      }
+      // ［+］［-］ボタンを整形
+      $('.sidr-items-plus, .sidr-items-minus').checkboxradio({
+        icon: false
+      });
+    }
+  });
+
+  // アイテム選択を確定した時
+  $('#sidr_items_submit').click(function() {
+    let result = [];
+    $('.sidr-items-plus').each(function() {
+      result.push($(this).val());
+    });
+    $('.sidr-items-minus').each(function() {
+      result.push('-' + $(this).val());
+    });
+    $('#scene-select #items')
+      .val(result.join(','))
+      .change();
+    $.sidr('close', 'sidr_items');
+  });
+
+  // アイテム選択をキャンセルした時
+  $('#sidr_items_close').click(function() {
+    $.sidr('close', 'sidr_items');
+  });
+
   // ［シーン］タブ内での更新
   $('#scene-select input, #scene-select select:not(.no-update)').on('change', function(e) {
     let id = $('#scene-select #id').text();
@@ -880,6 +921,7 @@ $(function () {
     autoEdit: false
   };
 
+  /*
   // 埋め込みテキスト一覧
   let text_cols = [
     { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text },
@@ -906,6 +948,7 @@ $(function () {
   texts_grid.onHeaderClick.subscribe(function (e, args) {
     window.open(Common.HELP_URL + 'text', 'help');
   });
+  */
 
   // アイテム一覧
   let item_cols = [
