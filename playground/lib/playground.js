@@ -907,24 +907,39 @@ $(function () {
   });
 
   // hp／mp属性のオートコンプリート
-  $('#scene-select #hp, #scene-select #mp').autocomplete({
+  $('#scene-select #hp, #scene-select #mp')
+  .autocomplete({
     minLength: 0,
-    delay: 0,
-    autoFocus: true,
     source: [ '1', '-5..-1', 'full' ]
-  }).focus(function() {
-    $(this).autocomplete('search', '');
   });
 
+  // stars属性のオートコンプリート
+  $('#scene-select #stars')
+  .autocomplete({
+    minLength: 0,
+    source: [ '0,0,0,0,0,0,0', 'divN' ]
+  });
 
   // str～krm属性のオートコンプリート
   $('#scene-select #str, #scene-select #int, #scene-select #dex, #scene-select #krm').autocomplete({
     minLength: 0,
-    delay: 0,
-    autoFocus: true,
     source: [ '1', '@5', 'full' ]
   });
 
+  // free1～3属性のオートコンプリート
+  $('#scene-select #free1, #scene-select #free2, #scene-select #free3').autocomplete({
+    minLength: 0,
+    source: [ '1', '@5' ]
+  });
+
+  // ブラウザー標準のオートコンプリートを無効化＆フォーカス時に表示
+  $('.ac')
+  // address-level4はブラウザーが認識するが、補完しないであろう値
+  .attr('autocomplete', 'address-level4')
+  .focus(function() {
+    $(this).autocomplete('search', '');
+  });
+  
   // ［シーン］タブ内でのエッジ選択
   $('#scene-select #edges-list').on('change', function(e) {
     network.selectEdges([ $(this).val() ]);
