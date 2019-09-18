@@ -906,6 +906,25 @@ $(function () {
       .change();
   });
 
+  // hp／mp属性のオートコンプリート
+  $('#scene-select #hp, #scene-select #mp').autocomplete({
+    minLength: 0,
+    delay: 0,
+    autoFocus: true,
+    source: [ '1', '-5..-1', 'full' ]
+  }).focus(function() {
+    $(this).autocomplete('search', '');
+  });
+
+
+  // str～krm属性のオートコンプリート
+  $('#scene-select #str, #scene-select #int, #scene-select #dex, #scene-select #krm').autocomplete({
+    minLength: 0,
+    delay: 0,
+    autoFocus: true,
+    source: [ '1', '@5', 'full' ]
+  });
+
   // ［シーン］タブ内でのエッジ選択
   $('#scene-select #edges-list').on('change', function(e) {
     network.selectEdges([ $(this).val() ]);
