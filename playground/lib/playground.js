@@ -831,54 +831,6 @@ $(function () {
     }
   });
 
-  //［シーン］タブ内でのアイテム処理
-  $('#scene-select #items').sidr({
-    name: 'sidr_items',
-    displace: false,
-    onOpen: function() {
-      $('#sidr_items_list').empty();
-      for(let item of scenario.items) {
-        $('#sidr_items_list').append(`
-          <tr>
-            <td>
-              <label>＋<input type="checkbox"
-                 class="sidr-items-plus" value="${item.id}" /></label>
-            </td>
-            <td class="sidr-elem"><span>${item.name}</span></td>
-            <td>
-              <label>－<input type="checkbox"
-                class="sidr-items-minus" value="${item.id}" /></label>
-            </td>
-          </tr>
-        `);
-      }
-      // ［+］［-］ボタンを整形
-      $('.sidr-items-plus, .sidr-items-minus').checkboxradio({
-        icon: false
-      });
-    }
-  });
-
-  // アイテム選択を確定した時
-  $('#sidr_items_submit').click(function() {
-    let result = [];
-    $('.sidr-items-plus').each(function() {
-      result.push($(this).val());
-    });
-    $('.sidr-items-minus').each(function() {
-      result.push('-' + $(this).val());
-    });
-    $('#scene-select #items')
-      .val(result.join(','))
-      .change();
-    $.sidr('close', 'sidr_items');
-  });
-
-  // アイテム選択をキャンセルした時
-  $('#sidr_items_close').click(function() {
-    $.sidr('close', 'sidr_items');
-  });
-
   // ［シーン］タブ内での更新
   $('#scene-select input:not(.no-update), #scene-select select:not(.no-update)').on('change', function(e) {
     let id = $('#scene-select #id').text();
@@ -893,15 +845,63 @@ $(function () {
     }
   });
 
+    //［シーン］タブ内でのアイテム処理
+    $('#scene-select #items').sidr({
+      name: 'sidr_items',
+      displace: false,
+      onOpen: function() {
+        $('#sidr_items_list').empty();
+        for(let item of scenario.items) {
+          $('#sidr_items_list').append(`
+            <tr>
+              <td>
+                <label>＋<input type="checkbox"
+                   class="sidr-items-plus" value="${item.id}" /></label>
+              </td>
+              <td class="sidr-elem"><span>${item.name}</span></td>
+              <td>
+                <label>－<input type="checkbox"
+                  class="sidr-items-minus" value="${item.id}" /></label>
+              </td>
+            </tr>
+          `);
+        }
+        // ［+］［-］ボタンを整形
+        $('.sidr-items-plus, .sidr-items-minus').checkboxradio({
+          icon: false
+        });
+      }
+    });
+  
+    // アイテム選択を確定した時
+    $('#sidr_items_submit').click(function() {
+      let result = [];
+      $('.sidr-items-plus:checked').each(function() {
+        result.push($(this).val());
+      });
+      $('.sidr-items-minus:checked').each(function() {
+        result.push('-' + $(this).val());
+      });
+      $('#scene-select #items')
+        .val(result.join(','))
+        .change();
+      $.sidr('close', 'sidr_items');
+    });
+  
+    // アイテム選択をキャンセルした時
+    $('#sidr_items_close').click(function() {
+      $.sidr('close', 'sidr_items');
+    });
+    
   // ボタンクリック時にファイル選択ボックスを表示
-  $('#bgm-ref').click(function(e) {
-    $('#bgm-file').click();
+  $('#scene-select #bgm-ref').click(function(e) {
+    $('#scene-select #bgm-file').click();
   });
 
   // ファイル選択時にテキストボックスに反映
-  $('#bgm-file').change(function(e) {
+  $('#scene-select #bgm-file').change(function(e) {
     let name = $(this).get(0).files[0].name;
-    $('#bgm')
+    $('#scene-select #bgm')
       .val(name.substring(0, name.lastIndexOf('.mp3')))
       .change();
   });
