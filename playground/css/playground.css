@@ -19,6 +19,16 @@ label {
     color: #fff;
 }
 
+/* 非表示のファイル選択ボックス */
+.hidden-file {
+    display: none;
+}
+
+.hidden-file + button {
+    margin-left: -12px;
+    margin-right: 10px;
+}
+
 #control * {
     vertical-align: top;
 }

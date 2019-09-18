@@ -502,7 +502,7 @@ $(function () {
     disableTab: function() {
       $('#edit-area')
         .tabs('option', 'active', 0)
-        .tabs('option', 'disabled', [ 7, 8 ]);
+        .tabs('option', 'disabled', [ 6, 7 ]);
     },
     // 現在のシナリオデータからscenario.xmlを生成
     // 戻り値：XML文字列
@@ -880,7 +880,7 @@ $(function () {
   });
 
   // ［シーン］タブ内での更新
-  $('#scene-select input, #scene-select select:not(.no-update)').on('change', function(e) {
+  $('#scene-select input:not(.no-update), #scene-select select:not(.no-update)').on('change', function(e) {
     let id = $('#scene-select #id').text();
     if (id) {
       let scene = Util.getSceneById(id);
@@ -891,6 +891,19 @@ $(function () {
         network.selectNodes([ scene.id ]);
       }
     }
+  });
+
+  // ボタンクリック時にファイル選択ボックスを表示
+  $('#bgm-ref').click(function(e) {
+    $('#bgm-file').click();
+  });
+
+  // ファイル選択時にテキストボックスに反映
+  $('#bgm-file').change(function(e) {
+    let name = $(this).get(0).files[0].name;
+    $('#bgm')
+      .val(name.substring(0, name.lastIndexOf('.mp3')))
+      .change();
   });
 
   // ［シーン］タブ内でのエッジ選択
