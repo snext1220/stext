@@ -144,6 +144,15 @@ label {
     width: 88%;
 }
 
+#sidr_enemies_list .ui-checkboxradio-label {
+  display: block;
+  margin: 0 auto;
+  font-size: large;
+  text-align: center;
+  width: 80%;
+}
+
+
 .sidr-btn {
     margin: 20px;
     padding: 10px;
