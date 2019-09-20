@@ -1002,6 +1002,79 @@ $(function () {
     }
   });
 
+  // サイドバーの実績欄を生成
+  $.get('../stext/stext.xml').done(function(data) {
+    $('scenario > work', data).each(function() { 
+      $('#sidr_links_result_s').append(
+        $('<option></option>').
+          attr('value', $(this).attr('id')).
+          text($(this).attr('title'))
+      );
+    }); 
+  });
+  // 実績（シナリオ）選択時に実績一覧を取得
+  $('#sidr_links_result_s').change(function(e) {
+    $.get(`../stext/${$(this).val()}/scenario.xml`).done(function(data) {
+      $('#sidr_links_result').empty()
+        .append('<option>実績を選択</option>');
+      $('results > result', data).each(function() { 
+        $('#sidr_links_result').append(
+          $('<option></option>').
+            attr('value', $(this).attr('id') + ':' + $('#sidr_links_result_s').val()).
+            text($(this).attr('name'))
+        );
+      });
+    });
+  });
+
+  // ［リンク］タブ内での条件式処理
+  $('#edge #condition').sidr({
+    name: 'sidr_links',
+    displace: false,
+    onOpen: function() {
+      $('#sidr_links_cond').val('');
+      // アイテム欄を生成
+      $('#sidr_links_item').empty()
+        .append('<option>アイテムを選択</option>');
+      for(let item of scenario.items) {
+        $('#sidr_links_item').append(`<option value="${item.id}">${item.name}</option>`);
+      }
+      // フラグ欄を生成
+      $('#sidr_links_flag').empty()
+        .append('<option>フラグを選択</option>');
+      for(let flag of scenario.flags) {
+        $('#sidr_links_flag').append(`<option value="${flag.id}">${flag.text}</option>`);
+      }
+    }
+  });
+
+  // 選択ボックスの選択を反映
+  $('#sidr_links_list select:not(.no-update)').change(function() {
+    console.log('BG');
+    let cond = $('#sidr_links_cond');
+    cond.val(cond.val() + $(this).val());
+  });
+
+  $('#sidr_links button').click(function() {
+    let cond = $('#sidr_links_cond');
+    cond.val(cond.val() + $(this).val());
+  });
+
+  // 条件式編集を確定した時
+  $('#sidr_links_submit').click(function() {
+    $('#edge #condition')
+      .val($('#sidr_links_cond').val())
+      .change();
+    $.sidr('close', 'sidr_links');
+  });
+
+  // 条件式編集をキャンセルした時
+  $('#sidr_links_close').click(function() {
+    $.sidr('close', 'sidr_links');
+  });
+
+
+
   // SlickGridの共通オプション
   let grid_opts = {
     editable: true,

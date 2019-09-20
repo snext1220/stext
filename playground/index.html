@@ -256,6 +256,116 @@
   <div id="sidr_enemies_close" class="sidr-btn">閉じる</div>
 </div>
 
+<!--サイドパネル（移動ボタン）-->
+<div id="sidr_links">
+  <button type="button" value="&amp;">&amp;（and）</button>
+  <button type="button" value="|">|（or）</button>
+  <button type="button" value="!">!（not）</button>
+
+  <table id="sidr_links_list">
+    <tr>
+      <th>フラグ</th>
+      <td>
+        <select id="sidr_links_flag">
+          <option>フラグを選択</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th>ITEM</th>
+      <td>
+        <select id="sidr_links_item">
+          <option>アイテムを選択</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th>魔法</th>
+      <td>
+        <select id="sidr_links_magic">
+          <option>魔法を選択</option>
+          <option value="mHEAL">HEAL</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th>STATUS</th>
+      <td>
+        <select id="sidr_links_status">
+          <option>ステータスを選択</option>
+          <option value="oHP5+">HP</option>
+          <option value="oMP5+">MP</option>
+          <option value="oSTR5+">STR</option>
+          <option value="oINT5+">INT</option>
+          <option value="oDEX5+">DEX</option>
+          <option value="oKRM5+">KRM</option>
+          <option value="oFreeI5+">FREE1</option>
+          <option value="oFreeII5+">FREE2</option>
+          <option value="oFreeIII5+">FREE3</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th>基本</th>
+      <td>
+        <select id="sidr_links_basic">
+          <option>基本情報を選択</option>
+          <optgroup label="種族">
+            <option value="xFIGHTER">FIGHTER</option>
+            <option value="xWIZARD">WIZARD</option>
+            <option value="xDWARF">DWARF</option>
+            <option value="xELF">ELF</option>
+          </optgroup>
+          <optgroup label="性別">
+            <option value="xMALE">MALE</option>
+            <option value="xFEMALE">FEMALE</option>
+          </optgroup>
+          <optgroup label="年齢帯">
+            <option value="xYOUNG">YOUNG</option>
+            <option value="xADULT">ADULT</option>
+            <option value="xOLD">OLD</option>
+          </optgroup>
+          <optgroup label="状態異常">
+            <option value="xPOISON">POISON</option>
+            <option value="xFROZEN">FROZEN</option>
+            <option value="xSTONE">STONE</option>
+            <option value="xCURSE">CURSE</option>
+            <option value="xFORGET">FORGET</option>
+          </optgroup>
+          <optgroup label="職業">
+            <option value="xのうふ">のうふ</option>
+          </optgroup>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th>STARS</th>
+      <td>
+        <select id="sidr_links_star">
+          <option value="">星を選択</option>
+          <option value="s0:0:0:0:0:0:0">各星の数</option>
+          <option value="s0">星の総数</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th>実績</th>
+      <td>
+        <select id="sidr_links_result_s" class="no-update">
+         <option>シナリオ名を選択</option>
+        </select>
+        <select id="sidr_links_result">
+          <option>シナリオを先に選択</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+  <textarea id="sidr_links_cond" rows="10"></textarea>
+  <div id="sidr_links_submit" class="sidr-btn sidr-ok">確定</div>
+  <div id="sidr_links_close" class="sidr-btn">閉じる</div>
+</div>
+
+
 <!--ダイアログ（シーン）-->
 <div id="scene-dialog" title="Add Scene">
   <div>
