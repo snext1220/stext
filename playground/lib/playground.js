@@ -246,6 +246,9 @@ $(function () {
                   $('#scene-dialog').dialog('close');
                   // データの追加
                   scenario.scenes.push(data);
+                  scenario.scenes.sort((m, n) => {
+                    return Number(m.id) - Number(n.id);
+                  });
                   callback(data);
                 }
               }.bind(this, data, callback);
@@ -338,44 +341,6 @@ $(function () {
       network.on('selectNode', function(e) {
         let id = this.getNodeAt(e.pointer.DOM);
         Util.setSceneInfo(id);
-        // if (id !== undefined) {
-        //   Util.enableTab(6);
-        //   let scene = Util.getSceneById(id);
-        //   $('#scene-select #id').text(scene.id);
-        //   $('#scene-select #summary').val(scene.summary);
-        //   $('#scene-select #end').val(scene.end);
-        //   $('#scene-select #items').val(scene.items);
-        //   $('#scene-select #flags').val(scene.flags);
-        //   $('#scene-select #enemies').val(scene.enemies);
-        //   $('#scene-select #result').val(scene.result);
-        //   $('#scene-select #bgm').val(scene.bgm);
-        //   $('#scene-select #se').val(scene.se);
-        //   $('#scene-select #hp').val(scene.hp);
-        //   $('#scene-select #mp').val(scene.mp);
-        //   $('#scene-select #stars').val(scene.stars);
-        //   $('#scene-select #free1').val(scene.free1);
-        //   $('#scene-select #free1').val(scene.free2);
-        //   $('#scene-select #free3').val(scene.free3);
-        //   if (scene.text) {
-        //     editor.setValue(scene.text);
-        //   } else {
-        //     editor.setValue('');
-        //   }
-        //   editor.focus();
-
-        //   // リンクリストを生成
-        //   $('#scene-select #edges-list').empty();
-        //   $('#scene-select #edges-list').append(
-        //     '<option value="" selected>編集するリンクを選択</option>');
-        //   scenario.edges.forEach(function(value) {
-        //     if (value.from === id) {
-        //       $('<option></option>')
-        //         .attr('value', value.id)
-        //         .text(`${value.to}: ${value.label}`)
-        //         .appendTo('#scene-select #edges-list');
-        //     }
-        //   });
-        // }
       });
   
       // エッジ選択時にフォームに反映
@@ -384,16 +349,6 @@ $(function () {
         let id = network.getEdgeAt(e.pointer.DOM);
         if (id !== undefined) {
           Util.setEdgeInfo(id);
-          // Util.enableTab(7);
-          // let edge = Util.getEdgeById(id);
-          // $('#edge #id').val(edge.id);
-          // $('#edge #from').text(edge.from);
-          // $('#edge #to').text(edge.to);
-          // $('#edge #order').val(edge.order);
-          // $('#edge #label').val(edge.label);
-          // $('#edge #condition').val(edge.condition);
-          // $('#edge #type').val(edge.type);
-          // $('#edge #correct').val(edge.correct);
         }
       });
     },
@@ -1073,8 +1028,6 @@ $(function () {
     $.sidr('close', 'sidr_links');
   });
 
-
-
   // SlickGridの共通オプション
   let grid_opts = {
     editable: true,
@@ -1083,35 +1036,6 @@ $(function () {
     asyncEditorLoading: false,
     autoEdit: false
   };
-
-  /*
-  // 埋め込みテキスト一覧
-  let text_cols = [
-    { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text },
-    { id: 'text', name: '本文', field: 'text', width: 500, editor: Slick.Editors.LongText }
-  ];
-
-  // テキスト一覧の描画
-  let texts_grid = new Slick.Grid('#texts_grid', scenario.texts, text_cols, grid_opts);
-  texts_grid.setSelectionModel(new Slick.CellSelectionModel());
-  // 既存行の削除
-  texts_grid.onClick.subscribe(function (e, args) {
-    if ($(e.target).hasClass('btn-delete')) {
-      scenario.texts.splice(args.row, 1);
-      texts_grid.invalidate();
-    }
-  });
-  texts_grid.onAddNewRow.subscribe(function (e, args) {
-    var item = args.item;
-    texts_grid.invalidateRow(scenario.texts.length);
-    scenario.texts.push(item);
-    texts_grid.updateRowCount();
-    texts_grid.render();
-  });
-  texts_grid.onHeaderClick.subscribe(function (e, args) {
-    window.open(Common.HELP_URL + 'text', 'help');
-  });
-  */
 
   // アイテム一覧
   let item_cols = [
@@ -1478,16 +1402,16 @@ $(function () {
       .attr('value', '')
       .text('編集するシーンを選択')
       .appendTo('#ctrl_scene');
-      for (let scene of scenario.scenes) {
-        label = scene.label;
-        if (scene.id == 0 || scene.end) {
-          label = '★' + label;
-        }
-        $('<option></option>')
-          .attr('value', scene.id)
-          .text(label)
-          .appendTo('#ctrl_scene');
+    for (let scene of scenario.scenes) {
+      label = scene.label;
+      if (scene.id == 0 || scene.end) {
+        label = '★' + label;
       }
+      $('<option></option>')
+        .attr('value', scene.id)
+        .text(label)
+        .appendTo('#ctrl_scene');
+    }
   });
 
   // シーン選択ボックス 選択時にシーン移動
