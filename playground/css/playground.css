@@ -144,7 +144,8 @@ label {
     width: 88%;
 }
 
-#sidr_enemies_list .ui-checkboxradio-label {
+#sidr_enemies_list .ui-checkboxradio-label,
+#sidr_results_list .ui-checkboxradio-label {
   display: block;
   margin: 0 auto;
   font-size: large;

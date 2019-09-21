@@ -707,14 +707,14 @@ $(function () {
   try {
     scenario = JSON.parse(sessionStorage.getItem(Common.LOAD_NAME));
     sessionStorage.removeItem(Common.LOAD_NAME);
-    // 初期化時にアイテム／フラグ等をソート
-    Util.sortScenario();
   } catch(e) {
     console.log(e);
   }
   if (!scenario) {
     scenario = $.extend(true, {}, Common.INIT_DATA);
   }
+  // 初期化時にアイテム／フラグ等をソート
+  Util.sortScenario();
 
   // フローチャートの初期化
   Util.createNetwork();
@@ -860,6 +860,54 @@ $(function () {
   $('#sidr_items_close').click(function() {
     $.sidr('close', 'sidr_items');
   });
+
+    //［シーン］タブ内でのフラグ処理
+    $('#scene-select #flags').sidr({
+      name: 'sidr_flags',
+      displace: false,
+      onOpen: function() {
+        $('#sidr_flags_list').empty();
+        for(let flag of scenario.flags) {
+          $('#sidr_flags_list').append(`
+            <tr>
+              <td>
+                <label>＋<input type="checkbox"
+                    class="sidr-flags-plus" value="${flag.id}" /></label>
+              </td>
+              <td class="sidr-elem"><span>${flag.text}</span></td>
+              <td>
+                <label>－<input type="checkbox"
+                  class="sidr-flags-minus" value="${flag.id}" /></label>
+              </td>
+            </tr>
+          `);
+        }
+        // ［+］［-］ボタンを整形
+        $('.sidr-flags-plus, .sidr-flags-minus').checkboxradio({
+          icon: false
+        });
+      }
+    });
+  
+    // フラグ選択を確定した時
+    $('#sidr_flags_submit').click(function() {
+      let result = [];
+      $('.sidr-flags-plus:checked').each(function() {
+        result.push($(this).val());
+      });
+      $('.sidr-flags-minus:checked').each(function() {
+        result.push('-' + $(this).val());
+      });
+      $('#scene-select #flags')
+        .val(result.join(','))
+        .change();
+      $.sidr('close', 'sidr_flags');
+    });
+  
+    // フラグ選択をキャンセルした時
+    $('#sidr_flags_close').click(function() {
+      $.sidr('close', 'sidr_flags');
+    });
     
   // ボタンクリック時にファイル選択ボックスを表示
   $('#scene-select #bgm-ref').click(function(e) {
@@ -887,7 +935,7 @@ $(function () {
     }
   });
 
-  // アイテム選択を確定した時
+  // 敵選択を確定した時
   $('#sidr_enemies_submit').click(function() {
     let result = [];
     $('.sidr-enemy-item:checked').each(function() {
@@ -899,11 +947,46 @@ $(function () {
     $.sidr('close', 'sidr_enemies');
   });
 
-  // アイテム選択をキャンセルした時
+  // 敵選択をキャンセルした時
   $('#sidr_enemies_close').click(function() {
     $.sidr('close', 'sidr_enemies');
   });
     
+  //［シーン］タブ内での実績処理
+  $('#scene-select #result').sidr({
+    name: 'sidr_results',
+    displace: false,
+    onOpen: function() {
+      $('#sidr_results_list').empty();
+      for(let result of scenario.results) {
+        $('#sidr_results_list').append(`
+          <li>
+            <label>${result.name}<input type="radio"
+              name="sidr-results"
+              class="sidr-result-item" value="${result.id}" /></label>
+          </li>
+        `);
+      }
+      // ［実績名］ボタンを整形
+      $('.sidr-result-item').checkboxradio({
+        icon: false
+      });
+    }
+  });
+
+  // 実績選択を確定した時
+  $('#sidr_results_submit').click(function() {
+    $('#scene-select #result')
+      .val($('.sidr-result-item:checked').val())
+      .change();
+    $.sidr('close', 'sidr_results');
+  });
+
+  // 実績選択をキャンセルした時
+  $('#sidr_results_close').click(function() {
+    $.sidr('close', 'sidr_results');
+  });
+
   // ボタンクリック時にファイル選択ボックスを表示
   $('#scene-select #bgm-ref').click(function(e) {
     $('#scene-select #bgm-file').click();
@@ -1016,13 +1099,14 @@ $(function () {
     }
   });
 
-  // 選択ボックスの選択を反映
+  // 条件式シートの選択ボックスの選択をテキストエリアに反映
   $('#sidr_links_list select:not(.no-update)').change(function() {
     console.log('BG');
     let cond = $('#sidr_links_cond');
     cond.val(cond.val() + $(this).val());
   });
 
+  // 条件式シートのボタンの選択をテキストエリアに反映
   $('#sidr_links button').click(function() {
     let cond = $('#sidr_links_cond');
     cond.val(cond.val() + $(this).val());
