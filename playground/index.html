@@ -83,11 +83,17 @@
         <fieldset>
           <legend>BGM（<a href="https://soundcloud.com/venus-az/sets/sorcerian-text-original-sounds/s-2tzI5" target="help">標準BGMリスト</a>）</legend>
           <label>main：
-            <input id="bgm-main" type="text" size="15" /></label>
+            <input id="bgm-main" type="text" size="10" /></label>
+            <input id="bgm-main-file" type="file" accept=".mp3" class="hidden-file no-update" />
+            <button id="bgm-main-ref" type="button">参照</button>
           <label>happy：
-            <input id="bgm-happy" type="text" size="15" /></label>
+            <input id="bgm-happy" type="text" size="10" /></label>
+            <input id="bgm-happy-file" type="file" accept=".mp3" class="hidden-file no-update" />
+            <button id="bgm-happy-ref" type="button">参照</button>
           <label>bad：
-            <input id="bgm-bad" type="text" size="15" /></label>
+            <input id="bgm-bad" type="text" size="10" /></label>
+            <input id="bgm-bad-file" type="file" accept=".mp3" class="hidden-file no-update" />
+            <button id="bgm-bad-ref" type="button">参照</button>
         </fieldset>
         <fieldset>
           <legend>FREEラベル</legend>
@@ -160,13 +166,15 @@
               </label>
               </fieldset>
             <fieldset>
-              <legend>楽曲</legend>
+              <legend>楽曲（<a href="https://soundcloud.com/venus-az/sets/sorcerian-text-original-sounds/s-2tzI5" target="help">標準BGMリスト</a>）</legend>
               <label>BGM：
                   <input id="bgm" type="text" size="15" /></label>
                   <input id="bgm-file" type="file" accept=".mp3" class="hidden-file no-update" />
                   <button id="bgm-ref" type="button">参照</button>
               <label>効果音：
                 <input id="se" type="text" size="15" /></label>
+                <input id="se-file" type="file" accept=".mp3" class="hidden-file no-update" />
+                  <button id="se-ref" type="button">参照</button>
             </fieldset>
             <fieldset>
               <legend>ステータス</legend>

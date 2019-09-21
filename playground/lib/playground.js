@@ -743,6 +743,47 @@ $(function () {
     }
   });
 
+  // ファイル選択ボックスココカラ
+  // 参照ボタンクリック時にファイル選択ボックスを表示
+  $('#basic #bgm-main-ref').click(function(e) {
+    $('#basic #bgm-main-file').click();
+  });
+
+  // ファイル選択時にテキストボックスに反映
+  $('#basic #bgm-main-file').change(function(e) {
+    let name = $(this).get(0).files[0].name;
+    $('#basic #bgm-main')
+      .val(name.substring(0, name.lastIndexOf('.mp3')))
+      .change();
+  });
+
+  // 参照ボタンクリック時にファイル選択ボックスを表示
+  $('#basic #bgm-happy-ref').click(function(e) {
+    $('#basic #bgm-happy-file').click();
+  });
+
+  // ファイル選択時にテキストボックスに反映
+  $('#basic #bgm-happy-file').change(function(e) {
+    let name = $(this).get(0).files[0].name;
+    $('#basic #bgm-happy')
+      .val(name.substring(0, name.lastIndexOf('.mp3')))
+      .change();
+  });
+  
+  // 参照ボタンクリック時にファイル選択ボックスを表示
+  $('#basic #bgm-bad-ref').click(function(e) {
+    $('#basic #bgm-bad-file').click();
+  });
+
+  // ファイル選択時にテキストボックスに反映
+  $('#basic #bgm-bad-file').change(function(e) {
+    let name = $(this).get(0).files[0].name;
+    $('#basic #bgm-bad')
+      .val(name.substring(0, name.lastIndexOf('.mp3')))
+      .change();
+  });
+  // ファイル選択ボックスココマデ
+
   // ダイナミックヘルプ（基本情報）
   $('#basic label').dblclick(function(e) {
     let id = $(this).find('input, select').attr('id').split('-')[1];
@@ -861,59 +902,54 @@ $(function () {
     $.sidr('close', 'sidr_items');
   });
 
-    //［シーン］タブ内でのフラグ処理
-    $('#scene-select #flags').sidr({
-      name: 'sidr_flags',
-      displace: false,
-      onOpen: function() {
-        $('#sidr_flags_list').empty();
-        for(let flag of scenario.flags) {
-          $('#sidr_flags_list').append(`
-            <tr>
-              <td>
-                <label>＋<input type="checkbox"
-                    class="sidr-flags-plus" value="${flag.id}" /></label>
-              </td>
-              <td class="sidr-elem"><span>${flag.text}</span></td>
-              <td>
-                <label>－<input type="checkbox"
-                  class="sidr-flags-minus" value="${flag.id}" /></label>
-              </td>
-            </tr>
-          `);
-        }
-        // ［+］［-］ボタンを整形
-        $('.sidr-flags-plus, .sidr-flags-minus').checkboxradio({
-          icon: false
-        });
+  //［シーン］タブ内でのフラグ処理
+  $('#scene-select #flags').sidr({
+    name: 'sidr_flags',
+    displace: false,
+    onOpen: function() {
+      $('#sidr_flags_list').empty();
+      for(let flag of scenario.flags) {
+        $('#sidr_flags_list').append(`
+          <tr>
+            <td>
+              <label>＋<input type="checkbox"
+                  class="sidr-flags-plus" value="${flag.id}" /></label>
+            </td>
+            <td class="sidr-elem"><span>${flag.text}</span></td>
+            <td>
+              <label>－<input type="checkbox"
+                class="sidr-flags-minus" value="${flag.id}" /></label>
+            </td>
+          </tr>
+        `);
       }
-    });
-  
-    // フラグ選択を確定した時
-    $('#sidr_flags_submit').click(function() {
-      let result = [];
-      $('.sidr-flags-plus:checked').each(function() {
-        result.push($(this).val());
+      // ［+］［-］ボタンを整形
+      $('.sidr-flags-plus, .sidr-flags-minus').checkboxradio({
+        icon: false
       });
-      $('.sidr-flags-minus:checked').each(function() {
-        result.push('-' + $(this).val());
-      });
-      $('#scene-select #flags')
-        .val(result.join(','))
-        .change();
-      $.sidr('close', 'sidr_flags');
-    });
-  
-    // フラグ選択をキャンセルした時
-    $('#sidr_flags_close').click(function() {
-      $.sidr('close', 'sidr_flags');
-    });
-    
-  // ボタンクリック時にファイル選択ボックスを表示
-  $('#scene-select #bgm-ref').click(function(e) {
-    $('#scene-select #bgm-file').click();
+    }
   });
 
+  // フラグ選択を確定した時
+  $('#sidr_flags_submit').click(function() {
+    let result = [];
+    $('.sidr-flags-plus:checked').each(function() {
+      result.push($(this).val());
+    });
+    $('.sidr-flags-minus:checked').each(function() {
+      result.push('-' + $(this).val());
+    });
+    $('#scene-select #flags')
+      .val(result.join(','))
+      .change();
+    $.sidr('close', 'sidr_flags');
+  });
+  
+  // フラグ選択をキャンセルした時
+  $('#sidr_flags_close').click(function() {
+    $.sidr('close', 'sidr_flags');
+  });
+    
   //［シーン］タブ内での敵処理
   $('#scene-select #enemies').sidr({
     name: 'sidr_enemies',
@@ -987,7 +1023,7 @@ $(function () {
     $.sidr('close', 'sidr_results');
   });
 
-  // ボタンクリック時にファイル選択ボックスを表示
+  // 参照ボタンクリック時にファイル選択ボックスを表示
   $('#scene-select #bgm-ref').click(function(e) {
     $('#scene-select #bgm-file').click();
   });
@@ -1000,6 +1036,19 @@ $(function () {
       .change();
   });
 
+  // 参照ボタンクリック時にファイル選択ボックスを表示
+  $('#scene-select #se-ref').click(function(e) {
+    $('#scene-select #se-file').click();
+  });
+
+  // ファイル選択時にテキストボックスに反映
+  $('#scene-select #se-file').change(function(e) {
+    let name = $(this).get(0).files[0].name;
+    $('#scene-select #se')
+      .val(name.substring(0, name.lastIndexOf('.mp3')))
+      .change();
+  });
+  
   // hp／mp属性のオートコンプリート
   $('#scene-select #hp, #scene-select #mp')
   .autocomplete({
