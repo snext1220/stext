@@ -743,6 +743,80 @@ $(function () {
     }
   });
 
+  // 種族／年齢／性別ボックスの加工
+  $('.sidr-race-item, .sidr-age-item, .sidr-sex-item').checkboxradio({
+    icon: false
+  });
+
+  //［基本］タブ内での種族処理
+  $('#basic #constraint-race').sidr({
+    name: 'sidr_races',
+    displace: false
+  });
+
+  // 種族選択を確定した時
+  $('#sidr_races_submit').click(function() {
+    let result = [];
+    $('.sidr-race-item:checked').each(function() {
+      result.push($(this).val());
+    });
+    $('#basic #constraint-race')
+      .val(result.join(','))
+      .change();
+    $.sidr('close', 'sidr_races');
+  });
+  
+  // 種族選択をキャンセルした時
+  $('#sidr_races_close').click(function() {
+    $.sidr('close', 'sidr_races');
+  });
+
+  // ［基本］タブ内での年齢処理
+  $('#basic #constraint-age').sidr({
+    name: 'sidr_ages',
+    displace: false
+  });
+
+  // 年齢選択を確定した時
+  $('#sidr_ages_submit').click(function() {
+    let result = [];
+    $('.sidr-age-item:checked').each(function() {
+      result.push($(this).val());
+    });
+    $('#basic #constraint-age')
+      .val(result.join(','))
+      .change();
+    $.sidr('close', 'sidr_ages');
+  });
+  
+  // 年齢選択をキャンセルした時
+  $('#sidr_ages_close').click(function() {
+    $.sidr('close', 'sidr_ages');
+  });
+
+  // ［基本］タブ内での性別処理
+  $('#basic #constraint-sex').sidr({
+    name: 'sidr_sexes',
+    displace: false
+  });
+
+  // 性別選択を確定した時
+  $('#sidr_sexes_submit').click(function() {
+    let result = [];
+    $('.sidr-sex-item:checked').each(function() {
+      result.push($(this).val());
+    });
+    $('#basic #constraint-sex')
+      .val(result.join(','))
+      .change();
+    $.sidr('close', 'sidr_sexes');
+  });
+  
+  // 性別選択をキャンセルした時
+  $('#sidr_sexes_close').click(function() {
+    $.sidr('close', 'sidr_sexes');
+  });
+
   // ファイル選択ボックスココカラ
   // 参照ボタンクリック時にファイル選択ボックスを表示
   $('#basic #bgm-main-ref').click(function(e) {
