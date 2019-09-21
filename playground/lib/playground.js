@@ -118,6 +118,17 @@ $(function () {
 
   // 共通関数
   let Util = {
+    // アイテム／敵などのソート
+    sortFn: function(m, n) {
+      return Number(m.id.substring(1)) - Number(n.id.substring(1));
+    },
+    // シナリオ内の項目をソート
+    sortScenario: function() {
+      scenario.items.sort(Util.sortFn);
+      scenario.flags.sort(Util.sortFn);
+      scenario.enemies.sort(Util.sortFn);
+      scenario.results.sort(Util.sortFn);
+    },
     // 指定されたシーンを取得
     getSceneById: function(id) {
       return scenario.scenes.find(function(elem) {
@@ -696,6 +707,8 @@ $(function () {
   try {
     scenario = JSON.parse(sessionStorage.getItem(Common.LOAD_NAME));
     sessionStorage.removeItem(Common.LOAD_NAME);
+    // 初期化時にアイテム／フラグ等をソート
+    Util.sortScenario();
   } catch(e) {
     console.log(e);
   }
@@ -1289,13 +1302,6 @@ $(function () {
     $('#tag-menu').css('display', 'none');
   });
 
-  // ［セーブ］ボタン
-  // $('#ctrl_save').click(function(e) {
-  //   window.alert('データをブラウザーに保存しました。');
-  //   console.log(scenario);
-  //   localStorage.setItem(Common.MY_STORAGE, JSON.stringify(scenario));
-  // });
-
   // ［ダウンロード］ボタン
   $('#ctrl_dl').click(function(e){
     $('#dl-menu').css({
@@ -1448,8 +1454,15 @@ $(function () {
     '［20Sceneサンプル］は、単方向で分岐と移動の枠組みだけを備えたサンプルです。20Sceneあるので、簡単な物語ならば、テキストを追加するだけでシナリオができてしまいます。',
     '［機能テスト］は、STextの動作確認のためのテンプレート。リンク関係など判りにくい動作例を載せています。',
     '［セーブ］ボタンではブラウザーに一時的にデータを保存できます。保存したデータは［マイストレージ］テンプレートから取り出せますよ。',
-    'Playground Flowは現在、β版です。バグかなと思ったら、Twitter（@yy7512）までお知らせください。',
-    'Playground Flowは現在、β版です。ご利用に際しては、データのバックアップ／保存を小まめに行うようにしてください。'
+    'Playground Flowは現在β版です。バグかなと思ったら、Twitter（@yy7512）までお知らせください。',
+    'Playground Flowは現在β版です。こんな機能あったらいいなと思ったら、Twitter（@yy7512）までお気軽にお寄せください。',
+    'Playground Flowは現在β版です。ご利用に際しては、データのバックアップ／保存を小まめに行うようにしてください。',
+    'アイテム／フラグなどの項目はロード時にid値について昇順でソートされます。番号の大小が乱れた時は一度開き直すと良いでしょう。',
+    'シーンはフローチャートとからだけでなく、右上の選択ボックスからも選べます。プロローグ／エンディングには★が付いているので、探す時の手懸りにどうぞ。',
+    'シーンテキストを編集するエディターには様々なショートカットが用意されています。詳しくはヘルプを参照してください。',
+    '［シーン］タブから［アイテム］［フラグ］［敵］［実績］欄にフォーカスすると、サイドバーが開いて、設定済みの情報を選択できます。',
+    '［シーン］タブから［HP］～［FREE3］欄にフォーカスすると、入力可能なオプションがリスト表示されます。',
+    '［リンク］タブから［条件式］欄にフォーカスすると、サイドパネルに条件式生成エディターが開きます。',
   ];
   toastr.options.closeButton = true;
   toastr.options.positionClass = 'toast-bottom-full-width';
