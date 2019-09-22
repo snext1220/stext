@@ -47,6 +47,7 @@
   ｜<select id="ctrl_scene">
       <option value="">編集するシーンを選択</option>
     </select>
+    <input id="ctrl_post" type="button" value="シナリオ投稿" />
 </div>
 <div id="main" class="clearfix">
   <div id="flow-area"></div>
@@ -557,6 +558,73 @@
     <input id="range-cancel" type="button" value="キャンセル" />
   </p>
   -->
+</div>
+
+<!--ダイアログ（投稿）-->
+<div id="upload-dialog" title="Post Scenario">
+  <p>現在編集中のシナリオを投稿します（先に保存を推奨）</p>
+  <table>
+    <tr>
+      <td>
+        <div>
+        <label>
+          連絡先（メールアドレス）：<br />
+          <input id="upload-email" type="email" required />
+        </label>
+        </div>
+        <div>
+        <label>
+          分類：<br />
+          <input id="upload-tag" type="text" />
+        </label>
+        </div>
+        <div>
+        <label>
+          難易度：<br />
+          <select id="upload-level">
+            <option value="5">5（Hell）</option>
+            <option value="4">4（Hard）</option>
+            <option value="3">3（Normal）</option>
+            <option value="2">2（Easy）</option>
+            <option value="1">1（VeryEasy）</option>
+          </select>
+        </label>
+        </div>
+        <div>
+        <label>
+          BGM：<br />
+          <input id="upload-bgms" type="file" accept=".mp3" multiple />
+        </label>
+        </div>
+        <div>
+        <label>
+          効果音：<br />
+          <input id="upload-ses" type="file" accept=".mp3" multiple />
+        </label>
+        </div>
+        <div>
+        <label>
+          挿絵：<br />
+          <input id="upload-pics" type="file" accept=".png,.jpg,.jpeg" multiple />
+        </label>
+        </div>
+      </td>
+      <td>
+        <div>
+        <label>
+          シナリオ紹介（2～300文字）：
+          <textarea id="upload-intro" rows="10" required></textarea>
+        </label>
+        </div>
+        <div>
+        <label>
+          著者より（80文字程度）：
+          <textarea id="upload-comment" rows="4" required></textarea>
+        </label>
+        </div>
+      </td>
+    </tr>
+  </table>
 </div>
 
 <!--コンテキストメニュー（タグ追加）-->

@@ -914,6 +914,82 @@ $(function () {
     }
   });
 
+  // ダイアログを初期化（シナリオ投稿）
+  $('#upload-dialog').dialog({
+    autoOpen: false,
+    width: 800,
+    show: 500,
+    hide: 500,
+    modal: true,
+    buttons: {
+      '投稿': function() {
+        let key = sessionStorage.getItem('pgflow_key');
+        if (!key) {
+          key = new Date().getTime().toString(16);
+          sessionStorage.setItem('pgflow_key', key);
+        }
+        let p = {
+          email: $('#upload-email').val(),
+          tag: $('#upload-tag').val(),
+          level: $('#upload-level').val(),
+          intro: $('#upload-intro').val(),
+          comment: $('#upload-comment').val()
+        };
+        localStorage.setItem('pgflow_post', JSON.stringify(p));
+        // アップロードデータの準備
+        let data = new FormData();
+        data.append('key', key);
+        data.append('email', p.email);
+        data.append('tag', p.tag);
+        data.append('level', p.level);
+        data.append('intro', p.intro);
+        data.append('comment', p.comment);
+        data.append('scenario',
+          new Blob([ Util.createXml() ], { type: "text/xml"}),
+          'scenario.xml'
+        );
+        let bgms = $('#upload-bgms').get(0).files;
+        let ses = $('#upload-ses').get(0).files;
+        let pics = $('#upload-pics').get(0).files;
+        for (let i = 0; i < bgms.length; i++) { data.append('bgms[]', bgms[i]); }
+        for (let i = 0; i < ses.length; i++)  { data.append('ses[]',  ses[i]); }
+        for (let i = 0; i < pics.length; i++) { data.append('pics[]', pics[i]); }
+
+        // アップロード処理
+        fetch('upload.php', {
+          method: 'POST',
+          body: data
+        })
+        .then(function(res){
+          if (res.ok) {
+            window.alert('投稿に成功しました。');
+          } else {
+            window.alert('投稿に失敗しました。');
+          }
+        });
+        $(this).dialog('close');
+      },
+      'キャンセル': function() {
+        $(this).dialog('close');
+      }
+    },
+    open: function() {
+      let p = JSON.parse(localStorage.getItem('pgflow_post'));
+      if(p) {
+        $('#upload-email').val(p.email);
+        $('#upload-tag').val(p.tag);
+        $('#upload-level').val(p.level);
+        $('#upload-intro').val(p.intro);
+        $('#upload-comment').val(p.comment);
+      }
+    }
+  });
+
+  // ［投稿］ボタンでダイアログを開く
+  $('#ctrl_post').click(function() {
+    $('#upload-dialog').dialog('open');
+  });
+
   // ［シーン］タブ内での更新
   $('#scene-select input:not(.no-update), #scene-select select:not(.no-update)').on('change', function(e) {
     let id = $('#scene-select #id').text();
@@ -1559,7 +1635,6 @@ $(function () {
 
   // ［フィルター］ボタン
   $('#ctrl_filter').click(function(e) {
-    console.log('TEST');
     $('#range-dialog').dialog('open');
   });
 

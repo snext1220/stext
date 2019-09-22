@@ -105,6 +105,15 @@ label {
     color: #fff;
 }
 
+/* 投稿ダイアログ */
+#upload-dialog input,
+#upload-dialog select,
+#upload-dialog textarea {
+    margin: 5px;
+    width: 95%;
+}
+
+
 /* コンテキストメニュー */
 .cxt {
     position: absolute;
