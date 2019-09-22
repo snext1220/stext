@@ -956,17 +956,23 @@ $(function () {
         for (let i = 0; i < pics.length; i++) { data.append('pics[]', pics[i]); }
 
         // アップロード処理
-        fetch('upload.php', {
-          method: 'POST',
-          body: data
-        })
-        .then(function(res){
-          if (res.ok) {
-            window.alert('投稿に成功しました。');
-          } else {
-            window.alert('投稿に失敗しました。');
-          }
-        });
+        try {
+          fetch('upload.php', {
+            method: 'POST',
+            redirect: 'follow',
+
+            body: data
+          })
+          .then(function(res){
+            if (res.ok) {
+              window.alert('投稿に成功しました。');
+            } else {
+              window.alert('投稿に失敗しました。');
+            }
+          });
+        } catch(e) {
+          console.log(e);
+        }
         $(this).dialog('close');
       },
       'キャンセル': function() {

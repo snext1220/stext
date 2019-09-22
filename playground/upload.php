@@ -4,8 +4,8 @@ ini_set('upload_max_filesize', '10M');
 ini_set('post_max_size', '10M');
 ini_set('display_errors', 1);
 
+$success = true;
 $path = './post/'.$_POST['key'];
-print_r($_FILES);
 
 function singleupload($file) {
     global $path;
@@ -14,7 +14,7 @@ function singleupload($file) {
       $file['tmp_name'], $path.'/'.$file['name'])) {
         //
     } else {
-        print('NG: Scenario');
+        $success = false;
     }
 }
 
@@ -24,9 +24,10 @@ function multiupload($files, $sub) {
     for ($i = 0; $i < count($files['name']); $i++) {
         $dest = $path.$sub.'/'.$files['name'][$i];
         if(move_uploaded_file($files['tmp_name'][$i], $dest)) {
-            print($files['name'][$i]."\n");
+            //print($files['name'][$i]."\n");
         } else {
-            print('NG:'.$files['name'][$i]."\n");
+            //print('NG:'.$files['name'][$i]."\n");
+            $success = false;
         }
     }
 }
@@ -52,4 +53,10 @@ multiupload($_FILES['bgms'], '/bgm');
 multiupload($_FILES['ses'], '/bgm/se');
 multiupload($_FILES['pics'], '/capture');
 //print_r($_FILES);
+if ($success) {
+    header('Location: https://wings.msn.to/stext_mail.php?email='.$_POST['email']);
+    exit;
+} else {
+    header("HTTP/1.1 500 Internal Server Error");
+}
 
