@@ -33,6 +33,7 @@
     <!-- <img id="ctrl_save" src="../stext/common/pg_save.png" title="ブラウザーに保存" /> -->
     <img id="ctrl_dl" src="../stext/common/pg_dl.png" title="シナリオを保存" />
     <img id="ctrl_help" src="../stext/common/pg_help.png" title="マニュアルを参照" />
+    <img id="ctrl_post" src="../stext/common/pg_post.png" title="シナリオを投稿" />
   </span>
   ｜<select id="ctrl_template">
     <option value="">テンプレートを選択</option>
@@ -47,7 +48,6 @@
   ｜<select id="ctrl_scene">
       <option value="">編集するシーンを選択</option>
     </select>
-    <input id="ctrl_post" type="button" value="シナリオ投稿" />
 </div>
 <div id="main" class="clearfix">
   <div id="flow-area"></div>
@@ -584,9 +584,9 @@
           <select id="upload-level">
             <option value="5">5（Hell）</option>
             <option value="4">4（Hard）</option>
-            <option value="3">3（Normal）</option>
+            <option value="3" selected>3（Normal）</option>
             <option value="2">2（Easy）</option>
-            <option value="1">1（VeryEasy）</option>
+            <option value="1">1（Very Easy）</option>
           </select>
         </label>
         </div>
