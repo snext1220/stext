@@ -923,10 +923,10 @@ $(function () {
     modal: true,
     buttons: {
       '投稿': function() {
-        let key = sessionStorage.getItem('pgflow_key');
+        let key = localStorage.getItem('pgflow_key');
         if (!key) {
           key = new Date().getTime().toString(16);
-          sessionStorage.setItem('pgflow_key', key);
+          localStorage.setItem('pgflow_key', key);
         }
         let p = {
           email: $('#upload-email').val(),

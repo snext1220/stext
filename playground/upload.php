@@ -2,10 +2,18 @@
 ini_set('display_errors', 1);
 ini_set('upload_max_filesize', '10M');
 ini_set('post_max_size', '10M');
-ini_set('display_errors', 1);
 
-$success = true;
-$path = './post/'.$_POST['key'];
+function remove_directory($dir) {
+    $files = array_diff(scandir($dir), [ '.', '..' ]);
+    foreach ($files as $file) {
+        if (is_dir("$dir/$file")) {
+            remove_directory("$dir/$file");
+        } else {
+            unlink("$dir/$file");
+        }
+    }
+    return rmdir($dir);
+}
 
 function singleupload($file) {
     global $path;
@@ -32,12 +40,23 @@ function multiupload($files, $sub) {
     }
 }
 
-if (!file_exists($path)) {
-    mkdir($path, 0777);
-    mkdir($path.'/bgm', 0777);
-    mkdir($path.'/bgm/se', 0777);
-    mkdir($path.'/capture', 0777);
+$success = true;
+if (!preg_match('/^[0-9a-z]{8,}$/i', $_POST['key'], $data)) {
+    die();
 }
+$path = './post/'.$_POST['key'];
+
+// フォルダーが存在する場合は削除
+if (file_exists($path)) {
+    remove_directory($path);
+}
+// フォルダーを再作成
+mkdir($path, 0777);
+mkdir($path.'/bgm', 0777);
+mkdir($path.'/bgm/se', 0777);
+mkdir($path.'/capture', 0777);
+
+// 基本情報を記録
 file_put_contents($path.'/data.dat',
     $_POST['key'] . "\n" .
     $_POST['email'] . "\n" .
@@ -52,7 +71,6 @@ singleupload($_FILES['scenario']);
 multiupload($_FILES['bgms'], '/bgm');
 multiupload($_FILES['ses'], '/bgm/se');
 multiupload($_FILES['pics'], '/capture');
-//print_r($_FILES);
 if ($success) {
     header('Location: https://wings.msn.to/stext_mail.php?email='.$_POST['email']);
     exit;
