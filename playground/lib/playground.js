@@ -973,7 +973,7 @@ $(function () {
             if (res.ok) {
               window.alert('投稿に成功しました。');
             } else {
-              window.alert('投稿に失敗しました。');
+              window.alert('投稿に失敗しました。\nファイルの合計サイズが上限（8mb）を超過していないかなど、ご確認ください。');
             }
           });
         } catch(e) {
