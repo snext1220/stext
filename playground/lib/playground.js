@@ -1728,6 +1728,12 @@ $(function () {
     }
   });
 
+  // Editorへの遷移
+  $('#ctrl_flow2editor').click(function(){
+    sessionStorage['flow2editor'] = Util.createXml();
+    window.open('https://www.web-deli.com/sorcerian/text/playground.aspx', 'pgeditor');
+  });
+
   // TIPS表示
   let tips = [
     'Playgroundのデータは、.json形式（Playgroundの内部形式）、.xml形式（STextの実行形式）などで保存できます。',
