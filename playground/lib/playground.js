@@ -702,8 +702,14 @@ $(function () {
     }
   };
 
-  // シナリオデータ
+  // ★★★★★★★★★★★★★★★★★★★★★★Entry Point★★★★★★★★★★★★★★★★★★★★★★★★★★★
   let scenario;
+  // Editor2Flow
+  if (localStorage['editor2flow']) {
+    sessionStorage.setItem(Common.LOAD_NAME, Util.createJson(localStorage['editor2flow']));
+    localStorage.removeItem('editor2flow');
+  }
+  // シナリオの読み込み
   try {
     scenario = JSON.parse(sessionStorage.getItem(Common.LOAD_NAME));
     sessionStorage.removeItem(Common.LOAD_NAME);
@@ -1730,8 +1736,8 @@ $(function () {
 
   // Editorへの遷移
   $('#ctrl_flow2editor').click(function(){
-    sessionStorage['flow2editor'] = Util.createXml();
-    window.open('https://www.web-deli.com/sorcerian/text/playground.aspx', 'pgeditor');
+    localStorage['flow2editor'] = Util.createXml();
+    window.open('../playground.aspx', 'pgeditor');
   });
 
   // TIPS表示
