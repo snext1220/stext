@@ -245,7 +245,8 @@ $(function () {
             improvedLayout:true,
             clusterThreshold: 150,
             hierarchical: {
-              enabled: true
+              enabled: true,
+              levelSeparation: 80
             }
           },
           manipulation: {
