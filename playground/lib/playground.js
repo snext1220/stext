@@ -241,6 +241,13 @@ $(function () {
         {
           physics: false,
           interaction:{hover:true},
+          layout: {
+            improvedLayout:true,
+            clusterThreshold: 150,
+            hierarchical: {
+              enabled: true
+            }
+          },
           manipulation: {
             //enabled: true
             addNode: function(data, callback) {
