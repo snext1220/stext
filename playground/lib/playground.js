@@ -242,11 +242,10 @@ $(function () {
           physics: false,
           interaction:{hover:true},
           layout: {
-            improvedLayout:true,
-            clusterThreshold: 150,
+            improvedLayout: true,
             hierarchical: {
               enabled: true,
-              levelSeparation: 80
+              levelSeparation: 100
             }
           },
           manipulation: {
@@ -335,6 +334,9 @@ $(function () {
           nodes: {
             shape: 'box',
             size: 20,
+            font: {
+              size: 12
+            },
             color: {
               background: 'skyblue',
               highlight: {
@@ -346,6 +348,9 @@ $(function () {
           edges: {
             arrows: 'to',
             smooth: false,
+            font: {
+              size: 8
+            },
             color: {
               color: 'skyblue',
               hover: '#f90',
