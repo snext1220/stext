@@ -352,7 +352,14 @@ $(function () {
             arrows: 'to',
             smooth: false,
             font: {
-              size: 12
+              size: 12,
+              color: 'rgba(0,0,0,0.3)'
+            },
+            chosen: {
+              label: function(values) {
+                values.color = '#f00';
+                values.mod = 'bold';
+              }
             },
             color: {
               color: 'skyblue',
