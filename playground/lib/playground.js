@@ -246,7 +246,9 @@ $(function () {
             improvedLayout: false,
             hierarchical: {
               enabled: true,
-              levelSeparation: 100
+              levelSeparation: 100,
+              direction: 'UD',
+              sortMethod: 'directed'
             }
           },
           manipulation: {
@@ -350,7 +352,7 @@ $(function () {
             arrows: 'to',
             smooth: false,
             font: {
-              size: 8
+              size: 12
             },
             color: {
               color: 'skyblue',
