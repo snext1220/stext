@@ -205,7 +205,7 @@ $(function () {
         if (data[key]) {
           if (key === 'text') {
             result.text(data[key]);
-          } else if (key === 'label') {
+          } else if (key === 'label' || key === 'X' || key === 'y') {
             ; // なにもしない
           } else {
             result.attr(key, data[key]);
@@ -1610,6 +1610,10 @@ $(function () {
   $('#dl-menu li').click(function(e) {
     switch($(this).data('command')) {
       case 'json':
+        scenario.scenes.forEach(function(scene) {
+          delete scene.x;
+          delete scene.y;
+        });
         Util.download(vkbeautify.json(JSON.stringify(scenario)), 'stext.json');  
         break;
       case 'xml':
