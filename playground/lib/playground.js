@@ -233,7 +233,8 @@ $(function () {
           //nodes: new vis.DataSet(scenario.scenes),
           nodes: new vis.DataSet(
             scenario.scenes.filter(function(value){
-              return value.id >= from && value.id <= to;
+              return Number(value.id) >= Number(from) &&
+                Number(value.id) <= Number(to);
             })
           ),
           edges: new vis.DataSet(scenario.edges)
@@ -242,7 +243,7 @@ $(function () {
           physics: false,
           interaction:{hover:true},
           layout: {
-            improvedLayout: true,
+            improvedLayout: false,
             hierarchical: {
               enabled: true,
               levelSeparation: 100
