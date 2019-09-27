@@ -49,6 +49,7 @@ $(function () {
           free3: ''
         },
         intro: {
+          keywords: '',
           description: ''
         },
       },
@@ -516,6 +517,8 @@ $(function () {
       if (bgm) { inits.append(bgm); }
       let label = Util.objToElement('label', scenario.init.label);
       if (label) { inits.append(label); }
+      let intro = Util.objToElement('intro', scenario.init.intro);
+      if (intro) { inits.append(intro); }
       result.append(inits);
       // items要素
       for (let t_item of scenario.items) {
@@ -587,7 +590,7 @@ $(function () {
       result.init.constraint = Util.elementToObj($('init > constraint', s_data));
       result.init.bgm = Util.elementToObj($('init > bgm', s_data));
       result.init.label = Util.elementToObj($('init > label', s_data));
-      result.init.into = Util.elementToObj($('init > label', s_data));
+      result.init.intro = Util.elementToObj($('init > intro', s_data));
       $('items > item', s_data).each(function(i, elem) {
         result.items.push(Util.elementToObj($(elem)));
       });
@@ -760,6 +763,7 @@ $(function () {
   $('#label-free1').val(scenario.init.label.free1);
   $('#label-free2').val(scenario.init.label.free2);
   $('#label-free3').val(scenario.init.label.free3);
+  $('#intro-keywords').val(scenario.init.intro.keywords);
   $('#intro-description').val(scenario.init.intro.description);
 
   // 基本情報配下の入力値を反映
