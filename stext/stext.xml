@@ -364,6 +364,24 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 <p class="award">本シナリオ（後編）は10月公開予定です。</p>
 </work>
 
+<work id="captive" title="新・囚われた魔法使い" author="Salvador" unpublished="true" series="Playground100祭"
+  tags="リメイク,探索" published="" updated="" level="5" scenes="138" results="5" clears="r05"
+  comment="原作シナリオのリメイク作です。原作の攻略法がどこまで通用するか、ぜひ試してみてください！">
+<img src="./stext/captive/capture/intro.png" height="120"
+  title="新・囚われた魔法使い"  align="right" class="right"/>
+<p class="award">Playground100祭Vol.1(100Scene限定シナリオ)</p>
+
+王宮に仕える偉大なる魔法使い、ログレック。
+　彼は国境に魔法結界を構築してモンスターから国を護ったり、治癒の魔法で疫病の蔓延を防いだりして、国民から尊敬を集める宮廷魔術師であった。
+　その魔法使いが何の前触れもなく、忽然と姿を消したのだ。
+　これは一大事である。国を守護する魔法使いが姿を消せば、人々はモンスターや疫病に怯えて暮らすことを余儀なくされる。
+
+それなのに・・・人々は皆、動揺していない。
+　知っているのだ。これはログレックの自作自演、つまり茶番である事を。
+
+<p class="award">2019年9月30日公開予定です。</p>
+</work>
+
 </scenario>
 
 <utility>
@@ -480,8 +498,6 @@ Playground Editor（Pg Editor）は、ブラウザー上で動作するソーサ
 <work title="七星の名の下に" author="リオ"></work>
 
 <work title="名無しの剣士" author="ときのじ"></work>
-
-<work title="新・囚われた魔法使い" author="Salvador"></work>
 
 <work title="嗚呼、ジョセフィーヌよ、何処へ往く" author="リオ"></work>
 
