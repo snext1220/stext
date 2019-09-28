@@ -74,7 +74,8 @@
 		{
 			"id": "0",
 			"text": "ここにプロローグを書きます。",
-			"label": "0:\nnull"
+			"label": "0:\nnull",
+			"group": "prologue"
 		},
 		{
 			"id": "100",
@@ -88,6 +89,7 @@
 		{
 			"id": "200",
 			"end": "bad",
+			"group": "bad",
 			"text": "バッドエンディングです。\nセーブデータは初期化されます。\n\n(End)",
 			"label": "200:\nnull"
 		},
@@ -99,6 +101,7 @@
 		{
 			"id": "400",
 			"end": "happy",
+			"group": "happy",
 			"text": "ハッピーエンディングです。\nセーブデータは初期化されます。\n\n(End)",
 			"label": "400:\nnull"
 		}

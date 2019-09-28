@@ -442,7 +442,8 @@
 		{
 			"id": "0",
 			"text": "ここには、プロローグ／冒険の目的を書きます。\n\n君の目の前には、3つの扉が並んでいる。",
-			"label": "0:\nnull"
+			"label": "0:\nnull",
+			"group": "prologue"
 		},
 		{
 			"id": "1",
@@ -587,6 +588,7 @@
 		{
 			"id": "20",
 			"end": "happy",
+			"group": "happy",
 			"result": "r01",
 			"text": "君の戦いは終わった。\n\n（Happy End）",
 			"label": "20:\nnull"
@@ -594,6 +596,7 @@
 		{
 			"id": "21",
 			"end": "bad",
+			"group": "bad",
 			"result": "r02",
 			"text": "君は死んでしまった。\n\n（Bad End）",
 			"label": "21:\nnull"

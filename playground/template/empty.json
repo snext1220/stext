@@ -2,24 +2,10 @@
 	"title": "Untitled",
 	"author": "Unnamed",
 	"init": {
-		"constraint": {
-			"race": "",
-			"sex": "",
-			"age": ""
-		},
-		"bgm": {
-			"main": "",
-			"happy": "",
-			"bad": ""
-		},
-		"label": {
-			"free1": "",
-			"free2": "",
-			"free3": ""
-		},
-		"intro": {
-			"description": ""
-		}
+		"constraint": {},
+		"bgm": {},
+		"label": {},
+		"intro": {}
 	},
 	"items": [
 		{
@@ -49,7 +35,7 @@
 		{
 			"id": "r01",
 			"name": "Result-01",
-			"level": 1,
+			"level": "1",
 			"text": "Result description..."
 		}
 	],
@@ -65,14 +51,15 @@
 		{
 			"id": "0",
 			"summary": "プロローグ",
+			"text": "ここにプロローグを書きます。",
 			"label": "0:\nプロローグ",
-			"text": "ここにプロローグを書きます。"
+			"group": "prologue"
 		},
 		{
 			"id": "1",
 			"summary": "本文",
-			"label": "1:\n本文",
-			"text": "ここからが本文です。"
+			"text": "ここからが本文です。",
+			"label": "1:\n本文"
 		}
 	],
 	"edges": [
@@ -80,7 +67,9 @@
 			"from": "0",
 			"to": "1",
 			"label": "次へ",
-			"id": "e2ac4141-8fe6-4b60-b32f-e4db1b5b0482"
+			"condition": "",
+			"order": 1,
+			"id": "d5de855f-7c77-4323-9876-9e7984bc5d14"
 		}
 	]
 }
