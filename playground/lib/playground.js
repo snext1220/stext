@@ -305,6 +305,13 @@ $(function () {
             deleteNode: function(data, callback) {
               if (confirm('Sceneを削除しても良いですか？')) {
                 let node = Util.getSceneById(data.nodes[0]);
+                // ノード0は削除不可
+                if (Number(node.id) === 0) {
+                  window.alert('id=0のノードは削除できません。');
+                  callback(null);
+                  return;
+                }
+                // ノードの削除
                 scenario.scenes = scenario.scenes.filter(function(value) {
                   return value.id !== node.id;
                 });
@@ -591,7 +598,22 @@ $(function () {
       }
       return result;
     },
-
+    // 指定されたend属性からグループを判定
+    // （For createJson）
+    // attr_end：end属性、obj：グループ追加のオブジェクト
+    setGroupByEnd(attr_end, obj) {
+      switch(attr_end) {
+        case 'happy': 
+          obj.group = 'happy';
+          break;
+        case 'bad' :
+          obj.group = 'bad';
+          break;
+        default :
+          delete obj.group;
+          break;
+      }
+    },
     // 指定されたscenario.xml（文字列）からJSON形式を生成
     createJson(data) {
       let result = $.extend(true, {}, Common.INIT_DATA_EMPTY);
@@ -683,9 +705,15 @@ $(function () {
               break;
           }
         }
-        result.scenes.push(
-          Util.elementToObj(
-            $(elem).text(body.replace(link, '').trim()), true));
+        // sceneオブジェクト生成
+        let s_obj = Util.elementToObj(
+          $(elem).text(body.replace(link, '').trim()), true);
+        if(Number(s_obj.id) === 0) {
+          s_obj.group = 'prologue';
+        } else if (s_obj.end) {
+          Util.setGroupByEnd(s_obj.end, s_obj);
+        }
+        result.scenes.push(s_obj);
       });
       return JSON.stringify(result);
     },
@@ -1053,17 +1081,7 @@ $(function () {
         network.selectNodes([ scene.id ]);
       } else if (e.target.id === 'end') {
         // end属性にグループ付与
-        switch($(this).val()) {
-          case 'happy': 
-            scene.group = 'happy';
-            break;
-          case 'bad' :
-            scene.group = 'bad';
-            break;
-          default :
-            delete scene.group;
-            break;
-        }
+        Util.setGroupByEnd($(this).val(), scene);
         Util.createNetwork();
         network.selectNodes([ scene.id ]);
       }
