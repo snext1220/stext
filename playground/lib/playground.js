@@ -98,7 +98,8 @@ $(function () {
           id: '0',
           summary: 'プロローグ',
           label: '0:\nプロローグ',
-          text: 'ここにプロローグを書きます。'
+          text: 'ここにプロローグを書きます。',
+          group: 'prologue'
         },
         {
           id: '1',
@@ -243,6 +244,17 @@ $(function () {
         {
           physics: false,
           interaction:{hover:true},
+          groups: {
+            prologue: {
+              color: '#3f0',
+            },
+            happy: {
+              color: '#ffc',
+            },
+            bad: {
+              color: '#96f',
+            }
+          },
           layout: {
             improvedLayout: false,
             hierarchical: {
@@ -1037,6 +1049,21 @@ $(function () {
       scene[e.target.id] = $(this).val();
       if (e.target.id === 'summary') {
         scene.label = scene.id + ':\n' + scene.summary;
+        Util.createNetwork();
+        network.selectNodes([ scene.id ]);
+      } else if (e.target.id === 'end') {
+        // end属性にグループ付与
+        switch($(this).val()) {
+          case 'happy': 
+            scene.group = 'happy';
+            break;
+          case 'bad' :
+            scene.group = 'bad';
+            break;
+          default :
+            delete scene.group;
+            break;
+        }
         Util.createNetwork();
         network.selectNodes([ scene.id ]);
       }
