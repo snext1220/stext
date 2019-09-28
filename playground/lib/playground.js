@@ -373,12 +373,14 @@ $(function () {
             smooth: false,
             font: {
               size: 12,
-              color: 'rgba(0,0,0,0.3)',
-              align: 'middle'
+              color: 'rgba(0,0,0,0)',
+              strokeWidth: 0,
+              //align: 'middle'
             },
             chosen: {
               label: function(values) {
                 values.color = '#f00';
+                values.strokeWidth = 2;
                 values.mod = 'bold';
               }
             },
