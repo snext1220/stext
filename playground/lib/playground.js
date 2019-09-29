@@ -426,8 +426,8 @@ $(function () {
 
     // グリッドを生成
     // selector：グリッドの反映先、data：対象のデータ、
-    // cols：列情報、opts：グリッドオプション
-    createGrid: function(selector, data, cols, opts) {
+    // cols：列情報、opts：グリッドオプション、helpName：ヘルプリンク先
+    createGrid: function(selector, data, cols, opts, helpName) {
       if (data === undefined) { data = []; }
       let grid = new Slick.Grid(selector, data, cols, opts);
       grid.setSelectionModel(new Slick.CellSelectionModel());
@@ -446,7 +446,7 @@ $(function () {
         grid.render();
       });
       grid.onHeaderClick.subscribe(function (e, args) {
-        window.open(Common.HELP_URL + 'item', 'help');
+        window.open(Common.HELP_URL + helpName, 'help');
       });
     },
     // テキスト入力リンクの生成（For createMoveButton）
@@ -1461,7 +1461,7 @@ $(function () {
       { id: 'title', name: 'グループ名', field: 'title', width: 250, editor: Slick.Editors.Text },
       {id: 'delete', name: '削除', field: '', width: 35,
       formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
-    ], grid_opts);
+    ], grid_opts, 'group');
 
   // アイテム一覧の描画
   Util.createGrid('#items_grid', scenario.items, 
@@ -1471,7 +1471,7 @@ $(function () {
       { id: 'text', name: '説明', field: 'text', width: 300, editor: Slick.Editors.Text },
       {id: 'delete', name: '削除', field: '', width: 35,
       formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
-    ], grid_opts);
+    ], grid_opts, 'item');
 
   // アイテム一覧の描画
   // let items_grid = new Slick.Grid('#items_grid', scenario.items, item_cols, grid_opts);
@@ -1501,7 +1501,7 @@ $(function () {
       { id: 'text', name: '説明', field: 'text', width: 300, editor: Slick.Editors.Text },
       {id: 'delete', name: '削除', field: '', width: 35,
       formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
-    ], grid_opts);
+    ], grid_opts, 'flag');
 
   // フラグ一覧の描画
   // let flags_grid = new Slick.Grid('#flags_grid', scenario.flags, flag_cols, grid_opts);
@@ -1542,7 +1542,7 @@ $(function () {
       { id: 'text', name: '説明', field: 'text', width: 180, editor: Slick.Editors.LongText },
       {id: 'delete', name: '削除', field: '', width: 35,
       formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
-    ], grid_opts);
+    ], grid_opts, 'enemy');
 
   // 敵一覧の描画
   // let enemies_grid = new Slick.Grid('#enemies_grid', scenario.enemies, enemy_cols, grid_opts);
@@ -1574,7 +1574,7 @@ $(function () {
       { id: 'text', name: '説明', field: 'text', width: 150, editor: Slick.Editors.Text },
       {id: 'delete', name: '削除', field: '', width: 35,
       formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
-    ], grid_opts);
+    ], grid_opts, 'result');
 
   // 実績一覧の描画
   // let results_grid = new Slick.Grid('#results_grid', scenario.results, result_cols, grid_opts);
@@ -1606,7 +1606,7 @@ $(function () {
       { id: 'url', name: 'URL', field: 'url', width: 230, editor: Slick.Editors.Text },
       {id: 'delete', name: '削除', field: '', width: 35,
       formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } } 
-    ], grid_opts);
+    ], grid_opts, 'work');
 
   // ライセンス一覧の描画
   // let works_grid = new Slick.Grid('#works_grid', scenario.licence, work_cols, grid_opts);
