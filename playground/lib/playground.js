@@ -53,6 +53,13 @@ $(function () {
           description: ''
         },
       },
+      groups: [
+        {
+          start: 0,
+          end: 99999,
+          title: 'All Scene'
+        }
+      ],
       items: [
         {
           id: 'i01',
@@ -140,7 +147,7 @@ $(function () {
     // 指定されたシーンの情報をフォームに反映
     setSceneInfo: function(id) {
       if (id !== undefined) {
-        Util.enableTab(6);
+        Util.enableTab(7);
         let scene = Util.getSceneById(id);
         $('#scene-select #id').text(scene.id);
         $('#scene-select #summary').val(scene.summary);
@@ -186,7 +193,7 @@ $(function () {
     },
     // 指定されたエッジの情報をフォームに反映
     setEdgeInfo: function(id) {
-      Util.enableTab(7);
+      Util.enableTab(8);
       let edge = Util.getEdgeById(id);
       $('#edge #id').val(edge.id);
       $('#edge #from').text(edge.from);
@@ -421,6 +428,7 @@ $(function () {
     // selector：グリッドの反映先、data：対象のデータ、
     // cols：列情報、opts：グリッドオプション
     createGrid: function(selector, data, cols, opts) {
+      if (data === undefined) { data = []; }
       let grid = new Slick.Grid(selector, data, cols, opts);
       grid.setSelectionModel(new Slick.CellSelectionModel());
       // 既存行の削除
@@ -539,7 +547,7 @@ $(function () {
     disableTab: function() {
       $('#edit-area')
         .tabs('option', 'active', 0)
-        .tabs('option', 'disabled', [ 6, 7 ]);
+        .tabs('option', 'disabled', [ 7, 8 ]);
     },
     // 現在のシナリオデータからscenario.xmlを生成
     // 戻り値：XML文字列
@@ -1444,6 +1452,16 @@ $(function () {
     asyncEditorLoading: false,
     autoEdit: false
   };
+
+  // アイテム一覧の描画
+  Util.createGrid('#groups_grid', scenario.groups, 
+    [
+      { id: 'start', name: '開始No.', field: 'start', width: 70, editor: Slick.Editors.Integer },
+      { id: 'end', name: '終了No.', field: 'end', width: 70, editor: Slick.Editors.Integer },
+      { id: 'title', name: 'グループ名', field: 'title', width: 250, editor: Slick.Editors.Text },
+      {id: 'delete', name: '削除', field: '', width: 35,
+      formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
+    ], grid_opts);
 
   // アイテム一覧の描画
   Util.createGrid('#items_grid', scenario.items, 
