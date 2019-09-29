@@ -416,6 +416,31 @@ $(function () {
         network = null;
       }
     },
+
+    // グリッドを生成
+    // selector：グリッドの反映先、data：対象のデータ、
+    // cols：列情報、opts：グリッドオプション
+    createGrid: function(selector, data, cols, opts) {
+      let grid = new Slick.Grid(selector, data, cols, opts);
+      grid.setSelectionModel(new Slick.CellSelectionModel());
+      // 既存行の削除
+      grid.onClick.subscribe(function (e, args) {
+        if ($(e.target).hasClass('btn-delete')) {
+          data.splice(args.row, 1);
+          grid.invalidate();
+        }
+      });
+      grid.onAddNewRow.subscribe(function (e, args) {
+        let item = args.item;
+        grid.invalidateRow(data.length);
+        data.push(item);
+        grid.updateRowCount();
+        grid.render();
+      });
+      grid.onHeaderClick.subscribe(function (e, args) {
+        window.open(Common.HELP_URL + 'item', 'help');
+      });
+    },
     // テキスト入力リンクの生成（For createMoveButton）
     createQuestLink: function(group) {
       let tmp_correct = '';
@@ -1420,165 +1445,170 @@ $(function () {
     autoEdit: false
   };
 
-  // アイテム一覧
-  let item_cols = [
-    { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text },
-    { id: 'name', name: '名前', field: 'name', width: 80, editor: Slick.Editors.Text },
-    { id: 'text', name: '説明', field: 'text', width: 300, editor: Slick.Editors.Text },
-    {id: 'delete', name: '削除', field: '', width: 35,
-     formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
-  ];
+  // アイテム一覧の描画
+  Util.createGrid('#items_grid', scenario.items, 
+    [
+      { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text },
+      { id: 'name', name: '名前', field: 'name', width: 80, editor: Slick.Editors.Text },
+      { id: 'text', name: '説明', field: 'text', width: 300, editor: Slick.Editors.Text },
+      {id: 'delete', name: '削除', field: '', width: 35,
+      formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
+    ], grid_opts);
 
   // アイテム一覧の描画
-  let items_grid = new Slick.Grid('#items_grid', scenario.items, item_cols, grid_opts);
-  items_grid.setSelectionModel(new Slick.CellSelectionModel());
-  // 既存行の削除
-  items_grid.onClick.subscribe(function (e, args) {
-    if ($(e.target).hasClass('btn-delete')) {
-      scenario.items.splice(args.row, 1);
-      items_grid.invalidate();
-    }
-  });
-  items_grid.onAddNewRow.subscribe(function (e, args) {
-    var item = args.item;
-    items_grid.invalidateRow(scenario.items.length);
-    scenario.items.push(item);
-    items_grid.updateRowCount();
-    items_grid.render();
-  });
-  items_grid.onHeaderClick.subscribe(function (e, args) {
-    window.open(Common.HELP_URL + 'item', 'help');
-  });
-
-  // フラグ一覧
-  let flag_cols = [
-    { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text },
-    { id: 'text', name: '説明', field: 'text', width: 300, editor: Slick.Editors.Text },
-    {id: 'delete', name: '削除', field: '', width: 35,
-     formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
-  ];
+  // let items_grid = new Slick.Grid('#items_grid', scenario.items, item_cols, grid_opts);
+  // items_grid.setSelectionModel(new Slick.CellSelectionModel());
+  // // 既存行の削除
+  // items_grid.onClick.subscribe(function (e, args) {
+  //   if ($(e.target).hasClass('btn-delete')) {
+  //     scenario.items.splice(args.row, 1);
+  //     items_grid.invalidate();
+  //   }
+  // });
+  // items_grid.onAddNewRow.subscribe(function (e, args) {
+  //   var item = args.item;
+  //   items_grid.invalidateRow(scenario.items.length);
+  //   scenario.items.push(item);
+  //   items_grid.updateRowCount();
+  //   items_grid.render();
+  // });
+  // items_grid.onHeaderClick.subscribe(function (e, args) {
+  //   window.open(Common.HELP_URL + 'item', 'help');
+  // });
 
   // フラグ一覧の描画
-  let flags_grid = new Slick.Grid('#flags_grid', scenario.flags, flag_cols, grid_opts);
-  flags_grid.setSelectionModel(new Slick.CellSelectionModel());
-  // 既存行の削除
-  flags_grid.onClick.subscribe(function (e, args) {
-    if ($(e.target).hasClass('btn-delete')) {
-      scenario.flags.splice(args.row, 1);
-      flags_grid.invalidate();
-    }
-  });
-  // 新規行の追加
-  flags_grid.onAddNewRow.subscribe(function (e, args) {
-    var item = args.item;
-    flags_grid.invalidateRow(scenario.flags.length);
-    scenario.flags.push(item);
-    flags_grid.updateRowCount();
-    flags_grid.render();
-  });
-  flags_grid.onHeaderClick.subscribe(function (e, args) {
-     window.open(Common.HELP_URL + 'flag', 'help');
-  });
+  Util.createGrid('#flags_grid', scenario.flags,
+    [
+      { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text },
+      { id: 'text', name: '説明', field: 'text', width: 300, editor: Slick.Editors.Text },
+      {id: 'delete', name: '削除', field: '', width: 35,
+      formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
+    ], grid_opts);
 
-  // 敵一覧
-  let enemy_cols = [
-    { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text },
-    { id: 'name', name: '名前', field: 'name', width: 80, editor: Slick.Editors.Text },
-    { id: 'element', name: '属性', field: 'element', editor: SelectEditor,
-      options: [ '', 'earth', 'water', 'fire', 'wind', 'spirit' ] },
-    { id: 'attack', name: '攻撃', field: 'attack', width: 80, editor: SelectEditor,
-      options: [ '', 'physics', 'magic', 'both', 'free1', 'free2', 'free3',
-        'poison', 'frozen', 'stone', 'curse', 'forget' ] },
-    { id: 'func', name: 'ダメージ式', field: 'func', width: 80,
-      editor: Slick.Editors.LongText },
-    { id: 'drop', name: 'ドロップ', field: 'drop', width: 80, editor: AutoCompleteEditor,
-      dataSource: [ 'mon/', 'tue/', 'wed/', 'thu/', 'fri/', 'sat/', 'sun/', 'free1/', 'free2/', 'free3', ] },
-    { id: 'text', name: '説明', field: 'text', width: 180, editor: Slick.Editors.LongText },
-    {id: 'delete', name: '削除', field: '', width: 35,
-    formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
-  ];
+  // フラグ一覧の描画
+  // let flags_grid = new Slick.Grid('#flags_grid', scenario.flags, flag_cols, grid_opts);
+  // flags_grid.setSelectionModel(new Slick.CellSelectionModel());
+  // // 既存行の削除
+  // flags_grid.onClick.subscribe(function (e, args) {
+  //   if ($(e.target).hasClass('btn-delete')) {
+  //     scenario.flags.splice(args.row, 1);
+  //     flags_grid.invalidate();
+  //   }
+  // });
+  // // 新規行の追加
+  // flags_grid.onAddNewRow.subscribe(function (e, args) {
+  //   var item = args.item;
+  //   flags_grid.invalidateRow(scenario.flags.length);
+  //   scenario.flags.push(item);
+  //   flags_grid.updateRowCount();
+  //   flags_grid.render();
+  // });
+  // flags_grid.onHeaderClick.subscribe(function (e, args) {
+  //    window.open(Common.HELP_URL + 'flag', 'help');
+  // });
 
   // 敵一覧の描画
-  let enemies_grid = new Slick.Grid('#enemies_grid', scenario.enemies, enemy_cols, grid_opts);
-  enemies_grid.setSelectionModel(new Slick.CellSelectionModel());
-  enemies_grid.onClick.subscribe(function (e, args) {
-    if ($(e.target).hasClass('btn-delete')) {
-      scenario.enemies.splice(args.row, 1);
-      enemies_grid.invalidate();
-    }
-  });
-  enemies_grid.onAddNewRow.subscribe(function (e, args) {
-    var item = args.item;
-    enemies_grid.invalidateRow(scenario.enemies.length);
-    scenario.enemies.push(item);
-    enemies_grid.updateRowCount();
-    enemies_grid.render();
-  });
-  enemies_grid.onHeaderClick.subscribe(function (e, args) {
-    window.open(Common.HELP_URL + 'enemy', 'help');
-  });
+  Util.createGrid('#enemies_grid', scenario.enemies,
+    [
+      { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text },
+      { id: 'name', name: '名前', field: 'name', width: 80, editor: Slick.Editors.Text },
+      { id: 'element', name: '属性', field: 'element', editor: SelectEditor,
+        options: [ '', 'earth', 'water', 'fire', 'wind', 'spirit' ] },
+      { id: 'attack', name: '攻撃', field: 'attack', width: 80, editor: SelectEditor,
+        options: [ '', 'physics', 'magic', 'both', 'free1', 'free2', 'free3',
+          'poison', 'frozen', 'stone', 'curse', 'forget' ] },
+      { id: 'func', name: 'ダメージ式', field: 'func', width: 80,
+        editor: Slick.Editors.LongText },
+      { id: 'drop', name: 'ドロップ', field: 'drop', width: 80, editor: AutoCompleteEditor,
+        dataSource: [ 'mon/', 'tue/', 'wed/', 'thu/', 'fri/', 'sat/', 'sun/', 'free1/', 'free2/', 'free3', ] },
+      { id: 'text', name: '説明', field: 'text', width: 180, editor: Slick.Editors.LongText },
+      {id: 'delete', name: '削除', field: '', width: 35,
+      formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
+    ], grid_opts);
 
-  // 実績一覧
-  let result_cols = [
-    { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text },
-    { id: 'name', name: '名前', field: 'name', width: 100, editor: Slick.Editors.Text },
-    { id: 'level', name: 'Lv.', field: 'level', width: 30, editor: SelectEditor,
-      options: [ '1', '2', '3', '4', '5' ] },
-    { id: 'text', name: '説明', field: 'text', width: 150, editor: Slick.Editors.Text },
-    {id: 'delete', name: '削除', field: '', width: 35,
-    formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
-  ];
+  // 敵一覧の描画
+  // let enemies_grid = new Slick.Grid('#enemies_grid', scenario.enemies, enemy_cols, grid_opts);
+  // enemies_grid.setSelectionModel(new Slick.CellSelectionModel());
+  // enemies_grid.onClick.subscribe(function (e, args) {
+  //   if ($(e.target).hasClass('btn-delete')) {
+  //     scenario.enemies.splice(args.row, 1);
+  //     enemies_grid.invalidate();
+  //   }
+  // });
+  // enemies_grid.onAddNewRow.subscribe(function (e, args) {
+  //   var item = args.item;
+  //   enemies_grid.invalidateRow(scenario.enemies.length);
+  //   scenario.enemies.push(item);
+  //   enemies_grid.updateRowCount();
+  //   enemies_grid.render();
+  // });
+  // enemies_grid.onHeaderClick.subscribe(function (e, args) {
+  //   window.open(Common.HELP_URL + 'enemy', 'help');
+  // });
 
   // 実績一覧の描画
-  let results_grid = new Slick.Grid('#results_grid', scenario.results, result_cols, grid_opts);
-  results_grid.setSelectionModel(new Slick.CellSelectionModel());
-  results_grid.onClick.subscribe(function (e, args) {
-    if ($(e.target).hasClass('btn-delete')) {
-      scenario.results.splice(args.row, 1);
-      results_grid.invalidate();
-    }
-  });
-  results_grid.onAddNewRow.subscribe(function (e, args) {
-    var item = args.item;
-    results_grid.invalidateRow(scenario.results.length);
-    scenario.results.push(item);
-    results_grid.updateRowCount();
-    results_grid.render();
-  });
-  results_grid.onHeaderClick.subscribe(function (e, args) {
-    window.open(Common.HELP_URL + 'result', 'help');
-  });
+  Util.createGrid('#results_grid', scenario.results,
+    [
+      { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text },
+      { id: 'name', name: '名前', field: 'name', width: 100, editor: Slick.Editors.Text },
+      { id: 'level', name: 'Lv.', field: 'level', width: 30, editor: SelectEditor,
+        options: [ '1', '2', '3', '4', '5' ] },
+      { id: 'text', name: '説明', field: 'text', width: 150, editor: Slick.Editors.Text },
+      {id: 'delete', name: '削除', field: '', width: 35,
+      formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
+    ], grid_opts);
 
-  // ライセンス一覧
-  let work_cols = [
-    { id: 'name', name: '名前', field: 'name', width: 100, editor: Slick.Editors.Text },
-    { id: 'category', name: '分類', field: 'category', width: 70, editor: SelectEditor,
-      options: [ 'bgm', 'picture' ] },
-    { id: 'creator', name: '作者', field: 'creator', width: 80, editor: Slick.Editors.Text },
-    { id: 'url', name: 'URL', field: 'url', width: 230, editor: Slick.Editors.Text },
-    {id: 'delete', name: '削除', field: '', width: 35,
-    formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } } 
-  ];
+  // 実績一覧の描画
+  // let results_grid = new Slick.Grid('#results_grid', scenario.results, result_cols, grid_opts);
+  // results_grid.setSelectionModel(new Slick.CellSelectionModel());
+  // results_grid.onClick.subscribe(function (e, args) {
+  //   if ($(e.target).hasClass('btn-delete')) {
+  //     scenario.results.splice(args.row, 1);
+  //     results_grid.invalidate();
+  //   }
+  // });
+  // results_grid.onAddNewRow.subscribe(function (e, args) {
+  //   var item = args.item;
+  //   results_grid.invalidateRow(scenario.results.length);
+  //   scenario.results.push(item);
+  //   results_grid.updateRowCount();
+  //   results_grid.render();
+  // });
+  // results_grid.onHeaderClick.subscribe(function (e, args) {
+  //   window.open(Common.HELP_URL + 'result', 'help');
+  // });
 
   // ライセンス一覧の描画
-  let works_grid = new Slick.Grid('#works_grid', scenario.licence, work_cols, grid_opts);
-  works_grid.setSelectionModel(new Slick.CellSelectionModel());
-  works_grid.onClick.subscribe(function (e, args) {
-    if ($(e.target).hasClass('btn-delete')) {
-      scenario.licence.splice(args.row, 1);
-      works_grid.invalidate();
-    }
-  });
-  works_grid.onAddNewRow.subscribe(function (e, args) {
-    var item = args.item;
-    works_grid.invalidateRow(scenario.licence.length);
-    scenario.licence.push(item);
-    works_grid.updateRowCount();
-    works_grid.render();
-  });
-  works_grid.onHeaderClick.subscribe(function (e, args) {
-    window.open(Common.HELP_URL + 'work', 'help');
-  });
+  Util.createGrid('#works_grid', scenario.licence,
+    [
+      { id: 'name', name: '名前', field: 'name', width: 100, editor: Slick.Editors.Text },
+      { id: 'category', name: '分類', field: 'category', width: 70, editor: SelectEditor,
+        options: [ 'bgm', 'picture' ] },
+      { id: 'creator', name: '作者', field: 'creator', width: 80, editor: Slick.Editors.Text },
+      { id: 'url', name: 'URL', field: 'url', width: 230, editor: Slick.Editors.Text },
+      {id: 'delete', name: '削除', field: '', width: 35,
+      formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } } 
+    ], grid_opts);
+
+  // ライセンス一覧の描画
+  // let works_grid = new Slick.Grid('#works_grid', scenario.licence, work_cols, grid_opts);
+  // works_grid.setSelectionModel(new Slick.CellSelectionModel());
+  // works_grid.onClick.subscribe(function (e, args) {
+  //   if ($(e.target).hasClass('btn-delete')) {
+  //     scenario.licence.splice(args.row, 1);
+  //     works_grid.invalidate();
+  //   }
+  // });
+  // works_grid.onAddNewRow.subscribe(function (e, args) {
+  //   var item = args.item;
+  //   works_grid.invalidateRow(scenario.licence.length);
+  //   scenario.licence.push(item);
+  //   works_grid.updateRowCount();
+  //   works_grid.render();
+  // });
+  // works_grid.onHeaderClick.subscribe(function (e, args) {
+  //   window.open(Common.HELP_URL + 'work', 'help');
+  // });
 
   // エディターの生成
   let editor = ace.edit('scene-editor');
@@ -1821,6 +1851,11 @@ $(function () {
 
   // TIPS表示
   let tips = [
+    'フローチャート上では、プロローグ／エピローグ（happy/bad）を表すシーンが色で区別されています。目的のシーンを探す手掛かりになるでしょう。',
+    'フローチャートで目的のシーンが探しにくい場合には、右上のシーン選択ボックスを利用してみましょう。シーンid順に表示されています。',
+    'フローチャートやシーン選択ボックス上では、サマリーテキストが表示されます。シーンごとにできるだけ判りやすい名前を付けましょう。',
+    'シーン選択ボックス上では、プロローグとエピローグが★でマーキングされています。目的のシーンを探す手掛かりになるでしょう。',
+    'フローチャート上のリンクが見難い場合には、［シーン］タブからリンク選択ボックスを利用してみましょう。',
     'Playgroundのデータは、.json形式（Playgroundの内部形式）、.xml形式（STextの実行形式）などで保存できます。',
     'scenario.xml（STextの実行形式）を.json形式（Playgroundの内部形式）に変換することも可能です。既存のシナリオをNew Playgroundにインポートして、どんどん動作確認してみましょう。',
     'Playgroundでは、.html形式での出力もできます。条件分岐、音楽機能などは利用できなくなりますが、Kindle配信などしている人にも利用して戴けると嬉しいです。',
