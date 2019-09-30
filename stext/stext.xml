@@ -364,8 +364,8 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 <p class="award">本シナリオ（後編）は10月公開予定です。</p>
 </work>
 
-<work id="captive" title="新・囚われた魔法使い" author="Salvador" unpublished="true" series="Playground100祭"
-  tags="リメイク,探索" published="" updated="" level="5" scenes="138" results="5" clears="r05"
+<work id="captive" title="新・囚われた魔法使い" author="Salvador" series="Playground100祭"
+  tags="リメイク,探索" published="2019-09-30" updated="2019-09-30" level="3" scenes="138" results="5" clears="r05"
   comment="原作シナリオのリメイク作です。原作の攻略法がどこまで通用するか、ぜひ試してみてください！">
 <img src="./stext/captive/capture/intro.png" height="120"
   title="新・囚われた魔法使い"  align="right" class="right"/>
@@ -378,10 +378,7 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 
 それなのに・・・人々は皆、動揺していない。
 　知っているのだ。これはログレックの自作自演、つまり茶番である事を。
-
-<p class="award">2019年9月30日公開予定です。</p>
 </work>
-
 </scenario>
 
 <utility>
