@@ -20,6 +20,7 @@ $(function () {
         label: {},
         intro: {},
       },
+      groups: [],
       items: [],
       flags: [],
       enemies: [],
@@ -211,7 +212,7 @@ $(function () {
       let flag = false;
       let result = $(`<${name}></${name}>`);
       for (let key of Object.keys(data)) {
-        if (data[key]) {
+        if (data[key] !== undefined && data[key] !== '') {
           if (key === 'text') {
             result.text(data[key]);
           } else if (key === 'label' || key === 'X' || key === 'y') {
@@ -557,6 +558,7 @@ $(function () {
         'xsi:noNamespaceSchemaLocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd">' +
         '</scenario>');
       let inits = $('<init></init>');
+      let groups = $('<groups></groups>');
       let items = $('<items></items>');
       let flags = $('<flags></flags>');
       let enemies = $('<enemies></enemies>');
@@ -575,6 +577,12 @@ $(function () {
       let intro = Util.objToElement('intro', scenario.init.intro);
       if (intro) { inits.append(intro); }
       result.append(inits);
+      // groups要素
+      for (let t_group of scenario.groups) {
+        let group = Util.objToElement('group', t_group);
+        if (group) { groups.append(group); }
+      }
+      result.append(groups);
       // items要素
       for (let t_item of scenario.items) {
         let item = Util.objToElement('item', t_item);
@@ -661,6 +669,9 @@ $(function () {
       result.init.bgm = Util.elementToObj($('init > bgm', s_data));
       result.init.label = Util.elementToObj($('init > label', s_data));
       result.init.intro = Util.elementToObj($('init > intro', s_data));
+      $('groups > group', s_data).each(function(i, elem) {
+        result.groups.push(Util.elementToObj($(elem)));
+      });
       $('items > item', s_data).each(function(i, elem) {
         result.items.push(Util.elementToObj($(elem)));
       });
