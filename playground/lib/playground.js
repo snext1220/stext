@@ -450,6 +450,111 @@ $(function () {
         window.open(Common.HELP_URL + helpName, 'help');
       });
     },
+
+    // 単一／複数選択ボタン付きのサイドバーを生成
+    // trigger：トリガーとなる要素（セレクター式）
+    // target：サイドバーとなる要素のベース名（id値）
+    // dataset：リスト対象のデータ（オブジェクト配列）
+    // type：ボタンの種類（radio／check／plus_minus）
+    // label：ラジオ／チェックボックスのラベルとなるプロパティ
+    // value：ラジオ／チェックボックスの値となるプロパティ
+    // onSubmit：サブミット時の処理（引数はトリガー要素、リスト要素）
+    createSelectSidebar: function(trigger, target, dataset, type, label, value, onSubmit) {
+      // サイドバーとなる要素（id値）
+      let s_name = `sidr_${target}`;
+      // リスト要素（セレクター）
+      let s_list = `#${s_name} #${s_name}_list`;
+      // サブミットボタン（セレクター）
+      let s_submit = `#${s_name} #${s_name}_submit`;
+      // キャンセルボタン（セレクター）
+      let s_cancel = `#${s_name} #${s_name}_cancel`;
+      // triggerへのサイドバーの紐付け
+      $(trigger).sidr({
+        name: s_name,
+        displace: false,
+        onOpen: function() {
+          $(s_list).empty();
+          for(let obj of dataset) {
+            let elem;
+            // 種別ごとに要素を生成
+            switch (type) {
+              case 'check':
+                elem = `<li>
+                  <label>${obj[label]}<input type="checkbox"
+                    class="sidr-item" value="${obj[value]}" /></label>
+                </li>`;
+                break;
+              case 'radio':
+                elem = `<li>
+                  <label>${obj[label]}<input type="radio" name="${s_name}"
+                  class="sidr-item" value="${obj[value]}" /></label>
+                </li>`;
+                break;
+              case 'plus_minus':
+                elem = `<tr>
+                  <td>
+                    <label>＋<input type="checkbox"
+                      class="sidr-item ${s_name}_plus" value="${obj[value]}" /></label>
+                  </td>
+                  <td class="sidr-elem"><span>${obj[label]}</span></td>
+                  <td>
+                    <label>－<input type="checkbox"
+                      class="sidr-item ${s_name}_minus" value="${obj[value]}" /></label>
+                  </td>
+                </tr>`;
+                break;
+              default:
+                throw new Error('type属性の値が不正です。');
+            }
+            $(s_list).append(elem);
+          }
+          // 配下のチェックボックスを整形
+          $(`${s_list} .sidr-item`).checkboxradio({
+            icon: false
+          });
+        }
+      });
+      // 選択を確定した時
+      $(s_submit).click(function() {
+        let result;
+        switch (type) {
+          case 'check':
+            result = [];
+            $(`${s_list} .sidr-item:checked`).each(function() {
+              result.push($(this).val());
+            });
+            result = result.join(',');
+            break;
+          case 'radio':
+            result = $(`${s_list} .sidr-item:checked`).val()
+            break;
+          case 'plus_minus':
+            result = [];
+            $(`${s_list} .sidr_${target}_plus:checked`).each(function() {
+              result.push($(this).val());
+            });
+            $(`${s_list} .sidr_${target}_minus:checked`).each(function() {
+              result.push('-' + $(this).val());
+            });
+            result = result.join(',');
+            break;
+          default:
+            break;
+        }
+        if (onSubmit) {
+          onSubmit(trigger, s_list);
+        } else {
+          $(trigger).val(result)
+            .change();
+        }
+        $.sidr('close', s_name);
+      });
+      // 選択をキャンセルした時
+      $(s_cancel).click(function() {
+        $.sidr('close', s_name);
+      });
+    },
+
     // テキスト入力リンクの生成（For createMoveButton）
     createQuestLink: function(group) {
       let tmp_correct = '';
@@ -1135,174 +1240,214 @@ $(function () {
     }
   });
 
+  // ［シーン］タブ内でのアイテム処理
+  Util.createSelectSidebar(
+    '#scene-select #items',
+    'items',
+    scenario.items,
+    'plus_minus',
+    'name',
+    'id'
+  );
+
   //［シーン］タブ内でのアイテム処理
-  $('#scene-select #items').sidr({
-    name: 'sidr_items',
-    displace: false,
-    onOpen: function() {
-      $('#sidr_items_list').empty();
-      for(let item of scenario.items) {
-        $('#sidr_items_list').append(`
-          <tr>
-            <td>
-              <label>＋<input type="checkbox"
-                  class="sidr-items-plus" value="${item.id}" /></label>
-            </td>
-            <td class="sidr-elem"><span>${item.name}</span></td>
-            <td>
-              <label>－<input type="checkbox"
-                class="sidr-items-minus" value="${item.id}" /></label>
-            </td>
-          </tr>
-        `);
-      }
-      // ［+］［-］ボタンを整形
-      $('.sidr-items-plus, .sidr-items-minus').checkboxradio({
-        icon: false
-      });
-    }
-  });
+  // $('#scene-select #items').sidr({
+  //   name: 'sidr_items',
+  //   displace: false,
+  //   onOpen: function() {
+  //     $('#sidr_items_list').empty();
+  //     for(let item of scenario.items) {
+  //       $('#sidr_items_list').append(`
+  //         <tr>
+  //           <td>
+  //             <label>＋<input type="checkbox"
+  //                 class="sidr-items-plus" value="${item.id}" /></label>
+  //           </td>
+  //           <td class="sidr-elem"><span>${item.name}</span></td>
+  //           <td>
+  //             <label>－<input type="checkbox"
+  //               class="sidr-items-minus" value="${item.id}" /></label>
+  //           </td>
+  //         </tr>
+  //       `);
+  //     }
+  //     // ［+］［-］ボタンを整形
+  //     $('.sidr-items-plus, .sidr-items-minus').checkboxradio({
+  //       icon: false
+  //     });
+  //   }
+  // });
 
-  // アイテム選択を確定した時
-  $('#sidr_items_submit').click(function() {
-    let result = [];
-    $('.sidr-items-plus:checked').each(function() {
-      result.push($(this).val());
-    });
-    $('.sidr-items-minus:checked').each(function() {
-      result.push('-' + $(this).val());
-    });
-    $('#scene-select #items')
-      .val(result.join(','))
-      .change();
-    $.sidr('close', 'sidr_items');
-  });
+  // // アイテム選択を確定した時
+  // $('#sidr_items_submit').click(function() {
+  //   let result = [];
+  //   $('.sidr-items-plus:checked').each(function() {
+  //     result.push($(this).val());
+  //   });
+  //   $('.sidr-items-minus:checked').each(function() {
+  //     result.push('-' + $(this).val());
+  //   });
+  //   $('#scene-select #items')
+  //     .val(result.join(','))
+  //     .change();
+  //   $.sidr('close', 'sidr_items');
+  // });
 
-  // アイテム選択をキャンセルした時
-  $('#sidr_items_close').click(function() {
-    $.sidr('close', 'sidr_items');
-  });
+  // // アイテム選択をキャンセルした時
+  // $('#sidr_items_close').click(function() {
+  //   $.sidr('close', 'sidr_items');
+  // });
+
+  // ［シーン］タブ内でのフラグ処理
+  Util.createSelectSidebar(
+    '#scene-select #flags',
+    'flags',
+    scenario.flags,
+    'plus_minus',
+    'text',
+    'id'
+  );
 
   //［シーン］タブ内でのフラグ処理
-  $('#scene-select #flags').sidr({
-    name: 'sidr_flags',
-    displace: false,
-    onOpen: function() {
-      $('#sidr_flags_list').empty();
-      for(let flag of scenario.flags) {
-        $('#sidr_flags_list').append(`
-          <tr>
-            <td>
-              <label>＋<input type="checkbox"
-                  class="sidr-flags-plus" value="${flag.id}" /></label>
-            </td>
-            <td class="sidr-elem"><span>${flag.text}</span></td>
-            <td>
-              <label>－<input type="checkbox"
-                class="sidr-flags-minus" value="${flag.id}" /></label>
-            </td>
-          </tr>
-        `);
-      }
-      // ［+］［-］ボタンを整形
-      $('.sidr-flags-plus, .sidr-flags-minus').checkboxradio({
-        icon: false
-      });
-    }
-  });
+  // $('#scene-select #flags').sidr({
+  //   name: 'sidr_flags',
+  //   displace: false,
+  //   onOpen: function() {
+  //     $('#sidr_flags_list').empty();
+  //     for(let flag of scenario.flags) {
+  //       $('#sidr_flags_list').append(`
+  //         <tr>
+  //           <td>
+  //             <label>＋<input type="checkbox"
+  //                 class="sidr-flags-plus" value="${flag.id}" /></label>
+  //           </td>
+  //           <td class="sidr-elem"><span>${flag.text}</span></td>
+  //           <td>
+  //             <label>－<input type="checkbox"
+  //               class="sidr-flags-minus" value="${flag.id}" /></label>
+  //           </td>
+  //         </tr>
+  //       `);
+  //     }
+  //     // ［+］［-］ボタンを整形
+  //     $('.sidr-flags-plus, .sidr-flags-minus').checkboxradio({
+  //       icon: false
+  //     });
+  //   }
+  // });
 
-  // フラグ選択を確定した時
-  $('#sidr_flags_submit').click(function() {
-    let result = [];
-    $('.sidr-flags-plus:checked').each(function() {
-      result.push($(this).val());
-    });
-    $('.sidr-flags-minus:checked').each(function() {
-      result.push('-' + $(this).val());
-    });
-    $('#scene-select #flags')
-      .val(result.join(','))
-      .change();
-    $.sidr('close', 'sidr_flags');
-  });
+  // // フラグ選択を確定した時
+  // $('#sidr_flags_submit').click(function() {
+  //   let result = [];
+  //   $('.sidr-flags-plus:checked').each(function() {
+  //     result.push($(this).val());
+  //   });
+  //   $('.sidr-flags-minus:checked').each(function() {
+  //     result.push('-' + $(this).val());
+  //   });
+  //   $('#scene-select #flags')
+  //     .val(result.join(','))
+  //     .change();
+  //   $.sidr('close', 'sidr_flags');
+  // });
   
-  // フラグ選択をキャンセルした時
-  $('#sidr_flags_close').click(function() {
-    $.sidr('close', 'sidr_flags');
-  });
+  // // フラグ選択をキャンセルした時
+  // $('#sidr_flags_close').click(function() {
+  //   $.sidr('close', 'sidr_flags');
+  // });
     
+  // ［シーン］タブ内での敵処理
+  Util.createSelectSidebar(
+    '#scene-select #enemies',
+    'enemies',
+    scenario.enemies,
+    'check',
+    'name',
+    'id'
+  );
+
   //［シーン］タブ内での敵処理
-  $('#scene-select #enemies').sidr({
-    name: 'sidr_enemies',
-    displace: false,
-    onOpen: function() {
-      $('#sidr_enemies_list').empty();
-      for(let enemy of scenario.enemies) {
-        $('#sidr_enemies_list').append(`
-          <li>
-            <label>${enemy.name}<input type="checkbox"
-              class="sidr-enemy-item" value="${enemy.id}" /></label>
-          </li>
-        `);
-      }
-      // ［敵名］ボタンを整形
-      $('.sidr-enemy-item').checkboxradio({
-        icon: false
-      });
-    }
-  });
+  // $('#scene-select #enemies').sidr({
+  //   name: 'sidr_enemies',
+  //   displace: false,
+  //   onOpen: function() {
+  //     $('#sidr_enemies_list').empty();
+  //     for(let enemy of scenario.enemies) {
+  //       $('#sidr_enemies_list').append(`
+  //         <li>
+  //           <label>${enemy.name}<input type="checkbox"
+  //             class="sidr-enemy-item" value="${enemy.id}" /></label>
+  //         </li>
+  //       `);
+  //     }
+  //     // ［敵名］ボタンを整形
+  //     $('.sidr-enemy-item').checkboxradio({
+  //       icon: false
+  //     });
+  //   }
+  // });
 
-  // 敵選択を確定した時
-  $('#sidr_enemies_submit').click(function() {
-    let result = [];
-    $('.sidr-enemy-item:checked').each(function() {
-      result.push($(this).val());
-    });
-    $('#scene-select #enemies')
-      .val(result.join(','))
-      .change();
-    $.sidr('close', 'sidr_enemies');
-  });
+  // // 敵選択を確定した時
+  // $('#sidr_enemies_submit').click(function() {
+  //   let result = [];
+  //   $('.sidr-enemy-item:checked').each(function() {
+  //     result.push($(this).val());
+  //   });
+  //   $('#scene-select #enemies')
+  //     .val(result.join(','))
+  //     .change();
+  //   $.sidr('close', 'sidr_enemies');
+  // });
 
-  // 敵選択をキャンセルした時
-  $('#sidr_enemies_close').click(function() {
-    $.sidr('close', 'sidr_enemies');
-  });
+  // // 敵選択をキャンセルした時
+  // $('#sidr_enemies_close').click(function() {
+  //   $.sidr('close', 'sidr_enemies');
+  // });
     
+  // ［シーン］タブ内での実績処理
+  Util.createSelectSidebar(
+    '#scene-select #result',
+    'results',
+    scenario.results,
+    'radio',
+    'name',
+    'id'
+  );
+
   //［シーン］タブ内での実績処理
-  $('#scene-select #result').sidr({
-    name: 'sidr_results',
-    displace: false,
-    onOpen: function() {
-      $('#sidr_results_list').empty();
-      for(let result of scenario.results) {
-        $('#sidr_results_list').append(`
-          <li>
-            <label>${result.name}<input type="radio"
-              name="sidr-results"
-              class="sidr-result-item" value="${result.id}" /></label>
-          </li>
-        `);
-      }
-      // ［実績名］ボタンを整形
-      $('.sidr-result-item').checkboxradio({
-        icon: false
-      });
-    }
-  });
+  // $('#scene-select #result').sidr({
+  //   name: 'sidr_results',
+  //   displace: false,
+  //   onOpen: function() {
+  //     $('#sidr_results_list').empty();
+  //     for(let result of scenario.results) {
+  //       $('#sidr_results_list').append(`
+  //         <li>
+  //           <label>${result.name}<input type="radio"
+  //             name="sidr-results"
+  //             class="sidr-result-item" value="${result.id}" /></label>
+  //         </li>
+  //       `);
+  //     }
+  //     // ［実績名］ボタンを整形
+  //     $('.sidr-result-item').checkboxradio({
+  //       icon: false
+  //     });
+  //   }
+  // });
 
-  // 実績選択を確定した時
-  $('#sidr_results_submit').click(function() {
-    $('#scene-select #result')
-      .val($('.sidr-result-item:checked').val())
-      .change();
-    $.sidr('close', 'sidr_results');
-  });
+  // // 実績選択を確定した時
+  // $('#sidr_results_submit').click(function() {
+  //   $('#scene-select #result')
+  //     .val($('.sidr-result-item:checked').val())
+  //     .change();
+  //   $.sidr('close', 'sidr_results');
+  // });
 
-  // 実績選択をキャンセルした時
-  $('#sidr_results_close').click(function() {
-    $.sidr('close', 'sidr_results');
-  });
+  // // 実績選択をキャンセルした時
+  // $('#sidr_results_close').click(function() {
+  //   $.sidr('close', 'sidr_results');
+  // });
 
   // 参照ボタンクリック時にファイル選択ボックスを表示
   $('#scene-select #bgm-ref').click(function(e) {
