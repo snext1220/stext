@@ -160,6 +160,7 @@ label {
 #sidr_races_list .ui-checkboxradio-label,
 #sidr_ages_list .ui-checkboxradio-label,
 #sidr_sexes_list .ui-checkboxradio-label,
+#sidr_groups_list .ui-checkboxradio-label,
 #sidr_enemies_list .ui-checkboxradio-label,
 #sidr_results_list .ui-checkboxradio-label {
   display: block;

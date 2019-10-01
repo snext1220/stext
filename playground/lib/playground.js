@@ -1,6 +1,8 @@
 $(function () {
   // フローチャート
   let network = null;
+  // フローチャートの絞り込み条件
+  let filter_where = [];
   // 共通データ
   let Common = {
     HELP_URL: 'https://sorcerian.hateblo.jp/entry/2018/11/01/211745#',
@@ -134,6 +136,9 @@ $(function () {
     },
     // シナリオ内の項目をソート
     sortScenario: function() {
+      scenario.groups.sort(function(m, n) {
+        Number(m.start) - Number(m.end);
+      });
       scenario.items.sort(Util.sortFn);
       scenario.flags.sort(Util.sortFn);
       scenario.enemies.sort(Util.sortFn);
@@ -231,10 +236,14 @@ $(function () {
     // 指定範囲でフローチャートを生成
     createNetwork: function() {
       Util.destroyNetwork();
-      let from = $('#range-from').val();
-      let to = $('#range-to').val();
-      if (!from) { from = 0; }
-      if (!to) { from = 99999; }
+      // 絞り込み条件が空の場合の既定値
+      if (filter_where.length === 0) {
+        filter_where = [{start: 0, end: 99999}];
+      }
+      // let from = $('#range-from').val();
+      // let to = $('#range-to').val();
+      // if (!from) { from = 0; }
+      // if (!to) { from = 99999; }
   
       // フローチャートの生成
       network = new vis.Network(
@@ -243,8 +252,18 @@ $(function () {
           //nodes: new vis.DataSet(scenario.scenes),
           nodes: new vis.DataSet(
             scenario.scenes.filter(function(value){
-              return Number(value.id) >= Number(from) &&
-                Number(value.id) <= Number(to);
+              let result = false;
+              for (let cond of filter_where) {
+                if (Number(cond.start) <= Number(value.id) &&
+                  Number(value.id) <= Number(cond.end)) {
+                    result = true;
+                    break;
+                  }
+              }
+              return result;
+
+              // return Number(value.id) >= Number(from) &&
+              //   Number(value.id) <= Number(to);
             })
           ),
           edges: new vis.DataSet(scenario.edges)
@@ -457,7 +476,7 @@ $(function () {
     // dataset：リスト対象のデータ（オブジェクト配列）
     // type：ボタンの種類（radio／check／plus_minus）
     // label：ラジオ／チェックボックスのラベルとなるプロパティ
-    // value：ラジオ／チェックボックスの値となるプロパティ
+    // value：ラジオ／チェックボックスの値となるプロパティ（2要素の配列も可）
     // onSubmit：サブミット時の処理（引数はトリガー要素、リスト要素）
     createSelectSidebar: function(trigger, target, dataset, type, label, value, onSubmit) {
       // サイドバーとなる要素（id値）
@@ -467,7 +486,7 @@ $(function () {
       // サブミットボタン（セレクター）
       let s_submit = `#${s_name} #${s_name}_submit`;
       // キャンセルボタン（セレクター）
-      let s_cancel = `#${s_name} #${s_name}_cancel`;
+      let s_cancel = `#${s_name} #${s_name}_close`;
       // triggerへのサイドバーの紐付け
       $(trigger).sidr({
         name: s_name,
@@ -476,30 +495,36 @@ $(function () {
           $(s_list).empty();
           for(let obj of dataset) {
             let elem;
+            let v_value;
+            if (Array.isArray(value)) {
+              v_value = `${obj[value[0]]}-${obj[value[1]]}`
+            } else {
+              v_value = obj[value]
+            }
             // 種別ごとに要素を生成
             switch (type) {
               case 'check':
                 elem = `<li>
                   <label>${obj[label]}<input type="checkbox"
-                    class="sidr-item" value="${obj[value]}" /></label>
+                    class="sidr-item" value="${v_value}" /></label>
                 </li>`;
                 break;
               case 'radio':
                 elem = `<li>
                   <label>${obj[label]}<input type="radio" name="${s_name}"
-                  class="sidr-item" value="${obj[value]}" /></label>
+                  class="sidr-item" value="${v_value}" /></label>
                 </li>`;
                 break;
               case 'plus_minus':
                 elem = `<tr>
                   <td>
                     <label>＋<input type="checkbox"
-                      class="sidr-item ${s_name}_plus" value="${obj[value]}" /></label>
+                      class="sidr-item ${s_name}_plus" value="${v_value}" /></label>
                   </td>
                   <td class="sidr-elem"><span>${obj[label]}</span></td>
                   <td>
                     <label>－<input type="checkbox"
-                      class="sidr-item ${s_name}_minus" value="${obj[value]}" /></label>
+                      class="sidr-item ${s_name}_minus" value="${v_value}" /></label>
                   </td>
                 </tr>`;
                 break;
@@ -542,7 +567,7 @@ $(function () {
             break;
         }
         if (onSubmit) {
-          onSubmit(trigger, s_list);
+          onSubmit(result, trigger, s_list);
         } else {
           $(trigger).val(result)
             .change();
@@ -551,6 +576,7 @@ $(function () {
       });
       // 選択をキャンセルした時
       $(s_cancel).click(function() {
+        console.log('close');
         $.sidr('close', s_name);
       });
     },
@@ -1929,9 +1955,34 @@ $(function () {
   });
 
   // ［フィルター］ボタン
-  $('#ctrl_filter').click(function(e) {
-    $('#range-dialog').dialog('open');
-  });
+  // $('#ctrl_filter').click(function(e) {
+  //   $('#range-dialog').dialog('open');
+  // });
+
+  // ［フィルター］ボタン（新）
+  Util.createSelectSidebar(
+    '#ctrl_filter',
+    'groups',
+    scenario.groups,
+    'check',
+    'title',
+    [ 'start', 'end' ],
+    function(result) {
+      filter_where = [];
+      // 条件式を分解
+      for (let cond of result.split(',')) {
+        let tmp_cond = cond.split('-');
+        filter_where.push({
+          start: tmp_cond[0],
+          end: tmp_cond[1]
+        });
+      }
+      // デバッグ用
+      // sessionStorage.setItem('flow_filter',
+      //   JSON.stringify(filter_where));
+      Util.createNetwork();
+    }
+  );
 
   // テンプレート選択
   $('#ctrl_template').change(function(e) {
