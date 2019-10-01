@@ -1971,6 +1971,7 @@ $(function () {
       filter_where = [];
       // 条件式を分解
       for (let cond of result.split(',')) {
+        if (!cond) { break; }
         let tmp_cond = cond.split('-');
         filter_where.push({
           start: tmp_cond[0],
