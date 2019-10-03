@@ -382,19 +382,58 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 </scenario>
 
 <utility>
-<work title="STextシナリオ制作用 BGM素材" author="AZ">
-以下は、ソーサリアン Textのシナリオを制作／公開する際に利用できるBGM素材です（2018年12月時点で全20曲を公開中）。これら素材を利用して、是非、あなたの物語を余に――もとい、世に送り出してやってください。
 
-<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/611106111%3Fsecret_token%3Ds-2tzI5&amp;color=%23a86681&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
+<work title="Playground Flow" author="リオ" type="dev">
+<a href="./image/util_new.png" class="zoombox" title="New Playground">
+ <img src="./image/util_new.png" height="120"
+   title="New Playground" align="left" class="left" />
+</a>
+Playgroundが新たにフローチャート志向に生まれ変わりました！
 
-音楽ファイルをダウンロードするには、以下のリンクからSoundCloudのページに移動した上で、曲目リストの右端から［...］－［Download］を選択してください（すべてまとめてのダウンロードはできません）。
+従来のように、タグを意識する必要はありません。シーン同士をフローチャート上で繋ぎ、繋ぎ変えながら、ゲームブックの流れを設計できます。また、フラグ／アイテム情報も、専用のスプレッドシートから編集できるので、編集上の負担が大幅に軽減します。
 
-<p><a href="https://soundcloud.com/venus-az/sets/sorcerian-text-original-sounds/s-2tzI5" class="external" target="manual">SORCERIAN Text Original Sound</a></p>
+初心者にも優しい新たなPlayground Flow（β版）を是非お試しください！
 
-※<span class="award">SText以外の利用は禁止</span>とさせて戴きますので、ご了承ください。
+<a href="./playground/" class="startbtn" target="_blank">Playground Flowを起動する</a>
+
 </work>
 
-<work title="GBAT to SText" author="リオ">
+<work title="Playground Editor" author="リオ" type="dev">
+<img src="./image/util/pg.png" height="120"
+  title="Playground実行画面" align="right" class="right" />
+
+Playground Editor（Pg Editor）は、ブラウザー上で動作するソーサリアン Textのシナリオ実行環境です。ソフトウェアのインストールなどが不要なので、手軽に実行できるのが特徴です。
+
+画像の表示、音声の再生には非対応ですが、それ以外の機能はほぼサポートしているので、シナリオの動作確認に活用ください。
+
+構文ハイライト機能付きの簡易エディターを備え、テンプレート／.gbatファイルのインポートから、作成したシナリオのストレージ保存、ダウンロードなどにも対応しているので、簡易なシナリオであれば、Pg Editorひとつで完結して執筆作業を進めることも可能です。
+
+<a href="playground.aspx" target="stext" class="startbtn">Playground Editorを起動する</a>
+
+使い方などは、以下のマニュアルも参照してください。
+
+<a href="http://d.hatena.ne.jp/sorcerian/20180125" target="manual" class="external">ソーサリアンText開発者向けマニュアル（Playground Editor編）</a>
+</work>
+
+<work id="trial" title="STextシナリオ開発道場" author="ときのじ" updated="2018-11-13" backup="true" type="dev">
+<img src="./image/util/trial.png" height="120"
+  title="STextシナリオ開発道場" align="right" class="right" />
+「ソーサリアンTextのシナリオを書いてみたい！」
+
+君はそう思ったことはないだろうか？もしシナリオを書いてみたいと思ったのであれば、この先にある道場は、きっと君の助けになることだろう。何故なら、その道場とは「ソーサリアンTextのシナリオを書きたい」というソーサリアンの願いをぱぱっと叶える特別メニューが揃っているからだ。
+
+道場には、君のようにシナリオを書こうと勉強している者もいれば、シナリオの書き方を分かり易く教えてくれる者もいる。そんなペンタウァの勇者達のやり取りがなかなかに賑やかで、見学しているだけでも楽しいかもしれないぞ。
+
+さぁ、君もソーサリアンの一人となって、ソーサリアンTextのシナリオの書き方を学ぼう！
+
+<a href="https://goo.gl/zJ2rvp" class="startbtn">修行に入る</a>
+
+道場で基本的な使い方を学んだ後は、以下のページでより実践的なノウハウも確認してほしい。
+
+<a href="http://d.hatena.ne.jp/sorcerian/20180429" target="manual" class="external">開発者向け実践テクニック集（作・リオ）</a>
+</work>
+
+<work title="GBAT to SText" author="リオ" type="dev">
 <img src="./image/util/gbat.png" height="120"
   title="GBATメイン画面" align="left" class="left" />
 GBAT（GameBook Authoring Tool）は、ゲームブックシナリオをチャート化しながら執筆できるGUIツール。シナリオのフローをリアルタイムにチャート化するので、全体を見渡しつつ、執筆を進められます。
@@ -414,24 +453,19 @@ SText固有の定義をGBATで表す方法については、以下のマニュ�
 <a href="http://d.hatena.ne.jp/sorcerian/20180131" target="manual" class="external">ソーサリアンText開発者向けマニュアル（GBAT to SText編）</a>
 </work>
 
-<work title="Playground Editor" author="リオ">
-<img src="./image/util/pg.png" height="120"
-  title="Playground実行画面" align="right" class="right" />
+<work title="STextシナリオ制作用 BGM素材" author="AZ" type="both">
+以下は、ソーサリアン Textのシナリオを制作／公開する際に利用できるBGM素材です（2018年12月時点で全20曲を公開中）。これら素材を利用して、是非、あなたの物語を余に――もとい、世に送り出してやってください。
 
-Playground Editor（Pg Editor）は、ブラウザー上で動作するソーサリアン Textのシナリオ実行環境です。ソフトウェアのインストールなどが不要なので、手軽に実行できるのが特徴です。
+<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/611106111%3Fsecret_token%3Ds-2tzI5&amp;color=%23a86681&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
 
-画像の表示、音声の再生には非対応ですが、それ以外の機能はほぼサポートしているので、シナリオの動作確認に活用ください。
+音楽ファイルをダウンロードするには、以下のリンクからSoundCloudのページに移動した上で、曲目リストの右端から［...］－［Download］を選択してください（すべてまとめてのダウンロードはできません）。
 
-構文ハイライト機能付きの簡易エディターを備え、テンプレート／.gbatファイルのインポートから、作成したシナリオのストレージ保存、ダウンロードなどにも対応しているので、簡易なシナリオであれば、Pg Editorひとつで完結して執筆作業を進めることも可能です。
+<p><a href="https://soundcloud.com/venus-az/sets/sorcerian-text-original-sounds/s-2tzI5" class="external" target="manual">SORCERIAN Text Original Sound</a></p>
 
-<a href="playground.aspx" target="stext" class="startbtn">Playground Editorを起動する</a>
-
-使い方などは、以下のマニュアルも参照してください。
-
-<a href="http://d.hatena.ne.jp/sorcerian/20180125" target="manual" class="external">ソーサリアンText開発者向けマニュアル（Playground Editor編）</a>
+※<span class="award">SText以外の利用は禁止</span>とさせて戴きますので、ご了承ください。
 </work>
 
-<work title="もっと攻略したい" author="RYUさん他" guest="true" other="true">
+<work title="もっと攻略したい" author="RYUさん他" guest="true" other="true" type="usr">
 <img src="./image/util/util.png" height="120"
   title="もっと攻略したい" align="left" class="left" />
 ソーサリアン Textをもっと攻略したい、あるいは行き詰ったという人のために。
@@ -448,25 +482,7 @@ Playground Editor（Pg Editor）は、ブラウザー上で動作するソーサ
 この場を借りて、雪かきの合間に(?)作者すら把握してない全ルートをコンプリートし、しかも、フローチャート化してくださったRYU（<a href="https://twitter.com/ishikawanonoich" target="other">@ishikawanonoich</a>）さんに心から御礼申し上げます。
 </work>
 
-<work id="trial" title="STextシナリオ開発道場" author="ときのじ" updated="2018-11-13" backup="true">
-<img src="./image/util/trial.png" height="120"
-  title="STextシナリオ開発道場" align="right" class="right" />
-「ソーサリアンTextのシナリオを書いてみたい！」
-
-君はそう思ったことはないだろうか？もしシナリオを書いてみたいと思ったのであれば、この先にある道場は、きっと君の助けになることだろう。何故なら、その道場とは「ソーサリアンTextのシナリオを書きたい」というソーサリアンの願いをぱぱっと叶える特別メニューが揃っているからだ。
-
-道場には、君のようにシナリオを書こうと勉強している者もいれば、シナリオの書き方を分かり易く教えてくれる者もいる。そんなペンタウァの勇者達のやり取りがなかなかに賑やかで、見学しているだけでも楽しいかもしれないぞ。
-
-さぁ、君もソーサリアンの一人となって、ソーサリアンTextのシナリオの書き方を学ぼう！
-
-<a href="https://goo.gl/zJ2rvp" class="startbtn">修行に入る</a>
-
-道場で基本的な使い方を学んだ後は、以下のページでより実践的なノウハウも確認してほしい。
-
-<a href="http://d.hatena.ne.jp/sorcerian/20180429" target="manual" class="external">開発者向け実践テクニック集（作・リオ）</a>
-</work>
-
-<work title="ユーザーディスクツール" author="リオ">
+<work title="ユーザーディスクツール" author="リオ" type="usr">
 <img src="./image/util/backup.png" height="120"
   title="ユーザーディスクツール" align="left" class="left" />
 ユーザーディスクツールは、ブラウザーで保存されているSTextのセーブデータを.stextファイルとして出力（バックアップ）したり、バックアップしておいた.stextファイルを復旧（リストア）するためのツールです。
