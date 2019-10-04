@@ -1,9 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <stext>
 
+<serieses>
+
+<series id="all" key="すべて">
+全500パラグラフ以上の本格派シナリオから、1min/プレイで何度も楽しめるお手軽シナリオ、複数の作者が異なる視点で描く連作シナリオまで、さまざまなゲームブックを公開しています。どのシナリオからも始められるので、気になるシナリオから覗いてみてくださいね。
+</series>
+
+<series id="begin" key="開幕シナリオ">
+ソーサリアン Textの開幕を飾る初期シナリオ。お馴染みの「王杖」リメイクをはじめ、原作ネタを鏤めた「災厄」、ドラスレシリーズ由来の「ドラスレ」「ラミディア」、Nextリメイクの「少女英雄」「ゼロ」、そして、ノベル風味の「ドール」「吸血姫」など、多彩な物語がそろい踏みです！
+</series>
+
+<series id="mini" key="ミニミニ30">
+30 Scene限定の短い物語を用意してみました。一発ネタの占いシナリオから硬派な戦国物語まで、「短くてもこれだけ遊べる」を実感してもらえれば、執筆陣としては嬉しい限りです。
+
+「これなら自分でも作れるかも」と思ってしまった人は、是非とも創作にも挑戦してみてくださいね。シナリオは継続して募集中です！
+</series>
+
+<series id="dragon" key="ドラゴンモード">
+原作31周年、ソーサリアン Text 1周年を記念して執筆された、連作「ドラゴンモード」。スタッフ／ゲスト執筆者の皆さんを交えて、ドラゴンをテーマにした作品を描いています。プレイにはScenario 1～13いずれかの実績が必要です。
+</series>
+
+<series id="pg100" key="Playground100">
+ソーサリアン Textの新たな執筆環境「Playground Flow」（以降、PgFlow）リリースです！従来のように、難しいタグを意識する必要はありません。シーン同士をフローチャート上で繋ぎ、繋ぎ変えながら、ゲームブックの流れを設計できます。
+
+本企画は、PgFlowの使い勝手を試しながら、100パラ前後の中編を作成してみようという試み。チャートをグニャグニャ弄り倒しつつ、あなたのアイデアを是非形にしてみてくださいね。
+</series>
+
+</serieses>
+
 <scenario>
 
-<work id="scepter" title="新・消えた王様の杖" author="リオ" series=""
+<work id="scepter" title="新・消えた王様の杖" author="リオ" series="開幕シナリオ"
   tags="リメイク,探索,チュートリアル" published="2017-12-20" updated="2019-09-09"
   level="3" scenes="253" results="45" clears="r43,r44"
   comment="古臭いゲームブックの世界で、新たな杖の物語。こんなお話もありかな、と寛容な心で遊んでいただければ幸いです。「新・～」シリーズは、今後も拡大していければと思うので、協力者緩募です。">
@@ -18,7 +46,7 @@
 誉れ高き勇者よ、しぬでないぞよ（By 王さま）。
 </work>
 
-<work id="zero" title="ゼロの創造" author="Salvador" series=""
+<work id="zero" title="ゼロの創造" author="Salvador" series="開幕シナリオ"
   tags="探索" published="2018-01-04" updated="2019-06-03" level="3" scenes="160" results="3" clears="r03"
   comment="創造神キーヤへの思いを綴った作品です。">
 <img src="./stext/zero/capture/intro.png" height="120" title="ゼロの創造"
@@ -30,7 +58,7 @@
 時代は流れ、混迷の時代。世界には虚無が広がり、人々は滅びゆく世界を感じていた。連動するように、創造神信仰は復活の兆しを見せていた。
 </work>
 
-<work id="doll" title="プレアオブ・ドールズ" author="cocotori"
+<work id="doll" title="プレアオブ・ドールズ" author="cocotori" series="開幕シナリオ"
   tags="探索" published="2018-1-15" updated="2018-11-9"
   level="1" scenes="24" results="4" clears="r04"
   comment="人とは少し違う人形との、触れ合いを楽しんでもらえたらと思います。">
@@ -44,7 +72,7 @@
 </work>
 
 <work id="tempest" title="災厄の夜 - テンペスト・ナイト -"
-  author="ちゃなさん" guest="true" series=""
+  author="ちゃなさん" guest="true"  series="開幕シナリオ"
   tags="探索,魔法" published="2018-01-20" updated="2018-10-25" level="2" scenes="125" results="16" clears="r01"
   comment="原作の基本15シナリオから舞台、作中人物、アイテム等をお借りした、総集編的なシナリオです。原作同様、七星の組み合わせで全32種類の魔法を開発することができます。">
 <img src="./stext/tempest/capture/intro.png" height="120"
@@ -57,7 +85,8 @@
 道中、あなたは様々な懐かしい面々に会うことになるでしょう。中にはかつての強敵だったあの人も……。そして、ペンタウァを滅ぼしにかかる「災厄」の正体とは……？（<a href="https://twitter.com/ChanaGame" target="other">ちゃな</a>）
 </work>
 
-<work id="hero" title="少女は英雄を語りて" author="ときのじ" series="" tags="リメイク,探索" published="2018-02-13" updated="2018-11-13" level="4" scenes="339" results="11" clears="r11"
+<work id="hero" title="少女は英雄を語りて" author="ときのじ"  series="開幕シナリオ"
+  tags="リメイク,探索" published="2018-02-13" updated="2018-11-13" level="4" scenes="339" results="11" clears="r11"
   comment="SText版としてシナリオを再構成した、オリジナルとは少々異なる英雄物語です。今まで以上に登場人物の個性が伝わるような作品に仕上がっていたら嬉しいですね。">
 <img src="./stext/hero/capture/intro.png" height="120"
   title="少女は英雄を語りて" align="right" class="right" />
@@ -70,7 +99,7 @@
 「読書好きも読書嫌いも、この際問わぬ。勇気ある者はこの『消える本』の謎に挑んではくれないだろうか」
 </work>
 
-<work id="vampire" title="鉄腕の吸血姫" author="cocotori" 
+<work id="vampire" title="鉄腕の吸血姫" author="cocotori" series="開幕シナリオ"
   tags="探索" published="2018-3-25" updated="2018-11-9"
   level="1" scenes="39" results="2" clears="r01"
   comment="吸血鬼と言うより物理で殴る肉体派が出来上がりました。ダークでハードな感じを目指してみました。">
@@ -83,8 +112,8 @@
 ノベル風シナリオ第二弾。戦いと命、そして覚悟の物語――急げ、夜が明ける前に。
 </work>
 
-<work id="slayer" title="その名はドラゴンスレイヤー" author="RYUさん"
-  guest="true" series="" results="97" clears="r10000"
+<work id="slayer" title="その名はドラゴンスレイヤー" author="RYUさん" series="開幕シナリオ"
+  guest="true" results="97" clears="r10000"
   tags="戦闘型3DダンジョンRPG" published="2018-05-20" updated="2019-05-10" level="5" scenes="625"
   comment="(e)ゲームブックをどこまでコンピューターRPGに近付けられるか？に挑戦した本末転倒な一作。ザナドゥなどのリアルタイム世代に向けた内容やネタが多いです。ゲーム化や漫画化（うすい）も募集中。シリーズ化は…するかも？">
 <img src="./stext/slayer/capture/intro.png" height="190"
@@ -101,7 +130,7 @@
 <p class="award">第4部は2019年12月公開予定です！</p>
 </work>
 
-<work id="ramidia" title="ラミディアの魔法使い" author="Salvador" series=""
+<work id="ramidia" title="ラミディアの魔法使い" author="Salvador" series="開幕シナリオ"
   tags="探索" published="2018-06-25" updated="2018-10-25" level="3" scenes="168" results="3" clears="r03"
   comment="ゲームブック版ロマンシア（監修・宮本恒之）のキャラクタが多数登場します。ロマンシアの後日談シナリオです。">
 <img src="./stext/ramidia/capture/intro.png" height="160"
@@ -384,7 +413,7 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 <utility>
 
 <work title="Playground Flow" author="リオ" type="dev">
-<a href="./image/util_new.png" class="zoombox" title="New Playground">
+<a href="./image/util_new.png" class="zoombox" title="Playground Flow">
  <img src="./image/util_new.png" height="120"
    title="New Playground" align="left" class="left" />
 </a>
@@ -396,6 +425,9 @@ Playgroundが新たにフローチャート志向に生まれ変わりました�
 
 <a href="./playground/" class="startbtn" target="_blank">Playground Flowを起動する</a>
 
+使い方などは、以下のマニュアルも参照してください。
+
+<a href="https://sorcerian.hateblo.jp/entry/2019/05/03/211951" target="manual" class="external">ソーサリアンText開発者向けマニュアル（Playground Flow編）</a>
 </work>
 
 <work title="Playground Editor" author="リオ" type="dev">
@@ -413,6 +445,18 @@ Playground Editor（Pg Editor）は、ブラウザー上で動作するソーサ
 使い方などは、以下のマニュアルも参照してください。
 
 <a href="http://d.hatena.ne.jp/sorcerian/20180125" target="manual" class="external">ソーサリアンText開発者向けマニュアル（Playground Editor編）</a>
+</work>
+
+<work title="STextシナリオ制作用 BGM素材" author="AZ" type="both">
+以下は、ソーサリアン Textのシナリオを制作／公開する際に利用できるBGM素材です（2018年12月時点で全20曲を公開中）。これら素材を利用して、是非、あなたの物語を余に――もとい、世に送り出してやってください。
+
+<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/611106111%3Fsecret_token%3Ds-2tzI5&amp;color=%23a86681&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
+
+音楽ファイルをダウンロードするには、以下のリンクからSoundCloudのページに移動した上で、曲目リストの右端から［...］－［Download］を選択してください（すべてまとめてのダウンロードはできません）。
+
+<p><a href="https://soundcloud.com/venus-az/sets/sorcerian-text-original-sounds/s-2tzI5" class="external" target="manual">SORCERIAN Text Original Sound</a></p>
+
+※<span class="award">SText以外の利用は禁止</span>とさせて戴きますので、ご了承ください。
 </work>
 
 <work id="trial" title="STextシナリオ開発道場" author="ときのじ" updated="2018-11-13" backup="true" type="dev">
@@ -451,18 +495,6 @@ GBAT to STextは、このGBATで作成された.gbatファイルをSText形式�
 SText固有の定義をGBATで表す方法については、以下のマニュアルも参照してください。
 
 <a href="http://d.hatena.ne.jp/sorcerian/20180131" target="manual" class="external">ソーサリアンText開発者向けマニュアル（GBAT to SText編）</a>
-</work>
-
-<work title="STextシナリオ制作用 BGM素材" author="AZ" type="both">
-以下は、ソーサリアン Textのシナリオを制作／公開する際に利用できるBGM素材です（2018年12月時点で全20曲を公開中）。これら素材を利用して、是非、あなたの物語を余に――もとい、世に送り出してやってください。
-
-<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/611106111%3Fsecret_token%3Ds-2tzI5&amp;color=%23a86681&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
-
-音楽ファイルをダウンロードするには、以下のリンクからSoundCloudのページに移動した上で、曲目リストの右端から［...］－［Download］を選択してください（すべてまとめてのダウンロードはできません）。
-
-<p><a href="https://soundcloud.com/venus-az/sets/sorcerian-text-original-sounds/s-2tzI5" class="external" target="manual">SORCERIAN Text Original Sound</a></p>
-
-※<span class="award">SText以外の利用は禁止</span>とさせて戴きますので、ご了承ください。
 </work>
 
 <work title="もっと攻略したい" author="RYUさん他" guest="true" other="true" type="usr">
