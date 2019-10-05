@@ -2055,6 +2055,27 @@
         '</div>')
         .prependTo(target);
       
+      // コンパネ非表示状態になっている場合、パネルを非表示に
+      if(!global_save_data.panel) {
+        $('#control_panel').hide();
+      }
+
+      // サイドパネル（基本情報）
+      $(`<div id="sidr_basic">
+        <div id="chara_info">
+          <img id="chara_img" align="right" />
+          <h3 id="chara_title"></h3>
+        <div>
+      </div>`).insertBefore('#scenario_title');
+
+
+      // サイドパネル（ステータス）
+
+      // サイドパネル（魔法）
+
+      // サイドパネル（アイテム＆フラグ）
+
+
       // サイドパネル表示ボタンの生成
       var side_p = $('<div id="side_show">Battle Sheet</div>');
       if (scene.nsAttr('enemies')) {
@@ -2079,11 +2100,6 @@
       // 共通ルールの表示
       $('<div id="common_rule"></div>').appendTo('#sidr');
       Util.showRuleText(scene.nsAttr('rule'));
-
-      // パネル非表示状態になっている場合、パネルを非表示に
-      if(!global_save_data.panel) {
-        $('#control_panel').hide();
-      }
 
       // デバッグモードが有効の場合、デバッグウィンドウを表示
       if(debug_mode) {

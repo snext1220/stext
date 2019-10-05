@@ -59,8 +59,8 @@ $(function () {
       groups: [
         {
           start: 0,
-          end: 99999,
-          title: 'All Scene'
+          end: 1,
+          title: 'Introduction'
         }
       ],
       items: [
@@ -475,8 +475,8 @@ $(function () {
     // target：サイドバーとなる要素のベース名（id値）
     // dataset：リスト対象のデータ（オブジェクト配列）
     // type：ボタンの種類（radio／check／plus_minus）
-    // label：ラジオ／チェックボックスのラベルとなるプロパティ
-    // value：ラジオ／チェックボックスの値となるプロパティ（2要素の配列も可）
+    // label：ラジオ／チェックボックスのラベルとなるプロパティ、またはラベルを生成する関数（引数は対象のオブジェクト、戻り値はラベル値）
+    // value：ラジオ／チェックボックスの値となるプロパティ、またはラベルを生成する関数（引数は対象のオブジェクト、戻り値はオプション値）
     // onSubmit：サブミット時の処理（引数はトリガー要素、リスト要素）
     createSelectSidebar: function(trigger, target, dataset, type, label, value, onSubmit) {
       // サイドバーとなる要素（id値）
@@ -495,23 +495,36 @@ $(function () {
           $(s_list).empty();
           for(let obj of dataset) {
             let elem;
-            let v_value;
-            if (Array.isArray(value)) {
-              v_value = `${obj[value[0]]}-${obj[value[1]]}`
+            let v_label;  // ラベル文字列
+            let v_value;  // オプション値
+            // 引数labelの処理
+            if (typeof(label) === 'function') {
+              v_label = label(obj);
             } else {
-              v_value = obj[value]
+              v_label = obj[label];
             }
+            // 引数valueの処理
+            if (typeof(value) === 'function') {
+              v_value = value(obj);
+            } else {
+              v_value = obj[value];
+            }
+            // if (Array.isArray(value)) {
+            //   v_value = `${obj[value[0]]}-${obj[value[1]]}`
+            // } else {
+            //   v_value = obj[value]
+            // }
             // 種別ごとに要素を生成
             switch (type) {
               case 'check':
                 elem = `<li>
-                  <label>${obj[label]}<input type="checkbox"
+                  <label>${v_label}<input type="checkbox"
                     class="sidr-item" value="${v_value}" /></label>
                 </li>`;
                 break;
               case 'radio':
                 elem = `<li>
-                  <label>${obj[label]}<input type="radio" name="${s_name}"
+                  <label>${v_label}<input type="radio" name="${s_name}"
                   class="sidr-item" value="${v_value}" /></label>
                 </li>`;
                 break;
@@ -521,7 +534,7 @@ $(function () {
                     <label>＋<input type="checkbox"
                       class="sidr-item ${s_name}_plus" value="${v_value}" /></label>
                   </td>
-                  <td class="sidr-elem"><span>${obj[label]}</span></td>
+                  <td class="sidr-elem"><span>${v_label}</span></td>
                   <td>
                     <label>－<input type="checkbox"
                       class="sidr-item ${s_name}_minus" value="${v_value}" /></label>
@@ -1963,10 +1976,20 @@ $(function () {
   Util.createSelectSidebar(
     '#ctrl_filter',
     'groups',
-    scenario.groups,
+    [
+      {
+        start: 0,
+        end: 99999,
+        title: 'フィルター解除'
+      }
+    ].concat(scenario.groups),
     'check',
-    'title',
-    [ 'start', 'end' ],
+    function(obj) {
+      return `${obj['title']}<br />（${obj['start']}－${obj['end']}）`;
+    },
+    function(obj) {
+      return `${obj['start']}-${obj['end']}`;
+    },
     function(result) {
       filter_where = [];
       // 条件式を分解
