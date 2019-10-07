@@ -578,8 +578,8 @@
 </div>
 
 <!--ダイアログ（投稿）-->
-<div id="upload-dialog" title="Post Scenario">
-  <p>現在編集中のシナリオを投稿します（先に保存を推奨）</p>
+<div id="upload-dialog" title="現在編集中のシナリオを投稿します（先に保存を推奨）">
+  <p>投稿可能なシナリオデータの合計サイズ上限は8MBです。</p>
   <table>
     <tr>
       <td>
@@ -609,19 +609,19 @@
         </div>
         <div>
         <label>
-          BGM：<br />
+          BGM（1MB/file未満を推奨）：<br />
           <input id="upload-bgms" type="file" accept=".mp3" multiple />
         </label>
         </div>
         <div>
         <label>
-          効果音：<br />
+          効果音（30KB/file未満を推奨）：<br />
           <input id="upload-ses" type="file" accept=".mp3" multiple />
         </label>
         </div>
         <div>
         <label>
-          挿絵：<br />
+          挿絵（100KB/file未満を推奨）：<br />
           <input id="upload-pics" type="file" accept=".png,.jpg,.jpeg" multiple />
         </label>
         </div>
@@ -635,7 +635,7 @@
         </div>
         <div>
         <label>
-          著者より（80文字程度）：
+          作者より（80文字程度）：
           <textarea id="upload-comment" rows="4" required></textarea>
         </label>
         </div>
