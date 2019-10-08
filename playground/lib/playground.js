@@ -1254,6 +1254,8 @@ $(function () {
       }
     }
   });
+  // ［投稿］ダイアログのツールヒントを有効化
+  $('#upload-dialog label').tooltip();
 
   // ［投稿］ボタンでダイアログを開く
   $('#ctrl_post').click(function() {
