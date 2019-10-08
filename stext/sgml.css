@@ -637,7 +637,7 @@ table.item_list img {
 }
 
 /* サイドメニュー */
-.sidr {
+/* .sidr {
   width: 500px !important;
   opacity: 0.91;
   box-shadow: 0 0 5px 5px rgb(168, 166, 166) !important;
@@ -649,7 +649,7 @@ table.item_list img {
 
 .sidr-inner {
   padding: 20px !important;
-}
+} */
 
 #common_rule {
   margin: 10px;
