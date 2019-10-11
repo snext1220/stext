@@ -225,6 +225,371 @@
   toastr.options.hideDuration = 1000;
   toastr.options.timeOut = 5000;
 
+  // プレイヤーランク情報
+  let PlayerRank = {
+    // レベル別ポイント
+    LEVEL_POINTS: [ 100, 150, 170, 180, 200 ],
+    // ランク情報（定数）
+    RANK_INFO: [
+      { pt: 50, en: 'Novice Adventurer', jp: '駆け出し' },
+      { pt: 100, en: 'Initiate', jp: '新参者' },
+      { pt: 200, en: 'Aspirant', jp: '大志を抱く者' },
+      { pt: 300, en: 'Battler', jp: '戦人（いくさびと）' },
+      { pt: 500, en: 'Adept', jp: '熟練者' },
+      { pt: 700, en: 'Chevalier', jp: '義侠の者' },
+      { pt: 1000, en: 'Conjurer', jp: '奇術師' },
+      { pt: 1300, en: 'Theurgist', jp: '神々に祈る者' },
+      { pt: 1600, en: 'Warrior', jp: '古つわもの' },
+      { pt: 2000, en: 'Enchanter', jp: '魅了する者' },
+      { pt: 2500, en: 'Warlock', jp: '七つの塔の魔術師' },
+      { pt: 3000, en: 'Sorcerer', jp: 'ソーサリアン' },
+      { pt: 3500, en: 'Necromancer', jp: '死者と語る者' },
+      { pt: 4000, en: 'Illusionist', jp: '幻惑を魅せる者' },
+      { pt: 5000, en: 'Master Load', jp: '偉大なる領主' },
+      { pt: 99999, en: 'Dragon Slayer', jp: 'ドラゴンスレイヤー' },
+    ],
+    // シナリオのクリア数
+    scena_count: 0,
+    // シナリオの総数
+    scena_all: 0,
+    // ボーナスの取得数
+    bonus_count: 0,
+    // ボーナスの総数
+    bonus_all: 0,
+    // シナリオ情報
+    scena_infos: {},
+    // 取得実績総数
+    scena_results_count: 0,
+    // 実績総数
+    scena_results_all: 0,
+    // 経験値
+    exp_count: 0,
+    // 経験値の総計
+    exp_all: 0,
+
+    // PlayerRankを初期化
+    init() {
+      let that = this;
+      let g_save;
+      if (localStorage['sorcerian_text']) {
+        g_save = JSON.parse(localStorage['sorcerian_text']);
+        this.bonus_count = g_save.items.length;
+      }
+
+      this.bonus_all =
+        Object.keys(Common.global_items.happy).length +
+        Object.keys(Common.global_items.bad).length;
+
+
+      $.get(ROOT + 'stext.xml').done(function(data) {
+        let scenas = $('scenario > work', data);
+        that.scena_all = scenas.length;
+
+        $('scenario > work', data).each(function(i) {
+          let id = $(this).attr('id');
+          let results_count = 0;
+          let is_cleared = false;
+
+          // クリア有無／取得実績の取得
+          if (g_save) {
+            let results = g_save.results[id];
+            if (results) {
+              results_count = results.length;
+    
+              let clears = $(this).attr('clears');
+              if (clears) {
+                clears = clears.split(',');
+                for (var j = 0; j < clears.length; j++) {
+                  if (results.indexOf(clears[j]) !== -1) {
+                    that.scena_count++;
+                    is_cleared = true;
+                    break;
+                  }
+                }
+              }
+            }
+          }
+
+          // シナリオ個別の情報を取得
+          that.scena_infos[id] = {
+            // レベル
+            level: Number($(this).attr('level')),
+            // タイトル
+            title: $(this).attr('title'),
+            // クリア済みか
+            is_cleared,
+            // 取得実績数
+            results_count,
+            // 実績総数
+            results_all: Number($(this).attr('results'))
+          };
+
+          // 実績の総数
+          that.scena_results_all += Number($(this).attr('results'))
+        });
+        that.calculateExp();
+console.log(that);
+      });
+    },
+    // 現在の実績に応じて経験値を演算
+    // ボーナスアイテム（個数×10）
+    // シナリオレベルでクリア得点を決定（L1：100＜150＜170＜180＜200：L5）
+    // 実績（個数×2）
+    // 以上を合計したものがプレイヤースコア
+    calculateExp() {
+      // 経験値の初期化（ボーナス得点）
+      this.exp_count = this.bonus_count * 10;
+      this.exp_all = this.bonus_all * 10;
+
+      let results_sum = 0;
+      for(let k of Object.keys(this.scena_infos)) {
+        let info = this.scena_infos[k];
+        // クリア得点を加算
+        if (info.is_cleared) {
+          this.exp_count += this.LEVEL_POINTS[Number(info.level) - 1];
+        }
+        this.exp_all += this.LEVEL_POINTS[Number(info.level) - 1];
+
+        results_sum += info.results_count;
+      }
+      // 実績ボーナスの加算
+      this.exp_count += results_sum * 2;
+      this.scena_results_count = results_sum;
+    },
+    // 指定されたシナリオコード（code）に対して実績カウントを追加
+    incrementResult(code) {
+      this.scena_infos[code].results_count++;
+      // 経験値を再計算
+      this.calculateExp();
+    },
+    // 現在の経験値に応じてランクを取得
+    getRank() {
+      for (let i = 0; i < this.RANK_INFO.length; i++) {
+        let rank = this.RANK_INFO[i];
+        if (this.exp_count < rank.pt) {
+          return {
+            level: i,
+            en: rank.en,
+            jp: rank.jp
+          };
+        }
+      }
+    } 
+  };
+
+  // サイドバー
+  let SideBar = {
+    // サイドバーの生成（基本）
+    createSideBar(base, template, onOpen, onSubmit) {
+      let s_name = `sidr_${base}`;
+      // テンプレートをメイン要素の前に
+      $(template).insertBefore(target);
+      // メニューにサイドバーを紐付け
+      $(`#menu_${base}`).sidr({
+        name: s_name,
+        displace: false,
+        onOpen: onOpen
+      });
+      $(`#${s_name}_submit`).click(function() {
+        onSubmit();
+        $.sidr('close', s_name);
+      });
+      $(`#${s_name}_close`).click(function() {
+        $.sidr('close', s_name);
+      });
+    },
+
+    createPlayerRankInfo() {
+      this.createSideBar(
+        'rank',
+        `<div id="sidr_rank" class="sidr_info">
+          <table id="sidr_rank_summary" class="sidr_list_noline">
+            <tr>
+            <td colspan="4">
+              <img id="rank_pic" src="" align="left" />
+              <div>
+                PLAYER LV. <span id="rank_lv"></span>
+                <h3>
+                <span id="rank_en"></span>
+                <span id="rank_jp"></span>
+                </h3>
+              </div>
+            </td>
+            </tr>
+            <tr>
+              <th>CLEAR</th>
+              <td id="rank_clear"></td>
+              <th>RESULT</th>
+              <td id="rank_result"></td>
+            </tr>
+            <tr>
+              <th>BONUS</th>
+              <td id="rank_bonus"></td>
+              <th>EXP.</th>
+              <td id="rank_exp"></td>
+            </tr>
+          </table>
+          <table id="sidr_rank_list" class="sidr_list">
+            <thead>
+            <tr>
+              <th>No.</th>
+              <th>Title</th>
+              <th>Clear</th>
+              <th>Result Rate</th>
+            </tr>
+            <thead>
+            <tbody></tbody>
+          </table>
+          <div id="sidr_rank_close" class="sidr_close">閉じる</div>
+        </div>`,
+        function() {
+          // サマリ表示
+          let rank = PlayerRank.getRank();
+          $('#sidr_rank #rank_pic').attr('src', `${ROOT}${COMMON}/rank/rank${rank.level}.png`);
+          $('#sidr_rank #rank_jp').text(rank.jp);
+          $('#sidr_rank #rank_en').text(`"${rank.en}"`);
+          $('#sidr_rank #rank_lv').text(rank.level);
+          $('#sidr_rank #rank_clear').text(`${PlayerRank.scena_count}/${PlayerRank.scena_all}`);
+          $('#sidr_rank #rank_result').text(`${PlayerRank.scena_results_count}/${PlayerRank.scena_results_all}`);
+          $('#sidr_rank #rank_bonus').text(`${PlayerRank.bonus_count}/${PlayerRank.bonus_all}`);
+          $('#sidr_rank #rank_exp').text(`${PlayerRank.exp_count}/${PlayerRank.exp_all}`);
+
+          // 詳細表示
+          let b = $('#sidr_rank #sidr_rank_list tbody');
+          b.empty();
+          let i = 1;
+          for (let key in PlayerRank.scena_infos) {
+            let inf = PlayerRank.scena_infos[key];
+            b.append(`<tr>
+              <td>${i++}</td>
+              <td>${inf.title}</td>
+              <td>${inf.is_cleared ? '○' : '' }</td>
+              <td>${ Math.floor(inf.results_count / inf.results_all * 100)}%（${inf.results_count}/${inf.results_all}）</td>
+            </tr>`);
+          }
+        },
+        function() {}
+      );
+    },
+
+    // 基本情報
+    createBasicInfo() {
+      let template = $(`<div id="sidr_basic" class="sidr_info">
+        <table class="sidr_list_noline">
+        <tr>
+          <td colspan="4">
+            <img id="sidr_basic_chara_face" align="right" />
+            <div>
+              <h3>"<span id="sidr_basic_title"></span>"
+                <span id="sidr_basic_name"></span></h3>
+              <i><span id="sidr_basic_ellapsed_scene"></span></i>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>CLASS：</th>
+          <td>
+            <span id="sidr_basic_race"></span>　
+            <span id="sidr_basic_sex"></span>
+          </td>
+          <th>AGE：</th>
+          <td><span id="sidr_basic_age"></span></td>
+        </tr>
+        <tr>
+          <th>JOB：</th>
+          <td><select id="sidr_basic_job"></select></td>
+        </tr>
+        </table>
+        <p>MEMO：</p>
+        <textarea id="sidr_basic_memos"></textarea>
+        <div id="sidr_basic_submit" class="sidr_submit">確定</div>
+        <div id="sidr_basic_close" class="sidr_close">閉じる</div>
+      </div>`);
+      // 個々の項目を初期化
+      $('#sidr_basic_chara_face', template).attr('src',
+      ROOT + COMMON + String(save_data.chara.sex).toLowerCase()
+       + '_'
+       + String(save_data.chara.age).toLowerCase() + '_'
+       + String(save_data.chara.race).toLowerCase() + '.png');
+      $('#sidr_basic_name', template).text(save_data.chara.name);
+      $('#sidr_basic_title', template).text(save_data.chara.title);
+      $('#sidr_basic_ellapsed_scene', template).text(`${save_data.ellapsed_scene} scene`);
+      $('#sidr_basic_race', template).text(save_data.chara.race);
+      $('#sidr_basic_sex', template).text(save_data.chara.sex);
+      $('#sidr_basic_age', template).text(save_data.chara.age);
+      // 職業選択ボックスを生成
+      let job_box = $('#sidr_basic_job', template);
+      job_box.empty();
+      for(let job of enabled_jobs) {
+        $('<option></option>')
+          .attr('value', job)
+          .text(job)
+          .appendTo(job_box);
+      }
+
+      // サイドバーを生成
+      this.createSideBar(
+        'basic',
+        template,
+        function() {
+          $('#sidr_basic #sidr_basic_job').val(save_data.chara.job);
+          $('#sidr_basic #sidr_basic_memos').val(save_data.memos);
+        },
+        function() {
+          save_data.chara.job = $('#sidr_basic #sidr_basic_job').val();
+          save_data.memos = $('#sidr_basic #sidr_basic_memos').val();
+          Util.saveStorage();
+        }
+      );
+    },
+    // Items & Flags
+    createItemFlagInfo() {
+      this.createSideBar(
+        'item',
+        `<div id="sidr_item" class="sidr_info">
+          <p>ITEMS：</p>
+          <textarea id="sidr_item_item"></textarea>
+          <p>FLAGS：</p>
+          <textarea id="sidr_item_flag"></textarea>
+         <div id="sidr_item_close" class="sidr_close">閉じる</div>
+       </div>`,
+        function() {
+          // 現在所持しているアイテム一覧を表示
+          let items = [];
+          for (let key of save_data.items) {
+            let item = items_map[key];
+            items.push(`・${item.name}（${item.desc}）`);
+          }
+          $('#sidr_item #sidr_item_item').text(items.join('\r'));
+
+          // 現在所持しているフラグ一覧を表示
+          let flags = [];
+          for (let key of save_data.flags) {
+            flags.push(`・${flags_map[key]}`);
+          }
+          $('#sidr_item #sidr_item_flag').text(flags.join('\r'));
+        },
+        function() {}
+      );
+    },
+    createStatusSheet() {
+
+    },
+    createMagicSheet() {
+
+    },
+    // すべてのサイドバーを生成
+    createAll() {
+      this.createPlayerRankInfo();
+      this.createBasicInfo();
+      this.createItemFlagInfo();
+    }
+  };
+
+  // コントロールパネル（New）
+  let ControlPanel = {
+  };
+
   // ユーティリティ
   var Util = {
     // min～maxの乱数を生成
@@ -1145,11 +1510,22 @@
       }
     },
 
+    // ページ上の構成画面を初期化
+    initView() {
+      Util.initDialog();
+      Util.createCommonTweet();
+      PlayerRank.init();
+      SideBar.createAll();
+    },
+
     // シナリオデータを初期化
     initScenario: function() {
       Util.initSavedata();
-      Util.initDialog();
-      Util.createCommonTweet();
+      Util.initView();
+      // Util.initDialog();
+      // Util.createCommonTweet();
+      // PlayerRank.init();
+      // SideBar.createAll();
 
       // 最初のシーンを取得
       Util.createScene(0);
@@ -2060,22 +2436,6 @@
         $('#control_panel').hide();
       }
 
-      // サイドパネル（基本情報）
-      $(`<div id="sidr_basic">
-        <div id="chara_info">
-          <img id="chara_img" align="right" />
-          <h3 id="chara_title"></h3>
-        <div>
-      </div>`).insertBefore('#scenario_title');
-
-
-      // サイドパネル（ステータス）
-
-      // サイドパネル（魔法）
-
-      // サイドパネル（アイテム＆フラグ）
-
-
       // サイドパネル表示ボタンの生成
       var side_p = $('<div id="side_show">Battle Sheet</div>');
       if (scene.nsAttr('enemies')) {
@@ -2746,9 +3106,12 @@
       // 再開画面（［続きから］ボタン）
       target.on('click', '#restart #tmp_continue', function(e) {
         Util.initJobs();
-        Util.initDialog();
-        Util.createCommonTweet();
-
+        Util.initView();
+        // Util.initDialog();
+        // Util.createCommonTweet();
+        // PlayerRank.init();
+        // SideBar.createAll();
+ 
         // 再開時に経過日数の加算分を減算（廃止）
         // save_data.ellapsed_scene--;
         var num = save_data.scene;

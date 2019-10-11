@@ -137,47 +137,6 @@ $(function() {
 </script>
 </head>
 <body>
-
-<!--Nabigation Menu-->
-<nav class="main-nav" role="navigation">
-
-<!-- Mobile menu toggle button (hamburger/x icon) -->
-<input id="main-menu-state" type="checkbox" />
-<label class="main-menu-btn" for="main-menu-state">
-  <span class="main-menu-btn-icon"></span> Toggle main menu visibility
-</label>
-
-<h2 class="nav-brand"><a href="#">
-  <img src="./stext/common/renewal/gamebook_header_text.png"/>
-  <span class="pconly" style="vertical-align: top;">SORCERIAN Text</span>
-</a></h2>
-
-<!-- Sample menu definition -->
-<ul id="main-menu" class="sm sm-blue">
-  <li><a id="menu_status" href="#">Status</a></li>
-  <li><a id="menu_battle" href="#">Battle</a></li>
-  <li><a href="#">Info</a>
-    <ul>
-      <li><a href="#">Items</a></li>
-      <li><a href="#">Flags</a></li>
-      <li><a href="#">Results</a></li>
-      <li><a id="menu_bonus" href="#">Bonus</a></li>
-    </ul>
-  </li>
-  <li><a href="#">System</a>
-    <ul>
-      <li><a href="#">Backup</a></li>
-      <li><a href="#">Restore</a></li>
-      <li><a href="#">Sound</a></li>
-      <li><a href="#">Help</a></li>
-      <li><a href="#">Exit</a></li>
-    </ul>
-  </li>
-</ul>
-</nav>
-
-
-
 <div id="top_select" style="text-align: center; margin-top: 70px;">
 <select id="select_scenario">
   <option value="" selected>シナリオを選択してください</option>
@@ -206,5 +165,44 @@ $(function() {
   <span class="socialbtn twitter_custom">
   </span>
 </div>
+
+<!--Nabigation Menu-->
+<nav class="main-nav" role="navigation">
+
+  <!-- Mobile menu toggle button (hamburger/x icon) -->
+  <input id="main-menu-state" type="checkbox" />
+  <label class="main-menu-btn" for="main-menu-state">
+    <span class="main-menu-btn-icon"></span> Toggle main menu visibility
+  </label>
+  
+  <h2 class="nav-brand"><a href="./">
+    <img src="./stext/common/renewal/gamebook_header_text.png"/>
+    <span class="pconly" style="vertical-align: top;">SORCERIAN Text</span>
+  </a></h2>
+  
+  <!-- Sample menu definition -->
+  <ul id="main-menu" class="sm sm-blue">
+    <li><a id="menu_status" href="#">Status</a></li>
+    <li><a id="menu_magic" href="#">Magic</a></li>
+    <li><a href="#">Info</a>
+      <ul>
+        <li><a id="menu_basic">Basic</a></li>
+        <li><a id="menu_item">Item & Flag</a></li>
+        <li><a id="menu_result">Result</a></li>
+        <li><a id="menu_bonus">Bonus</a></li>
+        <li><a id="menu_rank">Player Rank</a></li>
+      </ul>
+    </li>
+    <li><a href="#">System</a>
+      <ul>
+        <li><a href="#">Backup</a></li>
+        <li><a href="#">Restore</a></li>
+        <li><a href="#">Sound</a></li>
+        <li><a href="https://sorcerian.hateblo.jp/entries/2017/12/20">Help</a></li>
+        <li><a href="./">Exit</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 </body>
 </html>

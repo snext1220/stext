@@ -636,6 +636,92 @@ table.item_list img {
   background-position: left center;
 }
 
+/* サイドバー（情報／ステータス） */
+.sidr_info {
+  background-color: #000;
+  opacity: 1;
+  color: #fff;
+}
+
+/* サイドバー（Items & Flags）*/
+.sidr_info textarea {
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 90%;
+  height: 100px;
+}
+
+/* サイドバー（PlayerRank） */
+.sidr_info img {
+  margin-right: 20px;
+}
+
+.sidr_info h3 {
+  margin-top: 3px;
+}
+
+.sidr_info #rank_en {
+  margin-top: 0px;
+  font-weight: bold;
+  color: #ff66ff;
+}
+
+.sidr_info #rank_jp {
+  margin-top: 0px;
+  font-size: normal;
+  color: #cfc;
+}
+
+/* サイドバー内のリスト */
+.sidr_list {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.sidr_list,
+.sidr_list th,
+.sidr_list td {
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.5;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.sidr_list_noline {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.sidr_list th,
+.sidr_list_noline th {
+  color: #0fc;
+}
+
+.sidr_submit {
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #fff;
+  background-color: #20a;
+  color: #fff;
+  text-align: center;
+  width: 80%;
+  cursor: pointer;
+}
+
+.sidr_close {
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #fff;
+  background-color: #aa0022;
+  color: white;
+  text-align: center;
+  width: 80%;
+  cursor: pointer;
+}
+
 /* サイドメニュー */
 /* .sidr {
   width: 500px !important;
