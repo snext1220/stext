@@ -379,6 +379,129 @@ console.log(that);
 
   // サイドバー
   let SideBar = {
+    // ［+］スピナーで直前のテキストボックス値をインクリメント
+    incrementValue(e) {
+      let prev = $(this).prev();
+      prev.val(Number(prev.val()) + 1);
+    },
+    // ［-］スピナーで直後のテキストボックス値をインクリメント
+    decrementValue(e) {
+      let next = $(this).next();
+      next.val(Number(next.val()) - 1);
+    },
+    // 現在の状態異常に応じてスタイル（ダイアログ）を変更
+    setStateStyle() {
+      let hp = $('#sidr_status_hp');
+      let str = $('#sidr_status_str');
+      let int = $('#sidr_status_int');
+      let dex = $('#sidr_status_dex');
+      let krm = $('#sidr_status_krm');
+      let magic = $('#sidr_magic_magic');
+      let poison = $('[name="sidr_status_state"][value="poison"]').prop('checked');
+      var frozen = $('[name="sidr_status_state"][value="frozen"]').prop('checked');
+      var stone =  $('[name="sidr_status_state"][value="stone"]').prop('checked');
+      var curse =  $('[name="sidr_status_state"][value="curse"]').prop('checked');
+      var forget = $('[name="sidr_status_state"][value="forget"]').prop('checked');
+
+      // 状態異常スタイルをすべて解除
+      var clazz = 'dialog_poison dialog_frozen dialog_stone dialog_curse dialog_forget';
+      hp.removeClass(clazz);
+      str.removeClass(clazz);
+      int.removeClass(clazz);
+      dex.removeClass(clazz);
+      krm.removeClass(clazz);
+      magic.removeClass(clazz);
+
+      if (poison) {
+        hp.addClass('dialog_poison');
+      } else if (frozen) {  
+        str.addClass('dialog_frozen');
+        int.addClass('dialog_frozen');
+        dex.addClass('dialog_frozen');
+        krm.addClass('dialog_frozen');
+      } else if (stone) {  
+        str.addClass('dialog_stone');
+        int.addClass('dialog_stone');
+        dex.addClass('dialog_stone');
+        krm.addClass('dialog_stone');
+      } else if (curse) {  
+        magic.addClass('dialog_curse');
+      } else if (forget) {
+        if (save_data.chara.str < save_data.chara.int) {
+          int.addClass('dialog_forget');
+        } else {
+          str.addClass('dialog_forget');
+        }
+      }
+    },
+    // 状態異常によるステータス補正
+    // 補正値の反映は現在では無効（どこかで修正を）
+    deltaStatus: function(state) {
+      let result;
+      switch(state) {
+        case 'frozen' :
+          result = {
+            state_desc: 'すべてのステータスを-2',
+            str_d: -2,
+            int_d: -2,
+            dex_d: -2,
+            krm_d: -2
+          };
+          break;
+        case 'stone' :
+          result = {
+            state_desc: 'すべてのステータスを-1（30scene経過で死亡）',
+            str_d: -1,
+            int_d: -1,
+            dex_d: -1,
+            krm_d: -1
+          };
+          break;
+        case 'forget' :
+          result = {
+            state_desc: 'STR／INTのうち、高い方が0に（20scene経過で解除）',
+            dex_d: 0,
+            krm_d: 0  
+          };
+          if(save_data.chara.str < save_data.chara.int) {
+            result.str_d = 0;
+            result.int_d = save_data.chara.int * -1;
+          } else {
+            result.str_d = save_data.chara.str * -1;
+            result.int_d = 0;
+          }
+          break;
+        case 'poison' :
+          result = {
+            state_desc: 'シーン経過ごとにHPを-1',
+            str_d: 0,
+            int_d: 0,
+            dex_d: 0,
+            krm_d: 0
+          }
+          break;
+        case 'curse' :
+          result = {
+            state_desc: '魔法の利用が不可（UN-CURSEを除く）',
+            str_d: 0,
+            int_d: 0,
+            dex_d: 0,
+            krm_d: 0
+          };
+          break;
+        default :
+          result = {
+            state_desc: '－',
+            str_d: 0,
+            int_d: 0,
+            dex_d: 0,
+            krm_d: 0
+          };
+          break;
+      }
+      return result;
+    },
+
     // サイドバーの生成（基本）
     createSideBar(base, template, onOpen, onSubmit) {
       let s_name = `sidr_${base}`;
@@ -572,22 +695,590 @@ console.log(that);
         function() {}
       );
     },
+    // 基本ステータス
     createStatusSheet() {
+      let that = this;
+      let template = $(`<div id="sidr_status" class="sidr_info">
+        <table id="sidr_status_list">
+          <tr>
+          <td>
+            <div>
+            HP：<br />
+            <input type="button" class="spinner_down" value="-" />
+            <input id="sidr_status_hp" type="number" />
+            <input type="button" class="spinner_up" value="+" />
+            ／<span id="sidr_status_hp_m"></span>
+            </div>
+            <div>
+            MP：<br />
+            <input type="button" class="spinner_down" value="-" />
+            <input type="number" id="sidr_status_mp" />
+            <input type="button" class="spinner_up" value="+" />
+            ／<span id="sidr_status_mp_m"></span>
+            <div>
+            STATE：<br />
+            <label><input type="radio" name="sidr_status_state" value="" />正常</label>
+            <label><input type="radio" name="sidr_status_state" value="poison" />毒</label>
+            <label><input type="radio" name="sidr_status_state" value="frozen" />凍結</label>
+            <label><input type="radio" name="sidr_status_state" value="stone" />石化
+            (<span id="sidr_status_stone_scene">0</span>)</label>
+            <label><input type="radio" name="sidr_status_state" value="curse" />呪い</label>
+            <label><input type="radio" name="sidr_status_state" value="forget" />忘却
+            (<span id="sidr_status_forget_scene">0</span>)</label>
+            <div id="sidr_status_state_desc">－－－</div>
+            </div>
+          </td>
+          <td>
+            <div>
+            STR<br />
+            <input type="button" class="spinner_down" value="-" />
+            <input type="number" id="sidr_status_str" />
+            <input type="button" class="spinner_up" value="+" />
+            ／<span id="sidr_status_str_i"></span>
+            </div>
+            <div>
+            INT<br />
+            <input type="button" class="spinner_down" value="-" />
+            <input type="number" id="sidr_status_int" />
+            <input type="button" class="spinner_up" value="+" />
+            ／<span id="sidr_status_int_i"></span>
+            </div>
+            <div>
+            DEX<br />
+            <input type="button" class="spinner_down" value="-" />
+            <input type="number" id="sidr_status_dex" />
+            <input type="button" class="spinner_up" value="+" />
+            ／<span id="sidr_status_dex_i"></span>
+            </div>
+            <div>
+            KRM<br />
+            <input type="button" class="spinner_down" value="-" />
+            <input type="number" id="sidr_status_krm" />
+            <input type="button" class="spinner_up" value="+" />
+            ／<span id="sidr_status_krm_i"></span>
+            </div>
+          </td>
+          </tr>
+        </table>
+        <div>
+          FREE：<br />
+          <table id="sidr_status_free_list">
+          <tr>
+          <td>
+          <input type="button" class="spinner_down" value="-" />
+          <input type="number" id="sidr_status_free1" />
+          <input type="button" class="spinner_up" value="+" />・
+          <span class="free-label">
+          <br />
+          <span id="sidr_status_free_label1"></span>
+          </span>
+          </td>
+          <td>
+          <input type="button" class="spinner_down" value="-" />
+          <input type="number" id="sidr_status_free2" />
+          <input type="button" class="spinner_up" value="+" />・
+          <span class="free-label">
+            <br />
+            <span id="sidr_status_free_label2"></span>
+          </span>
+          </td>
+          <td>
+          <input type="button" class="spinner_down" value="-" />
+          <input type="number" id="sidr_status_free3" />
+          <input type="button" class="spinner_up" value="+" />
+          <span class="free-label">
+            <br />
+            <span id="sidr_status_free_label3"></span>
+          </span>
+          </td>
+          </tr>
+          </table>
+        </div>
+        <div id="sidr_status_submit" class="sidr_submit">確定</div>
+        <div id="sidr_status_close" class="sidr_close">閉じる</div>
+      </div>`);
+      // ステータスの初期化
+      $('#sidr_status_hp_m', template).text(save_data.chara.hp_m);
+      $('#sidr_status_mp_m', template).text(save_data.chara.mp_m);
+      $('#sidr_status_str_i', template).text(save_data.chara.str_i);
+      $('#sidr_status_int_i', template).text(save_data.chara.int_i);
+      $('#sidr_status_dex_i', template).text(save_data.chara.dex_i);
+      $('#sidr_status_krm_i', template).text(save_data.chara.krm_i);
+      // 状態異常のステータスへの反映（ステータスダイアログ）
+      $('[name="sidr_status_state"]', template).click(function(e) {
+        let delta = that.deltaStatus($(this).val());
+        $('#sidr_status #sidr_status_state_desc').text(delta.state_desc);
+        that.setStateStyle();
+      });
+      // ［+］［-］ボタンでの星の加減算
+      $('.spinner_up', template).click(this.incrementValue());
+      $('.spinner_down', template).click(this.decrementValue());
+      // サイドバーの生成
+      this.createSideBar(
+        'status',
+        template,
+        function() {
+          $('#sidr_status #sidr_status_hp').val(save_data.chara.hp);
+          $('#sidr_status #sidr_status_mp').val(save_data.chara.mp);
+          $('#sidr_status [name="sidr_status_state"]').each(function() {
+            var state = $(this).nsAttr('value');
+            if(state === save_data.chara.state) {
+              $(this).prop('checked', true);
+            } else {
+              $(this).prop('checked', false);
+            }
+          });
+          $('#sidr_status #sidr_status_stone_scene').text(save_data.chara.stone_scene);
+          $('#sidr_status #sidr_status_forget_scene').text(save_data.chara.forget_scene);
+          // 状態異常に応じてスタイルを設定
+          that.setStateStyle();
+          let delta = that.deltaStatus($('[name="sidr_status_state"]:checked').val());
+          $('#sidr_status #sidr_status_state_desc').text(delta.state_desc);
+          $('#sidr_status #sidr_status_free1').val(save_data.chara.free1);
+          $('#sidr_status #sidr_status_free2').val(save_data.chara.free2);
+          $('#sidr_status #sidr_status_free3').val(save_data.chara.free3);
+          // FREE1～3のラベルを設定
+          let flabel = $('init > label', scenario_data);
+          if (flabel) {
+            $('#sidr_status #sidr_status_free_label1').text(flabel.nsAttr('free1'));
+            $('#sidr_status #sidr_status_free_label2').text(flabel.nsAttr('free2'));
+            $('#sidr_status #sidr_status_free_label3').text(flabel.nsAttr('free3'));
+          }
+          $('#sidr_status #sidr_status_str').val(save_data.chara.str);
+          $('#sidr_status #sidr_status_int').val(save_data.chara.int);
+          $('#sidr_status #sidr_status_dex').val(save_data.chara.dex);
+          $('#sidr_status #sidr_status_krm').val(save_data.chara.krm);
 
+        },
+        function() {
+          save_data.chara.hp = $('#sidr_status #sidr_status_hp').val();
+          save_data.chara.mp = $('#sidr_status #sidr_status_mp').val();
+          save_data.chara.free1 = $('#sidr_status #sidr_status_free1').val();
+          save_data.chara.free2 = $('#sidr_status #sidr_status_free2').val();
+          save_data.chara.free3 = $('#sidr_status #sidr_status_free3').val();
+          save_data.chara.str = $('#sidr_status #sidr_status_str').val();
+          save_data.chara.int = $('#sidr_status #sidr_status_int').val();
+          save_data.chara.dex = $('#sidr_status #sidr_status_dex').val();
+          save_data.chara.krm = $('#sidr_status #sidr_status_krm').val();
+          save_data.chara.state = $('#sidr_status [name="sidr_status_state"]:checked').val();
+          Util.saveStorage();
+        }
+      );
     },
+
+    // 魔法発動シートの生成
     createMagicSheet() {
+      // 星の減算処理（magic：魔法情報、index：星番号0～6、name：星の名前）
+      let useStar = function(magic, index, name) {
+        if(magic[index] > 0) {
+          let e_star = $(`#sidr_magic #sidr_magic_${name}`);
+          let num = Number(e_star.val());
+          e_star.val(num - magic[index]);
+        }
+      };
 
+      let template = $(`<div id="sidr_magic" class="sidr_info">
+      <div>
+      MAGIC：<br />
+      <select id="sidr_magic_magic"></select>
+      <input type="button" id="sidr_magic_run" value="Shoot" />
+      </div>
+      <table id="sidr_magic_list">
+        <tr>
+          <td>
+            <div>
+            月
+            <input type="button" class="spinner_down" value="-" />
+            <input type="number" id="sidr_magic_mon" />
+            <input type="button" class="spinner_up" value="+" />
+            </div>
+            <div>
+            火
+            <input type="button" class="spinner_down" value="-" />
+            <input type="number" id="sidr_magic_tue" />
+            <input type="button" class="spinner_up" value="+" />
+            </div>
+            <div>
+            水
+            <input type="button" class="spinner_down" value="-" />
+            <input type="number" id="sidr_magic_wed" />
+            <input type="button" class="spinner_up" value="+" />
+            </div>
+            <div>
+            木
+            <input type="button" class="spinner_down" value="-" />
+            <input type="number" id="sidr_magic_thu" />
+            <input type="button" class="spinner_up" value="+" />  
+            </div>  
+          </td>
+          <td>
+            <div>
+            金
+            <input type="button" class="spinner_down" value="-" />
+            <input type="number" id="sidr_magic_fri" />
+            <input type="button" class="spinner_up" value="+" />
+            </div>
+            <div>
+            土
+            <input type="button" class="spinner_down" value="-" />
+            <input type="number" id="sidr_magic_sat" />
+            <input type="button" class="spinner_up" value="+" />
+            </div>
+            <div>
+            太
+            <input type="button" class="spinner_down" value="-" />
+            <input type="number" id="sidr_magic_sun" />
+            <input type="button" class="spinner_up" value="+" />
+            </div>
+          </td>
+        </tr>
+      </table>
+      <div id="sidr_magic_submit" class="sidr_submit">確定</div>
+      <div id="sidr_magic_close" class="sidr_close">閉じる</div>
+      </div>`);
+      // ［+］ボタンでの星加算
+      $('.spinner_up', template).click(this.incrementValue());
+      // 魔法発動ボタンクリック時に星を減算
+      $('#sidr_magic_run', template).click(function(e) {
+        e.preventDefault();
+        let magic = Common.magic[
+          $('#sidr_magic #sidr_magic_magic').val()];
+        if (!magic) { return; }
+        if($('#sidr_magic #sidr_magic_mon').val() < magic[0] ||
+           $('#sidr_magic #sidr_magic_tue').val() < magic[1] ||
+           $('#sidr_magic #sidr_magic_wed').val() < magic[2] ||
+           $('#sidr_magic #sidr_magic_thu').val() < magic[3] ||
+           $('#sidr_magic #sidr_magic_fri').val() < magic[4] ||
+           $('#sidr_magic #sidr_magic_sat').val() < magic[5] ||
+           $('#sidr_magic #sidr_magic_sun').val() < magic[6]) {
+          window.alert('星が不足しているため、魔法を発動できません！');
+          return;
+        }
+        useStar(magic, 0, 'mon');
+        useStar(magic, 1, 'tue');
+        useStar(magic, 2, 'wed');
+        useStar(magic, 3, 'thu');
+        useStar(magic, 4, 'fri');
+        useStar(magic, 5, 'sat');
+        useStar(magic, 6, 'sun');
+      });
+      // ［+］ボタンでの星加算
+      $('.spinner_up', template).click(this.incrementValue());
+      // サイドバーの生成
+      this.createSideBar(
+        'magic',
+        template,
+        function() {
+          // 魔法ボタンの準備
+          let magic_box = $('#sidr_magic #sidr_magic_magic');
+          magic_box.empty();
+          for (let key in Common.magic) {
+            let magic = Common.magic[key];
+            let option = $('<option></option>')
+              .attr('value', key)
+              .attr('title', magic[8])
+              .text(`${key}（${magic[7]}）`);
+            // 魔法が使えなければ、オプションは無効に
+            if (!Util.canUseMagic(magic)) {
+              option.attr('disabled', 'disabled');
+            }
+            option.appendTo(magic_box);
+          }
+          // 星の設定
+          $('#sidr_magic #sidr_magic_mon').val(save_data.stars[0]);
+          $('#sidr_magic #sidr_magic_tue').val(save_data.stars[1]);
+          $('#sidr_magic #sidr_magic_wed').val(save_data.stars[2]);
+          $('#sidr_magic #sidr_magic_thu').val(save_data.stars[3]);
+          $('#sidr_magic #sidr_magic_fri').val(save_data.stars[4]);
+          $('#sidr_magic #sidr_magic_sat').val(save_data.stars[5]);
+          $('#sidr_magic #sidr_magic_sun').val(save_data.stars[6]);
+        },
+        function() {
+          save_data.stars[0] = $('#sidr_magic #sidr_magic_mon').val();
+          save_data.stars[1] = $('#sidr_magic #sidr_magic_tue').val();
+          save_data.stars[2] = $('#sidr_magic #sidr_magic_wed').val();
+          save_data.stars[3] = $('#sidr_magic #sidr_magic_thu').val();
+          save_data.stars[4] = $('#sidr_magic #sidr_magic_fri').val();
+          save_data.stars[5] = $('#sidr_magic #sidr_magic_sat').val();
+          save_data.stars[6] = $('#sidr_magic #sidr_magic_sun').val();
+          Util.saveStorage();
+        }
+      );
     },
+
+    // ボーナス情報
+    createBonusInfo() {
+      let template = $(`<div id="sidr_bonus" class="sidr_info">
+        <ul id="sidr_bonus_list">
+          <li><img id="gi01" /></li>
+          <li><img id="gi02" /></li>
+          <li><img id="gi03" /></li>
+          <li><img id="gi04" /></li>
+          <li><img id="gi05" /></li>
+          <li><img id="gi06" /></li>
+          <li><img id="gi07" /></li>
+          <li><img id="gi08" /></li>
+          <li><img id="gi09" /></li>
+          <li><img id="gi10" /></li>
+          <li><img id="gi11" /></li>
+          <li><img id="gi12" /></li>
+          <li><img id="gi13" /></li>
+          <li><img id="gi14" /></li>
+          <li><img id="gi15" /></li>
+          <li><img id="gi16" /></li>
+          <li><img id="gi17" /></li>
+          <li><img id="gi18" /></li>
+          <li><img id="gi19" /></li>
+          <li><img id="gi20" /></li>
+          <li><img id="gi21" /></li>
+          <li><img id="gi22" /></li>
+          <li><img id="gi23" /></li>
+          <li><img id="bgi01" /></li>
+          <li><img id="bgi02" /></li>
+          <li><img id="bgi03" /></li>
+          <li><img id="bgi04" /></li>
+          <li><img id="bgi05" /></li>
+        </ul>
+        <div id="sidr_bonus_close" class="sidr_close">閉じる</div>
+      </div>`);
+
+      // テンプレートにアイテム情報を反映
+      // count：アイテムの個数、prefix：gi（Good）、bgi（Bad）
+      let addItemList = function(count, prefix) {
+        let num;
+        for(let i = 1; i <= count; i++) {
+          if(i < 10) {
+            num = `0${i}`;
+          } else {
+            num = i;
+          }
+          num = `${prefix}${num}`;
+          let img = $(`#${num}`, template);
+          if ($.inArray(num, global_save_data.items) !== -1) {
+            img.
+              attr('src', `${ROOT}${COMMON}${num}.png`).
+              attr('class', 'bonus_item');
+          } else {
+            img.
+              attr('src', `${ROOT}${COMMON}gi99.png`);
+          }
+          // 現在適用中のボーナスはハイライト
+          if (save_data.bonus === num) {
+            img.parent().css('background-color', '#7fffd4');
+          }
+        }
+      };
+      // グッドアイテムを一覧表示
+      addItemList(Object.keys(Common.global_items.happy).length, 'gi');
+      // バッドアイテムを一覧表示
+      addItemList(Object.keys(Common.global_items.bad).length, 'bgi');
+      // アイテムクリックで詳細を表示
+      target.parent().on('click', '#sidr_bonus_list img.bonus_item', function(e) {
+        let id = e.target.id;
+        let o_bonus_item;
+        if (id.startsWith('gi')) {
+          o_bonus_item = Common.global_items.happy[id];
+        } else {
+          o_bonus_item = Common.global_items.bad[id];
+        }
+        toastr.success(o_bonus_item.desc, o_bonus_item.name);
+      });
+
+      // サイドバーの生成
+      this.createSideBar(
+        'bonus',
+        template,
+        function() {},
+        function() {}
+      );
+    },
+
+    // 実績情報
+    createResultInfo() {
+      this.createSideBar(
+        'result',
+        `<div id="sidr_result" class="sidr_info">
+          <div id="sidr_result_rate">Rate: 0.0%</div>
+          <table id="sidr_result_list">
+          </table>
+          <div id="sidr_result_close" class="sidr_close">閉じる</div>
+        </div>`,
+        function() {
+          // 実績の数
+          let result_count = 0;
+          // 獲得した実績の数
+          let get_result = 0;
+          let trophy = [ '', 'ノーマル', 'ブロンズ', 'シルバー', 'ゴールド', 'プラチナ' ];
+          let list = $('#sidr_result #sidr_result_list');
+          list.empty();
+          Object.keys(results_map).forEach(function(key){
+            let row;
+            result_count++;
+            if (global_save_data['results'][scenario_code] !== undefined &&            
+              global_save_data['results'][scenario_code].indexOf(key) !== -1) {
+              get_result++;
+              row = `<tr>
+                <td>
+                  <img src="${ROOT}${COMMON}trophy${results_map[key].level}.png"
+                    title="${trophy[results_map[key].level]}" />
+                </td>
+                <td>
+                  <h3>${results_map[key].name}
+                  （Lv.${results_map[key].level}）</h3>
+                  <p>${results_map[key].desc}</p>
+                </td>
+              </tr>`;
+            } else {
+              row = `<tr>
+                <td>
+                  <img src="${ROOT}${COMMON}trophy0.png"
+                    title="実績未達" />
+                </td>
+                <td>
+                  <h3>???????????????</h3>
+                  <p>???????????????</p>
+                </td>
+              </tr>`;
+            }
+            list.append(row);
+          });
+          // 到達度を反映
+          let result_rate = (get_result / result_count * 100).toFixed(1);
+          $('#sidr_result #sidr_result_rate').text(`Rate:${result_rate}%`);
+        },
+        function() {}
+      );
+    },
+
     // すべてのサイドバーを生成
     createAll() {
-      this.createPlayerRankInfo();
       this.createBasicInfo();
+      this.createStatusSheet();
+      this.createMagicSheet();
       this.createItemFlagInfo();
+      this.createResultInfo();
+      this.createBonusInfo();
+      this.createPlayerRankInfo();
+    },
+
+    // すべてのサイドバーをクローズ
+    closeAll() {
+      let bases = ['basic', 'status', 'magic', 'item', 'result', 'bonus', 'rank'];
+      for (let base of bases) {
+        $.sidr('close', `sidr_${base}`);
+      }
+      // バトルシート（別途改定）★
+      $.sidr('close', `sidr`);
     }
   };
 
   // コントロールパネル（New）
   let ControlPanel = {
+    init() {
+      $(`<nav class="main-nav" role="navigation">
+        <!-- Mobile menu toggle button (hamburger/x icon) -->
+        <input id="main-menu-state" type="checkbox" />
+        <label class="main-menu-btn" for="main-menu-state">
+          <span class="main-menu-btn-icon"></span> Toggle main menu visibility
+        </label>
+        
+        <h2 class="nav-brand"><a href="./">
+          <img src="./stext/common/renewal/gamebook_header_text.png"/>
+          <span class="pconly" style="vertical-align: top;">SORCERIAN Text</span>
+        </a></h2>
+        
+        <!-- Sample menu definition -->
+        <ul id="main-menu" class="sm sm-blue">
+          <li><a id="menu_status" href="#">Status</a></li>
+          <li><a id="menu_magic" href="#">Magic</a></li>
+          <li><a href="#">Info</a>
+            <ul>
+              <li><a id="menu_basic">Basic</a></li>
+              <li><a id="menu_item">Item & Flag</a></li>
+              <li><a id="menu_result">Result</a></li>
+              <li><a id="menu_bonus">Bonus</a></li>
+              <li><a id="menu_rank">Player Rank</a></li>
+            </ul>
+          </li>
+          <li><a href="#">System</a>
+            <ul>
+              <li><a id="menu_backup">Backup</a></li>
+              <li><a id="menu_restore">Restore</a><input id="menu_restore_select" type="file" accept=".stext" /></li>
+              <li><a id="menu_audio">Sound</a></li>
+              <li><a href="https://sorcerian.hateblo.jp/entries/2017/12/20">Help</a></li>
+              <li><a href="./">Exit</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>`).insertBefore(target);
+
+      // メニューの制御
+      let mainmenu = $('#main-menu');
+      mainmenu.smartmenus({
+        subMenusSubOffsetX: 1,
+        subMenusSubOffsetY: -8
+      });
+
+      let $mainMenuState = $('#main-menu-state');
+      if ($mainMenuState.length) {
+        // animate mobile menu
+        $mainMenuState.change(function(e) {
+          let $menu = $('#main-menu');
+          if (this.checked) {
+            $menu.hide().slideDown(250, function() { $menu.css('display', ''); });
+          } else {
+            $menu.show().slideUp(250, function() { $menu.css('display', ''); });
+          }
+        });
+        // hide mobile menu beforeunload
+        $(window).bind('beforeunload unload', function() {
+          if ($mainMenuState[0].checked) {
+            $mainMenuState[0].click();
+          }
+        });
+      }
+      // 以上、メニュー本体の制御
+
+      // バックアップの実行
+      target.parent().on('click', '#menu_backup', function() {
+        Util.downloadSavedata(scenario_code, storage[scenario_code]);
+      });
+
+      // リストアの実行（ファイル選択）
+      target.parent().on('click', '#menu_restore', function() {
+        $('#menu_restore_select').click();
+      });
+      // ファイル選択でリストア開始
+      target.parent().on('change', '#menu_restore_select',function() {
+        // 現在のシナリオコードと不一致はエラー
+        if (scenario_code !== this.files[0].name.split('-')[0]) {
+          window.alert('失敗：現在のシナリオ以外のバックアップはUtilityページからリストアしてください。');
+          return;
+        }
+        Util.restoreSaveData(this, function() {
+          window.alert('リストアに成功しました。\nゲームを再起動します。');
+          location.reload();
+        });
+      });
+
+      // オーディオ初期表示
+      $('#menu_audio').text(`Sound（${ global_save_data.bgm ? 'On' : 'Off'}）`);
+      // BGMオンオフ
+      target.parent().on('click', '#menu_audio', function(e) {
+        if(bgm) {
+          if (global_save_data.bgm) {
+            global_save_data.bgm = false;
+            $(this).text('Sound（Off）');
+            bgm.pause();
+          } else {
+            global_save_data.bgm = true;
+            $(this).text('Sound（On）');
+            bgm.play();
+          }
+          Util.saveStorageGlobal();
+        }
+      });
+    }
   };
 
   // ユーティリティ
@@ -1512,6 +2203,7 @@ console.log(that);
 
     // ページ上の構成画面を初期化
     initView() {
+      ControlPanel.init();
       Util.initDialog();
       Util.createCommonTweet();
       PlayerRank.init();
@@ -2315,6 +3007,9 @@ console.log(that);
       // ツイートメッセージを初期化
       tweet_message = null;
 
+      // サイドバーをすべて非表示
+      SideBar.closeAll();
+
       // エンディングフラグが立っている場合は、初期化処理を実行
       if(save_data.isEnded) {
         location.reload(true);
@@ -2955,7 +3650,7 @@ console.log(that);
         // });
       });
 
-      // ボーナスアイテムリストをクリックでアイテムの説明を表示
+      // ボーナスアイテムリストをクリックでアイテムの説明を表示★★★★★
       $(document).on('click', '#bonus_list .item_list img.bonus_item', function(e) {
         var id = e.target.id;
         var o_bonus_item;
@@ -2976,7 +3671,7 @@ console.log(that);
         location.href = 'https://www.web-deli.com/sorcerian/text/';
       });
 
-      // 実績情報を表示（旧リロードボタン）
+      // 実績情報を表示（旧リロードボタン）★★★★★
       target.on('click', '#ctrl_reload', function(e) {
         //$.get(ROOT + COMMON + 'dialog_result.html')
         //.done(function(data) {

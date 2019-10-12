@@ -643,12 +643,98 @@ table.item_list img {
   color: #fff;
 }
 
+/* サイドバー（基本ステ／魔法） */
+.sidr_info input[type="number"],
+.sidr_info select,
+.sidr_info textarea {
+  border-radius: 3px;
+  background-color: #cad4ff;
+  font-size: large;
+}
+
+.sidr_info input[type="number"] {
+  width: 50px;
+}
+
+.sidr_info #sidr_magic_magic {
+  margin-top: 0px;
+  width: 75%;
+}
+
+.sidr_info #sidr_magic_run {
+  margin: 10px;
+  padding: 5px;
+  border: 1px solid #fff;
+  background-color: #aa0022;
+  color: white;
+  text-align: center;
+  width: 15%;
+  height: 25px;
+  cursor: pointer;
+}
+
+.sidr_info #sidr_status_list td,
+.sidr_info #sidr_magic_list td {
+  vertical-align: top;
+  padding: 5px;
+  width: 48%;
+}
+
+.sidr_info #sidr_result_list td {
+  border-collapse: collapse;
+  margin-left: 0;
+  text-align: left;
+  line-height: 1.5;
+  border-bottom: 1px solid #ccc;
+}
+
+.sidr_info #sidr_magic_list td div {
+  margin-bottom: 10px;
+}
+
+.sidr_info #sidr_status_free_list .spinner_down,
+.sidr_info #sidr_status_free_list .spinner_up,
+.sidr_info #sidr_status_free_list input[type="number"] {
+  width: 38px;
+}
+
 /* サイドバー（Items & Flags）*/
 .sidr_info textarea {
   margin-left: 5px;
   margin-right: 5px;
   width: 90%;
   height: 100px;
+}
+
+/* サイドバー（Bonus）*/
+.sidr_info #sidr_bonus_list {
+  background-color: #000;
+  margin: 0px auto;
+  padding: 0px;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.sidr_info #sidr_bonus_list li {
+  list-style: none;
+  border: solid 1px #000;
+  background-color: #fff;
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 0px;
+  flex: 0 0 80px;
+  color: #fff;
+}
+
+.sidr_info #sidr_bonus_list img.bonus_item {
+  cursor: pointer;
+}
+
+.sidr_info #sidr_bonus_list img {
+  width: 100%;
 }
 
 /* サイドバー（PlayerRank） */
@@ -763,4 +849,9 @@ table.item_list img {
   .pconly {
     display: none;
   }
+}
+
+/* メニューバー */
+#main-menu input[type="file"] {
+  display: none;
 }
