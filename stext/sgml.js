@@ -328,7 +328,6 @@
           that.scena_results_all += Number($(this).attr('results'))
         });
         that.calculateExp();
-console.log(that);
       });
     },
     // 現在の実績に応じて経験値を演算
@@ -661,29 +660,28 @@ console.log(that);
           switch (attack) {
             case 'physics' :
               save_data.chara.hp = Number(save_data.chara.hp) - damage;
-              t_msg = 'HPに' + damage + 'のダメージ！（現在値：' + save_data.chara.hp + '）' ;
+              t_msg = `HPに${damage}のダメージ！（現在値：${save_data.chara.hp}）` ;
               break;
             case 'magic' :
               save_data.chara.mp = Number(save_data.chara.mp) - damage;
-              t_msg = 'MPに' + damage + 'のダメージ！（現在値：' + save_data.chara.mp + '）' ;
+              t_msg = `MPに${damage}のダメージ！（現在値：${save_data.chara.mp}）` ;
               break;
             case 'both' :
               save_data.chara.hp = Number(save_data.chara.hp) - damage;
               save_data.chara.mp = Number(save_data.chara.mp) - damage;
-              t_msg = 'HP/MPに' + damage + 'のダブルダメージ！（現在値hp/mp：' + save_data.chara.hp +
-                '/' + save_data.chara.mp + '）' ;
+              t_msg = `HP/MPに${damage}のダブルダメージ！（現在値hp/mp：${save_data.chara.hp}/${save_data.chara.mp}）` ;
               break;
             case 'free1' :
               save_data.chara.free1 = Number(save_data.chara.free1) - damage;
-              t_msg = 'FREE1に' + damage + 'のダメージ！（現在値：' + save_data.chara.free1 + '）' ;
+              t_msg = `FREE1に${damage}のダメージ！（現在値：${save_data.chara.free1}）` ;
               break;
             case 'free2' :
               save_data.chara.free2 = Number(save_data.chara.free2) - damage;
-              t_msg = 'FREE2に' + damage + 'のダメージ！（現在値：' + save_data.chara.free2 + '）' ;
+              t_msg = `FREE2に${damage}のダメージ！（現在値：${save_data.chara.free2}）` ;
               break;
             case 'free3' :
               save_data.chara.free3 = Number(save_data.chara.free3) - damage;
-              t_msg = 'FREE3に' + damage + 'のダメージ！（現在値：' + save_data.chara.free3 + '）' ;
+              t_msg = `FREE3に${damage}のダメージ！（現在値：${save_data.chara.free3}）` ;
               break;
             default :
               break;
@@ -708,7 +706,7 @@ console.log(that);
           Util.updateStarById(drops[0], drops[1]);
           toastr.options.timeOut = 5000;
           toastr.info(
-            Common.star_names[drops[0]] + 'の欠片を' + drops[1] + '個取得しました。',
+            `${Common.star_names[drops[0]]}の欠片を${drops[1]}個取得しました。`,
             'アイテム獲得'
           );
         } else {
@@ -719,7 +717,7 @@ console.log(that);
           Util.updateFrees(at_free1, at_free2, at_free3);
           toastr.options.timeOut = 5000;
           toastr.info(
-            drops[2] + 'を取得しました。',
+            `${drops[2]}を取得しました。`,
             'アイテム獲得'
           );
         }
@@ -770,46 +768,124 @@ console.log(that);
             for (let key of enemies) {
               let enemy = enemies_map[key];
               let atk = Common.state_names[enemy.attack];
-    
-              let row = `<tr class="enemy_row" data-enemy="${key}">`;
-              if (enemies.length > 1) {
-                row += `<td>
+
+              let row = $(`<tr class="enemy_row" data-enemy="${key}">
+                <td>
                   <input type="checkbox" class="enemy_check" />
-                </td>`;
-                $('#check_cell').show();
-              } else {
-                $('#check_cell').hide();
+                </td>
+                <th>
+                  <img class="enemy_elem" />　
+                  ${enemy.name}
+                </th>
+                <td>
+                  <img class="enemy_attack" />　
+                  <span class="enemy_attack_old"></span>
+                </td>
+                <td>
+                  <div class="enemy_func"></div>
+                  <span class="enemy_func_old"></span>
+                </td>
+                <td>
+                  <input type="button" class="enemy_drop" />
+                  <span class="enemy_drop_old"></span>
+                </td>
+              </tr>`);
+              if (enemies.length === 1) {
+                $('.enemy_check', row).hide();
               }
-              row += `<th>`;
               if(enemy.element) {
-                row += `<img src="${ROOT}${COMMON}attr_${enemy.element}.png" title="${ Common.element_names[enemy.element] } + '" />　`;
+                $('.enemy_elem', row)
+                  .attr({
+                    src: `${ROOT}${COMMON}attr_${enemy.element}.png`,
+                    title: Common.element_names[enemy.element]
+                  });
               } else {
-                row += `<img src="${ROOT}${COMMON}attr_none.png" title="無" />　`;
+                $('.enemy_elem', row)
+                  .attr({
+                    src: `${ROOT}${COMMON}attr_none.png`,
+                    title: '無'
+                  });
               }
-              row += `${enemy.name}</th><td>`;
               if (atk) {
-                row += '<img src="' + ROOT + COMMON + 'atk_' + enemy.attack + '.png" title="' + atk + '" /></a>　';
+                $('.enemy_attack', row).attr({
+                  src: `${ROOT}${COMMON}atk_${enemy.attack}.png`,
+                  title: atk
+                });
+                 $('.enemy_attack_old', row).hide();
               } else {
-                row += enemy.attack;
+                 $('.enemy_attack', row).hide();
+                 $('.enemy_attack_old', row).text(enemy.attack);
               }
-              row += '</td><td>';
               if(enemy.func) {
                 if (enemy.func.indexOf('*') === 0) {
-                  row += Util.selectFunc(enemy.func.substring(1));
+                  $('.enemy_func', row).hide();
+                  $('.enemy_func_old', row).text(
+                    Util.selectFunc(enemy.func.substring(1))
+                  );
                 } else {
                   let tmp_func = Util.selectFunc(enemy.func);
-                  // 改行対応で「>」の前に空白を挿入
-                  row += `<div class="enemy_func" data-func="${tmp_func}" data-attack="${enemy.attack}">${tmp_func}</div>`;
+                  $('.enemy_func', row)
+                    .attr({
+                      'data-func': tmp_func,
+                      'data-attack': enemy.attack,
+                    })
+                    .text(tmp_func);
+                  $('.enemy_func_old', row).hide();
                 }
+              } else {
+                $('.enemy_func', row).hide();
+                $('.enemy_func_old', row).hide();
               }
-              row += `</td><td>`;
               let tmp_d = Util.dropItem(enemy); 
               if (tmp_d.name) {
-                row += `<input type="button" class="enemy_drop" value="${tmp_d.name}" data-drop="${tmp_d.drop}" />`;
+                $('.enemy_drop', row)
+                  .val(tmp_d.name)
+                  .attr('data-drop', tmp_d.drop)
+                $('.enemy_drop_old', row).hide();
               } else {
-                row += `－`;
+                $('.enemy_drop', row).hide();
               }
-              row += `</td></tr>`;
+
+
+              // let row = `<tr class="enemy_row" data-enemy="${key}">`;
+              // if (enemies.length > 1) {
+              //   row += `<td>
+              //     <input type="checkbox" class="enemy_check" />
+              //   </td>`;
+              //   $('#check_cell').show();
+              // } else {
+              //   $('#check_cell').hide();
+              // }
+              // row += `<th>`;
+              // if(enemy.element) {
+              //   row += `<img src="${ROOT}${COMMON}attr_${enemy.element}.png" title="${ Common.element_names[enemy.element] } + '" />　`;
+              // } else {
+              //   row += `<img src="${ROOT}${COMMON}attr_none.png" title="無" />　`;
+              // }
+              // row += `${enemy.name}</th><td>`;
+              // if (atk) {
+              //   row += '<img src="' + ROOT + COMMON + 'atk_' + enemy.attack + '.png" title="' + atk + '" /></a>　';
+              // } else {
+              //   row += enemy.attack;
+              // }
+              // row += '</td><td>';
+              // if(enemy.func) {
+              //   if (enemy.func.indexOf('*') === 0) {
+              //     row += Util.selectFunc(enemy.func.substring(1));
+              //   } else {
+              //     let tmp_func = Util.selectFunc(enemy.func);
+              //     // 改行対応で「>」の前に空白を挿入
+              //     row += `<div class="enemy_func" data-func="${tmp_func}" data-attack="${enemy.attack}">${tmp_func}</div>`;
+              //   }
+              // }
+              // row += `</td><td>`;
+              // let tmp_d = Util.dropItem(enemy); 
+              // if (tmp_d.name) {
+              //   row += `<input type="button" class="enemy_drop" value="${tmp_d.name}" data-drop="${tmp_d.drop}" />`;
+              // } else {
+              //   row += `－`;
+              // }
+              // row += `</td></tr>`;
               enemy_list.append(row);
             }
             $('#sidr_battle table.enemy').show();
