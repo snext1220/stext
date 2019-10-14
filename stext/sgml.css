@@ -706,6 +706,12 @@ table.item_list img {
   height: 100px;
 }
 
+/* サイドバー（Battle） */
+#sidr_battle #cubes {
+  display: block;
+  height: 53px;
+}
+
 /* サイドバー（Bonus）*/
 .sidr_info #sidr_bonus_list {
   background-color: #000;
