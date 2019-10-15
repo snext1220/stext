@@ -541,6 +541,87 @@
       }
     },
 
+    // 魔法の実行処理（magic_id：魔法コード）
+    runMagic(magic_id) {
+      let msg;
+      switch(magic_id) {
+        case 'HEAL':
+          Util.updateHpMp('15', undefined);
+          msg = 'HPが15回復した！';
+          break;
+        case 'PEACE':
+          Util.updateHpMp(undefined, '10');
+          msg = 'MPが10回復した！';
+          break;
+        case 'CURE':
+          Util.updateState('-poison');
+          msg = '毒を解除した！';
+          break;
+        case 'MELT':
+          Util.updateState('-frozen');
+          msg = '凍結を解除した！';
+          break;
+        case 'STONE-FLESH':
+          Util.updateState('-stone');
+          msg = '石化を解除した！';
+          break;
+        case 'UN-CURCE':
+          Util.updateState('-curse');
+          msg = '呪いを解除した！';
+          break;
+        case 'AIR-HAND':
+          Util.updateState('-forget');
+          msg = '忘却を解除した！';
+          break;
+        case 'RESURRECT':
+          Util.updateHpMp('half', 'half');
+          msg = '復活に成功した！ただし、HP/MPともに上限の半分となった。';
+          break;
+        case 'REDUCE-LIFE':
+          Util.updateHpMp('-25', undefined);
+          Util.updateState('-all');
+          msg = '状態異常を解除した。';
+          break;
+        case 'REJUVENATE':
+          msg = '直前の判定を一度だけリトライしても良い。';
+          break;
+        case 'PROTECT':
+          msg = '物理ダメージを半減できる。ダメージ式上のボックスを「1/2」に設定せよ。';
+          break;
+        case 'HOLY-WATER':
+          msg = '魔法ダメージを半減できる。ダメージ式上のボックスを「x1/2」に設定せよ。';
+          break;
+        case 'CHANGE-AIR':
+          msg = '本シーンの戦闘をすべて回避できる（ボス戦闘を除く）。';
+          break;
+        case 'GIVE-VIGOR':
+          msg = '敵の攻撃力が2倍になる。ダメージ式上のボックスを「x2」に設定せよ。また、勝利時はドロップアイテムボタンを2回押すこと。';
+          break;
+        case 'EXPLOSION':
+          msg = '地属性の敵は全滅した。ダメージボタンを押さずに、ドロップアイテムボックスを押して良い。';
+          break;
+        case 'DELUGE':
+          msg = '火属性の敵は全滅した。ダメージボタンを押さずに、ドロップアイテムボックスを押して良い。';
+          break;
+        case 'FREEZE':
+          msg = '水属性の敵は全滅した。ダメージボタンを押さずに、ドロップアイテムボックスを押して良い。';
+          break;
+        case 'DESTROY-A':
+          msg = '風属性の敵は全滅した。ダメージボタンを押さずに、ドロップアイテムボックスを押して良い。';
+          break;
+        case 'LIGHT-CROSS':
+          msg = '霊属性の敵は全滅した。ダメージボタンを押さずに、ドロップアイテムボックスを押して良い。';
+          break;
+        case 'NOILA-TEM':
+          msg = '全属性の敵が全滅した。ダメージボタンを押さずに、ドロップアイテムボックスを押して良い。';
+          break;
+        default:
+          throw new Error('魔法の指定が間違っています。');
+      };
+      toastr.success(msg, '魔法の行使');
+      Util.saveStorage();
+    },
+
     // サイドバーの生成（基本）
     createSideBar(base, template, onOpen, onSubmit) {
       let s_name = `sidr_${base}`;
@@ -1239,12 +1320,14 @@
           save_data.chara.krm = $('#sidr_status #sidr_status_krm').val();
           save_data.chara.state = $('#sidr_status [name="sidr_status_state"]:checked').val();
           Util.saveStorage();
+          that.showSimpleStatus();
         }
       );
     },
 
     // 魔法発動シートの生成
     createMagicSheet() {
+      let that = this;
       // 星の減算処理（magic：魔法情報、index：星番号0～6、name：星の名前）
       let useStar = function(magic, index, name) {
         if(magic[index] > 0) {
@@ -1318,8 +1401,8 @@
       // 魔法発動ボタンクリック時に星を減算
       $('#sidr_magic_run', template).click(function(e) {
         e.preventDefault();
-        let magic = Common.magic[
-          $('#sidr_magic #sidr_magic_magic').val()];
+        let magic_id = $('#sidr_magic #sidr_magic_magic').val();
+        let magic = Common.magic[magic_id];
         if (!magic) { return; }
         if($('#sidr_magic #sidr_magic_mon').val() < magic[0] ||
            $('#sidr_magic #sidr_magic_tue').val() < magic[1] ||
@@ -1338,6 +1421,10 @@
         useStar(magic, 4, 'fri');
         useStar(magic, 5, 'sat');
         useStar(magic, 6, 'sun');
+        // 魔法を自動処理
+        that.runMagic(magic_id);
+        $('#sidr_magic #sidr_magic_submit').click();
+        that.showSimpleStatus();
       });
       // ［+］ボタンでの星加算
       $('.spinner_up', template).click(this.incrementValue());
@@ -2230,6 +2317,8 @@
         // full指定で全快
         if (at_hp === 'full') {
           save_data.chara.hp = save_data.chara.hp_m;
+        } else if (at_hp === 'half') {
+          save_data.chara.hp = Math.floor(save_data.chara.hp_m / 2);
         } else {
           // 「-5..-1」で-5～-1の意味
           var hp = at_hp.split('..');
@@ -2248,6 +2337,8 @@
         // full指定で全快
         if (at_mp === 'full') {
           save_data.chara.mp = save_data.chara.mp_m;
+        } else if (at_mp === 'half') {
+          save_data.chara.mp = Math.floor(save_data.chara.mp_m / 2);
         } else {
           // 「-5..-1」で-5～-1の意味
           var mp = at_mp.split('..');
@@ -2339,6 +2430,25 @@
         } else {
           save_data.chara.free3 = Number(save_data.chara.free3) + Number(at_free3);
         }
+      }
+    },
+
+    // @state属性（at_state）の値に応じて、状態異常を更新
+    updateState: function(at_state) {
+      if (!at_state) { return; }
+      if (at_state.indexOf('-') === 0) {
+        let state = at_state.substring(1);
+        if (state === 'all') {
+          // 無条件解除
+          save_data.chara.state = '';
+        } else {
+          // 現在指定の異常の場合のみ解除
+          if (save_data.chara.state === state) {
+            save_data.chara.state = '';
+          }
+        }
+      } else {
+        save_data.chara.state = at_state;
       }
     },
 
@@ -3411,11 +3521,12 @@
         // 現在のシーンのフラグ情報／アイテム／Free欄／実績情報を反映
         Util.updateItems(scene.nsAttr('items'));
         Util.updateFlags(scene.nsAttr('flags'));
-        Util.updateStates();
         Util.updateStars(scene.nsAttr('stars'));
         Util.updateHpMp(scene.nsAttr('hp'), scene.nsAttr('mp'));
         Util.updateStr2Krm(scene.nsAttr('str'), scene.nsAttr('int'), scene.nsAttr('dex'), scene.nsAttr('krm'));
         Util.updateFrees(scene.nsAttr('free1'), scene.nsAttr('free2'), scene.nsAttr('free3'));
+        Util.updateState(scene.nsAttr('state'));
+        Util.updateStates();
         Util.updateResults(scene.nsAttr('result'));
 
         // 現在のシーン番号を保存
@@ -3536,6 +3647,7 @@
       // // 共通ルールの表示
       // $('<div id="common_rule"></div>').appendTo('#sidr');
       // Util.showRuleText(scene.nsAttr('rule'));
+      SideBar.showSimpleStatus();
 
       // デバッグモードが有効の場合、デバッグウィンドウを表示
       if(debug_mode) {
