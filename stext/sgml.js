@@ -552,11 +552,11 @@
         displace: false,
         onOpen: onOpen
       });
-      $(`#${s_name}_submit`).click(function() {
+      target.parent().on('click', `#${s_name}_submit`, function() {
         onSubmit();
         $.sidr('close', s_name);
       });
-      $(`#${s_name}_close`).click(function() {
+      target.parent().on('click', `#${s_name}_close`, function() {
         $.sidr('close', s_name);
       });
     },
@@ -608,14 +608,14 @@
       </div>`);
 
       // 敵一覧をクリックで詳細情報を表示
-      $(target).parent().on('click', '#sidr_battle tr.enemy_row', function(e) {
+      target.parent().on('click', '#sidr_battle tr.enemy_row', function(e) {
         let enemy = enemies_map[$(this).nsAttr('data-enemy')];
         toastr.options.timeOut = 5000;
         toastr.info(enemy.desc, enemy.name);
       });
 
       // 敵撃破チェックでのイベント抑止
-      $(target).parent().on('click', '#sidr_battle input.enemy_check', function(e) {
+      target.parent().on('click', '#sidr_battle input.enemy_check', function(e) {
         e.stopImmediatePropagation();
       });
 
@@ -736,7 +736,7 @@
         setTimeout(rotateCube, 50);
       };
       // サイコロをリロード
-      $(target).parent().on('click', '#sidr_battle #cubes', function(e) {
+      target.parent().on('click', '#sidr_battle #cubes', function(e) {
         ad.play();
         rotate_count = 1;
         rotateCube();
@@ -1545,8 +1545,6 @@
       for (let base of bases) {
         $.sidr('close', `sidr_${base}`);
       }
-      // バトルシート（別途改定）★
-      $.sidr('close', `sidr`);
     }
   };
 
@@ -1600,7 +1598,8 @@
       let $mainMenuState = $('#main-menu-state');
       if ($mainMenuState.length) {
         // animate mobile menu
-        $mainMenuState.change(function(e) {
+        target.parent().on('change', '#main-menu-state', function(e) {
+        //$mainMenuState.change(function(e) {
           let $menu = $('#main-menu');
           if (this.checked) {
             $menu.hide().slideDown(250, function() { $menu.css('display', ''); });
