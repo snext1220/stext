@@ -1561,7 +1561,7 @@
         </label>
         
         <h2 class="nav-brand"><a href="./">
-          <img src="./stext/common/renewal/gamebook_header_text.png"/>
+          <img src="./stext/common/gamebook_header_text.png"/>
           <span class="pconly" style="vertical-align: top;">SORCERIAN Text</span>
         </a></h2>
         
