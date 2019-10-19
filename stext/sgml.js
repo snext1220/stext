@@ -225,6 +225,117 @@
   toastr.options.hideDuration = 1000;
   toastr.options.timeOut = 5000;
 
+  // ボーナス情報
+  let Bonus = {
+    initBonusStatus() {
+      let msg;
+      if (save_data.bonus) {
+        if (save_data.bonus.indexOf('bgi') === 0) {
+          msg = Common.global_items.bad[save_data.bonus];
+        } else {
+
+          msg = Common.global_items.happy[save_data.bonus];
+        }
+        toastr.info(msg.desc, 'シナリオボーナス');
+      }
+
+      switch(save_data.bonus) {
+        case 'gi01':
+          Util.updateStarById('mon', 5);
+          break;
+        case 'gi02':
+          Util.updateStarById('tue', 5);
+          break;
+        case 'gi03':
+          Util.updateStarById('wed', 5);
+          break;
+        case 'gi04':
+          Util.updateStarById('thu', 5);
+          break;
+        case 'gi05':
+          Util.updateStarById('fri', 5);
+          break;
+        case 'gi06':
+          Util.updateStarById('sat', 5);
+          break;
+        case 'gi07':
+          Util.updateStarById('sun', 5);
+          break;
+        case 'gi23':
+          Util.updateStarById('mon', 1);
+          Util.updateStarById('tue', 1);
+          Util.updateStarById('wed', 1);
+          Util.updateStarById('thu', 1);
+          Util.updateStarById('fri', 1);
+          Util.updateStarById('sat', 1);
+          Util.updateStarById('sun', 1);
+          break;
+        // case 'bgi03':
+        //   Util.updateState('curse');
+        //   break;
+        // case 'bgi04':
+        //   Util.updateState('poison');
+        //   break;
+        // case 'bgi05':
+        //   Util.updateState('forget');
+        //   break;
+      }
+    // 'gi01' : { name: '金の卵', desc: '月の欠片を5個所有した状態で冒険を開始' },
+    // 'gi02' : { name: 'ガラティーン', desc: '火星の欠片を5個所有した状態で冒険を開始' },
+    // 'gi03' : { name: '五元素のマント', desc: '水星の欠片を5個所有した状態で冒険を開始' },
+    // 'gi04' : { name: 'アマゾンの剣', desc: '木星の欠片を5個所有した状態で冒険を開始' },
+    // 'gi05' : { name: '幸福のコイン', desc: '金星の欠片を5個所有した状態で冒険を開始' },
+    // 'gi06' : { name: 'ムラサメブレード', desc: '土星の欠片を5個所有した状態で冒険を開始' },
+    // 'gi07' : { name: 'G・スレイヤー', desc: '太陽の欠片を5個所有した状態で冒険を開始' },
+    // 'gi12' : { name: '不老長寿の水', desc: '冒険中に一度だけHPを半分回復できる' },
+    // 'gi13' : { name: 'タリスマン', desc: '冒険中に一度だけMPを半分回復できる' },
+    // 'gi23' : { name: 'D・スレイヤー', desc: 'すべての星を1個所有した状態で冒険を開始' },
+    // 'bgi03' : { name: '血まみれの斧', desc: '冒険開始時に呪い。解除で3回まで星消費せず魔法発動可' },
+    // 'bgi04' : { name: 'トリカブト', desc: '冒険開始時に毒。但し、解除までシーン毎にMPを1回復' },
+    // 'bgi05' : { name: 'ギャルのパンティー', desc: '冒険開始時に忘却。解除までSTR/INT0でない方を10' },
+
+    },
+
+    // シーン単位のボーナス更新
+    updateStatusByBonus() {
+    // 'gi08' : { name: '水晶の剣', desc: '左サイコロが5以上の時、そのシーンでHPを1回復' },
+    // 'gi09' : { name: '王様の杖', desc: '左サイコロが5以上の時、そのシーンでMPを1回復' },
+    // 'bgi01' : { name: '塩酸', desc: 'シーン毎にダイス合計が5未満でHPを1減算、5以上でMPを1回復' },
+    // 'bgi02' : { name: '紅玉', desc: 'シーン毎にダイス合計が5未満でMPを1減算、5以上でHPを1回復' },
+    },
+
+    adjustBattleDamage() {
+    // 'gi10' : { name: 'ブルーリボン', desc: '戦闘ダメージを1減算' },
+    // 'gi11' : { name: '王家のダイヤモンド', desc: '罠ダメージを1減算' },
+    // 'gi14' : { name: '鏡の盾', desc: 'HPダメージを1減算' },
+    // 'gi15' : { name: '銀の竪琴', desc: 'MPダメージを1減算' },
+    // 'gi16' : { name: 'パンドラの箱', desc: '右サイコロが4以上の時、戦闘回避が可能' },
+    // 'gi17' : { name: '魔法の絨毯', desc: '右サイコロが5以上の時、罠回避' },
+    },
+
+
+    // ボーナス耐性と引数state（設定する状態異常）とが等しい場合、設定不可
+    guardState(state) {
+      let data = {
+        gi18: 'poison',
+        gi19: 'curse',
+        gi20: 'frozen',
+        gi21: 'stone',
+        gi22: 'forget'
+      };
+      if (state === data[save_data.bonus]) {
+        return false;
+      }
+      return true;
+
+    // 'gi18' : { name: '中和剤', desc: '毒耐性' },
+    // 'gi19' : { name: '聖水', desc: '呪い耐性' },
+    // 'gi20' : { name: 'チルドの実', desc: '凍結耐性' },
+    // 'gi21' : { name: '銀のハーモニカ', desc: '石化耐性' },
+    // 'gi22' : { name: '真実の鏡', desc: '忘却耐性' },
+    }
+  };
+
   // プレイヤーランク情報
   let PlayerRank = {
     // レベル別ポイント
@@ -726,11 +837,12 @@
               '状態異常'
             );
           } else {
-            save_data.chara.state = attack;
-            toastr.error(
-              '「' + Common.state_names[attack] + '」を受けた！',
-              '状態異常'
-            );
+            if(Util.updateState(attack)) {
+              toastr.error(
+                '「' + Common.state_names[attack] + '」を受けた！',
+                '状態異常'
+              );
+            }
           }
         } else {
           // physics／magicの場合、ダメージ式の解析
@@ -1318,7 +1430,8 @@
           save_data.chara.int = $('#sidr_status #sidr_status_int').val();
           save_data.chara.dex = $('#sidr_status #sidr_status_dex').val();
           save_data.chara.krm = $('#sidr_status #sidr_status_krm').val();
-          save_data.chara.state = $('#sidr_status [name="sidr_status_state"]:checked').val();
+          Util.updateState($('#sidr_status [name="sidr_status_state"]:checked').val());
+          //save_data.chara.state = $('#sidr_status [name="sidr_status_state"]:checked').val();
           Util.saveStorage();
           that.showSimpleStatus();
         }
@@ -2448,8 +2561,15 @@
           }
         }
       } else {
-        save_data.chara.state = at_state;
+        if (Bonus.guardState(at_state)) {
+          save_data.chara.state = at_state;
+        } else {
+          let name = Common.state_names[at_state];
+          toastr.warning(`${name}耐性が作動！${name}を防いだ！！`, 'シナリオボーナス');
+          return false;
+        }
       }
+      return true;
     },
 
     // @result属性（at_result）の値に応じて、グローバルセーブデータのresultsプロパティを更新
@@ -2698,6 +2818,7 @@
       Util.createCommonTweet();
       PlayerRank.init();
       SideBar.createAll();
+      Bonus.initBonusStatus();
     },
 
     // シナリオデータを初期化

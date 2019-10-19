@@ -1,4 +1,4 @@
-# jQuery SGML（Sorcerian Gamebook Markup Language）plugin
+# SORCERIAN Text (Web-based Gamebook Engine)
 
 Automatically generate game books from scenario data.
 
