@@ -55,8 +55,15 @@ h5#scenario_title {
   margin-top: 10px;
 }
 
+/* ボーナスメッセージ */
+.bonus_msg {
+  background-color: Yellow;
+  color: Red;
+  font-size: larger;
+}
+
 /* コントロールパネル */
-#control_panel {
+/* #control_panel {
   margin: 0 auto;
   width: 98%;
 }
@@ -70,10 +77,10 @@ h5#scenario_title {
 
 #control_panel input[type="file"] {
   display: none;
-}
+} */
 
 /* コンテキストメニュー */
-.cxt {
+/* .cxt {
   position: absolute;
   display: none;
   z-index: 99;
@@ -96,7 +103,7 @@ h5#scenario_title {
 .cxt li.sep {
   border-bottom-width: 2px;
   border-bottom-style: solid;
-}
+} */
 
 table.enemy {
   width: 100%;
@@ -782,13 +789,19 @@ table.item_list img {
 }
 
 .sidr_list_noline {
-  width: 100%;
+  width: 90%;
   margin-top: 10px;
   margin-bottom: 30px;
 }
 
-.sidr_list th,
 .sidr_list_noline th {
+  color: #f90;
+  font-weight: bold;
+  font-size: large;
+  text-align: right;
+}
+
+.sidr_list th {
   color: #0fc;
 }
 

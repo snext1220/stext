@@ -175,36 +175,36 @@
     // シナリオクリア時に入手できるアイテム
     global_items: {
       'happy' : {
-        'gi01' : { name: '金の卵', desc: '月の欠片を5個所有した状態で冒険を開始' },
-        'gi02' : { name: 'ガラティーン', desc: '火星の欠片を5個所有した状態で冒険を開始' },
-        'gi03' : { name: '五元素のマント', desc: '水星の欠片を5個所有した状態で冒険を開始' },
-        'gi04' : { name: 'アマゾンの剣', desc: '木星の欠片を5個所有した状態で冒険を開始' },
-        'gi05' : { name: '幸福のコイン', desc: '金星の欠片を5個所有した状態で冒険を開始' },
-        'gi06' : { name: 'ムラサメブレード', desc: '土星の欠片を5個所有した状態で冒険を開始' },
-        'gi07' : { name: 'G・スレイヤー', desc: '太陽の欠片を5個所有した状態で冒険を開始' },
-        'gi08' : { name: '水晶の剣', desc: '左サイコロが5以上の時、そのシーンでHPを1回復' },
-        'gi09' : { name: '王様の杖', desc: '左サイコロが5以上の時、そのシーンでMPを1回復' },
-        'gi10' : { name: 'ブルーリボン', desc: '戦闘ダメージを1減算' },
-        'gi11' : { name: '王家のダイヤモンド', desc: '罠ダメージを1減算' },
-        'gi12' : { name: '不老長寿の水', desc: '冒険中に一度だけHPを半分回復できる' },
-        'gi13' : { name: 'タリスマン', desc: '冒険中に一度だけMPを半分回復できる' },
-        'gi14' : { name: '鏡の盾', desc: 'HPダメージを1減算' },
-        'gi15' : { name: '銀の竪琴', desc: 'MPダメージを1減算' },
-        'gi16' : { name: 'パンドラの箱', desc: '右サイコロが4以上の時、戦闘回避が可能' },
-        'gi17' : { name: '魔法の絨毯', desc: '右サイコロが5以上の時、罠回避' },
-        'gi18' : { name: '中和剤', desc: '毒耐性' },
-        'gi19' : { name: '聖水', desc: '呪い耐性' },
-        'gi20' : { name: 'チルドの実', desc: '凍結耐性' },
-        'gi21' : { name: '銀のハーモニカ', desc: '石化耐性' },
-        'gi22' : { name: '真実の鏡', desc: '忘却耐性' },
-        'gi23' : { name: 'D・スレイヤー', desc: 'すべての星を1個所有した状態で冒険を開始' },
+        'gi01' : { name: '金の卵', desc: '月の欠片を5個所有した状態で冒険を開始する' },
+        'gi02' : { name: 'ガラティーン', desc: '火星の欠片を5個所有した状態で冒険を開始する' },
+        'gi03' : { name: '五元素のマント', desc: '水星の欠片を5個所有した状態で冒険を開始する' },
+        'gi04' : { name: 'アマゾンの剣', desc: '木星の欠片を5個所有した状態で冒険を開始する' },
+        'gi05' : { name: '幸福のコイン', desc: '金星の欠片を5個所有した状態で冒険を開始する' },
+        'gi06' : { name: 'ムラサメブレード', desc: '土星の欠片を5個所有した状態で冒険を開始する' },
+        'gi07' : { name: 'G・スレイヤー', desc: '太陽の欠片を5個所有した状態で冒険を開始する' },
+        'gi08' : { name: '水晶の剣', desc: '30％の確率でシーンごとにHPを1回復する', type: 'status' },
+        'gi09' : { name: '王様の杖', desc: '30％の確率でシーンごとにMPを1回復する', type: 'status' },
+        'gi10' : { name: 'ブルーリボン', desc: '冒険開始時にSTRを1加算する' },
+        'gi11' : { name: '王家のダイヤモンド', desc: '冒険開始時にINTを1加算する' },
+        'gi12' : { name: '不老長寿の水', desc: '冒険中に一度だけHPを半分回復しても良い', type: 'status' },
+        'gi13' : { name: 'タリスマン', desc: '冒険中に一度だけMPを半分回復しても良い', type: 'status' },
+        'gi14' : { name: '鏡の盾', desc: '戦闘時のHPダメージが1減算される', type: 'battle' },
+        'gi15' : { name: '銀の竪琴', desc: '戦闘時のMPダメージが1減算される', type: 'battle' },
+        'gi16' : { name: 'パンドラの箱', desc: '右サイコロが4以上の時、戦闘を回避しても良い（ただし、アイテムは入手できない）', type: 'battle' },
+        'gi17' : { name: '魔法の絨毯', desc: '右サイコロが6の時、戦闘を回避できる（アイテムも入手可）', type: 'battle' },
+        'gi18' : { name: '中和剤', desc: '毒耐性', type: 'status' },
+        'gi19' : { name: '聖水', desc: '呪い耐性', type: 'status' },
+        'gi20' : { name: 'チルドの実', desc: '凍結耐性', type: 'status' },
+        'gi21' : { name: '銀のハーモニカ', desc: '石化耐性', type: 'status' },
+        'gi22' : { name: '真実の鏡', desc: '忘却耐性', type: 'status' },
+        'gi23' : { name: 'D・スレイヤー', desc: 'すべての星を1個所有した状態で冒険を開始する' },
       },
       'bad' : {
-        'bgi01' : { name: '塩酸', desc: 'シーン毎にダイス合計が5未満でHPを1減算、5以上でMPを1回復' },
-        'bgi02' : { name: '紅玉', desc: 'シーン毎にダイス合計が5未満でMPを1減算、5以上でHPを1回復' },
-        'bgi03' : { name: '血まみれの斧', desc: '冒険開始時に呪い。解除で3回まで星消費せず魔法発動可' },
-        'bgi04' : { name: 'トリカブト', desc: '冒険開始時に毒。但し、解除までシーン毎にMPを1回復' },
-        'bgi05' : { name: 'ギャルのパンティー', desc: '冒険開始時に忘却。解除までSTR/INT0でない方を10' },
+        'bgi01' : { name: '塩酸', desc: 'シーンごとに30％の確率でHP1ダメージ、40％の確率でMPを1回復する', type: 'status' },
+        'bgi02' : { name: '紅玉', desc: 'シーンごとに30％の確率でMP1ダメージ、40％の確率でHPを1回復する', type: 'status' },
+        'bgi03' : { name: '血まみれの斧', desc: '冒険開始時に呪い。ただし、解除後に3回まで星消費せず攻撃魔法を利用できる', type: 'magic' },
+        'bgi04' : { name: 'トリカブト', desc: '冒険開始時に毒。ただし、解除まで魔法ダメージを半減できる', type: 'battle' },
+        'bgi05' : { name: 'ギャルのパンティー', desc: '冒険開始時に忘却。ただし、解除時に0になっていたステータスを+1できる', type: 'status' },
       }
     },
 
@@ -238,7 +238,9 @@
         }
         toastr.info(msg.desc, 'シナリオボーナス');
       }
-
+      // ボーナスメッセージの設定
+      this.setBonusMessage();
+      // シーン開始時のボーナス適用
       switch(save_data.bonus) {
         case 'gi01':
           Util.updateStarById('mon', 5);
@@ -261,6 +263,12 @@
         case 'gi07':
           Util.updateStarById('sun', 5);
           break;
+        case 'gi10':
+          Util.updateStr2Krm(1, 0, 0, 0);
+          break;
+        case 'gi11':
+          Util.updateStr2Krm(0, 1, 0, 0);
+          break;
         case 'gi23':
           Util.updateStarById('mon', 1);
           Util.updateStarById('tue', 1);
@@ -270,47 +278,69 @@
           Util.updateStarById('sat', 1);
           Util.updateStarById('sun', 1);
           break;
-        // case 'bgi03':
-        //   Util.updateState('curse');
-        //   break;
-        // case 'bgi04':
-        //   Util.updateState('poison');
-        //   break;
-        // case 'bgi05':
-        //   Util.updateState('forget');
-        //   break;
+        case 'bgi03':
+          Util.updateState('curse');
+          break;
+        case 'bgi04':
+          Util.updateState('poison');
+          break;
+        case 'bgi05':
+          Util.updateState('forget');
+          break;
       }
-    // 'gi01' : { name: '金の卵', desc: '月の欠片を5個所有した状態で冒険を開始' },
-    // 'gi02' : { name: 'ガラティーン', desc: '火星の欠片を5個所有した状態で冒険を開始' },
-    // 'gi03' : { name: '五元素のマント', desc: '水星の欠片を5個所有した状態で冒険を開始' },
-    // 'gi04' : { name: 'アマゾンの剣', desc: '木星の欠片を5個所有した状態で冒険を開始' },
-    // 'gi05' : { name: '幸福のコイン', desc: '金星の欠片を5個所有した状態で冒険を開始' },
-    // 'gi06' : { name: 'ムラサメブレード', desc: '土星の欠片を5個所有した状態で冒険を開始' },
-    // 'gi07' : { name: 'G・スレイヤー', desc: '太陽の欠片を5個所有した状態で冒険を開始' },
-    // 'gi12' : { name: '不老長寿の水', desc: '冒険中に一度だけHPを半分回復できる' },
-    // 'gi13' : { name: 'タリスマン', desc: '冒険中に一度だけMPを半分回復できる' },
-    // 'gi23' : { name: 'D・スレイヤー', desc: 'すべての星を1個所有した状態で冒険を開始' },
-    // 'bgi03' : { name: '血まみれの斧', desc: '冒険開始時に呪い。解除で3回まで星消費せず魔法発動可' },
-    // 'bgi04' : { name: 'トリカブト', desc: '冒険開始時に毒。但し、解除までシーン毎にMPを1回復' },
-    // 'bgi05' : { name: 'ギャルのパンティー', desc: '冒険開始時に忘却。解除までSTR/INT0でない方を10' },
+    },
 
+    // ステータスシートなどへのボーナスメッセージ設定
+    setBonusMessage(){
+      let b = Util.getBonusItem(save_data.bonus);
+      if (b && b.type) {
+        $(`#sidr_${b.type}_bonus`).text(`BONUS APPLYING： ${b.desc}`);
+      }
     },
 
     // シーン単位のボーナス更新
     updateStatusByBonus() {
-    // 'gi08' : { name: '水晶の剣', desc: '左サイコロが5以上の時、そのシーンでHPを1回復' },
-    // 'gi09' : { name: '王様の杖', desc: '左サイコロが5以上の時、そのシーンでMPを1回復' },
-    // 'bgi01' : { name: '塩酸', desc: 'シーン毎にダイス合計が5未満でHPを1減算、5以上でMPを1回復' },
-    // 'bgi02' : { name: '紅玉', desc: 'シーン毎にダイス合計が5未満でMPを1減算、5以上でHPを1回復' },
+      switch(save_data.bonus) {
+        case 'gi08':
+          Util.processByWeight([0.3], function() {
+            Util.updateHpMp(1, 0);
+          });
+          break;
+        case 'gi09':
+          Util.processByWeight([0.3], function() {
+            Util.updateHpMp(0, 1);
+          });  
+          break;
+        case 'bgi01':
+          Util.processByWeight([0.3, 0.4], function() {
+            Util.updateHpMp(-1, 0);
+          }, function() {
+            Util.updateHpMp(0, 1);
+          });
+          break;
+        case 'bgi02':
+          Util.processByWeight([0.3, 0.4], function() {
+            Util.updateHpMp(0, -1);
+          }, function() {
+            Util.updateHpMp(1, 0);
+          });  
+          break;
+      }
     },
 
-    adjustBattleDamage() {
-    // 'gi10' : { name: 'ブルーリボン', desc: '戦闘ダメージを1減算' },
-    // 'gi11' : { name: '王家のダイヤモンド', desc: '罠ダメージを1減算' },
-    // 'gi14' : { name: '鏡の盾', desc: 'HPダメージを1減算' },
-    // 'gi15' : { name: '銀の竪琴', desc: 'MPダメージを1減算' },
-    // 'gi16' : { name: 'パンドラの箱', desc: '右サイコロが4以上の時、戦闘回避が可能' },
-    // 'gi17' : { name: '魔法の絨毯', desc: '右サイコロが5以上の時、罠回避' },
+    // 適用ダメージに応じてダメージ量を調整
+    // damage：元のダメージ値、type：ダメージの種類（hp、mp）
+    // 戻り値は調整後のダメージ
+    adjustBattleDamage(damage, type) {
+      switch(save_data.bonus) {
+        case 'gi14':
+          if (type === 'hp') { damage--; }
+          break;
+        case 'gi15':
+          if (type === 'hp') { damage--; }
+          break;
+      }
+      return damage;
     },
 
 
@@ -757,6 +787,7 @@
     createBattleSheet() {
       let that = this;
       let template = $(`<div id="sidr_battle">
+        <p id="sidr_battle_bonus" class="bonus_msg"></p>
         <table class="enemy">
         <thead>
         <tr class="enemy_title">
@@ -847,39 +878,52 @@
         } else {
           // physics／magicの場合、ダメージ式の解析
           let damage = Util.computeDamage(func);
+          let h_damage = Bonus.adjustBattleDamage(damage, 'hp');
+          let m_damage = Bonus.adjustBattleDamage(damage, 'mp');
           // 負数はゼロに丸め
           if (damage < 0) { damage = 0; }
-          let t_msg;
+          if (h_damage < 0) { h_damage = 0; }
+          if (m_damage < 0) { m_damage = 0; }
+
+          let t_msg;  // トーストメッセージ
+          let is_damaged = false; ダメージを受けたか
+
           switch (attack) {
             case 'physics' :
-              save_data.chara.hp = Number(save_data.chara.hp) - damage;
-              t_msg = `HPに${damage}のダメージ！（現在値：${save_data.chara.hp}）` ;
+              if (h_damage >= 0) { is_damaged = true; }
+              save_data.chara.hp = Number(save_data.chara.hp) - h_damage;
+              t_msg = `HPに${h_damage}のダメージ！（現在値：${save_data.chara.hp}）` ;
               break;
             case 'magic' :
-              save_data.chara.mp = Number(save_data.chara.mp) - damage;
-              t_msg = `MPに${damage}のダメージ！（現在値：${save_data.chara.mp}）` ;
+              if (m_damage >= 0) { is_damaged = true; }
+              save_data.chara.mp = Number(save_data.chara.mp) - m_damage;
+              t_msg = `MPに${m_damage}のダメージ！（現在値：${save_data.chara.mp}）` ;
               break;
             case 'both' :
-              save_data.chara.hp = Number(save_data.chara.hp) - damage;
-              save_data.chara.mp = Number(save_data.chara.mp) - damage;
-              t_msg = `HP/MPに${damage}のダブルダメージ！（現在値hp/mp：${save_data.chara.hp}/${save_data.chara.mp}）` ;
+              if (h_damage >= 0 || m_damage >= 0) { is_damaged = true; }
+              save_data.chara.hp = Number(save_data.chara.hp) - h_damage;
+              save_data.chara.mp = Number(save_data.chara.mp) - m_damage;
+              t_msg = `HP/MPに${h_damage}/${m_damage}のダブルダメージ！（現在値hp/mp：${save_data.chara.hp}/${save_data.chara.mp}）` ;
               break;
             case 'free1' :
+              if (damage >= 0) { is_damaged = true; }
               save_data.chara.free1 = Number(save_data.chara.free1) - damage;
               t_msg = `FREE1に${damage}のダメージ！（現在値：${save_data.chara.free1}）` ;
               break;
             case 'free2' :
+              if (damage >= 0) { is_damaged = true; }
               save_data.chara.free2 = Number(save_data.chara.free2) - damage;
               t_msg = `FREE2に${damage}のダメージ！（現在値：${save_data.chara.free2}）` ;
               break;
             case 'free3' :
+              if (damage >= 0) { is_damaged = true; }
               save_data.chara.free3 = Number(save_data.chara.free3) - damage;
               t_msg = `FREE3に${damage}のダメージ！（現在値：${save_data.chara.free3}）` ;
               break;
             default :
               break;
           }
-          if (damage === 0) {
+          if (!is_damaged) {
             t_msg = '敵の攻撃を防ぎきった！';
             toastr.info(t_msg, '被ダメージ');  
           } else {
@@ -1167,11 +1211,42 @@
 
     // 基本情報
     createBasicInfo() {
+      // let template = $(`<div id="sidr_basic" class="sidr_info">
+      //   <table class="sidr_list_noline">
+      //   <tr>
+      //     <td colspan="4">
+      //       <img id="sidr_basic_chara_face" align="right" />
+      //       <div>
+      //         <h3>"<span id="sidr_basic_title"></span>"
+      //           <span id="sidr_basic_name"></span></h3>
+      //         <i><span id="sidr_basic_ellapsed_scene"></span></i>
+      //       </div>
+      //     </td>
+      //   </tr>
+      //   <tr>
+      //     <th>CLASS：</th>
+      //     <td>
+      //       <span id="sidr_basic_race"></span>　
+      //       <span id="sidr_basic_sex"></span>
+      //     </td>
+      //     <th>AGE：</th>
+      //     <td><span id="sidr_basic_age"></span></td>
+      //   </tr>
+      //   <tr>
+      //     <th>JOB：</th>
+      //     <td><select id="sidr_basic_job"></select></td>
+      //   </tr>
+      //   </table>
+      //   <p>MEMO：</p>
+      //   <textarea id="sidr_basic_memos"></textarea>
+      //   <div id="sidr_basic_submit" class="sidr_submit">確定</div>
+      //   <div id="sidr_basic_close" class="sidr_close">閉じる</div>
+      // </div>`);
       let template = $(`<div id="sidr_basic" class="sidr_info">
-        <table class="sidr_list_noline">
+        <img id="sidr_basic_chara_face" align="right" />
+        <table class="sidr_list_noline sidr_basic_table">
         <tr>
-          <td colspan="4">
-            <img id="sidr_basic_chara_face" align="right" />
+          <td colspan="2">
             <div>
               <h3>"<span id="sidr_basic_title"></span>"
                 <span id="sidr_basic_name"></span></h3>
@@ -1185,6 +1260,8 @@
             <span id="sidr_basic_race"></span>　
             <span id="sidr_basic_sex"></span>
           </td>
+        </tr>
+        <tr>
           <th>AGE：</th>
           <td><span id="sidr_basic_age"></span></td>
         </tr>
@@ -1240,10 +1317,14 @@
       this.createSideBar(
         'item',
         `<div id="sidr_item" class="sidr_info">
-          <p>ITEMS：</p>
-          <textarea id="sidr_item_item"></textarea>
-          <p>FLAGS：</p>
-          <textarea id="sidr_item_flag"></textarea>
+          <div>
+            ITEMS：<br/>
+            <textarea id="sidr_item_item"></textarea>
+          </div>
+          <div>
+            FLAGS：<br />
+            <textarea id="sidr_item_flag"></textarea>
+          </div>
          <div id="sidr_item_close" class="sidr_close">閉じる</div>
        </div>`,
         function() {
@@ -1269,6 +1350,7 @@
     createStatusSheet() {
       let that = this;
       let template = $(`<div id="sidr_status" class="sidr_info">
+        <p id="sidr_status_bonus" class="bonus_msg"></p>
         <table id="sidr_status_list">
           <tr>
           <td>
@@ -1300,28 +1382,28 @@
           </td>
           <td>
             <div>
-            STR<br />
+            STR：<br />
             <input type="button" class="spinner_down" value="-" />
             <input type="number" id="sidr_status_str" />
             <input type="button" class="spinner_up" value="+" />
             ／<span id="sidr_status_str_i"></span>
             </div>
             <div>
-            INT<br />
+            INT：<br />
             <input type="button" class="spinner_down" value="-" />
             <input type="number" id="sidr_status_int" />
             <input type="button" class="spinner_up" value="+" />
             ／<span id="sidr_status_int_i"></span>
             </div>
             <div>
-            DEX<br />
+            DEX：<br />
             <input type="button" class="spinner_down" value="-" />
             <input type="number" id="sidr_status_dex" />
             <input type="button" class="spinner_up" value="+" />
             ／<span id="sidr_status_dex_i"></span>
             </div>
             <div>
-            KRM<br />
+            KRM：<br />
             <input type="button" class="spinner_down" value="-" />
             <input type="number" id="sidr_status_krm" />
             <input type="button" class="spinner_up" value="+" />
@@ -1451,10 +1533,11 @@
       };
 
       let template = $(`<div id="sidr_magic" class="sidr_info">
+      <p id="sidr_magic_bonus" class="bonus_msg"></p>
       <div>
-      MAGIC：<br />
-      <select id="sidr_magic_magic"></select>
-      <input type="button" id="sidr_magic_run" value="Shoot" />
+        MAGIC：<br />
+        <select id="sidr_magic_magic"></select>
+        <input type="button" id="sidr_magic_run" value="Shoot" />
       </div>
       <table id="sidr_magic_list">
         <tr>
@@ -1905,6 +1988,21 @@
     deepCopyObject: function(obj) {
       var tmp_obj = JSON.stringify(obj);
       return JSON.parse(tmp_obj);
+    },
+
+    // 一定確率で指定の処理を実行
+    // weight：重みづけ（合計1未満の配列＝[0.3, 0.4...]）
+    // funcs：実行すべき処理（可変長引数）
+    processByWeight(weights, ...funcs) {
+      let num = 0;
+      let rand = Math.random();
+      for (let i = 0; i < weights.length; i++) {
+        num += w;
+        if (rand < num) {
+          funcs[i]();
+          return;
+        }
+      }
     },
 
     // セーブデータをストレージに保存
@@ -2804,6 +2902,7 @@
 
     // 指定されたキーでボーナスアイテムを取得
     getBonusItem: function(bonus) {
+      if (!bonus) { return; }
       if(bonus.indexOf('bgi') === 0) {
         return Common.global_items.bad[bonus];
       } else {
@@ -3649,6 +3748,7 @@
         Util.updateState(scene.nsAttr('state'));
         Util.updateStates();
         Util.updateResults(scene.nsAttr('result'));
+        Bonus.updateStatusByBonus();
 
         // 現在のシーン番号を保存
         save_data.scene = scene_num;
