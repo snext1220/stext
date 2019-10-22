@@ -141,8 +141,8 @@ input.quest_str {
   background-color: #0fc;  
 }
 
-a.scene_move, a.quest_str {
-}
+/* a.scene_move, a.quest_str {
+} */
 
 .scene_move, .quest_str {
   text-align: center;
@@ -178,7 +178,7 @@ img.dice {
   width: 50px;
 }
 
-#dialog_body input[type="number"] {
+/* #dialog_body input[type="number"] {
   width: 50px;
 }
 
@@ -226,7 +226,7 @@ img.dice {
   list-style-type: none;
   text-align: right;
   float: left;
-}
+} */
 
 #dialog_bonus {
   background-image: url(common/dialog_bonus_back.png);
@@ -234,7 +234,7 @@ img.dice {
   background-position: center;
 }
 
-#dialog_list {
+/* #dialog_list {
   background-image: url(common/dialog_list_back.png);
   background-repeat: no-repeat;
   background-position: center;
@@ -320,7 +320,7 @@ img.dice {
 
 #dialog_body input {
   height: 25px;
-}
+} */
 
 #dialog_body input[type="number"], #dialog_body select, #dialog_body textarea,
 input[type="number"].sgml {
@@ -335,7 +335,7 @@ input[type="number"].sgml {
   margin-right: 5px;
 }
 
-#dialog_body textarea {
+/* #dialog_body textarea {
   width: 100%;
 }
 
@@ -349,7 +349,7 @@ input[type="number"].sgml {
   color: #fff;
   cursor: pointer;
   font-size: large;
-}
+} */
 
 .spinner_up {
   border: solid 1px #ff9; 
@@ -377,11 +377,11 @@ input[type="number"].sgml {
   /*height: 25px;*/
 }
 
-.free_cell input {
+/* .free_cell input {
   width: 45px !important;
-}
+} */
 
-#magic_run {
+/* #magic_run {
   padding-left: 25px;
   padding-right: 25px;
 }
@@ -397,9 +397,9 @@ input[type="number"].sgml {
 
 #dialog_body #flags {
   width: 90%;
-}
+} */
 
-table.item_list {
+/* table.item_list {
   border-collapse:collapse; 
   background-color: #fff;
 }
@@ -416,7 +416,7 @@ table.item_list td {
 
 table.item_list img {
   width: 70px;
-}
+} */
 
 .enemy_row {
   cursor: pointer;
@@ -564,7 +564,7 @@ table.item_list img {
 
 
 /* ボーナスアイテムリスト（改定） */
-#bonus_list {
+/* #bonus_list {
   border: solid 1px #000;
   background-color: #000;
   color: #fff;
@@ -602,10 +602,10 @@ table.item_list img {
 
 #bonus_list .item_list img.bonus_item {
   cursor: pointer;
-}
+} */
 
 /* Renewal */
-.dialog_root {
+/* .dialog_root {
   background-image: url(common/renewal/wp.png);
   background-repeat: no-repeat;
   background-position: right top;
@@ -617,7 +617,7 @@ table.item_list img {
   text-align: left;
   line-height: 1.5;
   border-bottom: 1px solid #ccc;
-}
+} */
 
 /* サイドメニュー表示ボタン */
 #menu_battle {
