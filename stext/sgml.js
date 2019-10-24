@@ -1244,16 +1244,14 @@
       // </div>`);
       let template = $(`<div id="sidr_basic" class="sidr_info">
         <img id="sidr_basic_chara_face" align="right" />
+        <h2>
+          "<span id="sidr_basic_title"></span>"
+          <span id="sidr_basic_name"></span>
+        </h2>
+        <i>
+          <span id="sidr_basic_ellapsed_scene"></span>
+        </i>
         <table class="sidr_list_noline sidr_basic_table">
-        <tr>
-          <td colspan="2">
-            <div>
-              <h3>"<span id="sidr_basic_title"></span>"
-                <span id="sidr_basic_name"></span></h3>
-              <i><span id="sidr_basic_ellapsed_scene"></span></i>
-            </div>
-          </td>
-        </tr>
         <tr>
           <th>CLASS：</th>
           <td>
@@ -1270,8 +1268,8 @@
           <td><select id="sidr_basic_job"></select></td>
         </tr>
         </table>
-        <p>MEMO：</p>
-        <textarea id="sidr_basic_memos"></textarea>
+        <hr />
+        <textarea id="sidr_basic_memos" placeholder="君は冒険中のメモをここに記録しておいても構わないし、脳裏に留めておいても構わない。"></textarea>
         <div id="sidr_basic_submit" class="sidr_submit">確定</div>
         <div id="sidr_basic_close" class="sidr_close">閉じる</div>
       </div>`);
@@ -1317,6 +1315,7 @@
       this.createSideBar(
         'item',
         `<div id="sidr_item" class="sidr_info">
+          <h2>Items & Flags</h2>
           <div>
             ITEMS：<br/>
             <textarea id="sidr_item_item"></textarea>
@@ -1350,6 +1349,7 @@
     createStatusSheet() {
       let that = this;
       let template = $(`<div id="sidr_status" class="sidr_info">
+        <h2>Status</h2>
         <p id="sidr_status_bonus" class="bonus_msg"></p>
         <table id="sidr_status_list">
           <tr>
@@ -1533,9 +1533,9 @@
       };
 
       let template = $(`<div id="sidr_magic" class="sidr_info">
+      <h2>Magic & STARS</h2>
       <p id="sidr_magic_bonus" class="bonus_msg"></p>
       <div>
-        MAGIC：<br />
         <select id="sidr_magic_magic"></select>
         <input type="button" id="sidr_magic_run" value="Shoot" />
       </div>
@@ -1669,6 +1669,7 @@
     // ボーナス情報
     createBonusInfo() {
       let template = $(`<div id="sidr_bonus" class="sidr_info">
+        <h2>Bonus</h2>
         <ul id="sidr_bonus_list">
           <li><img id="gi01" /></li>
           <li><img id="gi02" /></li>
@@ -1758,6 +1759,7 @@
       this.createSideBar(
         'result',
         `<div id="sidr_result" class="sidr_info">
+          <h2>Results</h2>
           <div id="sidr_result_rate">Rate: 0.0%</div>
           <table id="sidr_result_list">
           </table>
