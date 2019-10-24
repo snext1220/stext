@@ -8,8 +8,14 @@ People called this plugin.....**Sorcerian Text**.
 
 - jQuery
 - jQuery Markdown
-- Zoombox
+- Sidr
+- SmartMenus
 - toastr
+- Zoombox
+- SlickGrid（Playground Only）
+- Ace Editor（Playground Only）
+- vis.js（Playground Only）
+- jQuery UI（Playground Only）
 - vkBeautify（GBAT2SText only）
 
 ## Example
