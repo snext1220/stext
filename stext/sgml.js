@@ -886,7 +886,7 @@
           if (m_damage < 0) { m_damage = 0; }
 
           let t_msg;  // トーストメッセージ
-          let is_damaged = false; ダメージを受けたか
+          let is_damaged = false; // ダメージを受けたか
 
           switch (attack) {
             case 'physics' :
@@ -1457,14 +1457,14 @@
       $('#sidr_status_dex_i', template).text(save_data.chara.dex_i);
       $('#sidr_status_krm_i', template).text(save_data.chara.krm_i);
       // 状態異常のステータスへの反映（ステータスダイアログ）
-      $('[name="sidr_status_state"]', template).click(function(e) {
+      target.parent().on('click', '[name="sidr_status_state"]', function(e) {
         let delta = that.deltaStatus($(this).val());
         $('#sidr_status #sidr_status_state_desc').text(delta.state_desc);
         that.setStateStyle();
       });
       // ［+］［-］ボタンでの星の加減算
-      $('.spinner_up', template).click(this.incrementValue());
-      $('.spinner_down', template).click(this.decrementValue());
+      target.parent().on('click', '#sidr_status .spinner_up', this.incrementValue);
+      target.parent().on('click', '#sidr_status .spinner_down', this.decrementValue);
       // サイドバーの生成
       this.createSideBar(
         'status',
@@ -1592,8 +1592,9 @@
       <div id="sidr_magic_submit" class="sidr_submit">確定</div>
       <div id="sidr_magic_close" class="sidr_close">閉じる</div>
       </div>`);
-      // ［+］ボタンでの星加算
-      $('.spinner_up', template).click(this.incrementValue());
+      // ［+］［-］ボタンでの星加算
+      target.parent().on('click', '#sidr_magic .spinner_up', this.incrementValue);
+      target.parent().on('click', '#sidr_magic .spinner_down', this.decrementValue);
       // 魔法発動ボタンクリック時に星を減算
       $('#sidr_magic_run', template).click(function(e) {
         e.preventDefault();
@@ -2919,13 +2920,14 @@
       Util.createCommonTweet();
       PlayerRank.init();
       SideBar.createAll();
-      Bonus.initBonusStatus();
+      //Bonus.initBonusStatus();
     },
 
     // シナリオデータを初期化
     initScenario: function() {
       Util.initSavedata();
       Util.initView();
+      Bonus.initBonusStatus();
       // Util.initDialog();
       // Util.createCommonTweet();
       // PlayerRank.init();
