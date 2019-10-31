@@ -376,7 +376,7 @@
 </work>
 
 <work id="king" title="終末の双王 - ドラゴンモード -" author="ときのじ" series="連作ドラゴンモード"
-  tags="ドラゴンとたたかう" published="2019-07-26" updated="2019-08-31" level="4" scenes="" results="24" clears="r99"
+  tags="ドラゴンとたたかう" published="2019-07-26" updated="2019-10-31" level="5" scenes="284" results="41" clears="r26"
   comment="「企画にご参加いただいた皆様のシナリオ設定を活かした作品にしよう」「原作のドラゴンとたたかうの雰囲気を出すには」と考えながら執筆しました。
 STextならではの「ドラゴンとたたかう」をお楽しみください。">
 <img src="./stext/king/capture/intro.png" height="120"
@@ -386,8 +386,6 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 これは、勇気と知略をもって竜に挑み、生還した勇者にのみ託される戦いである。
 
 混沌の王に挑む覚悟がある者よ、いざ決戦の地へ赴くのだ。
-
-<p class="award">本シナリオ（後編）は10月公開予定です。</p>
 </work>
 
 <work id="captive" title="新・囚われた魔法使い" author="Salvador" series="Playground100祭"
