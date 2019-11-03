@@ -12,10 +12,10 @@ People called this plugin.....**Sorcerian Text**.
 - SmartMenus
 - toastr
 - Zoombox
-- SlickGrid（Playground Only）
-- Ace Editor（Playground Only）
-- vis.js（Playground Only）
-- jQuery UI（Playground Only）
+- SlickGrid（Playground Flow Only）
+- Ace Editor（Playground Flow/Editor）
+- vis.js（Playground Flow）
+- jQuery UI（Playground Flow/Editor）
 - vkBeautify（GBAT2SText only）
 
 ## Example
