@@ -2,7 +2,7 @@
   // ルートパス
   var ROOT = 'stext/';
   var COMMON  = 'common/'
-  var DIALOG  = 'dialog/'
+  //var DIALOG  = 'dialog/'
   var CAPTURE  = 'capture/'
   var BGM = 'bgm/'
   var SE = 'se/'
@@ -42,8 +42,8 @@
   var target;
 
   // ダイアログ本体（ステータスダイアログ／アイテムリスト）
-  var dialog;
-  var dialog_item;
+  //var dialog;
+  //var dialog_item;
 
   // ダイアログ本体（改訂版）
   var dialog_elem = {};
@@ -1598,6 +1598,11 @@
       // 魔法発動ボタンクリック時に星を減算
       $('#sidr_magic_run', template).click(function(e) {
         e.preventDefault();
+        // 呪いで実行不可
+        if (save_data.chara.state === 'curse') {
+          toastr.warning(`魔法を詠唱できない！君は呪われている！！`, '状態異常');
+          return false;
+        }
         let magic_id = $('#sidr_magic #sidr_magic_magic').val();
         let magic = Common.magic[magic_id];
         if (!magic) { return; }
@@ -1877,6 +1882,7 @@
       // メニューの制御
       let mainmenu = $('#main-menu');
       mainmenu.smartmenus({
+        noMouseOver: true,
         subMenusSubOffsetX: 1,
         subMenusSubOffsetY: -8
       });
