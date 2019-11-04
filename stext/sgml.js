@@ -227,7 +227,8 @@
 
   // ボーナス情報
   let Bonus = {
-    initBonusStatus() {
+    // シナリオ開始時の適用ボーナス表示
+    showBonusMessage() {
       let msg;
       if (save_data.bonus) {
         if (save_data.bonus.indexOf('bgi') === 0) {
@@ -236,11 +237,14 @@
 
           msg = Common.global_items.happy[save_data.bonus];
         }
-        toastr.info(msg.desc, 'シナリオボーナス');
+        toastr.info(msg.desc, `BONUS（${msg.name}）`);
       }
       // ボーナスメッセージの設定
       this.setBonusMessage();
-      // シーン開始時のボーナス適用
+    },
+
+  　// シナリオ開始時のボーナス適用
+    initBonusStatus() {
       switch(save_data.bonus) {
         case 'gi01':
           Util.updateStarById('mon', 5);
@@ -2006,7 +2010,7 @@
       let num = 0;
       let rand = Math.random();
       for (let i = 0; i < weights.length; i++) {
-        num += w;
+        num += weights[i];
         if (rand < num) {
           funcs[i]();
           return;
@@ -2541,7 +2545,7 @@
           save_data.chara.hp = Math.floor(save_data.chara.hp_m / 2);
         } else {
           // 「-5..-1」で-5～-1の意味
-          var hp = at_hp.split('..');
+          var hp = String(at_hp).split('..');
           if (hp[1]) {
             hp[0] = Util.random(Number(hp[0]), Number(hp[1]));
           }
@@ -2561,7 +2565,7 @@
           save_data.chara.mp = Math.floor(save_data.chara.mp_m / 2);
         } else {
           // 「-5..-1」で-5～-1の意味
-          var mp = at_mp.split('..');
+          var mp = String(at_mp).split('..');
           if (mp[1]) {
             mp[0] = Util.random(Number(mp[0]), Number(mp[1]));
           }
@@ -2926,6 +2930,7 @@
       Util.createCommonTweet();
       PlayerRank.init();
       SideBar.createAll();
+      Bonus.showBonusMessage();
       //Bonus.initBonusStatus();
     },
 
