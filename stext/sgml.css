@@ -651,6 +651,19 @@ table.item_list img {
 }
 
 /* サイドバー（基本ステ／魔法） */
+.sidr_info h2,
+#sidr_basic #sidr_basic_name {
+  color: #ffd;
+}
+
+#sidr_basic h2 {
+  color: #C08
+}
+
+/* .sidr_info label.entry {
+  color: #f90;
+} */
+
 .sidr_info input[type="number"],
 .sidr_info select,
 .sidr_info textarea {
@@ -768,7 +781,7 @@ table.item_list img {
 .sidr_info #rank_jp {
   margin-top: 0px;
   font-size: normal;
-  color: #cfc;
+  color: #ffd;
 }
 
 /* サイドバー内のリスト */
@@ -802,7 +815,7 @@ table.item_list img {
 }
 
 .sidr_list th {
-  color: #0fc;
+  color: #ffd;
 }
 
 .sidr_submit {

@@ -1359,20 +1359,20 @@
           <tr>
           <td>
             <div>
-            HP：<br />
+            <label class="entry">HP：</label><br />
             <input type="button" class="spinner_down" value="-" />
             <input id="sidr_status_hp" type="number" />
             <input type="button" class="spinner_up" value="+" />
             ／<span id="sidr_status_hp_m"></span>
             </div>
             <div>
-            MP：<br />
+            <label class="entry">MP：</label><br />
             <input type="button" class="spinner_down" value="-" />
             <input type="number" id="sidr_status_mp" />
             <input type="button" class="spinner_up" value="+" />
             ／<span id="sidr_status_mp_m"></span>
             <div>
-            STATE：<br />
+            <label class="entry">STATE：</label><br />
             <label><input type="radio" name="sidr_status_state" value="" />正常</label>
             <label><input type="radio" name="sidr_status_state" value="poison" />毒</label>
             <label><input type="radio" name="sidr_status_state" value="frozen" />凍結</label>
@@ -1386,28 +1386,28 @@
           </td>
           <td>
             <div>
-            STR：<br />
+            <label class="entry">STR：</label><br />
             <input type="button" class="spinner_down" value="-" />
             <input type="number" id="sidr_status_str" />
             <input type="button" class="spinner_up" value="+" />
             ／<span id="sidr_status_str_i"></span>
             </div>
             <div>
-            INT：<br />
+            <label class="entry">INT：</label><br />
             <input type="button" class="spinner_down" value="-" />
             <input type="number" id="sidr_status_int" />
             <input type="button" class="spinner_up" value="+" />
             ／<span id="sidr_status_int_i"></span>
             </div>
             <div>
-            DEX：<br />
+            <label class="entry">DEX：</label><br />
             <input type="button" class="spinner_down" value="-" />
             <input type="number" id="sidr_status_dex" />
             <input type="button" class="spinner_up" value="+" />
             ／<span id="sidr_status_dex_i"></span>
             </div>
             <div>
-            KRM：<br />
+            <label class="entry">KRM：</label><br />
             <input type="button" class="spinner_down" value="-" />
             <input type="number" id="sidr_status_krm" />
             <input type="button" class="spinner_up" value="+" />
@@ -1417,7 +1417,7 @@
           </tr>
         </table>
         <div>
-          FREE：<br />
+          <label class="entry">FREE：</label><br />
           <table id="sidr_status_free_list">
           <tr>
           <td>
