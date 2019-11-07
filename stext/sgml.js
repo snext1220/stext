@@ -2587,7 +2587,7 @@
         if (at_str === 'full') {
           save_data.chara.str = save_data.chara.str_i;
         // @num指定で、指定値を設定
-        } else if (at_str.indexOf('@') === 0) {
+        } else if (String(at_str).indexOf('@') === 0) {
           save_data.chara.str = Number(at_str.substring(1));
         } else {
           save_data.chara.str = Number(save_data.chara.str) + Number(at_str);
@@ -2599,7 +2599,7 @@
         if (at_int === 'full') {
           save_data.chara.int = save_data.chara.int_i;
         // @num指定で、指定値を設定
-        } else if (at_str.indexOf('@') === 0) {
+        } else if (String(at_int).indexOf('@') === 0) {
           save_data.chara.int = Number(at_int.substring(1));
         } else {
           save_data.chara.int = Number(save_data.chara.int) + Number(at_int);
@@ -2611,7 +2611,7 @@
         if (at_dex === 'full') {
           save_data.chara.dex = save_data.chara.dex_i;
         // @num指定で、指定値を設定
-        } else if (at_dex.indexOf('@') === 0) {
+        } else if (String(at_dex).indexOf('@') === 0) {
           save_data.chara.dex = Number(at_dex.substring(1));
         } else {
           save_data.chara.dex = Number(save_data.chara.dex) + Number(at_dex);
@@ -2623,7 +2623,7 @@
         if (at_krm === 'full') {
           save_data.chara.krm = save_data.chara.krm_i;
         // @num指定で、指定値を設定
-        } else if (at_krm.indexOf('@') === 0) {
+        } else if (String(at_krm).indexOf('@') === 0) {
           save_data.chara.krm = Number(at_krm.substring(1));
         } else {
           save_data.chara.krm = Number(save_data.chara.krm) + Number(at_krm);

@@ -426,7 +426,7 @@ STextでの開発に初めて着手するならば、まずはPlayground Flowの
 </work>
 
 <work title="Playground Editor" author="リオ" type="dev">
-<img src="./image/util/pg.png" height="120"
+<img src="./image/blog/pge_main.png" height="120"
   title="Playground実行画面" align="right" class="right" />
 
 Playground Editor（Pg Editor）は、ブラウザー上で動作するソーサリアン Textのシナリオ開発／実行環境です。ソフトウェアのインストールなどが不要なので、手軽に実行できるのが特徴です。
