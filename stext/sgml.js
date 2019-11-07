@@ -225,6 +225,35 @@
   toastr.options.hideDuration = 1000;
   toastr.options.timeOut = 5000;
 
+  // SE操作
+  let SeAudio = {
+    // 効果音を再生（name：効果音のベース名）
+    play(name, common = false) {
+      if (global_save_data.bgm) {
+        let a;
+        if (common) {
+          a = new Audio(`${ROOT}${COMMON}${SE}${name}.mp3`);
+        } else {
+          a = new Audio(`${ROOT}${scenario_code}/${BGM}${SE}${name}.mp3`);
+        }
+        a.volume = 1.0;
+        a.loop = false;
+        a.play();
+      }
+    },
+
+    // BGMを再生 
+    playBgm(path) {
+      if(bgm) { bgm.pause(); }
+      bgm = new Audio(path);
+      //bgm.volume = 0.4;
+      bgm.loop = true;
+      if(global_save_data.bgm) {
+        bgm.play();
+      }
+    }
+  };
+
   // ボーナス情報
   let Bonus = {
     // シナリオ開始時の適用ボーナス表示
@@ -873,6 +902,7 @@
             );
           } else {
             if(Util.updateState(attack)) {
+              SeAudio.play('damage', true);
               toastr.error(
                 '「' + Common.state_names[attack] + '」を受けた！',
                 '状態異常'
@@ -894,33 +924,33 @@
 
           switch (attack) {
             case 'physics' :
-              if (h_damage >= 0) { is_damaged = true; }
+              if (h_damage > 0) { is_damaged = true; }
               save_data.chara.hp = Number(save_data.chara.hp) - h_damage;
               t_msg = `HPに${h_damage}のダメージ！（現在値：${save_data.chara.hp}）` ;
               break;
             case 'magic' :
-              if (m_damage >= 0) { is_damaged = true; }
+              if (m_damage > 0) { is_damaged = true; }
               save_data.chara.mp = Number(save_data.chara.mp) - m_damage;
               t_msg = `MPに${m_damage}のダメージ！（現在値：${save_data.chara.mp}）` ;
               break;
             case 'both' :
-              if (h_damage >= 0 || m_damage >= 0) { is_damaged = true; }
+              if (h_damage > 0 || m_damage > 0) { is_damaged = true; }
               save_data.chara.hp = Number(save_data.chara.hp) - h_damage;
               save_data.chara.mp = Number(save_data.chara.mp) - m_damage;
               t_msg = `HP/MPに${h_damage}/${m_damage}のダブルダメージ！（現在値hp/mp：${save_data.chara.hp}/${save_data.chara.mp}）` ;
               break;
             case 'free1' :
-              if (damage >= 0) { is_damaged = true; }
+              if (damage > 0) { is_damaged = true; }
               save_data.chara.free1 = Number(save_data.chara.free1) - damage;
               t_msg = `FREE1に${damage}のダメージ！（現在値：${save_data.chara.free1}）` ;
               break;
             case 'free2' :
-              if (damage >= 0) { is_damaged = true; }
+              if (damage > 0) { is_damaged = true; }
               save_data.chara.free2 = Number(save_data.chara.free2) - damage;
               t_msg = `FREE2に${damage}のダメージ！（現在値：${save_data.chara.free2}）` ;
               break;
             case 'free3' :
-              if (damage >= 0) { is_damaged = true; }
+              if (damage > 0) { is_damaged = true; }
               save_data.chara.free3 = Number(save_data.chara.free3) - damage;
               t_msg = `FREE3に${damage}のダメージ！（現在値：${save_data.chara.free3}）` ;
               break;
@@ -929,8 +959,10 @@
           }
           if (!is_damaged) {
             t_msg = '敵の攻撃を防ぎきった！';
+            SeAudio.play('guard', true);
             toastr.info(t_msg, '被ダメージ');  
           } else {
+            SeAudio.play('damage', true);
             toastr.error(t_msg, '被ダメージ');
           }
         }
@@ -962,6 +994,7 @@
             'アイテム獲得'
           );
         }
+        SeAudio.play('drop', true);
         Util.saveStorage();
         that.showSimpleStatus();
       });
@@ -1629,6 +1662,7 @@
         useStar(magic, 6, 'sun');
         // 魔法を自動処理
         that.runMagic(magic_id);
+        SeAudio.play('magic', true);
         $('#sidr_magic #sidr_magic_submit').click();
         that.showSimpleStatus();
       });
@@ -3257,10 +3291,11 @@
 
       // エンディングテーマ再生
       if (changeBgm) {
-        if(bgm) { bgm.pause(); }
-        bgm = new Audio(audio_path);
-        bgm.loop = true;
-        if(global_save_data.bgm) { bgm.play(); }
+        SeAudio.playBgm(audio_path);
+        // if(bgm) { bgm.pause(); }
+        // bgm = new Audio(audio_path);
+        // bgm.loop = true;
+        // if(global_save_data.bgm) { bgm.play(); }
       }
 
       if(bonus_item) {
@@ -3987,10 +4022,11 @@
 
       // シーン表示時に効果音を再生
       if(scene.nsAttr('se')) {
+        SeAudio.play(scene.nsAttr('se'));
         //bgm.pause();
-        var se = new Audio(ROOT + scenario_code + '/' + BGM + SE + scene.nsAttr('se') + '.mp3');
-        se.loop = false;
-        se.play();
+        // var se = new Audio(ROOT + scenario_code + '/' + BGM + SE + scene.nsAttr('se') + '.mp3');
+        // se.loop = false;
+        // se.play();
       }
     
       // エンディング処理（bgm属性が指定されている場合、エンディング曲に変更しない）
