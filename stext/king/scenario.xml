@@ -76,7 +76,6 @@
   <flag id="f510102">*RANGE：近１（TURN5）</flag>
   <flag id="f510103">*RANGE：近２（TURN5）</flag>
   <flag id="f510104">*RANGE：近３（TURN5）</flag>
-  <flag id="f6666">*選択肢ロック用フラグ（もう少しお待ちを…）</flag>
   <flag id=""></flag>
 </flags>
 
@@ -87,7 +86,7 @@
   <enemy id="m0202" name="ヒドラの首（火球／威力：無効）" element="fire" attack="physics" func="0" drop="">火球を吐き出すヒドラの首（※サポートによりダメージ無効）</enemy>
   <enemy id="m0301" name="ヒドラの首（噛み付き）" element="" attack="physics" func="3L+2R-STR-DEX-FREE2" drop="">鋭い歯で噛み付いてくるヒドラの首</enemy>
   <enemy id="m0302" name="ヒドラの首（噛み付き／威力：減）" element="" attack="physics" func="3L+2R-5-STR-DEX-FREE2" drop="">鋭い歯で噛み付いてくるヒドラの首（※サポートにより威力減退）</enemy>
-  <enemy id="m04" name="ヒドラの猛毒（毒付与）" element="" attack="poison" func="DEX+FREE2>99" drop="">英雄すらも殺したとされる致死性の高い毒</enemy>
+  <enemy id="m04" name="ヒドラの猛毒（毒付与）" element="" attack="poison" func="DEX+KRM+FREE2>99" drop="">英雄すらも殺したとされる致死性の高い毒</enemy>
   <enemy id="m05" name="毒液の直撃ダメージ" element="" attack="both" func="5L+5R-STR-INT-DEX-FREE2" drop="">凄まじい勢いで飛ばされた多量の毒液</enemy>
   <enemy id="m0601" name="落雷" element="wind" attack="physics" func="5L+5R-INT-DEX-FREE2" drop="">ダークドラゴンに呼び出された雷</enemy>
   <enemy id="m0602" name="落雷（威力：減）" element="wind" attack="physics" func="5L+5R-5-INT-DEX-FREE2" drop="">ダークドラゴンに呼び出された雷（※サポートにより威力減退）</enemy>
@@ -99,16 +98,16 @@
   <enemy id="m10" name="甘い香り（効力：中）" element="" attack="magic" func="5L+5R-INT-FREE2" drop="">人を惑わす甘い香り</enemy>
   <enemy id="m11" name="甘い香り（効力：大）" element="" attack="magic" func="6L+6R-INT-FREE2" drop="">人を惑わす甘い香り</enemy>
   <enemy id="m12" name="忘却の光（ダメージ）" element="fire" attack="magic" func="6L+6R-INT-DEX-FREE2" drop="">触れた者の得意とするものを一時的に封じる呪いの光（ダメージ判定）</enemy>
-  <enemy id="m13" name="忘却の光（忘却付与）" element="" attack="forget" func="INT+KRM+FREE2>4L+4R" drop="">触れた者の得意とするものを一時的に封じる呪いの光（忘却付与判定）</enemy>
+  <enemy id="m13" name="忘却の光（忘却付与）" element="" attack="forget" func="DEX+KRM+FREE2>5L+5R" drop="">触れた者の得意とするものを一時的に封じる呪いの光（忘却付与判定）</enemy>
   <enemy id="m1401" name="振り落とし（急上昇／肉体への負担）" element="" attack="physics" func="4L+4R-STR-KRM-FREE2" drop="">しがみ付く者を振り落とす（1回目／肉体へのダメージ）</enemy>
   <enemy id="m1402" name="振り落とし（旋回／肉体への負担）" element="" attack="physics" func="5L+5R-STR-KRM-FREE2" drop="">しがみ付く者を振り落とす（2回目／肉体へのダメージ）</enemy>
   <enemy id="m15" name="振り落とし（精神への負担）" element="" attack="magic" func="5L+5R-INT-FREE2" drop="">落下への恐怖（精神へのダメージ）</enemy>
-  <enemy id="m1601" name="薙ぎ払い" element="" attack="physics" func="5+11L+11R-STR-DEX-FREE2" drop="">前足による痛烈な薙ぎ払い</enemy>
+  <enemy id="m1601" name="薙ぎ払い" element="" attack="physics" func="5+10L+10R-STR-DEX-FREE2" drop="">前足による痛烈な薙ぎ払い</enemy>
   <enemy id="m1602" name="ブレス回避判定" element="" attack="magic" func="17-L-R-DEX-KRM" drop="">ブレスの回避判定</enemy>
   <enemy id="m1603" name="灼熱のブレス" element="" attack="physics" func="10+13L+13R-STR-DEX-FREE2" drop="">高威力の炎のブレス</enemy>
   <enemy id="m1604" name="噛み付き回避判定" element="" attack="magic" func="20-L-R-DEX-KRM" drop="">噛み付きの回避判定</enemy>
-  <enemy id="m1605" name="噛み付き" element="" attack="physics" func="10+12L+12R-STR-DEX-FREE2" drop="">幾多の命を喰らってきた顎</enemy>
-  <enemy id="m1606" name="切り裂き" element="" attack="physics" func="10+11L+11R-STR-DEX-FREE2" drop="">鋼鉄でも容易く切り裂く爪の重い一撃</enemy>
+  <enemy id="m1605" name="噛み付き" element="" attack="physics" func="10+11L+11R-STR-DEX-FREE2" drop="">幾多の命を喰らってきた顎</enemy>
+  <enemy id="m1606" name="切り裂き" element="" attack="physics" func="10+10L+10R-STR-DEX-FREE2" drop="">鋼鉄でも容易く切り裂く爪の重い一撃</enemy>
   <enemy id="m1701" name="キングドラゴンへの攻撃" element="" attack="free3" func="L+R+STR+DEX+FREE2" drop="">『君』の攻撃</enemy>
   <enemy id="m1702" name="ダメージボーナス（小）" element="" attack="free3" func="40" drop="">キングドラゴンへの追加ダメージ</enemy>
   <enemy id="m1703" name="ダメージボーナス（中）" element="" attack="free3" func="70" drop="">キングドラゴンへの追加ダメージ</enemy>
@@ -187,6 +186,7 @@
   <work name="心臓音01" category="se" creator="On-Jin ～音人～" url="https://on-jin.com/"></work>
   <work name="解かれた封印（割れる・ガラス01／※加工有り）" category="se" creator="On-Jin ～音人～" url="https://on-jin.com/"></work>
   <work name="怪獣・鳴声01" category="se" creator="On-Jin ～音人～" url="https://on-jin.com/"></work>
+  <work name="居合抜き1（iainuki1／※加工有り）" category="se" creator="効果音ラボ" url="https://soundeffect-lab.info/"></work>
   <work name="海の朝日" category="picture" creator="無料写真素材 写真AC（rudorufu77）" url="https://www.photo-ac.com/"></work>
   <work name="各種イラスト" category="picture" creator="ときのじ" url=""></work>
   <work name="終末の双王（各種スクリーンショット）" category="picture" creator="原作ソーサリアンより" url=""></work>
@@ -2295,8 +2295,8 @@ ${/if}
 
 　君は${age?髪を振り乱し:髪を振り乱し:頭を掻きむしり}ながら、この空間の在り方を全力で否定する。
 
-[・・・・・・](37 "oMP10+")
-[・・・・・・](30 "oMP11-")
+[・・・・・・](37)
+[MPが0になった](30)
 </scene>
 
 <!--INT低キャラ不利-->
@@ -2315,8 +2315,8 @@ ${/if}
 
 　君は${age?髪を振り乱し:髪を振り乱し:頭を掻きむしり}ながら、この空間の在り方を全力で否定する。
 
-[・・・・・・](37 "oMP10+")
-[・・・・・・](30 "oMP11-")
+[・・・・・・](37)
+[MPが0になった](30)
 </scene>
 
 <scene id="37" free2="1" result="r07" flags="-f1020" se="se03">
@@ -7920,7 +7920,7 @@ ${/if}
 　**貴様など神に非ず！！　さあ、来いッ！！**
 
 　君の宣戦布告が合図となった。
-　ティエンルンは、赤色の瞳を怒らせて咆哮を上げると、君に向かって真っ直ぐに飛んでくる。
+　ティエンルンは、赤色の瞳を怒らせて咆哮を上げた。
 
 [なんだかんだで行動開始だ！](420604)
 </scene>
@@ -7936,7 +7936,7 @@ ${/if}
 　君も幾多の竜と関わってきたが、こうして竜の背に乗り空を飛ぶという経験は貴重なだけに、つい声を上げてしまったのだ。
 　まあ、ルワンにギロリと睨まれてしまった訳だが。
 
-　幻影龍はティエンルンより上を目指して飛んでいる。まずは君達の体勢を整える時間を確保するためだ。
+　幻影龍は、追い掛けてくるティエンルンより上を目指して飛んでいる。まずは君達の体勢を整える時間を確保するためだ。
 　この幻影龍はティエンルンよりも小さいとは言ったが、この洞窟の中で身体が大きいということは、必ずしも有利であるとは言えない。
 　君達を追って旋回するティエンルンの重々しい動きを見ていると、それがよく分かった。
 　おそらく、ルワンはそれを見越して幻影龍のサイズを加減したに違いない。
@@ -9163,60 +9163,46 @@ ${/if}
 %red%※＜召喚石＞の魔力保有量に応じて開示される情報が増減します%/%
 ${if oFREEI1-}
 **★魔力保有量：0**
-①最大HPと最大MPのどちらか片方を2倍にできる
-　（例1：MAX HPのみ100→200）
-　（例2：MAX MPのみ50→100）
+①恩恵なし
 ${/if}
 ${if oFREEI0+}
 **★魔力保有量：1**
-①最大HPと最大MPのどちらか片方を2倍にできる
-②STR,INT,DEX,KRMのいずれか1つを選んで+1できる
+①STR,INT,DEX,KRMのいずれか1つを選んで+1できる
 　（例：STR+1）
 ${/if}
 ${if oFREEI1+}
 **★魔力保有量：2**
-①最大HPと最大MPのどちらか片方を2倍にできる
-②STR,INT,DEX,KRMのいずれか2つを選んで各種+1できる
-　（例1：STR+1とINT+1）
+①STR,INT,DEX,KRMのいずれか1つを選んで+1できる
 ${/if}
 ${if oFREEI2+}
 **★魔力保有量：3**
-①最大HPと最大MPのどちらか片方を2倍にできる
-②STR,INT,DEX,KRMのいずれか3つを選んで各種+1できる
-　（例1：STR+1とINT+1とDEX+1）
+①STR,INT,DEX,KRMのいずれか2つを選んで各種+1できる
+　（例1：STR+1とINT+1）
 ${/if}
 ${if oFREEI3+}
 **★魔力保有量：4**
-①最大HPと最大MPのどちらか片方を2倍にできる
-②STR,INT,DEX,KRMの4つのステータスを各種+1できる
-　（例1：STR+1とINT+1とDEX+1とKRM+1）
+①STR,INT,DEX,KRMの3つのステータスを各種+1できる
+　（例1：STR+1とINT+1とDEX+1）
 ${/if}
 ${if oFREEI4+}
 **★魔力保有量：5,6**
-①最大HPと最大MPのどちらか片方を2倍にできる
-　（例1：MAX HPのみ100→200）
-　（例2：MAX MPのみ50→100）
-②STR,INT,DEX,KRMの4つのステータスを各種+1できる
-　（例1：STR+1とINT+1とDEX+1とKRM+1）
-③任意の＜七惑星の欠片＞を更に10個追加できる
+①STR,INT,DEX,KRMの3つのステータスを各種+1できる
+②任意の＜七惑星の欠片＞を更に10個追加できる
 　（例：月+1,火星+2,水星+2,木星+2,金星+3）
 ${/if}
 ${if oFREEI6+}
 **★魔力保有量：7～9**
-①最大HPと最大MPをそれぞれ2倍にできる
-　（例：MAX HP100→200,MAX MP50→100）
-②STR,INT,DEX,KRMの4つのステータスを各種+1できる
-③任意の＜七惑星の欠片＞を更に20個追加できる
+①STR,INT,DEX,KRMの3つのステータスを各種+1できる
+②任意の＜七惑星の欠片＞を更に20個追加できる
 　（例：月+2,火星+3,水星+3,木星+3,金星+4,太陽+5）
 ${/if}
 ${if oFREEI9+}
 **★魔力保有量：召喚石を一度も使用していない**
-①最大HPと最大MPをそれぞれ%red%3倍%/%にできる
-　（例：MAX HP100→300,MAX MP50→150）
-②STR,INT,DEX,KRMの4つのステータスを各種+1できる
-③任意の＜七惑星の欠片＞を更に30個追加できる
+①STR,INT,DEX,KRMの4つのステータスを各種+1できる
+　（例1：STR+1とINT+1とDEX+1とKRM+1）
+②任意の＜七惑星の欠片＞を更に30個追加できる
 　（例：月+3,火星+4,水星+5,木星+5,金星+6,太陽+7）
-④FREE2『侵食度』を任意の数値に調整できる
+③FREE2『侵食度』を任意の数値に調整できる
 　（ただし、0～70の範囲で調整すること）
 
 ${/if}
@@ -9244,67 +9230,52 @@ ${/if}
 %red%※＜召喚石＞の魔力保有量に応じて開示される情報が増減します%/%
 ${if oFREEI1-}
 **★魔力保有量：0**
-①最大HPと最大MPのどちらか片方を2倍にできる
-　（例1：MAX HPのみ100→200）
-　（例2：MAX MPのみ50→100）
+①恩恵なし
 ${/if}
 ${if oFREEI0+}
 **★魔力保有量：1**
-①最大HPと最大MPのどちらか片方を2倍にできる
-②STR,INT,DEX,KRMのいずれか1つを選んで+1できる
+①STR,INT,DEX,KRMのいずれか1つを選んで+1できる
 　（例：STR+1）
 ${/if}
 ${if oFREEI1+}
 **★魔力保有量：2**
-①最大HPと最大MPのどちらか片方を2倍にできる
-②STR,INT,DEX,KRMのいずれか2つを選んで各種+1できる
-　（例1：STR+1とINT+1）
+①STR,INT,DEX,KRMのいずれか1つを選んで+1できる
 ${/if}
 ${if oFREEI2+}
 **★魔力保有量：3**
-①最大HPと最大MPのどちらか片方を2倍にできる
-②STR,INT,DEX,KRMのいずれか3つを選んで各種+1できる
-　（例1：STR+1とINT+1とDEX+1）
+①STR,INT,DEX,KRMのいずれか2つを選んで各種+1できる
+　（例1：STR+1とINT+1）
 ${/if}
 ${if oFREEI3+}
 **★魔力保有量：4**
-①最大HPと最大MPのどちらか片方を2倍にできる
-②STR,INT,DEX,KRMの4つのステータスを各種+1できる
-　（例1：STR+1とINT+1とDEX+1とKRM+1）
+①STR,INT,DEX,KRMの3つのステータスを各種+1できる
+　（例1：STR+1とINT+1とDEX+1）
 ${/if}
 ${if oFREEI4+}
 **★魔力保有量：5,6**
-①最大HPと最大MPのどちらか片方を2倍にできる
-　（例1：MAX HPのみ100→200）
-　（例2：MAX MPのみ50→100）
-②STR,INT,DEX,KRMの4つのステータスを各種+1できる
-　（例1：STR+1とINT+1とDEX+1とKRM+1）
-③任意の＜七惑星の欠片＞を更に10個追加できる
+①STR,INT,DEX,KRMの3つのステータスを各種+1できる
+　（例1：STR+1とINT+1とDEX+1）
+②任意の＜七惑星の欠片＞を更に10個追加できる
 　（例：月+1,火星+2,水星+2,木星+2,金星+3）
 ${/if}
 ${if oFREEI6+}
 **★魔力保有量：7～9**
-①最大HPと最大MPのどちらか片方を2倍にできる
-②STR,INT,DEX,KRMの4つのステータスを各種+1できる
-③任意の＜七惑星の欠片＞を更に15個追加できる
+①STR,INT,DEX,KRMの3つのステータスを各種+1できる
+②任意の＜七惑星の欠片＞を更に15個追加できる
 　（例：月+2,火星+3,水星+3,木星+3,金星+4）
 ${/if}
 ${if oFREEI9+}
 **★魔力保有量：10**
-①最大HPと最大MPをそれぞれ2倍にできる
-　（例：MAX HP100→200,MAX MP50→100）
-②STR,INT,DEX,KRMの4つのステータスを各種+1できる
-③任意の＜七惑星の欠片＞を更に20個追加できる
+①STR,INT,DEX,KRMの3つのステータスを各種+1できる
+②任意の＜七惑星の欠片＞を更に20個追加できる
 　（例：月+2,火星+3,水星+3,木星+3,金星+4,太陽+5）
 ${/if}
 ${if oFREEI10+}
 **★魔力保有量：召喚石を一度も使用していない**
-①最大HPと最大MPをそれぞれ%red%3倍%/%にできる
-　（例：MAX HP100→300,MAX MP50→150）
-②STR,INT,DEX,KRMの4つのステータスを各種+1できる
-③任意の＜七惑星の欠片＞を更に30個追加できる
+①STR,INT,DEX,KRMの4つのステータスを各種+1できる
+②任意の＜七惑星の欠片＞を更に30個追加できる
 　（例：月+3,火星+4,水星+5,木星+5,金星+6,太陽+7）
-④FREE2『侵食度』を任意の数値に調整できる
+③FREE2『侵食度』を任意の数値に調整できる
 　（ただし、0～70の範囲で調整すること）
 
 ${/if}
@@ -9332,67 +9303,52 @@ ${/if}
 %red%※＜召喚石＞の魔力保有量に応じて開示される情報が増減します%/%
 ${if oFREEI1-}
 **★魔力保有量：0**
-①最大HPと最大MPのどちらか片方を2倍にできる
-　（例1：MAX HPのみ100→200）
-　（例2：MAX MPのみ50→100）
+①恩恵なし
 ${/if}
 ${if oFREEI0+}
 **★魔力保有量：1**
-①最大HPと最大MPのどちらか片方を2倍にできる
-②STR,INT,DEX,KRMのいずれか1つを選んで+1できる
+①STR,INT,DEX,KRMのいずれか1つを選んで+1できる
 　（例：STR+1）
 ${/if}
 ${if oFREEI1+}
 **★魔力保有量：2**
-①最大HPと最大MPのどちらか片方を2倍にできる
-②STR,INT,DEX,KRMのいずれか2つを選んで各種+1できる
-　（例1：STR+1とINT+1）
+①STR,INT,DEX,KRMのいずれか1つを選んで+1できる
 ${/if}
 ${if oFREEI2+}
 **★魔力保有量：3**
-①最大HPと最大MPのどちらか片方を2倍にできる
-②STR,INT,DEX,KRMのいずれか3つを選んで各種+1できる
-　（例1：STR+1とINT+1とDEX+1）
+①STR,INT,DEX,KRMのいずれか2つを選んで各種+1できる
+　（例1：STR+1とINT+1）
 ${/if}
 ${if oFREEI3+}
 **★魔力保有量：4**
-①最大HPと最大MPのどちらか片方を2倍にできる
-②STR,INT,DEX,KRMの4つのステータスを各種+1できる
-　（例1：STR+1とINT+1とDEX+1とKRM+1）
+①STR,INT,DEX,KRMの3つのステータスを各種+1できる
+　（例1：STR+1とINT+1とDEX+1）
 ${/if}
 ${if oFREEI4+}
 **★魔力保有量：5,6**
-①最大HPと最大MPのどちらか片方を2倍にできる
-　（例1：MAX HPのみ100→200）
-　（例2：MAX MPのみ50→100）
-②STR,INT,DEX,KRMの4つのステータスを各種+1できる
-　（例1：STR+1とINT+1とDEX+1とKRM+1）
-③任意の＜七惑星の欠片＞を更に10個追加できる
+①STR,INT,DEX,KRMの3つのステータスを各種+1できる
+②任意の＜七惑星の欠片＞を更に10個追加できる
 　（例：月+1,火星+2,水星+2,木星+2,金星+3）
 ${/if}
 ${if oFREEI6+}
 **★魔力保有量：7～9**
-①最大HPと最大MPのどちらか片方を2倍にできる
-②STR,INT,DEX,KRMの4つのステータスを各種+1できる
-③任意の＜七惑星の欠片＞を更に15個追加できる
+①STR,INT,DEX,KRMの3つのステータスを各種+1できる
+②任意の＜七惑星の欠片＞を更に15個追加できる
 　（例：月+2,火星+3,水星+3,木星+3,金星+4）
 ${/if}
 ${if oFREEI9+}
 **★魔力保有量：10～13**
-①最大HPと最大MPをそれぞれ2倍にできる
-　（例：MAX HP100→200,MAX MP50→100）
-②STR,INT,DEX,KRMの4つのステータスを各種+1できる
-③任意の＜七惑星の欠片＞を更に20個追加できる
+①STR,INT,DEX,KRMの3つのステータスを各種+1できる
+②任意の＜七惑星の欠片＞を更に20個追加できる
 　（例：月+2,火星+3,水星+3,木星+3,金星+4,太陽+5）
 ${/if}
 ${if oFREEI13+}
 **★魔力保有量：召喚石を一度も使用していない**
-①最大HPと最大MPをそれぞれ%red%3倍%/%にできる
-　（例：MAX HP100→300,MAX MP50→150）
-②STR,INT,DEX,KRMの4つのステータスを各種+1できる
-③任意の＜七惑星の欠片＞を更に30個追加できる
+①STR,INT,DEX,KRMの4つのステータスを各種+1できる
+　（例1：STR+1とINT+1とDEX+1とKRM+1）
+②任意の＜七惑星の欠片＞を更に30個追加できる
 　（例：月+3,火星+4,水星+5,木星+5,金星+6,太陽+7）
-④FREE2『侵食度』を任意の数値に調整できる
+③FREE2『侵食度』を任意の数値に調整できる
 　（ただし、0～70の範囲で調整すること）
 
 ${/if}
@@ -10791,7 +10747,7 @@ ${/if}
 </scene>
 
 <!--D分岐2-1-->
-<scene id="490104" flags="f490104" rule="90001">
+<scene id="490104" mp="-3" flags="f490104" rule="90001">
 **LAST BATTLE:TURN 3 -VS-**
 %red%
 ・YOU【DEFENSE／EVADE】選択%/%%blue%
@@ -10815,11 +10771,13 @@ ${/if}
 　最悪の想像を振り払う。
 　君はすぐさま態勢を整え、キングドラゴンの懐へと飛び込んだ。
 
+　%red%**▼MPに3ダメージを受けた！**%/%
+
 [TURN 4 -YOU-](500101)
 </scene>
 
 <!--D分岐2-2-->
-<scene id="490105" flags="f490105" rule="90001">
+<scene id="490105" mp="-7" flags="f490105" rule="90001">
 **LAST BATTLE:TURN 3 -VS-**
 %red%
 ・YOU【DEFENSE／EVADE】選択%/%%blue%
@@ -10847,6 +10805,8 @@ ${/if}
 
 　最悪の想像を振り払う。
 　君はすぐさま態勢を整え、歯を食いしばって痛みを堪えながら、キングドラゴンから少し距離を取った。
+
+　%red%**▼MPに7ダメージを受けた！**%/%
 
 [TURN 4 -YOU-](500101)
 [HPまたはMPが0になった](91000)
@@ -10923,7 +10883,7 @@ ${/if}
 </scene>
 
 <!--M分岐2-1-->
-<scene id="490107" flags="f490104" rule="90001">
+<scene id="490107" mp="-3" flags="f490104" rule="90001">
 **LAST BATTLE:TURN 3 -VS-**
 %red%
 ・YOU【MAGIC】選択%/%%blue%
@@ -10947,11 +10907,13 @@ ${/if}
 　最悪の想像を振り払う。
 　君はすぐさま態勢を整え、キングドラゴンの懐へと飛び込んだ。
 
+　%red%**▼MPに3ダメージを受けた！**%/%
+
 [TURN 4 -YOU-](500101)
 </scene>
 
 <!--M分岐2-2-->
-<scene id="490108" flags="f490105" rule="90001">
+<scene id="490108" mp="-7" flags="f490105" rule="90001">
 **LAST BATTLE:TURN 3 -VS-**
 %red%
 ・YOU【MAGIC】選択%/%%blue%
@@ -10979,6 +10941,8 @@ ${/if}
 
 　最悪の想像を振り払う。
 　君はすぐさま態勢を整え、歯を食いしばって痛みを堪えながら、キングドラゴンから少し距離を取った。
+
+　%red%**▼MPに7ダメージを受けた！**%/%
 
 [TURN 4 -YOU-](500101)
 [HPまたはMPが0になった](91000)
@@ -11334,7 +11298,7 @@ ${/if}
 </scene>
 
 <!--RANGE：中からのM分岐-負傷1-->
-<scene id="500304" flags="f500102" rule="90001">
+<scene id="500304" flags="f500102" enemies="m1706" rule="90001">
 **LAST BATTLE:TURN 4 -VS-**
 
 ・YOU【MAGIC】選択
@@ -12015,7 +11979,7 @@ ${/if}
 
 
 <!--キングドラゴン討伐後（人間ルート）-->
-<scene id="54" bgm="king-main06">
+<scene id="54" bgm="@none" se="se07">
 　**「見事だ……ペンタウァの……勇者よ……」**
 
 　くぐもった声が零れ落ちる。
@@ -12045,7 +12009,7 @@ ${/if}
 [あ、貴方は……！？](55)
 </scene>
 
-<scene id="55" bgm="king-king02">
+<scene id="55" hp="full" mp="full" bgm="king-king02">
 　威厳に満ちたよく通る声。
 　人々を慈しむ優しい眼差し。
 　燃えるような紅毛に、同色の艶やかな髭。
@@ -12384,7 +12348,7 @@ ${/if}
 　以後、シナリオの進行状況に合わせて**ヒント集「TIPS」**が解放されます。
 　Scene 1やセーブポイントなど「TIPS（攻略情報　※進行状況に応じて順次情報開示）」から確認することができます。
 　実績の取得条件がどうしても分らない等、困った時にご活用ください。%/%
-${if f0601|f0602|f4001}
+${if (f0601|f0602|f4001)}
 ![多頭の竜](king03.png)
 ${/if}
 ${if f07}
@@ -12445,11 +12409,9 @@ ${/if}
 
 <!--攻略情報ページ-->
 <scene id="100000" result="r100000" bgm="@end01">
-### はじめに
-
 ![うりうり～](kingtips.png)
 
-　ここは「終末の双王 - ドラゴンモード -」の攻略情報ページです。
+　ここは**「終末の双王 - ドラゴンモード -」の攻略情報ページ**です。
 　シナリオの進行状況に応じて攻略のヒント等が順次開示されます。
 %red%
 　**ネタバレになる可能性も大いに有り得ます**ので、自力で攻略したいソーサリアン様は、このままブラウザバックで前のSceneにお戻りください。%/%
@@ -12574,7 +12536,7 @@ ${if r22:king}
 ${/if}
 　
 　
-${if r24:king|r26:king}
+${if (r24:king|r26:king)}
 ### 10. 何故か竜になっちゃう
 
 　ペンタウァ大惨事（滅亡）
