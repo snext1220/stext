@@ -246,7 +246,7 @@
     playBgm(path) {
       if(bgm) { bgm.pause(); }
       bgm = new Audio(path);
-      //bgm.volume = 0.4;
+      bgm.volume = 0.2;
       bgm.loop = true;
       if(global_save_data.bgm) {
         bgm.play();
@@ -896,13 +896,14 @@
             canEscape = l_damage > r_damage;
           }
           if (canEscape) {
+            SeAudio.play('guard', true);
             toastr.info(
               '回避に成功した。',
               '状態異常'
             );
           } else {
             if(Util.updateState(attack)) {
-              SeAudio.play('damage', true);
+              SeAudio.play('state', true);
               toastr.error(
                 '「' + Common.state_names[attack] + '」を受けた！',
                 '状態異常'
@@ -1000,7 +1001,7 @@
       });
 
       // ダイス回転音を準備
-      let ad = new Audio(ROOT + COMMON + 'dice.mp3');
+      // let ad = new Audio(ROOT + COMMON + 'dice.mp3');
       // ダイスの回転
       let rotate_count;
       let rotateCube = function() {
@@ -1011,7 +1012,7 @@
       };
       // サイコロをリロード
       target.parent().on('click', '#sidr_battle #cubes', function(e) {
-        ad.play();
+        SeAudio.play('dice', true);
         rotate_count = 1;
         rotateCube();
       });
@@ -3330,12 +3331,12 @@
     },
 
     // 指定されたBGMを再生
-    playBgm: function(path) {
-      if(bgm) { bgm.pause(); }
-      bgm = new Audio(path);
-      bgm.loop = true;
-      if(global_save_data.bgm) { bgm.play(); }
-    },
+    // playBgm: function(path) {
+    //   if(bgm) { bgm.pause(); }
+    //   bgm = new Audio(path);
+    //   bgm.loop = true;
+    //   if(global_save_data.bgm) { bgm.play(); }
+    // },
 
     // 簡易ステータス表示
     // showSimpleStatus: function() {
@@ -4011,7 +4012,7 @@
       }
       // 再生すべき曲が現在の曲と異なれば、曲を切り替え
       if (new_bgm !== bgm_name) {
-        Util.playBgm(Util.buildBgmPath(new_bgm));
+        SeAudio.playBgm(Util.buildBgmPath(new_bgm));
         bgm_name = new_bgm;
         // セーブデータ、履歴も反映
         save_data.bgm = new_bgm;
