@@ -1376,7 +1376,10 @@
           // 現在所持しているフラグ一覧を表示
           let flags = [];
           for (let key of save_data.flags) {
-            flags.push(`・${flags_map[key]}`);
+            let f_text = flags_map[key];
+            if (f_text.indexOf('*') !== 0) {
+              flags.push(`・${f_text}`);
+            }
           }
           $('#sidr_item #sidr_item_flag').text(flags.join('\r'));
         },
