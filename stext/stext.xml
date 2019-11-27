@@ -405,7 +405,7 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 </work>
 
 <work id="marsh" title="暗き沼の亡竜" author="ときのじ" series="Playground100祭"
-  tags="暗き沼の魔法使い,ドラゴンモード外伝,探索" published="2019-11-28" updated="" level="3" scenes="81" results="16" clears="r16"
+  tags="暗き沼の魔法使い,外伝,探索" published="2019-11-29" updated="" level="3" scenes="81" results="16" clears="r16"
   comment="連作ドラゴンモード「常闇から来たる影」以前の外伝シナリオです。システムを利用した戦闘もなく、文章を読み進めて気軽にサクサク遊べます。ギャグに突っ走ったソーサリアンのドタバタっぷりを是非ご堪能あれ！" unpublished="true">
 <img src="./stext/marsh/capture/intro.png" height="120"
   title="暗き沼の亡竜"  align="left" class="left"/>
