@@ -236,7 +236,7 @@
         } else {
           a = new Audio(`${ROOT}${scenario_code}/${BGM}${SE}${name}.mp3`);
         }
-        a.volume = 1.0;
+        a.volume = 0.9;
         a.loop = false;
         a.play();
       }
