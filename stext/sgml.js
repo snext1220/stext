@@ -796,6 +796,11 @@
       Util.saveStorage();
     },
 
+    // サイドバーのオープン
+    openSideBar(base) {
+      $.sidr('open', `sidr_${base}`);
+    },
+
     // サイドバーの生成（基本）
     createSideBar(base, template, onOpen, onSubmit) {
       let s_name = `sidr_${base}`;
@@ -2356,7 +2361,8 @@
          save_data.stars[3] < magic[3] ||
          save_data.stars[4] < magic[4] ||
          save_data.stars[5] < magic[5] ||
-         save_data.stars[6] < magic[6]) {
+         save_data.stars[6] < magic[6] ||
+         save_data.chara.state === 'curse') {
         return false;
       } else {
         return true;
@@ -2986,10 +2992,13 @@
       Util.createScene(0);
       //history.pushState(0, 'Scene 0');
 
-      // 初期化ダイアログ＋スプラッシュ画面
-      window.alert('キャラが新規作成されました。\r' +
-      'ステータスダイアログは画面右クリックで開くことができます。');
-      //Util.showSplash();
+      // 初期化トースト＋Basicダイアログ
+      SideBar.openSideBar('basic');
+      toastr.options.timeOut = 5000;
+      toastr.info(
+        'ステータスは画面右クリックで確認できます。',
+        'キャラが作成されました。'
+      );
     },
 
     // ダイアログのテンプレートをロード
