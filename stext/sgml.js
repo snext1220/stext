@@ -2697,7 +2697,7 @@
 
     // @state属性（at_state）の値に応じて、状態異常を更新
     updateState: function(at_state) {
-      if (!at_state) { return; }
+      if (at_state === undefined) { return; }
       if (at_state.indexOf('-') === 0) {
         let state = at_state.substring(1);
         if (state === 'all') {
