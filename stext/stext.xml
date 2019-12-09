@@ -98,8 +98,8 @@
 </work>
 
 <work id="vampire" title="鉄腕の吸血姫" author="cocotori" series="開幕シナリオ"
-  tags="探索" published="2018-3-25" updated="2018-11-9"
-  level="1" scenes="39" results="2" clears="r01"
+  tags="探索" published="2018-3-25" updated="2019-12-9"
+  level="1" scenes="40" results="2" clears="r01"
   comment="吸血鬼と言うより物理で殴る肉体派が出来上がりました。ダークでハードな感じを目指してみました。">
 <img src="./stext/vampire/capture/intro.png"  height="120"
   title="鉄腕の吸血姫" align="left" class="left" />
