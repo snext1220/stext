@@ -353,9 +353,14 @@ $(function () {
             },
             deleteEdge: function(data, callback) {
               if (confirm('Edgeを削除しても良いですか？')) {
-                scenario.edges = scenario.edges.filter(function(value) {
-                  return value.id === data.id;
-                });
+                for (ed of data.edges) {
+                  scenario.edges = scenario.edges.filter(function(value) {
+                    console.log(value);
+                    console.log(ed);
+                    console.log('----')
+                    return value.id !== ed;
+                  });
+                }
                 Util.disableTab();
                 callback(data);
               } else {
