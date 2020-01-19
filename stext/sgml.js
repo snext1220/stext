@@ -1907,7 +1907,7 @@
           <li><a id="menu_magic" href="#">Magic</a></li>
           <li><a href="#">Info</a>
             <ul>
-              <li><a id="menu_basic">Basic</a></li>
+              <li><a id="menu_basic">Chara</a></li>
               <li><a id="menu_item">Item & Flag</a></li>
               <li><a id="menu_result">Result</a></li>
               <li><a id="menu_bonus">Bonus</a></li>
@@ -1918,10 +1918,14 @@
             <ul>
               <li><a id="menu_backup">Backup</a></li>
               <li><a id="menu_restore">Restore</a><input id="menu_restore_select" type="file" accept=".stext" /></li>
-              <li><a id="menu_audio">Sound</a></li>
               <li><a href="https://sorcerian.hateblo.jp/entries/2017/12/20">Help</a></li>
               <li><a href="./">Exit</a></li>
             </ul>
+          </li>
+          <li>
+            <a id="menu_audio">
+              <img src="./stext/common/menu_audio_on.png" />
+            </a>
           </li>
         </ul>
       </nav>`).insertBefore(target);
@@ -1981,17 +1985,20 @@
       });
 
       // オーディオ初期表示
-      $('#menu_audio').text(`Sound（${ global_save_data.bgm ? 'On' : 'Off'}）`);
+      $('#menu_audio > img').attr('src',
+        `${ROOT}${COMMON}menu_audio_${ global_save_data.bgm ? 'on' : 'off'}.png`);
       // BGMオンオフ
       target.parent().on('click', '#menu_audio', function(e) {
         if(bgm) {
           if (global_save_data.bgm) {
             global_save_data.bgm = false;
-            $(this).text('Sound（Off）');
+            $('img', this).attr('src',
+              `${ROOT}${COMMON}menu_audio_off.png`);
             bgm.pause();
           } else {
             global_save_data.bgm = true;
-            $(this).text('Sound（On）');
+            $('img', this).attr('src',
+              `${ROOT}${COMMON}menu_audio_on.png`);
             bgm.play();
           }
           Util.saveStorageGlobal();

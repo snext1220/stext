@@ -887,3 +887,13 @@ table.item_list img {
 #main-menu input[type="file"] {
   display: none;
 }
+
+#menu_audio {
+  margin: 0;
+  padding: 0;
+}
+
+#menu_audio img {
+  margin-top: 3px;
+  margin-right: 5px;
+}
