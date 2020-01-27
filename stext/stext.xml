@@ -420,6 +420,24 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 何だか嫌な予感がするのだが……。
 『君』は緊張で喉を鳴らすと、意を決して手紙を開封した。
 </work>
+
+<work id="usher" title="導きソーサリアン" author="cocotori" series="Playground100祭"
+  tags="暗き沼の魔法使い,外伝,探索" published="2020-01-27" level="2" scenes="36" results="5"
+  comment="第三者視点で魔物討伐ものを作ってみました。思い通りに動いてくれない勇者の手綱を握りながら、なんとか進みましょう。">
+<img src="./stext/usher/capture/intro.png" height="120"
+  title="導きソーサリアン"  align="left" class="left"/>
+<p class="award">Playground100祭Vol.2(100Scene限定シナリオ)</p>
+
+あなたは、この物語を解決に導く精霊です。
+姫の神託により選ばれた勇者を陰ながら補佐しつつ、闇の眷属ケイオースを討伐してください。
+
+どんな過酷な運命に見舞われてもどうか諦めないで。あなたには、その運命すらも動かす力があるのだから。
+
+※ゲームオーバーは基本的にありません。自由に選択肢を選び、反応を楽しんでください。
+
+</work>
+</scenario>
+
 </scenario>
 
 <utility>
