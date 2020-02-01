@@ -1358,7 +1358,7 @@
       this.createSideBar(
         'item',
         `<div id="sidr_item" class="sidr_info">
-          <h2>Items & Flags</h2>
+          <h2><img src="${ROOT}${COMMON}side/items_flags.png" alt="Items & Flags" /></h2>
           <div>
             ITEMS：<br/>
             <textarea id="sidr_item_item"></textarea>
@@ -1395,7 +1395,7 @@
     createStatusSheet() {
       let that = this;
       let template = $(`<div id="sidr_status" class="sidr_info">
-        <h2>Status</h2>
+        <h2><img src="${ROOT}${COMMON}side/status.png" alt="Status" /></h2>
         <p id="sidr_status_bonus" class="bonus_msg"></p>
         <table id="sidr_status_list">
           <tr>
@@ -1579,7 +1579,7 @@
       };
 
       let template = $(`<div id="sidr_magic" class="sidr_info">
-      <h2>Magic & STARS</h2>
+      <h2><img src="${ROOT}${COMMON}side/magic.png" alt="Magic & STARS" /></h2>
       <p id="sidr_magic_bonus" class="bonus_msg"></p>
       <div>
         <select id="sidr_magic_magic"></select>
@@ -1722,7 +1722,7 @@
     // ボーナス情報
     createBonusInfo() {
       let template = $(`<div id="sidr_bonus" class="sidr_info">
-        <h2>Bonus</h2>
+        <h2><img src="${ROOT}${COMMON}side/bonus.png" alt="Bonus" /></h2>
         <ul id="sidr_bonus_list">
           <li><img id="gi01" /></li>
           <li><img id="gi02" /></li>
@@ -1812,7 +1812,7 @@
       this.createSideBar(
         'result',
         `<div id="sidr_result" class="sidr_info">
-          <h2>Results</h2>
+          <h2><img src="${ROOT}${COMMON}side/results.png" alt="Results" /></h2>
           <div id="sidr_result_rate">Rate: 0.0%</div>
           <table id="sidr_result_list">
           </table>
@@ -1907,8 +1907,8 @@
           <li><a id="menu_magic" href="#">Magic</a></li>
           <li><a href="#">Info</a>
             <ul>
-              <li><a id="menu_basic">Chara</a></li>
-              <li><a id="menu_item">Item & Flag</a></li>
+              <li><a id="menu_basic">Character</a></li>
+              <li><a id="menu_item">Items & Flags</a></li>
               <li><a id="menu_result">Result</a></li>
               <li><a id="menu_bonus">Bonus</a></li>
               <li><a id="menu_rank">Player Rank</a></li>
