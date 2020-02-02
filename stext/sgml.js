@@ -1343,6 +1343,7 @@
         'basic',
         template,
         function() {
+          $('#sidr_basic #sidr_basic_ellapsed_scene').val(`${save_data.chara.ellapsed_scene} scene`);
           $('#sidr_basic #sidr_basic_job').val(save_data.chara.job);
           $('#sidr_basic #sidr_basic_memos').val(save_data.memos);
         },
@@ -1518,6 +1519,11 @@
         function() {
           $('#sidr_status #sidr_status_hp').val(save_data.chara.hp);
           $('#sidr_status #sidr_status_mp').val(save_data.chara.mp);
+          // 暫定
+          $('#sidr_status #sidr_status_hp_m').text(save_data.chara.hp_m);
+          $('#sidr_status #sidr_status_mp_m').text(save_data.chara.mp_m);
+
+
           $('#sidr_status [name="sidr_status_state"]').each(function() {
             var state = $(this).nsAttr('value');
             if(state === save_data.chara.state) {
@@ -1542,6 +1548,12 @@
             $('#sidr_status #sidr_status_free_label2').text(flabel.nsAttr('free2'));
             $('#sidr_status #sidr_status_free_label3').text(flabel.nsAttr('free3'));
           }
+          // 暫定
+          $('#sidr_status #sidr_status_str_i').text(save_data.chara.str_i);
+          $('#sidr_status #sidr_status_int_i').text(save_data.chara.int_i);
+          $('#sidr_status #sidr_status_dex_i').text(save_data.chara.dex_i);
+          $('#sidr_status #sidr_status_krm_i').text(save_data.chara.krm_i);
+
           $('#sidr_status #sidr_status_str').val(save_data.chara.str);
           $('#sidr_status #sidr_status_int').val(save_data.chara.int);
           $('#sidr_status #sidr_status_dex').val(save_data.chara.dex);
@@ -2582,6 +2594,25 @@
     updateStarById: function(star, value) {
       var num = Object.keys(Common.star_names).indexOf(star);
       save_data.stars[num] = Number(save_data.stars[num]) + Number(value);
+    },
+
+    // 更新データ（at_obj）の値に基づいて、セーブデータの
+    // hp_m/mp_m、str_i/int_i/dex_i/krm_iを更新
+    // at_objには、hp_m/mp_m、str_i～krm_iプロパティ
+    updateHp2KrmMax: function(at_obj) {
+      let props = ['hp_m', 'mp_m',
+        'str_i', 'int_i', 'dex_i', 'krm_i'];
+      // propがat_objに存在する場合だけ処理
+      for (prop of props) {
+        if (at_obj[prop]) {
+          let v = at_obj[prop].split('..');
+          if (v[1]) {
+            v[0] = Util.random(Number(v[0]), Number(v[1]));
+          }
+          // ★懸案★現在は負数を許容
+          save_data.chara[prop] = Number(save_data.chara[prop]) + Number(v[0]);
+        }
+      }
     },
 
     // @hp（at_hp）、@mp（at_mp）の値に応じて、
@@ -3812,6 +3843,14 @@
         Util.updateItems(scene.nsAttr('items'));
         Util.updateFlags(scene.nsAttr('flags'));
         Util.updateStars(scene.nsAttr('stars'));
+        Util.updateHp2KrmMax({
+          hp_m: scene.nsAttr('hp_max'),
+          mp_m: scene.nsAttr('mp_max'),
+          str_i:scene.nsAttr('str_max'),
+          int_i:scene.nsAttr('int_max'),
+          dex_i:scene.nsAttr('dex_max'),
+          krm_i:scene.nsAttr('krm_max')
+        });
         Util.updateHpMp(scene.nsAttr('hp'), scene.nsAttr('mp'));
         Util.updateStr2Krm(scene.nsAttr('str'), scene.nsAttr('int'), scene.nsAttr('dex'), scene.nsAttr('krm'));
         Util.updateFrees(scene.nsAttr('free1'), scene.nsAttr('free2'), scene.nsAttr('free3'));

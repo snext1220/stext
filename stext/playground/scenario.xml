@@ -356,7 +356,9 @@ HEAL実行
 
 </scene>
 	<scene id="998"></scene>
-	<scene id="3" hp="half" mp="half" state="-all">
+	<scene id="3" hp_max="1" mp_max="2"
+		str_max="1..5" int_max="2..6" dex_max="3..7" krm_max="-5..-1" 
+		hp="half" mp="half" state="-all">
 ファイル跨ぎの分岐に成功しました。
 
 -----
