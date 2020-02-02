@@ -1343,7 +1343,7 @@
         'basic',
         template,
         function() {
-          $('#sidr_basic #sidr_basic_ellapsed_scene').val(`${save_data.chara.ellapsed_scene} scene`);
+          $('#sidr_basic #sidr_basic_ellapsed_scene').text(`${save_data.ellapsed_scene} scene`);
           $('#sidr_basic #sidr_basic_job').val(save_data.chara.job);
           $('#sidr_basic #sidr_basic_memos').val(save_data.memos);
         },
