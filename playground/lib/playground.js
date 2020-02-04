@@ -2108,6 +2108,11 @@ $(function () {
     window.open('../playground.aspx', 'pgeditor');
   });
 
+  // ページ移動時の警告
+  $(window).on('beforeunload', function(){
+    return "ページを閉じてもよろしいですか？";
+  });
+
   // TIPS表示
   let tips = [
     'フローチャート上では、プロローグ／エピローグ（happy/bad）を表すシーンが色で区別されています。目的のシーンを探す手掛かりになるでしょう。',
