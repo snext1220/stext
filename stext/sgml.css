@@ -645,6 +645,9 @@ table.item_list img {
 
 /* サイドバー（情報／ステータス） */
 .sidr_info {
+  background-image: url(common/side/back.png);
+  background-repeat: no-repeat;
+  background-position: right top;
   background-color: #000;
   opacity: 1;
   color: #fff;
