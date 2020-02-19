@@ -638,12 +638,12 @@ $(function () {
       }
     },
     // 標準リンクの生成（For createMoveButton）
-    createStandardLink: function(group) {
-      let value = group[0];
-      if (value.condition) {
-        return `[${value.label}](${value.to} "${value.condition}")`;
+    createStandardLink: function(link) {
+      // let value = group[0];
+      if (link.condition) {
+        return `[${link.label}](${link.to} "${link.condition}")`;
       } else {
-        return `[${value.label}](${value.to})`;
+        return `[${link.label}](${link.to})`;
       }
     },
     // 指定されたid値のシーン移動ボタンを生成
@@ -681,7 +681,9 @@ $(function () {
             result.push(Util.createRandomLink(group));
             break;
           default:
-            result.push(Util.createStandardLink(group));
+            for (let link of group) {
+              result.push(Util.createStandardLink(link));
+            }
             break;
         }
       }
