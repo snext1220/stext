@@ -32,7 +32,8 @@
 <work id="scepter" title="新・消えた王様の杖" author="リオ" series="開幕シナリオ"
   tags="リメイク,探索,チュートリアル" published="2017-12-20" updated="2019-09-09"
   level="3" scenes="253" results="45" clears="r43,r44"
-  comment="古臭いゲームブックの世界で、新たな杖の物語。こんなお話もありかな、と寛容な心で遊んでいただければ幸いです。「新・～」シリーズは、今後も拡大していければと思うので、協力者緩募です。">
+  comment="古臭いゲームブックの世界で、新たな杖の物語。こんなお話もありかな、と寛容な心で遊んでいただければ幸いです。「新・～」シリーズは、今後も拡大していければと思うので、協力者緩募です。"
+  quest="1FAIpQLSfAL7gm-WCdtzXygPUU6BgIBH2dBEYhEw8zt49VPciqYRpmSg">
 <img src="./stext/scepter/capture/intro.png" height="120"
   title="新・消えた王様の杖" align="right" class="right" />
 ペンタウァ王家の象徴＜おうさまのつえ＞が、オークによって盗まれてしまう。
