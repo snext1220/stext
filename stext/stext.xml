@@ -210,7 +210,8 @@
 
 <work id="inn" title="トラベラーズ☆イン" author="リオ" series="ミニミニ30祭（30Scene限定シナリオ）"
   tags="ミニゲーム" published="2018-11-19" updated="2019-09-09" level="2" scenes="30" results="17" clears="r71"
-  comment="宿屋の中で繰り広げられるミニゲーム集です。初期リリースから追加された諸機能もフル活用しているので、シナリオ作成の寸例としてもご利用戴けるのではないかと。">
+  comment="宿屋の中で繰り広げられるミニゲーム集です。初期リリースから追加された諸機能もフル活用しているので、シナリオ作成の寸例としてもご利用戴けるのではないかと。"
+  quest="1FAIpQLSccjt7eRyOwD9cgeKwj8E9wqx9RHZh0o0VvGRcc6ql6vo8_mg">
 <img src="./stext/inn/capture/intro.png" height="120"
   title="トラベラーズ☆イン" align="right" class="right" />
 <p class="award">ミニミニ30祭Vol.5（30Scene限定シナリオ）</p>
@@ -227,7 +228,8 @@
 
 <work id="begin" title="終焉のゼロ - ドラゴンモード0 -" author="リオ" series="連作ドラゴンモード"
   tags="タワーディフェンス" published="2018-12-20" updated="2019-09-09" level="2" scenes="51" results="10" clears="r15"
-  comment="連作の序章ということで、雰囲気ゲーに特化。結局どうなったのか、は本編組の皆さまにお任せしたいと思います ;-)">
+  comment="連作の序章ということで、雰囲気ゲーに特化。結局どうなったのか、は本編組の皆さまにお任せしたいと思います ;-)"
+  quest="1FAIpQLSfsHknYEI5BvTw3jfVKtzi8LYkZQ8o7NXuPf1q_Idue6kw6bQ">
 <img src="./stext/begin/capture/intro.png" height="150"
   title="終焉のゼロ" align="left" class="left" />
 <p class="award">ドラゴンモード序章（連作シナリオ）</p>
