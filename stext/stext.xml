@@ -86,7 +86,8 @@
 
 <work id="hero" title="少女は英雄を語りて" author="ときのじ"  series="開幕シナリオ"
   tags="リメイク,探索" published="2018-02-13" updated="2018-11-13" level="4" scenes="339" results="11" clears="r11"
-  comment="SText版としてシナリオを再構成した、オリジナルとは少々異なる英雄物語です。今まで以上に登場人物の個性が伝わるような作品に仕上がっていたら嬉しいですね。">
+  comment="SText版としてシナリオを再構成した、オリジナルとは少々異なる英雄物語です。今まで以上に登場人物の個性が伝わるような作品に仕上がっていたら嬉しいですね。"
+  quest="1FAIpQLScQ5bvMHJfNBgMwfoAm40OhK0jYh2G1kfWI4IBeIWXOL23nnA">
 <img src="./stext/hero/capture/intro.png" height="120"
   title="少女は英雄を語りて" align="right" class="right" />
 君は『消える本』の噂を聞いたことがあるだろうか？手にした筈なのに消えている、読んだ筈なのに覚えていない。そんな不思議な本の噂を。
@@ -157,7 +158,8 @@
 
 <work id="soul" title="魂の選択" author="ときのじ" series="ミニミニ30祭（30Scene限定シナリオ）"
   tags="読み物系" published="2018-08-10" updated="2018-12-24" level="2" scenes="30" results="8" clears="r08"
-  comment="ソーサリアンが突然パーパリアンやマーマリアンになります。幼女との観光をお楽しみください。">
+  comment="ソーサリアンが突然パーパリアンやマーマリアンになります。幼女との観光をお楽しみください。"
+  quest="1FAIpQLSey5Yb9l3jUMrZh8u9idbAM_TJ3sIdmNCby_GNViw9Dzr6efw">
 <img src="./stext/soul/capture/intro.png" height="120"
   title="魂の選択" align="left" class="left" />
 <p class="award">ミニミニ30祭Vol.2<br />（30Scene限定シナリオ）</p>
@@ -246,7 +248,8 @@
 
 <work id="shadow" title="常闇から来たる影" author="ときのじ" series="連作ドラゴンモード"
   tags="盗賊たちの塔,探索" published="2018-12-20" updated="2019-03-17" level="3" scenes="70" results="10" clears="r08"
-  comment="ガラティーンに思い入れがあり「盗賊たちの塔」も印象的なシナリオだったので、その繋がりからこの竜を選びました。まさに「盗賊たちの塔・後伝」になりましたね。趣味に全振りするの楽しかったです。">
+  comment="ガラティーンに思い入れがあり「盗賊たちの塔」も印象的なシナリオだったので、その繋がりからこの竜を選びました。まさに「盗賊たちの塔・後伝」になりましたね。趣味に全振りするの楽しかったです。"
+  quest="1FAIpQLSciyarp-KxuuIAqL-Ax93xBTV5Omuf1fQpAj40gkeShbrLb_A">
 <img src="./stext/shadow/capture/intro.png" height="120"
   title="常闇から来たる影" align="right" class="right" />
 <p class="award">ドラゴンモード本編Vol.1（連作シナリオ）</p>
@@ -381,7 +384,8 @@
 <work id="king" title="終末の双王 - ドラゴンモード -" author="ときのじ" series="連作ドラゴンモード"
   tags="ドラゴンとたたかう" published="2019-07-26" updated="2019-11-10" level="5" scenes="284" results="41" clears="r26"
   comment="「企画にご参加いただいた皆様のシナリオ設定を活かした作品にしよう」「原作のドラゴンとたたかうの雰囲気を出すには」と考えながら執筆しました。
-STextならではの「ドラゴンとたたかう」をお楽しみください。">
+STextならではの「ドラゴンとたたかう」をお楽しみください。"
+  quest="1FAIpQLScY8peNmElKzxfZUal0M2LyQmRzLLlY4s71bJRKdogx1XrlnQ">
 <img src="./stext/king/capture/intro.png" height="120"
   title="終末の双王 - ドラゴンモード -"  align="left" class="left"/>
 <p class="award">ドラゴンモード終章（連作シナリオ）</p>
@@ -409,7 +413,8 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 
 <work id="marsh" title="暗き沼の亡竜" author="ときのじ" series="Playground100祭"
   tags="暗き沼の魔法使い,外伝,探索" published="2019-11-29" updated="2019-12-01" level="3" scenes="82" results="16" clears="r16"
-  comment="連作ドラゴンモード「常闇から来たる影」以前の外伝シナリオです。システムを利用した戦闘もなく、文章を読み進めて気軽にサクサク遊べます。ギャグに突っ走ったソーサリアンのドタバタっぷりを是非ご堪能あれ！">
+  comment="連作ドラゴンモード「常闇から来たる影」以前の外伝シナリオです。システムを利用した戦闘もなく、文章を読み進めて気軽にサクサク遊べます。ギャグに突っ走ったソーサリアンのドタバタっぷりを是非ご堪能あれ！"
+  quest="1FAIpQLScvqvOSFQIna2jEUQzDoBUrEhO363vfmlSX08gIjE85pOIFRw">
 <img src="./stext/marsh/capture/intro.png" height="120"
   title="暗き沼の亡竜"  align="left" class="left"/>
 <p class="award">Playground100祭Vol.2(100Scene限定シナリオ)</p>
