@@ -64,7 +64,7 @@ label {
 #edit-area {
     float: right;
     width: 600px;
-    min-height: 600px;
+    min-height: 720px;
     border: 1px solid #000;
     background-color: #fff;
 }

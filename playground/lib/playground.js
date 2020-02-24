@@ -1527,26 +1527,46 @@ $(function () {
   $('#scene-select #hp, #scene-select #mp')
   .autocomplete({
     minLength: 0,
-    source: [ '1', '-5..-1', 'full' ]
+    source: [ '1', '-5..-1', 'full' ],
+    close: function(e, ui) {
+      $(this).change();
+    }
   });
 
   // stars属性のオートコンプリート
   $('#scene-select #stars')
   .autocomplete({
     minLength: 0,
-    source: [ '0,0,0,0,0,0,0', 'divN' ]
+    source: [ '0,0,0,0,0,0,0', 'divN' ],
+    close: function(e, ui) {
+      $(this).change();
+    }
   });
 
   // str～krm属性のオートコンプリート
   $('#scene-select #str, #scene-select #int, #scene-select #dex, #scene-select #krm').autocomplete({
     minLength: 0,
-    source: [ '1', '@5', 'full' ]
+    source: [ '1', '@5', 'full' ],
+    close: function(e, ui) {
+      $(this).change();
+    }
   });
 
   // free1～3属性のオートコンプリート
   $('#scene-select #free1, #scene-select #free2, #scene-select #free3').autocomplete({
     minLength: 0,
-    source: [ '1', '@5' ]
+    source: [ '1', '@5' ],
+    close: function(e, ui) {
+      $(this).change();
+    }
+  });
+
+  $('#scene-select #hp_max, #scene-select #mp_max, #scene-select #str_max, #scene-select #int_max, #scene-select #dex_max, #scene-select #krm_max').autocomplete({
+    minLength: 0,
+    source: [ '1', '1..5' ],
+    close: function(e, ui) {
+      $(this).change();
+    }
   });
 
   // ブラウザー標準のオートコンプリートを無効化＆フォーカス時に表示
