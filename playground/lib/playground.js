@@ -1639,7 +1639,7 @@ $(function () {
   $('#sidr_links_submit').click(function() {
     $('#edge #condition')
       .val($('#sidr_links_cond').val())
-      .change();
+      .trigger('input');
     $.sidr('close', 'sidr_links');
   });
 
