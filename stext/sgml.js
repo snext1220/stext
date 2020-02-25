@@ -3606,11 +3606,11 @@
     // 条件式の種類に応じて、呼び出しのメソッドを切り替え
     // 将来的に、ここでconditionXxxxxメソッドを切り替えていく
     judgeMultiCondition: function(org_cond) {
-      org_cond = org_cond.replace('#NOT#', '!');
-      org_cond = org_cond.replace('#AND#', '&');
-      org_cond = org_cond.replace('#OR#', '|');
-      org_cond = org_cond.replace('#L#', '(');
-      org_cond = org_cond.replace('#R#', ')');
+      org_cond = org_cond.split('#NOT#').join('!');
+      org_cond = org_cond.split('#AND#').join('&');
+      org_cond = org_cond.split('#OR#').join('|');
+      org_cond = org_cond.split('#L#').join('(');
+      org_cond = org_cond.split('#R#').join(')');
 
 
       if (/([\&\|\!\(\)]{1})/.test(org_cond)) {
