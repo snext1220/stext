@@ -430,7 +430,7 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 </work>
 
 <work id="usher" title="導きソーサリアン" author="cocotori" series="Playground100祭"
-  tags="導き、勇者" published="2020-01-27" updated="2020-01-27" level="2" scenes="36" results="5" clears="r99"
+  tags="導き、勇者" published="2020-01-27" updated="2020-02-27" level="2" scenes="78" results="5" clears="r99"
   comment="第三者視点で魔物討伐ものを作ってみました。思い通りに動いてくれない勇者の手綱を握りながら、なんとか進みましょう。">
 <img src="./stext/usher/capture/intro.png" height="120"
   title="導きソーサリアン"  align="right" class="right"/>
@@ -443,7 +443,7 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 
 ※ゲームオーバーは基本的にありません。自由に選択肢を選び、反応を楽しんでください。
 
-<p class="award">現在はシナリオの前半部分のみ遊べます。後半は2月公開予定です！</p>
+<p class="award">現在はシナリオの前・中編部分のみ遊べます。後編は3月公開予定です！</p>
 
 
 </work>
