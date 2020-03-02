@@ -254,6 +254,15 @@
     }
   };
 
+  let Cache = {
+    setItem(name, value, expires) {
+      Cookies.set(`stext_cache_${name}`, value, { expires: expires, path: '' })
+    },
+    getItem(name) {
+      return Cookies.get(`stext_cache_${name}`);
+    }
+  };
+
   // ボーナス情報
   let Bonus = {
     // シナリオ開始時の適用ボーナス表示
@@ -2367,6 +2376,29 @@
       return error_messages;
     },
 
+    // ランダムリンクから移動先を決定
+    // dest：リンク先（「to1,to2,...;7」の形式）
+    // 「;7」はキャッシュの日数
+    getRandomLinkNumber(dest) {
+      if (dest.indexOf(',') !== -1) {
+        let tmp = dest.split(';');
+        let result = Util.randomArray(tmp[0].split(',')).trim();
+        // キャッシュ有効時
+        if (tmp[1]) {
+          let name = `random${save_data.scene}`;
+          // キャッシュが存在する場合には上書き
+          cval = Cache.getItem(name);
+          if (cval) {
+            result = cval;
+          } else {
+            Cache.setItem(name, result, Number(tmp[1]));
+          }
+        }
+        return result;
+      }
+      return dest;
+    },
+
     // スプラッシュ画面の起動
     // showSplash() {
     //   $.zoombox.open(ROOT + COMMON + 'title.png', { duration: 400 });
@@ -3289,6 +3321,12 @@
     // エンディングの処理（resultはhappy／bad、nextは次のシナリオ、changeBgmはBGMを変更するか）
     endScenario: function(result, next, changeBgm) {
       if(!result) { return; }
+
+      // エンディングフラグ
+      save_data.isEnded = true;
+      Util.saveStorage();
+      //storage.removeItem(scenario_code);
+
       if(next) {
         Util.copyNextScenario(next.split(','));
       }
@@ -3314,11 +3352,6 @@
         $('<p><a href="#" id="end_exit" class="scenebtn">' +
           'ペンタウァに帰還する</a></p>').appendTo(target);
       }
-
-      // エンディングフラグ
-      save_data.isEnded = true;
-      Util.saveStorage();
-      //storage.removeItem(scenario_code);
 
       // ボーナスアイテムの選択
       var bonus_item, o_bonus_item, audio_path;
@@ -4127,9 +4160,11 @@
         var num = $(this).nsAttr('href');
         var cond = $(this).nsAttr('title');
         // 複数移動先が指定されている場合、ランダムに選択
-        if (num.indexOf(',') !== -1) {
-          num = Util.randomArray(num.split(',')).trim();
-        }
+        num = Util.getRandomLinkNumber(num);
+        // if (num.indexOf(',') !== -1) {
+        //   num = Util.randomArray(num.split(',')).trim();
+        // }
+
         // 履歴に追加
         //history.pushState(num, 'Scene ' + num);
         Util.createScene(num, { conditions: cond });

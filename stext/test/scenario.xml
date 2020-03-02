@@ -51,9 +51,8 @@ f01,f02,f03、
 </scene>
 	<scene id="2" x="12.300003051757812" summary="分岐2"></scene>
 	<scene id="3" x="66.96846008300781" summary="分岐3"></scene>
-	<scene id="4" x="182.3000030517578" summary="フラグ入手1" flags="f01">
-
-[戻る](0)</scene>
+	<scene id="4" x="182.3000030517578" summary="フラグ入手1" flags="f01" end="happy" nexts="test">
+</scene>
 	<scene id="5" x="133.6315460205078" summary="フラグ入手2" flags="f02">
 
 [戻る](0)</scene>
