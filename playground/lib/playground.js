@@ -311,6 +311,8 @@ $(function () {
                     return Number(m.id) - Number(n.id);
                   });
                   callback(data);
+                  let tmp_pos = network.getViewPosition();
+                  network.moveNode(data.id, tmp_pos.x, tmp_pos.y);
                 }
               }.bind(this, data, callback);
               document.getElementById('node-cancel').onclick = function() {
@@ -402,7 +404,11 @@ $(function () {
           },
           edges: {
             arrows: 'to',
-            smooth: false,
+            smooth: {
+              'enabled': true,
+              'type': 'curvedCCW',
+              'roundness': 0.3
+            },
             font: {
               size: 12,
               color: 'rgba(0,0,0,0)',
@@ -588,13 +594,12 @@ $(function () {
           onSubmit(result, trigger, s_list);
         } else {
           $(trigger).val(result)
-            .change();
+            .trigger('input');
         }
         $.sidr('close', s_name);
       });
       // 選択をキャンセルした時
       $(s_cancel).click(function() {
-        console.log('close');
         $.sidr('close', s_name);
       });
     },
@@ -1005,13 +1010,14 @@ $(function () {
   $('#intro-description').val(scenario.init.intro.description);
 
   // 基本情報配下の入力値を反映
-  $('#basic input').change(function(e) {
+  $('#basic input').on('input', function(e) {
     let id = e.target.id.split('-');
     if (id.length === 1) {
       scenario[id[0]] = $(this).val();
     } else {
       scenario.init[id[0]][id[1]] = $(this).val();
     }
+    console.log('input')
   });
 
   // 種族／年齢／性別ボックスの加工
@@ -1033,7 +1039,7 @@ $(function () {
     });
     $('#basic #constraint-race')
       .val(result.join(','))
-      .change();
+      .trigger('input');
     $.sidr('close', 'sidr_races');
   });
   
@@ -1056,7 +1062,7 @@ $(function () {
     });
     $('#basic #constraint-age')
       .val(result.join(','))
-      .change();
+      .trigger('input');
     $.sidr('close', 'sidr_ages');
   });
   
@@ -1079,7 +1085,7 @@ $(function () {
     });
     $('#basic #constraint-sex')
       .val(result.join(','))
-      .change();
+      .trigger('input');
     $.sidr('close', 'sidr_sexes');
   });
   
@@ -1099,7 +1105,7 @@ $(function () {
     let name = $(this).get(0).files[0].name;
     $('#basic #bgm-main')
       .val(name.substring(0, name.lastIndexOf('.mp3')))
-      .change();
+      .trigger('input');
   });
 
   // 参照ボタンクリック時にファイル選択ボックスを表示
@@ -1112,7 +1118,7 @@ $(function () {
     let name = $(this).get(0).files[0].name;
     $('#basic #bgm-happy')
       .val(name.substring(0, name.lastIndexOf('.mp3')))
-      .change();
+      .trigger('input');
   });
   
   // 参照ボタンクリック時にファイル選択ボックスを表示
@@ -1125,7 +1131,7 @@ $(function () {
     let name = $(this).get(0).files[0].name;
     $('#basic #bgm-bad')
       .val(name.substring(0, name.lastIndexOf('.mp3')))
-      .change();
+      .trigger('input');
   });
   // ファイル選択ボックスココマデ
 
@@ -1270,7 +1276,7 @@ $(function () {
   });
 
   // ［シーン］タブ内での更新
-  $('#scene-select input:not(.no-update), #scene-select select:not(.no-update)').on('change', function(e) {
+  $('#scene-select input:not(.no-update), #scene-select select:not(.no-update)').on('input', function(e) {
     let id = $('#scene-select #id').text();
     if (id) {
       let scene = Util.getSceneById(id);
@@ -1286,6 +1292,7 @@ $(function () {
         network.selectNodes([ scene.id ]);
       }
     }
+    console.log('scene_input');
   });
 
   // ［シーン］タブ内でのアイテム処理
@@ -1298,54 +1305,6 @@ $(function () {
     'id'
   );
 
-  //［シーン］タブ内でのアイテム処理
-  // $('#scene-select #items').sidr({
-  //   name: 'sidr_items',
-  //   displace: false,
-  //   onOpen: function() {
-  //     $('#sidr_items_list').empty();
-  //     for(let item of scenario.items) {
-  //       $('#sidr_items_list').append(`
-  //         <tr>
-  //           <td>
-  //             <label>＋<input type="checkbox"
-  //                 class="sidr-items-plus" value="${item.id}" /></label>
-  //           </td>
-  //           <td class="sidr-elem"><span>${item.name}</span></td>
-  //           <td>
-  //             <label>－<input type="checkbox"
-  //               class="sidr-items-minus" value="${item.id}" /></label>
-  //           </td>
-  //         </tr>
-  //       `);
-  //     }
-  //     // ［+］［-］ボタンを整形
-  //     $('.sidr-items-plus, .sidr-items-minus').checkboxradio({
-  //       icon: false
-  //     });
-  //   }
-  // });
-
-  // // アイテム選択を確定した時
-  // $('#sidr_items_submit').click(function() {
-  //   let result = [];
-  //   $('.sidr-items-plus:checked').each(function() {
-  //     result.push($(this).val());
-  //   });
-  //   $('.sidr-items-minus:checked').each(function() {
-  //     result.push('-' + $(this).val());
-  //   });
-  //   $('#scene-select #items')
-  //     .val(result.join(','))
-  //     .change();
-  //   $.sidr('close', 'sidr_items');
-  // });
-
-  // // アイテム選択をキャンセルした時
-  // $('#sidr_items_close').click(function() {
-  //   $.sidr('close', 'sidr_items');
-  // });
-
   // ［シーン］タブ内でのフラグ処理
   Util.createSelectSidebar(
     '#scene-select #flags',
@@ -1355,54 +1314,6 @@ $(function () {
     'text',
     'id'
   );
-
-  //［シーン］タブ内でのフラグ処理
-  // $('#scene-select #flags').sidr({
-  //   name: 'sidr_flags',
-  //   displace: false,
-  //   onOpen: function() {
-  //     $('#sidr_flags_list').empty();
-  //     for(let flag of scenario.flags) {
-  //       $('#sidr_flags_list').append(`
-  //         <tr>
-  //           <td>
-  //             <label>＋<input type="checkbox"
-  //                 class="sidr-flags-plus" value="${flag.id}" /></label>
-  //           </td>
-  //           <td class="sidr-elem"><span>${flag.text}</span></td>
-  //           <td>
-  //             <label>－<input type="checkbox"
-  //               class="sidr-flags-minus" value="${flag.id}" /></label>
-  //           </td>
-  //         </tr>
-  //       `);
-  //     }
-  //     // ［+］［-］ボタンを整形
-  //     $('.sidr-flags-plus, .sidr-flags-minus').checkboxradio({
-  //       icon: false
-  //     });
-  //   }
-  // });
-
-  // // フラグ選択を確定した時
-  // $('#sidr_flags_submit').click(function() {
-  //   let result = [];
-  //   $('.sidr-flags-plus:checked').each(function() {
-  //     result.push($(this).val());
-  //   });
-  //   $('.sidr-flags-minus:checked').each(function() {
-  //     result.push('-' + $(this).val());
-  //   });
-  //   $('#scene-select #flags')
-  //     .val(result.join(','))
-  //     .change();
-  //   $.sidr('close', 'sidr_flags');
-  // });
-  
-  // // フラグ選択をキャンセルした時
-  // $('#sidr_flags_close').click(function() {
-  //   $.sidr('close', 'sidr_flags');
-  // });
     
   // ［シーン］タブ内での敵処理
   Util.createSelectSidebar(
@@ -1413,44 +1324,6 @@ $(function () {
     'name',
     'id'
   );
-
-  //［シーン］タブ内での敵処理
-  // $('#scene-select #enemies').sidr({
-  //   name: 'sidr_enemies',
-  //   displace: false,
-  //   onOpen: function() {
-  //     $('#sidr_enemies_list').empty();
-  //     for(let enemy of scenario.enemies) {
-  //       $('#sidr_enemies_list').append(`
-  //         <li>
-  //           <label>${enemy.name}<input type="checkbox"
-  //             class="sidr-enemy-item" value="${enemy.id}" /></label>
-  //         </li>
-  //       `);
-  //     }
-  //     // ［敵名］ボタンを整形
-  //     $('.sidr-enemy-item').checkboxradio({
-  //       icon: false
-  //     });
-  //   }
-  // });
-
-  // // 敵選択を確定した時
-  // $('#sidr_enemies_submit').click(function() {
-  //   let result = [];
-  //   $('.sidr-enemy-item:checked').each(function() {
-  //     result.push($(this).val());
-  //   });
-  //   $('#scene-select #enemies')
-  //     .val(result.join(','))
-  //     .change();
-  //   $.sidr('close', 'sidr_enemies');
-  // });
-
-  // // 敵選択をキャンセルした時
-  // $('#sidr_enemies_close').click(function() {
-  //   $.sidr('close', 'sidr_enemies');
-  // });
     
   // ［シーン］タブ内での実績処理
   Util.createSelectSidebar(
@@ -1462,41 +1335,6 @@ $(function () {
     'id'
   );
 
-  //［シーン］タブ内での実績処理
-  // $('#scene-select #result').sidr({
-  //   name: 'sidr_results',
-  //   displace: false,
-  //   onOpen: function() {
-  //     $('#sidr_results_list').empty();
-  //     for(let result of scenario.results) {
-  //       $('#sidr_results_list').append(`
-  //         <li>
-  //           <label>${result.name}<input type="radio"
-  //             name="sidr-results"
-  //             class="sidr-result-item" value="${result.id}" /></label>
-  //         </li>
-  //       `);
-  //     }
-  //     // ［実績名］ボタンを整形
-  //     $('.sidr-result-item').checkboxradio({
-  //       icon: false
-  //     });
-  //   }
-  // });
-
-  // // 実績選択を確定した時
-  // $('#sidr_results_submit').click(function() {
-  //   $('#scene-select #result')
-  //     .val($('.sidr-result-item:checked').val())
-  //     .change();
-  //   $.sidr('close', 'sidr_results');
-  // });
-
-  // // 実績選択をキャンセルした時
-  // $('#sidr_results_close').click(function() {
-  //   $.sidr('close', 'sidr_results');
-  // });
-
   // 参照ボタンクリック時にファイル選択ボックスを表示
   $('#scene-select #bgm-ref').click(function(e) {
     $('#scene-select #bgm-file').click();
@@ -1507,7 +1345,7 @@ $(function () {
     let name = $(this).get(0).files[0].name;
     $('#scene-select #bgm')
       .val(name.substring(0, name.lastIndexOf('.mp3')))
-      .change();
+      .trigger('input');
   });
 
   // 参照ボタンクリック時にファイル選択ボックスを表示
@@ -1520,7 +1358,7 @@ $(function () {
     let name = $(this).get(0).files[0].name;
     $('#scene-select #se')
       .val(name.substring(0, name.lastIndexOf('.mp3')))
-      .change();
+      .trigger('input');
   });
   
   // hp／mp属性のオートコンプリート
@@ -1529,7 +1367,7 @@ $(function () {
     minLength: 0,
     source: [ '1', '-5..-1', 'full' ],
     close: function(e, ui) {
-      $(this).change();
+      $(this).trigger('input');
     }
   });
 
@@ -1539,7 +1377,7 @@ $(function () {
     minLength: 0,
     source: [ '0,0,0,0,0,0,0', 'divN' ],
     close: function(e, ui) {
-      $(this).change();
+      $(this).trigger('input');
     }
   });
 
@@ -1548,7 +1386,7 @@ $(function () {
     minLength: 0,
     source: [ '1', '@5', 'full' ],
     close: function(e, ui) {
-      $(this).change();
+      $(this).trigger('input');
     }
   });
 
@@ -1557,7 +1395,7 @@ $(function () {
     minLength: 0,
     source: [ '1', '@5' ],
     close: function(e, ui) {
-      $(this).change();
+      $(this).trigger('input');
     }
   });
 
@@ -1565,7 +1403,7 @@ $(function () {
     minLength: 0,
     source: [ '1', '1..5' ],
     close: function(e, ui) {
-      $(this).change();
+      $(this).trigger('input');
     }
   });
 
@@ -1594,6 +1432,7 @@ $(function () {
       Util.createNetwork();
       network.selectEdges([ id ]);
     }
+    console.log('edge_input');
   });
 
   // サイドバーの実績欄を生成
@@ -1697,27 +1536,6 @@ $(function () {
       formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
     ], grid_opts, 'item');
 
-  // アイテム一覧の描画
-  // let items_grid = new Slick.Grid('#items_grid', scenario.items, item_cols, grid_opts);
-  // items_grid.setSelectionModel(new Slick.CellSelectionModel());
-  // // 既存行の削除
-  // items_grid.onClick.subscribe(function (e, args) {
-  //   if ($(e.target).hasClass('btn-delete')) {
-  //     scenario.items.splice(args.row, 1);
-  //     items_grid.invalidate();
-  //   }
-  // });
-  // items_grid.onAddNewRow.subscribe(function (e, args) {
-  //   var item = args.item;
-  //   items_grid.invalidateRow(scenario.items.length);
-  //   scenario.items.push(item);
-  //   items_grid.updateRowCount();
-  //   items_grid.render();
-  // });
-  // items_grid.onHeaderClick.subscribe(function (e, args) {
-  //   window.open(Common.HELP_URL + 'item', 'help');
-  // });
-
   // フラグ一覧の描画
   Util.createGrid('#flags_grid', scenario.flags,
     [
@@ -1726,28 +1544,6 @@ $(function () {
       {id: 'delete', name: '削除', field: '', width: 35,
       formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
     ], grid_opts, 'flag');
-
-  // フラグ一覧の描画
-  // let flags_grid = new Slick.Grid('#flags_grid', scenario.flags, flag_cols, grid_opts);
-  // flags_grid.setSelectionModel(new Slick.CellSelectionModel());
-  // // 既存行の削除
-  // flags_grid.onClick.subscribe(function (e, args) {
-  //   if ($(e.target).hasClass('btn-delete')) {
-  //     scenario.flags.splice(args.row, 1);
-  //     flags_grid.invalidate();
-  //   }
-  // });
-  // // 新規行の追加
-  // flags_grid.onAddNewRow.subscribe(function (e, args) {
-  //   var item = args.item;
-  //   flags_grid.invalidateRow(scenario.flags.length);
-  //   scenario.flags.push(item);
-  //   flags_grid.updateRowCount();
-  //   flags_grid.render();
-  // });
-  // flags_grid.onHeaderClick.subscribe(function (e, args) {
-  //    window.open(Common.HELP_URL + 'flag', 'help');
-  // });
 
   // 敵一覧の描画
   Util.createGrid('#enemies_grid', scenario.enemies,
@@ -1768,26 +1564,6 @@ $(function () {
       formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
     ], grid_opts, 'enemy');
 
-  // 敵一覧の描画
-  // let enemies_grid = new Slick.Grid('#enemies_grid', scenario.enemies, enemy_cols, grid_opts);
-  // enemies_grid.setSelectionModel(new Slick.CellSelectionModel());
-  // enemies_grid.onClick.subscribe(function (e, args) {
-  //   if ($(e.target).hasClass('btn-delete')) {
-  //     scenario.enemies.splice(args.row, 1);
-  //     enemies_grid.invalidate();
-  //   }
-  // });
-  // enemies_grid.onAddNewRow.subscribe(function (e, args) {
-  //   var item = args.item;
-  //   enemies_grid.invalidateRow(scenario.enemies.length);
-  //   scenario.enemies.push(item);
-  //   enemies_grid.updateRowCount();
-  //   enemies_grid.render();
-  // });
-  // enemies_grid.onHeaderClick.subscribe(function (e, args) {
-  //   window.open(Common.HELP_URL + 'enemy', 'help');
-  // });
-
   // 実績一覧の描画
   Util.createGrid('#results_grid', scenario.results,
     [
@@ -1799,26 +1575,6 @@ $(function () {
       {id: 'delete', name: '削除', field: '', width: 35,
       formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
     ], grid_opts, 'result');
-
-  // 実績一覧の描画
-  // let results_grid = new Slick.Grid('#results_grid', scenario.results, result_cols, grid_opts);
-  // results_grid.setSelectionModel(new Slick.CellSelectionModel());
-  // results_grid.onClick.subscribe(function (e, args) {
-  //   if ($(e.target).hasClass('btn-delete')) {
-  //     scenario.results.splice(args.row, 1);
-  //     results_grid.invalidate();
-  //   }
-  // });
-  // results_grid.onAddNewRow.subscribe(function (e, args) {
-  //   var item = args.item;
-  //   results_grid.invalidateRow(scenario.results.length);
-  //   scenario.results.push(item);
-  //   results_grid.updateRowCount();
-  //   results_grid.render();
-  // });
-  // results_grid.onHeaderClick.subscribe(function (e, args) {
-  //   window.open(Common.HELP_URL + 'result', 'help');
-  // });
 
   // ライセンス一覧の描画
   Util.createGrid('#works_grid', scenario.licence,
@@ -1832,47 +1588,46 @@ $(function () {
       formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } } 
     ], grid_opts, 'work');
 
-  // ライセンス一覧の描画
-  // let works_grid = new Slick.Grid('#works_grid', scenario.licence, work_cols, grid_opts);
-  // works_grid.setSelectionModel(new Slick.CellSelectionModel());
-  // works_grid.onClick.subscribe(function (e, args) {
-  //   if ($(e.target).hasClass('btn-delete')) {
-  //     scenario.licence.splice(args.row, 1);
-  //     works_grid.invalidate();
-  //   }
-  // });
-  // works_grid.onAddNewRow.subscribe(function (e, args) {
-  //   var item = args.item;
-  //   works_grid.invalidateRow(scenario.licence.length);
-  //   scenario.licence.push(item);
-  //   works_grid.updateRowCount();
-  //   works_grid.render();
-  // });
-  // works_grid.onHeaderClick.subscribe(function (e, args) {
-  //   window.open(Common.HELP_URL + 'work', 'help');
-  // });
-
   // エディターの生成
   let editor = ace.edit('scene-editor');
   editor.$blockScrolling = Infinity;
   editor.setOptions({
-    enableBasicAutocompletion: true,
-    enableSnippets: true,
-    enableLiveAutocompletion: true
+    // enableBasicAutocompletion: true,
+    // enableSnippets: true,
+    // enableLiveAutocompletion: true
   });
   editor.getSession().setUseWrapMode(true);
   editor.setTheme('ace/theme/chrome');
   editor.session.setMode('ace/mode/markdown');
 
   // エディター内の反映
-  editor.on('change', function(e) {
+  editor.on('input', function(e) {
     let id = $('#scene-select #id').text();
     if (id) {
       let scene = Util.getSceneById(id);
       scene.text = editor.getValue();
     }
   });
-  
+
+  // エディター領域の拡張
+  $('#scene #scene-ext').click(function(e) {
+    let sa = $('#scene-attr');
+    let se = $('#scene-editor');
+    if (se.hasClass('editor-big')) {
+      $(this).text('エディター領域を拡げる');
+      sa.show();
+      se.removeClass('editor-big')
+        .css('height', '210px');
+      editor.resize(true);
+    } else {
+      $(this).text('エディター領域を狭める');
+      sa.hide();
+      se.addClass('editor-big')
+        .css('height', '630px');
+      editor.resize(true);
+    }
+  });
+
   // タブの生成
   $('#edit-area').tabs();
   Util.disableTab();
@@ -1880,21 +1635,6 @@ $(function () {
   // タグ入力ボックス（保留）
   //$('.tagsin').tagsInput();
 
-  // レイアウトの区切り線
-  /*
-  $('#main').split({
-    orientation: 'vertical',
-    limit: 10,
-    position: '50%'
-  });
-
-  $('#scene-select').split({
-    orientation: 'horizontal',
-    limit: 10,
-    position: '50%'
-  });
-  */
-  
   // コントロールパネル
   // ［テスト実行］ボタン
   $('#ctrl_run').click(function(e) {
@@ -1980,13 +1720,6 @@ $(function () {
       default:
         console.log('Unknown Error!!');
     }
-    /*
-    if ($(this).data('command') === 'json') {
-      Util.download(vkbeautify.json(JSON.stringify(scenario)), 'stext.json');
-    } else {
-      Util.download(Util.createXml(), 'scenario.xml');
-    }
-    */
     $('#dl-menu').css('display', 'none');
   });
 
@@ -1998,11 +1731,6 @@ $(function () {
       left: e.pageX
     });
   });
-
-  // ［フィルター］ボタン
-  // $('#ctrl_filter').click(function(e) {
-  //   $('#range-dialog').dialog('open');
-  // });
 
   // ［フィルター］ボタン（新）
   Util.createSelectSidebar(
