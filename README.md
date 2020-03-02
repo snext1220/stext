@@ -12,6 +12,7 @@ People called this plugin.....**Sorcerian Text**.
 - SmartMenus
 - toastr
 - Zoombox
+- JavaScript Cookie
 - SlickGrid（Playground Flow Only）
 - Ace Editor（Playground Flow/Editor）
 - vis.js（Playground Flow）
