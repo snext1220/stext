@@ -2385,7 +2385,7 @@
         let result = Util.randomArray(tmp[0].split(',')).trim();
         // キャッシュ有効時
         if (tmp[1]) {
-          let name = `random${save_data.scene}`;
+          let name = `random_${scenario_code}${save_data.scene}`;
           // キャッシュが存在する場合には上書き
           cval = Cache.getItem(name);
           if (cval) {

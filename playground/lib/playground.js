@@ -166,10 +166,20 @@ $(function () {
         $('#scene-select #se').val(scene.se);
         $('#scene-select #hp').val(scene.hp);
         $('#scene-select #mp').val(scene.mp);
+        $('#scene-select #str').val(scene.str);
+        $('#scene-select #int').val(scene.int);
+        $('#scene-select #dex').val(scene.dex);
+        $('#scene-select #krm').val(scene.krm);
         $('#scene-select #stars').val(scene.stars);
         $('#scene-select #free1').val(scene.free1);
-        $('#scene-select #free1').val(scene.free2);
+        $('#scene-select #free2').val(scene.free2);
         $('#scene-select #free3').val(scene.free3);
+        $('#scene-select #hp_max').val(scene.hp_max);
+        $('#scene-select #mp_max').val(scene.mp_max);
+        $('#scene-select #str_max').val(scene.str_max);
+        $('#scene-select #int_max').val(scene.int_max);
+        $('#scene-select #dex_max').val(scene.dex_max);
+        $('#scene-select #krm_max').val(scene.krm_max);
         if (scene.text) {
           editor.setValue(scene.text);
         } else {
