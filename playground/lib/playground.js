@@ -417,7 +417,7 @@ $(function () {
             smooth: {
               'enabled': true,
               'type': 'curvedCCW',
-              'roundness': 0.3
+              'roundness': 0.1
             },
             font: {
               size: 12,
