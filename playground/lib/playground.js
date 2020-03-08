@@ -639,17 +639,24 @@ $(function () {
     // ランダムリンクの生成（For createMoveButton）
     createRandomLink: function(group) {
       let tmp_label = '';
+      let tmp_cache = '';
       let tmp_condition = '';
       let tmp_to = [];
       for (let value of group) {
+        if (value.cache) { tmp_cache = value.cache; }
         if (value.condition) { tmp_condition = value.condition; }
         if (value.label) { tmp_label = value.label; }
         tmp_to.push(value.to);
       }
+
+      // リンク先の加工
+      let to = tmp_to.join(',');
+      if (tmp_cache) { to += `;${tmp_cache}`; }
+
       if (tmp_condition) {
-        return `[${tmp_label}](${tmp_to.join(',')} "${tmp_condition}")`;
+        return `[${tmp_label}](${to} "${tmp_condition}")`;
       } else {
-        return `[${tmp_label}](${tmp_to.join(',')})`;
+        return `[${tmp_label}](${to})`;
       }
     },
     // 標準リンクの生成（For createMoveButton）
@@ -853,7 +860,7 @@ $(function () {
       $('licence > work', s_data).each(function(i, elem) {
         result.licence.push(Util.elementToObj($(elem)));
       });
-      var link = /\[(.+?)\]\(([\dQX,]{1,})(?: "(.+?)")?\)/gi;
+      var link = /\[(.+?)\]\(([\dQX,;]{1,})(?: "(.+?)")?\)/gi;
       $('scene', s_data).each(function(i, elem) {
         let body = $(elem).text();
         let order = 0;
@@ -903,7 +910,10 @@ $(function () {
                   order: order
                 });
               } else {
-                tmp_to = tmp_to.split(',');
+                // 「;」以降がキャッシュ時間
+                tmp_cache = tmp_to.split(';');
+                tmp_to = tmp_cache[0].split(',');
+                tmp_cache = tmp_cache[1];
                 for (let tmp of tmp_to) {
                   result.edges.push({
                     from: elem.id,
@@ -911,6 +921,7 @@ $(function () {
                     label: tmp_label,
                     type: 'R',
                     condition: tmp_condition,
+                    cache: tmp_cache,
                     order: order
                   });
                 }
