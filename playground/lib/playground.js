@@ -219,6 +219,7 @@ $(function () {
       $('#edge #condition').val(edge.condition);
       $('#edge #type').val(edge.type);
       $('#edge #correct').val(edge.correct);
+      $('#edge #cache').val(edge.cache);
     },
     // 指定されたオブジェクトを要素に変換
     // @params name：要素名、data：変換対象のオブジェクト
@@ -914,16 +915,22 @@ $(function () {
                 tmp_cache = tmp_to.split(';');
                 tmp_to = tmp_cache[0].split(',');
                 tmp_cache = tmp_cache[1];
+                is_first = true;  // 初回ループか
                 for (let tmp of tmp_to) {
-                  result.edges.push({
+                  let tmp_link = {
                     from: elem.id,
                     to: tmp,
                     label: tmp_label,
                     type: 'R',
                     condition: tmp_condition,
-                    cache: tmp_cache,
                     order: order
-                  });
+                  };
+                  // 最初のリンクだけにcacheを反映
+                  if (is_first) {
+                    tmp_link.cache = tmp_cache;
+                    is_first = false;
+                  }
+                  result.edges.push(tmp_link);
                 }
               }
               break;
