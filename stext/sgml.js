@@ -1415,14 +1415,16 @@
             <input type="button" class="spinner_down" value="-" />
             <input id="sidr_status_hp" type="number" />
             <input type="button" class="spinner_up" value="+" />
-            ／<span id="sidr_status_hp_m"></span>
+            ／<!--<span id="sidr_status_hp_m"></span>-->
+              <input id="sidr_status_hp_m" type="number" />
             </div>
             <div>
             <label class="entry">MP：</label><br />
             <input type="button" class="spinner_down" value="-" />
             <input type="number" id="sidr_status_mp" />
             <input type="button" class="spinner_up" value="+" />
-            ／<span id="sidr_status_mp_m"></span>
+            ／<!--<span id="sidr_status_mp_m"></span>-->
+              <input type="number" id="sidr_status_mp_m" />
             <div>
             <label class="entry">STATE：</label><br />
             <label><input type="radio" name="sidr_status_state" value="" />正常</label>
@@ -1442,28 +1444,32 @@
             <input type="button" class="spinner_down" value="-" />
             <input type="number" id="sidr_status_str" />
             <input type="button" class="spinner_up" value="+" />
-            ／<span id="sidr_status_str_i"></span>
+            ／<!--<span id="sidr_status_str_i"></span>-->
+              <input type="number" id="sidr_status_str_i" />
             </div>
             <div>
             <label class="entry">INT：</label><br />
             <input type="button" class="spinner_down" value="-" />
             <input type="number" id="sidr_status_int" />
             <input type="button" class="spinner_up" value="+" />
-            ／<span id="sidr_status_int_i"></span>
+            ／<!--<span id="sidr_status_int_i"></span>-->
+              <input type="number" id="sidr_status_int_i" />
             </div>
             <div>
             <label class="entry">DEX：</label><br />
             <input type="button" class="spinner_down" value="-" />
             <input type="number" id="sidr_status_dex" />
             <input type="button" class="spinner_up" value="+" />
-            ／<span id="sidr_status_dex_i"></span>
+            ／<!--<span id="sidr_status_dex_i"></span>-->
+              <input type="number" id="sidr_status_dex_i" />
             </div>
             <div>
             <label class="entry">KRM：</label><br />
             <input type="button" class="spinner_down" value="-" />
             <input type="number" id="sidr_status_krm" />
             <input type="button" class="spinner_up" value="+" />
-            ／<span id="sidr_status_krm_i"></span>
+            ／<!--<span id="sidr_status_krm_i"></span>-->
+              <input type="number" id="sidr_status_krm_i" />
             </div>
           </td>
           </tr>
@@ -1506,12 +1512,12 @@
         <div id="sidr_status_close" class="sidr_close">閉じる</div>
       </div>`);
       // ステータスの初期化
-      $('#sidr_status_hp_m', template).text(save_data.chara.hp_m);
-      $('#sidr_status_mp_m', template).text(save_data.chara.mp_m);
-      $('#sidr_status_str_i', template).text(save_data.chara.str_i);
-      $('#sidr_status_int_i', template).text(save_data.chara.int_i);
-      $('#sidr_status_dex_i', template).text(save_data.chara.dex_i);
-      $('#sidr_status_krm_i', template).text(save_data.chara.krm_i);
+      // $('#sidr_status_hp_m', template).text(save_data.chara.hp_m);
+      // $('#sidr_status_mp_m', template).text(save_data.chara.mp_m);
+      // $('#sidr_status_str_i', template).text(save_data.chara.str_i);
+      // $('#sidr_status_int_i', template).text(save_data.chara.int_i);
+      // $('#sidr_status_dex_i', template).text(save_data.chara.dex_i);
+      // $('#sidr_status_krm_i', template).text(save_data.chara.krm_i);
       // 状態異常のステータスへの反映（ステータスダイアログ）
       target.parent().on('click', '[name="sidr_status_state"]', function(e) {
         let delta = that.deltaStatus($(this).val());
@@ -1529,9 +1535,16 @@
           $('#sidr_status #sidr_status_hp').val(save_data.chara.hp);
           $('#sidr_status #sidr_status_mp').val(save_data.chara.mp);
           // 暫定
-          $('#sidr_status #sidr_status_hp_m').text(save_data.chara.hp_m);
-          $('#sidr_status #sidr_status_mp_m').text(save_data.chara.mp_m);
+          // $('#sidr_status #sidr_status_hp_m').text(save_data.chara.hp_m);
+          // $('#sidr_status #sidr_status_mp_m').text(save_data.chara.mp_m);
 
+          // 上限値の設定
+          $('#sidr_status #sidr_status_hp_m').val(save_data.chara.hp_m);
+          $('#sidr_status #sidr_status_mp_m').val(save_data.chara.mp_m);
+          $('#sidr_status #sidr_status_str_i').val(save_data.chara.str_i);
+          $('#sidr_status #sidr_status_int_i').val(save_data.chara.int_i);
+          $('#sidr_status #sidr_status_dex_i').val(save_data.chara.dex_i);
+          $('#sidr_status #sidr_status_krm_i').val(save_data.chara.krm_i);
 
           $('#sidr_status [name="sidr_status_state"]').each(function() {
             var state = $(this).nsAttr('value');
@@ -1558,10 +1571,10 @@
             $('#sidr_status #sidr_status_free_label3').text(flabel.nsAttr('free3'));
           }
           // 暫定
-          $('#sidr_status #sidr_status_str_i').text(save_data.chara.str_i);
-          $('#sidr_status #sidr_status_int_i').text(save_data.chara.int_i);
-          $('#sidr_status #sidr_status_dex_i').text(save_data.chara.dex_i);
-          $('#sidr_status #sidr_status_krm_i').text(save_data.chara.krm_i);
+          // $('#sidr_status #sidr_status_str_i').text(save_data.chara.str_i);
+          // $('#sidr_status #sidr_status_int_i').text(save_data.chara.int_i);
+          // $('#sidr_status #sidr_status_dex_i').text(save_data.chara.dex_i);
+          // $('#sidr_status #sidr_status_krm_i').text(save_data.chara.krm_i);
 
           $('#sidr_status #sidr_status_str').val(save_data.chara.str);
           $('#sidr_status #sidr_status_int').val(save_data.chara.int);
@@ -1572,9 +1585,15 @@
         function() {
           save_data.chara.hp = $('#sidr_status #sidr_status_hp').val();
           save_data.chara.mp = $('#sidr_status #sidr_status_mp').val();
+          save_data.chara.hp_m = $('#sidr_status #sidr_status_hp_m').val();
+          save_data.chara.mp_m = $('#sidr_status #sidr_status_mp_m').val();
           save_data.chara.free1 = $('#sidr_status #sidr_status_free1').val();
           save_data.chara.free2 = $('#sidr_status #sidr_status_free2').val();
           save_data.chara.free3 = $('#sidr_status #sidr_status_free3').val();
+          save_data.chara.str_i = $('#sidr_status #sidr_status_str_i').val();
+          save_data.chara.int_i = $('#sidr_status #sidr_status_int_i').val();
+          save_data.chara.dex_i = $('#sidr_status #sidr_status_dex_i').val();
+          save_data.chara.krm_i = $('#sidr_status #sidr_status_krm_i').val();
           save_data.chara.str = $('#sidr_status #sidr_status_str').val();
           save_data.chara.int = $('#sidr_status #sidr_status_int').val();
           save_data.chara.dex = $('#sidr_status #sidr_status_dex').val();
