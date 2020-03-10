@@ -561,6 +561,8 @@
 
   // サイドバー
   let SideBar = {
+    // 現在のシーンで最初にBattleSheetを開いたか
+    isFirstOpenBattleSheet: true,
     cube: function(num) {
       if (num === undefined) { num = 1; }
       var html = '';
@@ -840,6 +842,7 @@
         <tr class="enemy_title">
           <th id="check_cell"></th>
           <th>名前／属性</th>
+          <th><span id="hp_cell">HP</span></th>
           <th>攻撃</th>
           <th title="現在のダイス値に従って、ダメージを反映させます。">
             ダメージ 
@@ -885,8 +888,25 @@
       });
 
       // 敵撃破チェックでのイベント抑止
-      target.parent().on('click', '#sidr_battle input.enemy_check', function(e) {
+      target.parent().on('click','#sidr_battle input.enemy_check', function(e) {
         e.stopImmediatePropagation();
+      });
+
+      // ［HP］ボタンでの自動計算
+      target.parent().on('click', '#sidr_battle .enemy_hp', function(e) {
+
+        e.stopImmediatePropagation();
+
+        let hp = Number($(this).val());
+        let func_opp = $(this).nsAttr('data-func_opp');
+        let damage = Util.computeDamage(func_opp);
+        hp -= damage;
+        if (hp <= 0) { hp = 0; }
+        $(this).val(hp);
+        toastr.success(
+          `${damage} Hit!`,
+          '敵へのダメージ'
+        );
       });
 
       // ダメージボタンでの算出
@@ -1047,12 +1067,20 @@
           // 共通ルールの反映
           Util.showRuleText(current_scene.nsAttr('rule'));
 
+          // 以降の処理は最初開いた時だけ実行
+          if (SideBar.isFirstOpenBattleSheet) {
+            SideBar.isFirstOpenBattleSheet = false;
+          } else {
+            return;
+          }
+
           // 敵／罠リストの整形
           let enemy_list = $('#sidr_battle .enemy tbody');
           enemy_list.empty();
 
           let at_enemies = current_scene.nsAttr('enemies');
           if (at_enemies) {
+            let show_hp = false;  // HP列を表示するか
             let enemies = at_enemies.split(',');
             for (let key of enemies) {
               let enemy = enemies_map[key];
@@ -1066,6 +1094,9 @@
                   <img class="enemy_elem" />　
                   ${enemy.name}
                 </th>
+                <td class="hp_cell">
+                  <input type="button" class="enemy_hp" />
+                </td>
                 <td>
                   <img class="enemy_attack" />　
                   <span class="enemy_attack_old"></span>
@@ -1095,6 +1126,16 @@
                     title: '無'
                   });
               }
+
+              if (enemy.hp) {
+                $('.enemy_hp', row)
+                  .attr('data-func_opp', enemy.func_opp)
+                  .val(enemy.hp);
+                show_hp = true;
+              } else {
+                $('.enemy_hp', row).hide();
+              }
+
               if (atk) {
                 $('.enemy_attack', row).attr({
                   src: `${ROOT}${COMMON}atk_${enemy.attack}.png`,
@@ -1176,6 +1217,10 @@
               // }
               // row += `</td></tr>`;
               enemy_list.append(row);
+            }
+            // HP有の魔物がいない場合、HP列を非表示
+            if (!show_hp) {
+              $('#sidr_battle #hp_cell').hide();
             }
             $('#sidr_battle table.enemy').show();
           } else {
@@ -3865,6 +3910,9 @@
     createScene: function(scene_num, options) {
       if (options === undefined) { options = {}; }
 
+      // BattleSheetの表示状態を初期化
+      SideBar.isFirstOpenBattleSheet = true;
+    
       // ツイートメッセージを初期化
       tweet_message = null;
 
@@ -4752,8 +4800,10 @@
           enemies_map[$(this).nsAttr('id')] = {
             name: $(this).nsAttr('name'),
             element: $(this).nsAttr('element'),
+            hp: $(this).nsAttr('hp'),
             attack: $(this).nsAttr('attack'),
             func: $(this).nsAttr('func'),
+            func_opp: $(this).nsAttr('func_opp'),
             drop: $(this).nsAttr('drop'),
             desc: $(this).text().trim()
           }
