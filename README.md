@@ -45,6 +45,11 @@ $(function() {
 });
 ```
 
+## Manual
+
++ https://sorcerian.hateblo.jp/entries/2017/12/21 (For Developer)
++ https://sorcerian.hateblo.jp/entries/2017/12/20 (For Player)
+
 ## Online Preview
 
 https://snext1220.github.io/stext/
