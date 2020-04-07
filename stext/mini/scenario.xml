@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scenario
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd" title="Untitled" author="Unnamed">
+	<init></init>
+	<groups>
+		<group start="0" end="1" title="Introduction"></group>
+	</groups>
+	<items>
+		<item id="i01" name="Item-01">Item description...</item>
+	</items>
+	<flags>
+		<flag id="f01">Flag description...</flag>
+		<flag id="f02">Flag2</flag>
+		<flag id="f03">Flag3</flag>
+	</flags>
+	<enemies>
+		<enemy id="m01" name="Enemy-01" element="earth" attack="physics" func="L+R-STR" drop="mon/2">Enemy description...</enemy>
+	</enemies>
+	<results>
+		<result id="r01" name="Result-01" level="1">Result description...</result>
+	</results>
+	<licence>
+		<work name="Bgm-01" category="bgm" creator="SText" url="https://example.com/"></work>
+	</licence>
+	<scene id="0" summary="プロローグ" group="prologue" flags="f01,f02,f03">分岐テスト
+[次へ](100)
+
+	</scene>
+
+	<scene id="100" summary="プロローグ" group="prologue">
+
+分岐として、
+f01&amp;f02&amp;f03、
+f01,f02,f03、
+!f01&amp;f02&amp;f03
+
+が用意してあります。
+
+フラグ入手でf01～f03を入手した後、
+
+ボタンが出現するか確認してもらえますか。
+
+[f01&amp;f02&amp;f03](1 "f01&amp;f02&amp;f03")
+[f01,f02,f03](2 "f01,f02,f03")
+[！f01&amp;f02&amp;f03](3 "!(f01&amp;f02&amp;f03)")
+[フラグ入手f01](4)
+[フラグ入手f02](5)
+[フラグ入手f03](6)</scene>
+	<scene id="1" summary="分岐1">ここからが本文です。
+
+</scene>
+	<scene id="2" x="12.300003051757812" summary="分岐2"></scene>
+	<scene id="3" x="66.96846008300781" summary="分岐3"></scene>
+	<scene id="4" x="182.3000030517578" summary="フラグ入手1" flags="f01" end="happy" nexts="test">
+</scene>
+	<scene id="5" x="133.6315460205078" summary="フラグ入手2" flags="f02">
+
+[戻る](0)</scene>
+	<scene id="6" x="6.6315460205078125" summary="フラグ入手3" flags="f03">
+
+[戻る](0)</scene>
+</scenario>

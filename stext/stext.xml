@@ -445,10 +445,18 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 
 <p class="award">現在はシナリオの前・中編部分のみ遊べます。後編は3月公開予定です！</p>
 
-
 </work>
 
+<work id="mini" title="ミニミニソーサリアンText" author="リオ" series="Playground100祭"
+  tags="スゴロク,リメイク" published="2020-05-27" updated="2020-02-27" level="1" scenes="50" results="1" clears="r99"
+  comment="Next時代の第三者視点で魔物討伐ものを作ってみました。思い通りに動いてくれない勇者の手綱を握りながら、なんとか進みましょう。">
+<img src="./stext/mini/capture/intro.png" height="120"
+  title="ミニミニソーサリアンText"  align="left" class="left"/>
+<p class="award">Playground100祭Vol.5(100Scene限定シナリオ)</p>
+「ミニミニソーサリアン Text」（略称：みにそて）とは、原作のミニミニソーサリアンに案を得て、原作シナリオ＋STextシステムという環境でリメイクしたミニゲームです。
 
+遊び方はカンタン、ゲームを開始した後、［本日のイベントは...］をクリックするだけ。ペンタウァ世界に旅立つと、日替わりでさまざまなイベントが発生します。HP/MPいずれかが0でゲームオーバー。アイテムは最大2個まで持てます。詳細は、本文内の遊び方も参照してください。
+</work>
 </scenario>
 
 <utility>
