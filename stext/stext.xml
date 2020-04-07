@@ -448,8 +448,8 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 </work>
 
 <work id="mini" title="ミニミニソーサリアンText" author="リオ" series="Playground100祭"
-  tags="スゴロク,リメイク" published="2020-05-27" updated="2020-02-27" level="1" scenes="50" results="1" clears="r99"
-  comment="Next時代の第三者視点で魔物討伐ものを作ってみました。思い通りに動いてくれない勇者の手綱を握りながら、なんとか進みましょう。">
+  tags="スゴロク,リメイク" published="2020-05-27" updated="2020-02-27" level="1" scenes="50" results="1" clears="r99" unpublished="true"
+  comment="Next0401企画で作成したミニミニソーサリアン NextのSText版です。シナリオというか、STextならこんなこともできるよ的な作品だったり。むしろ開発者の皆さんの思い付きのきっかけになればと">
 <img src="./stext/mini/capture/intro.png" height="120"
   title="ミニミニソーサリアンText"  align="left" class="left"/>
 <p class="award">Playground100祭Vol.5(100Scene限定シナリオ)</p>
