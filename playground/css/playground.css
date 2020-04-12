@@ -90,7 +90,9 @@ label {
     height: 210px;
     margin-bottom: 15px;
     border: 1px solid #000;
-    font: 12px/normal 'empty', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+
+    /* font: 12px/normal 'empty', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace; */
     font-variant-ligatures: normal;
     font-variant-caps: normal;
     font-variant-numeric: normal;
