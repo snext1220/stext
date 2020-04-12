@@ -246,6 +246,12 @@ $(function () {
     },
     // 指定範囲でフローチャートを生成
     createNetwork: function() {
+      // 変更前の拡大率を保存
+      let scale = 1.0;
+      if (network) {
+        scale = network.getScale();
+      }
+      // フローチャートを破棄
       Util.destroyNetwork();
       // 絞り込み条件が空の場合の既定値
       if (filter_where.length === 0) {
@@ -260,6 +266,7 @@ $(function () {
       network = new vis.Network(
         document.getElementById('flow-area'),
         {
+          autoResize: false,
           //nodes: new vis.DataSet(scenario.scenes),
           nodes: new vis.DataSet(
             scenario.scenes.filter(function(value){
@@ -442,6 +449,10 @@ $(function () {
           }
         }
       );
+      // 拡大率を復元
+      network.moveTo({
+        scale: scale
+      });
   
       // ノード選択時にフォームに反映
       network.on('selectNode', function(e) {
@@ -1324,7 +1335,12 @@ $(function () {
       scene[e.target.id] = $(this).val();
       if (e.target.id === 'summary') {
         scene.label = scene.id + ':\n' + scene.summary;
+
+
         Util.createNetwork();
+
+
+
         network.selectNodes([ scene.id ]);
       } else if (e.target.id === 'end') {
         // end属性にグループ付与

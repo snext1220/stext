@@ -12,7 +12,8 @@ label {
 
 #control {
     height: 30px;
-    width: 1150px;
+    width: 95%;
+    min-width: 1150px;
     margin: 0 auto;
     border: 1px solid #000;
     background-color: #000;
@@ -42,8 +43,11 @@ label {
 }
 
 #main {
-    width: 1150px;
-    height: 570px;
+    display: flex;
+    min-width: 1150px;
+    width: 95%;
+    /* width: 1150px; */
+    height: 760px;
     margin: 0 auto;
 }
 
@@ -54,15 +58,16 @@ label {
 }
 
 #flow-area {
-    float:left;
-    width: 535px;
+    /* float: left; */
+    /* width: 535px; */
+    flex: 1;
     height: 99%;
     border: 1px solid #000;
     background-color: #fff;
 }
 
 #edit-area {
-    float: right;
+    /* float: right; */
     width: 600px;
     min-height: 750px;
     border: 1px solid #000;
@@ -116,7 +121,8 @@ label {
 
 #footer {
     height: 30px;
-    width: 1150px;
+    width: 95%;
+    min-width: 1150px;
     margin: 0 auto;
     border: 1px solid #000;
     background-color: #000;
