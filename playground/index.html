@@ -178,7 +178,8 @@
               <label>リンク：
                 <select id="edges-list" class="no-update"></select>
               </label>
-              </fieldset>
+              <button id="scene-addedge" type="button">リンク追加</button>
+            </fieldset>
             <fieldset>
               <legend>楽曲（<a href="https://soundcloud.com/venus-az/sets/sorcerian-text-original-sounds/s-2tzI5" target="help">標準BGMリスト</a>）</legend>
               <label>BGM：
@@ -581,6 +582,19 @@
     <input id="node-add" type="button" value="追加" />
     <input id="node-cancel" type="button" value="キャンセル" />
   </p>
+</div>
+
+<!--ダイアログ（リンク）-->
+<div id="edge-dialog" title="Add Link">
+  <div>
+    <label>id：<br />
+      <span id="from-id"></span> ->
+      <input id="to-id" type="text" size="5" /></label>
+  </div>
+  <div>
+    <label>キャプション：<br />
+      <input id="edge-caption" type="text" size="20" /></label>
+  </div>
 </div>
 
 <!--ダイアログ（範囲）-->

@@ -1217,6 +1217,49 @@ $(function () {
     }
   });
 
+  // ダイアログを初期化（リンク生成）
+  $('#edge-dialog').dialog({
+    autoOpen: false,
+    width: 320,
+    show: 500,
+    hide: 500,
+    modal: true,
+    position: {
+      of : '#flow-area',
+      at: 'left top',
+      my: 'left top',
+    },
+    open: function() {
+      $('#from-id').text(
+        $('#scene-select #id').text()
+      );
+      $('#to-id').val('');
+      $('#edge-caption').val('');
+    },
+    buttons: {
+      '追加': function() {
+        let from = $('#edge-dialog #from-id').text();
+        let to = $('#edge-dialog #to-id').val();
+        let label = $('#edge-dialog #edge-caption').val();
+        scenario.edges.push(
+          {
+            "from": from,
+            "to": to,
+            "label": label,
+            "id": `custom${from}-${to}`
+          }
+        );
+        Util.createNetwork();
+        network.selectNodes([ from ]);
+        Util.setSceneInfo(from);
+        $(this).dialog('close');
+      },
+      'キャンセル': function() {
+        $(this).dialog('close');
+      },
+    }
+  });
+
   // ダイアログを初期化（範囲指定）
   $('#range-dialog').dialog({
     autoOpen: false,
@@ -1335,12 +1378,7 @@ $(function () {
       scene[e.target.id] = $(this).val();
       if (e.target.id === 'summary') {
         scene.label = scene.id + ':\n' + scene.summary;
-
-
         Util.createNetwork();
-
-
-
         network.selectNodes([ scene.id ]);
       } else if (e.target.id === 'end') {
         // end属性にグループ付与
@@ -1698,6 +1736,11 @@ $(function () {
         .css('height', '630px');
       editor.resize(true);
     }
+  });
+
+  // リンク追加ダイアログ
+  $('#scene #scene-addedge').click(function(e) {
+    $('#edge-dialog').dialog('open');
   });
 
   // タブの生成
