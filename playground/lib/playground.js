@@ -1246,7 +1246,7 @@ $(function () {
             "from": from,
             "to": to,
             "label": label,
-            "id": `custom${from}-${to}`
+            "id": `custom${from}-${to}-${Math.floor( Math.random() * 100000 )}`
           }
         );
         Util.createNetwork();
