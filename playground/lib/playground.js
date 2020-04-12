@@ -491,7 +491,20 @@ $(function () {
         window.open(Common.HELP_URL + helpName, 'help');
       });
     },
-
+    // SlickGridによるid検証
+    // value：入力値、prefix：接頭辞
+    validateId: function(value, prefix, msg) {
+      if (value != null &&
+          value != undefined &&
+          value.trim() != '' &&
+          value.startsWith(prefix)) {
+        return { valid: true, msg: null };
+      } else {
+        let msg = `idは「${prefix}～」形式で入力してください。`;
+        toastr.error(msg, 'Id Error');
+        return { valid: false, msg: msg };
+      }
+    },
     // 単一／複数選択ボタン付きのサイドバーを生成
     // trigger：トリガーとなる要素（セレクター式）
     // target：サイドバーとなる要素のベース名（id値）
@@ -1557,7 +1570,10 @@ $(function () {
   // アイテム一覧の描画
   Util.createGrid('#items_grid', scenario.items, 
     [
-      { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text },
+      { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text,
+        validator: function(value) {
+          return Util.validateId(value, 'i');
+        } },
       { id: 'name', name: '名前', field: 'name', width: 80, editor: Slick.Editors.Text },
       { id: 'text', name: '説明', field: 'text', width: 300, editor: Slick.Editors.Text },
       {id: 'delete', name: '削除', field: '', width: 35,
@@ -1567,7 +1583,11 @@ $(function () {
   // フラグ一覧の描画
   Util.createGrid('#flags_grid', scenario.flags,
     [
-      { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text },
+      { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text,
+        validator: function(value) {
+          return Util.validateId(value, 'f');
+        } 
+      },
       { id: 'text', name: '説明', field: 'text', width: 300, editor: Slick.Editors.Text },
       {id: 'delete', name: '削除', field: '', width: 35,
       formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
@@ -1576,7 +1596,11 @@ $(function () {
   // 敵一覧の描画
   Util.createGrid('#enemies_grid', scenario.enemies,
     [
-      { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text },
+      { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text,
+        validator: function(value) {
+          return Util.validateId(value, 'm');
+        } 
+      },
       { id: 'name', name: '名前', field: 'name', width: 80, editor: Slick.Editors.Text },
       { id: 'element', name: '属性', field: 'element', editor: SelectEditor,
         options: [ '', 'earth', 'water', 'fire', 'wind', 'spirit' ] },
@@ -1595,7 +1619,11 @@ $(function () {
   // 実績一覧の描画
   Util.createGrid('#results_grid', scenario.results,
     [
-      { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text },
+      { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text,
+        validator: function(value) {
+          return Util.validateId(value, 'r');
+        } 
+      },
       { id: 'name', name: '名前', field: 'name', width: 100, editor: Slick.Editors.Text },
       { id: 'level', name: 'Lv.', field: 'level', width: 30, editor: SelectEditor,
         options: [ '1', '2', '3', '4', '5' ] },
