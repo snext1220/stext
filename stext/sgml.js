@@ -3375,12 +3375,14 @@
     // nexts：コピー先のシナリオ（配列）
     copyNextScenario: function(nexts) {
       var c_save = Util.deepCopyObject(save_data);
+      /*
       c_save.chara.state = '';
       c_save.chara.stone_scene = 0;
       c_save.chara.forget_scene = 0;
       c_save.chara.free1 = 0;
       c_save.chara.free2 = 0;
       c_save.chara.free3 = 0;
+      */
       c_save.items = c_save.items.filter(function(id) {
         return (items_map[id].shared !== undefined);
       });
