@@ -783,22 +783,22 @@
           msg = '敵の攻撃力が2倍になる。ダメージ式上のボックスを「x2」に設定せよ。また、勝利時はドロップアイテムボタンを2回押すこと。';
           break;
         case 'EXPLOSION':
-          msg = '地属性の敵は全滅した。ダメージボタンを押さずに、ドロップアイテムボックスを押して良い。';
+          msg = '地属性の敵は全滅した。ダメージボタンを押さずに、ドロップアイテムボタンを押して良い。';
           break;
         case 'DELUGE':
-          msg = '火属性の敵は全滅した。ダメージボタンを押さずに、ドロップアイテムボックスを押して良い。';
+          msg = '火属性の敵は全滅した。ダメージボタンを押さずに、ドロップアイテムボタンを押して良い。';
           break;
         case 'FREEZE':
-          msg = '水属性の敵は全滅した。ダメージボタンを押さずに、ドロップアイテムボックスを押して良い。';
+          msg = '水属性の敵は全滅した。ダメージボタンを押さずに、ドロップアイテムボタンを押して良い。';
           break;
         case 'DESTROY-A':
-          msg = '風属性の敵は全滅した。ダメージボタンを押さずに、ドロップアイテムボックスを押して良い。';
+          msg = '風属性の敵は全滅した。ダメージボタンを押さずに、ドロップアイテムボタンを押して良い。';
           break;
         case 'LIGHT-CROSS':
-          msg = '霊属性の敵は全滅した。ダメージボタンを押さずに、ドロップアイテムボックスを押して良い。';
+          msg = '霊属性の敵は全滅した。ダメージボタンを押さずに、ドロップアイテムボタンを押して良い。';
           break;
         case 'NOILA-TEM':
-          msg = '全属性の敵が全滅した。ダメージボタンを押さずに、ドロップアイテムボックスを押して良い。';
+          msg = '全属性の敵が全滅した。ダメージボタンを押さずに、ドロップアイテムボタンを押して良い。';
           break;
         default:
           throw new Error('魔法の指定が間違っています。');
@@ -1729,12 +1729,14 @@
       // 魔法発動ボタンクリック時に星を減算
       $('#sidr_magic_run', template).click(function(e) {
         e.preventDefault();
+        let magic_id = $('#sidr_magic #sidr_magic_magic').val();
         // 呪いで実行不可
-        if (save_data.chara.state === 'curse') {
+        if (save_data.chara.state === 'curse' &&
+            magic_id !== 'UN-CURCE') {
           toastr.warning(`魔法を詠唱できない！君は呪われている！！`, '状態異常');
           return false;
         }
-        let magic_id = $('#sidr_magic #sidr_magic_magic').val();
+
         let magic = Common.magic[magic_id];
         if (!magic) { return; }
         if($('#sidr_magic #sidr_magic_mon').val() < magic[0] ||
@@ -1767,6 +1769,12 @@
         'magic',
         template,
         function() {
+          // 呪い時のスタイル設定
+          if (save_data.chara.state === 'curse') {
+            $('#sidr_magic_magic').addClass('dialog_curse');
+          } else {
+            $('#sidr_magic_magic').removeClass('dialog_curse');
+          }
           // 魔法ボタンの準備
           let magic_box = $('#sidr_magic #sidr_magic_magic');
           magic_box.empty();
@@ -1777,7 +1785,7 @@
               .attr('title', magic[8])
               .text(`${key}（${magic[7]}）`);
             // 魔法が使えなければ、オプションは無効に
-            if (!Util.canUseMagic(magic)) {
+            if (!Util.canUseMagic(magic, key)) {
               option.attr('disabled', 'disabled');
             }
             option.appendTo(magic_box);
@@ -2468,19 +2476,24 @@
     //   $.zoombox.open(ROOT + COMMON + 'title.png', { duration: 400 });
     // },
 
-    // 指定された魔法を利用できるかを判定（引数は個々の魔法情報配列）
-    canUseMagic: function(magic) {
+    // 指定された魔法を利用できるかを判定
+    // 引数magic：個々の魔法情報配列、key：魔法名（任意） 
+    canUseMagic: function(magic, key) {
       if(save_data.stars[0] < magic[0] ||
          save_data.stars[1] < magic[1] ||
          save_data.stars[2] < magic[2] ||
          save_data.stars[3] < magic[3] ||
          save_data.stars[4] < magic[4] ||
          save_data.stars[5] < magic[5] ||
-         save_data.stars[6] < magic[6] ||
-         save_data.chara.state === 'curse') {
+         save_data.stars[6] < magic[6]) {
         return false;
       } else {
-        return true;
+        if (save_data.chara.state === 'curse' &&
+            key !== 'UN-CURCE') {
+          return false;
+        } else {
+          return true;
+        }
       }
     },
 
