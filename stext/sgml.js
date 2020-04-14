@@ -3605,6 +3605,24 @@
           return save_data.chara.name;
         case 'title' :
           return save_data.chara.title;
+        case 'hp' :
+          return save_data.chara.hp;
+        case 'mp' :
+          return save_data.chara.mp;
+        case 'str' :
+          return save_data.chara.str;
+        case 'int' :
+          return save_data.chara.int;
+        case 'dex' :
+          return save_data.chara.dex;
+        case 'krm' :
+          return save_data.chara.krm;
+        case 'free1' :
+          return save_data.chara.free1;
+        case 'free2' :
+          return save_data.chara.free2;
+        case 'free3' :
+          return save_data.chara.free3;
         case 'race' :
           switch (save_data.chara.race) {
             case 'FIGHTER' :
