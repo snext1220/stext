@@ -428,7 +428,7 @@
       { pt: 3000, en: 'Sorcerer', jp: 'ソーサリアン' },
       { pt: 3500, en: 'Necromancer', jp: '死者と語る者' },
       { pt: 4000, en: 'Illusionist', jp: '幻惑を魅せる者' },
-      { pt: 5000, en: 'Master Load', jp: '偉大なる領主' },
+      { pt: 5000, en: 'Master Lord', jp: '偉大なる領主' },
       { pt: 99999, en: 'Dragon Slayer', jp: 'ドラゴンスレイヤー' },
     ],
     // シナリオのクリア数
