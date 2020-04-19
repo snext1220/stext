@@ -447,11 +447,11 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 
 </work>
 
-<work id="wonder" title="不思議のソーサリアン ～ﾍｸﾄﾏﾘｽ･ﾀﾜｰ～" author="ちゃな" series="Playground100祭"
-  tags="ランダムダンジョン" published="2020-05-02" updated="" level="5" scenes="102" results="22" clears="r08,r21,r22" unpublished="true"
+<work id="wonder" title="不思議のソーサリアン～ヘクトマリス･タワー～" author="ちゃな" series="Playground100祭"
+  tags="ランダムダンジョン" published="2020-05-02" updated="" level="3" scenes="101" results="22" clears="r08,r21,r22" unpublished="true"
   comment="ソーサリアンTEXTのランダム機能をフル活用したシナリオです。攻略できるかどうかは運次第。すべての知識を総動員して挑んでみてください。">
 <img src="./stext/wonder/capture/intro.png" height="120"
-  title="不思議のソーサリアン ～ﾍｸﾄﾏﾘｽ･ﾀﾜｰ～"  align="left" class="left"/>
+  title="不思議のソーサリアン～ヘクトマリス･タワー～"  align="left" class="left"/>
 <p class="award">Playground100祭Vol.4(100Scene限定シナリオ)</p>
 遥か昔に大いなる神ユイターが邪神を封印したとされるクレーター。そこに突如として出現した100階建ての塔。あなたはこの塔を踏破して「グランドソーサリアン」の称号を得ることができるか？
 </work>
