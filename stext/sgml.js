@@ -379,7 +379,7 @@
           if (type === 'hp') { damage--; }
           break;
         case 'gi15':
-          if (type === 'hp') { damage--; }
+          if (type === 'mp') { damage--; }
           break;
       }
       return damage;
@@ -2825,25 +2825,35 @@
     // @free1（at_free1）, @free2（at_free2）, @free3（at_free3）の値に応じて、
     // セーブデータのfree1、free2、free3プロパティを更新
     updateFrees: function(at_free1, at_free2, at_free3) {
+      // 入力値を「..」で分離
+      // 引数input：5、1..5の形式、戻り値：Number
+      let range = function(input) {
+        var output = String(input).split('..');
+        if (output[1]) {
+          output[0] = Util.random(Number(output[0]), Number(output[1]));
+        }
+        return Number(output[0]);
+      };
+
       if (at_free1) {
         if (at_free1.indexOf('@') === 0) {
           save_data.chara.free1 = Number(at_free1.substring(1));
         } else {
-          save_data.chara.free1 = Number(save_data.chara.free1) + Number(at_free1);
+          save_data.chara.free1 = Number(save_data.chara.free1) + range(at_free1);
         }
       }
       if (at_free2) {
         if (at_free2.indexOf('@') === 0) {
           save_data.chara.free2 = Number(at_free2.substring(1));
         } else {
-          save_data.chara.free2 = Number(save_data.chara.free2) + Number(at_free2);
+          save_data.chara.free2 = Number(save_data.chara.free2) + range(at_free2);
         }
       }
       if (at_free3) {
         if (at_free3.indexOf('@') === 0) {
           save_data.chara.free3 = Number(at_free3.substring(1));
         } else {
-          save_data.chara.free3 = Number(save_data.chara.free3) + Number(at_free3);
+          save_data.chara.free3 = Number(save_data.chara.free3) + range(at_free3);
         }
       }
     },

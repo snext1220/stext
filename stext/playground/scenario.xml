@@ -37,7 +37,8 @@
 		<work name="ダンジョン" category="bgm" creator="Az" url="//venusaz.seesaa.net/"></work>
 		<work name="グーラン" category="picture" creator="Falcom" url=""></work>
 	</licence>
-	<scene id="0" flags="f05" stars="1,2,3,4,5,6,7" str="-2" int="1" dex="@3" krm="2" free1="10" free2="-5" free3="1" enemies="m01,m02">
+	<scene id="0" flags="f05" stars="1,2,3,4,5,6,7" str="-2" int="1" dex="@3" krm="2"
+	  free1="1..5" free2="-5..-1" free3="10..20" enemies="m01,m02">
 # タイトルテスト1
 ## タイトルテスト2
 ### タイトルテスト3
@@ -100,7 +101,10 @@ ${/if}
 [星が1:2:3:4:5:6:8未満](2 "-s1:2:3:4:5:6:8")
 [500,600,700](X)
 </scene>
-	<scene id="2" items="i01,i02,i03" flags="f01,f02,-f02,-f05" enemies="m01,m02,m03,m04" stars="-5,-5,-5,-5,-5,-5,-5" hp="-5" mp="-7..-3" krm="full" free1="7" free2="-2" bgm="" result="r01" rule="99990">
+	<scene id="2" items="i01,i02,i03" flags="f01,f02,-f02,-f05"
+	 enemies="m01,m02,m03,m04" stars="-5,-5,-5,-5,-5,-5,-5"
+	 hp="-5" mp="-7..-3" krm="full"
+	 free1="@7" free2="	@-2" free3="@5" bgm="" result="r01" rule="99990">
 
 - 魔法ボタンの確認（HEAL、LIGHT-CROSS）
 - ステータスボタンの確認（STR&lt;5、HP&gt;50）
