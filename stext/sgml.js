@@ -1489,32 +1489,32 @@
             <input type="button" class="spinner_down" value="-" />
             <input type="number" id="sidr_status_str" />
             <input type="button" class="spinner_up" value="+" />
-            ／<!--<span id="sidr_status_str_i"></span>-->
-              <input type="number" id="sidr_status_str_i" />
+            <!--／<span id="sidr_status_str_i"></span>
+               <input type="number" id="sidr_status_str_i" />-->
             </div>
             <div>
             <label class="entry">INT：</label><br />
             <input type="button" class="spinner_down" value="-" />
             <input type="number" id="sidr_status_int" />
             <input type="button" class="spinner_up" value="+" />
-            ／<!--<span id="sidr_status_int_i"></span>-->
-              <input type="number" id="sidr_status_int_i" />
+            <!--／<span id="sidr_status_int_i"></span>
+              <input type="number" id="sidr_status_int_i" />-->
             </div>
             <div>
             <label class="entry">DEX：</label><br />
             <input type="button" class="spinner_down" value="-" />
             <input type="number" id="sidr_status_dex" />
             <input type="button" class="spinner_up" value="+" />
-            ／<!--<span id="sidr_status_dex_i"></span>-->
-              <input type="number" id="sidr_status_dex_i" />
+            <!--／<span id="sidr_status_dex_i"></span>
+              <input type="number" id="sidr_status_dex_i" />-->
             </div>
             <div>
             <label class="entry">KRM：</label><br />
             <input type="button" class="spinner_down" value="-" />
             <input type="number" id="sidr_status_krm" />
             <input type="button" class="spinner_up" value="+" />
-            ／<!--<span id="sidr_status_krm_i"></span>-->
-              <input type="number" id="sidr_status_krm_i" />
+            <!--／<span id="sidr_status_krm_i"></span>
+              <input type="number" id="sidr_status_krm_i" />-->
             </div>
           </td>
           </tr>
