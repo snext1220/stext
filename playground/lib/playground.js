@@ -503,15 +503,15 @@ $(function () {
       });
     },
     // SlickGridによるid検証
-    // value：入力値、prefix：接頭辞
-    validateId: function(value, prefix, msg) {
+    // value：入力値、prefix：接頭辞、name：項目名
+    validateId: function(value, prefix, name) {
       if (value != null &&
           value != undefined &&
           value.trim() != '' &&
           value.startsWith(prefix)) {
         return { valid: true, msg: null };
       } else {
-        let msg = `idは「${prefix}～」形式で入力してください。`;
+        let msg = `${name}のidは「${prefix}～」形式で入力してください。`;
         toastr.error(msg, 'Id Error');
         return { valid: false, msg: msg };
       }
@@ -1626,7 +1626,7 @@ $(function () {
     [
       { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text,
         validator: function(value) {
-          return Util.validateId(value, 'i');
+          return Util.validateId(value, 'i', 'アイテム');
         } },
       { id: 'name', name: '名前', field: 'name', width: 80, editor: Slick.Editors.Text },
       { id: 'text', name: '説明', field: 'text', width: 300, editor: Slick.Editors.Text },
@@ -1639,7 +1639,7 @@ $(function () {
     [
       { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text,
         validator: function(value) {
-          return Util.validateId(value, 'f');
+          return Util.validateId(value, 'f', 'フラグ');
         } 
       },
       { id: 'text', name: '説明', field: 'text', width: 300, editor: Slick.Editors.Text },
@@ -1652,7 +1652,7 @@ $(function () {
     [
       { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text,
         validator: function(value) {
-          return Util.validateId(value, 'm');
+          return Util.validateId(value, 'm', 'モンスター');
         } 
       },
       { id: 'name', name: '名前', field: 'name', width: 80, editor: Slick.Editors.Text },
@@ -1675,7 +1675,7 @@ $(function () {
     [
       { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text,
         validator: function(value) {
-          return Util.validateId(value, 'r');
+          return Util.validateId(value, 'r', '実績');
         } 
       },
       { id: 'name', name: '名前', field: 'name', width: 100, editor: Slick.Editors.Text },
