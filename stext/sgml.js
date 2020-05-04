@@ -2631,9 +2631,18 @@
       } else if (save_data.chara.state === 'stone') {
         save_data.chara.stone_scene += 1;
         save_data.chara.forget_scene = 0;
+        // 30scene経過で死亡通知
+        if (save_data.chara.stone_scene === 30) {
+          toastr.error('原因：石化より30Sceneが経過したため', 'あなたは死んでしまった');
+        }
       } else if (save_data.chara.state === 'forget') {
         save_data.chara.forget_scene += 1;
         save_data.chara.stone_scene = 0;
+        // 20scene経過で死亡通知
+        if (save_data.chara.forget_scene === 20) {
+          toastr.success('20Scene経過で忘却が解消された！', '忘却解除');
+          Util.updateState('-forget');
+        }
       } else {
         save_data.chara.stone_scene = 0;
         save_data.chara.forget_scene = 0;
