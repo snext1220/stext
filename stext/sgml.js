@@ -704,7 +704,9 @@
       $('#sidr_battle #simple_status_int').text(save_data.chara.int);
       $('#sidr_battle #simple_status_dex').text(save_data.chara.dex);
       $('#sidr_battle #simple_status_krm').text(save_data.chara.krm);
-      if ($('init > label', scenario_data).length !== 0) {
+      let f_label = $('init > label', scenario_data);
+      if (f_label.nsAttr('free1') || f_label.nsAttr('free2') || f_label.nsAttr('free3')) {
+      //if ($('init > label', scenario_data).length !== 0) {
         $('#sidr_battle #simple_status_frees').show(); 
         $('#sidr_battle #simple_status_f1').text(save_data.chara.free1);
         $('#sidr_battle #simple_status_f2').text(save_data.chara.free2);
