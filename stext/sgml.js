@@ -1412,13 +1412,72 @@
     },
     // Items & Flags
     createItemFlagInfo() {
+      target.parent().on('click', '#item_run', function(e) {
+        let id = $('#sidr_item #sidr_item_item').val();
+        let item = items_map[id];
+        if (item.target) {
+////*******************************TODO（値の更新・ダイアログのクローズ）******************//
+          let msg = '';
+          let f_label = $('init > label', scenario_data);
+          switch (item.target) {
+            case 'hp':
+              msg = 'HPを回復した！';
+              break;
+            case 'mp':
+              msg = 'MPを回復した！';
+              break;
+            case 'state':
+              msg = '状態異常を回復した！';
+              break;
+            case 'str':
+              msg = 'STRがUpした！';
+              break;
+            case 'int':
+              msg = 'INTがUpした！';
+              break; 
+            case 'dex':
+              msg = 'DEXがUpした！';
+              break; 
+            case 'krm':
+              msg = 'KRMがUpした！';
+              break; 
+            case 'free1':
+              msg = '';
+              break; 
+            case 'free2':
+              msg = ``;
+              break; 
+            case 'free3':
+              msg = `${f_label.nsAttr('free1')}を`;
+              break;
+            default:
+              msg = item.effect;
+              break;
+          } 
+          Util.updateItems(`-${id}`);
+          Util.saveStorage();
+
+
+
+          toastr.success(
+            msg,
+            `${item.name}を使った。`);
+        } else {
+          toastr.error(
+            `...しかし、なにも起こらなかった...`,
+            `${item.name}を使った。`);
+        }
+      });
+
+
       this.createSideBar(
         'item',
         `<div id="sidr_item" class="sidr_info">
           <h2><img src="${ROOT}${COMMON}side/items_flags.png" alt="Items & Flags" /></h2>
           <div>
-            ITEMS：<br/>
-            <textarea id="sidr_item_item"></textarea>
+            ITEMS：<input id="item_run" type="button" value="USE" /><br/>
+            <select id="sidr_item_item" size="5"></select>
+            <!--<textarea id="sidr_item_item"></textarea>-->
           </div>
           <div>
             FLAGS：<br />
@@ -1428,12 +1487,19 @@
        </div>`,
         function() {
           // 現在所持しているアイテム一覧を表示
-          let items = [];
+          let items = $('#sidr_item #sidr_item_item');
+          items.empty();
+          //let items = [];
           for (let key of save_data.items) {
             let item = items_map[key];
-            items.push(`・${item.name}（${item.desc}）`);
+            if (item.target) {
+              items.append(`<option value="${key}" class="canuse">★ ${item.name}（${item.desc}）</option>`);
+            } else {
+              items.append(`<option value="${key}">${item.name}（${item.desc}）</option>`);
+            }
+            //items.push(`・${item.name}（${item.desc}）`);
           }
-          $('#sidr_item #sidr_item_item').text(items.join('\r'));
+          //$('#sidr_item #sidr_item_item').text(items.join('\r'));
 
           // 現在所持しているフラグ一覧を表示
           let flags = [];
@@ -4913,6 +4979,8 @@
           items_map[$(this).nsAttr('id')] = {
             name: $(this).nsAttr('name'),
             shared: $(this).nsAttr('shared'),
+            target: $(this).nsAttr('target'),
+            effect: $(this).nsAttr('effect'),
             desc: $(this).text().trim()
           };
         });

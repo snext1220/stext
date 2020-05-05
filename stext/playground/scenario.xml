@@ -10,7 +10,7 @@
 	</init>
 	<items>
 		<item id="i01" shared="true" name="こいし">何の変哲もない、石だ</item>
-		<item id="i02" name="ひとにぎりのすな">グーランの、なれの果てだ</item>
+		<item id="i02" name="ひとにぎりのすな" target="mp" effect="10">グーランの、なれの果てだ</item>
 		<item id="i03" name="きのぼう">豚（猫）いじめのための?棒</item>
 		<item id="i04" name="かれは">どこかで懐に紛れ込んだのだろうか？</item>
 	</items>

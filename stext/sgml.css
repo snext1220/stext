@@ -726,11 +726,15 @@ table.item_list img {
 }
 
 /* サイドバー（Items & Flags）*/
-.sidr_info textarea {
+.sidr_info textarea, .sidr_info #sidr_item_item {
   margin-left: 5px;
   margin-right: 5px;
   width: 90%;
   height: 100px;
+}
+
+.sidr_info .canuse {
+  background-color: darkseagreen;
 }
 
 /* サイドバー（Battle） */
