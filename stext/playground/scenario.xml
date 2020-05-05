@@ -4,7 +4,8 @@
 	<init>
 		<constraint race="FIGHTER,WIZARD" sex="FEMALE" age="YOUNG,ADULT"></constraint>
 		<bgm main="@field05" happy="@field04" bad="@town01"></bgm>
-		<label free1="食物" free2="Gold"></label>
+		<label hp="生命力" mp="気力" state="状態" str="力" int="知恵" dex="器用" krm="業"
+			free1="食物" free2="Gold" free3="品格"></label>
 		<intro description="プレイグラウンドで動作を手軽に確認しよう！"></intro>
 	</init>
 	<items>

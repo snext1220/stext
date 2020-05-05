@@ -715,10 +715,14 @@ table.item_list img {
   margin-bottom: 10px;
 }
 
+.sidr_info div {
+  margin-bottom: 5px;
+}
+
 .sidr_info #sidr_status_free_list .spinner_down,
 .sidr_info #sidr_status_free_list .spinner_up,
 .sidr_info #sidr_status_free_list input[type="number"] {
-  width: 38px;
+  width: 40px;
 }
 
 /* サイドバー（Items & Flags）*/
