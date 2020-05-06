@@ -1412,70 +1412,64 @@
     },
     // Items & Flags
     createItemFlagInfo() {
-      target.parent().on('click', '#item_run', function(e) {
+      target.parent().on('click', '#sidr_item_use', function(e) {
         let id = $('#sidr_item #sidr_item_item').val();
         let item = items_map[id];
         if (item.target) {
-////*******************************TODO（値の更新・ダイアログのクローズ）******************//
-          let msg = '';
-          let f_label = $('init > label', scenario_data);
           switch (item.target) {
             case 'hp':
-              msg = 'HPを回復した！';
+              Util.updateHpMp(item.effect, 0);
               break;
             case 'mp':
-              msg = 'MPを回復した！';
+              Util.updateHpMp(0, item.effect);
               break;
             case 'state':
-              msg = '状態異常を回復した！';
+              Util.updateState(item.effect);
               break;
             case 'str':
-              msg = 'STRがUpした！';
+              Util.updateStr2Krm(item.effect, 0, 0, 0);
               break;
             case 'int':
-              msg = 'INTがUpした！';
+              Util.updateStr2Krm(0, item.effect, 0, 0);
               break; 
             case 'dex':
-              msg = 'DEXがUpした！';
+              Util.updateStr2Krm(0, 0, item.effect, 0);
               break; 
             case 'krm':
-              msg = 'KRMがUpした！';
+              Util.updateStr2Krm(0, 0, 0, item.effect);
               break; 
             case 'free1':
-              msg = '';
+              Util.updateFrees(item.effect, 0, 0);
               break; 
             case 'free2':
-              msg = ``;
+              Util.updateFrees(0, item.effect, 0);
               break; 
             case 'free3':
-              msg = `${f_label.nsAttr('free1')}を`;
+              Util.updateFrees(0, 0, item.effect);
               break;
             default:
-              msg = item.effect;
               break;
           } 
           Util.updateItems(`-${id}`);
           Util.saveStorage();
-
-
-
           toastr.success(
-            msg,
+            item.desc,
             `${item.name}を使った。`);
         } else {
           toastr.error(
             `...しかし、なにも起こらなかった...`,
             `${item.name}を使った。`);
         }
+        $.sidr('close', 'sidr_item');
       });
-
 
       this.createSideBar(
         'item',
         `<div id="sidr_item" class="sidr_info">
           <h2><img src="${ROOT}${COMMON}side/items_flags.png" alt="Items & Flags" /></h2>
           <div>
-            ITEMS：<input id="item_run" type="button" value="USE" /><br/>
+            ITEMS：
+            <input type="button" id="sidr_item_use" value="USE" /><br/>
             <select id="sidr_item_item" size="5"></select>
             <!--<textarea id="sidr_item_item"></textarea>-->
           </div>
@@ -1524,7 +1518,7 @@
           <tr>
           <td>
             <div>
-            <span id="sidr_status_str_label">HP</span><br />
+            <span id="sidr_status_hp_label">HP</span><br />
             <input type="button" class="spinner_down" value="-" />
             <input id="sidr_status_hp" type="number" />
             <input type="button" class="spinner_up" value="+" />

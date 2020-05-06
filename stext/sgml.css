@@ -684,7 +684,8 @@ table.item_list img {
   width: 75%;
 }
 
-.sidr_info #sidr_magic_run {
+.sidr_info #sidr_magic_run,
+.sidr_info #sidr_item_use {
   margin: 10px;
   padding: 5px;
   border: 1px solid #fff;
