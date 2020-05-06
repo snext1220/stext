@@ -1125,9 +1125,11 @@
             for (let key of enemies) {
               let enemy = enemies_map[key];
               // 攻撃方法を取得（STR～は末尾の数字を除去）
-              let atk  = enemy.attack;
+              let atk = enemy.attack;
+              let atk_org = atk;  // 名前に変換前
               if (/^(str|int|dex|krm)/i.test(atk)) {
                 atk = atk.replace(/[0-9]{1,2}/, '');
+                atk_org = atk;
               }
               atk = Common.state_names[atk];
               let row = $(`<tr class="enemy_row" data-enemy="${key}">
@@ -1182,7 +1184,7 @@
 
               if (atk) {
                 $('.enemy_attack', row).attr({
-                  src: `${ROOT}${COMMON}atk_${enemy.attack}.png`,
+                  src: `${ROOT}${COMMON}atk_${atk_org}.png`,
                   title: atk
                 });
                 $('.enemy_attack_old', row).hide();
