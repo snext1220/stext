@@ -212,7 +212,11 @@
     star_names: { 'mon': '月', 'tue': '火星', 'wed': '水星', 'thu': '木星', 'fri': '金星', 'sat': '土星', 'sun': '太陽', '': null },
 
     // 状態異常＆攻撃の表示名
-    state_names: { '': '正常', 'poison': '毒', 'frozen': '凍結', 'stone': '石化', 'curse': '呪い', 'forget': '忘却', 'physics': '物理', 'magic': '魔法', 'both': '物理／魔法', 'free1': 'FREE1', 'free2': 'FREE2', 'free3': 'FREE3' },
+    state_names: { '': '正常', 'poison': '毒', 'frozen': '凍結',
+      'stone': '石化', 'curse': '呪い', 'forget': '忘却',
+      'physics': '物理', 'magic': '魔法', 'both': '物理／魔法',
+      'str': 'STR', 'int': 'INT', 'dex': 'DEX', 'krm': 'KRM',
+      'free1': 'FREE1', 'free2': 'FREE2', 'free3': 'FREE3' },
 
     // 属性の表示名
     element_names: { 'earth': '地', 'fire': '火', 'water': '水', 'wind': '風', 'spirit': '霊' }
@@ -919,19 +923,53 @@
         let func = $(this).nsAttr('data-func');
         let attack = $(this).nsAttr('data-attack');
 
-        // 状態異常の場合は記録
-        if ([ 'poison', 'frozen', 'stone', 'curse', 'forget' ].indexOf(attack) !== -1) {
-          // 左辺・不等号・右辺に分割
-          let cond = func.split(/([<>])/);
-          let l_damage = Util.computeDamage(cond[0]);
-          let r_damage = Util.computeDamage(cond[2]);
-          let canEscape;
-          if (cond[1] === '<') {
-            canEscape = l_damage < r_damage;
+        // ステータス攻撃の場合
+        let regStr = /(str|int|dex|krm)([0-9]{0,2})/i;
+        if (regStr.test(attack)) {
+          if (Util.judgeExpression(func)) {
+            SeAudio.play('guard', true);
+            toastr.info(
+              '回避に成功した。',
+              'ステータス攻撃'
+            );
           } else {
-            canEscape = l_damage > r_damage;
+            let sts = regStr.exec(attack);
+            // STRの場合はSTR1と見なす
+            if (!sts[2]) { sts[2] = 1; }
+            switch (sts[1].toLowerCase()) {
+              case 'str':
+                Util.updateStr2Krm(Number(sts[2]) * -1, 0, 0, 0);
+                break;
+              case 'int':
+                Util.updateStr2Krm(0, Number(sts[2]) * -1, 0, 0);
+                break;
+              case 'dex':
+                Util.updateStr2Krm(0, 0, Number(sts[2]) * -1, 0);
+                break;
+              case 'krm':              
+                Util.updateStr2Krm(0, 0, 0, Number(sts[2]) * -1);
+                break;
+            }
+            SeAudio.play('state', true);
+            toastr.error(
+              sts[1].toUpperCase() + 'が低下した！',
+              'ステータス攻撃'
+            );
+
           }
-          if (canEscape) {
+        // 状態異常の場合の判定
+        } else if ([ 'poison', 'frozen', 'stone', 'curse', 'forget' ].indexOf(attack) !== -1) {
+          // 左辺・不等号・右辺に分割
+          // let cond = func.split(/([<>])/);
+          // let l_damage = Util.computeDamage(cond[0]);
+          // let r_damage = Util.computeDamage(cond[2]);
+          // let canEscape;
+          // if (cond[1] === '<') {
+          //   canEscape = l_damage < r_damage;
+          // } else {
+          //   canEscape = l_damage > r_damage;
+          // }
+          if (Util.judgeExpression(func)) {
             SeAudio.play('guard', true);
             toastr.info(
               '回避に成功した。',
@@ -1086,8 +1124,12 @@
             let enemies = at_enemies.split(',');
             for (let key of enemies) {
               let enemy = enemies_map[key];
-              let atk = Common.state_names[enemy.attack];
-
+              // 攻撃方法を取得（STR～は末尾の数字を除去）
+              let atk  = enemy.attack;
+              if (/^(str|int|dex|krm)/i.test(atk)) {
+                atk = atk.replace(/[0-9]{1,2}/, '');
+              }
+              atk = Common.state_names[atk];
               let row = $(`<tr class="enemy_row" data-enemy="${key}">
                 <td>
                   <input type="checkbox" class="enemy_check" />
@@ -1143,10 +1185,10 @@
                   src: `${ROOT}${COMMON}atk_${enemy.attack}.png`,
                   title: atk
                 });
-                 $('.enemy_attack_old', row).hide();
+                $('.enemy_attack_old', row).hide();
               } else {
-                 $('.enemy_attack', row).hide();
-                 $('.enemy_attack_old', row).text(enemy.attack);
+                $('.enemy_attack', row).hide();
+                $('.enemy_attack_old', row).text(enemy.attack);
               }
               if(enemy.func) {
                 if (enemy.func.indexOf('*') === 0) {
@@ -1414,7 +1456,9 @@
     createItemFlagInfo() {
       target.parent().on('click', '#sidr_item_use', function(e) {
         let id = $('#sidr_item #sidr_item_item').val();
+        if (!id) { return; }
         let item = items_map[id];
+        // target属性の値に応じて自動計算を分岐
         if (item.target) {
           switch (item.target) {
             case 'hp':
@@ -1450,6 +1494,7 @@
             default:
               break;
           } 
+          // アイテムを消費
           Util.updateItems(`-${id}`);
           Util.saveStorage();
           toastr.success(
@@ -1470,12 +1515,13 @@
           <div>
             ITEMS：
             <input type="button" id="sidr_item_use" value="USE" /><br/>
-            <select id="sidr_item_item" size="5"></select>
+            <select id="sidr_item_item" size="6"></select>
             <!--<textarea id="sidr_item_item"></textarea>-->
           </div>
           <div>
             FLAGS：<br />
-            <textarea id="sidr_item_flag"></textarea>
+            <select id="sidr_item_flag" size="6"></select>
+            <!--<textarea id="sidr_item_flag"></textarea>-->
           </div>
          <div id="sidr_item_close" class="sidr_close">閉じる</div>
        </div>`,
@@ -1496,14 +1542,17 @@
           //$('#sidr_item #sidr_item_item').text(items.join('\r'));
 
           // 現在所持しているフラグ一覧を表示
-          let flags = [];
+          let flags = $('#sidr_item #sidr_item_flag');
+          flags.empty();
+          //let flags = [];
           for (let key of save_data.flags) {
             let f_text = flags_map[key];
             if (f_text.indexOf('*') !== 0) {
-              flags.push(`・${f_text}`);
+              flags.append(`<option value="${key}">・${f_text}</option>`);
+              //flags.push(`・${f_text}`);
             }
           }
-          $('#sidr_item #sidr_item_flag').text(flags.join('\r'));
+          // $('#sidr_item #sidr_item_flag').text(flags.join('\r'));
         },
         function() {}
       );
@@ -3090,6 +3139,21 @@
         drop: (tmp_d ? tmp_d + '/1' : ''),
         name: Common.star_names[tmp_d]
       };
+    },
+
+    // 判定式funcに従って、回避判定（回避成功でtrue）
+    judgeExpression: function(func) {
+      // 左辺・不等号・右辺に分割
+      let cond = func.split(/([<>])/);
+      let l_damage = Util.computeDamage(cond[0]);
+      let r_damage = Util.computeDamage(cond[2]);
+      let canEscape;
+      if (cond[1] === '<') {
+        canEscape = l_damage < r_damage;
+      } else {
+        canEscape = l_damage > r_damage;
+      }
+      return canEscape;
     },
 
     // ダメージ式funcに従って、ダメージを算出

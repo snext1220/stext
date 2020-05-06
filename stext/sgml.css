@@ -727,7 +727,9 @@ table.item_list img {
 }
 
 /* サイドバー（Items & Flags）*/
-.sidr_info textarea, .sidr_info #sidr_item_item {
+.sidr_info textarea,
+.sidr_info #sidr_item_item,
+.sidr_info #sidr_item_flag {
   margin-left: 5px;
   margin-right: 5px;
   width: 90%;
