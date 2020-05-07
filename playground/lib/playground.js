@@ -1055,6 +1055,13 @@ $(function () {
   $('#bgm-main').val(scenario.init.bgm.main);
   $('#bgm-happy').val(scenario.init.bgm.happy);
   $('#bgm-bad').val(scenario.init.bgm.bad);
+  $('#label-hp').val(scenario.init.label.hp);
+  $('#label-mp').val(scenario.init.label.mp);
+  $('#label-state').val(scenario.init.label.state);
+  $('#label-str').val(scenario.init.label.str);
+  $('#label-int').val(scenario.init.label.int);
+  $('#label-dex').val(scenario.init.label.dex);
+  $('#label-krm').val(scenario.init.label.krm);
   $('#label-free1').val(scenario.init.label.free1);
   $('#label-free2').val(scenario.init.label.free2);
   $('#label-free3').val(scenario.init.label.free3);
@@ -1629,8 +1636,12 @@ $(function () {
           return Util.validateId(value, 'i', 'アイテム');
         } },
       { id: 'name', name: '名前', field: 'name', width: 80, editor: Slick.Editors.Text },
-      { id: 'text', name: '説明', field: 'text', width: 300, editor: Slick.Editors.Text },
-      {id: 'delete', name: '削除', field: '', width: 35,
+      { id: 'target', name: '効果対象', field: 'target', width: 60, editor: SelectEditor,
+        options: [ '', 'hp', 'mp', 'state', 'str', 'int', 'dex', 'krm', 'free1', 'free2', 'free3', 'none' ]
+      },
+      { id: 'effect', name: '効果値', field: 'effect', width: 80, editor: Slick.Editors.Text },
+      { id: 'text', name: '説明', field: 'text', width: 250, editor: Slick.Editors.Text },
+      { id: 'delete', name: '削除', field: '', width: 35,
       formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
     ], grid_opts, 'item');
 
@@ -1660,13 +1671,15 @@ $(function () {
         options: [ '', 'earth', 'water', 'fire', 'wind', 'spirit' ] },
       { id: 'attack', name: '攻撃', field: 'attack', width: 80, editor: SelectEditor,
         options: [ '', 'physics', 'magic', 'both', 'free1', 'free2', 'free3',
-          'poison', 'frozen', 'stone', 'curse', 'forget' ] },
+          'poison', 'frozen', 'stone', 'curse', 'forget', 'str', 'int', 'dex', 'krm' ] },
       { id: 'func', name: 'ダメージ式', field: 'func', width: 80,
         editor: Slick.Editors.LongText },
       { id: 'drop', name: 'ドロップ', field: 'drop', width: 80, editor: AutoCompleteEditor,
         dataSource: [ 'mon/', 'tue/', 'wed/', 'thu/', 'fri/', 'sat/', 'sun/', 'free1/', 'free2/', 'free3', ] },
       { id: 'text', name: '説明', field: 'text', width: 180, editor: Slick.Editors.LongText },
-      {id: 'delete', name: '削除', field: '', width: 35,
+      { id: 'hp', name: '敵HP', field: 'hp', width: 40, editor: Slick.Editors.Integer },
+      { id: 'func_opp', name: '敵ダメージ式', field: 'func_opp', width: 90, editor: Slick.Editors.LongText },
+      { id: 'delete', name: '削除', field: '', width: 35,
       formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
     ], grid_opts, 'enemy');
 
