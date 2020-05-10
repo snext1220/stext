@@ -3732,7 +3732,7 @@
       $('#common_rule')
         .html(
           Util.decorateText(
-            $('scene#' + rule, scenario_data).text()
+            $('scene#' + rule, scenario_data)
           )
         )
         .markdown();
@@ -4098,10 +4098,17 @@
     // },
 
     // シーン内のテキストを修飾
-    // 引数tmp_scene：シーンテキスト
+    // 引数tmp_scene：シーンオブジェクト
     decorateText: function(tmp_scene) {
+      let ex = tmp_scene.nsAttr('exclude');
+      let end = tmp_scene.nsAttr('end');
+      tmp_scene = tmp_scene.text();
       // インポート処理
       tmp_scene = tmp_scene.replace(/\${import[\s]+(.+?)}/gi, this.importText);
+      // 自動インポート（exclude属性、end属性ありで除外）
+      if (!ex && !end) {
+        tmp_scene += this.importText(null, 99998).trim();
+      }
       // 新規構文のエスケープ処理
       tmp_scene = tmp_scene.replace(/(\[.+?\]\([\d,]{1,} ")(.+?)("\))/gi, function(match, sub1, sub2, sub3) {
         sub2 = sub2.split('!').join('#NOT#');
@@ -4237,7 +4244,7 @@
       // シーンテキストの整形
       //target.html(tmp_scene);
       //target.text(scene.text());
-      target.html(Util.decorateText(scene.text()));
+      target.html(Util.decorateText(scene));
       target.markdown();
 
       // ツイートボタンの生成

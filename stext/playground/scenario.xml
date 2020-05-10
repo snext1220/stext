@@ -132,7 +132,7 @@ ${/if}
 [ペンタウァ,42,43](Q)
 [テストランダム](15,10,20 "oFREEI4+&amp;f01|!f03")
 </scene>
-	<scene id="4">
+	<scene id="4" exclude="true">
 HEAL実行
 
 </scene>
@@ -402,6 +402,12 @@ HEAL実行
 
 %blue%どうでしょうか？%/%
 
+</scene>
+
+<scene id="99998">
+[共通ボタン](10)
+[共通ボタン2](10 "f01")
+[共通ボタン3](10 "i01")
 </scene>
 
 <scene id="99999">
