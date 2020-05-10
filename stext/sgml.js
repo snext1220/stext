@@ -73,6 +73,11 @@
     // 称号
     title: ['武器屋の親父', 'ペンタウァの長老', 'トラベラーズインの宿主', '人と上手に話したい', 'ペンタウァ近衛隊長', 'タリスマンの見張り', '瞑想中', '砂漠の飯炊き', '狂戦士', 'エレベーターの管理人', '盗賊の頭領', '暗き沼の魔法使い', 'ロマンシア国王', 'アゾルバ国王', 'ペンタウァ国王', '蚕職人', '妖精王', '暗黒の魔導士', 'クイーンマリー号船長', 'キタブ・アル・アジフの持ち主', 'メデューサハンターの弟子', 'ファルコムマン', '戦士の亡霊', '海賊の子孫', 'いけにえの神官', '東の村の村長', '麻薬中毒者', 'ヴァネルバの王', '銀の竪琴屋', '近衛隊長', '復讐の呪術師', 'ラフォーヌの森の管理人', 'リドニア王国の元兵士', '姫の教育係', '大魔王', '紫ウニの王子', 'ベララの家族', '時計塔の番人', '時計塔の魔女', 'ナルキッソス号船長', 'ディンギル王国の3神官', 'バドティビラ工場の指揮官', 'シュメール国王', 'サンサーラの山賊', '南村の村長', 'アイテム屋WIZの店主', '旅の吟遊詩人', '古代イスマリアの王', '時の神殿の書記官', '闇の王', 'ランドル村長', '魔法学校の校長', '魔法学校の用務員', 'マリオネットの王', 'ペンタウァの近衛兵', '陽の中の闇人', '赤毛の冒険者', '光の王', 'イリアスンの執政官', '魔の下僕', 'メデューサハンター', '邪神教徒', '邪神教々祖', '砂漠の王', '鍵の番人', 'ローデシア辺境司令官', '宇宙からの訪問者', '黒竜仙人', '猿大聖', '極楽寺の僧兵', 'ジャグラー族', '迷宮建築の第一人者', 'フリース村の村長', 'ペンタウァ一の科学者アンド予言者', '暴れザル', '魔法学校の校長', '人魚３姉妹の長女', 'マリオネットの王', '探求の学徒', '旅芸人の一座', '猛獣使い', '流れの傭兵', '氷の魔女', 'パペッテの人形遣い', 'バーテンダー', '宮仕えのシャーマン', '薬草亭の主人', '水門の管理人' ],
 
+    // 種族／性別／年齢
+    race: [ 'FIGHTER', 'WIZARD', 'DWARF', 'ELF' ],
+    sex: [ 'MALE', 'FEMALE' ],
+    age: [ 'YOUNG', 'ADULT', 'OLD' ],
+
     // キャラクター初期値（種族、性別、HP、MP、STR、INT、DEX、KRM）
     pc_init: [
       ['FIGHTER', 'MALE',   85, 55, 7, 3, 6, 4],
@@ -1354,42 +1359,89 @@
 
     // 基本情報
     createBasicInfo() {
-      // let template = $(`<div id="sidr_basic" class="sidr_info">
-      //   <table class="sidr_list_noline">
-      //   <tr>
-      //     <td colspan="4">
-      //       <img id="sidr_basic_chara_face" align="right" />
-      //       <div>
-      //         <h3>"<span id="sidr_basic_title"></span>"
-      //           <span id="sidr_basic_name"></span></h3>
-      //         <i><span id="sidr_basic_ellapsed_scene"></span></i>
-      //       </div>
-      //     </td>
-      //   </tr>
-      //   <tr>
-      //     <th>CLASS：</th>
-      //     <td>
-      //       <span id="sidr_basic_race"></span>　
-      //       <span id="sidr_basic_sex"></span>
-      //     </td>
-      //     <th>AGE：</th>
-      //     <td><span id="sidr_basic_age"></span></td>
-      //   </tr>
-      //   <tr>
-      //     <th>JOB：</th>
-      //     <td><select id="sidr_basic_job"></select></td>
-      //   </tr>
-      //   </table>
-      //   <p>MEMO：</p>
-      //   <textarea id="sidr_basic_memos"></textarea>
-      //   <div id="sidr_basic_submit" class="sidr_submit">確定</div>
-      //   <div id="sidr_basic_close" class="sidr_close">閉じる</div>
-      // </div>`);
+      // 種族、性別、年齢ボックスを初期化
+      let initOpts = function() {
+        let { races, sex, ages } = Util.getCharacterConstraint();
+        // 種族ボックス
+        let o_races = races ? races : Common.race;
+        let jq_race = $('#sidr_basic_race', template);
+        jq_race.empty();
+        for (let o_race of o_races) {
+          $('<option></option>')
+            .attr('value', o_race)
+            .text(o_race)
+            .appendTo(jq_race);
+        }
+        // 性別ボックス
+        let o_sexes = sex ? [ sex ] : Common.sex;
+        let jq_sex = $('#sidr_basic_sex', template);
+        jq_sex.empty();
+        for (let o_sex of o_sexes) {
+          $('<option></option>')
+            .attr('value', o_sex)
+            .text(o_sex)
+            .appendTo(jq_sex);
+        }
+        // 年齢ボックス
+        let o_ages = ages ? ages : Common.age;
+        let jq_age = $('#sidr_basic_age', template);
+        jq_age.empty();
+        for (let o_age of o_ages) {
+          $('<option></option>')
+            .attr('value', o_age)
+            .text(o_age)
+            .appendTo(jq_age);
+        }
+      };
+
+      // 顔イメージを変更（引数はrace、sex、age）
+      let selectImage = function(race, sex, age) {
+        if (!race) { race = save_data.chara.race; }
+        if (!sex)  { sex = save_data.chara.sex; }
+        if (!age)  { age = save_data.chara.age; }
+        let path = ROOT + COMMON + String(sex).toLowerCase()
+          + '_'
+          + String(age).toLowerCase() + '_'
+          + String(race).toLowerCase() + '.png';
+        $('#sidr_basic_chara_face').attr('src', path);
+      };
+
+      // 職業選択ボックスを生成
+      let createJobBox = function() {
+        let job_box = $('#sidr_basic #sidr_basic_job');
+        job_box.empty();
+        for(let job of enabled_jobs) {
+          $('<option></option>')
+            .attr('value', job)
+            .text(job)
+            .appendTo(job_box);
+        }
+        if (enabled_jobs.includes(save_data.chara.job)) {
+          job_box.val(save_data.chara.job);
+        } else {
+          // 現在の条件が合致しない場合、のうふにフォルーバック
+          job_box.val('のうふ');
+        }
+      };
+
+      // 種族、性別、年齢に変更があった場合、顔イメージ、職業選択ボックスも再生成
+      target.parent().on('change', '#sidr_basic_race, #sidr_basic_sex, #sidr_basic_age',
+        function(e) {
+          Util.initJobs(true);
+          createJobBox();
+          selectImage(
+            $('#sidr_basic #sidr_basic_race').val(),
+            $('#sidr_basic #sidr_basic_sex').val(),
+            $('#sidr_basic #sidr_basic_age').val()
+          );
+        });
+
       let template = $(`<div id="sidr_basic" class="sidr_info">
         <img id="sidr_basic_chara_face" align="right" />
         <h2>
           "<span id="sidr_basic_title"></span>"
-          <span id="sidr_basic_name"></span>
+          <!--<span id="sidr_basic_name"></span>-->
+          <input id="sidr_basic_name" type="text" />
         </h2>
         <i>
           <span id="sidr_basic_ellapsed_scene"></span>
@@ -1398,13 +1450,15 @@
         <tr>
           <th>CLASS：</th>
           <td>
-            <span id="sidr_basic_race"></span>　
-            <span id="sidr_basic_sex"></span>
+            <select id="sidr_basic_race"></select>
+            <select id="sidr_basic_sex"></select>
           </td>
         </tr>
         <tr>
           <th>AGE：</th>
-          <td><span id="sidr_basic_age"></span></td>
+          <td>
+            <select id="sidr_basic_age"></select>
+          </td>
         </tr>
         <tr>
           <th>JOB：</th>
@@ -1416,38 +1470,86 @@
         <div id="sidr_basic_submit" class="sidr_submit">確定</div>
         <div id="sidr_basic_close" class="sidr_close">閉じる</div>
       </div>`);
+
+      // let template = $(`<div id="sidr_basic" class="sidr_info">
+      //   <img id="sidr_basic_chara_face" align="right" />
+      //   <h2>
+      //     "<span id="sidr_basic_title"></span>"
+      //     <span id="sidr_basic_name"></span>
+      //   </h2>
+      //   <i>
+      //     <span id="sidr_basic_ellapsed_scene"></span>
+      //   </i>
+      //   <table class="sidr_list_noline sidr_basic_table">
+      //   <tr>
+      //     <th>CLASS：</th>
+      //     <td>
+      //       <span id="sidr_basic_race"></span>　
+      //       <span id="sidr_basic_sex"></span>
+      //     </td>
+      //   </tr>
+      //   <tr>
+      //     <th>AGE：</th>
+      //     <td><span id="sidr_basic_age"></span></td>
+      //   </tr>
+      //   <tr>
+      //     <th>JOB：</th>
+      //     <td><select id="sidr_basic_job"></select></td>
+      //   </tr>
+      //   </table>
+      //   <hr />
+      //   <textarea id="sidr_basic_memos" placeholder="君は冒険中のメモをここに記録しておいても構わないし、脳裏に留めておいても構わない。"></textarea>
+      //   <div id="sidr_basic_submit" class="sidr_submit">確定</div>
+      //   <div id="sidr_basic_close" class="sidr_close">閉じる</div>
+      // </div>`);
       // 個々の項目を初期化
-      $('#sidr_basic_chara_face', template).attr('src',
-      ROOT + COMMON + String(save_data.chara.sex).toLowerCase()
-       + '_'
-       + String(save_data.chara.age).toLowerCase() + '_'
-       + String(save_data.chara.race).toLowerCase() + '.png');
-      $('#sidr_basic_name', template).text(save_data.chara.name);
+      // $('#sidr_basic_chara_face', template).attr('src',
+      // ROOT + COMMON + String(save_data.chara.sex).toLowerCase()
+      //  + '_'
+      //  + String(save_data.chara.age).toLowerCase() + '_'
+      //  + String(save_data.chara.race).toLowerCase() + '.png');
+
+      // 種族／性別／年齢ボックスを初期化
+      initOpts();
       $('#sidr_basic_title', template).text(save_data.chara.title);
       $('#sidr_basic_ellapsed_scene', template).text(`${save_data.ellapsed_scene} scene`);
-      $('#sidr_basic_race', template).text(save_data.chara.race);
-      $('#sidr_basic_sex', template).text(save_data.chara.sex);
-      $('#sidr_basic_age', template).text(save_data.chara.age);
+      //$('#sidr_basic_name', template).text(save_data.chara.name);
+      // $('#sidr_basic_race', template).text(save_data.chara.race);
+      // $('#sidr_basic_sex', template).text(save_data.chara.sex);
+      // $('#sidr_basic_age', template).text(save_data.chara.age);
+
       // 職業選択ボックスを生成
-      let job_box = $('#sidr_basic_job', template);
-      job_box.empty();
-      for(let job of enabled_jobs) {
-        $('<option></option>')
-          .attr('value', job)
-          .text(job)
-          .appendTo(job_box);
-      }
+      // let job_box = $('#sidr_basic_job', template);
+      // job_box.empty();
+      // for(let job of enabled_jobs) {
+      //   $('<option></option>')
+      //     .attr('value', job)
+      //     .text(job)
+      //     .appendTo(job_box);
+      // }
 
       // サイドバーを生成
       this.createSideBar(
         'basic',
         template,
-        function() {
+        function() {   
+          // 顔イメージを差し替え
+          selectImage();
+          $('#sidr_basic #sidr_basic_name').val(save_data.chara.name);
+          $('#sidr_basic #sidr_basic_race').val(save_data.chara.race);
+          $('#sidr_basic #sidr_basic_sex').val(save_data.chara.sex);
+          $('#sidr_basic #sidr_basic_age').val(save_data.chara.age);
           $('#sidr_basic #sidr_basic_ellapsed_scene').text(`${save_data.ellapsed_scene} scene`);
-          $('#sidr_basic #sidr_basic_job').val(save_data.chara.job);
+          // 職業選択ボックスを生成
+          createJobBox();
+          //$('#sidr_basic #sidr_basic_job').val(save_data.chara.job);
           $('#sidr_basic #sidr_basic_memos').val(save_data.memos);
         },
         function() {
+          save_data.chara.name = $('#sidr_basic #sidr_basic_name').val();
+          save_data.chara.race = $('#sidr_basic #sidr_basic_race').val();
+          save_data.chara.sex = $('#sidr_basic #sidr_basic_sex').val();
+          save_data.chara.age = $('#sidr_basic #sidr_basic_age').val();
           save_data.chara.job = $('#sidr_basic #sidr_basic_job').val();
           save_data.memos = $('#sidr_basic #sidr_basic_memos').val();
           Util.saveStorage();
@@ -2339,17 +2441,37 @@
       global_save_data = JSON.parse(storage[GLOBAL_SAVE_DATA_KEY]);
     },
 
+    // 種族、性別、年齢の制約情報を取得
+    getCharacterConstraint: function() {
+      let constraint = $('init > constraint', scenario_data);
+      let init = {
+        races: null,
+        sex: null,
+        ages: null
+      };
+      if (constraint) {
+        let init_races = constraint.nsAttr('race');
+        if (init_races) { init.races = init_races.split(','); }
+        init.sex = constraint.nsAttr('sex');
+        let init_ages = constraint.nsAttr('age');
+        if (init_ages) { init.ages = init_ages.split(','); }
+      }
+      return init;
+    },
+
     // セーブデータの初期化
     initSavedata: function() {
-      var constraint = $('init > constraint', scenario_data);
-      var init_races, init_sex, init_ages;
-      if (constraint) {
-        var init_races = constraint.nsAttr('race');
-        if (init_races) { init_races = init_races.split(','); }
-        var init_sex = constraint.nsAttr('sex');
-        var init_ages = constraint.nsAttr('age');
-        if (init_ages) { init_ages = init_ages.split(','); }
-      }
+      // 制約情報を取得
+      let { races: init_races, sex: init_sex, ages: init_ages } = Util.getCharacterConstraint();
+      // var constraint = $('init > constraint', scenario_data);
+      // var init_races, init_sex, init_ages;
+      // if (constraint) {
+      //   var init_races = constraint.nsAttr('race');
+      //   if (init_races) { init_races = init_races.split(','); }
+      //   var init_sex = constraint.nsAttr('sex');
+      //   var init_ages = constraint.nsAttr('age');
+      //   if (init_ages) { init_ages = init_ages.split(','); }
+      // }
       // 種族／性別で絞り込まれたpc_initからランダムに取得
       var pc_base = this.randomArray(Common.pc_init.
         // 種族でフィルター（無指定でスキップ）
@@ -2487,12 +2609,28 @@
       this.saveStorageGlobal(GLOBAL_SAVE_DATA_KEY);
     },
 
-    initJobs: function() {
+    // 利用可能なジョブを初期化
+    // 引数input：基本シートからの入力か
+    initJobs: function(input) {
       enabled_jobs = Object.keys(Common.jobs).filter(function(name) {
-        var cond = Common.jobs[name];      
-        return cond[0].indexOf(save_data.chara.race.charAt(0)) !== -1 &&
-          cond[1].indexOf(save_data.chara.sex.charAt(0)) !== -1 &&
-          cond[2].indexOf(save_data.chara.age.charAt(0)) !== -1;
+        var cond = Common.jobs[name];
+        if (input) {
+          // シートからの変更時
+          var race = $('#sidr_basic #sidr_basic_race').val();
+          var sex = $('#sidr_basic #sidr_basic_sex').val();
+          var age = $('#sidr_basic #sidr_basic_age').val();
+        } else {
+          // 初期化時
+          var race = save_data.chara.race;
+          var sex = save_data.chara.sex;
+          var age = save_data.chara.age;
+        }
+        return cond[0].indexOf(race.charAt(0)) !== -1 &&
+          cond[1].indexOf(sex.charAt(0)) !== -1 &&
+          cond[2].indexOf(age.charAt(0)) !== -1;
+        // return cond[0].indexOf(save_data.chara.race.charAt(0)) !== -1 &&
+        //   cond[1].indexOf(save_data.chara.sex.charAt(0)) !== -1 &&
+        //   cond[2].indexOf(save_data.chara.age.charAt(0)) !== -1;
       });
     },
 

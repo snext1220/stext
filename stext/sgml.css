@@ -660,8 +660,7 @@ table.item_list img {
 }
 
 /* サイドバー（基本ステ／魔法） */
-.sidr_info h2,
-#sidr_basic #sidr_basic_name {
+.sidr_info h2/*, #sidr_basic #sidr_basic_name*/ {
   color: #ffd;
 }
 
@@ -674,6 +673,7 @@ table.item_list img {
 } */
 
 .sidr_info input[type="number"],
+.sidr_info input[type="text"],
 .sidr_info select,
 .sidr_info textarea {
   border-radius: 3px;
