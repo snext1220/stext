@@ -80,6 +80,8 @@
     -moz-border-radius: 4px;
     border-radius: 4px;
     overflow: auto;
+    background-color: #cad4ff;
+    color: black;
 }
 
 .selectBox-inline:focus {
