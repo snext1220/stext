@@ -6,18 +6,18 @@ People called this plugin.....**Sorcerian Text**.
 
 ## Dependencies
 
-- jQuery
-- jQuery Markdown
-- Sidr
-- SmartMenus
-- toastr
-- Zoombox
-- JavaScript Cookie
-- SlickGrid（Playground Flow Only）
-- Ace Editor（Playground Flow/Editor）
-- vis.js（Playground Flow）
-- jQuery UI（Playground Flow/Editor）
-- vkBeautify（GBAT2SText only）
+- [jQuery](https://jquery.com/)
+- [jQuery Markdown](https://github.com/taknakamu/jquery-markdown)
+- [Sidr](https://www.berriart.com/sidr/)
+- [SmartMenus](https://www.smartmenus.org/)
+- [toastr](https://github.com/CodeSeven/toastr)
+- [Zoombox](http://grafikart.github.io/Zoombox/)
+- [JavaScript Cookie](https://github.com/js-cookie/js-cookie)
+- [SlickGrid（Playground Flow Only）](https://slickgrid.net/)
+- [Ace Editor（Playground Flow/Editor）](https://ace.c9.io/)
+- [vis.js（Playground Flow）](https://visjs.org/)
+- [jQuery UI（Playground Flow/Editor）](https://jqueryui.com/)
+- [vkBeautify（GBAT2SText only）](https://github.com/vkiryukhin/vkBeautify)
 
 ## Example
 
