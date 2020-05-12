@@ -681,6 +681,11 @@ table.item_list img {
   font-size: large;
 }
 
+.sidr_info #sidr_basic_name {
+  font-size: x-large;
+  width: 140px;
+}
+
 .sidr_info input[type="number"] {
   width: 38px;
 }
