@@ -1643,6 +1643,7 @@
             }
             //items.push(`・${item.name}（${item.desc}）`);
           }
+          items.selectBox({ mobile: true });
           //$('#sidr_item #sidr_item_item').text(items.join('\r'));
 
           // 現在所持しているフラグ一覧を表示
@@ -1656,6 +1657,8 @@
               //flags.push(`・${f_text}`);
             }
           }
+          flags.selectBox({ mobile: true });
+
           // $('#sidr_item #sidr_item_flag').text(flags.join('\r'));
         },
         function() {}
