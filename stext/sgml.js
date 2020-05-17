@@ -3391,61 +3391,6 @@
       return Util.randomArray(func.split(',')).trim();
     },
 
-    // 状態異常によるステータス補正
-    // 補正値の反映は現在では無効（どこかで修正を）
-    // deltaStatus: function(state) {
-    //   switch(state) {
-    //     case 'frozen' :
-    //       var state_desc = 'すべてのステータスを-2';
-    //       var str_d = -2;
-    //       var int_d = -2;
-    //       var dex_d = -2;
-    //       var krm_d = -2;
-    //       break;
-    //     case 'stone' :
-    //       var state_desc = 'すべてのステータスを-1（30scene経過で死亡）';
-    //       var str_d = -1;
-    //       var int_d = -1;
-    //       var dex_d = -1;
-    //       var krm_d = -1;
-    //       break;
-    //     case 'forget' :
-    //       var state_desc = 'STR／INTのうち、高い方が0に（20scene経過で解除）';
-    //       if(save_data.chara.str < save_data.chara.int) {
-    //         var str_d = 0;
-    //         var int_d = save_data.chara.int * -1;
-    //       } else {
-    //         var str_d = save_data.chara.str * -1;
-    //         var int_d = 0;
-    //       }
-    //       var dex_d = 0;
-    //       var krm_d = 0;
-    //       break;
-    //     case 'poison' :
-    //       var state_desc = 'シーン経過ごとにHPを-1';
-    //       var str_d = 0;
-    //       var int_d = 0;
-    //       var dex_d = 0;
-    //       var krm_d = 0;
-    //       break;
-    //     case 'curse' :
-    //       var state_desc = '魔法の利用が不可（UN-CURSEを除く）';
-    //       var str_d = 0;
-    //       var int_d = 0;
-    //       var dex_d = 0;
-    //       var krm_d = 0;
-    //       break;
-    //     default : 
-    //       var state_desc = '－';
-    //       var str_d = 0;
-    //       var int_d = 0;
-    //       var dex_d = 0;
-    //       var krm_d = 0;
-    //       break;
-    //   }
-    //   return [ str_d, int_d, dex_d, krm_d, state_desc ];
-    // },
-
     // 指定されたキーでボーナスアイテムを取得
     getBonusItem: function(bonus) {
       if (!bonus) { return; }
@@ -3472,10 +3417,6 @@
       Util.initSavedata();
       Util.initView();
       Bonus.initBonusStatus();
-      // Util.initDialog();
-      // Util.createCommonTweet();
-      // PlayerRank.init();
-      // SideBar.createAll();
 
       // 最初のシーンを取得
       Util.createScene(0);
@@ -3489,229 +3430,6 @@
         'キャラが作成されました。'
       );
     },
-
-    // ダイアログのテンプレートをロード
-    // path：テンプレート、callback：読み込み後の処理
-    // loadDialog: function(path, callback) {
-    //   $.get(ROOT + COMMON + DIALOG + path + '.html')
-    //   .done(function(data) {
-    //     var tmp_dialog = $(data);
-    //     callback(tmp_dialog);
-    //     // 初期化済みのダイアログを保存
-    //     dialog_elem[path] = tmp_dialog;
-    //     dialog_elem[path].insertBefore(target).hide();
-    //   })
-    // },
-
-    // すべてのダイアログを閉じた後、指定のダイアログをオープン
-    // path：ダイアログのキー、isSide：サイドメニューとして表示するか
-    // openDialogById: function(path, isSide) {
-    //   for(key in dialog_elem) {
-    //     if (path === key) {
-    //       if (isSide) {
-    //         $.sidr('open', key);
-    //       } else {
-    //         dialog_elem[key].fadeIn(500);
-    //       }
-    //     } else {
-    //       dialog_elem[key].hide();
-    //     }
-    //   }
-    // },
-
-    // ダイアログを初期化
-    // initDialog: function() {
-    //   $('#dialog_body').remove();
-    //   // ステータスダイアログを初期化
-    //   $.get(ROOT + COMMON + 'dialog.html')
-    //     .done(function(data) {
-    //       dialog = $(data);
-    //       $('#name', dialog).text(save_data.chara.name);
-    //       $('#title', dialog).text(save_data.chara.title);
-    //       $('#race', dialog).text(save_data.chara.race);
-    //       $('#sex', dialog).text(save_data.chara.sex);
-    //       $('#hp_m', dialog).text(save_data.chara.hp_m);
-    //       $('#mp_m', dialog).text(save_data.chara.mp_m);
-    //       $('#str_i', dialog).text(save_data.chara.str_i);
-    //       $('#int_i', dialog).text(save_data.chara.int_i);
-    //       $('#dex_i', dialog).text(save_data.chara.dex_i);
-    //       $('#krm_i', dialog).text(save_data.chara.krm_i);
-    //       $('#age',  dialog).text(save_data.chara.age);
-    //       $('#chara_face', dialog).attr('src',
-    //         ROOT + COMMON + String(save_data.chara.sex).toLowerCase() + '_' +
-    //           String(save_data.chara.age).toLowerCase() + '_' + 
-    //           String(save_data.chara.race).toLowerCase() + '.png');
-          
-    //       // FREE1～3のラベルを設定
-    //       var flabel = $('init > label', scenario_data);
-    //       if (flabel) {
-    //         $('#free-label1', dialog).text(flabel.nsAttr('free1'));
-    //         $('#free-label2', dialog).text(flabel.nsAttr('free2'));
-    //         $('#free-label3', dialog).text(flabel.nsAttr('free3'));
-    //       }
-
-    //       // 職業選択ボックスを生成
-    //       var job_box = $('#job', dialog);
-    //       job_box.empty();
-    //       for(var i = 0; i < enabled_jobs.length; i++) {
-    //         $('<option></option>')
-    //           .attr('value', enabled_jobs[i])
-    //           .text(enabled_jobs[i])
-    //           .appendTo(job_box);
-    //       }
-
-    //       if(save_data.bonus) {
-    //         var b = Util.getBonusItem(save_data.bonus);
-    //         $('#bonus', dialog).text(b.desc + '（' + b.name + '）');
-    //       }
-    //       // ★mobile★
-    //       dialog.insertBefore(target).hide();
-    //     });
-
-    //   // 戦闘シートダイアログを初期化
-    //   // Util.loadDialog('battle_sheet', function(d_battle) {
-    //   //   $('#dices', d_battle).html(Util.cube(2));
-    //   //   Util.showSimpleStatus();
-    //   // });
-
-    //   // ボーナスアイテムダイアログを初期化
-    //   Util.loadDialog('bonus_list', function(dialog_item) {
-    //   //$.get(ROOT + COMMON + 'dialog_list.html')
-    //     //.done(function(data) {
-    //     //  dialog_item = $(data);
-
-    //       // グッドアイテムを一覧表示
-    //       for(var i = 0; i < 24; i++) {
-    //         if(i < 10) {
-    //           num = '0' + i;
-    //         } else {
-    //           num = i;
-    //         }
-    //         num = 'gi' + num;
-    //         //if (global_save_data.items.includes(num)) {
-    //         if ($.inArray(num, global_save_data.items) !== -1) {
-    //           $('#' + num, dialog_item).
-    //             attr('src', ROOT + COMMON + num + '.png').
-    //             attr('class', 'bonus_item');
-    //         } else {
-    //           $('#' + num, dialog_item).
-    //             attr('src', ROOT + COMMON + 'gi99.png');
-    //         }
-    //       }
-
-    //       // バッドアイテムを一覧表示
-    //       for(var i = 1; i < 6; i++) {
-    //         if(i < 10) {
-    //           num = '0' + i;
-    //         } else {
-    //           num = i;
-    //         }
-    //         num = 'bgi' + num;
-    //         //if (global_save_data.items.includes(num)) {
-    //         if ($.inArray(num, global_save_data.items) !== -1) {
-    //           $('#' + num, dialog_item).
-    //             attr('src', ROOT + COMMON + num + '.png').
-    //             attr('class', 'bonus_item');
-    //         } else {
-    //           $('#' + num, dialog_item).
-    //             attr('src', ROOT + COMMON + 'gi99.png');
-    //         }
-    //       }
-    //   });
-      
-    //   // 実績ダイアログを初期化
-    //   Util.loadDialog('result_list', function(dialog) {
-    //   });
-    // },
-
-    // ステータスダイアログを生成
-    // createDialog: function() {
-    //   $('#job', dialog).val(save_data.chara.job);
-    //   $('#hp', dialog).val(save_data.chara.hp);
-    //   $('#mp', dialog).val(save_data.chara.mp);
-    //   $('[name="state"]', dialog).each(function() {
-    //     var state = $(this).nsAttr('value');
-    //     if(state === save_data.chara.state) {
-    //       $(this).prop('checked', true);
-    //     } else {
-    //       $(this).prop('checked', false);
-    //     }
-    //   });
-    //   $('#stone_scene', dialog).text(save_data.chara.stone_scene);
-    //   $('#forget_scene', dialog).text(save_data.chara.forget_scene);
-    //   // 状態異常に応じてスタイルを設定
-    //   Util.setStateStyle();
-    //   $('#ellapsed_scene', dialog).text(save_data.ellapsed_scene + ' scene');
-    //   $('#free1', dialog).val(save_data.chara.free1);
-    //   $('#free2', dialog).val(save_data.chara.free2);
-    //   $('#free3', dialog).val(save_data.chara.free3);
-    //   $('#str', dialog).val(save_data.chara.str);
-    //   $('#int', dialog).val(save_data.chara.int);
-    //   $('#dex', dialog).val(save_data.chara.dex);
-    //   $('#krm', dialog).val(save_data.chara.krm);
-    //   $('#s_mon', dialog).val(save_data.stars[0]);
-    //   $('#s_tue', dialog).val(save_data.stars[1]);
-    //   $('#s_wed', dialog).val(save_data.stars[2]);
-    //   $('#s_thu', dialog).val(save_data.stars[3]);
-    //   $('#s_fri', dialog).val(save_data.stars[4]);
-    //   $('#s_sat', dialog).val(save_data.stars[5]);
-    //   $('#s_sun', dialog).val(save_data.stars[6]);
-    //   var delta = this.deltaStatus(
-    //     $('[name="state"]:checked', dialog).val());
-    //   $('#state_desc', dialog).text(delta[4]);
-    //   $('#memos', dialog).val(save_data.memos);
-      
-    //   // 魔法選択ボックスを生成
-    //   var magic_box = $('#magic', dialog);
-    //   magic_box.empty();
-    //   for(var key in Common.magic) {
-    //     var magic = Common.magic[key];
-    //     var option = $('<option></option>')
-    //       .attr('value', key)
-    //       .attr('title', magic[8])
-    //       .text(key + '（' + magic[7] + '）');
-    //     // 魔法が使えなければ、オプションは無効に
-    //     if(!Util.canUseMagic(magic)) {
-    //       option.attr('disabled', 'disabled');
-    //     }
-    //     option.appendTo(magic_box);
-    //   }
-
-    //   // 現在所持しているアイテム一覧を表示
-    //   var items = [];
-    //   for(var i = 0; i < save_data.items.length; i++) {
-    //     var item = items_map[save_data.items[i]];
-    //     items.push('・' + item.name + '（' + item.desc + '）');
-    //   }
-    //   $('#items', dialog).text(items.join('\r'));
-
-    //   // 現在所持しているフラグ一覧を表示
-    //   var flags = $('#flags', dialog);
-    //   flags.empty();
-    //   for(var i = 0; i < save_data.flags.length; i++) {
-    //     var flag_text = flags_map[save_data.flags[i]];
-    //     if (flag_text.indexOf('*') !== 0) {
-    //       var tmp = '<option ';
-    //       tmp += '>・' + flags_map[save_data.flags[i]] + '</option>';
-    //       flags.append(tmp);
-    //     }
-    //   }
-    //   $('#flags > option:last', dialog).attr('selected', 'selected');
-
-    //   // 現在所持しているフラグ一覧を表示（旧コード）
-    //   //var flags = [];
-    //   //for(var i = 0; i < save_data.flags.length; i++) {
-    //   //  flags.push('・' + flags_map[save_data.flags[i]]);
-    //   //}
-    //   //$('#flags', dialog).text(flags.join('\r'));
-
-    //   // ★mobile★
-    //   dialog.slideDown(500);
-    //   $('#status_change').val('Equipment');
-    //   $('#status_basic').show();
-    //   $('#status_equip').hide();
-    //   target.slideUp(500);
-    // },
 
     // セーブデータを次のシナリオに複製
     // nexts：コピー先のシナリオ（配列）
@@ -3797,10 +3515,6 @@
       // エンディングテーマ再生
       if (changeBgm) {
         SeAudio.playBgm(audio_path);
-        // if(bgm) { bgm.pause(); }
-        // bgm = new Audio(audio_path);
-        // bgm.loop = true;
-        // if(global_save_data.bgm) { bgm.play(); }
       }
 
       if(bonus_item) {
@@ -3829,51 +3543,7 @@
     // そのシーンに直接の番号指定で移動可能かを判定
     canSceneMove: function(scene_num, allow_num) {
       return allow_num.split(',').indexOf(scene_num) !== -1
-      // 旧コード
-      //var scene = $('scene[id="' + scene_num + '"][allowMove]', scenario_data);
-      //return scene.length != 0 ? true : false;
     },
-
-    // 指定されたBGMを再生
-    // playBgm: function(path) {
-    //   if(bgm) { bgm.pause(); }
-    //   bgm = new Audio(path);
-    //   bgm.loop = true;
-    //   if(global_save_data.bgm) { bgm.play(); }
-    // },
-
-    // 簡易ステータス表示
-    // showSimpleStatus: function() {
-    //   $('#simple_status').html(
-    //     'HP:<span class="status_v">' + save_data.chara.hp + '</span>　' +
-    //     'MP:<span class="status_v">' + save_data.chara.mp + '</span>　|　' +
-    //     'STR:<span class="status_v">' + save_data.chara.str + '</span>　' +
-    //     'INT:<span class="status_v">' + save_data.chara.int + '</span>　' +
-    //     'DEX:<span class="status_v">' + save_data.chara.dex + '</span>　' +
-    //     'KRM:<span class="status_v">' + save_data.chara.krm + '</span>　｜　' + 
-    //     (
-    //       $('init > label', scenario_data).length !== 0 ?
-    //         '<br />' +
-    //         'F1:<span class="status_v">' + save_data.chara.free1 + '</span>　' +
-    //         'F2:<span class="status_v">' + save_data.chara.free2 + '</span>　' +
-    //         'F3:<span class="status_v">' + save_data.chara.free3 + '</span>　｜　' :
-    //       ''
-    //     ) +
-    //     '<span id="status_state" class="status_v">' + Common.state_names[save_data.chara.state] + '</span>　'
-    //   );
-    //   $('#status_state').removeClass('status_poison status_frozen status_stone status_curse status_forget');
-
-    //   // 状態異常の場合、文字色、背景画像を変更
-    //   if (save_data.chara.state) {
-    //     $('#status_state').addClass('status_' + save_data.chara.state);
-    //     target.addClass('main_bad');
-    //   } else {
-    //     target.removeClass('main_bad');
-    //   }
-
-    //   // サイドバーを更新
-    //   Util.createSidebar();
-    // },
 
     // 共通ルールを取得＆反映
     showRuleText: function(rule) {
@@ -3888,52 +3558,6 @@
         )
         .markdown();
     },
-
-    // 現在の状態異常に応じてスタイル（ダイアログ）を変更
-    // setStateStyle: function() {
-    //   var hp = $('#hp', dialog);
-    //   var str = $('#str', dialog);
-    //   var int = $('#int', dialog);
-    //   var dex = $('#dex', dialog);
-    //   var krm = $('#krm', dialog);
-    //   var magic = $('#magic', dialog);
-    //   var poison = $('[name="state"][value="poison"]').prop('checked');
-    //   var frozen = $('[name="state"][value="frozen"]').prop('checked');
-    //   var stone =  $('[name="state"][value="stone"]').prop('checked');
-    //   var curse =  $('[name="state"][value="curse"]').prop('checked');
-    //   var forget = $('[name="state"][value="forget"]').prop('checked');
-
-    //   // 状態異常スタイルをすべて解除
-    //   var clazz = 'dialog_poison dialog_frozen dialog_stone dialog_curse dialog_forget';
-    //   hp.removeClass(clazz);
-    //   str.removeClass(clazz);
-    //   int.removeClass(clazz);
-    //   dex.removeClass(clazz);
-    //   krm.removeClass(clazz);
-    //   magic.removeClass(clazz);
-
-    //   if (poison) {
-    //     hp.addClass('dialog_poison');
-    //   } else if (frozen) {  
-    //     str.addClass('dialog_frozen');
-    //     int.addClass('dialog_frozen');
-    //     dex.addClass('dialog_frozen');
-    //     krm.addClass('dialog_frozen');
-    //   } else if (stone) {  
-    //     str.addClass('dialog_stone');
-    //     int.addClass('dialog_stone');
-    //     dex.addClass('dialog_stone');
-    //     krm.addClass('dialog_stone');
-    //   } else if (curse) {  
-    //     magic.addClass('dialog_curse');
-    //   } else if (forget) {
-    //     if (save_data.chara.str < save_data.chara.int) {
-    //       int.addClass('dialog_forget');
-    //     } else {
-    //       str.addClass('dialog_forget');
-    //     }
-    //   }
-    // },
 
     // 本文中のSGML式 ${...} を解析
     interpolation: function(match, sub) {
@@ -4121,14 +3745,6 @@
       } else {
         return '';
       }
-      /*
-      if(save_data.flags.indexOf(cond) !== -1 ||
-         save_data.items.indexOf(cond) !== -1) {
-        return body;
-      } else {
-        return '';
-      }
-      */
     },
 
     // Tweetボタンの生成
@@ -4170,83 +3786,6 @@
         $('init > intro', scenario_data).nsAttr('description')
       );
     },
-
-    // 敵／罠リストの整形
-    // createEnemyList: function(at_enemies) {
-    //   var e_table = $('<table class="enemy">');
-    //   if(at_enemies) {
-    //     var enemies = at_enemies.split(',');
-    //     e_table.append('<tr class="enemy_title">' +
-    //       (enemies.length > 1 ? '<th></th>' : '') +
-    //       '<th>名前／属性</th><th>攻撃</th>' +
-    //       '<th title="現在のダイス値に従って、ダメージを反映させます。">ダメージ ' +
-    //       '<select id="damage_delta"><option value="2">x2</option>' + 
-    //       '<option value="1" selected>x1</option><option value="0.5">x1/2</option>' +
-    //       '<option value="0.25">x1/4</option></select></th>' +
-    //       '<th title="記載されたドロップアイテムをステータスに反映させます。">戦利品</th>' +
-    //     '</tr>');
-
-    //     for (var i = 0; i < enemies.length; i++) {
-    //       var enemy = enemies_map[enemies[i]];
-    //       var atk = Common.state_names[enemy.attack];
-
-    //       var row = '<tr class="enemy_row" data-enemy="' + enemies[i] + '">';
-    //       if (enemies.length > 1) {
-    //         row += '<td><input type="checkbox" class="enemy_check" /></td>';
-    //       }
-    //       row += '<th>';
-    //       if(enemy.element) {
-    //         row += '<img src="' + ROOT + COMMON + 'attr_' + enemy.element + '.png" title="' + Common.element_names[enemy.element] + '" /></a>　';
-    //       } else {
-    //         row += '<img src="' + ROOT + COMMON + 'attr_none.png" title="無" /></a>　';
-    //       }
-    //       row += enemy.name + '</th><td>';
-    //       if (atk) {
-    //         row += '<img src="' + ROOT + COMMON + 'atk_' + enemy.attack + '.png" title="' + atk + '" /></a>　';
-    //       } else {
-    //         row += enemy.attack;
-    //       }
-    //       row += '</td><td>';
-    //       if(enemy.func) {
-    //         if (enemy.func.indexOf('*') === 0) {
-    //           row += Util.selectFunc(enemy.func.substring(1));
-    //         } else {
-    //           var tmp_func = Util.selectFunc(enemy.func);
-    //           //row += '<input type="button" class="enemy_func" value="' + tmp_func + '" data-attack="' + enemy.attack + '"/>';
-    //           // 改行対応で「>」の前に空白を挿入
-    //           row += '<div class="enemy_func" data-func="' + tmp_func + '" data-attack="' + enemy.attack + '">'
-    //             + tmp_func + '</div>';
-    //         }
-    //       }
-    //       row += '</td><td>'
-    //       var tmp_d = Util.dropItem(enemy); 
-    //       if (tmp_d.name) {
-    //         row += '<input type="button" class="enemy_drop" value="' + tmp_d.name + '" data-drop="' + tmp_d.drop + '"/>';
-    //       } else {
-    //         row += '－';
-    //       }
-    //       row += '</td></tr>';
-    //       e_table.append(row);
-    //     }
-    //   } else {
-    //     //e_table.append('<p>ここには、モンスターの気配はないようだ。</p>');
-    //   }
-    //   //e_table.insertBefore('a.scenebtn:first');
-    //   e_table.prependTo('#sidr');
-    //   e_table.wrap('<div id="enemy_table"></div>');
-
-    //   // サイドバーを更新
-    //   Util.createSidebar();
-    // },
-
-    // サイドバーを生成
-    // createSidebar: function() {
-    //   $('#side_show').sidr({
-    //     displace: false,
-    //     renaming: false,
-    //     //source: '#enemy_table, #sidr_cubes'
-    //   });
-    // },
 
     // シーン内のテキストを修飾
     // 引数tmp_scene：シーンオブジェクト
@@ -4353,48 +3892,6 @@
       }
 
       // シーンテキストの整形
-      //var tmp_scene = scene.text();
-      // // インポート処理
-      // tmp_scene = tmp_scene.replace(/\${import[\s]+(.+?)}/gi, this.importText);
-      // // 新規構文のエスケープ処理
-      // //tmp_scene = tmp_scene.replace(/(\[.+?\]\(\d{1,} ")(.+?)("\))/gi, function(match, sub1, sub2, sub3) {
-      // tmp_scene = tmp_scene.replace(/(\[.+?\]\([\d,]{1,} ")(.+?)("\))/gi, function(match, sub1, sub2, sub3) {
-      //   console.log(sub1);
-      //   console.log(sub2);
-      //   console.log(sub3);
-      //   sub2 = sub2.split('!').join('#NOT#');
-      //   sub2 = sub2.split('&').join('#AND#');
-      //   sub2 = sub2.split('|').join('#OR#');
-      //   sub2 = sub2.split('(').join('#L#');
-      //   sub2 = sub2.split(')').join('#R#');
-
-      //   // sub2 = sub2.replace('!', '#NOT#');
-      //   // sub2 = sub2.replace('&', '#AND#');
-      //   // sub2 = sub2.replace('|', '#OR#');
-      //   // sub2 = sub2.replace('(', '#L#');
-      //   // sub2 = sub2.replace(')', '#R#');
-        
-      //   console.log(sub1 + sub2 + sub3);
-      //   return sub1 + sub2 + sub3;
-      // });
-      // // カラーリング＆URL処理
-      // tmp_scene = tmp_scene.replace(/%(blue|red|purple|white)%/gi, '&nbsp;<span style="color:$1">');
-      // tmp_scene = tmp_scene.replace(/%\/%/gi, '</span>&nbsp;');
-      // tmp_scene = tmp_scene.replace(/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/gi,
-      //   '<a href="$&" data-link="auto" target="_blank">$&</a>');
-      // // ${if cond}...${/if}による条件分岐
-      // tmp_scene = tmp_scene.replace(/\${if[\s]+(.+?)}([\s\S]+?)\${\/if}/gi, this.ifCondition);
-      // // ${text|ruby}の箇所をruby要素で修飾（ルビ）
-      // tmp_scene = tmp_scene.replace(/\${(.+?)\|(.+?)}/gi,
-      //   '<ruby>$1<rp>（</rp><rt>$2</rt><rp>）</rp></ruby>');
-      // // ${tweet}...${/tweet}によるTwitter反映
-      // tmp_scene = tmp_scene.replace(/\${tweet}([\s\S]+?)\${\/tweet}/gi, this.parseTweet);
-      // // ${...}の箇所を式の内容に応じて処理
-      // tmp_scene = tmp_scene.replace(/\${(.+?)}/gi, this.interpolation);
-
-      // シーンテキストの整形
-      //target.html(tmp_scene);
-      //target.text(scene.text());
       target.html(Util.decorateText(scene));
       target.markdown();
 
@@ -4410,29 +3907,8 @@
         //'<img id="ctrl_show" src="' + ROOT + COMMON + 'ctrl_show.png" /></a> ' +
         $('scenario', scenario_data).nsAttr('title') +
           '【' + scene_num + '】</span></h5>')
-        //    + 
-        // '<div id="control_panel">' +
-        // '<img id="ctrl_home" src="' + ROOT + COMMON + 'ctrl_home.png" /></a>　' +
-        // '<img id="status_open" src="' + ROOT + COMMON + 'ctrl_status.png" />　' +
-        // '<img id="ctrl_bonus" src="' + ROOT + COMMON + 'ctrl_bonus.png" />　' +
-        // '<img id="audio_onoff" src="' + ROOT + COMMON + 'ctrl_audio_' +
-        //   (global_save_data.bgm ? 'on' : 'off') + '.png" />　' +
-        // '<img id="ctrl_reload" src="' + ROOT + COMMON + 'ctrl_results.png" />　' +
-        // '<img id="ctrl_back_res" src="' + ROOT + COMMON + 'ctrl_backup.png" />　' +
-        // '<input id="ctrl_input_restore" type="file" accept=".stext" />' +
-        // '<img id="ctrl_help" src="' + ROOT + COMMON + 'ctrl_help.png" />' +
-        // '<ul id="ctrl_backup_menu" class="cxt">' +
-        // '<li data-command="backup">Backup</li>' + 
-        // '<li data-command="restore">Restore</li>' + 
-        // '</ul>' +
-        // '</div>')
         .prependTo(target);
       
-      // コンパネ非表示状態になっている場合、パネルを非表示に
-      // if(!global_save_data.panel) {
-      //   $('#control_panel').hide();
-      // }
-
       // サイドパネル表示ボタンのカラー生成
       // var side_p = $('<div id="side_show">Battle Sheet</div>');
       if (scene.nsAttr('enemies')) {
@@ -4440,25 +3916,7 @@
       } else {
         $('#menu_battle').css('background-color', 'Black');
       }
-      // side_p.insertBefore('#scenario_title');
 
-      // サイドパネル
-      // $('<div id="sidr"></div>').insertBefore('#scenario_title');
-
-      // // シーンのモンスター情報をリスト化
-      // Util.createEnemyList(scene.nsAttr('enemies'));
-
-      // $('<div id="sidr_close">閉じる</div>').appendTo('#sidr');
-      // // 簡易ステータス表示
-      // $('<div id="simple_status"></div>').insertBefore('#sidr_close');
-      // this.showSimpleStatus();
-      
-      // // サイコロの表示
-      // $('<center id="cubes">' + Util.cube(2) + '</center>').insertBefore('#simple_status');
-
-      // // 共通ルールの表示
-      // $('<div id="common_rule"></div>').appendTo('#sidr');
-      // Util.showRuleText(scene.nsAttr('rule'));
       SideBar.showSimpleStatus();
 
       // デバッグモードが有効の場合、デバッグウィンドウを表示
@@ -4564,10 +4022,6 @@
       // シーン表示時に効果音を再生
       if(scene.nsAttr('se')) {
         SeAudio.play(scene.nsAttr('se'));
-        //bgm.pause();
-        // var se = new Audio(ROOT + scenario_code + '/' + BGM + SE + scene.nsAttr('se') + '.mp3');
-        // se.loop = false;
-        // se.play();
       }
     
       // エンディング処理（bgm属性が指定されている場合、エンディング曲に変更しない）
@@ -4610,9 +4064,6 @@
         var cond = $(this).nsAttr('title');
         // 複数移動先が指定されている場合、ランダムに選択
         num = Util.getRandomLinkNumber(num);
-        // if (num.indexOf(',') !== -1) {
-        //   num = Util.randomArray(num.split(',')).trim();
-        // }
 
         // 履歴に追加
         //history.pushState(num, 'Scene ' + num);
@@ -4666,429 +4117,12 @@
         e.preventDefault();
       });
 
-      // 敵一覧をクリックで詳細情報を表示
-      // $(document).on('click', 'tr.enemy_row', function(e) {
-      //   var enemy = enemies_map[$(this).nsAttr('data-enemy')];
-      //   //Util.toast('<b>' + enemy.name + '</b><br/>' + enemy.desc);
-      //   toastr.options.timeOut = 5000;
-      //   toastr.info(enemy.desc, enemy.name);
-      // });
-
-      // 敵撃破チェックでのイベント抑止
-      // $(document).on('click', 'input.enemy_check', function(e) {
-      //   e.stopImmediatePropagation();
-      // });
-
-      // ダメージボタンでステータスを加算
-      // $(document).on('click', 'div.enemy_func', function(e) {
-      // //target.on('click', 'div.enemy_func', function(e) {
-      //   e.stopImmediatePropagation();
-      //   toastr.options.timeOut = 5000;
-
-      //   var func = $(this).nsAttr('data-func');
-      //   var attack = $(this).nsAttr('data-attack');
-
-      //   // 状態異常の場合は記録
-      //   if ([ 'poison', 'frozen', 'stone', 'curse', 'forget' ].indexOf(attack) !== -1) {
-      //     // 左辺・不等号・右辺に分割
-      //     var cond = func.split(/([<>])/);
-      //     var l_damage = Util.computeDamage(cond[0]);
-      //     var r_damage = Util.computeDamage(cond[2]);
-      //     if (cond[1] === '<') {
-      //       var canEscape = l_damage < r_damage;
-      //     } else {
-      //       var canEscape = l_damage > r_damage;
-      //     }
-      //     if (canEscape) {
-      //       toastr.info(
-      //         '回避に成功した。',
-      //         '状態異常'
-      //       );
-      //     } else {
-      //       save_data.chara.state = attack;
-      //       toastr.error(
-      //         '「' + Common.state_names[attack] + '」を受けた！',
-      //         '状態異常'
-      //       );
-      //     }
-      //   } else {
-      //     // physics／magicの場合、ダメージ式の解析
-      //     var damage = Util.computeDamage(func);
-      //     // 負数はゼロに丸め
-      //     if (damage < 0) { damage = 0; }
-      //     switch (attack) {
-      //       case 'physics' :
-      //         save_data.chara.hp = Number(save_data.chara.hp) - damage;
-      //         var t_msg = 'HPに' + damage + 'のダメージ！（現在値：' + save_data.chara.hp + '）' ;
-      //         break;
-      //       case 'magic' :
-      //         save_data.chara.mp = Number(save_data.chara.mp) - damage;
-      //         var t_msg = 'MPに' + damage + 'のダメージ！（現在値：' + save_data.chara.mp + '）' ;
-      //         break;
-      //       case 'both' :
-      //         save_data.chara.hp = Number(save_data.chara.hp) - damage;
-      //         save_data.chara.mp = Number(save_data.chara.mp) - damage;
-      //         var t_msg = 'HP/MPに' + damage + 'のダブルダメージ！（現在値hp/mp：' + save_data.chara.hp +
-      //           '/' + save_data.chara.mp + '）' ;
-      //         break;
-      //       case 'free1' :
-      //         save_data.chara.free1 = Number(save_data.chara.free1) - damage;
-      //         var t_msg = 'FREE1に' + damage + 'のダメージ！（現在値：' + save_data.chara.free1 + '）' ;
-      //         break;
-      //       case 'free2' :
-      //         save_data.chara.free2 = Number(save_data.chara.free2) - damage;
-      //         var t_msg = 'FREE2に' + damage + 'のダメージ！（現在値：' + save_data.chara.free2 + '）' ;
-      //         break;
-      //       case 'free3' :
-      //         save_data.chara.free3 = Number(save_data.chara.free3) - damage;
-      //         var t_msg = 'FREE3に' + damage + 'のダメージ！（現在値：' + save_data.chara.free3 + '）' ;
-      //         break;
-      //       default :
-      //         break;
-      //     }
-      //     if (damage === 0) {
-      //       t_msg = '敵の攻撃を防ぎきった！';
-      //       toastr.info(t_msg, '被ダメージ');  
-      //     } else {
-      //       toastr.error(t_msg, '被ダメージ');
-      //     }
-      //   }
-      //   Util.saveStorage();
-      //   Util.showSimpleStatus();
-      // });
-
-      // ドロップアイテムボタンでステータスを加算
-      // $(document).on('click', 'input.enemy_drop', function(e) {
-      //   e.stopImmediatePropagation();
-      //   var drops = $(this).nsAttr('data-drop').split('/');
-      //   if (drops.length === 2) {
-      //     // 星の加算（ex. tue/2）
-      //     Util.updateStarById(drops[0], drops[1]);
-      //     toastr.options.timeOut = 5000;
-      //     toastr.info(
-      //       Common.star_names[drops[0]] + 'の欠片を' + drops[1] + '個取得しました。',
-      //       'アイテム獲得'
-      //     );
-      //   } else {
-      //     // freeX属性の加算（ex. free1/50/50Gold）
-      //     var at_free1 = (drops[0] === 'free1' ? drops[1] : 0);
-      //     var at_free2 = (drops[0] === 'free2' ? drops[1] : 0);
-      //     var at_free3 = (drops[0] === 'free3' ? drops[1] : 0);
-      //     Util.updateFrees(at_free1, at_free2, at_free3);
-      //     toastr.options.timeOut = 5000;
-      //     toastr.info(
-      //       drops[2] + 'を取得しました。',
-      //       'アイテム獲得'
-      //     );
-      //   }
-      //   Util.saveStorage();
-      // });
-
-      // ダイス回転音を準備
-      // var ad = new Audio(ROOT + COMMON + 'dice.mp3');
-
-      // ダイスの回転
-      // var rotate_count;
-      // var rotateCube = function() {
-      //   rotate_count++;
-      //   $('#cubes').html(Util.cube(2));
-      //   if(rotate_count > 20) { return; }
-      //   setTimeout(rotateCube, 50);
-      // };
-        
-      // サイコロをリロード
-      // $(document).on('click', '#cubes', function(e) {
-      // //target.on('click', '#cubes', function(e) {
-      //   console.log('cube');
-      //   ad.play();
-      //   rotate_count = 1;
-      //   rotateCube(this);
-      // });
-
-      // ステータスオープンボタンでステータスダイアログを表示
-      // target.on('click', '#status_open', function(e) {
-      //   Util.createDialog();
-      //   e.preventDefault();
-      // });
-
       // 右クリック時にステータスダイアログを表示
       target.on('contextmenu', function(e) {
         $.sidr('open', 'sidr_status');
         e.preventDefault();
         //Util.createDialog();
       });
-
-      // BGMオンオフ
-      // target.on('click', '#audio_onoff', function(e) {
-      //   if(bgm) {
-      //     if (global_save_data.bgm) {
-      //       global_save_data.bgm = false;
-      //       $(this).attr('src', ROOT + COMMON + 'ctrl_audio_off.png');
-      //       bgm.pause();
-      //     } else {
-      //       global_save_data.bgm = true;
-      //       $(this).attr('src', ROOT + COMMON + 'ctrl_audio_on.png');
-      //       bgm.play();
-      //     }
-      //     Util.saveStorageGlobal();
-      //   }
-      // });
-
-      // ステータス保存（ステータスダイアログ）
-      // target.parent().on('click', '#dialog_body #status_save', function(e) {
-      //   save_data.chara.job = $('#dialog_body #job').val();
-      //   save_data.chara.hp = $('#dialog_body #hp').val();
-      //   save_data.chara.mp = $('#dialog_body #mp').val();
-      //   save_data.chara.free1 = $('#dialog_body #free1').val();
-      //   save_data.chara.free2 = $('#dialog_body #free2').val();
-      //   save_data.chara.free3 = $('#dialog_body #free3').val();
-      //   save_data.chara.str = $('#dialog_body #str').val();
-      //   save_data.chara.int = $('#dialog_body #int').val();
-      //   save_data.chara.dex = $('#dialog_body #dex').val();
-      //   save_data.chara.krm = $('#dialog_body #krm').val();
-      //   save_data.chara.state = $('#dialog_body [name="state"]:checked').val();
-      //   save_data.stars[0] = $('#dialog_body #s_mon').val();
-      //   save_data.stars[1] = $('#dialog_body #s_tue').val();
-      //   save_data.stars[2] = $('#dialog_body #s_wed').val();
-      //   save_data.stars[3] = $('#dialog_body #s_thu').val();
-      //   save_data.stars[4] = $('#dialog_body #s_fri').val();
-      //   save_data.stars[5] = $('#dialog_body #s_sat').val();
-      //   save_data.stars[6] = $('#dialog_body #s_sun').val();
-      //   save_data.memos    = $('#dialog_body #memos').val();
-      //   Util.saveStorage();
-      //   // 簡易ステータス表示を更新
-      //   Util.showSimpleStatus();
-      //   // ★mobile★
-      //   dialog.slideUp(500);
-      //   target.slideDown(500);
-      // });
-
-      // ステータスダイアログのクローズ
-      // target.parent().on('click', '#dialog_body #status_close', function(e) {
-      //   dialog.slideUp(500);
-      //   target.slideDown(500);
-      // });
-
-      // サイドバーを閉じる
-      // target.on('click', '#sidr_close', function(e) {
-      //   $.sidr('close');
-      // });
-
-      // 状態異常のステータスへの反映（ステータスダイアログ）
-      // target.parent().on('click', '#dialog_body [name="state"]', function(e) {
-      //   var delta = Util.deltaStatus($(this).val());
-      //   // $('#dialog_body #str_d').text('（' + delta[0] + '）');
-      //   // $('#dialog_body #int_d').text('（' + delta[1] + '）');
-      //   // $('#dialog_body #dex_d').text('（' + delta[2] + '）');
-      //   // $('#dialog_body #krm_d').text('（' + delta[3] + '）');
-      //   $('#dialog_body #state_desc').text(delta[4]);
-      //   Util.setStateStyle();
-      // });
-
-      // 星の減算処理（magic：魔法情報、index：星番号0～6、name：星の名前）
-      // var useStar = function(magic, index, name) {
-      //   if(magic[index] > 0) {
-      //     var num = $('#dialog_body ' + name).val()
-      //     $('#dialog_body ' + name).val(num - magic[index]);
-      //   }
-      // };
-
-      // 魔法実行時の星消費（ステータスダイアログ）未検証
-      // target.parent().on('click', '#dialog_body #magic_run', function(e) {
-      //   e.preventDefault();
-      //   var magic = Common.magic[
-      //     $('#dialog_body #magic option:selected').val()];
-      //   if (!magic) { return; }
-      //   if($('#dialog_body #s_mon').val() < magic[0] ||
-      //      $('#dialog_body #s_tue').val() < magic[1] ||
-      //      $('#dialog_body #s_wed').val() < magic[2] ||
-      //      $('#dialog_body #s_thu').val() < magic[3] ||
-      //      $('#dialog_body #s_fri').val() < magic[4] ||
-      //      $('#dialog_body #s_sat').val() < magic[5] ||
-      //      $('#dialog_body #s_sun').val() < magic[6]) {
-      //     window.alert('星が不足しているため、魔法を発動できません！');
-      //     return;
-      //   }
-      //   useStar(magic, 0, '#s_mon');
-      //   useStar(magic, 1, '#s_tue');
-      //   useStar(magic, 2, '#s_wed');
-      //   useStar(magic, 3, '#s_thu');
-      //   useStar(magic, 4, '#s_fri');
-      //   useStar(magic, 5, '#s_sat');
-      //   useStar(magic, 6, '#s_sun');
-      // });
-
-      // ★mobile★
-      // target.parent().on('click', '#dialog_body #status_change', function(e) {
-      //   var b = $('#status_basic');
-      //   if (b.css('display') === 'none') {
-      //     $('#status_change').val('Equipment');
-      //     $('#status_basic').show();
-      //     $('#status_equip').hide();
-      //   } else {
-      //     $('#status_change').val('Basic Status');
-      //     $('#status_basic').hide();
-      //     $('#status_equip').show();
-      //   }
-      // });
-
-      // ［+］スピナーで直前のテキストボックス値をインクリメント
-      // target.parent().on('click', '#dialog_body .spinner_up, .spinner_up', function(e) {
-      //   var prev = $(this).prev();
-      //   prev.val(Number(prev.val()) + 1);
-      // });
-
-      // ［-］スピナーで直後のテキストボックス値をインクリメント
-      // target.parent().on('click', '#dialog_body .spinner_down, .spinner_down', function(e) {
-      //   var next = $(this).next();
-      //   next.val(Number(next.val()) - 1);
-      // });
-
-      // ダイアログをクローズ（汎用版）
-      // target.parent().on('click', '.dialog_back', function(e) {
-      //   $(this).parents('.dialog_root').fadeOut(500);
-      //   target.fadeIn(500);
-      // });
-
-      // ボーナスアイテム一覧を表示
-      // target.on('click', '#ctrl_bonus', function(e) {
-      //   Util.openDialogById('bonus_list');
-        //dialog_elem['bonus_list'].fadeIn(1000);
-        //target.fadeOut(500);
-        // $.zoombox.html(dialog_item.html(), {
-        //   width: 650,
-        //   height: 450
-        // });
-      // });
-
-      // ボーナスアイテムリストをクリックでアイテムの説明を表示★★★★★
-      // $(document).on('click', '#bonus_list .item_list img.bonus_item', function(e) {
-      //   var id = e.target.id;
-      //   var o_bonus_item;
-      //   if (id.startsWith('gi')) {
-      //     o_bonus_item = Common.global_items.happy[id];
-      //   } else {
-      //     o_bonus_item = Common.global_items.bad[id];
-      //   }
-
-      //   toastr.success(o_bonus_item.desc, o_bonus_item.name);
-
-      //   //$('#dialog_list #bonus_msg').text(o_bonus_item.name + '（' +
-      //   //  o_bonus_item.desc + '）');
-      // });
-
-      // ホームボタンでページ移動
-      // target.on('click', '#ctrl_home', function(e) {
-      //   location.href = 'https://www.web-deli.com/sorcerian/text/';
-      // });
-
-      // 実績情報を表示（旧リロードボタン）★★★★★
-      // target.on('click', '#ctrl_reload', function(e) {
-      //   //$.get(ROOT + COMMON + 'dialog_result.html')
-      //   //.done(function(data) {
-      //     // 実績の数
-      //     var result_count = 0;
-      //     // 獲得した実績の数
-      //     var get_result = 0;
-      //     var trophy = [ '', 'ノーマル', 'ブロンズ', 'シルバー', 'ゴールド', 'プラチナ' ];
-      //     //var dialog_results = $(data);
-      //     var dialog_results = dialog_elem['result_list'];
-      //     $('.result_list', dialog_results).empty();
-      //     Object.keys(results_map).forEach(function(key){
-      //       result_count++;
-      //       if (global_save_data['results'][scenario_code] !== undefined &&            
-      //         global_save_data['results'][scenario_code].indexOf(key) !== -1) {
-      //         get_result++;
-      //         var row = '<tr>' +
-      //           '<td><img src="' + ROOT + COMMON + 'trophy' + results_map[key].level +
-      //           '.png" title="' + trophy[results_map[key].level] + '" /></td>' +
-      //           '<td><h3>' +  results_map[key].name + '（Lv.' + 
-      //           results_map[key].level + '）</h3>' +
-      //           '<p>' +  results_map[key].desc + '</p></td>' +
-      //           '</tr>';
-      //       } else {
-      //         var row = '<tr>' +
-      //           '<td><img src="' + ROOT + COMMON + 'trophy0.png" title="実績未達" /></td>' +
-      //           '<td><h3>???????????????</h3>' +
-      //           '<p>???????????????</p></td>' +
-      //           '</tr>';
-      //       }
-      //       $('.result_list', dialog_results).append(row);
-      //     });
-      //     // 到達度を反映
-      //     var result_rate = (get_result / result_count * 100).toFixed(1);
-      //     $('#result_rate', dialog_results).text('Rate:' + result_rate + '%');
-      //     Util.openDialogById('result_list');
-      //     // $.zoombox.html(dialog_results.html(),
-      //     // {
-      //     //   width: 480,
-      //     //   height: 200
-      //     // });
-      //   // });
-      // });
-
-      // バックアップ／リストアメニューの表示
-      // target.on('click', '#ctrl_back_res', function(e) {
-      //   $('#ctrl_backup_menu').css({
-      //     display: 'block',
-      //     top: e.pageY,
-      //     left: e.pageX
-      //   });
-      // });
-
-      // バックアップ／リストアの実行
-      // target.on('click', '#ctrl_backup_menu li', function(e) {
-      //   var comm = $(this).attr('data-command');
-      //   switch(comm) {
-      //     case 'backup':
-      //       Util.downloadSavedata(scenario_code, storage[scenario_code]);
-      //       break;
-      //     case 'restore': 
-      //       $('#ctrl_input_restore').click();
-      //       break;
-      //     default:
-      //       console.log('Backup/Restore Error!!');
-      //       break;
-      //   }
-      // });
-
-      // ファイル選択でリストア開始
-      // target.on('change', '#ctrl_input_restore',function() {
-      //   // 現在のシナリオコードと不一致はエラー
-      //   if (scenario_code !== this.files[0].name.split('-')[0]) {
-      //     window.alert('失敗：現在のシナリオ以外のバックアップはUtilityページからリストアしてください。');
-      //     return;
-      //   }
-      //   Util.restoreSaveData(this, function() {
-      //     window.alert('リストアに成功しました。\nゲームを再起動します。');
-      //     location.reload();
-      //   });
-      // });
-      
-      // コンテキストメニューの破棄
-      // $(':not(#ctrl_backup_menu)').click(function(e) {
-      //   if (e.target.id !== 'ctrl_back_res') {
-      //     $('#ctrl_backup_menu').css('display', 'none');
-      //   }
-      // });
-
-      // ヘルプボタンでページ移動
-      // target.on('click', '#ctrl_help', function(e) {
-      //   window.open('http://d.hatena.ne.jp/sorcerian/20171220');
-      // });
-
-      // コントロールパネルの表示／非表示
-      // target.on('click', '#scenario_title', function(e) {
-      //   var ctrl = $('#control_panel');
-      //   if(ctrl.css('display') === 'none') {
-      //     $('#control_panel').slideDown();
-      //     global_save_data.panel = true;
-      //   } else {
-      //     $('#control_panel').slideUp();
-      //     global_save_data.panel = false;
-      //   }
-      //   Util.saveStorageGlobal();
-      // });
 
       // 履歴情報の復帰
       $(window).on('popstate', function(e) {
@@ -5113,10 +4147,6 @@
       target.on('click', '#restart #tmp_continue', function(e) {
         Util.initJobs();
         Util.initView();
-        // Util.initDialog();
-        // Util.createCommonTweet();
-        // PlayerRank.init();
-        // SideBar.createAll();
  
         // 再開時に経過日数の加算分を減算（廃止）
         // save_data.ellapsed_scene--;
@@ -5136,26 +4166,6 @@
       var done_read = function(result) {
         // シナリオデータを取得
         scenario_data = result;
-
-        // タイトル／メタ情報に反映（サーバーサイドに移動）
-        /*
-        var title = $('scenario', scenario_data).nsAttr('title') + '｜ソーサリアン Text';
-        var keywords, description;
-        var intro = $('intro', scenario_data);
-        if (intro.length > 0) {
-          keywords = intro.nsAttr('keywords');
-          description = intro.nsAttr('description');
-        }
-        if (!keywords) { keywords = 'ゲームブック, ソーサリアン, SORCERIAN, eGB, ドラゴンスレイヤー, Falcom'; }
-        if (!description) { description = 'ソーサリアンの世界を古典的なゲームブックの形式で再現しようという試み。誰でも参加できるeゲームブック・プラットフォーム'; }
-        document.title = title;
-        $('meta[name="keywords"]').attr('content', 'ゲームブック, ソーサリアン, eGB, ' + keywords);
-        $('meta[name="description"]').attr('content', description);
-        $('meta[property="og:url"]').attr('content', 'https://web-deli.com/sorcerian/text/game.aspx?id=' + scenario_code);
-        $('meta[property="og:title"]').attr('content', title);
-        $('meta[property="og:description"]').attr('content', description);
-        $('meta[property="og:image"]').attr('content', 'https://web-deli.com/sorcerian/text/stext/' + scenario_code + '/capture/intro.png');
-        */
 
         // 魔法の星を演算（配列末尾に「星の種類 数...」を設定）
         for(var key in Common.magic) {
