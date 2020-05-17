@@ -1558,6 +1558,15 @@
     },
     // Items & Flags
     createItemFlagInfo() {
+      // ［details］ボタンでアイテム詳細を表示
+      target.parent().on('click', '#sidr_item_details', function(e) {
+        let id = $('#sidr_item #sidr_item_item').val();
+        if (!id) { return; }
+        let item = items_map[id];
+        toastr.success(item.desc, item.name);
+      });
+
+      // ［use］ボタンでアイテムを使用
       target.parent().on('click', '#sidr_item_use', function(e) {
         let id = $('#sidr_item #sidr_item_item').val();
         if (!id) { return; }
@@ -1618,6 +1627,7 @@
           <h2><img src="${ROOT}${COMMON}side/items_flags.png" alt="Items & Flags" /></h2>
           <div>
             ITEMS：
+            <input type="button" id="sidr_item_details" value="DETAILS" />
             <input type="button" id="sidr_item_use" value="USE" /><br/>
             <select id="sidr_item_item" size="6"></select>
             <!--<textarea id="sidr_item_item"></textarea>-->

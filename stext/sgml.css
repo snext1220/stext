@@ -696,6 +696,7 @@ table.item_list img {
 }
 
 .sidr_info #sidr_magic_run,
+.sidr_info #sidr_item_details,
 .sidr_info #sidr_item_use {
   margin: 10px;
   padding: 5px;
