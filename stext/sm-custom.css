@@ -48,7 +48,8 @@
   box-shadow: none;
 }
 
-@media (min-width: 768px) {
+/* 768px */
+@media (min-width: 900px) {
   #main-menu {
     float: right;
     clear: none;
@@ -127,7 +128,7 @@
   padding: 0 20px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 900px) {
   #main-menu .mega-menu .column-1-3 {
     float: left;
     width: 33.33%;
@@ -157,7 +158,7 @@
   background: #4b4a73;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 900px) {
   #main-menu:before {
     display: none;
   }
@@ -253,7 +254,7 @@
   display: block;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 900px) {
   /* hide the button in desktop view */
   .main-menu-btn {
     position: absolute;
