@@ -1248,6 +1248,7 @@ $(function () {
         let from = $('#edge-dialog #from-id').text();
         let to = $('#edge-dialog #to-id').val();
         let label = $('#edge-dialog #edge-caption').val();
+        if (!label) { label = '次へ'; }
         scenario.edges.push(
           {
             "from": from,
