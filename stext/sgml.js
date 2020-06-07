@@ -1907,10 +1907,10 @@
           save_data.chara.free1 = $('#sidr_status #sidr_status_free1').val();
           save_data.chara.free2 = $('#sidr_status #sidr_status_free2').val();
           save_data.chara.free3 = $('#sidr_status #sidr_status_free3').val();
-          save_data.chara.str_i = $('#sidr_status #sidr_status_str_i').val();
-          save_data.chara.int_i = $('#sidr_status #sidr_status_int_i').val();
-          save_data.chara.dex_i = $('#sidr_status #sidr_status_dex_i').val();
-          save_data.chara.krm_i = $('#sidr_status #sidr_status_krm_i').val();
+          // save_data.chara.str_i = $('#sidr_status #sidr_status_str_i').val();
+          // save_data.chara.int_i = $('#sidr_status #sidr_status_int_i').val();
+          // save_data.chara.dex_i = $('#sidr_status #sidr_status_dex_i').val();
+          // save_data.chara.krm_i = $('#sidr_status #sidr_status_krm_i').val();
           save_data.chara.str = $('#sidr_status #sidr_status_str').val();
           save_data.chara.int = $('#sidr_status #sidr_status_int').val();
           save_data.chara.dex = $('#sidr_status #sidr_status_dex').val();

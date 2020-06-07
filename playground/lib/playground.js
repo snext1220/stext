@@ -1486,7 +1486,7 @@ $(function () {
   // str～krm属性のオートコンプリート
   $('#scene-select #str, #scene-select #int, #scene-select #dex, #scene-select #krm').autocomplete({
     minLength: 0,
-    source: [ '1', '@5', 'full' ],
+    source: [ '1', '@5' ],
     close: function(e, ui) {
       $(this).trigger('input');
     }
@@ -1495,7 +1495,7 @@ $(function () {
   // free1～3属性のオートコンプリート
   $('#scene-select #free1, #scene-select #free2, #scene-select #free3').autocomplete({
     minLength: 0,
-    source: [ '1', '@5' ],
+    source: [ '1', '-5..-1', '@5' ],
     close: function(e, ui) {
       $(this).trigger('input');
     }
