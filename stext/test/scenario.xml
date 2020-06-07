@@ -7,6 +7,8 @@
 	</groups>
 	<items>
 		<item id="i01" name="Item-01">Item description...</item>
+		<item id="i02" name="Item-02">2Item description...</item>
+		<item id="i03" name="Item-03">3Item description...</item>
 	</items>
 	<flags>
 		<flag id="f01">Flag description...</flag>
@@ -22,7 +24,7 @@
 	<licence>
 		<work name="Bgm-01" category="bgm" creator="SText" url="https://example.com/"></work>
 	</licence>
-	<scene id="0" summary="プロローグ" group="prologue" items="i01" flags="f01,f02,f03">分岐テスト
+	<scene id="0" summary="プロローグ" group="prologue" items="i01,i02,i03" flags="f01,f02,f03">分岐テスト
 [次へ](100)
 
 	</scene>
