@@ -2953,6 +2953,7 @@
         // 20scene経過で死亡通知
         if (save_data.chara.forget_scene === 20) {
           toastr.success('20Scene経過で忘却が解消された！', '忘却解除');
+          save_data.chara.forget_scene = 0;
           Util.updateState('-forget');
         }
       } else {
