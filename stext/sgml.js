@@ -1399,8 +1399,12 @@
         if (!race) { race = save_data.chara.race; }
         if (!sex)  { sex = save_data.chara.sex; }
         if (!age)  { age = save_data.chara.age; }
-        let path = ROOT + COMMON + String(sex).toLowerCase()
-          + '_'
+        let path = `${ROOT}${COMMON}`;
+        let imgset = $('init > constraint', scenario_data).attr('imgset');
+        if (imgset === 'custom') {
+          path = `${ROOT}${scenario_code}/chara/`;
+        }
+        path += String(sex).toLowerCase() + '_'
           + String(age).toLowerCase() + '_'
           + String(race).toLowerCase() + '.png';
         $('#sidr_basic_chara_face').attr('src', path);

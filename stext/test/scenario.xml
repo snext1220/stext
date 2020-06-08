@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <scenario
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd" title="Untitled" author="Unnamed">
-	<init></init>
+	<init>
+		<constraint race="FIGHTER" sex="MALE" age="YOUNG,ADULT" imgset="custom" />
+	</init>
 	<groups>
 		<group start="0" end="1" title="Introduction"></group>
 	</groups>
