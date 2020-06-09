@@ -115,7 +115,8 @@
 <work id="slayer" title="その名はドラゴンスレイヤー" author="RYUさん" series="開幕シナリオ"
   guest="true" results="97" clears="r10000"
   tags="戦闘型3DダンジョンRPG" published="2018-05-20" updated="2019-05-10" level="5" scenes="625"
-  comment="(e)ゲームブックをどこまでコンピューターRPGに近付けられるか？に挑戦した本末転倒な一作。ザナドゥなどのリアルタイム世代に向けた内容やネタが多いです。ゲーム化や漫画化（うすい）も募集中。シリーズ化は…するかも？">
+  comment="(e)ゲームブックをどこまでコンピューターRPGに近付けられるか？に挑戦した本末転倒な一作。ザナドゥなどのリアルタイム世代に向けた内容やネタが多いです。ゲーム化や漫画化（うすい）も募集中。シリーズ化は…するかも？"
+  quest="1FAIpQLScTZOdHpY3fDfjK6zLfRxJkYTluqiE15DkCpP8B2mRhR0kFlw">
 <img src="./stext/slayer/capture/intro.png" height="190"
   title="その名はドラゴンスレイヤー" align="right" class="right" />
 <p class="award">ゲストさま投稿作品第2弾（第3部を公開中）</p>
@@ -196,7 +197,8 @@
 <work id="fortune" title="ソーサリアン性格診断占い" author="RYUさん" guest="true" series="ミニミニ30祭（30Scene限定シナリオ）"
   tags="性格診断,占い" published="2018-10-15" updated="2015-10-25" level="1" scenes="30" results="18"
   clears="r14,r15,r16,r17,r18,r19,r20,r21,r22,r23,r24,r25,r26,r27,r28,r29,r30"
-  comment="結果を全て手動で直接用意するという超アナログ仕様（普通は自動生成でしょう）。しかも内容はほぼキャラ絵や人の好みに対するディスに終始します…冗句（ジョーク）ですよ？">
+  comment="結果を全て手動で直接用意するという超アナログ仕様（普通は自動生成でしょう）。しかも内容はほぼキャラ絵や人の好みに対するディスに終始します…冗句（ジョーク）ですよ？"
+  quest="1FAIpQLSeLji6dc9RlsG2WTMOsLDZZ19KNcb9e5buMHfkvUwt0Kei0nA">
 <img src="./stext/fortune/capture/intro.png" height="120"
   title="ソーサリアン性格診断占い" align="left" class="left" />
 <p class="award">ミニミニ30祭Vol.4（30Scene限定シナリオ）</p>
