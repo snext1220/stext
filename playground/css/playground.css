@@ -42,6 +42,12 @@ label {
     display: none; 
 }
 
+#ctrl_incre {
+    height: 20px;
+    width: 40px;
+}
+
+
 #main {
     display: flex;
     min-width: 1150px;

@@ -134,6 +134,13 @@ $(function () {
     sortFn: function(m, n) {
       return Number(m.id.substring(1)) - Number(n.id.substring(1));
     },
+    // scene idの最大値を取得
+    maxSceneId: function() {
+      return Math.max.apply(null,
+        scenario.scenes.map(function(s) {
+          return s.id;
+        }));
+    },
     // シナリオ内の項目をソート
     sortScenario: function() {
       scenario.groups.sort(function(m, n) {
@@ -1967,7 +1974,23 @@ $(function () {
     Util.setSceneInfo(id);
     network.selectNodes([ id ]);
   });
-
+  
+  // 簡易シーン追加（β版）
+  $('#ctrl_addscene').click(function(e) {
+    let new_id = Number(Util.maxSceneId()) + 
+      Number($('#ctrl_incre').val());
+    scenario.scenes.push(
+      {
+        id: String(new_id),
+        summary: 'New',
+        label: `${new_id}:\nNew`,
+        text: ''
+      }
+    );
+    Util.createNetwork();
+    Util.setSceneInfo(from);
+  });
+    
   // コンテキストメニューの削除
   $(':not(.cxt)').click(function(e) {
     if (e.target.id !== 'ctrl_dl') {
