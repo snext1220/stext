@@ -313,7 +313,8 @@ $(function () {
               enabled: true,
               levelSeparation: 100,
               direction: 'UD',
-              sortMethod: 'directed'
+              sortMethod: 'directed',
+              treeSpacing: 70,
             }
           },
           manipulation: {
@@ -1977,6 +1978,7 @@ $(function () {
   
   // 簡易シーン追加（β版）
   $('#ctrl_addscene').click(function(e) {
+    //let pos = network.getViewPosition();
     let new_id = Number(Util.maxSceneId()) + 
       Number($('#ctrl_incre').val());
     scenario.scenes.push(
@@ -1984,11 +1986,12 @@ $(function () {
         id: String(new_id),
         summary: 'New',
         label: `${new_id}:\nNew`,
-        text: ''
+        text: '',
+        //x: pos.x,
+        //y: pos.y
       }
     );
     Util.createNetwork();
-    Util.setSceneInfo(from);
   });
     
   // コンテキストメニューの削除
