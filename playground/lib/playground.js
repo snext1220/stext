@@ -1245,11 +1245,15 @@ $(function () {
       my: 'left top',
     },
     open: function() {
+      // すべての値を初期化
       $('#from-id').text(
         $('#scene-select #id').text()
       );
+      $('#edge-dialog #edge-caption').val('次へ');
       $('#to-id').val('');
-      $('#edge-caption').val('');
+      $('#edge-kind').val('');
+      $('#edge-add').val('');
+      $('#edge-correct').val('');
     },
     buttons: {
       '追加': function() {
@@ -1257,14 +1261,59 @@ $(function () {
         let to = $('#edge-dialog #to-id').val();
         let label = $('#edge-dialog #edge-caption').val();
         if (!label) { label = '次へ'; }
-        scenario.edges.push(
-          {
-            "from": from,
-            "to": to,
-            "label": label,
-            "id": `custom${from}-${to}-${Math.floor( Math.random() * 100000 )}`
+        let kind = $('#edge-dialog #edge-kind').val();
+        let add = $('#edge-dialog #edge-add').val();
+        let correct = $('#edge-dialog #edge-correct').val();
+        // 種別に応じた処理（特殊リンクはページに一つを前提にorderは種別ごと固定）        
+        if (!kind) {
+          scenario.edges.push(
+            {
+              "from": from,
+              "to": to,
+              "label": label,
+              "id": `custom${from}-${to}-${Math.floor( Math.random() * 100000 )}`
+            }
+          );
+        } else if (kind === 'R' || kind === 'X') {
+          // リンク先を統合
+          let tos = [];
+          tos.push(to);
+          tos = tos.concat(add.split(','));
+          for (let tmp_to of tos) {
+            scenario.edges.push(
+              {
+                "from": from,
+                "to": tmp_to,
+                "label": label,
+                "type": kind,
+                "order": (kind === 'R' ? 97 : 98),
+                "id": `custom${from}-${tmp_to}-${Math.floor( Math.random() * 100000 )}`
+              }
+            );
           }
-        );
+        } else if (kind === 'Q') {
+          scenario.edges.push(
+            {
+              "from": from,
+              "to": to,
+              "label": label,
+              "type": 'Q',
+              "correct": correct,
+              "order": 99,
+              "id": `custom${from}-${to}-${Math.floor( Math.random() * 100000 )}`
+            }
+          );
+          scenario.edges.push(
+            {
+              "from": from,
+              "to": add,
+              "label": label,
+              "type": 'Q',
+              "order": 99,
+              "id": `custom${from}-${to}-${Math.floor( Math.random() * 100000 )}`
+            }
+          );   
+        }
         Util.createNetwork();
         network.selectNodes([ from ]);
         Util.setSceneInfo(from);
@@ -1274,6 +1323,19 @@ $(function () {
         $(this).dialog('close');
       },
     }
+  });
+
+  $('#edge-dialog #edge-kind').change(function() {
+    let v = $(this).val();
+    $('#edge-dialog #edge-add').attr('placeholder', function() {
+      if (v === '') {
+        return '';
+      } else if (v === 'R' || v === 'X') {
+        return '他のリンク先（カンマ区切り）';
+      } else if (v === 'Q') {
+        return '間違いの時のリンク先';
+      }
+    });
   });
 
   // ダイアログを初期化（範囲指定）
