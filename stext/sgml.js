@@ -1686,7 +1686,12 @@
     createStatusSheet() {
       let that = this;
       let template = $(`<div id="sidr_status" class="sidr_info">
-        <h2><img src="${ROOT}${COMMON}side/status.png" alt="Status" /></h2>
+        <h2>
+          <img src="${ROOT}${COMMON}side/status.png" alt="Status" />
+          <img src="${ROOT}${COMMON}side/sc_chara.png" class="cross" title="basic" />
+          <img src="${ROOT}${COMMON}side/sc_magic.png" class="cross" title="magic" />
+          <img src="${ROOT}${COMMON}side/sc_item.png" class="cross" title="item" />
+        </h2>
         <p id="sidr_status_bonus" class="bonus_msg"></p>
         <table id="sidr_status_list">
           <tr>
@@ -2248,6 +2253,9 @@
       this.createBonusInfo();
       this.createPlayerRankInfo();
       this.createBattleSheet();
+      target.parent().on('click', 'img.cross', function(e) {
+        $.sidr('open', `sidr_${$(this).attr('title')}`);
+      });
     },
 
     // すべてのサイドバーをクローズ
