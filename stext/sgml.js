@@ -2276,23 +2276,27 @@
         
         <!-- Sample menu definition -->
         <ul id="main-menu" class="sm sm-blue">
-          <li><a id="menu_status" href="#">Status</a></li>
-          <li><a id="menu_magic" href="#">Magic</a></li>
-          <li><a href="#">Info</a>
+          <li><a id="menu_status" title="ステータス" href="#">
+            <img class="icon" data-base="status"/></a></li>
+          <li><a id="menu_magic" title="魔法" href="#">
+            <img class="icon" data-base="magic"/></a></li>
+          <li><a title="情報" href="#">
+           <img class="icon" data-base="info"/></a>
             <ul>
-              <li><a id="menu_basic">Character</a></li>
-              <li><a id="menu_item">Items & Flags</a></li>
-              <li><a id="menu_result">Result</a></li>
-              <li><a id="menu_bonus">Bonus</a></li>
-              <li><a id="menu_rank">Player Rank</a></li>
+              <li><a id="menu_basic" title="キャラ情報" data-en="Character">Character</a></li>
+              <li><a id="menu_item" title="アイテム＆フラグ" data-en="Items & Flags">Items & Flags</a></li>
+              <li><a id="menu_result" title="実績" data-en="Results">Result</a></li>
+              <li><a id="menu_bonus" title="ボーナス" data-en="Bonus">Bonus</a></li>
+              <li><a id="menu_rank" title="プレイヤーランク" data-en="">Player Rank</a></li>
             </ul>
           </li>
-          <li><a href="#">System</a>
+          <li><a title="システム" href="#"><img class="icon" data-base="system"/></a>
             <ul>
-              <li><a id="menu_backup">Backup</a></li>
-              <li><a id="menu_restore">Restore</a><input id="menu_restore_select" type="file" accept=".stext" /></li>
-              <li><a href="https://sorcerian.hateblo.jp/entries/2017/12/20">Help</a></li>
-              <li><a href="./">Exit</a></li>
+              <li><a id="menu_backup" title="バックアップ" data-en="Backup">Backup</a></li>
+              <li><a id="menu_restore" title="リストア" data-en="Restor">Restore</a><input id="menu_restore_select" type="file" accept=".stext" /></li>
+              <li><a href="https://sorcerian.hateblo.jp/entries/2017/12/20"
+                title="ヘルプ" data-en="Help">Help</a></li>
+              <li><a href="./" title="終了" data-en="Exit">Exit</a></li>
             </ul>
           </li>
           <li>
@@ -2329,6 +2333,42 @@
             $mainMenuState[0].click();
           }
         });
+
+        // 
+        $('#main-menu img.icon').attr('src', function() {
+          return `${ROOT}${COMMON}menu/${$(this).attr('data-base')}.png`;
+        });
+      
+        $('#main-menu img.icon').hover(
+          function() {
+            $(this).attr('src',
+            `${ROOT}${COMMON}menu/${$(this).attr('data-base')}_jp.png`);
+          },
+          function() {
+            $(this).attr('src',
+            `${ROOT}${COMMON}menu/${$(this).attr('data-base')}.png`);
+          }
+        );
+      
+        $('#main-menu a[data-en]').hover(
+          function() {
+            if ($(this).attr('data-sub')) {
+              $(this).html($(this).attr('title') +
+                '<span class="sub-arrow"></span>');
+            } else {
+              $(this).text($(this).attr('title'));
+            }
+          },
+          function() {
+            if ($(this).attr('data-sub')) {
+              $(this).html($(this).attr('data-en') +
+                '<span class="sub-arrow"></span>');
+            } else {
+              $(this).text($(this).attr('data-en'));
+            }
+          }
+        );
+
       }
       // 以上、メニュー本体の制御
 

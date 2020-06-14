@@ -914,6 +914,10 @@ table.item_list img {
   display: none;
 }
 
+#main-menu img.icon {
+  margin-top: -10px;
+}
+
 #menu_audio {
   margin: 0;
   padding: 0;
