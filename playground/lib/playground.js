@@ -1259,11 +1259,20 @@ $(function () {
       '追加': function() {
         let from = $('#edge-dialog #from-id').text();
         let to = $('#edge-dialog #to-id').val();
+        if (!to) { to = 0; }
         let label = $('#edge-dialog #edge-caption').val();
         if (!label) { label = '次へ'; }
         let kind = $('#edge-dialog #edge-kind').val();
         let add = $('#edge-dialog #edge-add').val();
         let correct = $('#edge-dialog #edge-correct').val();
+
+        // テキスト入力の場合のエラーチェック
+        if (kind === 'Q' && add.includes(',')) {
+          toastr.error(`追加情報には間違い時のリンク先を指定してください。<br>
+            正解時のリンク先はid欄に指定します。`, '不正な値');
+          return;
+        }
+
         // 種別に応じた処理（特殊リンクはページに一つを前提にorderは種別ごと固定）        
         if (!kind) {
           scenario.edges.push(
@@ -1826,6 +1835,26 @@ $(function () {
   $('#scene #scene-addedge').click(function(e) {
     $('#edge-dialog').dialog('open');
   });
+
+  // リンク追加ダイアログ内でのシーン選択
+  Util.createSelectSidebar(
+    '#edge-dialog #to-id',
+    'scene',
+    scenario.scenes,
+    'radio',
+    'summary',
+    'id'
+  );
+
+  // リンク追加ダイアログ内でのシーン選択
+  Util.createSelectSidebar(
+    '#edge-dialog #edge-add',
+    'scenes',
+    scenario.scenes,
+    'check',
+    'summary',
+    'id'
+  );
 
   // タブの生成
   $('#edit-area').tabs();
