@@ -670,6 +670,11 @@ table.item_list img {
   margin-right: 0px;
 }
 
+.sidr_info img.capture {
+  margin-top: 20px;
+  margin-right: 5px;
+}
+
 /* サイドバー（基本ステ／魔法） */
 .sidr_info h2/*, #sidr_basic #sidr_basic_name*/ {
   color: #ffd;

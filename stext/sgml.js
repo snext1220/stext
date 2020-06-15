@@ -1441,7 +1441,12 @@
         });
 
       let template = $(`<div id="sidr_basic" class="sidr_info">
-        <img id="sidr_basic_chara_face" align="right" />
+        <p class="side_tab">
+          <img src="${ROOT}${COMMON}side/sc_status.png" class="cross" title="status" />
+          <img src="${ROOT}${COMMON}side/sc_magic.png" class="cross" title="magic" />
+          <img src="${ROOT}${COMMON}side/sc_item.png" class="cross" title="item" />
+        </p>
+        <img id="sidr_basic_chara_face" class="capture" align="right" />
         <h2>
           "<span id="sidr_basic_title"></span>"
           <!--<span id="sidr_basic_name"></span>-->
@@ -1628,6 +1633,12 @@
       this.createSideBar(
         'item',
         `<div id="sidr_item" class="sidr_info">
+          <p class="side_tab">
+            <img src="${ROOT}${COMMON}side/sc_status.png" class="cross" title="status" />
+            <img src="${ROOT}${COMMON}side/sc_chara.png" class="cross" title="basic" />
+            <img src="${ROOT}${COMMON}side/sc_magic.png" class="cross" title="magic" />
+          </p>
+
           <h2><img src="${ROOT}${COMMON}side/items_flags.png" alt="Items & Flags" /></h2>
           <div>
             ITEMS：
@@ -1951,6 +1962,11 @@
       };
 
       let template = $(`<div id="sidr_magic" class="sidr_info">
+      <p class="side_tab">
+        <img src="${ROOT}${COMMON}side/sc_status.png" class="cross" title="status" />
+        <img src="${ROOT}${COMMON}side/sc_chara.png" class="cross" title="basic" />
+        <img src="${ROOT}${COMMON}side/sc_item.png" class="cross" title="item" />
+      </p>
       <h2><img src="${ROOT}${COMMON}side/magic.png" alt="Magic & STARS" /></h2>
       <p id="sidr_magic_bonus" class="bonus_msg"></p>
       <div>
