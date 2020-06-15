@@ -2292,10 +2292,10 @@
            <img class="icon" data-base="info"/></a>
             <ul>
               <li><a id="menu_basic" title="キャラ情報" data-en="Character">Character</a></li>
-              <li><a id="menu_item" title="アイテム＆フラグ" data-en="Items & Flags">Items & Flags</a></li>
+              <li><a id="menu_item" title="アイテム/フラグ" data-en="Items & Flags">Items & Flags</a></li>
               <li><a id="menu_result" title="実績" data-en="Results">Result</a></li>
               <li><a id="menu_bonus" title="ボーナス" data-en="Bonus">Bonus</a></li>
-              <li><a id="menu_rank" title="プレイヤーランク" data-en="">Player Rank</a></li>
+              <li><a id="menu_rank" title="プレイヤーランク" data-en="Player Rank">Player Rank</a></li>
             </ul>
           </li>
           <li><a title="システム" href="#"><img class="icon" data-base="system"/></a>
