@@ -665,8 +665,9 @@ table.item_list img {
   margin-bottom: -10px;
 }
 
-.sidr_info .cross {
+.sidr_info img.cross {
   cursor: pointer;
+  margin-right: 0px;
 }
 
 /* サイドバー（基本ステ／魔法） */
