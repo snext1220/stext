@@ -1686,11 +1686,13 @@
     createStatusSheet() {
       let that = this;
       let template = $(`<div id="sidr_status" class="sidr_info">
-        <h2>
-          <img src="${ROOT}${COMMON}side/status.png" alt="Status" />
+        <p class="side_tab">
           <img src="${ROOT}${COMMON}side/sc_chara.png" class="cross" title="basic" />
           <img src="${ROOT}${COMMON}side/sc_magic.png" class="cross" title="magic" />
           <img src="${ROOT}${COMMON}side/sc_item.png" class="cross" title="item" />
+        </p>
+        <h2>
+          <img src="${ROOT}${COMMON}side/status.png" alt="Status" />
         </h2>
         <p id="sidr_status_bonus" class="bonus_msg"></p>
         <table id="sidr_status_list">

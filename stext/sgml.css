@@ -653,10 +653,20 @@ table.item_list img {
 .sidr_info {
   background-image: url(common/side/back.png);
   background-repeat: no-repeat;
-  background-position: right top;
+  background-position: right top 25px;
   background-color: #000;
   opacity: 1;
   color: #fff;
+}
+
+.sidr_info .side_tab {
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: -10px;
+}
+
+.sidr_info .cross {
+  cursor: pointer;
 }
 
 /* サイドバー（基本ステ／魔法） */
