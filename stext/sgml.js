@@ -2296,8 +2296,8 @@
         </label>
         
         <h2 class="nav-brand"><a href="./">
-          <!--<img src="./stext/common/gamebook_header_text.png"/>-->
-          <span class="pconly" style="vertical-align: top;">SORCERIAN Text</span>
+          <img src="./stext/common/menu/header_logo.png"/>
+          <!--<span class="pconly" style="vertical-align: top;">SORCERIAN Text</span>-->
         </a></h2>
         
         <!-- Sample menu definition -->

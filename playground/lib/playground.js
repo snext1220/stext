@@ -2070,8 +2070,10 @@ $(function () {
   // 簡易シーン追加（β版）
   $('#ctrl_addscene').click(function(e) {
     //let pos = network.getViewPosition();
-    let new_id = Number(Util.maxSceneId()) + 
-      Number($('#ctrl_incre').val());
+    let incre = Number($('#ctrl_incre').val());
+    if (!incre || incre < 1) { incre = 1; }
+    incre = Math.floor(incre);
+    let new_id = Number(Util.maxSceneId()) + incre;
     scenario.scenes.push(
       {
         id: String(new_id),
