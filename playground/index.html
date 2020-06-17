@@ -30,7 +30,9 @@
     <img id="ctrl_run" src="../stext/common/pg_run.png" title="シナリオを実行" />
     <img id="ctrl_filter" src="../stext/common/pg_filter.png" title="表示シーンを絞り込み" />
     <img id="ctrl_tag" src="../stext/common/pg_tag.png" title="カーソル位置にタグを追加" />
-    <img id="ctrl_flow2editor" src="../stext/common/pg_f2e.png" title="PgEditorで編集" />｜
+    <img id="ctrl_flow2editor" src="../stext/common/pg_f2e.png" title="PgEditorで編集" />
+    <img id="ctrl_addscene" src="../stext/common/pg_scene.png" title="シーンを追加" />+
+    <input id="ctrl_incre" type="number" value="10" />｜
     <img id="ctrl_import" src="../stext/common/pg_import.png" title="シナリオをインポート" />
     <img id="ctrl_dl" src="../stext/common/pg_dl.png" title="シナリオを保存" />
     <img id="ctrl_help" src="../stext/common/pg_help.png" title="マニュアルを参照" />
@@ -51,8 +53,6 @@
   </select>
   <!-- <input id="ctrl_group" type="button" value="フィルター（Testing）" /> -->
   ｜
-  <input id="ctrl_addscene" type="button" value="シーン追加（β）" />
-  +<input id="ctrl_incre" type="number" value="10" />
 </div>
 <div id="main" class="clearfix">
   <div id="flow-area"></div>
@@ -175,7 +175,9 @@
             <fieldset>
               <legend>基本</legend>
               <label>id：
-                <span id="id"></span>&nbsp;&nbsp;</label>
+                <input id="id" type="text" size="3" disabled readonly />
+                <!-- <span id="id"></span> -->
+                &nbsp;&nbsp;</label>
               <label>サマリー：
                 <input id="summary" type="text" class="wide" size="30" /></label>
               <label>End：
@@ -198,6 +200,7 @@
                 <select id="edges-list" class="no-update"></select>
               </label>
               <button id="scene-addedge" type="button">リンク追加</button>
+              <button id="scene-addscene" type="button">シーン追加</button>
             </fieldset>
             <fieldset>
               <legend>楽曲（<a href="https://soundcloud.com/venus-az/sets/sorcerian-text-original-sounds/s-2tzI5" target="help">標準BGMリスト</a>）</legend>
@@ -263,9 +266,9 @@
       <fieldset>
         <legend>基本</legend>
         <label>from：
-          <span id="from"></span>&nbsp;～&nbsp;</label>
+          <input id="from" type="text" size="3" />&nbsp;～&nbsp;</label>
         <label>to：
-          <span id="to"></span></label>
+          <input id="to" type="text" size="3" /></label>
         <label>表示順序：
           <input id="order" type="text" size="3" /></label>  
         <p></p>
@@ -319,6 +322,21 @@
   <div id="sidr_scene_submit" class="sidr-btn sidr-ok">確定</div>
   <div id="sidr_scene_close" class="sidr-btn">閉じる</div>
 </div>
+
+<!--サイドパネル（シーンfrom）-->
+<div id="sidr_fscene">
+  <ul id="sidr_fscene_list"></ul>
+  <div id="sidr_fscene_submit" class="sidr-btn sidr-ok">確定</div>
+  <div id="sidr_fscene_close" class="sidr-btn">閉じる</div>
+</div>
+
+<!--サイドパネル（シーンto）-->
+<div id="sidr_tscene">
+  <ul id="sidr_tscene_list"></ul>
+  <div id="sidr_tscene_submit" class="sidr-btn sidr-ok">確定</div>
+  <div id="sidr_tscene_close" class="sidr-btn">閉じる</div>
+</div>
+
 
 <!--サイドパネル（種族）-->
 <div id="sidr_races">
@@ -602,7 +620,6 @@
   <div id="sidr_links_close" class="sidr-btn">閉じる</div>
 </div>
 
-
 <!--ダイアログ（シーン）-->
 <div id="scene-dialog" title="Add Scene">
   <div>
@@ -617,6 +634,18 @@
     <input id="node-add" type="button" value="追加" />
     <input id="node-cancel" type="button" value="キャンセル" />
   </p>
+</div>
+
+<!--ダイアログ（リンク付きシーン）-->
+<div id="scene-dialog-link" title="Add Scene With Link">
+  <div>
+    <label>id：<br />
+      <input id="node-link-id" type="text" size="5" /></label>
+  </div>
+  <div>
+    <label>サマリー：<br />
+      <input id="node-link-summary" type="text" size="20" /></label>
+  </div>
 </div>
 
 <!--ダイアログ（リンク）-->
@@ -649,12 +678,6 @@
     <label>正解文字列（テキスト入力のみ）：<br />
       <input id="edge-correct" type="text" size="20" /></label>
   </div>
-
-
-
-
-
-
 </div>
 
 <!--ダイアログ（範囲）-->
