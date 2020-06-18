@@ -2043,6 +2043,10 @@ $(function () {
 
   // シーン変更ダイアログ
   $('#scene #scene-changescene').click(function(e) {
+    if ($('#scene-select #id').val() === '0') {
+      toastr.error('Scene 0は変更できません。', '変更不可');
+      return;
+    }
     $('#scene-change-dialog').dialog('open');
   });
 
