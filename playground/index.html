@@ -176,6 +176,7 @@
               <legend>基本</legend>
               <label>id：
                 <input id="id" type="text" size="3" disabled readonly />
+                <button id="scene-changescene" type="button">変更</button>
                 <!-- <span id="id"></span> -->
                 &nbsp;&nbsp;</label>
               <label>サマリー：
@@ -645,6 +646,18 @@
   <div>
     <label>サマリー：<br />
       <input id="node-link-summary" type="text" size="20" /></label>
+  </div>
+</div>
+
+<!--ダイアログ（Scene Id変更）-->
+<div id="scene-change-dialog" title="Change Scene Id">
+  <div>
+    <label>id（Old）：<br />
+      <input id="old-id" type="text" size="5" disabled/></label>
+  </div>
+  <div>
+    <label>id（New）：<br />
+      <input id="new-id" type="text" size="5" /></label>
   </div>
 </div>
 

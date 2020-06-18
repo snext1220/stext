@@ -1306,7 +1306,7 @@ $(function () {
     window.open(Common.HELP_URL + id, 'help');
   });
 
-  // ダイアログを初期化（リンク付きシーン生成）
+  // ダイアログを初期化（シーン生成）
   $('#scene-dialog').dialog({
     autoOpen: false,
     width: 320,
@@ -1324,7 +1324,7 @@ $(function () {
     }
   });
 
-  // ダイアログを初期化（シーン生成）
+  // ダイアログを初期化（リンク付きシーン生成）
   $('#scene-dialog-link').dialog({
     autoOpen: false,
     width: 320,
@@ -1352,7 +1352,58 @@ $(function () {
           console.log(`${from}->${id}`);
           Util.addLink(from, id, '次へ');
           Util.createNetwork();
+          network.selectNodes([ from ]);
         }
+      },
+      'キャンセル': function() {
+        $(this).dialog('close');
+      }
+    }
+  });
+
+  // ダイアログを初期化（シーンid変更）
+  $('#scene-change-dialog').dialog({
+    autoOpen: false,
+    width: 320,
+    show: 500,
+    hide: 500,
+    modal: true,
+    position: {
+      of : '#flow-area',
+      at: 'left top',
+      my: 'left top',
+    },
+    open: function() {
+      // 現在のシーンidを設定
+      $('#old-id').val($('#scene-attr #id').val());
+      $('#new-id').val('');
+    },
+    buttons: {
+      '追加': function() {
+        let old_id = $('#old-id').val();
+        let new_id = $('#new-id').val();
+        if (Util.isDuplicateScene(new_id)) {
+          toastr.error('id値が重複しています。', '不正なid');
+          return;
+        }
+        scenario.scenes.forEach(function(scene) {
+          if (String(scene.id) === old_id) {
+            scene.id = new_id;
+            scene.label = `${new_id}\n${scene.summary}`;
+          }
+        });
+        scenario.edges.forEach(function(edge) {
+          if (String(edge.from) === old_id) {
+            edge.from = new_id;
+          }
+          if (String(edge.to) === old_id) {
+            edge.to = new_id;
+          }
+        });
+        Util.createNetwork();
+        network.selectNodes([ new_id ]);
+        Util.setSceneInfo(new_id);
+        $(this).dialog('close');
       },
       'キャンセル': function() {
         $(this).dialog('close');
@@ -1990,6 +2041,11 @@ $(function () {
     $('#scene-dialog-link').dialog('open');
   });
 
+  // シーン変更ダイアログ
+  $('#scene #scene-changescene').click(function(e) {
+    $('#scene-change-dialog').dialog('open');
+  });
+
   // リンク追加ダイアログ内でのシーン選択
   Util.createSelectSidebar(
     '#edge-dialog #to-id',
@@ -2275,6 +2331,10 @@ $(function () {
     'Playgroundでは、.html形式での出力もできます。条件分岐、音楽機能などは利用できなくなりますが、Kindle配信などしている人にも利用して戴けると嬉しいです。',
     '.json形式（Playgroundの内部形式）のファイルは、Playground上部のファイル選択ボタンからインポート＆編集できます。',
     'Playground Flowでは、個々のシーンをNode、リンクをEdgeと呼びます。',
+    '［PgEditorで編集］ボタンを押すことで現在編集中のシナリオをPlayground Editorで編集できます。',
+    '［シーンを追加］ボタンを押すことで、シーンをワンクリックで手軽に追加できます。',
+    '［シーンを追加］ボタンでは、新規のidは「最大値＋指定の増分」で自動採番されます。',
+    '［シーン］タブからはもシーンを追加できます。その場合、現在のシーンからのリンクも自動生成されるので、積極的に利用していきましょう。',
     'フォーム上のラベルをダブルクリックすることで、該当する項目のヘルプページを表示できます。',
     'アイテム／フラグ編集のグリッドからタイトル行をダブルクリックすることで、該当する項目のヘルプページを表示できます。',
     'フィルター機能を利用することで、フローチャートに表示するシーン範囲を限定し、大きなシナリオでも見やすく表示できます。',
