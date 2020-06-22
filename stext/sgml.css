@@ -927,6 +927,10 @@ table.item_list img {
 }
 
 /* メニューバー */
+.nav-brand img {
+  margin-top: -10px;
+}
+
 #main-menu input[type="file"] {
   display: none;
 }
