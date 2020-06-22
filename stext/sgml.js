@@ -2296,7 +2296,7 @@
         </label>
         
         <h2 class="nav-brand"><a href="./">
-          <img src="./stext/common/menu/header_logo.png"/>
+          <img src="./stext/common/menu/game_logo.png"/>
           <!--<span class="pconly" style="vertical-align: top;">SORCERIAN Text</span>-->
         </a></h2>
         
