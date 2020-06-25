@@ -2363,4 +2363,12 @@ $(function () {
   toastr.options.hideDuration = 1000;
   toastr.options.timeOut = 7000;
   toastr.info(tips[Math.floor(Math.random() * tips.length)], 'TIPS');
+
+  // シャッフルテスト
+  $('#ctrl_shuffle').click(function() {
+    let s = new StextShuffle(scenario);
+    s.run();
+    localStorage.setItem(Common.MY_STORAGE, JSON.stringify(s.scenario));
+    console.log(s.scenario);
+  });
 });
