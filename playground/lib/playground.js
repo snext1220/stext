@@ -1123,15 +1123,16 @@ $(function () {
       s.scenario.scenes.forEach(function(value) {
         $('<div class="scene"></div>')
           .attr('id', value.id)
-          .html('<h3>【' + Util.numToKanji(value.id) + '】</h3>' +
-            value.text.replace(/\n/gi, '<br />')
+          .html('<h3>【' + Util.numToKanji(value.id) + '】</h3>'
+            + marked(value.text)
+            //value.text.replace(/\n/gi, '<br />')
             + '<p>' + Util.createLinkTag(value.id, s.scenario.edges) + '</p>'
             + '<hr />')
           .appendTo(body);
       });
       html.append(body);
       // markdown動作せず
-      $('.scene', html).markdown();
+      // $('.scene', html).markdown();
       return '<!DOCTYPE html>' +
         html.get(0).outerHTML;
     },
