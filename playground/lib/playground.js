@@ -1073,12 +1073,23 @@ $(function () {
       return JSON.stringify(result);
     },
 
+    // 算用数字を漢数字に変換
+    numToKanji: function(nums) {
+      let result = '';
+      let tbl = { '1' : '一', '2' : '二', '3' : '三', '4' : '四', '5' : '五',
+        '6' : '六', '7' : '七', '8' : '八', '9' : '九', '0' : '〇' };
+      for (num of String(nums)) {
+        result += tbl[num];
+      }
+      return result;
+    },
+
     // アンカータグの生成（createHtml用）
-    createLinkTag: function(id) {
+    createLinkTag: function(id, edges) {
       let result = [];
-      scenario.edges.forEach(function(value) {
+      edges.forEach(function(value) {
         if (value.from === id) {
-          result.push(`<a href="#${value.to}">［${value.label}］</a>`);
+          result.push(`<a href="#${value.to}">［${value.label} ${Util.numToKanji(value.to)}へ］</a>`);
         }
       });
       return result.join('<br />');
@@ -1093,18 +1104,34 @@ $(function () {
               $('<meta></meta>').attr('charset', 'UTF-8'))
             .append(
               $('<title></title>').text(scenario.title))
+            .append(
+              $('<style></style>').text(`body {
+                writing-mode: vertical-rl;
+                text-orientation: upright;
+              }`)
+            )
         );
       let body = $('<body></body>');
-      scenario.scenes.forEach(function(value) {
-        $('<div></div>')
+
+      // シャッフル
+      let s = new StextShuffle(scenario);
+      s.run();
+      s.scenario.scenes.sort((m, n) => {
+        return Number(m.id) - Number(n.id);
+      });
+
+      s.scenario.scenes.forEach(function(value) {
+        $('<div class="scene"></div>')
           .attr('id', value.id)
-          .html('<h3>【' + value.id + '】</h3>' +
+          .html('<h3>【' + Util.numToKanji(value.id) + '】</h3>' +
             value.text.replace(/\n/gi, '<br />')
-            + '<br />' + Util.createLinkTag(value.id)
+            + '<p>' + Util.createLinkTag(value.id, s.scenario.edges) + '</p>'
             + '<hr />')
           .appendTo(body);
       });
       html.append(body);
+      // markdown動作せず
+      $('.scene', html).markdown();
       return '<!DOCTYPE html>' +
         html.get(0).outerHTML;
     },
