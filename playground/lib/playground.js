@@ -2094,7 +2094,7 @@ $(function () {
     'scenes',
     scenario.scenes,
     'check',
-    'summary',
+    'label',
     'id'
   );
 
