@@ -1816,7 +1816,7 @@ $(function () {
     'fscene',
     scenario.scenes,
     'radio',
-    'summary',
+    'label',
     'id'
   );
 
@@ -1826,7 +1826,7 @@ $(function () {
     'tscene',
     scenario.scenes,
     'radio',
-    'summary',
+    'label',
     'id'
   );
 
@@ -2084,7 +2084,7 @@ $(function () {
     'scene',
     scenario.scenes,
     'radio',
-    'summary',
+    'label',
     'id'
   );
 
