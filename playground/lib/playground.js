@@ -1407,7 +1407,7 @@ $(function () {
       $('#new-id').val('');
     },
     buttons: {
-      '追加': function() {
+      '変更': function() {
         let old_id = $('#old-id').val();
         let new_id = $('#new-id').val();
         if (Util.isDuplicateScene(new_id)) {
