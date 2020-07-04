@@ -2319,7 +2319,7 @@
           <li><a title="システム" href="#"><img class="icon" data-base="system"/></a>
             <ul>
               <li><a id="menu_backup" title="バックアップ" data-en="Backup">Backup</a></li>
-              <li><a id="menu_restore" title="リストア" data-en="Restor">Restore</a><input id="menu_restore_select" type="file" accept=".stext" /></li>
+              <li><a id="menu_restore" title="リストア" data-en="Restore">Restore</a><input id="menu_restore_select" type="file" accept=".stext" /></li>
               <li><a href="https://sorcerian.hateblo.jp/entries/2017/12/20"
                 title="ヘルプ" data-en="Help">Help</a></li>
               <li><a href="./" title="終了" data-en="Exit">Exit</a></li>
