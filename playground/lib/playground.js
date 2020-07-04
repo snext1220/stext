@@ -207,6 +207,8 @@ $(function () {
         let tos = [];
         tos.push(to);
         tos = tos.concat(add.split(','));
+        // 重複除去
+        tos = [...(new Set(tos))];
         for (let tmp_to of tos) {
           scenario.edges.push(
             {
@@ -1466,19 +1468,35 @@ $(function () {
       '追加': function() {
         let from = $('#edge-dialog #from-id').text();
         let to = $('#edge-dialog #to-id').val();
-        if (!to) { to = 0; }
         let label = $('#edge-dialog #edge-caption').val();
         if (!label) { label = '次へ'; }
         let kind = $('#edge-dialog #edge-kind').val();
         let add = $('#edge-dialog #edge-add').val();
         let correct = $('#edge-dialog #edge-correct').val();
 
+        // リンク先の必須チェック
+        if (!to) {
+          toastr.error(`リンク先のidは必須です。`, '不正な値');
+          return;  
+        }
+        // 追加情報の必須チェック
+        if (['R', 'X', 'Q'].includes(kind)) {
+          if (!add) {
+            toastr.error(`通常以外のリンクでは追加情報は必須です。`, '不正な値');
+            return;  
+          }
+        }
         // テキスト入力の場合のエラーチェック
         if (kind === 'Q' && add.includes(',')) {
           toastr.error(`追加情報には間違い時のリンク先を指定してください。<br>
             正解時のリンク先はid欄に指定します。`, '不正な値');
           return;
         }
+        if (kind === 'Q' && !correct) {
+          toastr.error(`［テキスト入力］選択時には、正解文字列は必須です。`, '不正な値');
+          return;
+        }
+
         // 種別に応じた処理（特殊リンクはページに一つを前提にorderは種別ごと固定）        
         Util.addLink(from, to, label, kind, add, correct);
         // if (!kind) {
