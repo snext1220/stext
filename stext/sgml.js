@@ -1442,9 +1442,9 @@
 
       let template = $(`<div id="sidr_basic" class="sidr_info">
         <p class="side_tab">
-          <img src="${ROOT}${COMMON}side/sc_status.png" class="cross" title="status" />
-          <img src="${ROOT}${COMMON}side/sc_magic.png" class="cross" title="magic" />
-          <img src="${ROOT}${COMMON}side/sc_item.png" class="cross" title="item" />
+          <img src="${ROOT}${COMMON}side/sc_status.png" class="cross" data-title="status" />
+          <img src="${ROOT}${COMMON}side/sc_magic.png" class="cross" data-title="magic" />
+          <img src="${ROOT}${COMMON}side/sc_item.png" class="cross" data-title="item" />
         </p>
         <img id="sidr_basic_chara_face" class="capture" align="right" />
         <h2>
@@ -1634,9 +1634,9 @@
         'item',
         `<div id="sidr_item" class="sidr_info">
           <p class="side_tab">
-            <img src="${ROOT}${COMMON}side/sc_status.png" class="cross" title="status" />
-            <img src="${ROOT}${COMMON}side/sc_chara.png" class="cross" title="basic" />
-            <img src="${ROOT}${COMMON}side/sc_magic.png" class="cross" title="magic" />
+            <img src="${ROOT}${COMMON}side/sc_status.png" class="cross" data-title="status" />
+            <img src="${ROOT}${COMMON}side/sc_chara.png" class="cross" data-title="basic" />
+            <img src="${ROOT}${COMMON}side/sc_magic.png" class="cross" data-title="magic" />
           </p>
 
           <h2><img src="${ROOT}${COMMON}side/items_flags.png" alt="Items & Flags" /></h2>
@@ -1698,9 +1698,9 @@
       let that = this;
       let template = $(`<div id="sidr_status" class="sidr_info">
         <p class="side_tab">
-          <img src="${ROOT}${COMMON}side/sc_chara.png" class="cross" title="basic" />
-          <img src="${ROOT}${COMMON}side/sc_magic.png" class="cross" title="magic" />
-          <img src="${ROOT}${COMMON}side/sc_item.png" class="cross" title="item" />
+          <img src="${ROOT}${COMMON}side/sc_chara.png" class="cross" data-title="basic" />
+          <img src="${ROOT}${COMMON}side/sc_magic.png" class="cross" data-title="magic" />
+          <img src="${ROOT}${COMMON}side/sc_item.png" class="cross" data-title="item" />
         </p>
         <h2>
           <img src="${ROOT}${COMMON}side/status.png" alt="Status" />
@@ -1963,9 +1963,9 @@
 
       let template = $(`<div id="sidr_magic" class="sidr_info">
       <p class="side_tab">
-        <img src="${ROOT}${COMMON}side/sc_status.png" class="cross" title="status" />
-        <img src="${ROOT}${COMMON}side/sc_chara.png" class="cross" title="basic" />
-        <img src="${ROOT}${COMMON}side/sc_item.png" class="cross" title="item" />
+        <img src="${ROOT}${COMMON}side/sc_status.png" class="cross" data-title="status" />
+        <img src="${ROOT}${COMMON}side/sc_chara.png" class="cross" data-title="basic" />
+        <img src="${ROOT}${COMMON}side/sc_item.png" class="cross" data-title="item" />
       </p>
       <h2><img src="${ROOT}${COMMON}side/magic.png" alt="Magic & STARS" /></h2>
       <p id="sidr_magic_bonus" class="bonus_msg"></p>
@@ -2272,7 +2272,7 @@
       this.createPlayerRankInfo();
       this.createBattleSheet();
       target.parent().on('click', 'img.cross', function(e) {
-        $.sidr('open', `sidr_${$(this).attr('title')}`);
+        $.sidr('open', `sidr_${$(this).attr('data-title')}`);
       });
     },
 
