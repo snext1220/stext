@@ -85,7 +85,7 @@
 </work>
 
 <work id="hero" title="少女は英雄を語りて" author="ときのじ"  series="開幕シナリオ"
-  tags="リメイク,探索" published="2018-02-13" updated="2018-11-13" level="4" scenes="339" results="11" clears="r11"
+  tags="リメイク,探索" published="2018-02-13" updated="2020-07-07" level="4" scenes="338" results="11" clears="r11"
   comment="SText版としてシナリオを再構成した、オリジナルとは少々異なる英雄物語です。今まで以上に登場人物の個性が伝わるような作品に仕上がっていたら嬉しいですね。"
   quest="1FAIpQLScQ5bvMHJfNBgMwfoAm40OhK0jYh2G1kfWI4IBeIWXOL23nnA">
 <img src="./stext/hero/capture/intro.png" height="120"
