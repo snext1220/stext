@@ -96,7 +96,7 @@ if (empty($_POST) && $_SERVER["REQUEST_METHOD"] === "POST") {
 
 var_dump($success);
 if ($success) {
-    header('Location: https://wings.msn.to/stext_mail.php?email='.$_POST['email']);
+    header('Location: https://wings.msn.to/stext_mail.php?email='.$_POST['email'].'&key='.$_POST['key']);
     die();
 } else {
     header('HTTP', true, 500);

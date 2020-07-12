@@ -4107,12 +4107,14 @@
   // プラグイン本体
   // 引数code：シナリオコード、またはシナリオ文字列
   // 引数debug：デバッグウィンドウを表示するか（既定はfalse）
+  // 引数isPost：ポスト先のフォルダーを見に行くか（既定はfalse）
   $.fn.extend({
-    startGame: function(code, debug) {
+    startGame: function(code, debug, isPost) {
       scenario_code = code;
       dialog_elem['main'] = target = this;
       if(!debug) { debug = false; }
       debug_mode = debug;
+      if(!isPost) { isPost = false; }
 
       // 背景画像を設定
       target.addClass('main_back');
@@ -4358,7 +4360,13 @@
         done_read(tmp_data);
       // シナリオコードが渡された場合にはscenario.xmlを読み込み
       } else {
-        $.get(ROOT + scenario_code + '/scenario.xml')
+        if (isPost) {
+          var scena_path = `playground/post/${scenario_code}/scenario.xml`;
+        } else {
+          var scena_path = ROOT + scenario_code + '/scenario.xml';
+        }
+        $.get(scena_path)
+        // $.get(ROOT + scenario_code + '/scenario.xml')
           .done(done_read)
           .fail(function(xhr, status, error) {
             throw new Error('scenario code is invalid.');
