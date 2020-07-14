@@ -2525,7 +2525,14 @@
 
     // グローバルセーブデータをストレージから取得
     loadStorageGlobal: function() {
-      global_save_data = JSON.parse(storage[GLOBAL_SAVE_DATA_KEY]);
+      //global_save_data = JSON.parse(storage[GLOBAL_SAVE_DATA_KEY]);
+      global_save_data = $.extend(
+        true,
+        {},
+        Util.getEmptyGlobalSaveData(),
+        JSON.parse(storage[GLOBAL_SAVE_DATA_KEY])
+      );
+      Util.saveStorageGlobal(GLOBAL_SAVE_DATA_KEY);
     },
 
     // 種族、性別、年齢の制約情報を取得
@@ -2681,9 +2688,8 @@
       this.saveStorage();
     },
 
-    // グローバルなセーブデータを初期化
-    initGlobalSaveData: function() {
-      global_save_data = {
+    getEmptyGlobalSaveData: function() {
+      return {
         // 所有しているボーナスアイテム
         items: [],
         // 所有している実績（「シナリオコード: 実績」の形式）
@@ -2693,6 +2699,21 @@
         // コントロールパネルを表示するか
         panel: true
       };
+    },
+
+    // グローバルなセーブデータを初期化
+    initGlobalSaveData: function() {
+      global_save_data = Util.getEmptyGlobalSaveData();
+      // global_save_data = {
+      //   // 所有しているボーナスアイテム
+      //   items: [],
+      //   // 所有している実績（「シナリオコード: 実績」の形式）
+      //   results: {},
+      //   // BGMを再生するか
+      //   bgm: true,
+      //   // コントロールパネルを表示するか
+      //   panel: true
+      // };
       this.saveStorageGlobal(GLOBAL_SAVE_DATA_KEY);
     },
 
