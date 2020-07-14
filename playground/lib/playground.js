@@ -245,6 +245,36 @@ $(function () {
         );   
       }
     },
+    // 指定のidでリンクを削除
+    deleteLink(id) {
+      let index = scenario.edges.findIndex(function(edge) {
+        return edge.id === id;
+      });
+      return scenario.edges.splice(index, 1);
+    },
+    // 指定idのシーンと、関連するリンクを削除
+    deleteScene(id) {
+      if (id == 0) {
+        toastr.error('id=0のシーンは削除できません。', '不正な操作');
+        return;
+      }
+      let index = scenario.scenes.findIndex(function(scene) {
+        return scene.id === id;
+      });
+      scenario.scenes.splice(index, 1);
+      while (true) {
+        let e_index = scenario.edges.findIndex(function(edge) {
+          return edge.from === id || edge.to === id;
+        });
+        console.log(e_index);
+        if (e_index !== -1) {
+          scenario.edges.splice(e_index, 1);
+        } else {
+          break;
+        }
+      }
+      return true;
+    },
     // 指定されたシーンを取得
     getSceneById: function(id) {
       return scenario.scenes.find(function(elem) {
@@ -2077,6 +2107,16 @@ $(function () {
     }
   });
 
+  // 現在のノードを削除
+  $('#scene #scene-delscene').click(function() {
+    if (!confirm('この操作は元には戻せません！\n現在のシーンを削除しても構いませんか？')) {
+      return;
+    }
+    let id = $('#scene-attr #id').val();
+    Util.deleteScene(id);
+    Util.createNetwork();
+  });
+
   // リンク追加ダイアログ
   $('#scene #scene-addedge').click(function(e) {
     $('#edge-dialog').dialog('open');
@@ -2115,6 +2155,16 @@ $(function () {
     'label',
     'id'
   );
+
+  // 現在のリンクを削除
+  $('#edge #edge-deledge').click(function() {
+    if (!confirm('この操作は元には戻せません！\n現在のリンクを削除しても構いませんか？')) {
+      return;
+    }
+    let id = $('#edge #id').val();
+    Util.deleteLink(id);
+    Util.createNetwork();
+  });
 
   // タブの生成
   $('#edit-area').tabs();

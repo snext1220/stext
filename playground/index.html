@@ -240,6 +240,10 @@
               <label>FREE3：
                 <input id="free3" type="text" class="ac" size="10" /></label>
             </fieldset>
+            <p>
+              <button id="scene-delscene" type="button">現在のシーンを削除</button>
+            </p>
+            
             <!--
             <fieldset>
               <legend>ステータス（上限値）</legend>
@@ -295,14 +299,17 @@
         <p></p>
         <label>キャッシュ期限（ランダムリンクのみ・日）：
           <input id="cache" type="text" size="5" /></label>
-
+        <p>
+          <ul>
+            <li>「標準」以外のリンクは、リンク先の数だけEdgeを設置します。</li>
+            <li>ランダムリンクのラベル／条件式はひとつだけが認識されます。</li>
+            <li>正解文字列は正解リンクに指定してください。</li>
+          </ul>
+        </p>
       </fieldset>
+
       <p>
-        <ul>
-          <li>「標準」以外のリンクは、リンク先の数だけEdgeを設置します。</li>
-          <li>ランダムリンクのラベル／条件式はひとつだけが認識されます。</li>
-          <li>正解文字列は正解リンクに指定してください。</li>
-        </ul>
+        <button id="edge-deledge" type="button">現在のリンクを削除</button>
       </p>
     </div>
   </div>
@@ -841,7 +848,7 @@
 <script src="lib/toastr.min.js"></script>
 <script src="lib/jquery.splitter.js"></script>
 <!--*****************暫定シャッフル**************************-->
-<script src="lib/shuffle.js"></script>
+<!--<script src="lib/shuffle.js"></script>-->
 <!--Playground-->
 <script src="lib/playground.js"></script>
 <!--Ptengine解析-->
