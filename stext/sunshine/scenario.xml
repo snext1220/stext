@@ -2,9 +2,7 @@
 <scenario
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd" title="たまには日の光を浴びよう" author="鏡読み">
 	<init></init>
-	<groups>
-		<group start="0" end="1" title="Introduction"></group>
-	</groups>
+	<groups></groups>
 	<items>
 		<item id="i01" name="ペンダント">文字が彫られたペンダント、何かの記念でかったものだろう</item>
 		<item target="str" id="i02" name="マホウの剣" effect="+6">何かの力を感じる剣</item>
@@ -27,9 +25,7 @@
 		<result id="r04" name="リライフ" level="4">あなたは蘇った。そう命あるものへと</result>
 		<result id="r05" name="日の光は眩しく、二人を照らす" level="5">たまには日の光を浴びよう</result>
 	</results>
-	<licence>
-		<work name="Bgm-01" category="bgm" creator="SText" url="https://example.com/"></work>
-	</licence>
+	<licence></licence>
 	<scene id="0" summary="プロローグ" group="prologue">今回予告
 
 あなたはダンジョンの最深部で目覚めた。
@@ -203,7 +199,6 @@ HPを０にしたらあなたの判断で戦利品を取得してもよい。
 
 あなたは持ち物を探してみるが飢えを満たせるものは持っていなかった。
 急いで外に出なければ、あなたは飢え死にしてしまうだろう。
-
 
 [とにかく先に進もう](38)</scene>
 	<scene id="21" summary="覚悟を決めた冒険者" enemies="m02" bgm="@battle02">スケルトンの案内で次のフロアに出たあなたは一人の女冒険者と出会った。
