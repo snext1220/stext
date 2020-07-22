@@ -1,0 +1,405 @@
+{
+	"title": "短編30改変用",
+	"author": "作者名",
+	"init": {
+		"constraint": {},
+		"bgm": {
+			"main": "field05",
+			"happy": "field04",
+			"bad": "town01"
+		},
+		"label": {
+			"free1": "所持金",
+			"hp": "体力",
+			"mp": "魔力"
+		},
+		"intro": {
+			"keywords": "短編,テンプレート",
+			"description": "シナリオの紹介文"
+		}
+	},
+	"groups": [
+		{
+			"start": "0",
+			"end": "0",
+			"title": "プロローグ"
+		},
+		{
+			"start": "1",
+			"end": "10",
+			"title": "Scene 1～10まで"
+		},
+		{
+			"start": "11",
+			"end": "20",
+			"title": "Scene 11～20まで"
+		},
+		{
+			"start": "21",
+			"end": "28",
+			"title": "Scene 21～28まで"
+		},
+		{
+			"start": "29",
+			"end": "29",
+			"title": "バッドエンド"
+		},
+		{
+			"start": "30",
+			"end": "30",
+			"title": "ハッピーエンド"
+		}
+	],
+	"items": [
+		{
+			"id": "i01",
+			"name": "傷薬",
+			"target": "hp",
+			"effect": "50",
+			"text": "HPが50回復する薬"
+		},
+		{
+			"id": "i02",
+			"name": "ちからの薬",
+			"target": "str",
+			"effect": "2",
+			"text": "STRが2上がる薬"
+		},
+		{
+			"id": "i03",
+			"name": "こいし",
+			"text": "ただの石ころ"
+		}
+	],
+	"flags": [
+		{
+			"id": "f01",
+			"text": "逃亡"
+		}
+	],
+	"enemies": [
+		{
+			"id": "m01",
+			"name": "地属性・物理得意な魔物",
+			"element": "earth",
+			"attack": "physics",
+			"func": "L+R-STR",
+			"text": "地属性の魔物で物理攻撃が得意。ランダムで「星の欠片」をドロップする。"
+		},
+		{
+			"attack": "magic",
+			"drop": "wed/2",
+			"id": "m02",
+			"element": "water",
+			"name": "水属性・魔法得意な魔物",
+			"func": "L2+R2-INT",
+			"text": "水属性の魔物で魔法攻撃が得意。必ず「星の欠片：水星」を2個ドロップする。"
+		},
+		{
+			"attack": "both",
+			"id": "m03",
+			"element": "fire",
+			"name": "火属性・物理魔法得意な魔物",
+			"func": "L3+R3-STR+INT",
+			"drop": "free1/5/5Gold",
+			"text": "火属性の魔物で物理攻撃と魔法攻撃の両方が得意。必ず「free1（所持金）：5Gold」をドロップする。"
+		},
+		{
+			"id": "m04",
+			"name": "毒矢",
+			"attack": "poison",
+			"func": "DEX>L+R",
+			"text": "矢じりに毒が塗られた矢"
+		}
+	],
+	"results": [
+		{
+			"id": "r01",
+			"name": "冒険に出た",
+			"level": "1",
+			"text": "冒険者としての一歩を踏み出した"
+		},
+		{
+			"id": "r02",
+			"name": "バッドエンド",
+			"level": "2",
+			"text": "バッドエンドを見た"
+		},
+		{
+			"id": "r03",
+			"name": "バッドエンド2",
+			"level": "2",
+			"text": "バッドエンド2を見た"
+		},
+		{
+			"id": "r04",
+			"name": "ハッピーエンド",
+			"level": "3",
+			"text": "ハッピーエンドを見た"
+		}
+	],
+	"licence": [
+		{
+			"name": "フリーBGM",
+			"category": "bgm",
+			"creator": "素材の作者名",
+			"url": "https://example.com/"
+		},
+		{
+			"category": "picture",
+			"name": "フリー画像",
+			"creator": "素材の作者名",
+			"url": "https://example.com/"
+		}
+	],
+	"scenes": [
+		{
+			"id": "0",
+			"summary": "プロローグ",
+			"group": "prologue",
+			"enemies": "m01,m02,m03",
+			"stars": "1,2,3,4,5,6,7",
+			"free1": "10",
+			"text": "ここにプロローグを書きます。\n冒険の目的などを書きます。\n\nソーサリアンの君は、危険なダンジョンに向かい、手強い魔物を討伐しなければなりません。\nまずは冒険の準備をしましょう。\n***\n### 短編シナリオ用テンプレート（Scene 0～30）\n- %blue%初期設定を改変して自由にお使いください%/%\n\n#### 【Tips 1】Scene同士をリンクで繋げたい\n- 初期設定では、%red%Scene 5～27までのリンクを設定していません%/%\n- 画面上部の%blue%「編集するシーンを選択」%/%からSceneを選ぶと楽です\n- リンクを設定したいSceneを選択し、%blue%「シーン」タブの「リンクを追加」%/%からリンクを繋げるのも楽です\n\n#### 【Tips 2】リンク（またはScene）を消したい\n- 消したいリンク（またはScene）をクリックし、画面中央の %blue%「Delete selected」%/% を選択するとリンク（またはScene）を消せます\n\n#### 【Tips 3】アイテムなどの登録方法を知りたい\n- 画面上部の%blue%「アイテム」タブ%/%を選択\n- %blue%「id」「名前」などの項目名%/%をクリック\n- %blue%「開発者向けマニュアル」%/%のアイテムに関連した箇所が表示されます\n- 他のタブでも同様の手順でマニュアルを参照できます",
+			"label": "0:\nプロローグ"
+		},
+		{
+			"id": "1",
+			"summary": "出発",
+			"items": "i01,i02",
+			"result": "r01",
+			"text": "ここからが本文です。\n冒険の準備を終えた君は、ダンジョンに向かいました。\n\n%blue%「傷薬」%/%と%blue%「ちからの薬」%/%を持ちました",
+			"label": "1:\n出発"
+		},
+		{
+			"id": "2",
+			"summary": "探索",
+			"items": "i03",
+			"text": "ダンジョン探索中です。\nそこには、何の変哲もない小さな石がたくさん転がっています。\n\n%blue%「こいし」を拾いました%/%\n\nしばらくダンジョンを探索していた君は、最奥の部屋から嫌な気配を感じました。",
+			"label": "2:\n探索"
+		},
+		{
+			"id": "3",
+			"summary": "戦闘",
+			"enemies": "m01,m02,m03,m04",
+			"text": "討伐対象の魔物が罠を張って君を待ち構えていました。\nさあ、戦闘開始です！\n\n画面右側の%blue%「Battle Sheet」%/%をクリックして戦闘画面を開きましょう。\n\nHPまたはMPが0になったら選択肢%red%「バッドエンド」%/%に進みます。\nそうでなければ選択肢%blue%「ハッピーエンド」%/%に進みましょう。\n\nただし、直前に逃亡を選んでいた場合は、%red%フラグf01「逃亡」%/%を立ててしまっているため、%red%上記の選択肢は表示されません。%/%\n戦闘に勝っても負けても選択肢%red%「バッドエンド2」%/%に進みます。",
+			"label": "3:\n戦闘"
+		},
+		{
+			"id": "4",
+			"summary": "逃亡",
+			"flags": "f01",
+			"text": "君は嫌な気配に怖気づき、思わず逃げ出してしまった……。\n\n%blue%フラグ「逃亡」が立ちました%/%",
+			"label": "4:\n逃亡"
+		},
+		{
+			"id": "5",
+			"summary": "New",
+			"label": "5:\nNew",
+			"text": ""
+		},
+		{
+			"id": "6",
+			"summary": "New",
+			"label": "6:\nNew"
+		},
+		{
+			"id": "7",
+			"summary": "New",
+			"label": "7:\nNew"
+		},
+		{
+			"id": "8",
+			"summary": "New",
+			"label": "8:\nNew"
+		},
+		{
+			"id": "9",
+			"summary": "New",
+			"label": "9:\nNew"
+		},
+		{
+			"id": "10",
+			"summary": "New",
+			"label": "10:\nNew"
+		},
+		{
+			"id": "11",
+			"summary": "New",
+			"label": "11:\nNew"
+		},
+		{
+			"id": "12",
+			"summary": "New",
+			"label": "12:\nNew"
+		},
+		{
+			"id": "13",
+			"summary": "New",
+			"label": "13:\nNew"
+		},
+		{
+			"id": "14",
+			"summary": "New",
+			"label": "14:\nNew"
+		},
+		{
+			"id": "15",
+			"summary": "New",
+			"label": "15:\nNew"
+		},
+		{
+			"id": "16",
+			"summary": "New",
+			"label": "16:\nNew"
+		},
+		{
+			"id": "17",
+			"summary": "New",
+			"label": "17:\nNew"
+		},
+		{
+			"id": "18",
+			"summary": "New",
+			"label": "18:\nNew"
+		},
+		{
+			"id": "19",
+			"summary": "New",
+			"label": "19:\nNew"
+		},
+		{
+			"id": "20",
+			"summary": "New",
+			"label": "20:\nNew"
+		},
+		{
+			"id": "21",
+			"summary": "New",
+			"label": "21:\nNew"
+		},
+		{
+			"id": "22",
+			"summary": "New",
+			"label": "22:\nNew"
+		},
+		{
+			"id": "23",
+			"summary": "New",
+			"label": "23:\nNew"
+		},
+		{
+			"id": "24",
+			"summary": "New",
+			"label": "24:\nNew"
+		},
+		{
+			"id": "25",
+			"summary": "New",
+			"label": "25:\nNew"
+		},
+		{
+			"id": "26",
+			"summary": "New",
+			"label": "26:\nNew"
+		},
+		{
+			"id": "27",
+			"summary": "New",
+			"label": "27:\nNew"
+		},
+		{
+			"id": "28",
+			"summary": "バッドエンド",
+			"end": "bad",
+			"group": "bad",
+			"result": "r02",
+			"text": "魔物に負けてしまいました……。\n残念、%red%バッドエンド%/%です。",
+			"label": "28:\nバッドエンド"
+		},
+		{
+			"id": "29",
+			"summary": "バッドエンド2",
+			"end": "bad",
+			"group": "bad",
+			"result": "r03",
+			"text": "君が逃亡している間に魔物は戦う準備を十分に整えていたようだ。\n部屋のあちらこちらに開けられた穴から無数の魔物が押し寄せ、君はとうとう力尽きてしまったのだった……。\n残念、%red%バッドエンド%/%です。",
+			"label": "29:\nバッドエンド2"
+		},
+		{
+			"id": "30",
+			"summary": "ハッピーエンド",
+			"end": "happy",
+			"group": "happy",
+			"result": "r04",
+			"text": "魔物に勝ちました！\nおめでとう、%blue%ハッピーエンド%/%です！",
+			"label": "30:\nハッピーエンド"
+		}
+	],
+	"edges": [
+		{
+			"from": "0",
+			"to": "1",
+			"label": "アイテムを準備しよう（選択肢の名称）",
+			"condition": "",
+			"order": 1,
+			"id": "65f8c084-e6c4-4574-941c-fcbd8a951d0d"
+		},
+		{
+			"from": "1",
+			"to": "2",
+			"label": "ダンジョンに入る",
+			"condition": "",
+			"order": 1,
+			"id": "65c0b317-1f9e-410a-a83e-89cd4914ce81"
+		},
+		{
+			"from": "2",
+			"to": "3",
+			"label": "魔物の気配を感じる…",
+			"condition": "",
+			"order": 1,
+			"id": "18cd5cc6-6d03-4376-a6d5-f5f21f131574"
+		},
+		{
+			"from": "2",
+			"to": "4",
+			"label": "逃げる！",
+			"condition": "",
+			"order": 2,
+			"id": "01b370b1-fc07-4389-ae03-95de41d2ceb5"
+		},
+		{
+			"from": "3",
+			"to": "28",
+			"label": "魔物に負けた…",
+			"condition": "",
+			"order": 1,
+			"id": "c3be600b-cb7a-46be-979e-17eacc0549c7"
+		},
+		{
+			"from": "3",
+			"to": "30",
+			"label": "魔物に勝った！",
+			"condition": "!f01",
+			"order": 2,
+			"id": "ddb96e27-d6ce-4ad3-87ca-a805603a2ff8"
+		},
+		{
+			"from": "3",
+			"to": "29",
+			"label": "戦いは続く…",
+			"condition": "",
+			"order": 3,
+			"id": "1506446d-eb2e-4d71-8ed6-1ab0655267d9"
+		},
+		{
+			"from": "4",
+			"to": "3",
+			"label": "戻って扉を開ける",
+			"condition": "",
+			"order": 1,
+			"id": "8b0acda9-838f-42db-b2d6-c1ec00434ee7"
+		}
+	]
+}
