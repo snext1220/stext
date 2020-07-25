@@ -317,6 +317,7 @@ $(function () {
           editor.setValue('');
         }
         editor.focus();
+        editor.clearSelection();
 
         // リンクリストを生成
         $('#scene-select #edges-list').empty();
