@@ -485,10 +485,8 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 <utility>
 
 <work title="Playground Flow" author="リオ" type="dev">
-<a href="./image/util_new.png" class="zoombox" title="Playground Flow">
  <img src="./image/util_new.png" height="120"
    title="New Playground" class="left" />
-</a>
 Playground Flow（Pg Flow）は、ブラウザ上で動作するソーサリアン Textのシナリオ開発／実行環境。
 
 従来のように、SText固有のタグを意識する必要はありません。シーン同士をフローチャート上で繋ぎ、繋ぎ変えながら、ゲームブックの流れを設計できます。また、フラグ／アイテム情報も、専用のスプレッドシートから編集できるので、編集上の負担が大幅に軽減します。
