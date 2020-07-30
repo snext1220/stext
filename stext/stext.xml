@@ -534,21 +534,21 @@ Playground Editor（Pg Editor）は、ブラウザー上で動作するソーサ
 
 画像は自作のものでも構いませんが、「自作はちょっと…でも、いつもと雰囲気を変えてみたい！」という人のために、画像素材を集めてみました。画像は右クリック、［名前を付けて画像を保存...］でダウンロードが可能です。ぜひご利用ください。
 
-<img src="./stext/common/face/adol.png" />
-<img src="./stext/common/face/adol2.png" />
-<img src="./stext/common/face/anna.png" />
-<img src="./stext/common/face/darkfact.png" />
-<img src="./stext/common/face/female_young_elf2.png" />
-<img src="./stext/common/face/female_young_elf3.png" />
-<img src="./stext/common/face/female_young_wizard2.png" />
-<img src="./stext/common/face/fredy.png" />
-<img src="./stext/common/face/guran.png" />
-<img src="./stext/common/face/male_adult_dwarf2.png" />
-<img src="./stext/common/face/male_adult_fighter2.png" />
-<img src="./stext/common/face/male_young_fighter2.png" />
-<img src="./stext/common/face/male_young_fighter3.png" />
-<img src="./stext/common/face/male_young_fighter4.png" />
-<img src="./stext/common/face/pentawa_chara.png" />
+<img src="./stext/common/face/adol.png" title="アドル" />
+<img src="./stext/common/face/adol2.png" title="アド・ルー" />
+<img src="./stext/common/face/darkfact.png" title="ダルク＝ファクト" />
+<img src="./stext/common/face/fredy.png" title="フレディ王子" />
+<img src="./stext/common/face/anna.png" title="アンナ" />
+<img src="./stext/common/face/guran.png" title="グーラン" />
+<img src="./stext/common/face/male_young_fighter2.png" title="ヤングファイター男" />
+<img src="./stext/common/face/male_young_fighter3.png" title="ヤングファイター男2" />
+<img src="./stext/common/face/male_young_fighter4.png" title="ヤングファイター男3" />
+<img src="./stext/common/face/male_adult_fighter2.png" title="中年ファイター男" />
+<img src="./stext/common/face/male_adult_dwarf2.png" title="アダルトドワーフ男" />
+<img src="./stext/common/face/female_young_elf2.png" title="ヤングエルフ女" />
+<img src="./stext/common/face/female_young_elf3.png" title="ヤングエルフ女2"/>
+<img src="./stext/common/face/female_young_wizard2.png" title="ヤングウィザード女" />
+<img src="./stext/common/face/pentawa_chara.png" title="ノーム" />
 
 <div class="award">画像は今後も随時追加予定です！</div>
 </work>
