@@ -459,7 +459,7 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 </work>
 
 <work id="sunshine" title="たまには日の光を浴びよう" author="鏡読み さん" guest="true" series="Playground100祭"
-  tags="脱出" published="2020-08-01" updated="" level="2" scenes="33" results="5" clears="r05" unpublished="true"
+  tags="脱出" published="2020-08-01" updated="" level="2" scenes="33" results="5" clears="r05"
   comment="戦闘あり、ちょっと理不尽ありのシナリオです。遊んでいただけると嬉しいです。バグや誤字など、気になる部分がありましたらご連絡いただけると嬉しいです。">
 <img src="./stext/sunshine/capture/intro.png" height="120"
   title="たまには日の光を浴びよう"  align="right" class="right"/>
