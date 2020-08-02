@@ -127,6 +127,10 @@ label {
     width: 150px;
 }
 
+.delaction {
+    color: Red;
+}
+
 #footer {
     height: 30px;
     width: 95%;
