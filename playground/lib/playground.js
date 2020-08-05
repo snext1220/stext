@@ -1095,7 +1095,8 @@ $(function () {
         }
         // sceneオブジェクト生成
         let s_obj = Util.elementToObj(
-          $(elem).text(body.replace(link, '').trim()), true);
+          $(elem).text(body.replace(link, '').trimEnd()),
+          true);
         if(Number(s_obj.id) === 0) {
           s_obj.group = 'prologue';
         } else if (s_obj.end) {
