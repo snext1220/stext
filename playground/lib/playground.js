@@ -2296,8 +2296,7 @@ $(function () {
         Util.download(Util.createHtml(), 'scenario.html');
         break;
       case 'storage':
-        window.alert('データをブラウザーに保存しました。');
-        console.log(scenario);
+        window.alert('データをブラウザーに保存しました。\n保存済みのデータは［マイストレージ］テンプレートからロードできます。');
         localStorage.setItem(Common.MY_STORAGE, JSON.stringify(scenario));
         break;
       default:
