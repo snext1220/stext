@@ -157,6 +157,20 @@ $(function () {
         return Number(m.id) - Number(n.id);
       });
     },
+    // リンクをfrom、order値でソート
+    sortEdges: function() {
+      scenario.edges.sort((m, n) => {
+        let m_from = Number(m.from);
+        let n_from = Number(n.from);
+        let m_order = Number(m.order);
+        let n_order = Number(n.order);
+        if (m_from !== n_from) {
+          return m_from - n_from;
+        } else {
+          return m_order - n_order;
+        }
+      });
+    },
     // 指定のidが既存のシーンidと重複するか
     isDuplicateScene: function(id) {
       return scenario.scenes.some(function(value) {
@@ -281,6 +295,23 @@ $(function () {
         return elem.id === id; 
       });
     },
+
+    // リンクリストを生成
+    createLinkList: function(id) {
+      $('#scene-select #edges-list').empty();
+      $('#scene-select #edges-list').append(
+        '<option value="" selected>編集するリンクを選択</option>');
+      Util.sortEdges();
+      scenario.edges.forEach(function(value) {
+        if (value.from === id) {
+          $('<option></option>')
+            .attr('value', value.id)
+            .text(`${value.to}: ${value.label}`)
+            .appendTo('#scene-select #edges-list');
+        }
+      });
+    },
+
     // 指定されたシーンの情報をフォームに反映
     setSceneInfo: function(id) {
       if (id !== undefined) {
@@ -320,17 +351,19 @@ $(function () {
         editor.clearSelection();
 
         // リンクリストを生成
-        $('#scene-select #edges-list').empty();
-        $('#scene-select #edges-list').append(
-          '<option value="" selected>編集するリンクを選択</option>');
-        scenario.edges.forEach(function(value) {
-          if (value.from === id) {
-            $('<option></option>')
-              .attr('value', value.id)
-              .text(`${value.to}: ${value.label}`)
-              .appendTo('#scene-select #edges-list');
-          }
-        });
+        Util.createLinkList(id);
+        // $('#scene-select #edges-list').empty();
+        // $('#scene-select #edges-list').append(
+        //   '<option value="" selected>編集するリンクを選択</option>');
+        // Util.sortEdges();
+        // scenario.edges.forEach(function(value) {
+        //   if (value.from === id) {
+        //     $('<option></option>')
+        //       .attr('value', value.id)
+        //       .text(`${value.to}: ${value.label}`)
+        //       .appendTo('#scene-select #edges-list');
+        //   }
+        // });
       }
     },
     // 指定されたエッジを取得
@@ -1717,6 +1750,7 @@ $(function () {
   // ［シーン］タブ内での更新
   $('#scene-select input:not(.no-update), #scene-select select:not(.no-update)').on('input', function(e) {
     let id = $('#scene-select #id').val();
+    console.log(`scene_input ${id}`);
     if (id) {
       let scene = Util.getSceneById(id);
       scene[e.target.id] = $(this).val();
@@ -1724,6 +1758,10 @@ $(function () {
         scene.label = scene.id + ':\n' + scene.summary;
         Util.createNetwork();
         network.selectNodes([ scene.id ]);
+      } else if (e.target.id === 'fixed') {
+        if(!$(this).prop('checked')) {
+          scene[e.target.id] = undefined;
+        }
       } else if (e.target.id === 'end') {
         // end属性にグループ付与
         Util.setGroupByEnd($(this).val(), scene);
@@ -1731,7 +1769,6 @@ $(function () {
         network.selectNodes([ scene.id ]);
       }
     }
-    console.log('scene_input');
   });
 
   // ［シーン］タブ内でのアイテム処理
@@ -2117,6 +2154,12 @@ $(function () {
     let id = $('#scene-attr #id').val();
     Util.deleteScene(id);
     Util.createNetwork();
+  });
+
+  // リンク選択ボックスを生成
+  $('#scene #edges-list').focus(function(e) {
+    let id = $('#scene-attr #id').val();
+    Util.createLinkList(id);
   });
 
   // リンク追加ダイアログ

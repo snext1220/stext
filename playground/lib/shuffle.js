@@ -65,8 +65,10 @@ class StextShuffle {
   rewriteIdForFixedScene() {
       let that = this;
       let fixed_keys = Object.keys(this.fixed);
-      this.scenario.scenes.forEach(function(s, index) {
+      this.scenario.scenes.forEach(function(s, index) {      
         if (fixed_keys.includes(s.old_id)) {
+            console.log(`${s.id} / ${s.old_id}: ${s.text}`);
+            console.log(that.searchSceneById(s.old_id));
             that.searchSceneById(s.old_id).id = s.id;
             s.id = s.old_id;
         }
