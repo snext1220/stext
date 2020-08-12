@@ -465,16 +465,17 @@ $(function () {
               color: '#96f',
             }
           },
-          layout: {
-            improvedLayout: false,
-            hierarchical: {
-              enabled: true,
-              levelSeparation: 100,
-              direction: 'UD',
-              sortMethod: 'directed',
-              treeSpacing: 70,
-            }
-          },
+          // ★フロチャ調整用★
+          // layout: {
+          //   improvedLayout: false,
+          //   hierarchical: {
+          //     enabled: true,
+          //     levelSeparation: 100,
+          //     direction: 'UD',
+          //     sortMethod: 'directed',
+          //     treeSpacing: 70,
+          //   }
+          // },
           manipulation: {
             //enabled: true
             addNode: function(data, callback) {
@@ -2281,12 +2282,21 @@ $(function () {
 
   // ［ダウンロード］ボタン（コンテキストメニュー）
   $('#dl-menu li').click(function(e) {
+    // ★フロチャ調整用★
+    // 現在位置を記録
+    scenario.scenes.forEach(function(scene) {
+      let pos = network.getPositions(scene.id)[scene.id];
+      scene.x = pos.x;
+      scene.y = pos.y;
+    });
     switch($(this).data('command')) {
       case 'json':
-        scenario.scenes.forEach(function(scene) {
-          delete scene.x;
-          delete scene.y;
-        });
+        // ★フロチャ調整用★
+        // 現在位置を破棄（固定位置用）
+        // scenario.scenes.forEach(function(scene) {
+        //   delete scene.x;
+        //   delete scene.y;
+        // });
         Util.download(vkbeautify.json(JSON.stringify(scenario)), 'stext.json');  
         break;
       case 'xml':
