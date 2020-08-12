@@ -38,7 +38,7 @@ class StextShuffle {
     }); 
   }
 
-  // 固定されたシーンを取得
+  // 固定されたシーンを取得（「旧id: 新id」形式）
   searchFixedScene() {
     let that = this;
     this.fixed = {};
@@ -49,6 +49,7 @@ class StextShuffle {
     });
   }
 
+  // 指定のidに等しいシーンを取得
   searchSceneById(id) {
       return this.scenario.scenes.find(function(s) {
         return s.id === id;
@@ -69,8 +70,17 @@ class StextShuffle {
         if (fixed_keys.includes(s.old_id)) {
             console.log(`${s.id} / ${s.old_id}: ${s.text}`);
             console.log(that.searchSceneById(s.old_id));
-            that.searchSceneById(s.old_id).id = s.id;
-            s.id = s.old_id;
+            
+            // 固定id（old_id）を現在持っているシーンを取得
+            let to_scene = that.searchSceneById(s.old_id);
+            if (to_scene) {
+              // 存在する場合はスワップ
+              to_scene.id = s.id;
+              s.id = s.old_id;
+            } else {
+              // 空の場合は、現在のシーンidを修正
+              s.id = s.old_id;
+            }
         }
       });
   }
