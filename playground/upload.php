@@ -65,7 +65,7 @@ if (empty($_POST) && $_SERVER["REQUEST_METHOD"] === "POST") {
     print('NG: Security Error!!');
     $success = false;
 } else {
-    $path = './post/'.$_POST['key'];
+    $path = '../stext/'.$_POST['key'];
 
     // フォルダーが存在する場合は削除
     if (file_exists($path)) {
