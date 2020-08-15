@@ -54,6 +54,7 @@
   </select>
   <!-- <input id="ctrl_group" type="button" value="フィルター（Testing）" /> -->
   <input id="ctrl_shuffle" type="button" value="Shuffle" />
+  <input id="ctrl_config" type="button" value="Config" />
 </div>
 <div id="main" class="clearfix">
   <div id="flow-area"></div>
@@ -632,6 +633,26 @@
   <textarea id="sidr_links_cond" rows="10"></textarea>
   <div id="sidr_links_submit" class="sidr-btn sidr-ok">確定</div>
   <div id="sidr_links_close" class="sidr-btn">閉じる</div>
+</div>
+
+<!--ダイアログ（設定）-->
+<div id="pg-config" title="Configuration">
+  <div>
+    <label>作者名：<br />
+      <input id="config-author" type="text" size="10" /></label>
+  </div>
+  <div>
+    <label>フローチャート表示モード：<br />
+      <select id="config-disp">
+        <option value="auto">自動整形</option>
+        <option value="manual">手動整形</option>
+      </select>
+    </label>
+  </div>
+  <div>
+    <label>シーンidの増分値：<br />
+      <input id="config-incre" type="number" size="5" /></label>
+  </div>
 </div>
 
 <!--ダイアログ（シーン）-->

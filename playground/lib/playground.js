@@ -3,6 +3,8 @@ $(function () {
   let network = null;
   // フローチャートの絞り込み条件
   let filter_where = [];
+  // 設定情報
+  let config = {};
   // 共通データ
   let Common = {
     HELP_URL: 'https://sorcerian.hateblo.jp/entry/2018/11/01/211745#',
@@ -12,6 +14,14 @@ $(function () {
     LOAD_NAME: 'pg2_load',
     // ストレージの一時保存名（実行時）、ウィンドウ名
     RUN_NAME: 'pg2_run',
+    // 設定の名前
+    CONFIG_NAME: 'pgflow_config',
+    // 初期設定
+    INIT_CONFIG: {
+      author: 'Unnamed',
+      disp: 'auto',
+      increment: 10
+    },
     // 初期データ
     INIT_DATA_EMPTY: {
       title: '',
@@ -130,6 +140,28 @@ $(function () {
 
   // 共通関数
   let Util = {
+    // 設定情報をロード
+    loadConfig: function() {
+      let conf = localStorage[Common.CONFIG_NAME];
+      try {
+        if (conf) {
+          return JSON.parse(conf);
+        } else {
+          return Common.INIT_CONFIG;
+        }
+      } catch(e) {
+        return Common.INIT_CONFIG;
+      }
+    },
+    // 設定情報をセーブ
+    saveConfig: function(data) {
+      if (data) {
+        localStorage[Common.CONFIG_NAME] = JSON.stringify(data);
+        return true;
+      } else {
+        return false;
+      }
+    },
     // アイテム／敵などのソート
     sortFn: function(m, n) {
       return Number(m.id.substring(1)) - Number(n.id.substring(1));
@@ -1220,6 +1252,9 @@ $(function () {
   };
 
   // ★★★★★★★★★★★★★★★★★★★★★★Entry Point★★★★★★★★★★★★★★★★★★★★★★★★★★★
+  // 設定情報
+  let global_config = Util.loadConfig();
+  // シナリオデータ
   let scenario;
   // Editor2Flow
   if (localStorage['editor2flow']) {
@@ -1235,7 +1270,12 @@ $(function () {
   }
   if (!scenario) {
     scenario = $.extend(true, {}, Common.INIT_DATA);
+    // 著者情報を初期化
+    scenario.author = global_config.author;
   }
+  // 初期化時に増分値を設定
+  $('#ctrl_incre').val(global_config.increment);
+
   // 初期化時にアイテム／フラグ等をソート
   Util.sortScenario();
 
@@ -1400,6 +1440,40 @@ $(function () {
   $('#scene label').dblclick(function(e) {
     let id = $(this).find('input, select').attr('id');
     window.open(Common.HELP_URL + id, 'help');
+  });
+
+  // ダイアログを初期化（設定情報）
+  $('#pg-config').dialog({
+    autoOpen: false,
+    width: 320,
+    show: 500,
+    hide: 500,
+    modal: true,
+    position: {
+      of : '#flow-area',
+      at: 'left top',
+      my: 'left top',
+    },
+    open: function() {
+      $('#config-author').val(global_config.author);
+      $('#config-disp').val(global_config.disp);
+      $('#config-incre').val(global_config.increment);
+    },
+    buttons: {
+      '確定': function() {
+        // 設定情報を反映
+        global_config.author = $('#config-author').val();
+        global_config.disp = $('#config-disp').val();
+        global_config.increment = $('#config-incre').val();
+        // ボックスにも反映
+        $('#ctrl_incre').val(global_config.increment);
+        Util.saveConfig(global_config);
+        $(this).dialog('close');
+      },
+      'キャンセル': function() {
+        $(this).dialog('close');
+      }
+    }
   });
 
   // ダイアログを初期化（シーン生成）
@@ -2520,5 +2594,10 @@ $(function () {
     s.run();
     localStorage.setItem(Common.MY_STORAGE, JSON.stringify(s.scenario));
     console.log(s.scenario);
+  });
+
+  // 設定ダイアログテスト
+  $('#ctrl_config').click(function() {
+    $('#pg-config').dialog('open');
   });
 });
