@@ -12,7 +12,7 @@
 	<licence>
 		<work name="Sonorously Box(letter-main01)" category="bgm" creator="フリー音楽素材MusMus(watson)" url="http://musmus.main.jp/"></work>
 	</licence>
-	<scene id="0" summary="自己紹介" group="prologue" x="-641">![おたよりコーナー](letter001.png)
+	<scene id="0" summary="自己紹介" group="prologue" exclude="true" x="-589">![おたよりコーナー](letter001.png)
 ### ソーサリアンTextのおたよりコーナー（2020.08.15更新）
 　ヤッホー、みんな元気しているかい？
 　俺達は、これからみんなのお便りを紹介するという体で「ソーサリアンText」の疑問やトラブル解決方法を随時紹介してゆく、DJの万年便利屋・ソーサリアンさ。
@@ -27,17 +27,15 @@
 [【遊び方】シナリオの遊び方について（2020.08.15更新）](5)
 [【制作】シナリオの作り方について（2020.08.15更新）](8)
 [【投稿】シナリオが完成しました！（2020.08.15更新）](10)</scene>
-	<scene id="1" summary="STextの概要" x="-436">### ソーサリアン Textの概要
+	<scene id="1" summary="STextの概要" x="-377">### ソーサリアンTextの概要
 
 ![アイリーナ](letter005.png)
 　ここでは「そもそもソーサリアンTextってどういうものなの？」という基本情報について答えているよ。
 
-%red%※各ページは、ブラウザバックでお戻りください%/%
-
-[ソーサリアン Textって何ですか？](2)
+[ソーサリアンTextって何ですか？](2)
 [シナリオって何ですか？](4)
 [ソーサリアンってどんなゲーム？](3)</scene>
-	<scene id="2" summary="STextって何ですか？" x="-143">### ソーサリアンTextって何ですか？
+	<scene id="2" summary="STextって何ですか？" x="-31">### ソーサリアンTextって何ですか？
 　Twitterをやっていると「ソーサリアンText」や「SText」というゲームのタイトルのようなものをよく目にします。
 　これってどういうものなのでしょうか？
 ***
@@ -52,11 +50,10 @@
 　（2020.08.15現在）
 ***
 【参照】
-1. ソーサリアンTextサイト「ソーサリアンTextとは！？」
-https://www.web-deli.com/sorcerian/text/about.aspx
+1. ソーサリアンTextサイト「ソーサリアンとは！？」&lt;br&gt;https://www.web-deli.com/sorcerian/text/about_sor.aspx
 
-</scene>
-	<scene id="3" summary="ソーサリアンってどんなゲーム？" x="-109">### ソーサリアンってどんなゲーム？
+[「ソーサリアンTextの概要」へ戻る](1)</scene>
+	<scene id="3" summary="ソーサリアンってどんなゲーム？" x="0">### ソーサリアンってどんなゲーム？
 
 　原作の「ソーサリアン」というゲームのタイトルは見掛けたことがあります。
 　でも、どんなゲームなのか詳しくは知りません。
@@ -81,11 +78,10 @@ https://www.web-deli.com/sorcerian/text/about.aspx
 　（2020.08.15現在）
 ***
 【参照】
-1. ソーサリアンTextサイト「ソーサリアンとは！？」
-https://www.web-deli.com/sorcerian/text/about_sor.aspx
+1. ソーサリアンTextサイト「ソーサリアンとは！？」&lt;br&gt;https://www.web-deli.com/sorcerian/text/about_sor.aspx
 
-</scene>
-	<scene id="4" summary="シナリオって何ですか？" x="-133">### シナリオって何ですか？
+[「ソーサリアンTextの概要」へ戻る](1)</scene>
+	<scene id="4" summary="シナリオって何ですか？" x="-27">### シナリオって何ですか？
 　ソーサリアンTextでは、よく「シナリオ（Scenario）」という言葉が使われていますね。
 　これはどういう意味で使われているのでしょうか？
 ***
@@ -98,29 +94,26 @@ https://www.web-deli.com/sorcerian/text/about_sor.aspx
 　（2020.08.15現在）
 ***
 【参照】
-1. ソーサリアンText「シナリオ」
-https://www.web-deli.com/sorcerian/text/scena.aspx
+1. ソーサリアンText「シナリオ」&lt;br&gt;https://www.web-deli.com/sorcerian/text/scena.aspx
 
-</scene>
-	<scene id="5" summary="シナリオの遊び方について" x="-403">### シナリオの遊び方について
+[「ソーサリアンTextの概要」へ戻る](1)</scene>
+	<scene id="5" summary="シナリオの遊び方について" x="-335">### シナリオの遊び方について
 
 ![ゴルカス](letter004.png)
 　ここでは「ソーサリアンTextのシナリオってどう遊べばいいんだ？」という遊び方についての疑問に答えているぜ。
 
-%red%※各ページは、ブラウザバックでお戻りください%/%
-
 [原作を知らなくてもシナリオで遊べますか？](7)
 [シナリオを楽しむのための環境は？](6)</scene>
-	<scene id="6" summary="シナリオを楽しむための環境は？" x="103">### シナリオを楽しむための環境は？
+	<scene id="6" summary="シナリオを楽しむための環境は？" x="-4">### シナリオを楽しむための環境は？
 　ソーサリアンTextのシナリオで遊びたいと思っています。
 　でも、パソコンでしか遊べないのでしょうか？
 　シナリオで遊ぶための推奨環境について教えてください。
 ***
 ![クリスティ](letter003.png)%blue%
-　ソーサリアンTextのシナリオは、パソコンでもスマートフォンでも遊べるわよ。
-　ブラウザは、Google Chrome、Microsoft Edeg、Safariで動作確認を行っているわね。%/%
+　ソーサリアンTextのシナリオは、「パソコン」でも「スマートフォン」でも遊べるわよ。
+　ブラウザは、「Google Chrome、Microsoft Edeg、Safari」で動作確認を行っているわね。%/%
 　
-　パソコンとスマートフォンで画面の表示が少し違って見えると思うけども、それぞれの環境で操作し易いように調節してあるだけだから心配しないでね。
+　パソコンとスマートフォンで画面の表示が少し違って見えると思うけども、それぞれの環境で操作し易いように自動調整されているだけだから心配しないでね。
 
 　でも、ソーサリアンTextは、システムを日々改良したり、新しい機能の追加を行っているものだから、スタッフの予期せぬ不具合が見つかるなんてことも少なくないの。
 　
@@ -128,21 +121,19 @@ https://www.web-deli.com/sorcerian/text/scena.aspx
 　（2020.08.15現在）
 ***
 【参照】
-1. ソーサリアンText 障害時マニュアル
-https://sorcerian.hateblo.jp/entries/2018/06/18
+1. ソーサリアンText障害時マニュアル&lt;br&gt;https://sorcerian.hateblo.jp/entries/2018/06/18
 
-</scene>
-	<scene id="7" summary="原作を知らなくてもシナリオで遊べますか？" x="135">### 原作を知らなくてもシナリオで遊べますか？
+[「シナリオの遊び方について」へ戻る](5)</scene>
+	<scene id="7" summary="原作を知らなくてもシナリオで遊べますか？" x="28">### 原作を知らなくてもシナリオで遊べますか？
 　ソーサリアンTextのシナリオに興味があります。
 　でも、原作のソーサリアンをよく知らないので、ちゃんと遊べるか不安です……。
 ***
 ![アイリーナ](letter005.png)
 　心配しなくても大丈夫！
-　
-　「ソーサリアンText」の基本ルールやシステムは、原作の設定やシステムを参考にして考えられたものだけど、ゲームブック用にアレンジしているのよ。
+　ソーサリアンTextの基本ルールやシステムは、原作の設定やシステムを参考にして考えられたものだけど、ゲームブック用にアレンジしているのよ。
 　流石にコンピューターゲームとゲームブックでは、遊び方に違いもあるからね。
 %blue%
-　だから、「ソーサリアンText」のシナリオは、原作を知らなくても基本ルールを覚えればファンタジー系のゲームブックとして遊べるわ。%/%
+　だから、ソーサリアンTextのシナリオは、原作を知らなくても基本ルールを覚えればファンタジー系のゲームブックとして遊べるわ。%/%
 
 　もちろん、原作由来の設定やアイテム、キャラクターが出てくるから、原作を知っているとニヤリとできるところも多いけれどね。
 　でも、そこは必ずしも重要じゃないから安心していいわよ。
@@ -152,29 +143,25 @@ https://sorcerian.hateblo.jp/entries/2018/06/18
 　（2020.08.15現在）
 ***
 【参照】
-1. ソーサリアンTextサイト「ソーサリアンとは！？」
-https://www.web-deli.com/sorcerian/text/about_sor.aspx
+1. ソーサリアンTextサイト「ソーサリアンとは！？」&lt;br&gt;https://www.web-deli.com/sorcerian/text/about_sor.aspx
 
-2. ソーサリアンText プレイヤー向けマニュアル
-https://sorcerian.hateblo.jp/entries/2017/12/20
+2. ソーサリアンText プレイヤー向けマニュアル&lt;br&gt;https://sorcerian.hateblo.jp/entries/2017/12/20
 
-</scene>
-	<scene id="8" summary="シナリオの作り方について" x="-401">### シナリオの作り方について
+[「シナリオの遊び方について」へ戻る](5)</scene>
+	<scene id="8" summary="シナリオの作り方について" x="-331">### シナリオの作り方について
 
 ![クリスティ](letter003.png)
 　ここでは「ソーサリアンTextのシナリオってどう作ればいいの？」という作り方についての疑問に答えているわよ。
 
-%red%※各ページは、ブラウザバックでお戻りください%/%
-
 [シナリオを作るにはどうしたらいいですか？](9)
 [シナリオでBGMが流れません……](13)</scene>
-	<scene id="9" summary="シナリオを作るにはどうしたらいいですか？" x="37">### シナリオを作るにはどうしたらいいですか？
-　「ソーサリアンText」のシナリオを作るのが初めてだったり、そもそもゲームブックのシナリオを作るのが初めてという人には、シナリオ制作から投稿までハードルが高いように思います。
+	<scene id="9" summary="シナリオを作るにはどうしたらいいですか？" x="34">### シナリオを作るにはどうしたらいいですか？
+　ソーサリアンTextのシナリオを作るのが初めてだったり、そもそもゲームブックのシナリオを作るのが初めてという人には、シナリオ制作から投稿までハードルが高いように思います。
 
-　そこでお願いなのですが、「ソーサリアンText」のシナリオ制作のコツを教えていただけないでしょうか？
+　そこでお願いなのですが、ソーサリアンTextのシナリオ制作のコツを教えていただけないでしょうか？
 ***
 ![クリスティ](letter003.png)
-　「ソーサリアンText」のシナリオを作る方法は色々あるわ。%blue%
+　ソーサリアンTextのシナリオを作る方法は色々あるわ。%blue%
 　その中でも一押しなのは、スタッフが有志と共同開発している「Playground Flow」というシナリオ制作支援ツールね。%/%
 
 　「Playground Flow」は、ブラウザ上で「シナリオの執筆・シナリオの動作確認・完成したシナリオの投稿」まで出来ちゃう機能盛り沢山のツールなの。
@@ -192,33 +179,27 @@ https://sorcerian.hateblo.jp/entries/2017/12/20
 　（2020.08.15現在）
 ***
 【参照】
-1. Playground Flow
-https://www.web-deli.com/sorcerian/text/playground/
+1. Playground Flow&lt;br&gt;https://www.web-deli.com/sorcerian/text/playground/
 
-2. ソーサリアンText 開発者向けマニュアル（Playground Flow編）
-https://sorcerian.hateblo.jp/entry/2019/05/03/211951
+2. ソーサリアンText 開発者向けマニュアル（Playground Flow編）&lt;br&gt;https://sorcerian.hateblo.jp/entry/2019/05/03/211951
 
-3. ソーサリアンText プレイヤー向けマニュアル
-https://sorcerian.hateblo.jp/entries/2017/12/20
+3. ソーサリアンText プレイヤー向けマニュアル&lt;br&gt;https://sorcerian.hateblo.jp/entries/2017/12/20
 
-4. Twitterアカウント「ソーサリアン Next」
-https://twitter.com/snext1220
+4. Twitterアカウント「ソーサリアン Next」&lt;br&gt;https://twitter.com/snext1220
 
-</scene>
-	<scene id="10" summary="シナリオが完成しました！" x="-395">### シナリオが完成しました！
+[「シナリオの作り方について」へ戻る](8)</scene>
+	<scene id="10" summary="シナリオが完成しました！" x="-328">### シナリオが完成しました！
 
 ![デュエル](letter002.png)
 　ここでは「ソーサリアンTextのシナリオが完成したけど、投稿ってどうすれば？」というシナリオの投稿に関する疑問に答えているぜ。
 　最後にもうひと踏ん張りだ。頑張っていこう！
 
-%red%※各ページは、ブラウザバックでお戻りください%/%
-
 [シナリオをすぐに投稿してもいいの？](11)
 [シナリオのチェックが終わったので投稿したい](12)</scene>
-	<scene id="11" summary="シナリオをすぐに投稿してもいいの？" x="15">### シナリオをすぐに投稿してもいいの？
-　とうとう「ソーサリアンText」のシナリオが完成しました！
-　初めてのシナリオ投稿ですが、頑張って作りました！
-　でも、すぐに投稿してしまっても良いのでしょうか？
+	<scene id="11" summary="シナリオをすぐに投稿してもいいの？" x="20">### シナリオをすぐに投稿してもいいの？
+　とうとうソーサリアンTextのシナリオが完成しました！
+　初めてのシナリオ制作で大変でしたが、頑張って作りました！
+　でも、すぐにシナリオを投稿してしまっても良いのでしょうか？
 ***
 ![デュエル](letter002.png)
 　シナリオ完成おめでとう！
@@ -236,33 +217,30 @@ https://twitter.com/snext1220
 
 　ただ、どんなにチェックしていても、誤字脱字や設定ミスを見落とすケースもよくあることだからさ、投稿後に気付いたとしても気落ちしないでくれよな。
 　
-　あと、どんなに調べても不具合の起こる原因が分からない時だってあるよな。
-　そういう時は気兼ねなくTwitterのNext王さまやスタッフに尋ねてくれ。
+　あと、不具合の原因をいくら調べても分からない時だってあると思うんだ。
+　そういう時は、気兼ねなくTwitterのNext王さまやスタッフに尋ねてくれ。
 　
 　スタッフもそうやってシナリオを制作して公開している訳だしさ、一緒に考えて問題を解決しようぜ！
 　（2020.08.15現在）
 ***
 【参照】
-1. ソーサリアンText「シナリオの投稿方法（推奨）」
-https://www.web-deli.com/sorcerian/text/post.aspx
+1. ソーサリアンText「シナリオの投稿方法（推奨）」&lt;br&gt;https://www.web-deli.com/sorcerian/text/post.aspx
 
-2. Playground Flow
-https://www.web-deli.com/sorcerian/text/playground/
+2. Playground Flow&lt;br&gt;https://www.web-deli.com/sorcerian/text/playground/
 
-3. ソーサリアンText 開発者向けマニュアル（Playground Flow編）
-https://sorcerian.hateblo.jp/entry/2019/05/03/211951
+3. ソーサリアンText 開発者向けマニュアル（Playground Flow編）&lt;br&gt;https://sorcerian.hateblo.jp/entry/2019/05/03/211951
 
-4. Twitterアカウント「ソーサリアン Next」
-https://twitter.com/snext1220
+4. Twitterアカウント「ソーサリアン Next」&lt;br&gt;https://twitter.com/snext1220
 
-</scene>
-	<scene id="12" summary="シナリオのチェックが終わったので投稿したい" x="-45">### シナリオのチェックが終わったので投稿したい
+[「シナリオが完成しました！」へ戻る](10)</scene>
+	<scene id="12" summary="シナリオのチェックが終わったので投稿したい" x="41">### シナリオのチェックが終わったので投稿したい
 　「ソーサリアンText」の自作シナリオに誤字や不具合などがないかチェックしました。
 　チェックが終わり、ミスがあったところは修正したので、そろそろシナリオを投稿したいと思っています。
 　でも、どうやってシナリオを投稿すれば良いのでしょうか？
 ***
-![アイリーナ](letter005.png)%blue%
-　シナリオの投稿方法は2つあるけど、オススメなのは「Playground Flow」の「シナリオを投稿」ボタンからの投稿かな。%/%
+![アイリーナ](letter005.png)
+　シナリオの投稿方法は2つあるわ。%blue%
+　そこでオススメするのは「Playground Flow」の「シナリオを投稿」ボタンからの投稿かな。%/%
 　唯一の緑色枠のボタンが投稿ボタンよ。分かりやすいでしょ？
 
 　まずは「Playground Flow」で投稿したいシナリオのファイルを「シナリオをインポート」ボタンを押して読み込むの。
@@ -270,27 +248,23 @@ https://twitter.com/snext1220
 　次に「シナリオを投稿」ボタンを押して必要な情報を入力したら、ここでいよいよ「投稿」ボタンをポチーッとね！
 　これでシナリオの投稿は完了よ！　ここまでお疲れ様でした！
 %blue%
-　シナリオ投稿後にはなんと、自分で用意した画像やBGMが反映されたシナリオのテストプレイを行うことができるURLがメールで送られてくるんだ。%/%
+　シナリオ投稿後にはなんと、自分で用意した画像やBGMが反映されたシナリオのテストプレイを行うことができるURLがメールで送られてくるのよ！%/%
 　
 　そうすれば、自分やスタッフだけじゃなくて、お友達とも一緒にテストプレイを行うことができるようになるわ。
 　どんどん活用してシナリオの完成度を高めましょう！
 　（2020.08.15現在）
 ***
 【参照】
-1. ソーサリアンText「シナリオの投稿方法（推奨）」
-https://www.web-deli.com/sorcerian/text/post.aspx
+1. ソーサリアンText「シナリオの投稿方法（推奨）」&lt;br&gt;https://www.web-deli.com/sorcerian/text/post.aspx
 
-2. Playground Flow
-https://www.web-deli.com/sorcerian/text/playground/
+2. Playground Flow&lt;br&gt;https://www.web-deli.com/sorcerian/text/playground/
 
-3. ソーサリアンText 開発者向けマニュアル（Playground Flow編）
-https://sorcerian.hateblo.jp/entry/2019/05/03/211951
+3. ソーサリアンText 開発者向けマニュアル（Playground Flow編）&lt;br&gt;https://sorcerian.hateblo.jp/entry/2019/05/03/211951
 
-4. Twitterアカウント「ソーサリアン Next」
-https://twitter.com/snext1220
+4. Twitterアカウント「ソーサリアン Next」&lt;br&gt;https://twitter.com/snext1220
 
-</scene>
-	<scene id="13" summary="シナリオでBGMが流れません……" x="-26">### シナリオでBGMが流れません……
+[「シナリオが完成しました！」へ戻る](10)</scene>
+	<scene id="13" summary="シナリオでBGMが流れません……" x="7">### シナリオでBGMが流れません……
 　シナリオ内でBGMが流れるように設定したのですが、テストプレイでBGMが流れません。
 　どうしてBGMが流れないのでしょうか？
 ***
@@ -318,12 +292,14 @@ https://twitter.com/snext1220
 　（2020.08.15現在）
 ***
 【参照】
-1. ソーサリアンText 開発者向けマニュアル（Playground Flow編）
-https://sorcerian.hateblo.jp/entry/2018/11/01/211745#bgm
+1. ソーサリアンText 開発者向けマニュアル（Playground Flow編）&lt;br&gt;https://sorcerian.hateblo.jp/entry/2018/11/01/211745#bgm
+%red%※Playground Flowの仕様上、「#bgm」の箇所が無効化されています%/%
 
 2. 標準BGMリスト「SORCERIAN TEXT Original Sounds（VENUS AZ
-様）」
-https://soundcloud.com/venus-az/sets/sorcerian-text-original-sounds/s-2tzI5
+様）」&lt;br&gt;https://soundcloud.com/venus-az/sets/sorcerian-text-original-sounds/s-2tzI5
 
-</scene>
+[「シナリオの作り方について」へ戻る](8)</scene>
+	<scene id="99998" summary="トップへ戻る" x="-580">&lt;br&gt;
+
+[トップへ戻る](0)</scene>
 </scenario>
