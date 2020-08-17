@@ -4097,6 +4097,11 @@
       $('.scenebtn:hidden + br', target).remove();
       $('a[title]:hidden', target).remove();
 
+      // リンクURLに含まれる<em>タグをアンダースコアに書き戻し
+      $('a[data-link="auto"]', target).attr('href', function(index, old) {
+        return old.split('<em>').join('_');
+      });
+
       /* BGM再生 */
       // save_data.bgm→bgm属性の順で再生曲を設定
       var at_bgm = scene.nsAttr('bgm');
