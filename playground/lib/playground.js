@@ -374,6 +374,8 @@ $(function () {
         $('#scene-select #int_max').val(scene.int_max);
         $('#scene-select #dex_max').val(scene.dex_max);
         $('#scene-select #krm_max').val(scene.krm_max);
+        $('#scene-select #fixed').prop('checked', !!scene.fixed);
+        $('#scene-select #exclude').prop('checked', !!scene.exclude);
         if (scene.text) {
           editor.setValue(scene.text);
         } else {
