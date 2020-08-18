@@ -1833,6 +1833,10 @@ $(function () {
         scene.label = scene.id + ':\n' + scene.summary;
         Util.createNetwork();
         network.selectNodes([ scene.id ]);
+      } else if (e.target.id === 'exclude') {
+        if(!$(this).prop('checked')) {
+          scene[e.target.id] = undefined;
+        }
       } else if (e.target.id === 'fixed') {
         if(!$(this).prop('checked')) {
           scene[e.target.id] = undefined;
