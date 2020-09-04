@@ -209,6 +209,10 @@ $(function () {
         return value.id === id;
       })
     },
+    // 指定のidが既存のシーンに存在するか
+    existScene: function(id) {
+      return !Util.isDuplicateScene(id);
+    },
     // 指定の情報でノードを生成
     addNode(id, summary) {
       if (Util.isDuplicateScene(id)) {
@@ -1163,7 +1167,8 @@ $(function () {
         }
         // sceneオブジェクト生成
         let s_obj = Util.elementToObj(
-          $(elem).text(body.replace(link, '').trimEnd()),
+          $(elem).text(body.replace(link, '')),
+          //$(elem).text(body.replace(link, '').trimEnd()),
           true);
         if(Number(s_obj.id) === 0) {
           s_obj.group = 'prologue';
@@ -1619,6 +1624,11 @@ $(function () {
         // リンク先の必須チェック
         if (!to) {
           toastr.error(`リンク先のidは必須です。`, '不正な値');
+          return;  
+        }
+        // リンク先の存在チェック
+        if (Util.existScene(to)) {
+          toastr.error(`リンク先のidが存在しません。`, '不正な値');
           return;  
         }
         // 追加情報の必須チェック
