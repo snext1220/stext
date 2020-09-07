@@ -231,6 +231,58 @@ $(function () {
         return true;
       }
     },
+    // 指定のScene Idを変更
+    changeNodeId(old_id, new_id) {
+      scenario.scenes.forEach(function(scene) {
+        if (String(scene.id) === old_id) {
+          scene.id = new_id;
+          scene.label = `${new_id}\n${scene.summary}`;
+        }
+      });
+      scenario.edges.forEach(function(edge) {
+        if (String(edge.from) === old_id) {
+          edge.from = new_id;
+        }
+        if (String(edge.to) === old_id) {
+          edge.to = new_id;
+        }
+      });
+    },
+    // 指定のScene Idを入替
+    swapNodeId(old_id, new_id) {
+      scenario.scenes.forEach(function(scene) {
+        if (String(scene.id) === old_id) {
+          scene.id = new_id;
+          scene.label = `${new_id}\n${scene.summary}`;
+          return; // スキップ
+        }
+        if (String(scene.id) === new_id) {
+          scene.id = old_id;
+          scene.label = `${old_id}\n${scene.summary}`;
+        }
+      });
+      scenario.edges.forEach(function(edge) {
+        // from、toを処理済みか
+        let done_from = false;
+        let done_to = false;
+        if (String(edge.from) === old_id) {
+          edge.from = new_id;
+          done_from = true;
+        }
+        if (String(edge.to) === old_id) {
+          edge.to = new_id;
+          done_to = true;
+        }
+        // done_xxxx：処理済みのものを重ねて処理しない
+        if (!done_from && String(edge.from) === new_id) {
+          edge.from = old_id;
+        }
+        if (!done_to && String(edge.to) === new_id) {
+          edge.to = old_id;
+        }
+      });
+      console.log(scenario);
+    },
     // 指定の情報でリンクidを生成
     generateLinkId: function(from, to) {
       return `custom${from}-${to}-${Math.floor( Math.random() * 100000 )}`;
@@ -1559,24 +1611,28 @@ $(function () {
       '変更': function() {
         let old_id = $('#old-id').val();
         let new_id = $('#new-id').val();
+        // new_idが既存の場合は入れ替え、さもなくば旧idを新idに
         if (Util.isDuplicateScene(new_id)) {
-          toastr.error('id値が重複しています。', '不正なid');
-          return;
+          Util.swapNodeId(old_id, new_id);
+          // toastr.error('id値が重複しています。', '不正なid');
+          // return;
+        } else {
+          Util.changeNodeId(old_id, new_id);
         }
-        scenario.scenes.forEach(function(scene) {
-          if (String(scene.id) === old_id) {
-            scene.id = new_id;
-            scene.label = `${new_id}\n${scene.summary}`;
-          }
-        });
-        scenario.edges.forEach(function(edge) {
-          if (String(edge.from) === old_id) {
-            edge.from = new_id;
-          }
-          if (String(edge.to) === old_id) {
-            edge.to = new_id;
-          }
-        });
+        // scenario.scenes.forEach(function(scene) {
+        //   if (String(scene.id) === old_id) {
+        //     scene.id = new_id;
+        //     scene.label = `${new_id}\n${scene.summary}`;
+        //   }
+        // });
+        // scenario.edges.forEach(function(edge) {
+        //   if (String(edge.from) === old_id) {
+        //     edge.from = new_id;
+        //   }
+        //   if (String(edge.to) === old_id) {
+        //     edge.to = new_id;
+        //   }
+        // });
         Util.createNetwork();
         network.selectNodes([ new_id ]);
         Util.setSceneInfo(new_id);
@@ -2608,11 +2664,14 @@ $(function () {
   $('#ctrl_shuffle').click(function() {
     let s = new StextShuffle(scenario);
     s.run();
-    localStorage.setItem(Common.MY_STORAGE, JSON.stringify(s.scenario));
-    console.log(s.scenario);
+    scenario = JSON.parse(JSON.stringify(s.scenario));
+    Util.createNetwork();
+    Util.disableTab();
+    // localStorage.setItem(Common.MY_STORAGE, JSON.stringify(s.scenario));
+    // console.log(s.scenario);
   });
 
-  // 設定ダイアログテスト
+  // 設定ダイアログ
   $('#ctrl_config').click(function() {
     $('#pg-config').dialog('open');
   });
