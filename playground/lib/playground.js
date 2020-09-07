@@ -556,16 +556,16 @@ $(function () {
             }
           },
           // ★フロチャ調整用★
-          // layout: {
-          //   improvedLayout: false,
-          //   hierarchical: {
-          //     enabled: true,
-          //     levelSeparation: 100,
-          //     direction: 'UD',
-          //     sortMethod: 'directed',
-          //     treeSpacing: 70,
-          //   }
-          // },
+          layout: {
+            improvedLayout: false,
+            hierarchical: {
+              enabled: true,
+              levelSeparation: 100,
+              direction: 'UD',
+              //sortMethod: 'directed',
+              treeSpacing: 70,
+            }
+          },
           manipulation: {
             //enabled: true
             addNode: function(data, callback) {
