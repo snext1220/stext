@@ -2506,6 +2506,25 @@ $(function () {
     }
   );
 
+  // シャッフル
+  $('#ctrl_shuffle').click(function() {
+    if (!confirm('全シーンidをシャッフルします。\nこの操作は元に戻せませんが、続けますか？')) {
+      return;
+    }
+    let s = new StextShuffle(scenario);
+    s.run();
+    scenario = JSON.parse(JSON.stringify(s.scenario));
+    Util.createNetwork();
+    Util.disableTab();
+    // localStorage.setItem(Common.MY_STORAGE, JSON.stringify(s.scenario));
+    // console.log(s.scenario);
+  });
+
+  // 設定ダイアログ
+  $('#ctrl_config').click(function() {
+    $('#pg-config').dialog('open');
+  });
+
   // テンプレート選択
   $('#ctrl_template').change(function(e) {
     var selected = $(this).val();
@@ -2652,6 +2671,8 @@ $(function () {
     '［シーン］タブから［アイテム］［フラグ］［敵］［実績］欄にフォーカスすると、サイドバーが開いて、設定済みの情報を選択できます。',
     '［シーン］タブから［HP］～［FREE3］欄にフォーカスすると、入力可能なオプションがリスト表示されます。',
     '［リンク］タブから［条件式］欄にフォーカスすると、サイドパネルに条件式生成エディターが開きます。',
+    '現在のシーンに紐づいたシーンを新規作成したいならば、［シーン］タブから［シーン追加］ボタンをクリックします。',
+    '［シーン］タブでidの［変更］ボタンをクリックすると、新しいidを振ったり、既存のidとスワップしたりできます。',
   ];
   toastr.options.closeButton = true;
   toastr.options.positionClass = 'toast-bottom-full-width';
@@ -2659,20 +2680,4 @@ $(function () {
   toastr.options.hideDuration = 1000;
   toastr.options.timeOut = 7000;
   toastr.info(tips[Math.floor(Math.random() * tips.length)], 'TIPS');
-
-  // シャッフルテスト
-  $('#ctrl_shuffle').click(function() {
-    let s = new StextShuffle(scenario);
-    s.run();
-    scenario = JSON.parse(JSON.stringify(s.scenario));
-    Util.createNetwork();
-    Util.disableTab();
-    // localStorage.setItem(Common.MY_STORAGE, JSON.stringify(s.scenario));
-    // console.log(s.scenario);
-  });
-
-  // 設定ダイアログ
-  $('#ctrl_config').click(function() {
-    $('#pg-config').dialog('open');
-  });
 });
