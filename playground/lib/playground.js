@@ -1,4 +1,80 @@
 $(function () {
+  class LevelResolver {
+    constructor(scenario) {
+      this.scenario = JSON.parse(JSON.stringify(scenario));
+      this.level = {};
+      this.maxLevel = 1;
+    }
+
+    // 走査の基点
+    run() {
+      let that = this;
+      this.traceScenes(0, 1);
+      // 記録したレベル値を書き戻し
+      this.scenario.scenes.forEach(function(scene) {
+        let level = that.level[scene.id];
+        if (level) {
+          scene.level = level;
+        } else {
+          scene.level = that.maxLevel;
+        }
+      });
+    }
+
+    // 指定されたidをキーにリンク先シーンを順に走査
+    traceScenes(id, level) {
+      let that = this;
+      // 既にレベルが存在すれば終了
+      if (this.level[id]) { return; }
+      this.level[id] = level;
+      let children = this.getToScenes(id);
+      children.forEach(function(scene) {
+        that.traceScenes(scene.id, level + 1);
+      });
+      if (this.maxLevel < level) {
+        this.maxLevel = level; 
+      }
+    }
+
+    // 指定のidからリンクしているシーンを取得
+    getToScenes(id) {
+      let to_ids = [];
+      // 現在のidがリンク元（from）であるシーンidを取得
+      this.scenario.edges.forEach(function(edge) {
+        if (String(edge.from) === String(id)) {
+          to_ids.push(edge.to);
+        }
+      });
+      // リンク先シーンをまとめて取得
+      return this.scenario.scenes.filter(function(scene) {
+        return to_ids.includes(String(scene.id));
+      });
+    }
+
+    // 以下未使用
+    // 指定のidにリンクしているシーンを取得
+    // getFromScenes(id) {
+    //   let from_ids = [];
+    //   // 現在のidにリンクしている（to）であるシーンidを取得
+    //   this.scenario.edges.forEach(function(edge) {
+    //     if (String(edge.to) === String(id)) {
+    //       from_ids.push(edge.from);
+    //     }
+    //   });
+    //   // リンク元シーンをまとめて取得
+    //   return this.scenario.scenes.filter(function(scene) {
+    //     return from_ids.includes(String(scene.id));
+    //   });
+    // }
+
+    // // 指定されたidをキーにシーンを取得
+    // getSceneById(id) {
+    //   return this.scenario.scenes.find(function(scene) {
+    //     return String(scene.id) === String(id);
+    //   });
+    // }
+  }
+
   // フローチャート
   let network = null;
   // フローチャートの絞り込み条件
@@ -2680,4 +2756,12 @@ $(function () {
   toastr.options.hideDuration = 1000;
   toastr.options.timeOut = 7000;
   toastr.info(tips[Math.floor(Math.random() * tips.length)], 'TIPS');
+
+  // 階層付けテスト
+  $('#ctrl_level').click(function() {
+    let lr = new LevelResolver(scenario);
+    lr.run();
+    localStorage.setItem(Common.MY_STORAGE, JSON.stringify(lr.scenario));
+    // console.log(s.scenario);
+  });
 });
