@@ -3,13 +3,14 @@ $(function () {
     constructor(scenario) {
       this.scenario = JSON.parse(JSON.stringify(scenario));
       this.level = {};
-      this.maxLevel = 1;
+      this.maxLevel = 1;     
     }
 
     // 走査の基点
     run() {
       let that = this;
-      this.traceScenes(0, 1);
+      let over = this.getEdgeCount();
+      this.traceScenes(0, 1);     
       // 記録したレベル値を書き戻し
       this.scenario.scenes.forEach(function(scene) {
         let level = that.level[scene.id];
@@ -18,7 +19,10 @@ $(function () {
         } else {
           scene.level = that.maxLevel;
         }
-      });
+        if (over.includes(scene.id)) {
+          scene.level = that.maxLevel + 1;
+        }
+      });      
     }
 
     // 指定されたidをキーにリンク先シーンを順に走査
@@ -49,6 +53,38 @@ $(function () {
       return this.scenario.scenes.filter(function(scene) {
         return to_ids.includes(String(scene.id));
       });
+    }
+
+    getEdgeCount() {
+      let to_id = {};
+      let from_id = {};
+      this.scenario.edges.forEach(function(edge) {
+        if (to_id[edge.to]) {
+          to_id[edge.to] += 1;
+        } else {
+          to_id[edge.to] = 1;
+        }
+        if (from_id[edge.from]) {
+          from_id[edge.from] += 1;
+        } else {
+          from_id[edge.from] = 1;
+        }
+      });
+
+      let result = [];
+      Object.keys(from_id).forEach(function(id) {
+        if (from_id[id] > 15) {
+          result.push(id);
+        }
+      });
+      Object.keys(to_id).forEach(function(id) {
+        if (to_id[id] > 15) {
+          result.push(id);
+        }
+      });
+      return result;
+      // console.log(from_id);
+      // console.log(to_id);
     }
 
     // 以下未使用
@@ -637,8 +673,13 @@ $(function () {
             hierarchical: {
               enabled: true,
               levelSeparation: 100,
+
+              nodeSpacing: 100,
+              blockShifting: true,
+              edgeMinimization: true,
+
               direction: 'UD',
-              //sortMethod: 'directed',
+              sortMethod: 'directed',
               treeSpacing: 70,
             }
           },
@@ -2506,19 +2547,19 @@ $(function () {
   $('#dl-menu li').click(function(e) {
     // ★フロチャ調整用★
     // 現在位置を記録
-    scenario.scenes.forEach(function(scene) {
-      let pos = network.getPositions(scene.id)[scene.id];
-      scene.x = pos.x;
-      scene.y = pos.y;
-    });
+    // scenario.scenes.forEach(function(scene) {
+    //   let pos = network.getPositions(scene.id)[scene.id];
+    //   scene.x = pos.x;
+    //   scene.y = pos.y;
+    // });
     switch($(this).data('command')) {
       case 'json':
         // ★フロチャ調整用★
         // 現在位置を破棄（固定位置用）
-        // scenario.scenes.forEach(function(scene) {
-        //   delete scene.x;
-        //   delete scene.y;
-        // });
+        scenario.scenes.forEach(function(scene) {
+          delete scene.x;
+          delete scene.y;
+        });
         Util.download(vkbeautify.json(JSON.stringify(scenario)), 'stext.json');  
         break;
       case 'xml':
