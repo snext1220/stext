@@ -617,10 +617,12 @@ $(function () {
       }
       return false;
     },
-    // 指定範囲でフローチャートを生成
-    createNetwork: function() {
+    // 指定範囲でフローチャートを生成（levelオプションは階層計算を行うか）
+    createNetwork: function(opts = { level: true }) {
       // 再描画前に階層構造を再計算
-      scenario = Util.updateLevel();
+      if (opts.level) {
+        scenario = Util.updateLevel();
+      }
 
       // 変更前の拡大率を保存
       let scale = 1.0;
@@ -2025,7 +2027,7 @@ $(function () {
       scene[e.target.id] = $(this).val();
       if (e.target.id === 'summary') {
         scene.label = scene.id + ':\n' + scene.summary;
-        Util.createNetwork();
+        Util.createNetwork({ level: false });
         network.selectNodes([ scene.id ]);
       } else if (e.target.id === 'exclude') {
         if(!$(this).prop('checked')) {
@@ -2198,8 +2200,11 @@ $(function () {
       edge[e.target.id] = $(this).val();
     }
     if (['from', 'to', 'label'].includes(e.target.id)) {
-    //if (e.target.id === 'label') {
-      Util.createNetwork();
+      if (e.target.id === 'label') {
+        Util.createNetwork({ level: false });
+      } else {
+        Util.createNetwork();
+      }     
       network.selectEdges([ id ]);
     }
     console.log('edge_input');
