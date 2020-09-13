@@ -19,6 +19,7 @@ $(function () {
         } else {
           scene.level = that.maxLevel;
         }
+        // 一定数以上のリンクを持つシーンは最下層に移動
         if (over.includes(scene.id)) {
           scene.level = that.maxLevel + 1;
         }
@@ -54,7 +55,7 @@ $(function () {
         return to_ids.includes(String(scene.id));
       });
     }
-
+    // シーンへのFrom/Toリンク個数をカウント（一定数以上のリンクがあるシーンを返す）
     getEdgeCount() {
       let to_id = {};
       let from_id = {};
