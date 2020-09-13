@@ -274,6 +274,12 @@ $(function () {
         return false;
       }
     },
+    // 階層付け（戻り値は階層付きシナリオデータ）
+    updateLevel() {
+      let lr = new LevelResolver(scenario);
+      lr.run();
+      return lr.scenario;
+    },
     // アイテム／敵などのソート
     sortFn: function(m, n) {
       return Number(m.id.substring(1)) - Number(n.id.substring(1));
@@ -613,6 +619,9 @@ $(function () {
     },
     // 指定範囲でフローチャートを生成
     createNetwork: function() {
+      // 再描画前に階層構造を再計算
+      scenario = Util.updateLevel();
+
       // 変更前の拡大率を保存
       let scale = 1.0;
       if (network) {
@@ -2799,10 +2808,10 @@ $(function () {
   toastr.info(tips[Math.floor(Math.random() * tips.length)], 'TIPS');
 
   // 階層付けテスト
-  $('#ctrl_level').click(function() {
-    let lr = new LevelResolver(scenario);
-    lr.run();
-    localStorage.setItem(Common.MY_STORAGE, JSON.stringify(lr.scenario));
-    // console.log(s.scenario);
-  });
+  // $('#ctrl_level').click(function() {
+  //   let lr = new LevelResolver(scenario);
+  //   lr.run();
+  //   localStorage.setItem(Common.MY_STORAGE, JSON.stringify(lr.scenario));
+  //   // console.log(s.scenario);
+  // });
 });
