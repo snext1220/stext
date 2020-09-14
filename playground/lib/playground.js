@@ -618,8 +618,11 @@ $(function () {
       }
       return false;
     },
-    // 指定範囲でフローチャートを生成（levelオプションは階層計算を行うか）
-    createNetwork: function(opts = { level: true }) {
+    // 指定範囲でフローチャートを生成
+    // level：階層計算を行うか
+    // focus_id：フォーカスするid
+    // fit：キャンバスにチャートを合わせるか
+    createNetwork: function(opts = { level: true, focus_id: null, fit: false }) {
       // 再描画前に階層構造を再計算
       if (opts.level) {
         scenario = Util.updateLevel();
@@ -839,6 +842,17 @@ $(function () {
       network.moveTo({
         scale: scale
       });
+
+      // 元々の選択ノードにフォーカス
+      if (opts.focus_id) {
+        network.focus(opts.focus_id);
+        network.selectNodes([ opts.focus_id ]);
+      }
+
+      // キャンバスサイズに合わせる
+      if (opts.fit) {
+        network.fit();
+      }
   
       // ノード選択時にフォームに反映
       network.on('selectNode', function(e) {
@@ -1468,7 +1482,8 @@ $(function () {
   Util.sortScenario();
 
   // フローチャートの初期化
-  Util.createNetwork();
+  Util.createNetwork({ fit: true });
+  // network.fit();
 
   // 基本情報を初期化
   $('#title').val(scenario.title);
@@ -1709,8 +1724,11 @@ $(function () {
           $(this).dialog('close');
           console.log(`${from}->${id}`);
           Util.addLink(from, id, '次へ');
-          Util.createNetwork();
-          network.selectNodes([ from ]);
+          Util.createNetwork({ focus_id: from });
+          // network.focus(from);
+          // network.selectNodes([ from ]);
+          //let pos = network.getPosition(from);
+
         }
       },
       'キャンセル': function() {
@@ -1762,8 +1780,8 @@ $(function () {
         //     edge.to = new_id;
         //   }
         // });
-        Util.createNetwork();
-        network.selectNodes([ new_id ]);
+        Util.createNetwork({ focus_id: new_id });
+        //network.selectNodes([ new_id ]);
         Util.setSceneInfo(new_id);
         $(this).dialog('close');
       },
@@ -1885,8 +1903,8 @@ $(function () {
         //     }
         //   );   
         // }
-        Util.createNetwork();
-        network.selectNodes([ from ]);
+        Util.createNetwork({ focus_id: from });
+        // network.selectNodes([ from ]);
         Util.setSceneInfo(from);
         $(this).dialog('close');
       },
@@ -1923,7 +1941,8 @@ $(function () {
     },
     buttons: {
       '絞り込み': function() {
-        Util.createNetwork();
+        Util.createNetwork({ fit: true });
+        //network.fit();
         $(this).dialog('close');
       },
       'キャンセル': function() {
@@ -2028,7 +2047,10 @@ $(function () {
       scene[e.target.id] = $(this).val();
       if (e.target.id === 'summary') {
         scene.label = scene.id + ':\n' + scene.summary;
-        Util.createNetwork({ level: false });
+        Util.createNetwork({
+          focus_id: scene.id,
+          level: false
+        });
         network.selectNodes([ scene.id ]);
       } else if (e.target.id === 'exclude') {
         if(!$(this).prop('checked')) {
@@ -2041,8 +2063,11 @@ $(function () {
       } else if (e.target.id === 'end') {
         // end属性にグループ付与
         Util.setGroupByEnd($(this).val(), scene);
-        Util.createNetwork();
-        network.selectNodes([ scene.id ]);
+        Util.createNetwork({
+          focus_id: scene.id,
+          level: false
+        });
+        //network.selectNodes([ scene.id ]);
       }
     }
   });
@@ -2202,13 +2227,16 @@ $(function () {
     }
     if (['from', 'to', 'label'].includes(e.target.id)) {
       if (e.target.id === 'label') {
-        Util.createNetwork({ level: false });
+        Util.createNetwork({
+          focus_id: id,
+          level: false
+        });
       } else {
-        Util.createNetwork();
+        Util.createNetwork({ focus_id: id });
       }     
-      network.selectEdges([ id ]);
+      //network.selectEdges([ id ]);
     }
-    console.log('edge_input');
+    //console.log('edge_input');
   });
 
   // サイドバーの実績欄を生成
@@ -2634,7 +2662,7 @@ $(function () {
       // デバッグ用
       // sessionStorage.setItem('flow_filter',
       //   JSON.stringify(filter_where));
-      Util.createNetwork();
+      Util.createNetwork({ fit: true });
     }
   );
 
@@ -2646,7 +2674,7 @@ $(function () {
     let s = new StextShuffle(scenario);
     s.run();
     scenario = JSON.parse(JSON.stringify(s.scenario));
-    Util.createNetwork();
+    Util.createNetwork({ fit: true });
     Util.disableTab();
     // localStorage.setItem(Common.MY_STORAGE, JSON.stringify(s.scenario));
     // console.log(s.scenario);
