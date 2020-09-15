@@ -2227,14 +2227,11 @@ $(function () {
     }
     if (['from', 'to', 'label'].includes(e.target.id)) {
       if (e.target.id === 'label') {
-        Util.createNetwork({
-          focus_id: id,
-          level: false
-        });
+        Util.createNetwork({ level: false });
       } else {
-        Util.createNetwork({ focus_id: id });
+        Util.createNetwork();
       }     
-      //network.selectEdges([ id ]);
+      network.selectEdges([ id ]);
     }
     //console.log('edge_input');
   });
