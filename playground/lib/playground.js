@@ -2221,8 +2221,8 @@ $(function () {
   // ［リンク］タブ内での更新
   $('#edge input, #edge select').on('input', function(e) {
     let id = $('#edge #id').val();
-    if (id) {
-      let edge = Util.getEdgeById(id);
+    let edge = Util.getEdgeById(id);
+    if (id) {      
       edge[e.target.id] = $(this).val();
     }
     if (['from', 'to', 'label'].includes(e.target.id)) {
@@ -2232,6 +2232,7 @@ $(function () {
         Util.createNetwork();
       }     
       network.selectEdges([ id ]);
+      network.focus(edge.from);
     }
     //console.log('edge_input');
   });
