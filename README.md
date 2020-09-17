@@ -1,4 +1,4 @@
-# SORCERIAN Text (Web-based Gamebook Engine)
+# SORCERIAN Text (Web-based Gamebook Engine) ![](https://img.shields.io/github/v/release/snext1220/stext)
 
 Automatically generate game books from scenario data.
 
