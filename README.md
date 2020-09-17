@@ -1,4 +1,4 @@
-# SORCERIAN Text (Web-based Gamebook Engine) ![](https://img.shields.io/github/v/release/snext1220/stext) ![](https://img.shields.io/github/repo-size/snext1220/stext) ![](https://img.shields.io/github/last-commit/snext1220/stext) ![](https://img.shields.io/twitter/follow/snext1220?label=Follow)
+# SORCERIAN Text (Web-based Gamebook Engine) ![](https://img.shields.io/github/v/release/snext1220/stext) ![](https://img.shields.io/github/repo-size/snext1220/stext) ![](https://img.shields.io/github/last-commit/snext1220/stext) ![](https://img.shields.io/github/release-date/snext1220/stext) ![](https://img.shields.io/twitter/follow/snext1220?label=Follow)
 
 Automatically generate game books from scenario data.
 
