@@ -2232,7 +2232,13 @@ $(function () {
         Util.createNetwork();
       }     
       network.selectEdges([ id ]);
-      network.focus(edge.from);
+      let coords = network.getPositions([edge.from, edge.to]);
+      network.moveTo({
+        position: {
+          x: coords[edge.from].x + coords[edge.to].x / 2,
+          y: coords[edge.from].y + coords[edge.to].y / 2
+        }
+      });
     }
     //console.log('edge_input');
   });
