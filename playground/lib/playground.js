@@ -620,9 +620,11 @@ $(function () {
     },
     // 指定範囲でフローチャートを生成
     // level：階層計算を行うか
-    // focus_id：フォーカスするid
+    // focus_id：フォーカスするシーンのid
+    // focus_link：フォーカスするリンク（オブジェクト）
     // fit：キャンバスにチャートを合わせるか
-    createNetwork: function(opts = { level: true, focus_id: null, fit: false }) {
+    createNetwork: function(
+      opts = { level: true, focus_id: null, focus_link: null, fit: false }) {
       // 再描画前に階層構造を再計算
       if (opts.level) {
         scenario = Util.updateLevel();
@@ -847,6 +849,19 @@ $(function () {
       if (opts.focus_id) {
         network.focus(opts.focus_id);
         network.selectNodes([ opts.focus_id ]);
+      }
+
+      // 元々の選択リンクにフォーカス
+      if (opts.focus_link) {
+        let edge = opts.focus_link;
+        network.selectEdges([ edge.id ]);
+        let coords = network.getPositions([edge.from, edge.to]);
+        network.moveTo({
+          position: {
+            x: coords[edge.from].x + coords[edge.to].x / 2,
+            y: coords[edge.from].y + coords[edge.to].y / 2
+          }
+        });
       }
 
       // キャンバスサイズに合わせる
@@ -2227,18 +2242,21 @@ $(function () {
     }
     if (['from', 'to', 'label'].includes(e.target.id)) {
       if (e.target.id === 'label') {
-        Util.createNetwork({ level: false });
+        Util.createNetwork({ 
+          focus_link: edge,
+          level: false
+        });
       } else {
-        Util.createNetwork();
+        Util.createNetwork({ focus_link: edge });
       }     
-      network.selectEdges([ id ]);
-      let coords = network.getPositions([edge.from, edge.to]);
-      network.moveTo({
-        position: {
-          x: coords[edge.from].x + coords[edge.to].x / 2,
-          y: coords[edge.from].y + coords[edge.to].y / 2
-        }
-      });
+      // network.selectEdges([ id ]);
+      // let coords = network.getPositions([edge.from, edge.to]);
+      // network.moveTo({
+      //   position: {
+      //     x: coords[edge.from].x + coords[edge.to].x / 2,
+      //     y: coords[edge.from].y + coords[edge.to].y / 2
+      //   }
+      // });
     }
     //console.log('edge_input');
   });
