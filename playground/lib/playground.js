@@ -2728,9 +2728,22 @@ $(function () {
       }
     } else {
       if (selected) {
-        $.ajax('./template/' + selected, {
+        let path;
+        // @付きはscenario.xmlを取得
+        if (selected.startsWith('@')) {
+          path = `../stext/${selected.substring(1)}/scenario.xml`;
+        } else {
+          path = `./template/${selected}`;
+        }
+
+        //$.ajax('./template/' + selected, {
+        $.ajax(path, {
           dataType: 'text'
         }).done(function(data) {
+          // @付きはxmlからの変換
+          if (selected.startsWith('@')) {
+            data = Util.createJson(data);
+          }
           sessionStorage.setItem(Common.LOAD_NAME, data);
           location.reload();
         });
