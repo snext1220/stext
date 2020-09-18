@@ -623,8 +623,16 @@ $(function () {
     // focus_id：フォーカスするシーンのid
     // focus_link：フォーカスするリンク（オブジェクト）
     // fit：キャンバスにチャートを合わせるか
-    createNetwork: function(
-      opts = { level: true, focus_id: null, focus_link: null, fit: false }) {
+    createNetwork: function(opts = {}) {
+      // 既定値の設定
+      opts = Object.assign(
+        {
+          level: true,
+          focus_id: null,
+          focus_link: null,
+          fit: false
+        }, opts);
+
       // 再描画前に階層構造を再計算
       if (opts.level) {
         scenario = Util.updateLevel();
