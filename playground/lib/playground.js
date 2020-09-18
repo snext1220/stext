@@ -1439,19 +1439,19 @@ $(function () {
       let body = $('<body></body>');
 
       // シャッフル
-      let s = new StextShuffle(scenario);
-      s.run();
-      s.scenario.scenes.sort((m, n) => {
-        return Number(m.id) - Number(n.id);
-      });
+      // let s = new StextShuffle(scenario);
+      // s.run();
+      // s.scenario.scenes.sort((m, n) => {
+      //   return Number(m.id) - Number(n.id);
+      // });
 
-      s.scenario.scenes.forEach(function(value) {
+      scenario.scenes.forEach(function(value) {
         $('<div class="scene"></div>')
           .attr('id', value.id)
           .html('<h3>【' + Util.numToKanji(value.id) + '】</h3>'
             + marked(value.text)
             //value.text.replace(/\n/gi, '<br />')
-            + '<p>' + Util.createLinkTag(value.id, s.scenario.edges) + '</p>'
+            + '<p>' + Util.createLinkTag(value.id, scenario.edges) + '</p>'
             + '<hr />')
           .appendTo(body);
       });
