@@ -621,7 +621,6 @@ $(function () {
     // 指定範囲でフローチャートを生成
     // level：階層計算を行うか
     // focus_id：フォーカスするシーンのid
-    // focus_link：フォーカスするリンク（オブジェクト）
     // fit：キャンバスにチャートを合わせるか
     createNetwork: function(opts = {}) {
       // 既定値の設定
@@ -629,7 +628,6 @@ $(function () {
         {
           level: true,
           focus_id: null,
-          focus_link: null,
           fit: false
         }, opts);
 
@@ -860,17 +858,17 @@ $(function () {
       }
 
       // 元々の選択リンクにフォーカス
-      if (opts.focus_link) {
-        let edge = opts.focus_link;
-        network.selectEdges([ edge.id ]);
-        let coords = network.getPositions([edge.from, edge.to]);
-        network.moveTo({
-          position: {
-            x: coords[edge.from].x + coords[edge.to].x / 2,
-            y: coords[edge.from].y + coords[edge.to].y / 2
-          }
-        });
-      }
+      // if (opts.focus_link) {
+      //   let edge = opts.focus_link;
+      //   network.selectEdges([ edge.id ]);
+      //   let coords = network.getPositions([edge.from, edge.to]);
+      //   network.moveTo({
+      //     position: {
+      //       x: coords[edge.from].x + coords[edge.to].x / 2,
+      //       y: coords[edge.from].y + coords[edge.to].y / 2
+      //     }
+      //   });
+      // }
 
       // キャンバスサイズに合わせる
       if (opts.fit) {
@@ -2248,16 +2246,18 @@ $(function () {
     if (id) {      
       edge[e.target.id] = $(this).val();
     }
+    let coords = network.getViewPosition();
     if (['from', 'to', 'label'].includes(e.target.id)) {
       if (e.target.id === 'label') {
         Util.createNetwork({ 
-          focus_link: edge,
           level: false
         });
       } else {
-        Util.createNetwork({ focus_link: edge });
+        Util.createNetwork();
       }     
-      // network.selectEdges([ id ]);
+      network.selectEdges([ id ]);
+      network.moveTo({ position: coords });
+
       // let coords = network.getPositions([edge.from, edge.to]);
       // network.moveTo({
       //   position: {
