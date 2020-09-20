@@ -562,9 +562,23 @@ Playground Editor（Pg Editor）は、ブラウザー上で動作するソーサ
 <div class="award">画像は今後も随時追加予定です！</div>
 </work>
 
+<work id="letter" title="おたよりをよみたい" author="ときのじ" updated="2020-09-20" backup="true" type="dev">
+<img src="./stext/letter/capture/intro.png" height="120"
+  title="STextシナリオ開発道場" class="right" />
+
+このコーナーは、ソーサリアン達が皆様のお便りを紹介するという体で「ソーサリアンText」の疑問やトラブル解決方法を随時紹介してゆくという企画。これまでプレイヤー、シナリオ作者の皆さまから戴いた質問を再編集して、まとめてみました。
+
+もし「ソーサリアンText」のことで分からないことがあったら、このコーナーも参考にしてみるのも良いでしょう。
+
+それでは、ソーサリアン達と一緒に疑問やトラブルをぱぱっと解決しちゃいましょう！
+
+<a href="https://www.web-deli.com/sorcerian/text/game.aspx?id=letter" class="startbtn">おたよりをよんでみよう</a>
+
+</work>
+
 <work id="trial" title="STextシナリオ開発道場" author="ときのじ" updated="2018-11-13" backup="true" type="dev">
 <img src="./image/util/trial.png" height="120"
-  title="STextシナリオ開発道場" class="right" />
+  title="STextシナリオ開発道場" class="left" />
 「ソーサリアンTextのシナリオを書いてみたい！」
 
 君はそう思ったことはないだろうか？もしシナリオを書いてみたいと思ったのであれば、この先にある道場は、きっと君の助けになることだろう。何故なら、その道場とは「ソーサリアンTextのシナリオを書きたい」というソーサリアンの願いをぱぱっと叶える特別メニューが揃っているからだ。
@@ -582,7 +596,7 @@ Playground Editor（Pg Editor）は、ブラウザー上で動作するソーサ
 
 <work title="GBAT to SText" author="リオ" type="dev">
 <img src="./image/util/gbat.png" height="120"
-  title="GBATメイン画面" class="left" />
+  title="GBATメイン画面" class="right" />
 GBAT（GameBook Authoring Tool）は、ゲームブックシナリオをチャート化しながら執筆できるGUIツール。シナリオのフローをリアルタイムにチャート化するので、全体を見渡しつつ、執筆を進められます。
 
 GBAT to STextは、このGBATで作成された.gbatファイルをSText形式に変換するためのツールです。GBAT（Free版）は100パラグラフの制限がありますが、GBAT to STextは複数の.gbatファイルを統合できますので、大きなシナリオの執筆にも活用できます。
