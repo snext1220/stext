@@ -1536,7 +1536,7 @@ $(function () {
     } else {
       scenario.init[id[0]][id[1]] = $(this).val();
     }
-    console.log('input')
+    // console.log('input')
   });
 
   // 種族／年齢／性別ボックスの加工
@@ -1743,7 +1743,7 @@ $(function () {
           $('#node-link-summary').val())) {
           // 成功時にリンクも追加
           $(this).dialog('close');
-          console.log(`${from}->${id}`);
+          // console.log(`${from}->${id}`);
           Util.addLink(from, id, '次へ');
           Util.createNetwork({ focus_id: from });
           // network.focus(from);
@@ -2062,7 +2062,7 @@ $(function () {
   // ［シーン］タブ内での更新
   $('#scene-select input:not(.no-update), #scene-select select:not(.no-update)').on('input', function(e) {
     let id = $('#scene-select #id').val();
-    console.log(`scene_input ${id}`);
+    // console.log(`scene_input ${id}`);
     if (id) {
       let scene = Util.getSceneById(id);
       scene[e.target.id] = $(this).val();
@@ -2317,7 +2317,7 @@ $(function () {
 
   // 条件式シートの選択ボックスの選択をテキストエリアに反映
   $('#sidr_links_list select:not(.no-update)').change(function() {
-    console.log('BG');
+    // console.log('BG');
     let cond = $('#sidr_links_cond');
     cond.val(cond.val() + $(this).val());
   });
