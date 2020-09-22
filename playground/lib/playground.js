@@ -1009,7 +1009,17 @@ $(function () {
             options: [ '', 'physics', 'magic', 'both', 'free1', 'free2', 'free3',
               'poison', 'frozen', 'stone', 'curse', 'forget', 'str', 'int', 'dex', 'krm' ] },
           { id: 'func', name: 'ダメージ式', field: 'func', width: 80,
-            editor: Slick.Editors.LongText },
+            editor: Slick.Editors.LongText,
+            validator: function(value) {
+              if (value.includes('<')) {
+                let msg = 'ダメージ式では「&lt;」ではなく「&gt;」を利用してください。';
+                toastr.error(msg, 'Fund Error');
+                return { valid: false, msg: msg };
+              } else {
+                return { valid: true, msg: null };
+              }
+            }
+          },
           { id: 'drop', name: 'ドロップ', field: 'drop', width: 80, editor: AutoCompleteEditor,
             dataSource: [ 'mon/', 'tue/', 'wed/', 'thu/', 'fri/', 'sat/', 'sun/', 'free1/', 'free2/', 'free3', ] },
           { id: 'text', name: '説明', field: 'text', width: 180, editor: Slick.Editors.LongText },
