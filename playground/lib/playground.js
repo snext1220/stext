@@ -925,10 +925,10 @@ $(function () {
       });
       grid.onAddNewRow.subscribe(function (e, args) {
         let item = args.item;
-        if (!item.id) {
-          toastr.error('idを入力してください。', 'Id Error');
-          return;
-        }
+        // if (!item.id) {
+        //   toastr.error('idを入力してください。', 'Id Error');
+        //   return;
+        // }
         grid.invalidateRow(data.length);
         data.push(item);
         grid.updateRowCount();
