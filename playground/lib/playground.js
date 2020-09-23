@@ -288,7 +288,12 @@ $(function () {
     },
     // アイテム／敵などのソート
     sortFn: function(m, n) {
-      return Number(m.id.substring(1)) - Number(n.id.substring(1));
+      try {
+        return Number(m.id.substring(1)) - Number(n.id.substring(1));
+      } catch(e) {
+        console.error(e);
+        return 0;
+      }
     },
     // scene idの最大値を取得
     maxSceneId: function() {
@@ -920,6 +925,10 @@ $(function () {
       });
       grid.onAddNewRow.subscribe(function (e, args) {
         let item = args.item;
+        if (!item.id) {
+          toastr.error('idを入力してください。', 'Id Error');
+          return;
+        }
         grid.invalidateRow(data.length);
         data.push(item);
         grid.updateRowCount();
