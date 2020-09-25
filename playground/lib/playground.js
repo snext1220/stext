@@ -1074,7 +1074,10 @@ $(function () {
     // label：ラジオ／チェックボックスのラベルとなるプロパティ、またはラベルを生成する関数（引数は対象のオブジェクト、戻り値はラベル値）
     // value：ラジオ／チェックボックスの値となるプロパティ、またはラベルを生成する関数（引数は対象のオブジェクト、戻り値はオプション値）
     // onSubmit：サブミット時の処理（引数はトリガー要素、リスト要素）
-    createSelectSidebar: function(trigger, target, dataset, type, label, value, onSubmit) {
+    createSelectSidebar: function(trigger, target, 
+      member,
+      //dataset, 
+      type, label, value, onSubmit) {
       // サイドバーとなる要素（id値）
       let s_name = `sidr_${target}`;
       // リスト要素（セレクター）
@@ -1089,7 +1092,8 @@ $(function () {
         displace: false,
         onOpen: function() {
           $(s_list).empty();
-          for(let obj of dataset) {
+          for(let obj of scenario[member]) {
+          //for(let obj of dataset) {
             let elem;
             let v_label;  // ラベル文字列
             let v_value;  // オプション値
@@ -2226,7 +2230,8 @@ $(function () {
   Util.createSelectSidebar(
     '#scene-select #items',
     'items',
-    scenario.items,
+    'items',
+    //scenario.items,
     'plus_minus',
     'name',
     'id'
@@ -2236,7 +2241,8 @@ $(function () {
   Util.createSelectSidebar(
     '#scene-select #flags',
     'flags',
-    scenario.flags,
+    'flags',
+    //scenario.flags,
     'plus_minus',
     'text',
     'id'
@@ -2246,7 +2252,8 @@ $(function () {
   Util.createSelectSidebar(
     '#scene-select #enemies',
     'enemies',
-    scenario.enemies,
+    'enemies',
+    //scenario.enemies,
     'check',
     'name',
     'id'
@@ -2256,7 +2263,8 @@ $(function () {
   Util.createSelectSidebar(
     '#scene-select #result',
     'results',
-    scenario.results,
+    'results',
+    //scenario.results,
     'radio',
     'name',
     'id'
@@ -2352,7 +2360,8 @@ $(function () {
   Util.createSelectSidebar(
     '#edge #from',
     'fscene',
-    scenario.scenes,
+    'scenes',
+    //scenario.scenes,
     'radio',
     'label',
     'id'
@@ -2362,7 +2371,8 @@ $(function () {
   Util.createSelectSidebar(
     '#edge #to',
     'tscene',
-    scenario.scenes,
+    'scenes',
+    //scenario.scenes,
     'radio',
     'label',
     'id'
@@ -2654,7 +2664,8 @@ $(function () {
   Util.createSelectSidebar(
     '#edge-dialog #to-id',
     'scene',
-    scenario.scenes,
+    'scenes',
+    //scenario.scenes,
     'radio',
     'label',
     'id'
@@ -2664,7 +2675,8 @@ $(function () {
   Util.createSelectSidebar(
     '#edge-dialog #edge-add',
     'scenes',
-    scenario.scenes,
+    'scenes',
+    //scenario.scenes,
     'check',
     'label',
     'id'
@@ -2796,13 +2808,14 @@ $(function () {
   Util.createSelectSidebar(
     '#ctrl_filter',
     'groups',
-    [
-      {
-        start: 0,
-        end: 99999,
-        title: 'フィルター解除'
-      }
-    ].concat(scenario.groups),
+    'groups',
+    // [
+    //   {
+    //     start: 0,
+    //     end: 99999,
+    //     title: 'フィルター解除'
+    //   }
+    // ].concat(scenario.groups),
     'check',
     function(obj) {
       return `${obj['title']}<br />（${obj['start']}－${obj['end']}）`;
