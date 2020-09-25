@@ -912,7 +912,7 @@ $(function () {
     // グリッドを生成
     // selector：グリッドの反映先、data：対象のデータ、
     // cols：列情報、opts：グリッドオプション、helpName：ヘルプリンク先
-    createGrid: function(selector, data, cols, opts, helpName) {
+    createGrid: function(selector, data, cols, opts, helpName, checkid = true ) {
       if (data === undefined) { data = []; }
       let grid = new Slick.Grid(selector, data, cols, opts);
       grid.setSelectionModel(new Slick.CellSelectionModel());
@@ -925,10 +925,12 @@ $(function () {
       });
       grid.onAddNewRow.subscribe(function (e, args) {
         let item = args.item;
-        // if (!item.id) {
-        //   toastr.error('idを入力してください。', 'Id Error');
-        //   return;
-        // }
+        if (checkid) {
+          if (!item.id) {
+            toastr.error('idを入力してください。', 'Id Error');
+            return;
+          }
+        }
         grid.invalidateRow(data.length);
         data.push(item);
         grid.updateRowCount();
@@ -971,7 +973,7 @@ $(function () {
           { id: 'title', name: 'グループ名', field: 'title', width: 250, editor: Slick.Editors.Text },
           {id: 'delete', name: '削除', field: '', width: 35,
           formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
-        ], grid_opts, 'group');
+        ], grid_opts, 'group', false);
 
       // アイテム一覧の描画
       Util.createGrid('#items_grid', scenario.items, 
@@ -1064,7 +1066,7 @@ $(function () {
           { id: 'url', name: 'URL', field: 'url', width: 230, editor: Slick.Editors.Text },
           {id: 'delete', name: '削除', field: '', width: 35,
           formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } } 
-        ], grid_opts, 'work');
+        ], grid_opts, 'work', false);
     },
     // 単一／複数選択ボタン付きのサイドバーを生成
     // trigger：トリガーとなる要素（セレクター式）
@@ -1092,8 +1094,17 @@ $(function () {
         displace: false,
         onOpen: function() {
           $(s_list).empty();
-          for(let obj of scenario[member]) {
-          //for(let obj of dataset) {
+          let dataset = scenario[member];
+          if (member === 'groups') {
+            dataset = [
+              {
+                start: 0,
+                end: 99999,
+                title: 'フィルター解除'
+              }
+            ].concat(dataset);
+          }
+          for(let obj of dataset) {
             let elem;
             let v_label;  // ラベル文字列
             let v_value;  // オプション値
