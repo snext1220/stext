@@ -2307,6 +2307,12 @@ $(function () {
       .trigger('input');
   });
   
+  // カーソル移動時に候補リストをクローズ
+  $('#scene-select input').blur(function() {
+    console.log('blur');
+    $('#scene-select #hp, #scene-select #mp, #scene-select #stars, #scene-select #str, #scene-select #int, #scene-select #dex, #scene-select #krm, #scene-select #free1, #scene-select #free2, #scene-select #free3').autocomplete('close');
+  });
+
   // hp／mp属性のオートコンプリート
   $('#scene-select #hp, #scene-select #mp')
   .autocomplete({
