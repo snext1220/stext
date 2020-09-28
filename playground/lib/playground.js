@@ -969,6 +969,7 @@ $(function () {
       };
 
       // アイテム一覧の描画
+      grid['groups'] = 
       Util.createGrid('#groups_grid', scenario.groups, 
         [
           { id: 'start', name: '開始No.', field: 'start', width: 70, editor: Slick.Editors.Integer },
@@ -978,8 +979,8 @@ $(function () {
           formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
         ], grid_opts, 'group', false);
 
-      //grid['items'] = 
       // アイテム一覧の描画
+      grid['items'] = 
       Util.createGrid('#items_grid', scenario.items, 
         [
           { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text,
@@ -997,6 +998,7 @@ $(function () {
         ], grid_opts, 'item');
 
       // フラグ一覧の描画
+      grid['flags'] = 
       Util.createGrid('#flags_grid', scenario.flags,
         [
           { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text,
@@ -1010,6 +1012,7 @@ $(function () {
         ], grid_opts, 'flag');
 
       // 敵一覧の描画
+      grid['enemies'] = 
       Util.createGrid('#enemies_grid', scenario.enemies,
         [
           { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text,
@@ -1045,6 +1048,7 @@ $(function () {
         ], grid_opts, 'enemy');
 
       // 実績一覧の描画
+      grid['results'] = 
       Util.createGrid('#results_grid', scenario.results,
         [
           { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text,
@@ -1061,6 +1065,7 @@ $(function () {
         ], grid_opts, 'result');
 
       // ライセンス一覧の描画
+      grid['works'] = 
       Util.createGrid('#works_grid', scenario.licence,
         [
           { id: 'name', name: '名前', field: 'name', width: 100, editor: Slick.Editors.Text },
@@ -2723,13 +2728,15 @@ $(function () {
 
   // タブの生成
   $('#edit-area')
-    .tabs();
-    // .tabs({
-    //   activate: function(e, ui) {
-    //     let c = grid['items'].getActiveCell();
-    //     grid['items'].updateCell(c.row, c.cell);
-    //   }
-    // });
+    .tabs()
+    .tabs({
+      activate: function(e, ui) {
+        let keys = Object.keys(grid);
+        for(let key of keys) {
+          grid[key].navigateNext();
+        }
+      }
+    });
   Util.disableTab();
 
   // タグ入力ボックス（保留）
