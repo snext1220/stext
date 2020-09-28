@@ -118,6 +118,8 @@ $(function () {
   let filter_where = [];
   // 設定情報
   let config = {};
+  // グリッド
+  let grid = {};
   // 共通データ
   let Common = {
     HELP_URL: 'https://sorcerian.hateblo.jp/entry/2018/11/01/211745#',
@@ -939,6 +941,7 @@ $(function () {
       grid.onHeaderClick.subscribe(function (e, args) {
         window.open(Common.HELP_URL + helpName, 'help');
       });
+      return grid;
     },
     // SlickGridによるid検証
     // value：入力値、prefix：接頭辞、name：項目名
@@ -975,6 +978,7 @@ $(function () {
           formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
         ], grid_opts, 'group', false);
 
+      //grid['items'] = 
       // アイテム一覧の描画
       Util.createGrid('#items_grid', scenario.items, 
         [
@@ -1088,6 +1092,8 @@ $(function () {
       let s_submit = `#${s_name} #${s_name}_submit`;
       // キャンセルボタン（セレクター）
       let s_cancel = `#${s_name} #${s_name}_close`;
+      // 先頭ボタン
+      let s_lead = `#${s_name} .btn-lead`;
       // triggerへのサイドバーの紐付け
       $(trigger).sidr({
         name: s_name,
@@ -1156,6 +1162,12 @@ $(function () {
                 throw new Error('type属性の値が不正です。');
             }
             $(s_list).append(elem);
+          }
+          // データ量が多い場合にだけ先頭ボタンを表示
+          if (dataset.length > 30) {
+            $(s_lead).show();
+          } else {
+            $(s_lead).hide();
           }
           // 配下のチェックボックスを整形
           $(`${s_list} .sidr-item`).checkboxradio({
@@ -2710,7 +2722,14 @@ $(function () {
   });
 
   // タブの生成
-  $('#edit-area').tabs();
+  $('#edit-area')
+    .tabs();
+    // .tabs({
+    //   activate: function(e, ui) {
+    //     let c = grid['items'].getActiveCell();
+    //     grid['items'].updateCell(c.row, c.cell);
+    //   }
+    // });
   Util.disableTab();
 
   // タグ入力ボックス（保留）
