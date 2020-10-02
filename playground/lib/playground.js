@@ -2433,17 +2433,17 @@ $(function () {
     if (id) {      
       edge[e.target.id] = $(this).val();
     }
-    let coords = network.getViewPosition();
-    if (['from', 'to', 'label'].includes(e.target.id)) {
-      if (e.target.id === 'label') {
-        Util.createNetwork({ 
-          level: false
-        });
-      } else {
-        Util.createNetwork();
-      }     
-      network.selectEdges([ id ]);
-      network.moveTo({ position: coords });
+    // let coords = network.getViewPosition();
+    // if (['from', 'to', 'label'].includes(e.target.id)) {
+    //   if (e.target.id === 'label') {
+    //     Util.createNetwork({ 
+    //       level: false
+    //     });
+    //   } else {
+    //     Util.createNetwork();
+    //   }     
+    //   network.selectEdges([ id ]);
+    //   network.moveTo({ position: coords });
 
       // let coords = network.getPositions([edge.from, edge.to]);
       // network.moveTo({
@@ -2452,8 +2452,23 @@ $(function () {
       //     y: coords[edge.from].y + coords[edge.to].y / 2
       //   }
       // });
-    }
+    // }
     //console.log('edge_input');
+  });
+
+  // from/to、ラベル更新時に再描画
+  $('#edge #from, #edge #to, #edge #label').on('change', function(e) {
+    let id = $('#edge #id').val();
+    let coords = network.getViewPosition();
+    if (e.target.id === 'label') {
+      Util.createNetwork({ 
+        level: false
+      });
+    } else {
+      Util.createNetwork();
+    }     
+    network.selectEdges([ id ]);
+    network.moveTo({ position: coords });
   });
 
   // サイドバーの実績欄を生成
