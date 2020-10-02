@@ -2230,11 +2230,11 @@ $(function () {
       scene[e.target.id] = $(this).val();
       if (e.target.id === 'summary') {
         scene.label = scene.id + ':\n' + scene.summary;
-        Util.createNetwork({
-          focus_id: scene.id,
-          level: false
-        });
-        network.selectNodes([ scene.id ]);
+        // Util.createNetwork({
+        //   focus_id: scene.id,
+        //   level: false
+        // });
+        // network.selectNodes([ scene.id ]);
       } else if (e.target.id === 'exclude') {
         if(!$(this).prop('checked')) {
           scene[e.target.id] = undefined;
@@ -2252,6 +2252,19 @@ $(function () {
         });
         //network.selectNodes([ scene.id ]);
       }
+    }
+  });
+
+  // ［サマリー］欄更新時に再描画
+  $('#scene-select input#summary').on('change', function(e) {
+    let id = $('#scene-select #id').val();
+    if (id) {
+      let scene = Util.getSceneById(id);
+      Util.createNetwork({
+        focus_id: scene.id,
+        level: false
+      });
+      network.selectNodes([ scene.id ]);
     }
   });
 
