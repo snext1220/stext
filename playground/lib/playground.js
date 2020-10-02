@@ -1,7 +1,8 @@
 $(function () {
   class LevelResolver {
     constructor(scenario) {
-      this.scenario = JSON.parse(JSON.stringify(scenario));
+      //this.scenario = JSON.parse(JSON.stringify(scenario));
+      this.scenario = scenario;
       this.level = {};
       this.maxLevel = 1;     
     }
@@ -645,8 +646,8 @@ $(function () {
 
       // 再描画前に階層構造を再計算
       if (opts.level) {
-        Util.refreshScenario(Util.updateLevel());
-        // scenario = Util.updateLevel();
+        Util.updateLevel();
+        //Util.refreshScenario(Util.updateLevel());
       }
 
       // 変更前の拡大率を保存
