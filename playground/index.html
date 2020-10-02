@@ -32,8 +32,9 @@
     <img id="ctrl_tag" src="../stext/common/pg_tag.png" title="カーソル位置にタグを追加" />
     <img id="ctrl_flow2editor" src="../stext/common/pg_f2e.png" title="PgEditorで編集" />｜
     <img id="ctrl_shuffle" src="../stext/common/pg_shuffle.png" title="シーンidをシャッフル" />
-    <img id="ctrl_addscene" src="../stext/common/pg_scene.png" title="シーンを追加" />+
-    <input id="ctrl_incre" type="number" min="1" value="10" />｜
+    <img id="ctrl_addscene" src="../stext/common/pg_scene.png" title="シーンを追加" />｜
+    <!-- +
+    <input id="ctrl_incre" type="number" min="1" value="10" />｜ -->
     <img id="ctrl_import" src="../stext/common/pg_import.png" title="シナリオをインポート" />
     <img id="ctrl_dl" src="../stext/common/pg_dl.png" title="シナリオを保存" />
     <img id="ctrl_help" src="../stext/common/pg_help.png" title="マニュアルを参照" />
@@ -700,6 +701,10 @@
     <label>サマリー：<br />
       <input id="node-link-summary" type="text" size="20" /></label>
   </div>
+  <div>
+    <label>リンクテキスト：<br />
+      <input id="node-link-caption" type="text" size="20" /></label>
+  </div>
 </div>
 
 <!--ダイアログ（Scene Id変更）-->
@@ -895,7 +900,7 @@
 <!--*****************暫定シャッフル**************************-->
 <script src="lib/shuffle.js"></script>
 <!--Playground-->
-<script src="lib/playground.min.js?version=2020100203"></script>
+<script src="lib/playground.min.js?version=2020100204"></script>
 <!--Ptengine解析-->
 <script type="text/javascript">
 window._pt_lt = new Date().getTime();

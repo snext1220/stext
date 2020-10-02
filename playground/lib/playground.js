@@ -1895,6 +1895,7 @@ $(function () {
     open: function() {
       $('#node-link-id').val('');
       $('#node-link-summary').val('');
+      $('#node-link-caption').val('次へ');
     },
     buttons: {
       '追加': function() {
@@ -1906,7 +1907,7 @@ $(function () {
           // 成功時にリンクも追加
           $(this).dialog('close');
           // console.log(`${from}->${id}`);
-          Util.addLink(from, id, '次へ');
+          Util.addLink(from, id, $('#node-link-caption').val());
           Util.createNetwork({ focus_id: from });
           // network.focus(from);
           // network.selectNodes([ from ]);
@@ -3020,7 +3021,8 @@ $(function () {
   // 簡易シーン追加（β版）
   $('#ctrl_addscene').click(function(e) {
     //let pos = network.getViewPosition();
-    let incre = Number($('#ctrl_incre').val());
+    // let incre = Number($('#ctrl_incre').val());
+    let incre = Number(global_config.increment); 
     if (!incre || incre < 1) { incre = 1; }
     incre = Math.floor(incre);
     let new_id = Number(Util.maxSceneId()) + incre;
