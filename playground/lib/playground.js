@@ -1635,6 +1635,34 @@ $(function () {
         html.get(0).outerHTML;
     },
 
+    // アンカータグの生成（crreateEpub用）
+    createLinkText:function(id, edges) {
+      let result = [];
+      edges.forEach(function(value) {
+        if (value.from === id) {
+          result.push(`<a href="bodymatter_0_${value.to}.xhtml">［${value.label} ${Util.numToKanji(value.to)}へ］</a>`);
+        }
+      });
+      return result.join('\n\n');
+    },
+
+    // 現在のシナリオデータをEPUB形式に変換（でんでんコンバーター）
+    createEpub: function() {
+      let result = '';
+      scenario.scenes.forEach(function(value) {
+        result += `【${Util.numToKanji(value.id)} 】
+
+${value.text}
+
+${Util.createLinkText(value.id, scenario.edges)}
+
+==============
+
+`;
+      });
+      return result;
+    },
+
     // データをダウンロード
     // @params content：データ本体、name：ファイル名
     download: function(content, name) {
@@ -2874,6 +2902,9 @@ $(function () {
         break;
       case 'html':
         Util.download(Util.createHtml(), 'scenario.html');
+        break;
+      case 'epub':
+        Util.download(Util.createEpub(), 'scenario.txt');
         break;
       case 'storage':
         window.alert('データをブラウザーに保存しました。\n保存済みのデータは［マイストレージ］テンプレートからロードできます。');
