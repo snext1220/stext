@@ -302,6 +302,9 @@ $(function () {
     maxSceneId: function() {
       return Math.max.apply(null,
         scenario.scenes.map(function(s) {
+          if (s.id >= 90000) {
+            return 0;
+          }
           return s.id;
         }));
     },
@@ -338,12 +341,22 @@ $(function () {
     // 指定のidが既存のシーンidと重複するか
     isDuplicateScene: function(id) {
       return scenario.scenes.some(function(value) {
-        return value.id === id;
+        return Number(value.id) === Number(id);
       })
     },
-    // 指定のidが既存のシーンに存在するか
-    existScene: function(id) {
+    // 指定のidが既存のシーンに存在しないか
+    isNewScene: function(id) {
       return !Util.isDuplicateScene(id);
+    },
+    // 指定のidの次の空きシーンを算出
+    nextScene: function(id) {
+      let next_id = Number(id);
+      while (true) {
+        next_id += Number(global_config.increment);
+        if (Util.isNewScene(next_id)) {
+          return next_id;
+        }
+      }
     },
     // 指定の情報でノードを生成
     addNode(id, summary) {
@@ -1659,7 +1672,7 @@ $(function () {
     scenario.author = global_config.author;
   }
   // 初期化時に増分値を設定
-  $('#ctrl_incre').val(global_config.increment);
+  // $('#ctrl_incre').val(global_config.increment);
 
   // 初期化時にアイテム／フラグ等をソート
   Util.sortScenario();
@@ -1893,7 +1906,11 @@ $(function () {
       my: 'left top',
     },
     open: function() {
-      $('#node-link-id').val('');
+      $('#node-link-id').val(
+        Util.nextScene(
+          $('#scene-attr #id').val()
+        )
+      );
       $('#node-link-summary').val('');
       $('#node-link-caption').val('次へ');
     },
@@ -2014,7 +2031,7 @@ $(function () {
           return;  
         }
         // リンク先の存在チェック
-        if (Util.existScene(to)) {
+        if (Util.isNewScene(to)) {
           toastr.error(`リンク先のidが存在しません。`, '不正な値');
           return;  
         }

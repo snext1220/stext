@@ -65,13 +65,15 @@
 			"label": "0:\nプロローグ",
 			"items": "i01",
 			"flags": "f01",
+			"color": "#ff0000",
 			"group": "prologue"
 		},
 		{
 			"id": "1",
 			"summary": "本文",
-			"text": "ここからが本文です。",
-			"label": "1:\n本文"
+			"text": "ここからが本文です（カラーテスト）。",
+			"label": "1:\n本文",
+			"color": "#ff0000"
 		},
 		{
 			"id": "10",
