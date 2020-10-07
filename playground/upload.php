@@ -68,9 +68,9 @@ if (empty($_POST) && $_SERVER["REQUEST_METHOD"] === "POST") {
     $path = '../stext/'.$_POST['key'];
 
     // フォルダーが存在する場合は削除
-    if (file_exists($path)) {
-        remove_directory($path);
-    }
+    // if (file_exists($path)) {
+    //     remove_directory($path);
+    // }
     // フォルダーを再作成
     mkdir($path, 0777);
     mkdir($path.'/bgm', 0777);
