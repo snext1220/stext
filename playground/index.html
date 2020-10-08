@@ -30,10 +30,10 @@
     <img id="ctrl_run" src="../stext/common/pg_run.png" title="シナリオを実行" />
     <img id="ctrl_filter" src="../stext/common/pg_filter.png" title="表示シーンを絞り込み" />
     <img id="ctrl_tag" src="../stext/common/pg_tag.png" title="カーソル位置にタグを追加" />
-    <img id="ctrl_flow2editor" src="../stext/common/pg_f2e.png" title="PgEditorで編集" />｜
-    <img id="ctrl_shuffle" src="../stext/common/pg_shuffle.png" title="シーンidをシャッフル" />
-    <img id="ctrl_addscene" src="../stext/common/pg_scene.png" title="シーンを追加" />｜
-    <!-- +
+    <img id="ctrl_flow2editor" src="../stext/common/pg_f2e.png" title="PgEditorで編集" />
+    <img id="ctrl_shuffle" src="../stext/common/pg_shuffle.png" title="シーンidをシャッフル" />｜
+    <!-- <img id="ctrl_addscene" src="../stext/common/pg_scene.png" title="シーンを追加" />｜
+    +
     <input id="ctrl_incre" type="number" min="1" value="10" />｜ -->
     <img id="ctrl_import" src="../stext/common/pg_import.png" title="シナリオをインポート" />
     <img id="ctrl_dl" src="../stext/common/pg_dl.png" title="シナリオを保存" />
@@ -213,7 +213,7 @@
                 <select id="edges-list" class="no-update"></select>
               </label>
               <button id="scene-addedge" type="button">リンク追加</button>
-              <button id="scene-addscene" type="button">シーン追加</button>
+              <!-- <button id="scene-addscene" type="button">シーン追加</button> -->
             </fieldset>
             <fieldset>
               <legend>楽曲（<a href="https://soundcloud.com/venus-az/sets/sorcerian-text-original-sounds/s-2tzI5" target="help">標準BGMリスト</a>）</legend>
@@ -259,6 +259,7 @@
                 <input id="exclude" type="checkbox" value="true" /></label>
             </fieldset>
             <p>
+              <button id="scene-addscene" type="button">シーンを追加</button>　
               <button id="scene-delscene" type="button" class="delaction">現在のシーンを削除</button>
             </p>
             
@@ -901,7 +902,7 @@
 <!--*****************暫定シャッフル**************************-->
 <script src="lib/shuffle.js"></script>
 <!--Playground-->
-<script src="lib/playground.min.js?version=2020100401"></script>
+<script src="lib/playground.min.js?version=2020100801"></script>
 <!--Ptengine解析-->
 <script type="text/javascript">
 window._pt_lt = new Date().getTime();

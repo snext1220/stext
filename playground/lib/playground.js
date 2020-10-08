@@ -734,7 +734,7 @@ $(function () {
             }
           },
           manipulation: {
-            //enabled: true
+            enabled: false,
             addNode: function(data, callback) {
               document.getElementById('node-add').onclick = function(data, callback) {
                 data.id = $('#node-id').val();
