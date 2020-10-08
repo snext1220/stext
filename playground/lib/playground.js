@@ -545,6 +545,21 @@ $(function () {
       });
     },
 
+    // カラーリストを生成
+    createColorList: function(id, colors = [ '#f00', '#0ff', '#f0f', '#ff0', '#0f0', '#fff' ]) {
+      let elem = $(id);
+      elem.empty();
+      elem.append('<option value="">既定</option>');
+      for(let color of colors) {
+        elem.append(
+          $('<option></option>').
+            val(color).
+            text(color).
+            css('background-color', color)
+        );
+      }
+    },
+
     // 指定されたシーンの情報をフォームに反映
     setSceneInfo: function(id) {
       if (id !== undefined) {
@@ -577,6 +592,8 @@ $(function () {
         $('#scene-select #krm_max').val(scene.krm_max);
         $('#scene-select #fixed').prop('checked', !!scene.fixed);
         $('#scene-select #exclude').prop('checked', !!scene.exclude);
+        $('#scene-select #exclude').prop('checked', !!scene.exclude);
+        $('#scene-select #color').val(scene.color);
         if (scene.text) {
           editor.setValue(scene.text);
         } else {
@@ -2297,6 +2314,14 @@ ${Util.createLinkText(value.id, scenario.edges)}
           level: false
         });
         //network.selectNodes([ scene.id ]);
+      } else if (e.target.id === 'color') {
+        if (!scene[e.target.id]) {
+          delete scene[e.target.id];
+        }
+        Util.createNetwork({
+          focus_id: scene.id,
+          level: false
+        });
       }
     }
   });
@@ -2768,6 +2793,9 @@ ${Util.createLinkText(value.id, scenario.edges)}
     }
     $('#scene-change-dialog').dialog('open');
   });
+
+  // カラーリストを生成
+  Util.createColorList('#scene #color');
 
   // リンク追加ダイアログ内でのシーン選択
   Util.createSelectSidebar(

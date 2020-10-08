@@ -123,6 +123,10 @@ label {
     width: 70px;
 }
 
+#scene-attr label input[type="checkbox"] {
+    width: auto;
+}
+
 #scene-attr label input.wide {
     width: 150px;
 }
