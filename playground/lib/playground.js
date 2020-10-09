@@ -546,7 +546,10 @@ $(function () {
     },
 
     // カラーリストを生成
-    createColorList: function(id, colors = [ '#f00', '#0ff', '#f0f', '#ff0', '#0f0', '#fff' ]) {
+    createColorList: function(id, colors = [ 
+      'Purple', 'Olive', 'Blue', 'Gray', 'Green', 'Silver',
+      'Teal', 'Red', 'Fuchsia', 'Aqua', 'Yellow', 'White'
+    ]) {
       let elem = $(id);
       elem.empty();
       elem.append('<option value="">既定</option>');
