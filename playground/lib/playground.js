@@ -2806,6 +2806,7 @@ ${Util.createLinkText(value.id, scenario.edges)}
         break;
       case 'epub':
         Util.download(Util.createEpub(), 'scenario.txt');
+        toastr.info(`.txt形式は<a href="https://conv.denshochan.com/" target="help">でんでんコンバーター</a>向けのフォーマットです。本ファイルをでんでんコンバーターにかけることでEPUBファイルを生成できます。<br>変換時に使用できるスタイルシート／設定ファイルは<a href="./template/denden.zip" target="help">こちらからダウンロード</a>できます。`, '.txt形式について');
         break;
       case 'storage':
         window.alert('データをブラウザーに保存しました。\n保存済みのデータは［マイストレージ］テンプレートからロードできます。');
