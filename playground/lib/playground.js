@@ -85,8 +85,6 @@ $(function () {
         }
       });
       return result;
-      // console.log(from_id);
-      // console.log(to_id);
     }
 
     // 以下未使用
@@ -338,6 +336,25 @@ $(function () {
         }
       });
     },
+    // 指定のfrom、orderの組み合わせで既存のリンクが存在するか
+    isDuplicateOrderedEdge: function(from, order) {
+      return scenario.edges.some(function(value) {
+        return Number(value.from) === Number(from) &&
+         Number(value.order) === Number(order);
+      })
+    },
+
+    // 重複のないリンクorderを生成（from：リンク元、start：order最小値）
+    detectLinkOrder: function(from, start) {
+      while (true) {
+        if (Util.isDuplicateOrderedEdge(from, start)) {
+          start++;
+        } else {
+          return start;
+        }
+      }
+    },
+
     // 指定のidが既存のシーンidと重複するか
     isDuplicateScene: function(id) {
       return scenario.scenes.some(function(value) {
@@ -439,7 +456,9 @@ $(function () {
     // correct：正解文字列（kind='Q'のみ）
     addLink: function(from, to, label,
       kind = '', add = '', correct = '') {
-      // 種別に応じた処理（特殊リンクはページに一つを前提にorderは種別ごと固定）        
+      // orderを決定
+      let order = Util.detectLinkOrder(from, 90);
+      // 種別に応じた処理
       if (!kind) {
         scenario.edges.push(
           {
@@ -463,7 +482,8 @@ $(function () {
               "to": tmp_to,
               "label": label,
               "type": kind,
-              "order": (kind === 'R' ? 97 : 98),
+              "order": order,
+              //(kind === 'R' ? 97 : 98),
               "id": Util.generateLinkId(from, tmp_to)
             }
           );
@@ -476,7 +496,7 @@ $(function () {
             "label": label,
             "type": 'Q',
             "correct": correct,
-            "order": 99,
+            "order": order,//99,
             "id": Util.generateLinkId(from, to)
           }
         );
@@ -486,7 +506,7 @@ $(function () {
             "to": add,
             "label": label,
             "type": 'Q',
-            "order": 99,
+            "order": order,//99,
             "id": Util.generateLinkId(from, add)
           }
         );   
@@ -2104,55 +2124,6 @@ ${Util.createLinkText(value.id, scenario.edges)}
 
         // 種別に応じた処理（特殊リンクはページに一つを前提にorderは種別ごと固定）        
         Util.addLink(from, to, label, kind, add, correct);
-        // if (!kind) {
-        //   scenario.edges.push(
-        //     {
-        //       "from": from,
-        //       "to": to,
-        //       "label": label,
-        //       "id": `custom${from}-${to}-${Math.floor( Math.random() * 100000 )}`
-        //     }
-        //   );
-        // } else if (kind === 'R' || kind === 'X') {
-        //   // リンク先を統合
-        //   let tos = [];
-        //   tos.push(to);
-        //   tos = tos.concat(add.split(','));
-        //   for (let tmp_to of tos) {
-        //     scenario.edges.push(
-        //       {
-        //         "from": from,
-        //         "to": tmp_to,
-        //         "label": label,
-        //         "type": kind,
-        //         "order": (kind === 'R' ? 97 : 98),
-        //         "id": `custom${from}-${tmp_to}-${Math.floor( Math.random() * 100000 )}`
-        //       }
-        //     );
-        //   }
-        // } else if (kind === 'Q') {
-        //   scenario.edges.push(
-        //     {
-        //       "from": from,
-        //       "to": to,
-        //       "label": label,
-        //       "type": 'Q',
-        //       "correct": correct,
-        //       "order": 99,
-        //       "id": `custom${from}-${to}-${Math.floor( Math.random() * 100000 )}`
-        //     }
-        //   );
-        //   scenario.edges.push(
-        //     {
-        //       "from": from,
-        //       "to": add,
-        //       "label": label,
-        //       "type": 'Q',
-        //       "order": 99,
-        //       "id": `custom${from}-${to}-${Math.floor( Math.random() * 100000 )}`
-        //     }
-        //   );   
-        // }
         Util.createNetwork({ focus_id: from });
         // network.selectNodes([ from ]);
         Util.setSceneInfo(from);
@@ -2621,108 +2592,6 @@ ${Util.createLinkText(value.id, scenario.edges)}
   // SlickGridの初期化
   Util.createAllGrid();
 
-  // // SlickGridの共通オプション
-  // let grid_opts = {
-  //   editable: true,
-  //   enableAddRow: true,
-  //   enableCellNavigation: true,
-  //   asyncEditorLoading: false,
-  //   autoEdit: false
-  // };
-
-  // // アイテム一覧の描画
-  // Util.createGrid('#groups_grid', scenario.groups, 
-  //   [
-  //     { id: 'start', name: '開始No.', field: 'start', width: 70, editor: Slick.Editors.Integer },
-  //     { id: 'end', name: '終了No.', field: 'end', width: 70, editor: Slick.Editors.Integer },
-  //     { id: 'title', name: 'グループ名', field: 'title', width: 250, editor: Slick.Editors.Text },
-  //     {id: 'delete', name: '削除', field: '', width: 35,
-  //     formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
-  //   ], grid_opts, 'group');
-
-  // // アイテム一覧の描画
-  // Util.createGrid('#items_grid', scenario.items, 
-  //   [
-  //     { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text,
-  //       validator: function(value) {
-  //         return Util.validateId(value, 'i', 'アイテム');
-  //       } },
-  //     { id: 'name', name: '名前', field: 'name', width: 80, editor: Slick.Editors.Text },
-  //     { id: 'target', name: '効果対象', field: 'target', width: 60, editor: SelectEditor,
-  //       options: [ '', 'hp', 'mp', 'state', 'str', 'int', 'dex', 'krm', 'free1', 'free2', 'free3', 'none' ]
-  //     },
-  //     { id: 'effect', name: '効果値', field: 'effect', width: 80, editor: Slick.Editors.Text },
-  //     { id: 'text', name: '説明', field: 'text', width: 250, editor: Slick.Editors.Text },
-  //     { id: 'delete', name: '削除', field: '', width: 35,
-  //     formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
-  //   ], grid_opts, 'item');
-
-  // // フラグ一覧の描画
-  // Util.createGrid('#flags_grid', scenario.flags,
-  //   [
-  //     { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text,
-  //       validator: function(value) {
-  //         return Util.validateId(value, 'f', 'フラグ');
-  //       } 
-  //     },
-  //     { id: 'text', name: '説明', field: 'text', width: 300, editor: Slick.Editors.Text },
-  //     {id: 'delete', name: '削除', field: '', width: 35,
-  //     formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
-  //   ], grid_opts, 'flag');
-
-  // // 敵一覧の描画
-  // Util.createGrid('#enemies_grid', scenario.enemies,
-  //   [
-  //     { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text,
-  //       validator: function(value) {
-  //         return Util.validateId(value, 'm', 'モンスター');
-  //       } 
-  //     },
-  //     { id: 'name', name: '名前', field: 'name', width: 80, editor: Slick.Editors.Text },
-  //     { id: 'element', name: '属性', field: 'element', editor: SelectEditor,
-  //       options: [ '', 'earth', 'water', 'fire', 'wind', 'spirit' ] },
-  //     { id: 'attack', name: '攻撃', field: 'attack', width: 80, editor: SelectEditor,
-  //       options: [ '', 'physics', 'magic', 'both', 'free1', 'free2', 'free3',
-  //         'poison', 'frozen', 'stone', 'curse', 'forget', 'str', 'int', 'dex', 'krm' ] },
-  //     { id: 'func', name: 'ダメージ式', field: 'func', width: 80,
-  //       editor: Slick.Editors.LongText },
-  //     { id: 'drop', name: 'ドロップ', field: 'drop', width: 80, editor: AutoCompleteEditor,
-  //       dataSource: [ 'mon/', 'tue/', 'wed/', 'thu/', 'fri/', 'sat/', 'sun/', 'free1/', 'free2/', 'free3', ] },
-  //     { id: 'text', name: '説明', field: 'text', width: 180, editor: Slick.Editors.LongText },
-  //     { id: 'hp', name: '敵HP', field: 'hp', width: 40, editor: Slick.Editors.Integer },
-  //     { id: 'func_opp', name: '敵ダメージ式', field: 'func_opp', width: 90, editor: Slick.Editors.LongText },
-  //     { id: 'delete', name: '削除', field: '', width: 35,
-  //     formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
-  //   ], grid_opts, 'enemy');
-
-  // // 実績一覧の描画
-  // Util.createGrid('#results_grid', scenario.results,
-  //   [
-  //     { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text,
-  //       validator: function(value) {
-  //         return Util.validateId(value, 'r', '実績');
-  //       } 
-  //     },
-  //     { id: 'name', name: '名前', field: 'name', width: 100, editor: Slick.Editors.Text },
-  //     { id: 'level', name: 'Lv.', field: 'level', width: 30, editor: SelectEditor,
-  //       options: [ '1', '2', '3', '4', '5' ] },
-  //     { id: 'text', name: '説明', field: 'text', width: 150, editor: Slick.Editors.Text },
-  //     {id: 'delete', name: '削除', field: '', width: 35,
-  //     formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
-  //   ], grid_opts, 'result');
-
-  // // ライセンス一覧の描画
-  // Util.createGrid('#works_grid', scenario.licence,
-  //   [
-  //     { id: 'name', name: '名前', field: 'name', width: 100, editor: Slick.Editors.Text },
-  //     { id: 'category', name: '分類', field: 'category', width: 70, editor: SelectEditor,
-  //       options: [ 'bgm', 'picture' ] },
-  //     { id: 'creator', name: '作者', field: 'creator', width: 80, editor: Slick.Editors.Text },
-  //     { id: 'url', name: 'URL', field: 'url', width: 230, editor: Slick.Editors.Text },
-  //     {id: 'delete', name: '削除', field: '', width: 35,
-  //     formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } } 
-  //   ], grid_opts, 'work');
-
   // エディターの生成
   let editor = ace.edit('scene-editor');
   editor.$blockScrolling = Infinity;
@@ -3185,12 +3054,4 @@ ${Util.createLinkText(value.id, scenario.edges)}
   toastr.options.hideDuration = 1000;
   toastr.options.timeOut = 7000;
   toastr.info(tips[Math.floor(Math.random() * tips.length)], 'TIPS');
-
-  // 階層付けテスト
-  // $('#ctrl_level').click(function() {
-  //   let lr = new LevelResolver(scenario);
-  //   lr.run();
-  //   localStorage.setItem(Common.MY_STORAGE, JSON.stringify(lr.scenario));
-  //   // console.log(s.scenario);
-  // });
 });
