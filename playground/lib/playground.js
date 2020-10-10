@@ -579,6 +579,7 @@ $(function () {
         $('#scene-select #se').val(scene.se);
         $('#scene-select #hp').val(scene.hp);
         $('#scene-select #mp').val(scene.mp);
+        $('#scene-select #state').val(scene.state);
         $('#scene-select #str').val(scene.str);
         $('#scene-select #int').val(scene.int);
         $('#scene-select #dex').val(scene.dex);

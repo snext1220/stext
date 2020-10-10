@@ -234,6 +234,21 @@
                 <input id="mp" type="text" class="ac" size="10" /></label>
               <label>STARS：
                 <input id="stars" type="text" class="ac" size="10" /></label>
+              <label>STATE：
+                <select id="state">
+                  <option value=""></option>
+                  <option value="poison">poison</option>
+                  <option value="frozen">frozen</option>
+                  <option value="stone">stone</option>
+                  <option value="curse">curse</option>
+                  <option value="forget">forget</option>
+                  <option value="-poison">-poison</option>
+                  <option value="-frozen">-frozen</option>
+                  <option value="-stone">-stone</option>
+                  <option value="-curse">-curse</option>
+                  <option value="-forget">-forget</option>
+                  <option value="-all">-all</option>
+                </select>  
               <p></p>
               <label>STR：
                 <input id="str" type="text" class="ac" size="10" /></label>
@@ -904,7 +919,7 @@
 <!--*****************暫定シャッフル**************************-->
 <script src="lib/shuffle.js"></script>
 <!--Playground-->
-<script src="lib/playground.min.js?version=2020100802"></script>
+<script src="lib/playground.min.js?version=2020101001"></script>
 <!--Ptengine解析-->
 <script type="text/javascript">
 window._pt_lt = new Date().getTime();
