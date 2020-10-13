@@ -1154,6 +1154,25 @@ $(function () {
           formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } } 
         ], grid_opts, 'work', false);
     },
+
+    // 単一／複数選択ボタン付きのサイドバーを生成（メンバー名対応）
+    createSelectSidebar: function(trigger, target, 
+      member, type, label, value, onSubmit) {
+      let dataset = scenario[member];
+      if (member === 'groups') {
+        dataset = [
+          {
+            start: 0,
+            end: 99999,
+            title: 'フィルター解除'
+          }
+        ].concat(dataset);
+      }
+      // 処理はデータセット版に委譲
+      Util.createSelectSidebarForDataset(trigger, target, 
+        dataset, type, label, value, onSubmit);
+    },
+
     // 単一／複数選択ボタン付きのサイドバーを生成
     // trigger：トリガーとなる要素（セレクター式）
     // target：サイドバーとなる要素のベース名（id値）
@@ -1162,10 +1181,8 @@ $(function () {
     // label：ラジオ／チェックボックスのラベルとなるプロパティ、またはラベルを生成する関数（引数は対象のオブジェクト、戻り値はラベル値）
     // value：ラジオ／チェックボックスの値となるプロパティ、またはラベルを生成する関数（引数は対象のオブジェクト、戻り値はオプション値）
     // onSubmit：サブミット時の処理（引数はトリガー要素、リスト要素）
-    createSelectSidebar: function(trigger, target, 
-      member,
-      //dataset, 
-      type, label, value, onSubmit) {
+    createSelectSidebarForDataset: function(trigger, target, 
+      dataset, type, label, value, onSubmit) {
       // サイドバーとなる要素（id値）
       let s_name = `sidr_${target}`;
       // リスト要素（セレクター）
@@ -1182,16 +1199,16 @@ $(function () {
         displace: false,
         onOpen: function() {
           $(s_list).empty();
-          let dataset = scenario[member];
-          if (member === 'groups') {
-            dataset = [
-              {
-                start: 0,
-                end: 99999,
-                title: 'フィルター解除'
-              }
-            ].concat(dataset);
-          }
+          // let dataset = scenario[member];
+          // if (member === 'groups') {
+          //   dataset = [
+          //     {
+          //       start: 0,
+          //       end: 99999,
+          //       title: 'フィルター解除'
+          //     }
+          //   ].concat(dataset);
+          // }
           for(let obj of dataset) {
             let elem;
             let v_label;  // ラベル文字列
@@ -2395,6 +2412,16 @@ ${Util.createLinkText(value.id, scenario.edges)}
     'id'
   );
 
+  // ［シーン］タブ内での次シナ処理
+  // Util.createSelectSidebarForDataset(
+  //   '#scene-select #nexts',
+  //   'results',
+  //   [],
+  //   'check',
+  //   'title',
+  //   'id'
+  // );
+
   // 参照ボタンクリック時にファイル選択ボックスを表示
   $('#scene-select #bgm-ref').click(function(e) {
     $('#scene-select #bgm-file').click();
@@ -2554,15 +2581,31 @@ ${Util.createLinkText(value.id, scenario.edges)}
     network.moveTo({ position: coords });
   });
 
-  // サイドバーの実績欄を生成
+  // サイドバーの実績欄、次シナ入力のサイドバーを生成  
   $.get('../stext/stext.xml').done(function(data) {
-    $('scenario > work', data).each(function() { 
+    let tmp_scenario_set = [];
+    $('scenario > work', data).each(function() {
       $('#sidr_links_result_s').append(
         $('<option></option>').
           attr('value', $(this).attr('id')).
           text($(this).attr('title'))
       );
-    }); 
+      tmp_scenario_set.push(
+        {
+          id: $(this).attr('id'),
+          title: $(this).attr('title')
+        }
+      );  
+    });
+    // ［シーン］タブ内での次シナ処理
+    Util.createSelectSidebarForDataset(
+      '#scene-select #nexts',
+      'nexts',
+      tmp_scenario_set,
+      'check',
+      'title',
+      'id'
+    );
   });
   // 実績（シナリオ）選択時に実績一覧を取得
   $('#sidr_links_result_s').change(function(e) {
