@@ -186,28 +186,28 @@
           <form>
             <fieldset>
               <legend>基本</legend>
-              <label>id：
+              <label data-help="scene-id">id：
                 <input id="id" type="text" size="3" disabled readonly />
                 <button id="scene-changescene" type="button">変更</button>
                 <!-- <span id="id"></span> -->
                 &nbsp;&nbsp;</label>
-              <label>サマリー：
+              <label data-help="scene-summary">サマリー：
                 <input id="summary" type="text" class="wide" size="30" /></label>
-              <label>End：
+              <label data-help="scene-end">End：
                 <select id="end">
                   <option value=""></option>
                   <option value="happy">happy</option>
                   <option value="bad">bad</option>
                 </select></label>
               <p></p>
-              <label>アイテム：
+              <label data-help="scene-items">アイテム：
                   <input id="items" type="text" class="tagsin" size="15" /></label>
-              <label>フラグ：
+              <label data-help="scene-flags">フラグ：
                 <input id="flags" type="text" size="15" /></label>
-              <label>敵：
+              <label data-help="scene-enemies">敵：
                 <input id="enemies" type="text" size="15" /></label> 
               <p></p>
-              <label>実績：
+              <label data-help="scene-result">実績：
                 <input id="result" type="text" size="15" /></label> 
               <label>リンク：
                 <select id="edges-list" class="no-update"></select>
@@ -217,24 +217,24 @@
             </fieldset>
             <fieldset>
               <legend>楽曲（<a href="https://soundcloud.com/venus-az/sets/sorcerian-text-original-sounds/s-2tzI5" target="help">標準BGMリスト</a>）</legend>
-              <label>BGM：
+              <label data-help="scene-bgm">BGM：
                   <input id="bgm" type="text"  class="wide" size="15" /></label>
                   <input id="bgm-file" type="file" accept=".mp3" class="hidden-file no-update" />
                   <button id="bgm-ref" type="button">参照</button>
-              <label>効果音：
+              <label data-help="scene-se">効果音：
                 <input id="se" type="text"  class="wide" size="15" /></label>
                 <input id="se-file" type="file" accept=".mp3" class="hidden-file no-update" />
                   <button id="se-ref" type="button">参照</button>
             </fieldset>
             <fieldset>
               <legend>ステータス</legend>
-              <label>HP：
+              <label data-help="scene-hp">HP：
                 <input id="hp" type="text" class="ac" size="10" /></label>
-              <label>MP：
+              <label data-help="scene-mp">MP：
                 <input id="mp" type="text" class="ac" size="10" /></label>
-              <label>STARS：
+              <label data-help="scene-stars">STARS：
                 <input id="stars" type="text" class="ac" size="10" /></label>
-              <label>STATE：
+              <label data-help="scene-state">STATE：
                 <select id="state">
                   <option value=""></option>
                   <option value="poison">poison</option>
@@ -250,29 +250,29 @@
                   <option value="-all">-all</option>
                 </select>  
               <p></p>
-              <label>STR：
+              <label data-help="scene-str">STR：
                 <input id="str" type="text" class="ac" size="10" /></label>
-              <label>INT：
+              <label data-help="scene-int">INT：
                 <input id="int" type="text" class="ac" size="10" /></label>
-              <label>DEX：
+              <label data-help="scene-dex">DEX：
                 <input id="dex" type="text" class="ac" size="10" /></label>
-              <label>KRM：
+              <label data-help="scene-krm">KRM：
                 <input id="krm" type="text" class="ac" size="10" /></label>  
               <p></p>
-              <label>FREE1：
+              <label data-help="scene-free1">FREE1：
                 <input id="free1" type="text" class="ac" size="10" /></label>
-              <label>FREE2：
+              <label data-help="scene-free2">FREE2：
                 <input id="free2" type="text" class="ac" size="10" /></label>
-              <label>FREE3：
+              <label data-help="scene-free3">FREE3：
                 <input id="free3" type="text" class="ac" size="10" /></label>
             </fieldset>
             <fieldset>
               <legend>その他</legend>
-              <label>シャッフル除外：
+              <label data-help="scene-fixed">シャッフル除外：
                 <input id="fixed" type="checkbox" value="fixed" /></label>
-              <label>共通インポートの無効化：
+              <label data-help="scene-exclude">共通インポートの無効化：
                 <input id="exclude" type="checkbox" value="true" /></label>
-              <label>背景色：
+              <label data-help="scene-color">背景色：
                   <select id="color"></select></label>
             </fieldset>
             <p>
@@ -919,7 +919,7 @@
 <!--*****************暫定シャッフル**************************-->
 <script src="lib/shuffle.js"></script>
 <!--Playground-->
-<script src="lib/playground.min.js?version=2020101101"></script>
+<script src="lib/playground.js?version=2020101101"></script>
 <!--Ptengine解析-->
 <script type="text/javascript">
 window._pt_lt = new Date().getTime();

@@ -119,6 +119,8 @@ $(function () {
   let config = {};
   // グリッド
   let grid = {};
+  // ヘルプページ（キャッシュ）
+  let help_page = '';
   // 共通データ
   let Common = {
     HELP_URL: 'https://sorcerian.hateblo.jp/entry/2018/11/01/211745#',
@@ -296,6 +298,26 @@ $(function () {
         return 0;
       }
     },
+    // ヘルプテキストを取得（未完成）
+    getHelpText: function(key) {
+      let result = '';
+      if (!help_page) {
+        fetch('https://sorcerian.hateblo.jp/entry/2018/11/01/211745')
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(data) {
+            help_page = $(data);
+          });
+      }
+      // <key>-begin～<key>-endを取得
+      $(`#${key}-begin`, help_page).parent().nextUntil(`:has(#${key}-end)`)
+        .each(function(index, elem) {
+          result += elem.outerHTML;
+        });
+      return result;
+    },
+
     // scene idの最大値を取得
     maxSceneId: function() {
       return Math.max.apply(null,
@@ -1900,15 +1922,30 @@ ${Util.createLinkText(value.id, scenario.edges)}
 
   // ダイナミックヘルプ（基本情報）
   $('#basic label').dblclick(function(e) {
-    let id = $(this).find('input, select').attr('id').split('-')[1];
+    //let id = $(this).find('input, select').attr('id').split('-')[1];
+    let id = $(this).find('input, select').attr('id');
     window.open(Common.HELP_URL + id, 'help');
   });
 
   // ダイナミックヘルプ（シーン情報）
   $('#scene label').dblclick(function(e) {
-    let id = $(this).find('input, select').attr('id');
+    // let id = $(this).find('input, select').attr('id');
+    let id = $(this).attr('data-help');
     window.open(Common.HELP_URL + id, 'help');
   });
+
+  // 未使用（消さないこと）
+  // $('#scene label').tooltip({
+  //   items: '[data-help]',
+  //   classes: {
+  //     'ui-tooltip': 'my-tooltip'
+  //   },
+  //   content: function() {
+  //     return Util.getHelpText(
+  //       $(this).attr('data-help')
+  //     ); 
+  //   }
+  // });
 
   // ダイアログを初期化（設定情報）
   $('#pg-config').dialog({
