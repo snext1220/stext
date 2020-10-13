@@ -957,7 +957,7 @@
             }
             SeAudio.play('state', true);
             toastr.error(
-              sts[1].toUpperCase() + 'が低下した！',
+              Util.getStatusLabel(sts[1]) + 'が低下した！',
               'ステータス攻撃'
             );
 
@@ -1006,33 +1006,33 @@
             case 'physics' :
               if (h_damage > 0) { is_damaged = true; }
               save_data.chara.hp = Number(save_data.chara.hp) - h_damage;
-              t_msg = `HPに${h_damage}のダメージ！（現在値：${save_data.chara.hp}）` ;
+              t_msg = `${Util.getStatusLabel('hp')}に${h_damage}のダメージ！（現在値：${save_data.chara.hp}）` ;
               break;
             case 'magic' :
               if (m_damage > 0) { is_damaged = true; }
               save_data.chara.mp = Number(save_data.chara.mp) - m_damage;
-              t_msg = `MPに${m_damage}のダメージ！（現在値：${save_data.chara.mp}）` ;
+              t_msg = `${Util.getStatusLabel('mp')}に${m_damage}のダメージ！（現在値：${save_data.chara.mp}）` ;
               break;
             case 'both' :
               if (h_damage > 0 || m_damage > 0) { is_damaged = true; }
               save_data.chara.hp = Number(save_data.chara.hp) - h_damage;
               save_data.chara.mp = Number(save_data.chara.mp) - m_damage;
-              t_msg = `HP/MPに${h_damage}/${m_damage}のダブルダメージ！（現在値hp/mp：${save_data.chara.hp}/${save_data.chara.mp}）` ;
+              t_msg = `${Util.getStatusLabel('hp')}/${Util.getStatusLabel('mp')}に${h_damage}/${m_damage}のダブルダメージ！（現在値：${save_data.chara.hp}/${save_data.chara.mp}）` ;
               break;
             case 'free1' :
               if (damage > 0) { is_damaged = true; }
               save_data.chara.free1 = Number(save_data.chara.free1) - damage;
-              t_msg = `FREE1に${damage}のダメージ！（現在値：${save_data.chara.free1}）` ;
+              t_msg = `${Util.getStatusLabel('free1')}に${damage}のダメージ！（現在値：${save_data.chara.free1}）` ;
               break;
             case 'free2' :
               if (damage > 0) { is_damaged = true; }
               save_data.chara.free2 = Number(save_data.chara.free2) - damage;
-              t_msg = `FREE2に${damage}のダメージ！（現在値：${save_data.chara.free2}）` ;
+              t_msg = `${Util.getStatusLabel('free2')}に${damage}のダメージ！（現在値：${save_data.chara.free2}）` ;
               break;
             case 'free3' :
               if (damage > 0) { is_damaged = true; }
               save_data.chara.free3 = Number(save_data.chara.free3) - damage;
-              t_msg = `FREE3に${damage}のダメージ！（現在値：${save_data.chara.free3}）` ;
+              t_msg = `${Util.getStatusLabel('free3')}に${damage}のダメージ！（現在値：${save_data.chara.free3}）` ;
               break;
             default :
               break;
@@ -1712,18 +1712,18 @@
             <div>
             <span id="sidr_status_hp_label">HP</span><br />
             <input type="button" class="spinner_down" value="-" />
-            <input id="sidr_status_hp" type="number" />
+            <input id="sidr_status_hp" type="text" />
             <input type="button" class="spinner_up" value="+" />
             ／<!--<span id="sidr_status_hp_m"></span>-->
-              <input id="sidr_status_hp_m" type="number" />
+              <input id="sidr_status_hp_m" type="text" />
             </div>
             <div>
             <span id="sidr_status_mp_label">MP</span><br />
             <input type="button" class="spinner_down" value="-" />
-            <input type="number" id="sidr_status_mp" />
+            <input type="text" id="sidr_status_mp" />
             <input type="button" class="spinner_up" value="+" />
             ／<!--<span id="sidr_status_mp_m"></span>-->
-              <input type="number" id="sidr_status_mp_m" />
+              <input type="text" id="sidr_status_mp_m" />
             </div>
             <div>
             <span id="sidr_status_state_label">STATE</span><br />
@@ -1742,34 +1742,34 @@
             <div>
             <span id="sidr_status_str_label">STR</span><br />
             <input type="button" class="spinner_down" value="-" />
-            <input type="number" id="sidr_status_str" />
+            <input type="text" id="sidr_status_str" />
             <input type="button" class="spinner_up" value="+" />
             <!--／<span id="sidr_status_str_i"></span>
-               <input type="number" id="sidr_status_str_i" />-->
+               <input type="text" id="sidr_status_str_i" />-->
             </div>
             <div>
             <span id="sidr_status_int_label">INT</span><br />
             <input type="button" class="spinner_down" value="-" />
-            <input type="number" id="sidr_status_int" />
+            <input type="text" id="sidr_status_int" />
             <input type="button" class="spinner_up" value="+" />
             <!--／<span id="sidr_status_int_i"></span>
-              <input type="number" id="sidr_status_int_i" />-->
+              <input type="text" id="sidr_status_int_i" />-->
             </div>
             <div>
             <span id="sidr_status_dex_label">DEX</span><br />
             <input type="button" class="spinner_down" value="-" />
-            <input type="number" id="sidr_status_dex" />
+            <input type="text" id="sidr_status_dex" />
             <input type="button" class="spinner_up" value="+" />
             <!--／<span id="sidr_status_dex_i"></span>
-              <input type="number" id="sidr_status_dex_i" />-->
+              <input type="text" id="sidr_status_dex_i" />-->
             </div>
             <div>
             <span id="sidr_status_krm_label">KRM</span><br />
             <input type="button" class="spinner_down" value="-" />
-            <input type="number" id="sidr_status_krm" />
+            <input type="text" id="sidr_status_krm" />
             <input type="button" class="spinner_up" value="+" />
             <!--／<span id="sidr_status_krm_i"></span>
-              <input type="number" id="sidr_status_krm_i" />-->
+              <input type="text" id="sidr_status_krm_i" />-->
             </div>
           </td>
           </tr>
@@ -1784,17 +1784,17 @@
           <tr>
             <td>
             <input type="button" class="spinner_down" value="-" />
-            <input type="number" id="sidr_status_free1" />
+            <input type="text" id="sidr_status_free1" />
             <input type="button" class="spinner_up" value="+" />・ 
             </td>
             <td>
             <input type="button" class="spinner_down" value="-" />
-            <input type="number" id="sidr_status_free2" />
+            <input type="text" id="sidr_status_free2" />
             <input type="button" class="spinner_up" value="+" />・ 
             </td>
             <td>
             <input type="button" class="spinner_down" value="-" />
-            <input type="number" id="sidr_status_free3" />
+            <input type="text" id="sidr_status_free3" />
             <input type="button" class="spinner_up" value="+" /> 
             </td>
           </tr>
@@ -1806,7 +1806,7 @@
           <tr>
           <td>
           <input type="button" class="spinner_down" value="-" />
-          <input type="number" id="sidr_status_free1" />
+          <input type="text" id="sidr_status_free1" />
           <input type="button" class="spinner_up" value="+" />・
           <span class="free-label">
           <br />
@@ -1815,7 +1815,7 @@
           </td>
           <td>
           <input type="button" class="spinner_down" value="-" />
-          <input type="number" id="sidr_status_free2" />
+          <input type="text" id="sidr_status_free2" />
           <input type="button" class="spinner_up" value="+" />・
           <span class="free-label">
             <br />
@@ -1824,7 +1824,7 @@
           </td>
           <td>
           <input type="button" class="spinner_down" value="-" />
-          <input type="number" id="sidr_status_free3" />
+          <input type="text" id="sidr_status_free3" />
           <input type="button" class="spinner_up" value="+" />
           <span class="free-label">
             <br />
@@ -1979,25 +1979,25 @@
             <div>
             月
             <input type="button" class="spinner_down" value="-" />
-            <input type="number" id="sidr_magic_mon" />
+            <input type="text" id="sidr_magic_mon" />
             <input type="button" class="spinner_up" value="+" />
             </div>
             <div>
             火
             <input type="button" class="spinner_down" value="-" />
-            <input type="number" id="sidr_magic_tue" />
+            <input type="text" id="sidr_magic_tue" />
             <input type="button" class="spinner_up" value="+" />
             </div>
             <div>
             水
             <input type="button" class="spinner_down" value="-" />
-            <input type="number" id="sidr_magic_wed" />
+            <input type="text" id="sidr_magic_wed" />
             <input type="button" class="spinner_up" value="+" />
             </div>
             <div>
             木
             <input type="button" class="spinner_down" value="-" />
-            <input type="number" id="sidr_magic_thu" />
+            <input type="text" id="sidr_magic_thu" />
             <input type="button" class="spinner_up" value="+" />  
             </div>  
           </td>
@@ -2005,19 +2005,19 @@
             <div>
             金
             <input type="button" class="spinner_down" value="-" />
-            <input type="number" id="sidr_magic_fri" />
+            <input type="text" id="sidr_magic_fri" />
             <input type="button" class="spinner_up" value="+" />
             </div>
             <div>
             土
             <input type="button" class="spinner_down" value="-" />
-            <input type="number" id="sidr_magic_sat" />
+            <input type="text" id="sidr_magic_sat" />
             <input type="button" class="spinner_up" value="+" />
             </div>
             <div>
             太
             <input type="button" class="spinner_down" value="-" />
-            <input type="number" id="sidr_magic_sun" />
+            <input type="text" id="sidr_magic_sun" />
             <input type="button" class="spinner_up" value="+" />
             </div>
           </td>
@@ -2551,6 +2551,19 @@
         if (init_ages) { init.ages = init_ages.split(','); }
       }
       return init;
+    },
+
+    // 指定されたステータスのラベルを取得
+    getStatusLabel: function(name) {
+      let result = '';
+      let flabel = $('init > label', scenario_data);
+      if (flabel) {
+        result = flabel.nsAttr(name);
+        if (result) {
+          return result;
+        }
+      }
+      return name.toUpperCase();
     },
 
     // セーブデータの初期化
@@ -3741,7 +3754,7 @@
           return Util.randomArray(m_params);
         case 'input' :
           return '<input type="button" class="spinner_down sgml" value="-" />'
-            + '<input type="number" class="sgml" value="' + m_params[0] + '" />'
+            + '<input type="text" class="sgml" value="' + m_params[0] + '" />'
             + '<input type="button" class="spinner_up sgml" value="+" />';
         default :
           return match;

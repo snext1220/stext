@@ -703,7 +703,7 @@ table.item_list img {
   width: 140px;
 }
 
-.sidr_info input[type="number"] {
+.sidr_info input[type="text"], .sidr_info input[type="number"] {
   width: 38px;
 }
 
