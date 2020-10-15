@@ -2602,6 +2602,13 @@
 
   // ユーティリティ
   var Util = {
+    // msec秒だけ処理を休止
+    sleep: function(msec) {
+      var startMsec = new Date();
+      // 指定ミリ秒間だけループさせる（CPUは常にビジー状態）
+      while (new Date() - startMsec < msec);
+    },
+
     // min～maxの乱数を生成
     random: function(min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -3481,6 +3488,7 @@
         toastr.options.timeOut = 5000;
         toastr.success(results_map[at_result].name, '実績獲得');
         //this.toast('実績「' + results_map[at_result].name + '」を獲得');
+        PlayerRank.incrementResult(scenario_code);
       }
       this.saveStorageGlobal();
     },
@@ -3852,6 +3860,21 @@
           return save_data.chara.free2;
         case 'free3' :
           return save_data.chara.free3;
+        // result、result_rateは暫定
+        case 'result' :
+          let info = PlayerRank.scena_infos[m_params[0]];
+          if (info) {
+            return info.results_count;
+          } else {
+            return '?????';
+          }
+        case 'result_rate' :
+          let info_r = PlayerRank.scena_infos[m_params[0]];
+          if (info_r) {
+            return Math.floor(info_r.results_count / info_r.results_all * 100);
+          } else {
+            return '?????';
+          }
         case 'race' :
           switch (save_data.chara.race) {
             case 'FIGHTER' :
