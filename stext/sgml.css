@@ -378,7 +378,7 @@ input[type="number"].sgml {
 
 
 .spinner_down, .spinner_up {
-  width: 50px;
+  width: 30px;
   /*height: 25px;*/
 }
 
@@ -752,7 +752,7 @@ table.item_list img {
 .sidr_info #sidr_status_free_list .spinner_down,
 .sidr_info #sidr_status_free_list .spinner_up,
 .sidr_info #sidr_status_free_list input[type="number"] {
-  width: 40px;
+  width: 23px;
 }
 
 /* サイドバー（Items & Flags）*/
