@@ -378,7 +378,7 @@ input[type="number"].sgml {
 
 
 .spinner_down, .spinner_up {
-  width: 30px;
+  width: 50px;
   /*height: 25px;*/
 }
 
@@ -752,7 +752,7 @@ table.item_list img {
 .sidr_info #sidr_status_free_list .spinner_down,
 .sidr_info #sidr_status_free_list .spinner_up,
 .sidr_info #sidr_status_free_list input[type="number"] {
-  width: 23px;
+  width: 40px;
 }
 
 /* サイドバー（Items & Flags）*/
@@ -916,6 +916,15 @@ table.item_list img {
 @media (max-width: 768px) {
   .sidr {
     width: 98% !important;
+  }
+
+  .spinner_down, .spinner_up {
+    width: 30px;
+  }
+
+  .sidr_info #sidr_status_free_list .spinner_down,
+  .sidr_info #sidr_status_free_list .spinner_up {
+    width: 23px;
   }
 }
 
