@@ -1710,21 +1710,67 @@
           <tr>
           <td>
             <div>
-            <span id="sidr_status_hp_label">HP</span><br />
-            <input type="button" class="spinner_down" value="-" />
-            <input id="sidr_status_hp" type="text" />
-            <input type="button" class="spinner_up" value="+" />
-            ／<!--<span id="sidr_status_hp_m"></span>-->
-              <input id="sidr_status_hp_m" type="text" />
+              <span id="sidr_status_hp_label">HP</span><br />
+              <input type="button" class="spinner_down" value="-" />
+              <input id="sidr_status_hp" type="text" />
+              <input type="button" class="spinner_up" value="+" />
             </div>
             <div>
-            <span id="sidr_status_mp_label">MP</span><br />
-            <input type="button" class="spinner_down" value="-" />
-            <input type="text" id="sidr_status_mp" />
-            <input type="button" class="spinner_up" value="+" />
-            ／<!--<span id="sidr_status_mp_m"></span>-->
-              <input type="text" id="sidr_status_mp_m" />
+              <span id="sidr_status_hp_m_label">HP MAX</span><br />
+              <input type="button" class="spinner_down" value="-" />
+              <input id="sidr_status_hp_m" type="text" />
+              <input type="button" class="spinner_up" value="+" />
             </div>
+            <div>
+              <span id="sidr_status_mp_label">MP</span><br />
+              <input type="button" class="spinner_down" value="-" />
+              <input type="text" id="sidr_status_mp" />
+              <input type="button" class="spinner_up" value="+" />
+            </div>
+            <div>
+              <span id="sidr_status_mp_m_label">MP MAX</span><br />
+              <input type="button" class="spinner_down" value="-" />
+              <input type="text" id="sidr_status_mp_m" />
+              <input type="button" class="spinner_up" value="+" />
+            </div>
+          </td>
+          <td>
+            <div>
+            <span id="sidr_status_str_label">STR</span><br />
+            <input type="button" class="spinner_down" value="-" />
+            <input type="text" id="sidr_status_str" />
+            <input type="button" class="spinner_up" value="+" />
+            ／<span id="sidr_status_str_i"></span>
+            <!--<input type="text" id="sidr_status_str_i" />-->
+            </div>
+            <div>
+            <span id="sidr_status_int_label">INT</span><br />
+            <input type="button" class="spinner_down" value="-" />
+            <input type="text" id="sidr_status_int" />
+            <input type="button" class="spinner_up" value="+" />
+            ／<span id="sidr_status_int_i"></span>
+            <!--<input type="text" id="sidr_status_int_i" />-->
+            </div>
+            <div>
+            <span id="sidr_status_dex_label">DEX</span><br />
+            <input type="button" class="spinner_down" value="-" />
+            <input type="text" id="sidr_status_dex" />
+            <input type="button" class="spinner_up" value="+" />
+            ／<span id="sidr_status_dex_i"></span>
+            <!--<input type="text" id="sidr_status_dex_i" />-->
+            </div>
+            <div>
+            <span id="sidr_status_krm_label">KRM</span><br />
+            <input type="button" class="spinner_down" value="-" />
+            <input type="text" id="sidr_status_krm" />
+            <input type="button" class="spinner_up" value="+" />
+            ／<span id="sidr_status_krm_i"></span>
+            <!--<input type="text" id="sidr_status_krm_i" />-->
+            </div>
+          </td>
+          </tr>
+          <tr>
+          <td colspan="2">
             <div>
             <span id="sidr_status_state_label">STATE</span><br />
             <label><input type="radio" name="sidr_status_state" value="" />正常</label>
@@ -1736,40 +1782,6 @@
             <label><input type="radio" name="sidr_status_state" value="forget" />忘却
             (<span id="sidr_status_forget_scene">0</span>)</label>
             <div id="sidr_status_state_desc">－－－</div>
-            </div>
-          </td>
-          <td>
-            <div>
-            <span id="sidr_status_str_label">STR</span><br />
-            <input type="button" class="spinner_down" value="-" />
-            <input type="text" id="sidr_status_str" />
-            <input type="button" class="spinner_up" value="+" />
-            <!--／<span id="sidr_status_str_i"></span>
-               <input type="text" id="sidr_status_str_i" />-->
-            </div>
-            <div>
-            <span id="sidr_status_int_label">INT</span><br />
-            <input type="button" class="spinner_down" value="-" />
-            <input type="text" id="sidr_status_int" />
-            <input type="button" class="spinner_up" value="+" />
-            <!--／<span id="sidr_status_int_i"></span>
-              <input type="text" id="sidr_status_int_i" />-->
-            </div>
-            <div>
-            <span id="sidr_status_dex_label">DEX</span><br />
-            <input type="button" class="spinner_down" value="-" />
-            <input type="text" id="sidr_status_dex" />
-            <input type="button" class="spinner_up" value="+" />
-            <!--／<span id="sidr_status_dex_i"></span>
-              <input type="text" id="sidr_status_dex_i" />-->
-            </div>
-            <div>
-            <span id="sidr_status_krm_label">KRM</span><br />
-            <input type="button" class="spinner_down" value="-" />
-            <input type="text" id="sidr_status_krm" />
-            <input type="button" class="spinner_up" value="+" />
-            <!--／<span id="sidr_status_krm_i"></span>
-              <input type="text" id="sidr_status_krm_i" />-->
             </div>
           </td>
           </tr>
@@ -1838,13 +1850,155 @@
         <div id="sidr_status_submit" class="sidr_submit">確定</div>
         <div id="sidr_status_close" class="sidr_close">閉じる</div>
       </div>`);
+      // let template = $(`<div id="sidr_status" class="sidr_info">
+      //   <p class="side_tab">
+      //     <img src="${ROOT}${COMMON}side/sc_chara.png" class="cross" data-title="basic" />
+      //     <img src="${ROOT}${COMMON}side/sc_magic.png" class="cross" data-title="magic" />
+      //     <img src="${ROOT}${COMMON}side/sc_item.png" class="cross" data-title="item" />
+      //   </p>
+      //   <h2>
+      //     <img src="${ROOT}${COMMON}side/status.png" alt="Status" />
+      //   </h2>
+      //   <p id="sidr_status_bonus" class="bonus_msg"></p>
+      //   <table id="sidr_status_list">
+      //     <tr>
+      //     <td>
+      //       <div>
+      //       <span id="sidr_status_hp_label">HP</span><br />
+      //       <input type="button" class="spinner_down" value="-" />
+      //       <input id="sidr_status_hp" type="text" />
+      //       <input type="button" class="spinner_up" value="+" />
+      //       ／<!--<span id="sidr_status_hp_m"></span>-->
+      //         <input id="sidr_status_hp_m" type="text" />
+      //       </div>
+      //       <div>
+      //       <span id="sidr_status_mp_label">MP</span><br />
+      //       <input type="button" class="spinner_down" value="-" />
+      //       <input type="text" id="sidr_status_mp" />
+      //       <input type="button" class="spinner_up" value="+" />
+      //       ／<!--<span id="sidr_status_mp_m"></span>-->
+      //         <input type="text" id="sidr_status_mp_m" />
+      //       </div>
+      //       <div>
+      //       <span id="sidr_status_state_label">STATE</span><br />
+      //       <label><input type="radio" name="sidr_status_state" value="" />正常</label>
+      //       <label><input type="radio" name="sidr_status_state" value="poison" />毒</label>
+      //       <label><input type="radio" name="sidr_status_state" value="frozen" />凍結</label>
+      //       <label><input type="radio" name="sidr_status_state" value="stone" />石化
+      //       (<span id="sidr_status_stone_scene">0</span>)</label>
+      //       <label><input type="radio" name="sidr_status_state" value="curse" />呪い</label>
+      //       <label><input type="radio" name="sidr_status_state" value="forget" />忘却
+      //       (<span id="sidr_status_forget_scene">0</span>)</label>
+      //       <div id="sidr_status_state_desc">－－－</div>
+      //       </div>
+      //     </td>
+      //     <td>
+      //       <div>
+      //       <span id="sidr_status_str_label">STR</span><br />
+      //       <input type="button" class="spinner_down" value="-" />
+      //       <input type="text" id="sidr_status_str" />
+      //       <input type="button" class="spinner_up" value="+" />
+      //       <!--／<span id="sidr_status_str_i"></span>
+      //          <input type="text" id="sidr_status_str_i" />-->
+      //       </div>
+      //       <div>
+      //       <span id="sidr_status_int_label">INT</span><br />
+      //       <input type="button" class="spinner_down" value="-" />
+      //       <input type="text" id="sidr_status_int" />
+      //       <input type="button" class="spinner_up" value="+" />
+      //       <!--／<span id="sidr_status_int_i"></span>
+      //         <input type="text" id="sidr_status_int_i" />-->
+      //       </div>
+      //       <div>
+      //       <span id="sidr_status_dex_label">DEX</span><br />
+      //       <input type="button" class="spinner_down" value="-" />
+      //       <input type="text" id="sidr_status_dex" />
+      //       <input type="button" class="spinner_up" value="+" />
+      //       <!--／<span id="sidr_status_dex_i"></span>
+      //         <input type="text" id="sidr_status_dex_i" />-->
+      //       </div>
+      //       <div>
+      //       <span id="sidr_status_krm_label">KRM</span><br />
+      //       <input type="button" class="spinner_down" value="-" />
+      //       <input type="text" id="sidr_status_krm" />
+      //       <input type="button" class="spinner_up" value="+" />
+      //       <!--／<span id="sidr_status_krm_i"></span>
+      //         <input type="text" id="sidr_status_krm_i" />-->
+      //       </div>
+      //     </td>
+      //     </tr>
+      //   </table>
+      //   <div>
+      //     <table id="sidr_status_free_list">
+      //     <tr>
+      //       <td><span id="sidr_status_free1_label">FREE1</span></td>
+      //       <td><span id="sidr_status_free2_label">FREE2</span></td>
+      //       <td><span id="sidr_status_free3_label">FREE3</span></td>
+      //     </tr>
+      //     <tr>
+      //       <td>
+      //       <input type="button" class="spinner_down" value="-" />
+      //       <input type="text" id="sidr_status_free1" />
+      //       <input type="button" class="spinner_up" value="+" />・ 
+      //       </td>
+      //       <td>
+      //       <input type="button" class="spinner_down" value="-" />
+      //       <input type="text" id="sidr_status_free2" />
+      //       <input type="button" class="spinner_up" value="+" />・ 
+      //       </td>
+      //       <td>
+      //       <input type="button" class="spinner_down" value="-" />
+      //       <input type="text" id="sidr_status_free3" />
+      //       <input type="button" class="spinner_up" value="+" /> 
+      //       </td>
+      //     </tr>
+      //     </table>
+
+      //     <!--
+      //     <label class="entry">FREE：</label><br />
+      //     <table id="sidr_status_free_list">
+      //     <tr>
+      //     <td>
+      //     <input type="button" class="spinner_down" value="-" />
+      //     <input type="text" id="sidr_status_free1" />
+      //     <input type="button" class="spinner_up" value="+" />・
+      //     <span class="free-label">
+      //     <br />
+      //     <span id="sidr_status_free_label1"></span>
+      //     </span>
+      //     </td>
+      //     <td>
+      //     <input type="button" class="spinner_down" value="-" />
+      //     <input type="text" id="sidr_status_free2" />
+      //     <input type="button" class="spinner_up" value="+" />・
+      //     <span class="free-label">
+      //       <br />
+      //       <span id="sidr_status_free_label2"></span>
+      //     </span>
+      //     </td>
+      //     <td>
+      //     <input type="button" class="spinner_down" value="-" />
+      //     <input type="text" id="sidr_status_free3" />
+      //     <input type="button" class="spinner_up" value="+" />
+      //     <span class="free-label">
+      //       <br />
+      //       <span id="sidr_status_free_label3"></span>
+      //     </span>
+      //     </td>
+      //     </tr>
+      //     </table>
+      //     -->
+      //   </div>
+      //   <div id="sidr_status_submit" class="sidr_submit">確定</div>
+      //   <div id="sidr_status_close" class="sidr_close">閉じる</div>
+      // </div>`);
       // ステータスの初期化
       // $('#sidr_status_hp_m', template).text(save_data.chara.hp_m);
       // $('#sidr_status_mp_m', template).text(save_data.chara.mp_m);
-      // $('#sidr_status_str_i', template).text(save_data.chara.str_i);
-      // $('#sidr_status_int_i', template).text(save_data.chara.int_i);
-      // $('#sidr_status_dex_i', template).text(save_data.chara.dex_i);
-      // $('#sidr_status_krm_i', template).text(save_data.chara.krm_i);
+      $('#sidr_status_str_i', template).text(save_data.chara.str_i);
+      $('#sidr_status_int_i', template).text(save_data.chara.int_i);
+      $('#sidr_status_dex_i', template).text(save_data.chara.dex_i);
+      $('#sidr_status_krm_i', template).text(save_data.chara.krm_i);
       // 状態異常のステータスへの反映（ステータスダイアログ）
       target.parent().on('click', '[name="sidr_status_state"]', function(e) {
         let delta = that.deltaStatus($(this).val());
