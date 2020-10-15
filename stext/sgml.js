@@ -3488,7 +3488,11 @@
         toastr.options.timeOut = 5000;
         toastr.success(results_map[at_result].name, '実績獲得');
         //this.toast('実績「' + results_map[at_result].name + '」を獲得');
-        PlayerRank.incrementResult(scenario_code);
+        try {
+          PlayerRank.incrementResult(scenario_code);
+        } catch(e) {
+          console.log(e);
+        }
       }
       this.saveStorageGlobal();
     },
