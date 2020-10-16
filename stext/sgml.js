@@ -4348,6 +4348,7 @@
       /** EventListener **/
       // 移動ボタンをクリックで次のシーンに移動
       target.on('click', 'a.scenebtn', function(e) {
+        e.preventDefault();
         // バッドエンド時のボタンであれば処理を終了
         if (e.target.id === 'end_reload') {
           return;
@@ -4370,8 +4371,6 @@
         if (bgm && bgm.paused && global_save_data.bgm) {
           bgm.play();
         }
-
-        e.preventDefault();
       });
 
       // 終了時のリロード（Playgroundのみ確認ダイアログ）
