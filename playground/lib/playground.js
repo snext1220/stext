@@ -376,6 +376,12 @@ $(function () {
         }
       }
     },
+    // 指定のidが既存のidと重複するか（アイテム～実績）
+    isDuplicateId: function(id, data) {
+      return data.some(function(value) {
+        return value.id === id;
+      });
+    },
 
     // 指定のidが既存のシーンidと重複するか
     isDuplicateScene: function(id) {
@@ -1007,6 +1013,10 @@ $(function () {
         if (checkid) {
           if (!item.id) {
             toastr.error('idを入力してください。', 'Id Error');
+            return;
+          }
+          if (Util.isDuplicateId(item.id, data)) {
+            toastr.error('idが重複しています。', 'Id Error');
             return;
           }
         }
