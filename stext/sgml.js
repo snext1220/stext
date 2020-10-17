@@ -4016,8 +4016,13 @@
       $('a[title]', target).hide();
       var scene_button = $('a[title]', target);
       scene_button.each(function(index, elem) {
-        if(Util.judgeMultiCondition($(elem).nsAttr('title'))) {
-          $(elem).show();
+        try {
+          if(Util.judgeMultiCondition($(elem).nsAttr('title'))) {
+            $(elem).show();
+          }
+        } catch (e) {
+          console.error('Parse Error: リンク条件式');
+          console.error(elem);
         }
       });
     },
