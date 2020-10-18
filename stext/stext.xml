@@ -470,12 +470,21 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 とにかくこのダンジョンから抜け出さなければ……！
 </work>
 
+<work id="avengers" title="ソーサリアベンジャーズ" author="ちゃなさん" guest="true" series="Playground100祭"
+  tags="アベンジャーズ" published="2020-10-26" updated="" level="5" scenes="901" results="73" clears="r63,r64,r65,r66,r67" unpublished="true"
+  comment="本編にはソーサリアンをはじめウィザードリー、ウルティマ、マイトアンドマジック各シリーズのネタバレを含みます。なおアベンジャーズのキャラは登場しませんので念のため。">
+<img src="./stext/avengers/capture/intro.png" height="120"
+  title="ソーサリアベンジャーズ"  align="left" class="left"/>
+<p class="award">Playground100祭Vol.6(100Scene限定シナリオ)</p>
+ソーサリアンとマーベルアベンジャーズがまさかのコラボ？異界から来た狂帝ディスファルコムと部下たちの前に地球は絶滅の危機に晒される。100日以内に七星の秘宝を集め、仲間たちと共に最凶のラスボスに立ち向かえ！君は1400万分の1の勝利を掴めるか？
+</work>
+
 <work id="mini" title="ミニミニソーサリアンText" author="リオ" series="Playground100祭"
   tags="スゴロク,リメイク" published="2020-05" updated="" level="1" scenes="50" results="1" clears="r99" unpublished="true"
   comment="Next0401企画で作成したミニミニソーサリアン NextのSText版です。シナリオというか、STextならこんなこともできるよ的な作品だったり。むしろ開発者の皆さんの思い付きのきっかけになればと">
 <img src="./stext/mini/capture/intro.png" height="120"
-  title="ミニミニソーサリアンText"  align="left" class="left"/>
-<p class="award">Playground100祭Vol.6(100Scene限定シナリオ)</p>
+  title="ミニミニソーサリアンText"  align="right" class="right"/>
+<p class="award">Playground100祭Vol.7(100Scene限定シナリオ)</p>
 「ミニミニソーサリアン Text」（略称：みにそて）とは、原作のミニミニソーサリアンに案を得て、原作シナリオ＋STextシステムという環境でリメイクしたミニゲームです。
 
 遊び方はカンタン、ゲームを開始した後、［本日のイベントは...］をクリックするだけ。ペンタウァ世界に旅立つと、日替わりでさまざまなイベントが発生します。HP/MPいずれかが0でゲームオーバー。アイテムは最大2個まで持てます。詳細は、本文内の遊び方も参照してください。
