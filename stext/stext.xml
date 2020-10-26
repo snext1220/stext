@@ -471,7 +471,7 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 </work>
 
 <work id="avengers" title="ソーサリアベンジャーズ" author="ちゃなさん" guest="true" series="Playground100祭"
-  tags="アベンジャーズ" published="2020-10-26" updated="" level="5" scenes="901" results="73" clears="r63,r64,r65,r66,r67" unpublished="true"
+  tags="アベンジャーズ" published="2020-10-26" updated="2020-10-26" level="5" scenes="901" results="73" clears="r63,r64,r65,r66,r67"
   comment="本編にはソーサリアンをはじめウィザードリー、ウルティマ、マイトアンドマジック各シリーズのネタバレを含みます。なおアベンジャーズのキャラは登場しませんので念のため。">
 <img src="./stext/avengers/capture/intro.png" height="120"
   title="ソーサリアベンジャーズ"  align="left" class="left"/>
