@@ -1080,6 +1080,8 @@ $(function () {
           },
           { id: 'effect', name: '効果値', field: 'effect', width: 80, editor: Slick.Editors.Text },
           { id: 'text', name: '説明', field: 'text', width: 250, editor: Slick.Editors.Text },
+          { id: 'shared', name: '共有', field: 'shared', width: 50, editor: SelectEditor,
+            options: ['', 'true'] },
           { id: 'delete', name: '削除', field: '', width: 35,
           formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
         ], grid_opts, 'item');
