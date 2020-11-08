@@ -10,6 +10,17 @@ label {
     margin-right: 7px;
 }
 
+#basic label, #scene label {
+    cursor: help;
+}
+
+#basic label input,
+#basic label select,
+#scene label input,
+#scene label select {
+    cursor: text;
+}
+
 #control {
     height: 30px;
     width: 95%;
