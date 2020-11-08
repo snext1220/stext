@@ -2242,6 +2242,29 @@ ${Util.createLinkText(value.id, scenario.edges)}
     }
   });
 
+  // ダイアログを初期化（EPUB）
+  $('#epub-dialog').dialog({
+    autoOpen: false,
+    width: 650,
+    show: 500,
+    hide: 500,
+    modal: true,
+    position: {
+      of : '#flow-area',
+      at: 'left top',
+      my: 'left top',
+    },
+    buttons: {
+      'エクスポート': function() {
+        Util.download(Util.createEpub(), 'scenario.txt');
+        $(this).dialog('close');
+      },
+      'キャンセル': function() {
+        $(this).dialog('close');
+      }
+    }
+  });
+
   // ダイアログを初期化（シナリオ投稿）
   $('#upload-dialog').dialog({
     autoOpen: false,
@@ -2898,8 +2921,9 @@ ${Util.createLinkText(value.id, scenario.edges)}
         Util.download(Util.createHtml(), 'scenario.html');
         break;
       case 'epub':
-        Util.download(Util.createEpub(), 'scenario.txt');
-        toastr.info(`.txt形式は<a href="https://conv.denshochan.com/" target="help">でんでんコンバーター</a>向けのフォーマットです。本ファイルをでんでんコンバーターにかけることでEPUBファイルを生成できます。<br>変換時に使用できるスタイルシート／設定ファイルは<a href="./template/denden.zip" target="help">こちらからダウンロード</a>できます。`, '.txt形式について');
+        $('#epub-dialog').dialog('open');
+        // Util.download(Util.createEpub(), 'scenario.txt');
+        // toastr.info(`.txt形式は<a href="https://conv.denshochan.com/" target="help">でんでんコンバーター</a>向けのフォーマットです。本ファイルをでんでんコンバーターにかけることでEPUBファイルを生成できます。<br>変換時に使用できるスタイルシート／設定ファイルは<a href="./template/denden.zip" target="help">こちらからダウンロード</a>できます。`, '.txt形式について');
         break;
       case 'storage':
         window.alert('データをブラウザーに保存しました。\n保存済みのデータは［マイストレージ］テンプレートからロードできます。');
