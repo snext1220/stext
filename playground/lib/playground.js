@@ -1982,6 +1982,11 @@ ${Util.createLinkText(value.id, scenario.edges)}
     window.open(Common.HELP_URL + id, 'help');
   });
 
+  // ダイナミックヘルプの抑制
+  $('#basic label > input, #basic label > select, #scene label > input, #scene label > select').dblclick(function(e) {
+    e.stopPropagation();
+  });
+  
   // 未使用（消さないこと）
   // $('#scene label').tooltip({
   //   items: '[data-help]',
