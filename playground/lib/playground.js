@@ -1032,18 +1032,36 @@ $(function () {
       return grid;
     },
     // SlickGridによるid検証
-    // value：入力値、prefix：接頭辞、name：項目名
-    validateId: function(value, prefix, name) {
-      if (value != null &&
-          value != undefined &&
-          value.trim() != '' &&
-          value.startsWith(prefix)) {
-        return { valid: true, msg: null };
-      } else {
-        let msg = `${name}のidは「${prefix}～」形式で入力してください。`;
+    // value：入力値、prefix：接頭辞、
+    // name：項目名、name_e：項目名（英語）
+    validateId: function(value, prefix, name, name_e) {
+      let msg = '';
+      if (value === null ||
+          value === undefined ||
+          value.trim() === '') {
+        msg = `${name}のidは空にはできません。`;
+      } else if (!value.startsWith(prefix)) {
+        msg = `${name}のidは「${prefix}～」形式で入力してください。`;
+      } else if (Util.isDuplicateId(value, scenario[name_e])) {
+        msg = `${name}のidが重複しています。`;
+      }
+      // エラーであれば、トースト表示
+      if (msg) {
         toastr.error(msg, 'Id Error');
         return { valid: false, msg: msg };
+      } else {
+        return { valid: true, msg: null };
       }
+      // if (value != null &&
+      //     value != undefined &&
+      //     value.trim() != '' &&
+      //     value.startsWith(prefix)) {
+      //   return { valid: true, msg: null };
+      // } else {
+      //   let msg = `${name}のidは「${prefix}～」形式で入力してください。`;
+      //   toastr.error(msg, 'Id Error');
+      //   return { valid: false, msg: msg };
+      // }
     },
     // すべてのグリッドを初期化
     createAllGrid() {
@@ -1073,7 +1091,7 @@ $(function () {
         [
           { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text,
             validator: function(value) {
-              return Util.validateId(value, 'i', 'アイテム');
+              return Util.validateId(value, 'i', 'アイテム', 'items');
             } },
           { id: 'name', name: '名前', field: 'name', width: 80, editor: Slick.Editors.Text },
           { id: 'target', name: '効果対象', field: 'target', width: 60, editor: SelectEditor,
@@ -1093,7 +1111,7 @@ $(function () {
         [
           { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text,
             validator: function(value) {
-              return Util.validateId(value, 'f', 'フラグ');
+              return Util.validateId(value, 'f', 'フラグ', 'flags');
             } 
           },
           { id: 'text', name: '説明', field: 'text', width: 300, editor: Slick.Editors.Text },
@@ -1107,7 +1125,7 @@ $(function () {
         [
           { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text,
             validator: function(value) {
-              return Util.validateId(value, 'm', 'モンスター');
+              return Util.validateId(value, 'm', 'モンスター', 'enemies');
             } 
           },
           { id: 'name', name: '名前', field: 'name', width: 80, editor: Slick.Editors.Text },
@@ -1143,7 +1161,7 @@ $(function () {
         [
           { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text,
             validator: function(value) {
-              return Util.validateId(value, 'r', '実績');
+              return Util.validateId(value, 'r', '実績', 'results');
             } 
           },
           { id: 'name', name: '名前', field: 'name', width: 100, editor: Slick.Editors.Text },
