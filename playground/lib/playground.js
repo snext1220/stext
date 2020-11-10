@@ -3188,6 +3188,7 @@ ${Util.createLinkText(value.id, scenario.edges)}
   toastr.options.positionClass = 'toast-bottom-full-width';
   toastr.options.showDuration = 300;
   toastr.options.hideDuration = 1000;
+  toastr.options.preventDuplicates = true;
   toastr.options.timeOut = 7000;
   toastr.info(tips[Math.floor(Math.random() * tips.length)], 'TIPS');
 });
