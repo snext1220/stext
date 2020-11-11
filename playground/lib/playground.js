@@ -596,7 +596,7 @@ $(function () {
     // カラーリストを生成
     createColorList: function(id, colors = [ 
       'Purple', 'Olive', 'Blue', 'Gray', 'Green', 'Silver',
-      'Teal', 'Red', 'Fuchsia', 'Aqua', 'Yellow', 'White'
+      'Teal', 'Red', 'Fuchsia', 'Aqua', 'Yellow', /* 'White' */
     ]) {
       let elem = $(id);
       elem.empty();
