@@ -131,7 +131,8 @@
 			"level": 5,
 			"end": "happy",
 			"group": "happy",
-			"nexts": ""
+			"nexts": "",
+			"result": "r02"
 		},
 		{
 			"id": "99999",
@@ -145,7 +146,7 @@
 		{
 			"from": "0",
 			"to": "1",
-			"label": "次これまでのあらすじ＆実積率",
+			"label": "これまでのあらすじ＆実積率",
 			"condition": "",
 			"order": 1,
 			"id": "d5de855f-7c77-4323-9876-9e7984bc5d14"
