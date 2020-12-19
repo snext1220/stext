@@ -911,6 +911,7 @@
         let hp = Number($(this).val());
         let func_opp = $(this).nsAttr('data-func_opp');
         let damage = Util.computeDamage(func_opp);
+        if (damage < 0) { damage = 0; }
         hp -= damage;
         if (hp <= 0) { hp = 0; }
         $(this).val(hp);
