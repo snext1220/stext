@@ -35,7 +35,7 @@
 		<flag id="f72">船底で双眼鏡を見つけた</flag>
 	</flags>
 	<enemies>
-		<enemy id="m01" name="メインマスト" attack="physics" func="L+2R-STR" drop="mon/1" hp="25" func_opp="STR-L">海の漢たるもの昇れぬとは言えぬ</enemy>
+		<enemy id="m01" name="メインマスト" attack="physics" func="L+2R-STR" drop="mon/1" hp="25" func_opp="STR+L">海の漢たるもの昇れぬとは言えぬ</enemy>
 		<enemy id="m02" name="中華鍋" attack="forget" func="DEX>L+R" drop="tue/1" element="earth">漢たちの胃袋を支える大鍋だ。</enemy>
 		<enemy id="m03" name="汚水" element="water" attack="both" func="L+2R-KRM" drop="sat/1">君は何と戦っているのか。</enemy>
 	</enemies>
@@ -58,7 +58,11 @@
 		<result id="r16" name="&quot;魔&quot; 襲来" level="2">ツタンカーメン現る</result>
 	</results>
 	<licence>
-		<work name="Bgm-01" category="bgm" creator="SText" url="https://example.com/"></work>
+    <work name="メインテーマ（Battle for Honour）" category="bgm" creator="ユーフルカ" url="https://wingless-seraph.net/"></work>
+    <work name="プロローグ（Age of Dark Kings）" category="bgm" creator="ユーフルカ" url="https://wingless-seraph.net/"></work>
+	<work name="ボス（Furious Battle）" category="bgm" creator="ユーフルカ" url="https://wingless-seraph.net/"></work>
+    <work name="バッドエンド（砂塵舞う荒野の花）" category="bgm" creator="ユーフルカ" url="https://wingless-seraph.net/"></work>
+    <work name="サイト紹介画像" category="picture" creator="ときのじ" url=""></work>
 	</licence>
 	<scene id="0" summary="プロローグ" group="prologue" level="1" bgm="prologue">ペンタウァのはるかな東。
 否、時空さえも遥かに超えた、その世界に、
@@ -645,7 +649,7 @@ ${if f01}
 不機嫌な訳ではないらしいが、
 とかく口を開かない。
 
-故に、ソガカス顔の通辞、もとい、少年兵の存在は、
+故に、ソバカス顔の通辞、もとい、少年兵の存在は、
 彼には欠かせない。
 ${/if}
 
@@ -807,9 +811,8 @@ Battle Sheetを開いて、ダメージを反映しておくこと。
 	<scene id="740" summary="回避失敗" level="10" result="r06">「シェフは、
 　海の上でも塩漬け肉を使わないのが自慢だったんですよ」
 
-頭を抱える君をシェフから引き離しながら、
-調理人の一人がそっと囁く。
-
+中華鍋の直撃に頭を抱える君を、
+慌ててシェフから引き離しながら、調理人の一人がそっと囁く。
 
 「新鮮な食材をその場で調理して提供する、がモットーでして。
 　健康にも良いので、兵たちにも評判だったのですが…
