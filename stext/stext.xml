@@ -479,7 +479,14 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 ソーサリアンとマーベルアベンジャーズがまさかのコラボ？異界から来た狂帝ディスファルコムと部下たちの前に地球は絶滅の危機に晒される。100日以内に七星の秘宝を集め、仲間たちと共に最凶のラスボスに立ち向かえ！君は1400万分の1の勝利を掴めるか？
 </work>
 
-<work id="mini" title="ミニミニソーサリアンText" author="リオ" series="Playground100祭"
+<work id="baku01" title="壱：黒船来航" author="リオ" series="幕末ソーサリアン"
+  tags="歴史,連作" published="2020-12-20" updated="2020-12-20" level="2" scenes="75" results="30" clears="r30"
+  comment=""
+  quest="">
+</work>
+
+
+<!-- <work id="mini" title="ミニミニソーサリアンText" author="リオ" series="Playground100祭"
   tags="スゴロク,リメイク" published="2020-05" updated="" level="1" scenes="50" results="1" clears="r99" unpublished="true"
   comment="Next0401企画で作成したミニミニソーサリアン NextのSText版です。シナリオというか、STextならこんなこともできるよ的な作品だったり。むしろ開発者の皆さんの思い付きのきっかけになればと">
 <img src="./stext/mini/capture/intro.png" height="120"
@@ -488,7 +495,7 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 「ミニミニソーサリアン Text」（略称：みにそて）とは、原作のミニミニソーサリアンに案を得て、原作シナリオ＋STextシステムという環境でリメイクしたミニゲームです。
 
 遊び方はカンタン、ゲームを開始した後、［本日のイベントは...］をクリックするだけ。ペンタウァ世界に旅立つと、日替わりでさまざまなイベントが発生します。HP/MPいずれかが0でゲームオーバー。アイテムは最大2個まで持てます。詳細は、本文内の遊び方も参照してください。
-</work>
+</work> -->
 </scenario>
 
 <utility>

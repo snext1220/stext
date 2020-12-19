@@ -18,6 +18,7 @@
 		<flag id="f31">操舵室で名前?を呼ばれた</flag>
 		<flag id="f32">操舵室でけったいな話を聞いた</flag>
 		<flag id="f33">操舵室を訪れた</flag>
+		<flag id="f34">急ぐべきか、急がざるべきか（操舵室）</flag>
 		<flag id="f41">司令官室を訪れた</flag>
 		<flag id="f42">司令官室で老僕の掃除を褒めた</flag>
 		<flag id="f43">司令官室で司令官の居所を訊いた</flag>
@@ -28,11 +29,10 @@
 		<flag id="f61">下士官の溜まり場を訪れた</flag>
 		<flag id="f62">下士官部屋で司令官の居場所を聞いた</flag>
 		<flag id="f63">下士官部屋で艀の話を聞いた</flag>
-		<flag id="f71">船底を訪れた</flag>
-		<flag id="f72">船底で双眼鏡を見つけた</flag>
-		<flag id="f34">急ぐべきか、急がざるべきか（操舵室）</flag>
 		<flag id="f64">下士官部屋で司令官の話を聞いた</flag>
 		<flag id="f65">下士官部屋で艦長の話を聞いた</flag>
+		<flag id="f71">船底を訪れた</flag>
+		<flag id="f72">船底で双眼鏡を見つけた</flag>
 	</flags>
 	<enemies>
 		<enemy id="m01" name="メインマスト" attack="physics" func="L+2R-STR" drop="mon/1" hp="25" func_opp="STR-L">海の漢たるもの昇れぬとは言えぬ</enemy>
@@ -60,7 +60,7 @@
 	<licence>
 		<work name="Bgm-01" category="bgm" creator="SText" url="https://example.com/"></work>
 	</licence>
-	<scene id="0" summary="プロローグ" group="prologue" level="1">ペンタウァのはるかな東。
+	<scene id="0" summary="プロローグ" group="prologue" level="1" bgm="prologue">ペンタウァのはるかな東。
 否、時空さえも遥かに超えた、その世界に、
 方向を示す意味があるのかも判らない。
 
@@ -105,7 +105,7 @@ ${アヘン|麻薬}貿易に端を発するこの戦は、欧米による侵略�
 
 
 [そして、日本へ](20)</scene>
-	<scene id="20" summary="冒険者出立" level="3">そして、極東の更に東――日本。
+	<scene id="20" summary="冒険者出立" level="3" bgm="prologue">そして、極東の更に東――日本。
 ＜鎖国＞と呼ばれる独自の${結界|国策}でもって、
 外界の侵入を数百年にもわたって拒んできた神秘の国である。
 
@@ -148,7 +148,7 @@ ${アヘン|麻薬}貿易に端を発するこの戦は、欧米による侵略�
 日本。
 
 [日本へ](100)</scene>
-	<scene id="100" summary="スタート地点" level="4" items="i100" result="r01">潮の香りを含んだ海風が頬を撫ぜる。
+	<scene id="100" summary="スタート地点" level="4" items="i100" result="r01" bgm="main">潮の香りを含んだ海風が頬を撫ぜる。
 そこは、蒸気外輪フリゲート艦＜サスケハナ＞の甲板である。
 
 マシュー・カルブレース・ペリー代将率いるアメリカ軍東インド艦隊は、
