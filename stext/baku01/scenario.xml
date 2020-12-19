@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <scenario
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd" title="序：黒船来航" author="リオ">
-	<init></init>
+	<init>
+	<intro keywords="幕末ソーサリアン" description="【黒船来航】連作「幕末ソーサリアン」序章。黒船と共に迫りくる＜魔＞の正体を暴け。"></intro>
+	</init>
 	<groups>
 		<group start="0" end="1" title="Introduction"></group>
 	</groups>
