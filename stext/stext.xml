@@ -557,13 +557,16 @@ Playground Editor（Pg Editor）は、ブラウザー上で動作するソーサ
 </work>
 
 <work title="STextシナリオ制作用 BGM素材" author="AZ" type="dev">
-以下は、ソーサリアン Textのシナリオを制作／公開する際に利用できるBGM素材です（2019年10月時点で全20曲を公開中）。これら素材を利用して、是非、あなたの物語を余に――もとい、世に送り出してやってください。
+以下は、ソーサリアン Textのシナリオを制作／公開する際に利用できるBGM素材です（2020年12月時点で全23曲を公開中）。これら素材を利用して、是非、あなたの物語を余に――もとい、世に送り出してやってください。
 
 <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/611106111%3Fsecret_token%3Ds-2tzI5&amp;color=%23a86681&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
 
 音楽ファイルをダウンロードするには、以下のリンクからSoundCloudのページに移動した上で、曲目リストの右端から［...］－［Download］を選択してください（すべてまとめてのダウンロードはできません）。
 
-<p><a href="https://soundcloud.com/venus-az/sets/sorcerian-text-original-sounds/s-2tzI5" class="external" target="manual">SORCERIAN Text Original Sound</a></p>
+<ul>
+  <li><a href="https://soundcloud.com/venus-az/sets/sorcerian-text-original-sounds/s-2tzI5" class="external" target="manual">SORCERIAN Text Original Sound</a></li>
+  <li><a href="https://soundcloud.com/az2nd/sets/sorcerian-text-original-sounds/s-CI83Bo6lIE5" class="external" target="manual">SORCERIAN Text Original Sound Vol.II</a></li>
+</ul>
 
 ※<span class="award">SText以外の利用は禁止</span>とさせて戴きますので、ご了承ください。
 </work>
@@ -654,13 +657,16 @@ SText固有の定義をGBATで表す方法については、以下のマニュ�
 </work>
 
 <work title="BGMを聴きたい" author="AZ" type="usr">
-ソーサリアン Textの各シナリオで使われている標準BGMは、ここから視聴できます（2019年10月時点で全20曲を公開中）。BGMを聴きながら、あのシナリオこのシナリオの思い出の場面を、是非脳内で再生して戴ければ嬉しいのです。
+ソーサリアン Textの各シナリオで使われている標準BGMは、ここから視聴できます（2020年12月時点で全23曲を公開中）。BGMを聴きながら、あのシナリオこのシナリオの思い出の場面を、是非脳内で再生して戴ければ嬉しいのです。
 
 <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/611106111%3Fsecret_token%3Ds-2tzI5&amp;color=%23a86681&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
 
 音楽ファイルをダウンロードするには、以下のリンクからSoundCloudのページに移動した上で、曲目リストの右端から［...］－［Download］を選択してください（すべてまとめてのダウンロードはできません）。
 
-<p><a href="https://soundcloud.com/venus-az/sets/sorcerian-text-original-sounds/s-2tzI5" class="external" target="manual">SORCERIAN Text Original Sound</a></p>
+<ul>
+  <li><a href="https://soundcloud.com/venus-az/sets/sorcerian-text-original-sounds/s-2tzI5" class="external" target="manual">SORCERIAN Text Original Sound</a></li>
+  <li><a href="https://soundcloud.com/az2nd/sets/sorcerian-text-original-sounds/s-CI83Bo6lIE5" class="external" target="manual">SORCERIAN Text Original Sound Vol.II</a></li>
+</ul>
 </work>
 
 <work title="もっと攻略したい" author="RYUさん他" guest="true" other="true" type="usr">
