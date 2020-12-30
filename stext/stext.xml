@@ -64,7 +64,8 @@
 <work id="doll" title="プレアオブ・ドールズ" author="cocotori" series="開幕シナリオ"
   tags="探索" published="2018-1-15" updated="2018-11-9"
   level="1" scenes="24" results="4" clears="r04"
-  comment="人とは少し違う人形との、触れ合いを楽しんでもらえたらと思います。">
+  comment="人とは少し違う人形との、触れ合いを楽しんでもらえたらと思います。"
+  quest="1FAIpQLSdReI7unIFEuK-IYjSPeOGR_HVTWokfFUqZYNE5tvT94nbbrA">
 <img src="./stext/doll/capture/intro.png"  height="120"
     align="right" class="right" title="プレアオブ・ドールズ" />
 王都ペンタウァで人形が関わる猟奇事件に巻き込まれる。犯人の姿に、かつての知り合いを感じたあなたは、討伐隊に志願することになる。
@@ -106,7 +107,8 @@
 <work id="vampire" title="鉄腕の吸血姫" author="cocotori" series="開幕シナリオ"
   tags="探索" published="2018-3-25" updated="2019-12-9"
   level="1" scenes="40" results="2" clears="r01"
-  comment="吸血鬼と言うより物理で殴る肉体派が出来上がりました。ダークでハードな感じを目指してみました。">
+  comment="吸血鬼と言うより物理で殴る肉体派が出来上がりました。ダークでハードな感じを目指してみました。"
+  quest="1FAIpQLSdJZl25eXelxCDFJNy2YZyn6YyJvDAD_B0MnW-pwPqZZh-BIA">
 <img src="./stext/vampire/capture/intro.png"  height="120"
   title="鉄腕の吸血姫" align="left" class="left" />
 薄暗い部屋であなたは目覚める。首筋に噛み跡。伝承では、吸血鬼に血を吸われた者は、間もなく同じ道をたどるという。絶望的状況に追い込まれたあなた。
