@@ -152,7 +152,8 @@
 <work id="cat" title="わたしのネコを探して" author="cocotori" series="ミニミニ30祭（30Scene限定シナリオ）"
   tags="探索" published="2018-7-17" updated="2019-11-7"
   level="1" scenes="25" results="5" clears="r05"
-  comment="ネコと言ったらネコなのです。">
+  comment="ネコと言ったらネコなのです。"
+  quest="1FAIpQLSfGhQOuHYiuWXcDh9aAtUC5L31D08mlVfUBwICb1Elet7WQTw">
 <img src="./stext/cat/capture/intro.png"  height="120"
   title="わたしのネコを探して" align="right" class="right" />
 <p class="award">ミニミニ30祭Vol.1 （30Scene限定シナリオ）</p>
@@ -340,7 +341,8 @@
 
 <work id="helper" title="時を越えた協力者" author="cocotori"  series="連作ドラゴンモード"
   tags="ループもの" published="2019-04-25" updated="2019-04-25" level="3" scenes="53" results="6" clears="r01"
-  comment="とにかく迷ってほしくてこのシナリオを作りました。大丈夫、トンネルには必ず出口があります。">
+  comment="とにかく迷ってほしくてこのシナリオを作りました。大丈夫、トンネルには必ず出口があります。"
+  quest="1FAIpQLScT3kBd-fsSimKf8i5u36LwyJXIs781K12LoRfHy4eAu_5jsQ">
 <img src="./stext/helper/capture/intro.png" height="120"
   title="時を越えた協力者"  align="right" class="right"/>
 <p class="award">ドラゴンモード本編Vol.5（連作シナリオ）</p>
