@@ -441,7 +441,8 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 
 <work id="usher" title="導きソーサリアン" author="cocotori" series="Playground100祭"
   tags="導き,勇者" published="2020-01-27" updated="2020-04-07" level="2" scenes="163" results="19" clears="r15"
-  comment="第三者視点で魔物討伐ものを作ってみました。思い通りに動いてくれない勇者の手綱を握りながら、なんとか進みましょう。">
+  comment="第三者視点で魔物討伐ものを作ってみました。思い通りに動いてくれない勇者の手綱を握りながら、なんとか進みましょう。"
+  quest="1FAIpQLSc9fjx1w17_C1amrdncB8H_u4tQddn2BRyYA31GjkoenUiCbg">
 <img src="./stext/usher/capture/intro.png" height="120"
   title="導きソーサリアン"  align="right" class="right"/>
 <p class="award">Playground100祭Vol.3(100Scene限定シナリオ)</p>
