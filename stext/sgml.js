@@ -4369,6 +4369,12 @@
         // 複数移動先が指定されている場合、ランダムに選択
         num = Util.getRandomLinkNumber(num);
 
+        // リンク先90000で履歴バック
+        if (Number(num) === 90000) {
+          history.back();
+          return false;
+        }
+
         // 履歴に追加
         //history.pushState(num, 'Scene ' + num);
         Util.createScene(num, { conditions: cond });
