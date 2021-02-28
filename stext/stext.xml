@@ -138,8 +138,9 @@
 </work>
 
 <work id="ramidia" title="ラミディアの魔法使い" author="Salvador" series="開幕シナリオ"
-  tags="探索" published="2018-06-25" updated="2018-10-25" level="3" scenes="168" results="3" clears="r03"
-  comment="ゲームブック版ロマンシア（監修・宮本恒之）のキャラクタが多数登場します。ロマンシアの後日談シナリオです。">
+  tags="探索" published="2018-06-25" updated="2021-02-28" level="3" scenes="180" results="3" clears="r03"
+  comment="ゲームブック版ロマンシア（監修・宮本恒之）のキャラクタが多数登場します。ロマンシアの後日談シナリオです。"
+  quest="1FAIpQLSdp0ayqF46QgJHx6kkldwuqyLlA1urpj5I6rXnRfrASytAgSQ">
 <img src="./stext/ramidia/capture/intro.png" height="160"
   title="ラミディアの魔法使い" align="left" class="left" />
 北方の広大な森の中にある王国、ロマンシア。この国は数年前まで火山の噴火や地震が相次ぎ、さらに伝染病まで流行るという災厄に見舞われていた。災厄の元凶は、この地に古くから棲んでいた竜に取り憑いた邪神ヴァイデスであったという。
