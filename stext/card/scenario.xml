@@ -1,0 +1,1491 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scenario
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd" title="STカードバトル" author="ちゃな">
+	<init>
+		<bgm main="@town03" happy="@end01" bad="@town01"></bgm>
+		<label free1="敵HP" free2="敵能力値" free3="経過ターン数"></label>
+		<intro keywords="カードゲーム" description="ソーサリアンTEXTでカードバトル！君はキングドラゴンを倒せるか？"></intro>
+	</init>
+	<groups></groups>
+	<items></items>
+	<flags>
+		<flag id="f01">*あなたはヒーローを持っている</flag>
+		<flag id="f02">*あなたはヴィランを持っている</flag>
+		<flag id="f03">*あなたはファイターを持っている</flag>
+		<flag id="f04">*あなたはウィザードを持っている</flag>
+		<flag id="f05">*あなたはドワーフを持っている</flag>
+		<flag id="f06">*あなたはエルフを持っている</flag>
+		<flag id="f07">*敵はヒーローを持っている</flag>
+		<flag id="f08">*敵はヴィランを持っている</flag>
+		<flag id="f09">*敵はファイターを持っている</flag>
+		<flag id="f10">*敵はウィザードを持っている</flag>
+		<flag id="f11">*敵はドワーフを持っている</flag>
+		<flag id="f12">*敵はエルフを持っている</flag>
+		<flag id="f13">キャンペーンにチャレンジ中</flag>
+		<flag id="f14">ゴブリンとバトル</flag>
+		<flag id="f15">ヒドラとバトル</flag>
+		<flag id="f16">ヴァイデスとバトル</flag>
+		<flag id="f17">キングドラゴンとバトル</flag>
+	</flags>
+	<enemies>
+		<enemy id="m01" name="ヒーローでヴィランに勝利" attack="free1" func="L+free3">あなたの勝利</enemy>
+		<enemy id="m02" name="ヒーローでファイターに敗北" attack="physics" func="L+free2"></enemy>
+		<enemy id="m03" name="ヒーローでウィザードに敗北" attack="physics" func="L+free2"></enemy>
+		<enemy id="m04" name="ヒーローでドワーフに敗北" attack="physics" func="L+free2"></enemy>
+		<enemy id="m05" name="ヒーローでエルフに敗北" attack="physics" func="L+free2"></enemy>
+		<enemy id="m06" name="ヴィランでヒーローに敗北" attack="physics" func="L+free3"></enemy>
+		<enemy id="m07" name="ヴィランでファイターに勝利" attack="free1" func="L+R"></enemy>
+		<enemy id="m08" name="ヴィランでウィザードに勝利" attack="free1" func="L+R"></enemy>
+		<enemy id="m09" name="ヴィランでドワーフに勝利" attack="free1" func="L+R"></enemy>
+		<enemy id="m10" name="ヴィランでエルフに勝利" attack="free1" func="L+R"></enemy>
+		<enemy id="m11" name="ファイターでヒーローに勝利" attack="free1" func="L+STR"></enemy>
+		<enemy id="m12" name="ファイターでヴィランに敗北" attack="physics" func="L+R"></enemy>
+		<enemy id="m13" name="ファイターでドワーフに敗北" attack="physics" func="L+free2"></enemy>
+		<enemy id="m14" name="ファイターでエルフに勝利" attack="free1" func="L+STR"></enemy>
+		<enemy id="m15" name="ウィザードでヒーローに勝利" attack="free1" func="L+INT"></enemy>
+		<enemy id="m16" name="ウィザードでヴィランに敗北" attack="physics" func="L+R"></enemy>
+		<enemy id="m17" name="ウィザードでドワーフに勝利" attack="free1" func="L+INT"></enemy>
+		<enemy id="m18" name="ウィザードでエルフに敗北" attack="physics" func="L+free2"></enemy>
+		<enemy id="m19" name="ドワーフでヒーローに勝利" attack="free1" func="L+DEX"></enemy>
+		<enemy id="m20" name="ドワーフでヴィランに敗北" attack="physics" func="L+R"></enemy>
+		<enemy id="m21" name="ドワーフでファイターに勝利" attack="free1" func="L+DEX"></enemy>
+		<enemy id="m22" name="ドワーフでウィザードに敗北" attack="physics" func="L+free2"></enemy>
+		<enemy id="m23" name="エルフでヒーローに勝利" attack="free1" func="L+KRM"></enemy>
+		<enemy id="m24" name="エルフでヴィランに敗北" attack="physics" func="L+R"></enemy>
+		<enemy id="m25" name="エルフでファイターに敗北" attack="physics" func="L+FREE2"></enemy>
+		<enemy id="m26" name="エルフでウィザードに勝利" attack="free1" func="L+KRM"></enemy>
+		<enemy id="m27" name="ウィザードの追撃" attack="free1" func="L+R"></enemy>
+	</enemies>
+	<results>
+		<result id="r01" name="ゴブリンスレイヤー" level="1">キャンペーンモードでゴブリンを倒した</result>
+		<result id="r02" name="ヘラクレス" level="3">キャンペーンモードでヒドラを倒した</result>
+		<result id="r03" level="4" name="ロマンシアセイバー">キャンペーンモードでヴァイデスを倒した</result>
+		<result id="r04" name="STカードマスター" level="5">キャンペーンモードを全クリアした</result>
+		<result id="r05" name="ビクトリー！" level="2">STカードバトルで勝利した</result>
+		<result id="r06" name="勇者の一撃" level="4">ヒーローでヴィランを討ち取った</result>
+		<result id="r07" name="矢尽き刀折れ" level="1">STカードバトルで敗北した</result>
+	</results>
+	<licence>
+		<work name="Bgm-01" category="bgm" creator="SText" url="https://example.com/"></work>
+	</licence>
+	<scene id="0" summary="プロローグ" group="prologue" level="1">STカードバトルへようこそ。
+本作は、ソーサリアンTEXTのシステムを用いたカードバトルです。
+あなたは主人公となって敵を倒さなくてはなりません。
+
+[ルール説明を見る](10)
+[バトルを始める](20)</scene>
+	<scene id="10" summary="ルール1" level="2">【ルール説明1：ステータス】
+主人公のステータスを見てください。
+
+主人公のHPかMPがゼロになったら敗北です。
+
+その前にFREE1にある敵のHPをゼロにできれば勝利です。
+敵の初期HPは難易度によって変わります。
+
+主人公には4つの能力値（STR、INT、DEX、KRM）があります。
+それぞれの数値は、対応するカードの攻撃力に影響します。
+主人公の得意不得意を把握しておきましょう。
+
+本作ではステータス、七星魔法、星のかけらは関係ありません。
+
+[続きを読む](30)</scene>
+	<scene id="20" summary="難易度選択" level="8">難易度を選んでください。
+
+[キャンペーン](1910)
+[ゴブリン級](80)
+[ヒドラ級](90)
+[ヴァイデス級](100)
+[キングドラゴン級](110)</scene>
+	<scene id="30" summary="ルール2" level="3">【ルール説明2：カード】
+本作では6枚のカードを使います。
+各ターンの初めに、あなたと敵にそれぞれ3枚ずつのカードが配られます。
+カードは全部で6枚なので、あなたが持っていない3枚のカードを敵が持っていることになります。
+
+カードはヒーロー、ヴィラン、ファイター、ウィザード、ドワーフ、エルフの6種類があります。
+
+![ヒーロー](hero01.jpg)
+![ヴィラン](villain01.jpg)
+![ファイター](fighter01.jpg)
+![ウィザード](wizard01.jpg)
+![ドワーフ](dwarf01.jpg)
+![エルフ](elf01.jpg)
+
+（上の画像が確認できない環境ではこのゲームをプレイできません）
+
+[続きを読む](40)</scene>
+	<scene id="40" summary="ルール3" level="4">【ルール説明3：ターンとラウンド】
+各ターンは3ラウンドから成ります。
+それぞれのラウンドで、あなたは手持ちのカードの中から1枚を選んで場に出します。
+1ラウンド目では3枚から選び、2ラウンド目では2枚から選びます。3ラウンド目には残ったカードを出すしかありません。
+敵も同じようにカードを1枚選んで場に出します。
+場に出たカードを比べて、勝敗を決定します。
+
+[続きを読む](50)</scene>
+	<scene id="50" summary="ルール4" level="5">【ルール4：カードの強弱】
+カードには、それぞれ強弱があります。
+ファイターはエルフに勝ち、ドワーフはファイターに勝ち、ウィザードはドワーフに勝ち、エルフはウィザードに勝ちます。
+ヴィランは上記4種すべてに勝ちますが、ヒーローには負けます。なお、MPを10消費します。
+ヒーローはヴィランに勝ちますが、他の4種には負けます。ただし、ウィザードかエルフに当たった場合、MPを5回復します。
+これら以外の組み合わせは引き分けになります。
+図示すると次のようになります。
+
+![カードの強弱](cards01.jpg)
+
+また、ウィザードは勝利した際にMPを5消費すると追撃でダイス2個のダメージを与えます。
+また、エルフは敗北した際にMPを5消費すれば引き分けにできます。
+
+上記に加えて、第3ラウンドで負けた方はHPをランダムに1～5点失います。このダメージはエルフでも防げません。
+
+[続きを読む](60)</scene>
+	<scene id="60" summary="ルール5" level="6">【ルール5：攻撃力とダメージ】
+カードの強弱を比べて勝利した方は、敗北した方にダメージを与えます。
+引き分けの場合は何も起こりません。
+
+ダメージは、各カードに書いてある攻撃力で決まります。
+
+![ヒーロー](hero01.jpg)
+![ヴィラン](villain01.jpg)
+![ファイター](fighter01.jpg)
+![ウィザード](wizard01.jpg)
+![ドワーフ](dwarf01.jpg)
+![エルフ](elf01.jpg)
+
+敵が勝った場合、難易度に基づく能力値設定によりダメージが決まります。
+ヒーローの攻撃力はそれまで戦ったターン数に応じて決まります。
+
+[続きを読む](70)</scene>
+	<scene id="70" summary="ルール6" level="7">【ルール6：ターンと勝敗】
+3ラウンド行ってカードがなくなったら、次のターンに移ります。
+6枚のカードがシャッフルされ、あなたと敵に3枚ずつ配られます。
+
+先に相手のHPをゼロした方が、相手を倒したことになります。
+また、あなたのMPがゼロになった場合、HPが残っていても倒れてしまいます。
+敵にはMPがなく、MP消費やMP回復をすることもありません。
+
+ルール説明は以上です。
+
+[バトルを始める](20)</scene>
+	<scene id="80" summary="初級" level="9" free1="@10" free2="@3" free3="@0" color="Teal" flags="f14" bgm="@battle01">あなたの前にゴブリンが現れた！
+軽く蹴散らしてやろう。
+
+[バトルスタート！](120)</scene>
+	<scene id="90" summary="中級" level="17" free1="@30" free2="@5" free3="@0" color="Teal" flags="f15" bgm="@battle03">あなたの前にヒドラが現れた！
+ひたすら斬りつけるのだ。
+
+[バトルスタート！](120)</scene>
+	<scene id="100" summary="上級" level="17" free1="@70" free2="@7" free3="@0" color="Teal" flags="f16" bgm="@battle02d">あなたの前にヴァイデスが現れた！
+すべてのHPを削り取れ！
+
+[バトルスタート！](120)</scene>
+	<scene id="110" summary="超級" level="17" free1="@150" free2="@10" free3="@0" color="Teal" flags="f17" bgm="@battle01d">あなたの前にキングドラゴンが現れた！
+この伝説のモンスターに勝てるだろうか？
+
+[バトルスタート！](120)</scene>
+	<scene id="120" summary="ターン開始" level="18" free3="1">ターンが始まった。
+
+[カードを見る](130,140,150,160,170,180,190,200,210,220,230,240,250,260,270,280,290,300,310,320)</scene>
+	<scene id="130" summary="HVF" level="11" flags="f01,f02,f03,f10,f11,f12">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ヴィラン](villain01.jpg)
+![ファイター](fighter01.jpg)
+
+[ファイターを出す](1660,1670,1680)
+[ヴィランを出す](1310,1630,1640)
+[ヒーローを出す](330,340,350)</scene>
+	<scene id="140" summary="HVW" level="11" flags="f01,f02,f04,f09,f11,f12">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ヴィラン](villain01.jpg)
+![ウィザード](wizard01.jpg)
+
+[ヴィランを出す](1630,1640,1650)
+[ウィザードを出す](1690,1700,1710)
+[ヒーローを出す](340,350,1300)</scene>
+	<scene id="150" summary="HVD" level="11" flags="f01,f02,f05,f09,f10,f12">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ヴィラン](villain01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ヴィランを出す](1310,1640,1650)
+[ドワーフを出す](1720,1730,1740)
+[ヒーローを出す](330,350,1300)</scene>
+	<scene id="160" summary="HVE" level="11" flags="f01,f02,f06,f09,f10,f11">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ヴィラン](villain01.jpg)
+![エルフ](elf01.jpg)
+
+[ヒーローを出す](330,340,1300)
+[エルフを出す](1750,1760,1770)
+[ヴィランを出す](1310,1630,1650)</scene>
+	<scene id="170" summary="HFW" level="11" flags="f01,f03,f04,f08,f11,f12">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ファイター](fighter01.jpg)
+![ウィザード](wizard01.jpg)
+
+[ファイターを出す](1780,1670,1680)
+[ウィザードを出す](1790,1700,1710)
+[ヒーローを出す](340,350,1320)</scene>
+	<scene id="180" summary="HFD" level="11" flags="f01,f03,f05,f08,f10,f12">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ファイター](fighter01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ドワーフを出す](1800,1340,1730)
+[ヒーローを出す](330,350,1320)
+[ファイターを出す](1660,1680,1780)</scene>
+	<scene id="190" summary="HFE" level="11" flags="f01,f03,f06,f08,f10,f11">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ファイター](fighter01.jpg)
+![エルフ](elf01.jpg)
+
+[エルフを出す](1810,1760,1770)
+[ヒーローを出す](330,340,1320)
+[ファイターを出す](1670,1660,1780)</scene>
+	<scene id="200" summary="HWD" level="11" flags="f01,f04,f05,f08,f09,f12">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ウィザード](wizard01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ヒーローを出す](1300,350,1320)
+[ウィザードを出す](1790,1690,1710)
+[ドワーフを出す](1800,1720,1740)</scene>
+	<scene id="210" summary="HWE" level="11" flags="f01,f04,f06,f08,f09,f11">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ウィザード](wizard01.jpg)
+![エルフ](elf01.jpg)
+
+[ヒーローを出す](1320,340,1300)
+[ウィザードを出す](1790,1690,1700)
+[エルフを出す](1810,1750,1770)</scene>
+	<scene id="220" summary="HDE" level="11" flags="f01,f05,f06,f08,f09,f10">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ドワーフ](dwarf01.jpg)
+![エルフ](elf01.jpg)
+
+[ヒーローを出す](330,1300,1320)
+[ドワーフを出す](1800,1720,1730)
+[エルフを出す](1750,1760,1810)</scene>
+	<scene id="230" summary="VFW" level="11" flags="f02,f03,f04,f07,f11,f12">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![ファイター](fighter01.jpg)
+![ウィザード](wizard01.jpg)
+
+[ヴィランを出す](1820,1640,1630)
+[ファイターを出す](1830,1680,1670)
+[ウィザードを出す](1840,1710,1700)</scene>
+	<scene id="240" summary="VFD" level="11" flags="f02,f03,f05,f07,f10,f12">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![ファイター](fighter01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ヴィランを出す](1310,1820,1640)
+[ファイターを出す](1660,1680,1830)
+[ドワーフを出す](1850,1730,1740)</scene>
+	<scene id="250" summary="VFE" level="11" flags="f02,f03,f06,f07,f10,f11">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![ファイター](fighter01.jpg)
+![エルフ](elf01.jpg)
+
+[ヴィランを出す](1310,1820,1630)
+[エルフを出す](1860,1770,1760)
+[ファイターを出す](1670,1660,1830)</scene>
+	<scene id="260" summary="VWD" level="11" flags="f02,f04,f05,f07,f09,f12">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![ウィザード](wizard01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ヴィランを出す](1640,1820,1650)
+[ウィザードを出す](1710,1690,1840)
+[ドワーフを出す](1720,1740,1850)</scene>
+	<scene id="270" summary="VWE" level="11" flags="f02,f04,f06,f07,f09,f11">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![ウィザード](wizard01.jpg)
+![エルフ](elf01.jpg)
+
+[ウィザードを出す](1700,1690,1840)
+[エルフを出す](1750,1770,1860)
+[ヴィランを出す](1820,1630,1650)</scene>
+	<scene id="280" summary="VDE" level="11" flags="f02,f05,f06,f07,f09,f10">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![ドワーフ](dwarf01.jpg)
+![エルフ](elf01.jpg)
+
+[ヴィランを出す](1820,1310,1650)
+[エルフを出す](1760,1750,1860)
+[ドワーフを出す](1730,1720,1850)</scene>
+	<scene id="290" summary="FWD" level="11" flags="f03,f04,f05,f07,f08,f12">あなたのカードは……
+![ファイター](fighter01.jpg)
+![ウィザード](wizard01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ファイターを出す](1780,1680,1830)
+[ウィザードを出す](1710,1790,1840)
+[ドワーフを出す](1740,1800,1850)</scene>
+	<scene id="300" summary="FWE" level="11" flags="f03,f04,f06,f07,f08,f11">あなたのカードは……
+![ファイター](fighter01.jpg)
+![ウィザード](wizard01.jpg)
+![エルフ](elf01.jpg)
+
+[ファイターを出す](1780,1670,1830)
+[エルフを出す](1770,1810,1860)
+[ウィザードを出す](1790,1700,1840)</scene>
+	<scene id="310" summary="FDE" level="11" flags="f03,f05,f06,f07,f08,f10">あなたのカードは……
+![ファイター](fighter01.jpg)
+![ドワーフ](dwarf01.jpg)
+![エルフ](elf01.jpg)
+
+[ファイターを出す](1830,1660,1780)
+[ドワーフを出す](1800,1730,1850)
+[エルフを出す](1810,1760,1860)</scene>
+	<scene id="320" summary="WDE" level="11" flags="f04,f05,f06,f07,f08,f09">あなたのカードは……
+![ウィザード](wizard01.jpg)
+![ドワーフ](dwarf01.jpg)
+![エルフ](elf01.jpg)
+
+[ウィザードを出す](1790,1690,1840)
+[ドワーフを出す](1800,1720,1850)
+[エルフを出す](1810,1750,1860)</scene>
+	<scene id="330" summary="HvW" level="18" flags="-f01,-f10" color="Red" mp="5" enemies="m03">あなたの出したカード：
+![ヒーロー](hero01.jpg)
+敵の出したカード：
+![ウィザード](wizard01.jpg)
+
+結果は……あなたの敗北！
+しかし、MPを5回復した！
+
+%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。%/%
+
+[次へ](540)</scene>
+	<scene id="340" level="18" summary="HvD" flags="-f01,-f11" color="Red" enemies="m04">あなたの出したカード：
+![ヒーロー](hero01.jpg)
+敵の出したカード：
+![ドワーフ](dwarf01.jpg)
+
+結果は……あなたの敗北！
+
+%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。%/%
+
+[次へ](540)</scene>
+	<scene id="350" level="18" flags="-f01,-f12" summary="HvE" color="Red" enemies="m05" mp="5">あなたの出したカード：
+![ヒーロー](hero01.jpg)
+敵の出したカード：
+![エルフ](elf01.jpg)
+
+結果は……あなたの敗北！
+しかし、MPを5回復した！
+
+%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。%/%
+
+[次へ](540)</scene>
+	<scene id="360" summary="第2ラウンド" level="18">手札を確認しよう。
+
+[次へ](1980 "!f01&amp;!f02&amp;!f03&amp;!f04&amp;!f05&amp;!f06")
+[次へ](1330 "f01&amp;!f02&amp;!f03&amp;!f04&amp;!f05&amp;!f06&amp;f08")
+[次へ](1340 "f01&amp;!f02&amp;!f03&amp;!f04&amp;!f05&amp;!f06&amp;f09")
+[次へ](1350 "f01&amp;!f02&amp;!f03&amp;!f04&amp;!f05&amp;!f06&amp;f10")
+[次へ](1360 "f01&amp;!f02&amp;!f03&amp;!f04&amp;!f05&amp;!f06&amp;f11")
+[次へ](1370 "f01&amp;!f02&amp;!f03&amp;!f04&amp;!f05&amp;!f06&amp;f12")
+[次へ](1380 "!f01&amp;f02&amp;!f03&amp;!f04&amp;!f05&amp;!f06&amp;f07")
+[次へ](1390 "!f01&amp;f02&amp;!f03&amp;!f04&amp;!f05&amp;!f06&amp;f09")
+[次へ](1400 "!f01&amp;f02&amp;!f03&amp;!f04&amp;!f05&amp;!f06&amp;f10")
+[次へ](1410 "!f01&amp;f02&amp;!f03&amp;!f04&amp;!f05&amp;!f06&amp;f11")
+[次へ](1420 "!f01&amp;f02&amp;!f03&amp;!f04&amp;!f05&amp;!f06&amp;f12")
+[次へ](1430 "!f01&amp;!f02&amp;f03&amp;!f04&amp;!f05&amp;!f06&amp;f07")
+[次へ](1440 "!f01&amp;!f02&amp;f03&amp;!f04&amp;!f05&amp;!f06&amp;f08")
+[次へ](1450 "!f01&amp;!f02&amp;f03&amp;!f04&amp;!f05&amp;!f06&amp;f10")
+[次へ](1460 "!f01&amp;!f02&amp;f03&amp;!f04&amp;!f05&amp;!f06&amp;f11")
+[次へ](1470 "!f01&amp;!f02&amp;f03&amp;!f04&amp;!f05&amp;!f06&amp;f12")
+[次へ](1480 "!f01&amp;!f02&amp;!f03&amp;f04&amp;!f05&amp;!f06&amp;f07")
+[次へ](1490 "!f01&amp;!f02&amp;!f03&amp;f04&amp;!f05&amp;!f06&amp;f08")
+[次へ](1500 "!f01&amp;!f02&amp;!f03&amp;f04&amp;!f05&amp;!f06&amp;f09")
+[次へ](1510 "!f01&amp;!f02&amp;!f03&amp;f04&amp;!f05&amp;!f06&amp;f11")
+[次へ](1520 "!f01&amp;!f02&amp;!f03&amp;f04&amp;!f05&amp;!f06&amp;f12")
+[次へ](1530 "!f01&amp;!f02&amp;!f03&amp;!f04&amp;f05&amp;!f06&amp;f07")
+[次へ](1540 "!f01&amp;!f02&amp;!f03&amp;!f04&amp;f05&amp;!f06&amp;f08")
+[次へ](1550 "!f01&amp;!f02&amp;!f03&amp;!f04&amp;f05&amp;!f06&amp;f09")
+[次へ](1560 "!f01&amp;!f02&amp;!f03&amp;!f04&amp;f05&amp;!f06&amp;f10")
+[次へ](1570 "!f01&amp;!f02&amp;!f03&amp;!f04&amp;f05&amp;!f06&amp;f12")
+[次へ](1580 "!f01&amp;!f02&amp;!f03&amp;!f04&amp;!f05&amp;f06&amp;f07")
+[次へ](1590 "!f01&amp;!f02&amp;!f03&amp;!f04&amp;!f05&amp;f06&amp;f08")
+[次へ](1600 "!f01&amp;!f02&amp;!f03&amp;!f04&amp;!f05&amp;f06&amp;f09")
+[次へ](1610 "!f01&amp;!f02&amp;!f03&amp;!f04&amp;!f05&amp;f06&amp;f10")
+[次へ](1620 "!f01&amp;!f02&amp;!f03&amp;!f04&amp;!f05&amp;f06&amp;f11")
+[次へ](370 "f01&amp;f02&amp;f09&amp;f10")
+[次へ](380 "f01&amp;f02&amp;f09&amp;f11")
+[次へ](390 "f01&amp;f02&amp;f09&amp;f12")
+[次へ](400 "f01&amp;f02&amp;f10&amp;f11")
+[次へ](410 "f01&amp;f02&amp;f10&amp;f12")
+[次へ](420 "f01&amp;f02&amp;f11&amp;f12")
+[次へ](430 "f01&amp;f03&amp;f08&amp;f10")
+[次へ](440 "f01&amp;f03&amp;f08&amp;f11")
+[次へ](450 "f01&amp;f03&amp;f08&amp;f12")
+[次へ](460 "f01&amp;f03&amp;f10&amp;f11")
+[次へ](470 "f01&amp;f03&amp;f10&amp;f12")
+[次へ](480 "f01&amp;f03&amp;f11&amp;f12")
+[次へ](490 "f01&amp;f04&amp;f08&amp;f09")
+[次へ](500 "f01&amp;f04&amp;f08&amp;f11")
+[次へ](510 "f01&amp;f04&amp;f08&amp;f12")
+[次へ](520 "f01&amp;f04&amp;f09&amp;f11")
+[次へ](530 "f01&amp;f04&amp;f09&amp;f12")
+[次へ](550 "f01&amp;f04&amp;f11&amp;f12")
+[次へ](560 "f01&amp;f05&amp;f08&amp;f09")
+[次へ](570 "f01&amp;f05&amp;f08&amp;f10")
+[次へ](580 "f01&amp;f05&amp;f08&amp;f12")
+[次へ](590 "f01&amp;f05&amp;f09&amp;f10")
+[次へ](600 "f01&amp;f05&amp;f09&amp;f12")
+[次へ](610 "f01&amp;f05&amp;f10&amp;f12")
+[次へ](620 "f01&amp;f06&amp;f08&amp;f09")
+[次へ](630 "f01&amp;f06&amp;f08&amp;f10")
+[次へ](640 "f01&amp;f06&amp;f08&amp;f11")
+[次へ](650 "f01&amp;f06&amp;f09&amp;f10")
+[次へ](660 "f01&amp;f06&amp;f09&amp;f11")
+[次へ](670 "f01&amp;f06&amp;f10&amp;f11")
+[次へ](680 "f02&amp;f03&amp;f07&amp;f10")
+[次へ](690 "f02&amp;f03&amp;f07&amp;f11")
+[次へ](700 "f02&amp;f03&amp;f07&amp;f12")
+[次へ](710 "f02&amp;f03&amp;f10&amp;f11")
+[次へ](720 "f02&amp;f03&amp;f10&amp;f12")
+[次へ](730 "f02&amp;f03&amp;f11&amp;f12")
+[次へ](740 "f02&amp;f04&amp;f07&amp;f09")
+[次へ](750 "f02&amp;f04&amp;f07&amp;f11")
+[次へ](760 "f02&amp;f04&amp;f07&amp;f12")
+[次へ](770 "f02&amp;f04&amp;f09&amp;f11")
+[次へ](780 "f02&amp;f04&amp;f09&amp;f12")
+[次へ](790 "f02&amp;f04&amp;f11&amp;f12")
+[次へ](800 "f02&amp;f05&amp;f07&amp;f09")
+[次へ](810 "f02&amp;f05&amp;f07&amp;f10")
+[次へ](820 "f02&amp;f05&amp;f07&amp;f12")
+[次へ](830 "f02&amp;f05&amp;f09&amp;f10")
+[次へ](840 "f02&amp;f05&amp;f09&amp;f12")
+[次へ](850 "f02&amp;f05&amp;f10&amp;f12")
+[次へ](860 "f02&amp;f06&amp;f07&amp;f09")
+[次へ](870 "f02&amp;f06&amp;f07&amp;f10")
+[次へ](880 "f02&amp;f06&amp;f07&amp;f11")
+[次へ](890 "f02&amp;f06&amp;f09&amp;f10")
+[次へ](900 "f02&amp;f06&amp;f09&amp;f11")
+[次へ](910 "f02&amp;f06&amp;f10&amp;f11")
+[次へ](920 "f03&amp;f04&amp;f07&amp;f08")
+[次へ](930 "f03&amp;f04&amp;f07&amp;f11")
+[次へ](940 "f03&amp;f04&amp;f07&amp;f12")
+[次へ](950 "f03&amp;f04&amp;f08&amp;f11")
+[次へ](960 "f03&amp;f04&amp;f08&amp;f12")
+[次へ](970 "f03&amp;f04&amp;f11&amp;f12")
+[次へ](980 "f03&amp;f05&amp;f07&amp;f08")
+[次へ](990 "f03&amp;f05&amp;f07&amp;f10")
+[次へ](1000 "f03&amp;f05&amp;f07&amp;f12")
+[次へ](1010 "f03&amp;f05&amp;f08&amp;f10")
+[次へ](1020 "f03&amp;f05&amp;f08&amp;f12")
+[次へ](1030 "f03&amp;f05&amp;f10&amp;f12")
+[次へ](1040 "f03&amp;f06&amp;f07&amp;f08")
+[次へ](1050 "f03&amp;f06&amp;f07&amp;f10")
+[次へ](1060 "f03&amp;f06&amp;f07&amp;f11")
+[次へ](1070 "f03&amp;f06&amp;f08&amp;f10")
+[次へ](1080 "f03&amp;f06&amp;f08&amp;f11")
+[次へ](1090 "f03&amp;f06&amp;f10&amp;f11")
+[次へ](1100 "f04&amp;f05&amp;f07&amp;f08")
+[次へ](1110 "f04&amp;f05&amp;f07&amp;f09")
+[次へ](1120 "f04&amp;f05&amp;f07&amp;f12")
+[次へ](1130 "f04&amp;f05&amp;f08&amp;f09")
+[次へ](1140 "f04&amp;f05&amp;f08&amp;f12")
+[次へ](1150 "f04&amp;f05&amp;f09&amp;f12")
+[次へ](1160 "f04&amp;f06&amp;f07&amp;f08")
+[次へ](1170 "f04&amp;f06&amp;f07&amp;f09")
+[次へ](1180 "f04&amp;f06&amp;f07&amp;f11")
+[次へ](1190 "f04&amp;f06&amp;f08&amp;f09")
+[次へ](1200 "f04&amp;f06&amp;f08&amp;f11")
+[次へ](1210 "f04&amp;f06&amp;f09&amp;f11")
+[次へ](1220 "f05&amp;f06&amp;f07&amp;f08")
+[次へ](1230 "f05&amp;f06&amp;f07&amp;f09")
+[次へ](1240 "f05&amp;f06&amp;f07&amp;f10")
+[次へ](1250 "f05&amp;f06&amp;f08&amp;f09")
+[次へ](1260 "f05&amp;f06&amp;f08&amp;f10")
+[次へ](1270 "f05&amp;f06&amp;f09&amp;f10")</scene>
+	<scene id="370" summary="HV/FW" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ヴィラン](villain01.jpg)
+
+[ヒーローを出す](1300,330)
+[ヴィランを出す](1310,1650)</scene>
+	<scene id="380" summary="HV/FD" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ヴィラン](villain01.jpg)
+
+[ヒーローを出す](340,1300)
+[ヴィランを出す](1630,1650)</scene>
+	<scene id="390" summary="HV/FE" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ヴィラン](villain01.jpg)
+
+[ヒーローを出す](350,1300)
+[ヴィランを出す](1640,1650)</scene>
+	<scene id="400" summary="HV/WD" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ヴィラン](villain01.jpg)
+
+[ヒーローを出す](330,340)
+[ヴィランを出す](1630,1310)</scene>
+	<scene id="410" summary="HV/WE" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ヴィラン](villain01.jpg)
+
+[ヒーローを出す](330,350)
+[ヴィランを出す](1310,1640)</scene>
+	<scene id="420" summary="HV/DE" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ヴィラン](villain01.jpg)
+
+[ヒーローを出す](350,340)
+[ヴィランを出す](1630,1640)</scene>
+	<scene id="430" summary="HF/VW" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ファイター](fighter01.jpg)
+
+[ヒーローを出す](330,1320)
+[ファイターを出す](1660,1780)</scene>
+	<scene id="440" summary="HF/VD" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ファイター](fighter01.jpg)
+
+[ヒーローを出す](1320,340)
+[ファイターを出す](1670,1780)</scene>
+	<scene id="450" summary="HF/VE" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ファイター](fighter01.jpg)
+
+[ヒーローを出す](1320,350)
+[ファイターを出す](1680,1780)</scene>
+	<scene id="460" summary="HF/WD" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ファイター](fighter01.jpg)
+
+[ヒーローを出す](330,340)
+[ファイターを出す](1670,1660)</scene>
+	<scene id="470" summary="HF/WE" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ファイター](fighter01.jpg)
+
+[ヒーローを出す](330,350)
+[ファイターを出す](1660,1680)</scene>
+	<scene id="480" summary="HF/DE" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ファイター](fighter01.jpg)
+
+[ヒーローを出す](350,340)
+[ファイターを出す](1670,1680)</scene>
+	<scene id="490" summary="HW/VF" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ウィザード](wizard01.jpg)
+
+[ヒーローを出す](1320,1300)
+[ウィザードを出す](1690,1790)</scene>
+	<scene id="500" summary="HW/VD" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ウィザード](wizard01.jpg)
+
+[ヒーローを出す](1320,340)
+[ウィザードを出す](1790,1700)</scene>
+	<scene id="510" summary="HW/VE" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ウィザード](wizard01.jpg)
+
+[ヒーローを出す](1320,350)
+[ウィザードを出す](1790,1710)</scene>
+	<scene id="520" summary="HW/FD" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ウィザード](wizard01.jpg)
+
+[ヒーローを出す](1300,340)
+[ウィザードを出す](1700,1690)</scene>
+	<scene id="530" summary="HW/FE" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ウィザード](wizard01.jpg)
+
+[ヒーローを出す](330,1300)
+[ウィザードを出す](1690,1710)</scene>
+	<scene id="540" summary="HPチェック" level="18">使ったカードは捨て札になります。
+
+[とどめだ！](1280 "oMP0+&amp;oFreeI1-")
+[……](1290 "oHP1-|oMP1-")
+[次のラウンドへ](360 "oHP0+&amp;oMP0+&amp;oFreeI0+")</scene>
+	<scene id="550" summary="HW/DE" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ウィザード](wizard01.jpg)
+
+[ウィザードを出す](1700,1710)
+[ヒーローを出す](340,350)</scene>
+	<scene id="560" summary="HD/VF" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ヒーローを出す](1300,1320)
+[ドワーフを出す](1800,1720)</scene>
+	<scene id="570" summary="HD/VW" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ヒーローを出す](1320,330)
+[ドワーフを出す](1800,1730)</scene>
+	<scene id="580" summary="HD/VE" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ヒーローを出す](1320,350)
+[ドワーフを出す](1800,1740)</scene>
+	<scene id="590" summary="HD/FW" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ヒーローを出す](1300,330)
+[ドワーフを出す](1720,1730)</scene>
+	<scene id="600" summary="HD/FE" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ヒーローを出す](1300,350)
+[ドワーフを出す](1720,1740)</scene>
+	<scene id="610" summary="HD/WE" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ヒーローを出す](330,350)
+[ドワーフを出す](1730,1740)</scene>
+	<scene id="620" summary="HE/VF" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![エルフ](elf01.jpg)
+
+[ヒーローを出す](1320,1300)
+[エルフを出す](1810,1750)</scene>
+	<scene id="630" summary="HE/VW" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![エルフ](elf01.jpg)
+
+[ヒーローを出す](1320,330)
+[エルフを出す](1810,1760)</scene>
+	<scene id="640" summary="HE/VD" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![エルフ](elf01.jpg)
+
+[ヒーローを出す](1320,340)
+[エルフを出す](1810,1770)</scene>
+	<scene id="650" summary="HE/FW" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![エルフ](elf01.jpg)
+
+[ヒーローを出す](330,1300)
+[エルフを出す](1750,1760)</scene>
+	<scene id="660" summary="HE/FD" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![エルフ](elf01.jpg)
+
+[ヒーローを出す](1300,340)
+[エルフを出す](1750,1770)</scene>
+	<scene id="670" summary="HE/WD" level="15">あなたのカードは……
+![ヒーロー](hero01.jpg)
+![エルフ](elf01.jpg)
+
+[ヒーローを出す](330,340)
+[エルフを出す](1760,1770)</scene>
+	<scene id="680" summary="VF/HW" level="15">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![ファイター](fighter01.jpg)
+
+[ヴィランを出す](1820,1310)
+[ファイターを出す](1660,1830)</scene>
+	<scene id="690" summary="VF/HD" level="15">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![ファイター](fighter01.jpg)
+
+[ヴィランを出す](1820,1630)
+[ファイターを出す](1830,1670)</scene>
+	<scene id="700" summary="VF/HE" level="15">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![ファイター](fighter01.jpg)
+
+[ヴィランを出す](1820,1640)
+[ファイターを出す](1830,1680)</scene>
+	<scene id="710" summary="VF/WD" level="15">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![ファイター](fighter01.jpg)
+
+[ヴィランを出す](1310,1630)
+[ファイターを出す](1660,1670)</scene>
+	<scene id="720" summary="VF/WE" level="15">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![ファイター](fighter01.jpg)
+
+[ヴィランを出す](1310,1640)
+[ファイターを出す](1660,1680)</scene>
+	<scene id="730" summary="VF/DE" level="15">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![ファイター](fighter01.jpg)
+
+[ヴィランを出す](1630,1640)
+[ファイターを出す](1670,1680)</scene>
+	<scene id="740" summary="VW/HF" level="15">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![ウィザード](wizard01.jpg)
+
+[ヴィランを出す](1820,1650)
+[ウィザードを出す](1840,1690)</scene>
+	<scene id="750" summary="VW/HD" level="15">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![ウィザード](wizard01.jpg)
+
+[ヴィランを出す](1820,1630)
+[ウィザードを出す](1840,1700)</scene>
+	<scene id="760" summary="VW/HE" level="15">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![ウィザード](wizard01.jpg)
+
+[ヴィランを出す](1820,1640)
+[ウィザードを出す](1840,1710)</scene>
+	<scene id="770" summary="VW/FD" level="15">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![ウィザード](wizard01.jpg)
+
+[ヴィランを出す](1650,1630)
+[ウィザードを出す](1690,1700)</scene>
+	<scene id="780" summary="VW/FE" level="15">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![ウィザード](wizard01.jpg)
+
+[ヴィランを出す](1650,1640)
+[ウィザードを出す](1690,1710)</scene>
+	<scene id="790" summary="VW/DE" level="15">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![ウィザード](wizard01.jpg)
+
+[ヴィランを出す](1630,1640)
+[ウィザードを出す](1700,1710)</scene>
+	<scene id="800" summary="VD/HF" level="15">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ヴィランを出す](1820,1650)
+[ドワーフを出す](1850,1720)</scene>
+	<scene id="810" summary="VD/HW" level="15">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ヴィランを出す](1820,1310)
+[ドワーフを出す](1850,1730)</scene>
+	<scene id="820" summary="VD/HE" level="15">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ヴィランを出す](1820,1640)
+[ドワーフを出す](1850,1740)</scene>
+	<scene id="830" summary="VD/FW" level="15">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ヴィランを出す](1650,1310)
+[ドワーフを出す](1720,1730)</scene>
+	<scene id="840" summary="VD/FE" level="15">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ヴィランを出す](1650,1640)
+[ファイターを出す](1720,1740)</scene>
+	<scene id="850" summary="VD/WE" level="15">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ヴィランを出す](1310,1640)
+[ドワーフを出す](1730,1740)</scene>
+	<scene id="860" summary="VE/HF" level="15">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![エルフ](elf01.jpg)
+
+[ヴィランを出す](1820,1650)
+[エルフを出す](1860,1750)</scene>
+	<scene id="870" summary="VE/HW" level="15">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![エルフ](elf01.jpg)
+
+[ヴィランを出す](1820,1310)
+[エルフを出す](1860,1760)</scene>
+	<scene id="880" summary="VE/HD" level="15">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![エルフ](elf01.jpg)
+
+[ヴィランを出す](1820,1630)
+[エルフを出す](1860,1770)</scene>
+	<scene id="890" summary="VE/FW" level="15">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![エルフ](elf01.jpg)
+
+[ヴィランを出す](1650,1310)
+[エルフを出す](1750,1760)</scene>
+	<scene id="900" summary="VE/FD" level="15">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![エルフ](elf01.jpg)
+
+[ヴィランを出す](1650,1630)
+[エルフを出す](1750,1770)</scene>
+	<scene id="910" summary="VE/WD" level="15">あなたのカードは……
+![ヴィラン](villain01.jpg)
+![エルフ](elf01.jpg)
+
+[ヴィランを出す](1310,1630)
+[エルフを出す](1760,1770)</scene>
+	<scene id="920" summary="FW/HV" level="15">あなたのカードは……
+![ファイター](fighter01.jpg)
+![ウィザード](wizard01.jpg)
+
+[ファイターを出す](1830,1780)
+[ウィザードを出す](1840,1790)</scene>
+	<scene id="930" summary="FW/HD" level="15">あなたのカードは……
+![ファイター](fighter01.jpg)
+![ウィザード](wizard01.jpg)
+
+[ファイターを出す](1830,1670)
+[ウィザードを出す](1840,1700)</scene>
+	<scene id="940" summary="FW/HE" level="15">あなたのカードは……
+![ファイター](fighter01.jpg)
+![ウィザード](wizard01.jpg)
+
+[ファイターを出す](1830,1680)
+[ウィザードを出す](1840,1710)</scene>
+	<scene id="950" summary="FW/VD" level="15">あなたのカードは……
+![ファイター](fighter01.jpg)
+![ウィザード](wizard01.jpg)
+
+[ファイターを出す](1780,1670)
+[ウィザードを出す](1790,1700)</scene>
+	<scene id="960" summary="FW/VE" level="15">あなたのカードは……
+![ファイター](fighter01.jpg)
+![ウィザード](wizard01.jpg)
+
+[ファイターを出す](1780,1680)
+[ウィザードを出す](1790,1710)</scene>
+	<scene id="970" summary="FW/DE" level="15">あなたのカードは……
+![ファイター](fighter01.jpg)
+![ウィザード](wizard01.jpg)
+
+[ファイターを出す](1670,1680)
+[ウィザードを出す](1700,1710)</scene>
+	<scene id="980" summary="FD/HV" level="15">あなたのカードは……
+![ファイター](fighter01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ファイターを出す](1830,1780)
+[ドワーフを出す](1850,1800)</scene>
+	<scene id="990" summary="FD/HW" level="15">あなたのカードは……
+![ファイター](fighter01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ファイターを出す](1830,1660)
+[ドワーフを出す](1850,1730)</scene>
+	<scene id="1000" summary="FD/HE" level="15">あなたのカードは……
+![ファイター](fighter01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ファイターを出す](1830,1680)
+[ドワーフを出す](1850,1740)</scene>
+	<scene id="1010" summary="FD/VW" level="15">あなたのカードは……
+![ファイター](fighter01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ファイターを出す](1780,1660)
+[ドワーフを出す](1800,1730)</scene>
+	<scene id="1020" summary="FD/VE" level="15">あなたのカードは……
+![ファイター](fighter01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ファイターを出す](1780,1680)
+[ドワーフを出す](1800,1740)</scene>
+	<scene id="1030" summary="FD/WE" level="15">あなたのカードは……
+![ファイター](fighter01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ファイターを出す](1660,1680)
+[ドワーフを出す](1730,1740)</scene>
+	<scene id="1040" summary="FE/HV" level="15">あなたのカードは……
+![ファイター](fighter01.jpg)
+![エルフ](elf01.jpg)
+
+[ファイターを出す](1830,1780)
+[エルフを出す](1860,1810)</scene>
+	<scene id="1050" summary="FE/HW" level="15">あなたのカードは……
+![ファイター](fighter01.jpg)
+![エルフ](elf01.jpg)
+
+[ファイターを出す](1830,1660)
+[エルフを出す](1860,1760)</scene>
+	<scene id="1060" summary="FE/HD" level="15">あなたのカードは……
+![ファイター](fighter01.jpg)
+![エルフ](elf01.jpg)
+
+[ファイターを出す](1830,1670)
+[エルフを出す](1860,1770)</scene>
+	<scene id="1070" summary="FE/VW" level="15">あなたのカードは……
+![ファイター](fighter01.jpg)
+![エルフ](elf01.jpg)
+
+[ファイターを出す](1780,1660)
+[エルフを出す](1810,1760)</scene>
+	<scene id="1080" summary="FE/VD" level="15">あなたのカードは……
+![ファイター](fighter01.jpg)
+![エルフ](elf01.jpg)
+
+[ファイターを出す](1780,1670)
+[エルフを出す](1810,1770)</scene>
+	<scene id="1090" summary="FE/WD" level="15">あなたのカードは……
+![ファイター](fighter01.jpg)
+![エルフ](elf01.jpg)
+
+[ファイターを出す](1660,1670)
+[エルフを出す](1760,1770)</scene>
+	<scene id="1100" summary="WD/HV" level="15">あなたのカードは……
+![ウィザード](wizard01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ウィザードを出す](1840,1790)
+[ドワーフを出す](1850,1800)</scene>
+	<scene id="1110" summary="WD/HF" level="15">あなたのカードは……
+![ウィザード](wizard01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ウィザードを出す](1840,1690)
+[ドワーフを出す](1850,1720)</scene>
+	<scene id="1120" summary="WD/HE" level="15">あなたのカードは……
+![ウィザード](wizard01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ウィザードを出す](1840,1710)
+[ドワーフを出す](1850,1740)</scene>
+	<scene id="1130" summary="WD/VF" level="15">あなたのカードは……
+![ウィザード](wizard01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ウィザードを出す](1790,1690)
+[ドワーフを出す](1800,1720)</scene>
+	<scene id="1140" summary="WD/VE" level="15">あなたのカードは……
+![ウィザード](wizard01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ウィザードを出す](1790,1710)
+[ドワーフを出す](1800,1740)</scene>
+	<scene id="1150" summary="WD/FE" level="15">あなたのカードは……
+![ウィザード](wizard01.jpg)
+![ドワーフ](dwarf01.jpg)
+
+[ウィザードを出す](1690,1710)
+[ドワーフを出す](1720,1740)</scene>
+	<scene id="1160" summary="WE/HV" level="15">あなたのカードは……
+![ウィザード](wizard01.jpg)
+![エルフ](elf01.jpg)
+
+[ウィザードを出す](1840,1790)
+[エルフを出す](1860,1810)</scene>
+	<scene id="1170" summary="WE/HF" level="15">あなたのカードは……
+![ウィザード](wizard01.jpg)
+![エルフ](elf01.jpg)
+
+[ウィザードを出す](1840,1690)
+[エルフを出す](1860,1750)</scene>
+	<scene id="1180" summary="WE/HD" level="15">あなたのカードは……
+![ウィザード](wizard01.jpg)
+![エルフ](elf01.jpg)
+
+[ウィザードを出す](1840,1700)
+[エルフを出す](1860,1770)</scene>
+	<scene id="1190" summary="WE/VF" level="15">あなたのカードは……
+![ウィザード](wizard01.jpg)
+![エルフ](elf01.jpg)
+
+[ウィザードを出す](1790,1690)
+[エルフを出す](1810,1750)</scene>
+	<scene id="1200" summary="WE/VD" level="15">あなたのカードは……
+![ウィザード](wizard01.jpg)
+![エルフ](elf01.jpg)
+
+[ウィザードを出す](1690,1700)
+[エルフを出す](1810,1770)</scene>
+	<scene id="1210" summary="WE/FD" level="15">あなたのカードは……
+![ウィザード](wizard01.jpg)
+![エルフ](elf01.jpg)
+
+[ウィザードを出す](1690,1700)
+[エルフを出す](1750,1770)</scene>
+	<scene id="1220" summary="DE/HV" level="15">あなたのカードは……
+![ドワーフ](dwarf01.jpg)
+![エルフ](elf01.jpg)
+
+[ドワーフを出す](1850,1800)
+[エルフを出す](1860,1810)</scene>
+	<scene id="1230" summary="DE/HF" level="15">あなたのカードは……
+![ドワーフ](dwarf01.jpg)
+![エルフ](elf01.jpg)
+
+[ドワーフを出す](1850,1720)
+[エルフを出す](1860,1750)</scene>
+	<scene id="1240" summary="DE/HW" level="15">あなたのカードは……
+![ドワーフ](dwarf01.jpg)
+![エルフ](elf01.jpg)
+
+[ドワーフを出す](1850,1730)
+[エルフを出す](1860,1760)</scene>
+	<scene id="1250" summary="DE/VF" level="15">あなたのカードは……
+![ドワーフ](dwarf01.jpg)
+![エルフ](elf01.jpg)
+
+[ドワーフを出す](1800,1720)
+[エルフを出す](1810,1750)</scene>
+	<scene id="1260" summary="DE/VW" level="15">あなたのカードは……
+![ドワーフ](dwarf01.jpg)
+![エルフ](elf01.jpg)
+
+[ドワーフを出す](1800,1730)
+[エルフを出す](1810,1760)</scene>
+	<scene id="1270" summary="DE/FW" level="15">あなたのカードは……
+![ドワーフ](dwarf01.jpg)
+![エルフ](elf01.jpg)
+
+[ドワーフを出す](1720,1730)
+[エルフを出す](1750,1760)</scene>
+	<scene id="1280" summary="勝利" level="14" flags="-f01,-f02,-f03,-f04,-f05,-f06,-f07,-f08,-f09,-f10,-f11,-f12">あなたは敵を倒した。
+
+[次へ](1920 "f13")
+[次へ](1930 "!f13")</scene>
+	<scene id="1290" summary="敗北" level="14" end="bad" group="bad" result="r07">あなたは敵に倒された……
+
+</scene>
+	<scene id="1300" summary="HvF" level="18" flags="-f01,-f09" color="Red" enemies="m02">あなたの出したカード：
+![ヒーロー](hero01.jpg)
+敵の出したカード：
+![ファイター](fighter01.jpg)
+
+結果は……あなたの敗北！
+
+%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。%/%
+
+[次へ](540)</scene>
+	<scene id="1310" summary="VvW" level="18" flags="-f02,-f10" color="Yellow" mp="-10" enemies="m08">あなたの出したカード：
+![ヴィラン](villain01.jpg)
+敵の出したカード：
+![ウィザード](wizard01.jpg)
+
+結果は……あなたの勝利！
+MPを10消費した。
+
+%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。%/%
+
+[次へ](540)</scene>
+	<scene id="1320" summary="HvV" level="18" flags="-f01,-f08" color="Red" enemies="m01" result="r06">あなたの出したカード：
+![ヒーロー](hero01.jpg)
+敵の出したカード：
+![ヴィラン](villain01.jpg)
+
+結果は……あなたの勝利！
+
+%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。%/%
+
+[次へ](540)</scene>
+	<scene id="1330" summary="H/V" level="15" flags="-f01,-f08" color="Silver" free1="-5..-1">あなたのカードは……
+![ヒーロー](hero01.jpg)
+
+[ヒーローを出す](1320)</scene>
+	<scene id="1340" summary="H/F" level="15" flags="-f01,-f09" color="Silver" hp="-5..-1">あなたのカードは……
+![ヒーロー](hero01.jpg)
+
+[ヒーローを出す](1300)</scene>
+	<scene id="1350" summary="H/W" level="15" flags="-f01,-f10" color="Silver" hp="-5..-1">あなたのカードは……
+![ヒーロー](hero01.jpg)
+
+[ヒーローを出す](330)</scene>
+	<scene id="1360" summary="H/D" level="15" flags="-f01,-f11" color="Silver" hp="-5..-1">あなたのカードは……
+![ヒーロー](hero01.jpg)
+
+[ヒーローを出す](340)</scene>
+	<scene id="1370" summary="H/E" level="15" flags="-f01,-f12" color="Silver" hp="-5..-1">あなたのカードは……
+![ヒーロー](hero01.jpg)
+
+[ヒーローを出す](350)</scene>
+	<scene id="1380" summary="V/H" level="15" flags="-f02,-f07" hp="-5..-1">あなたのカードは……
+![ヴィラン](villain01.jpg)
+
+[ヴィランを出す](1820)</scene>
+	<scene id="1390" summary="V/F" level="15" flags="-f02,-f09" free1="-5..-1">あなたのカードは……
+![ヴィラン](villain01.jpg)
+
+[ヴィランを出す](1650)</scene>
+	<scene id="1400" summary="V/W" level="15" flags="-f02,-f10" free1="-5..-1">あなたのカードは……
+![ヴィラン](villain01.jpg)
+
+[ヴィランを出す](1310)</scene>
+	<scene id="1410" summary="V/D" level="15" flags="-f02,-f11" free1="-5..-1">あなたのカードは……
+![ヴィラン](villain01.jpg)
+
+[ヴィランを出す](1630)</scene>
+	<scene id="1420" summary="V/E" level="15" flags="-f02,-f12" free1="-5..-1">あなたのカードは……
+![ヴィラン](villain01.jpg)
+
+[ヴィランを出す](1640)</scene>
+	<scene id="1430" summary="F/H" level="15" flags="-f03,-f07" free1="-5..-1">あなたのカードは……
+![ファイター](fighter01.jpg)
+
+[ファイターを出す](1830)</scene>
+	<scene id="1440" summary="F/V" level="15" flags="-f03,-f08" hp="-5..-1">あなたのカードは……
+![ファイター](fighter01.jpg)
+
+[ファイターを出す](1780)</scene>
+	<scene id="1450" summary="F/W" level="15" flags="-f03,-f10">あなたのカードは……
+![ファイター](fighter01.jpg)
+
+[ファイターを出す](1660)</scene>
+	<scene id="1460" summary="F/D" level="15" flags="-f03,-f11" hp="-5..-1">あなたのカードは……
+![ファイター](fighter01.jpg)
+
+[ファイターを出す](1670)</scene>
+	<scene id="1470" summary="F/E" level="15" flags="-f03,-f12" free1="-5..-1">あなたのカードは……
+![ファイター](fighter01.jpg)
+
+[ファイターを出す](1680)</scene>
+	<scene id="1480" summary="W/H" level="15" flags="-f04,-f07" free1="-5..-1">あなたのカードは……
+![ウィザード](wizard01.jpg)
+
+[ウィザードを出す](1840)</scene>
+	<scene id="1490" summary="W/V" level="15" flags="-f04,-f08" hp="-5..-1">あなたのカードは……
+![ウィザード](wizard01.jpg)
+
+[ウィザードを出す](1790)</scene>
+	<scene id="1500" summary="W/F" level="15" flags="-f04,-f09">あなたのカードは……
+![ウィザード](wizard01.jpg)
+
+[ウィザードを出す](1690)</scene>
+	<scene id="1510" summary="W/D" level="15" flags="-f04,-f11" free1="-5..-1">あなたのカードは……
+![ウィザード](wizard01.jpg)
+
+[ウィザードを出す](1700)</scene>
+	<scene id="1520" summary="W/E" level="15" flags="-f04,-f12" hp="-5..-1">あなたのカードは……
+![ウィザード](wizard01.jpg)
+
+[ウィザードを出す](1710)</scene>
+	<scene id="1530" summary="D/H" level="15" flags="-f05,-f07" free1="-5..-1">あなたのカードは……
+![ドワーフ](dwarf01.jpg)
+
+[ドワーフを出す](1850)</scene>
+	<scene id="1540" summary="D/V" level="15" flags="-f05,-f08" hp="-5..-1">あなたのカードは……
+![ドワーフ](dwarf01.jpg)
+
+[ドワーフを出す](1800)</scene>
+	<scene id="1550" summary="D/F" level="15" flags="-f05,-f09" free1="-5..-1">あなたのカードは……
+![ドワーフ](dwarf01.jpg)
+
+[ドワーフを出す](1720)</scene>
+	<scene id="1560" summary="D/W" level="15" flags="-f05,-f10" hp="-5..-1">あなたのカードは……
+![ドワーフ](dwarf01.jpg)
+
+[ドワーフを出す](1730)</scene>
+	<scene id="1570" summary="D/E" level="15" flags="-f05,-f12">あなたのカードは……
+![ドワーフ](dwarf01.jpg)
+
+[ドワーフを出す](1740)</scene>
+	<scene id="1580" summary="E/H" level="15" flags="-f06,-f07" free1="-5..-1">あなたのカードは……
+![エルフ](elf01.jpg)
+
+[エルフを出す](1860)</scene>
+	<scene id="1590" summary="E/V" level="15" flags="-f06,-f08" hp="-5..-1">あなたのカードは……
+![エルフ](elf01.jpg)
+
+[エルフを出す](1810)</scene>
+	<scene id="1600" summary="E/F" level="15" flags="-f06,-f09" hp="-5..-1">あなたのカードは……
+![エルフ](elf01.jpg)
+
+[エルフを出す](1750)</scene>
+	<scene id="1610" summary="E/W" level="15" flags="-f06,-f10" free1="-5..-1">あなたのカードは……
+![エルフ](elf01.jpg)
+
+[エルフを出す](1760)</scene>
+	<scene id="1620" summary="E/D" level="15" flags="-f06,-f11">あなたのカードは……
+![エルフ](elf01.jpg)
+
+[エルフを出す](1770)</scene>
+	<scene id="1630" summary="VvD" level="18" flags="-f02,-f11" color="Yellow" enemies="m09" mp="-10">あなたの出したカード：
+![ヴィラン](villain01.jpg)
+敵の出したカード：
+![ドワーフ](dwarf01.jpg)
+
+結果は……あなたの勝利！
+MPを10消費した。
+
+%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。%/%
+
+[次へ](540)</scene>
+	<scene id="1640" summary="VvE" level="18" flags="-f02,-f12" color="Yellow" mp="-10" enemies="m10">あなたの出したカード：
+![ヴィラン](villain01.jpg)
+敵の出したカード：
+![エルフ](elf01.jpg)
+
+結果は……あなたの勝利！
+MPを10消費した。
+
+%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。%/%
+
+[次へ](540)</scene>
+	<scene id="1650" summary="VvF" level="18" color="Yellow" enemies="m07" mp="-10" flags="-f02,-f09">あなたの出したカード：
+![ヴィラン](villain01.jpg)
+敵の出したカード：
+![ファイター](fighter01.jpg)
+
+結果は……あなたの勝利！
+MPを10消費した。
+
+%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。%/%
+
+[次へ](540)</scene>
+	<scene id="1660" summary="FvW" level="18" color="Aqua" flags="-f03,-f10">あなたの出したカード：
+![ファイター](fighter01.jpg)
+敵の出したカード：
+![ウィザード](wizard01.jpg)
+
+結果は……引き分け！
+
+[次へ](540)</scene>
+	<scene id="1670" summary="FvD" level="18" color="Aqua" enemies="m13" flags="-f03,-f11">あなたの出したカード：
+![ファイター](fighter01.jpg)
+敵の出したカード：
+![ドワーフ](dwarf01.jpg)
+
+結果は……あなたの敗北！
+
+%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。%/%
+
+[次へ](540)</scene>
+	<scene id="1680" summary="FvE" level="18" color="Aqua" enemies="m14" flags="-f03,-f12">あなたの出したカード：
+![ファイター](fighter01.jpg)
+敵の出したカード：
+![エルフ](elf01.jpg)
+
+結果は……あなたの勝利！
+
+%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。%/%
+
+[次へ](540)</scene>
+	<scene id="1690" summary="WvF" level="18" color="Green" flags="-f04,-f09">あなたの出したカード：
+![ウィザード](wizard01.jpg)
+敵の出したカード：
+![ファイター](fighter01.jpg)
+
+結果は……引き分け！
+
+[次へ](540)</scene>
+	<scene id="1700" summary="WvD" level="18" color="Green" enemies="m17" flags="-f04,-f11">あなたの出したカード：
+![ウィザード](wizard01.jpg)
+敵の出したカード：
+![ドワーフ](dwarf01.jpg)
+
+結果は……あなたの勝利！
+
+%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。%/%
+
+[MPを5消費して追撃](1900)
+[なにもしない](540)</scene>
+	<scene id="1710" summary="WvE" level="18" color="Green" enemies="m18" flags="-f04,-f12">あなたの出したカード：
+![ウィザード](wizard01.jpg)
+敵の出したカード：
+![エルフ](elf01.jpg)
+
+結果は……あなたの敗北！
+
+%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。%/%
+
+[次へ](540)</scene>
+	<scene id="1720" summary="DvF" level="18" color="Olive" enemies="m21" flags="-f05,-f09">あなたの出したカード：
+![ドワーフ](dwarf01.jpg)
+敵の出したカード：
+![ファイター](fighter01.jpg)
+
+結果は……あなたの勝利！
+
+%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。%/%
+
+[次へ](540)</scene>
+	<scene id="1730" summary="DvW" level="18" color="Olive" enemies="m22" flags="-f05,-f10">あなたの出したカード：
+![ドワーフ](dwarf01.jpg)
+敵の出したカード：
+![ウィザード](wizard01.jpg)
+
+結果は……あなたの敗北！
+
+%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。%/%
+
+[次へ](540)</scene>
+	<scene id="1740" summary="DvE" level="18" color="Olive" flags="-f05,-f12">あなたの出したカード：
+![ドワーフ](dwarf01.jpg)
+敵の出したカード：
+![エルフ](elf01.jpg)
+
+結果は……引き分け！
+
+[次へ](540)</scene>
+	<scene id="1750" summary="EvF" level="18" color="Fuchsia" flags="-f06,-f09" enemies="m25">あなたの出したカード：
+![エルフ](elf01.jpg)
+敵の出したカード：
+![ファイター](fighter01.jpg)
+
+結果は……あなたの敗北！
+
+%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。ただし、MPを5消費すればこの処理を行わないことができます。%/%
+
+[MPを5消費して防御](1870)
+[なにもしない](1880)</scene>
+	<scene id="1760" summary="EvW" level="18" color="Fuchsia" enemies="m26" flags="-f06,-f10">あなたの出したカード：
+![エルフ](elf01.jpg)
+敵の出したカード：
+![ウィザード](wizard01.jpg)
+
+結果は……あなたの勝利！
+
+%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。ただし、MPを5消費すればこの処理を行わないことができます。%/%
+
+[次へ](540)</scene>
+	<scene id="1770" summary="EvD" level="18" color="Fuchsia" flags="-f06,-f11">あなたの出したカード：
+![エルフ](elf01.jpg)
+敵の出したカード：
+![ドワーフ](dwarf01.jpg)
+
+結果は……引き分け！
+
+[次へ](540)</scene>
+	<scene id="1780" summary="FvV" level="18" color="Aqua" enemies="m12" flags="-f03,-f08">あなたの出したカード：
+![ファイター](fighter01.jpg)
+敵の出したカード：
+![ヴィラン](villain01.jpg)
+
+結果は……あなたの敗北！
+
+%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。%/%
+
+[次へ](540)</scene>
+	<scene id="1790" summary="WvV" level="18" color="Green" enemies="m16" flags="-f04,-f08">あなたの出したカード：
+![ウィザード](wizard01.jpg)
+敵の出したカード：
+![ヴィラン](villain01.jpg)
+
+結果は……あなたの敗北！
+
+%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。%/%
+
+[次へ](540)</scene>
+	<scene id="1800" summary="DvV" level="18" color="Olive" enemies="m20" flags="-f05,-f08">あなたの出したカード：
+![ドワーフ](dwarf01.jpg)
+敵の出したカード：
+![ヴィラン](villain01.jpg)
+
+結果は……あなたの敗北！
+
+%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。%/%
+
+[次へ](540)</scene>
+	<scene id="1810" summary="EvV" level="18" color="Fuchsia" flags="-f06,-f08" enemies="m24">あなたの出したカード：
+![エルフ](elf01.jpg)
+敵の出したカード：
+![ヴィラン](villain01.jpg)
+
+結果は……あなたの敗北！
+
+%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。ただし、MPを5消費すればこの処理を行わないことができます。%/%
+
+[MPを5消費して防御](1870)
+[なにもしない](1890)</scene>
+	<scene id="1820" summary="VvH" level="18" color="Yellow" enemies="m06" mp="-10" flags="-f02,-f07">あなたの出したカード：
+![ヴィラン](villain01.jpg)
+敵の出したカード：
+![ヒーロー](hero01.jpg)
+
+結果は……あなたの敗北！
+しかも、MPを10消費した。
+
+%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。%/%
+
+[次へ](540)</scene>
+	<scene id="1830" summary="FvH" level="18" color="Aqua" enemies="m11" flags="-f03,-f07">あなたの出したカード：
+![ファイター](fighter01.jpg)
+敵の出したカード：
+![ヒーロー](hero01.jpg)
+
+結果は……あなたの勝利！
+
+%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。%/%
+
+[次へ](540)</scene>
+	<scene id="1840" summary="WvH" level="18" color="Green" enemies="m15" flags="-f04,-f07">あなたの出したカード：
+![ウィザード](wizard01.jpg)
+敵の出したカード：
+![ヒーロー](hero01.jpg)
+
+結果は……あなたの勝利！
+
+%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。%/%
+
+[MPを5消費して追撃](1900)
+[なにもしない](540)</scene>
+	<scene id="1850" summary="DvH" level="18" color="Olive" enemies="m19" flags="-f05,-f07">あなたの出したカード：
+![ドワーフ](dwarf01.jpg)
+敵の出したカード：
+![ヒーロー](hero01.jpg)
+
+結果は……あなたの勝利！
+
+%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。%/%
+
+[次へ](540)</scene>
+	<scene id="1860" summary="EvH" level="18" color="Fuchsia" enemies="m23" flags="-f06,-f07">あなたの出したカード：
+![エルフ](elf01.jpg)
+敵の出したカード：
+![ヒーロー](hero01.jpg)
+
+結果は……あなたの勝利！
+
+%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。%/%
+
+[次へ](540)</scene>
+	<scene id="1870" summary="MP防御" level="17" mp="-5">ダメージを受けない！
+
+[次へ](540)</scene>
+	<scene id="1880" summary="EvF敗北" level="17" enemies="m25">%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。%/%
+
+[次へ](540)</scene>
+	<scene id="1890" summary="EvV敗北" level="17" enemies="m24">%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。%/%
+
+[次へ](540)</scene>
+	<scene id="1900" summary="追撃" level="17" mp="-5" enemies="m27">%red%Battle Sheetを開いて、「ダイス」→「ダメージ欄」の順に一度ずつクリックしてください。%/%
+
+[次へ](540)</scene>
+	<scene id="1910" summary="CP" level="9" flags="f13">このキャンペーンでは、ゴブリン、ヒドラ、ヴァイデス、キングドラゴンと連続で戦います。
+敵を倒すごとにHPとMPが少し回復し、能力値が上がります。
+すべての敵を倒せるよう頑張ってください。
+
+[次へ](80)</scene>
+	<scene id="1920" summary="次の相手" level="15" str="1" int="1" dex="1" krm="1">すべての能力値が上がった！
+
+[次へ](1940 "!f15")
+[次へ](1950 "f15&amp;!f16")
+[次へ](1960 "f16&amp;!f17")
+[次へ](1970 "f17")</scene>
+	<scene id="1930" summary="エンディング" level="15" end="happy" group="happy" result="r05">これでSTカードバトルは終わりです。
+プレイしてくれてありがとう！
+
+</scene>
+	<scene id="1940" summary="次はヒドラ" level="16" hp="10" mp="10" result="r01">HPとMPが少し回復した！
+次の戦いに臨むのだ。
+
+[次へ](90)</scene>
+	<scene id="1950" summary="次はヴァイデス" level="16" hp="20" mp="20" result="r02">HPとMPが少し回復した！
+次の戦いに臨むのだ。
+
+[次へ](100)</scene>
+	<scene id="1960" summary="次はキングドラゴン" level="16" hp="30" mp="30" result="r03">HPとMPが少し回復した！
+次の戦いに臨むのだ。
+
+[次へ](110)</scene>
+	<scene id="1970" summary="真エンド" level="16" end="happy" group="happy" result="r04">あなたはすべての敵を打ち破った。
+おめでとう！！！
+
+</scene>
+	<scene id="1980" summary="次のターン" level="15">ターンの終わりです。
+
+[次へ](120)</scene>
+</scenario>

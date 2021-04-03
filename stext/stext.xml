@@ -515,6 +515,18 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 さあ、旅立ちの時だ。
 </work>
 
+<work id="card" title="STカードバトル" author="ちゃなさん" guest="true" series="Playground100祭"
+  tags="カードゲーム" published="2021-04-03" updated="2021-04-03" level="2" scenes="199" results="7" clears="r04,r05"
+  comment="お手軽カードバトルです。運要素が強いので負けても泣かないでくださいね。">
+<img src="./stext/card/capture/intro.png" height="120"
+  title="STカードバトル"  align="left" class="left"/>
+<p class="award">Playground100祭Vol.7(100Scene限定シナリオ)</p>
+ソーサリアンTEXTがカードゲームになった！
+ファイター、ウィザード、ドワーフ、エルフ、そしてヒーローとヴィランを操り、迫りくる相手を攻撃せよ！
+だが、あなたの側にいない軍勢は敵に回っているぞ。読み合いに勝って先に相手のHPをゼロにすれば勝利だ！
+慣れてきたらキャンペーンモードにも挑戦してくれたまえ。
+</work>
+
 <!-- <work id="mini" title="ミニミニソーサリアンText" author="リオ" series="Playground100祭"
   tags="スゴロク,リメイク" published="2020-05" updated="" level="1" scenes="50" results="1" clears="r99" unpublished="true"
   comment="Next0401企画で作成したミニミニソーサリアン NextのSText版です。シナリオというか、STextならこんなこともできるよ的な作品だったり。むしろ開発者の皆さんの思い付きのきっかけになればと">
