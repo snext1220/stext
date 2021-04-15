@@ -22,7 +22,7 @@
 		<flag id="f05">*進行管理用の隠しフラグ</flag>
 	</flags>
 	<enemies>
-		<enemy id="m01" name="人面岩" element="earth" hp="5" attack="str5" func_opp="L+4" func="L>INT" drop="tue/3">喋るだけで、硬い岩だ。</enemy>
+		<enemy id="m01" name="人面岩" element="earth" hp="5" attack="str5" func_opp="L+4" func="L>INT" drop="tue/3,free1/@35/30Gold">喋るだけで、硬い岩だ。</enemy>
 		<enemy id="m02" name="人面岩の口" element="spirit" hp="2" attack="poison" func_opp="3" func="R>DEX" drop="free1/50/50Gold">喋る口だ。牙はない。</enemy>
 		<enemy id="m03" name="投げた石" element="wind"  hp="7" attack="physics" func_opp="1+R" func="L+R-STR" drop="sat/1">君が投げた石だ。</enemy>
 		<enemy id="m04" name="一寸怒ったラット" element="fire"  hp="10" attack="物理" func_opp="4" func="*L-STR" drop="">ガジガジたち。一見、可愛い。</enemy>

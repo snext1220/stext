@@ -2884,7 +2884,7 @@ ${Util.createLinkText(value.id, scenario.edges)}
       'red': '%red%$0%/%',
       'blue': '%blue%$0%/%',
       'white': '%white%$0%/%',
-      '*ruby': '${text|ruby}',
+      'ruby': '${$0|ruby}',
       'if': '${if condition}$0${/if}',
       '*import': '${import 99999}',
       '*input': '${input?0}',

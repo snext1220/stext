@@ -1064,16 +1064,24 @@
             'アイテム獲得'
           );
         } else {
-          // freeX属性の加算（ex. free1/50/50Gold）
-          let at_free1 = (drops[0] === 'free1' ? drops[1] : 0);
-          let at_free2 = (drops[0] === 'free2' ? drops[1] : 0);
-          let at_free3 = (drops[0] === 'free3' ? drops[1] : 0);
-          Util.updateFrees(at_free1, at_free2, at_free3);
-          toastr.options.timeOut = 5000;
-          toastr.info(
-            `${drops[2]}を取得しました。`,
-            'アイテム獲得'
-          );
+          if (drops[0] === 'item') {
+            // アイテムの取得（ex. item/i01/武器）
+            // 未実装
+          } else if (drops[0] === 'flag') {
+            // フラグの付与（ex. flag/f01/脱出成功）
+            // 未実装
+          } else {
+            // freeX属性の加算（ex. free1/50/50Gold）
+            let at_free1 = (drops[0] === 'free1' ? drops[1] : 0);
+            let at_free2 = (drops[0] === 'free2' ? drops[1] : 0);
+            let at_free3 = (drops[0] === 'free3' ? drops[1] : 0);
+            Util.updateFrees(at_free1, at_free2, at_free3);
+            toastr.options.timeOut = 5000;
+            toastr.info(
+              `${drops[2]}を取得しました。`,
+              'アイテム獲得'
+            );
+          }
         }
         SeAudio.play('drop', true);
         Util.saveStorage();
@@ -3528,19 +3536,22 @@
     dropItem: function(enemy) {
       // drop属性がある場合は、こちらで生成
       if(enemy.drop) {
-        var drops = enemy.drop.split('/');
+        // drop属性が複数指定の場合には分解
+        let t_drop = Util.selectDrop(enemy.drop);
+        var drops = t_drop.split('/');
+        //var drops = enemy.drop.split('/');
         var star_name = Common.star_names[drops[0]];
         // 星指定の場合
         if (star_name) {
           var num = (drops[1] === '1' ? '' : '×' + drops[1]);
           return {
-            drop: enemy.drop,
+            drop: t_drop,
             name: star_name + num
           };
         // 星以外の指定の場合
         } else {
           return {
-            drop: enemy.drop,
+            drop: t_drop,
             name: drops[2]
           };
         }
@@ -3665,6 +3676,11 @@
     // ダメージ式／回避方法を選択
     selectFunc: function(func) {
       return Util.randomArray(func.split(',')).trim();
+    },
+
+    // ドロップアイテムを選択
+    selectDrop: function(drop) {
+      return Util.randomArray(drop.split(',')).trim();
     },
 
     // 指定されたキーでボーナスアイテムを取得
