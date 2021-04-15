@@ -1066,10 +1066,20 @@
         } else {
           if (drops[0] === 'item') {
             // アイテムの取得（ex. item/i01/武器）
-            // 未実装
+            Util.updateItems(drops[1].trim());
+            toastr.options.timeOut = 5000;
+            toastr.info(
+              `${drops[2]}を取得しました。`,
+              'アイテム獲得'
+            );
           } else if (drops[0] === 'flag') {
             // フラグの付与（ex. flag/f01/脱出成功）
-            // 未実装
+            Util.updateFlags(drops[1].trim());
+            toastr.options.timeOut = 5000;
+            toastr.info(
+              `フラグ「${drops[2]}」を獲得しました。`,
+              'フラグ獲得'
+            );
           } else {
             // freeX属性の加算（ex. free1/50/50Gold）
             let at_free1 = (drops[0] === 'free1' ? drops[1] : 0);
