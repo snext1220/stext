@@ -624,6 +624,7 @@ $(function () {
         $('#scene-select #enemies').val(scene.enemies);
         $('#scene-select #result').val(scene.result);
         $('#scene-select #nexts').val(scene.nexts);
+        $('#scene-select #rule').val(scene.rule);
         $('#scene-select #bgm').val(scene.bgm);
         $('#scene-select #se').val(scene.se);
         $('#scene-select #hp').val(scene.hp);

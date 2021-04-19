@@ -12,6 +12,7 @@
 		<item id="i100" name="王杖の貝殻" shared="true">大魔法使いエティスとのホットライン</item>
 	</items>
 	<flags>
+		<flag id="f00">ダミーフラグ（インポートScene用）</flag>
 		<flag id="f01">医務室を訪れた</flag>
 		<flag id="f11">艦長室を訪れた</flag>
 		<flag id="f12">艦長室で副官の説明を聞いた</flag>
@@ -106,8 +107,34 @@
 		<result id="r12" name="ウン悪く" level="2">ウン悪く、海に転落した</result>
 		<result id="r13" name="登攀成功" level="2">メインマストを見事昇りつめた</result>
 		<result id="r14" name="登攀失敗" level="3">メインマストから落ちた</result>
-		<result id="r15" name="右舷の幻" level="2">右舷から奇妙ミシシッピを見た</result>
+		<result id="r15" name="右舷の幻" level="2">右舷から奇妙なミシシッピを見た</result>
 		<result id="r16" name="&quot;魔&quot; 襲来" level="2">ツタンカーメン現る</result>
+		<result id="r17" name="ツタンカーメンの熱線" level="2">熱線を浴びた</result>
+		<result id="r18" name="頼もしい老人" level="2">老僕が仲間になった</result>
+		<result id="r19" name="冥府の蛇" level="2">アポピスと戦った</result>
+		<result id="r20" name="特攻野郎" level="2">ツタンカーメンに特攻した</result>
+		<result id="r21" name="復活する蛇" level="3">アポピスが再生した</result>
+		<result id="r22" name="やったか！？" level="3">ツタンカーメンに一撃を加えた</result>
+		<result id="r23" name="勝利の誘惑" level="3">誘惑に負けて、当初の目的を忘れた</result>
+		<result id="r24" name="魔性の胎内" level="2">ツタンカーメンの胎内に入った</result>
+		<result id="r25" name="給水合戦" level="3">血管に給水勝負を挑んだ</result>
+		<result id="r26" name="理科の実験（膨張）" level="3">血管を凍結で罅割れさせた</result>
+		<result id="r27" name="EXPLOSION！" level="3">EXPLOSIONで道を開いた</result>
+		<result id="r28" name="バチーン！" level="3">血流に負けて血管が弾け飛んだ</result>
+		<result id="r29" name="プルル～ン♪" level="3">無形の拳が血管に跳ね返された</result>
+		<result id="r30" name="シワシワ" level="3">血管が萎びていった</result>
+		<result id="r31" name="クロスの乱舞" level="3">血管を十字架が引き裂いた</result>
+		<result id="r32" name="血管注射" level="3">血管をNOILA-TEMで貫いた</result>
+		<result id="r99" name="エティスの助け" level="2">初めてエティスに助けてもらった</result>
+		<result id="r33" name="血管突破" level="3">血管の壁を抜けた</result>
+		<result id="r34" name="真空の通路" level="3">瘴気が払われ、真空の通路ができた</result>
+		<result id="r35" name="瘴気払い" level="3">UN-CURSEで瘴気を退けた</result>
+		<result id="r36" name="冥府の門" level="3">冥府の門が開かれた</result>
+		<result id="r37" name="やじろべえ" level="3">五象のバランスを取った</result>
+		<result id="r38" name="人間砲台" level="3">AIR-HANDで自分を弾き飛ばした</result>
+		<result id="r98" name="意味もなく溶けた" level="2">魔法の効果を得られなかった</result>
+		<result id="r39" name="混ぜるな危険" level="3">瘴気と混ざってしまった</result>
+		<result id="r40" name="瘴気突破" level="4">瘴気の通路を突破した</result>
 	</results>
 	<licence>
 		<work name="メインテーマ（Battle for Honour）" category="bgm" creator="ユーフルカ" url="https://wingless-seraph.net/"></work>
@@ -115,6 +142,10 @@
 		<work name="ボス（Furious Battle）" category="bgm" creator="ユーフルカ" url="https://wingless-seraph.net/"></work>
 		<work name="バッドエンド（砂塵舞う荒野の花）" category="bgm" creator="ユーフルカ" url="https://wingless-seraph.net/"></work>
 		<work name="サイト紹介画像" category="picture" creator="ときのじ"></work>
+		<work name="休息（蛍道）" category="bgm" creator="ユーフルカ" url="https://wingless-seraph.net/"></work>
+		<work name="ダンジョン後半（Fatal Blood）" category="bgm" creator="ユーフルカ" url="https://wingless-seraph.net/"></work>
+		<work name="ダンジョン前半（聖域のデーモン）" category="bgm" creator="ユーフルカ" url="https://wingless-seraph.net/"></work>
+		<work name="エティスの助け（闇に還る時）" category="bgm"></work>
 	</licence>
 	<scene id="0" summary="プロローグ" group="prologue" level="1" bgm="prologue">ペンタウァのはるかな東。
 否、時空さえも遥かに超えた、その世界に、
@@ -136,6 +167,7 @@
 侵略者が、そう叫んだかは知らぬ。
 しかし、彼らは己の大義名分を信じて疑わぬ、正義の軍であった。
 
+[×](9999 "f00")
 [侵略の手は止まらない](10)</scene>
 	<scene id="10" summary="プロローグ2" level="2">1840年、アヘン戦争勃発。
 ${アヘン|麻薬}貿易に端を発するこの戦は、欧米による侵略の象徴でもあり。
@@ -1412,7 +1444,7 @@ Battle Sheetを開いて、ダメージを反映しておくこと。
 司令官ペリーの、忌まわしき哄笑が耳障りに響いた。
 
 [上空を仰ぎ見る](1520)</scene>
-	<scene id="1520" summary="髑髏" level="9" result="r16" bgm="@end1">不快な哄笑に――
+	<scene id="1520" summary="髑髏" level="9" result="r16">不快な哄笑に――
 見上げた先のメインマストには、
 恰幅たるペリー代将の姿がある。
 
@@ -1425,7 +1457,7 @@ Battle Sheetを開いて、ダメージを反映しておくこと。
 
 
 [もっとよく見る](1530)</scene>
-	<scene id="1530" summary="髑髏2" level="10">否、否。
+	<scene id="1530" summary="髑髏2" level="10" free1="@40" free2="@100">否、否。
 それは完全な髑髏ですらない。
 
 目を凝らしたその瞬間、
@@ -1547,7 +1579,7 @@ Battle Sheetを開いて、ダイスを振ること。
 
 
 [顧みる](1590)</scene>
-	<scene id="1590" summary="熱線の正体" level="15">静謐な黄金のマスク。
+	<scene id="1590" summary="熱線の正体" level="15" result="r17">静謐な黄金のマスク。
 意志を持たない無機質な双眸が
 不快に微笑んだように見えたのは、気の迷いだろうか。
 
@@ -1569,7 +1601,7 @@ ${ミシシッピー|黄金のマスク}が一党であることは明らかで�
 
 
 [改めて状況確認](1560)</scene>
-	<scene id="1600" summary="甲板の上2" level="14" free2="@100">${冥府の蛇|アポピス}の飛沫は肉片、内臓、
+	<scene id="1600" summary="甲板の上2" level="14">${冥府の蛇|アポピス}の飛沫は肉片、内臓、
 そして赫々と${滑|ぬめ}る血泥である。
 それらは無秩序に魂なき生命体となって、
 君に迫ってくるのだ。
@@ -1583,6 +1615,9 @@ ${ミシシッピー|黄金のマスク}が一党であることは明らかで�
 もう片方の脚があるべき処には腕と男性の複数の局部
 が連なって。双方の接合部には、大腸だろうか、
 臓物が${蜷局|とぐろ}をなしている。
+
+反吐とも糞ともしれぬ半固形物が吐瀉され、
+周囲に不快な匂いを放った。
 
 「ミシシッピの乗員は、
 　みんの奴サ飲み込まれてまねしけなすの」
@@ -1632,7 +1667,7 @@ ${屍たち|あれ}が
 
 そして、＜黒真珠＞の嗤い。
 
-直感的な反射神経で回避こそしたものの、
+ほとんど反射的な行動で回避こそしたものの、
 何度も幸運が続くとは思えない。
 
 おそらく2度目はないだろう。
@@ -1641,7 +1676,7 @@ ${屍たち|あれ}が
 
 
 [まずは態勢を整える](1800)</scene>
-	<scene id="1630" summary="屍との戦闘" level="18" free1="@40">既に、甲板は結構な量の屍たちによって
+	<scene id="1630" summary="屍との戦闘" level="18">既に、甲板は結構な量の屍たちによって
 埋め尽くされている。
 
 しかも、
@@ -1674,7 +1709,7 @@ Status Sheetの［武器耐久度］（Free1）から確認してほしい。
 
 
 [その時、後ろから袖引く手が](1700)</scene>
-	<scene id="1640" summary="戦闘" level="20" flags="f82" enemies="m11,m12,m13,m14,m15">${msg?左舷:右舷:甲板前方}で、
+	<scene id="1640" summary="戦闘" level="20" flags="f82" enemies="m11,m12,m13,m14,m15" rule="9999" free1="-3..-1">${msg?左舷:右舷:甲板前方}で、
 君は何体かの屍たちとの戦闘を開始する。
 
 屍たちの強さは、
@@ -1690,7 +1725,7 @@ Status Sheetの［武器耐久度］（Free1）から確認してほしい。
 勝利したならば――
 
 [甲板中央に戻る](1800)</scene>
-	<scene id="1650" summary="アポピス" level="18" enemies="m17">${冥府の蛇|アポピス}は${ミシシッピー|黄金のマスク}を護るように、
+	<scene id="1650" summary="アポピス" level="18" enemies="m17" free1="-5..-3">${冥府の蛇|アポピス}は${ミシシッピー|黄金のマスク}を護るように、
 周囲を畝っている。
 
 ${黄金のマスク|ツタンカーメン}を討つならば、
@@ -1706,7 +1741,7 @@ Battle Sheetを開いて、
 
 
 [一旦甲板中央に戻る](1800)</scene>
-	<scene id="1660" summary="黄金のマスク" level="18" flags="f83" enemies="m18,m19">${冥府の蛇|アポピス}は${ミシシッピー|黄金のマスク}を護るように、
+	<scene id="1660" summary="黄金のマスク" level="18" flags="f83" enemies="m18,m19" result="r20">${冥府の蛇|アポピス}は${ミシシッピー|黄金のマスク}を護るように、
 周囲を畝っている。
 
 ＜黄金のマスク＞がアポピスの主と捉えるのが妥当だろう。
@@ -1763,7 +1798,7 @@ Battle Sheetを開いて、ダイスを振ること。
 ＜なにか＞の大元を――
 
 [慌てて振り返ると――](1690)</scene>
-	<scene id="1690" summary="熱線の正体" level="20">静謐な黄金のマスク。
+	<scene id="1690" summary="熱線の正体" level="20" result="r17">静謐な黄金のマスク。
 意志を持たない無機質な双眸が
 不快に微笑んだように見えたのは、気の迷いだろうか。
 
@@ -1783,7 +1818,7 @@ ${ミシシッピー|黄金のマスク}が一党であることは明らかで�
 
 
 [とりあえず態勢を整えよう](1800)</scene>
-	<scene id="1700" summary="老僕の助力" level="19">「船内で私しの仲間が待ってでゃ。
+	<scene id="1700" summary="老僕の助力" level="19" result="r18">「船内で私しの仲間が待ってでゃ。
 　囲みば破って、そじぐりであべましょう」
 
 傍らの老僕も戦闘に参加してくれるようだ。
@@ -1794,7 +1829,7 @@ ${ミシシッピー|黄金のマスク}が一党であることは明らかで�
 ### 追加ルール
 
 老僕の助力を得た君は、
-1つの戦闘について1体の敵を無条件に討伐できる。
+1つの戦闘について1体の屍を無条件に討伐できる。
 つまり、ダメージを反映させることなく、
 ドロップアイテムのみを得ることが可能だ。
 
@@ -1805,8 +1840,8 @@ ${ミシシッピー|黄金のマスク}が一党であることは明らかで�
 
 
 [改めて戦闘開始だ！](1640)</scene>
-	<scene id="1800" summary="甲板（中盤メイン）" level="17" hp="3" mp="3" free2="3">甲板の中央に戻って、君たちは息を整える
-（HP、MPがいずれも3ずつ回復するが、アポピスの体力も3回復する）。
+	<scene id="1800" summary="甲板（中盤メイン）" level="17" hp="3" mp="3">甲板の中央に戻って、君たちは息を整える
+（HP、MPがいずれも3ずつ回復する）。
 
 もちろん、さほど余裕があるわけではなく、
 屍たちは徐々に周囲の輪を縮めてきている。
@@ -1828,7 +1863,7 @@ ${ミシシッピー|黄金のマスク}が一党であることは明らかで�
 [PROTECTを唱える](1860 "mPROTECT")
 [NOILA-TEMを唱える](1870 "mNOILA-TEM")
 [CHANGE-AIRを唱える](1880 "mCHANGE-AIR")</scene>
-	<scene id="1810" summary="DELUGE" level="18" free2="@100">DELUGE（濁流）は、
+	<scene id="1810" summary="DELUGE" level="18" free2="@100" result="r21">DELUGE（濁流）は、
 ＜黄金のマスク＞に怒涛のように押し寄せる！
 
 しかし、目の前に立ち塞がるのはアポピスだ。
@@ -1860,7 +1895,7 @@ ${ミシシッピー|黄金のマスク}が一党であることは明らかで�
 無条件に屍たちの攻撃を回避できるようになった！
 
 [態勢を整えよう](1800)</scene>
-	<scene id="1830" summary="AIR-HAND" level="18" free2="@100">AIR-HANDの呪文を唱えると、
+	<scene id="1830" summary="AIR-HAND" level="18" free2="@100" result="r21">AIR-HANDの呪文を唱えると、
 凝縮した大気が見えない拳となって
 ＜黄金のマスク＞に射出される！
 
@@ -1881,8 +1916,8 @@ ${ミシシッピー|黄金のマスク}が一党であることは明らかで�
 [態勢を整えよう](1800)</scene>
 	<scene id="1840" summary="FREEZE" level="18">FREEZEの呪文を唱えると、
 清冽な冷気が周囲に立ち込めて。
-
 たちまち周囲の屍たちが凍結していく。
+
 アポピスも一部が凍てつくが、
 押し寄せる波濤が新たな肉体となって、
 さほどのダメージは与えられていないようだ。
@@ -1901,7 +1936,7 @@ ${ミシシッピー|黄金のマスク}が一党であることは明らかで�
 
 [態勢を整えよう](1800)</scene>
 	<scene id="1850" summary="LIGHT CROSS" level="18" free2="-3">LIGHT-CROSSの呪文を唱えると、
-無数の十字架（クロス）が飛散し、
+無数の${十字架|クロス}が四散し、
 アポピスや周囲の屍たちを引き裂きはじめる。
 
 しかし、見よ！
@@ -1915,8 +1950,8 @@ ${ミシシッピー|黄金のマスク}が一党であることは明らかで�
 攻撃は失敗だ！
 
 
-</scene>
-	<scene id="1860" summary="PROTECT" level="18" enemies="m18,m19">PROTECTを唱えると、
+[態勢を整えよう](1800)</scene>
+	<scene id="1860" summary="PROTECT" level="18" enemies="m18,m19" result="r20">PROTECTを唱えると、
 君の身体はみるみる硬質化していく。
 
 これで、
@@ -1942,7 +1977,7 @@ Battle Sheetを開いて、ダメージを反映しておくこと。
 
 
 [態勢を整えよう](1800)</scene>
-	<scene id="1870" summary="NOILA-TEM" level="18" free2="@100">NOILA-TEMは一閃の光条となって、
+	<scene id="1870" summary="NOILA-TEM" level="18" free2="@100" result="r21">NOILA-TEMは一閃の光条となって、
 ＜黄金のマスク＞を貫く！
 
 かに見えた。
@@ -1960,7 +1995,7 @@ Battle Sheetを開いて、ダメージを反映しておくこと。
 
 攻撃は完全に失敗だ！
 
-</scene>
+[態勢を整えよう](1800)</scene>
 	<scene id="1880" summary="CHANGE-AIR" level="18">CHANGE-AIRの呪文を唱えると、
 君たちの身体はたちまち空気に溶け込んだ。
 
@@ -1978,7 +2013,7 @@ Battle Sheetを開いて、ダメージを反映しておくこと。
 [NOILA-TEMを唱える](1900 "mNOILA-TEM")
 [AIR-HANDを唱える](1910 "mAIR-HAND")
 [DELUGEを唱える](1920 "mDELUGE")</scene>
-	<scene id="1890" summary="AIR突撃" level="19" enemies="m18,m19">敵が困惑する一瞬の隙を突いて、
+	<scene id="1890" summary="AIR/突撃" level="19" enemies="m18,m19" result="r20">敵が困惑する一瞬の隙を突いて、
 ＜黄金のマスク＞に突き上げの一刀。
 
 しかし、
@@ -2029,7 +2064,7 @@ Battle Sheetを開いて、ダメージを反映しておくこと。
 
 
 [やったか――！](1940)</scene>
-	<scene id="1940" summary="討伐？" level="20" enemies="m17">直撃はした、はずだ。
+	<scene id="1940" summary="討伐？" level="20" enemies="m17" result="r22" rule="9999">直撃はした、はずだ。
 
 みるみる亀裂が入っていく＜黄金のマスク＞に、
 ${冥府の蛇|アポピス}が悶え、
@@ -2044,7 +2079,7 @@ Battle Sheetを開いてダイスを振ること。
 
 [止めの一撃を試みる！](1950)
 [速やかに逃亡を図る](1960)</scene>
-	<scene id="1950" summary="止め" level="21" end="bad" group="bad">君の当初の目的はなんだったのか。
+	<scene id="1950" summary="止め" level="21" end="bad" group="bad" result="r23">君の当初の目的はなんだったか。
 
 ＜黄金のマスク＞、アポピス、＜黒真珠＞などの難敵に囲まれ、
 まずは態勢を立て直すことではなかったのか。
@@ -2055,10 +2090,9 @@ Battle Sheetを開いてダイスを振ること。
 ＜黄金のマスク＞に突進する君を、
 さすがに冥府の蛇が見逃すわけがない。
 
-振り切った尾を、返す刀よろしく、
+振り切った尾が、返す刀よろしく、
 鋭く中空を切り裂いた。
-そして、背後からの強力な一撃に、
-君は避ける術を持たない。
+背後からの強力な一撃に、君は避ける術を持たない。
 
 薄れゆく視界の中に、
 呆然とする老僕の姿が映り、そして、暗転した。
@@ -2066,7 +2100,7 @@ Battle Sheetを開いてダイスを振ること。
 (End)
 
 </scene>
-	<scene id="1960" summary="逃亡" level="21" enemies="m15,m16">＜黄金のマスク＞を斃しても、
+	<scene id="1960" summary="逃亡" level="21" enemies="m15,m16" rule="9999" bgm="boss" free1="-3..-1">＜黄金のマスク＞を斃しても、
 更にアポピス、＜黒真珠＞を相手取るのは、
 今の君には不可能だ。
 
@@ -2086,7 +2120,7 @@ Battle Sheetを開いて、
 
 
 [その時、背後でなにかが…](1970)</scene>
-	<scene id="1970" summary="船内への扉" level="22">（――……！）
+	<scene id="1970" summary="船内への扉" level="22" bgm="bad">（――……！）
 
 船内への扉に手をかけた瞬間。
 内側から迸り出る濁流が、君たちを呑み込んだ！
@@ -2117,7 +2151,7 @@ Battle Sheetを開いて、
 
 
 [最初から冒険に挑戦する（？）](2000)</scene>
-	<scene id="2000" summary="ん？" level="23">（―――ン）
+	<scene id="2000" summary="ん？" level="23" bgm="rest">（―――ン）
 
 （ソ――アン…！）
 
@@ -2383,7 +2417,7 @@ ${寡黙な医師|ウォーカー}は、
 
 [準備ができたならば――](2130)
 [もう少し準備したい](2040)</scene>
-	<scene id="2130" summary="準備完了" level="27" hp="full" mp="full">十分に休息して、体力、気力共に全快。
+	<scene id="2130" summary="準備完了" level="27" hp="full" mp="full" bgm="rest">十分に休息して、体力、気力共に全快。
 
 背後には、
 当然のように黒檀の老僕が付き従っている。
@@ -2411,7 +2445,7 @@ ${寡黙な医師|ウォーカー}は、
 
 
 [サスケハナへ――！](2140)</scene>
-	<scene id="2140" summary="ダンジョン開始" level="28">（ドクン、ド、クン――…！）
+	<scene id="2140" summary="ダンジョン開始" level="28" bgm="daemon" result="r24">（ドクン、ド、クン――…！）
 
 結界の扉を抜けると、そこは異世界だった。
 
@@ -2445,7 +2479,7 @@ ${寡黙な医師|ウォーカー}は、
 
 [北](2200)
 [南](2150)</scene>
-	<scene id="2150" summary="1F/D6" level="29" enemies="m11,m13">君たちがその一角に踏み込むと、
+	<scene id="2150" summary="1F/D6" level="29" enemies="m11,m13" rule="9999" free1="-3..-1">君たちがその一角に踏み込むと、
 何体かの屍たちが襲い掛かってくる。
 
 Battle Sheetを開いて、討伐すること。
@@ -2513,14 +2547,14 @@ Battle Sheetを開いて、討伐すること。
 [CHANGE-AIRを唱える](2440 "mCHANGE-AIR&amp;f92")
 [DESTROY-Aを唱える](2440 "mDESTROY-A&amp;f92")
 [＜王杖の貝殻＞を使う](8990 "i100")</scene>
-	<scene id="2240" summary="1F/C3" level="33" enemies="m12,m16">君たちがその一角に踏み込むと、
+	<scene id="2240" summary="1F/C3" level="33" enemies="m12,m16" rule="9999" free1="-3..-1">君たちがその一角に踏み込むと、
 何体かの屍たちが襲い掛かってくる。
 
 Battle Sheetを開いて、討伐すること。
 討伐に成功したら、移動が可能になる。
 
 [南](2220)</scene>
-	<scene id="2250" summary="1F/B4" level="33" enemies="m14,m15">君たちがその一角に踏み込むと、
+	<scene id="2250" summary="1F/B4" level="33" enemies="m14,m15" rule="9999" free1="-3..-1">君たちがその一角に踏み込むと、
 何体かの屍たちが襲い掛かってくる。
 
 Battle Sheetを開いて、討伐すること。
@@ -2534,7 +2568,7 @@ Battle Sheetを開いて、討伐すること。
 貴重な武器の耐久力が削られただけだ。
 
 [他の方法を考える](2230)</scene>
-	<scene id="2270" summary="DELUGE" level="33" enemies="m20">DELUGEは、
+	<scene id="2270" summary="DELUGE" level="33" enemies="m20" rule="9999" result="r25">DELUGEは、
 何もない処から洪水を生み出すわけではない。
 周囲の至る所から水分を吸収し、
 我がものとして操る魔法だ。
@@ -2557,7 +2591,7 @@ Battle Sheetを開いて、討伐すること。
 
 [失敗したならば、一旦撤退だ](2230)
 [成功したならば、先へ](2280)</scene>
-	<scene id="2280" summary="血管突破" level="34" flags="f91">血管の壁を抜けた先には、
+	<scene id="2280" summary="血管突破" level="34" flags="f91" result="r33">血管の壁を抜けた先には、
 更なる道が続いている。
 
 先を急ごう。
@@ -2570,7 +2604,7 @@ Battle Sheetを開いて、討伐すること。
 
 [南](2300)
 [東](2310)</scene>
-	<scene id="2300" summary="1F/E5" level="37" enemies="m12,m15">君たちがその一角に踏み込むと、
+	<scene id="2300" summary="1F/E5" level="37" enemies="m12,m15" rule="9999" free1="-3..-1">君たちがその一角に踏み込むと、
 何体かの屍たちが襲い掛かってくる。
 
 Battle Sheetを開いて、討伐すること。
@@ -2591,7 +2625,7 @@ Battle Sheetを開いて、討伐すること。
 
 [下](2310)
 [北](2450)</scene>
-	<scene id="2330" summary="FREEZE" level="33">FREEZEの呪文を唱えると、
+	<scene id="2330" summary="FREEZE" level="33" result="r26">FREEZEの呪文を唱えると、
 血管（のようなもの）が凍結していく。
 
 怒張し、はちきれんばかりになった血管は、
@@ -2629,7 +2663,7 @@ Battle Sheetを開いて、討伐すること。
 
 
 [先へ](2280)</scene>
-	<scene id="2350" summary="FREEZE/EXPLOSION" level="34" enemies="m21">EXPLOSIONの呪文を唱えると、
+	<scene id="2350" summary="FREEZE/EXPLOSION" level="34" enemies="m21" rule="9999" result="r27">EXPLOSIONの呪文を唱えると、
 氷塊の中央が震え、強力な爆風が君を襲う。
 
 言うまでもないが、
@@ -2661,7 +2695,7 @@ Battle Sheetを開いて、
 
 
 [流されて...](2240,2150,2250)</scene>
-	<scene id="2370" summary="FREEZE/去る" level="34" enemies="m11,m13,m14,m16">氷塊など放っておけば溶ける、
+	<scene id="2370" summary="FREEZE/去る" level="34" enemies="m11,m13,m14,m16" rule="9999" free1="-3..-1">氷塊など放っておけば溶ける、
 そう思った君は、それなりに正しい。
 
 ただし、何十トンにも及ぶ氷塊がジワジワと
@@ -2688,7 +2722,7 @@ Battle Sheetを開いて、
 
 
 [先へ](2280)</scene>
-	<scene id="2380" summary="EXPLOSION" level="33" flags="f91" enemies="m22">EXPLOSIONの呪文を唱えると、
+	<scene id="2380" summary="EXPLOSION" level="33" flags="f91" enemies="m22" rule="9999" result="r27">EXPLOSIONの呪文を唱えると、
 一瞬、血管の脈動が止まったかと思った瞬間。
 
 強力な爆風。
@@ -2702,7 +2736,7 @@ Battle Sheetを開いて、
 
 
 [流されて...](2240,2150,2250)</scene>
-	<scene id="2390" summary="GIVE-VIGOR" level="33" enemies="m22" flags="f91">GIVE-VIGORは、
+	<scene id="2390" summary="GIVE-VIGOR" level="33" enemies="m22" flags="f91" rule="9999" result="r28">GIVE-VIGORは、
 魔物の力を増幅させるための魔法だ。
 
 呪文を唱えると、
@@ -2722,7 +2756,7 @@ Battle Sheetを開いて、ダメージを反映させておくこと。
 
 
 [流されて...](2240,2150,2250)</scene>
-	<scene id="2400" summary="AIR-HAND" level="33">AIR-HANDの呪文を唱えると、
+	<scene id="2400" summary="AIR-HAND" level="33" result="r29">AIR-HANDの呪文を唱えると、
 凝縮した大気が見えない拳となって
 目の前の血管に打ち込まれる。
 
@@ -2735,7 +2769,7 @@ Battle Sheetを開いて、ダメージを反映させておくこと。
 
 
 [他の方法を考える](2230)</scene>
-	<scene id="2410" summary="REJUVENATE" level="33" enemies="m23,m24">REJUVENATEの呪文を唱えると、
+	<scene id="2410" summary="REJUVENATE" level="33" enemies="m23,m24" rule="9999" free1="-3..-1">REJUVENATEの呪文を唱えると、
 空間がシワシワと揺れたかと思うと、
 巨大な血管が消え失せ、
 細い血管が絡み合った空間が現れた。
@@ -2757,7 +2791,7 @@ Battle Sheetから［ダメージ式］をタップし、
 
 
 [先へ](2280)</scene>
-	<scene id="2420" summary="LIGHT-CROSS" level="33" enemies="m23">LIGHT-CROSSの呪文を唱えると、
+	<scene id="2420" summary="LIGHT-CROSS" level="33" enemies="m23" rule="9999" result="r31">LIGHT-CROSSの呪文を唱えると、
 無数の${十字架|クロス}が飛散し、血管を引き裂き始める。
 
 ただし、引き裂かれた血管から迸る、血液とも体液とも
@@ -2787,7 +2821,7 @@ Battle Sheetを開いて、ダイスを5回振ること。
 しばらくすると、次第と穴は狭まり、元に戻ってしまう。
 
 [他の方法を考える](2230)</scene>
-	<scene id="2440" summary="その他" level="33">君は呪文を唱えた。
+	<scene id="2440" summary="その他" level="33" result="r98">君は呪文を唱えた。
 
 が、現在利用すべき呪文でなかったようだ。
 何かが起こる風もなく、
@@ -2803,14 +2837,14 @@ Battle Sheetを開いて、ダイスを5回振ること。
 [南](2320)
 [東](2460)
 [北](2470)</scene>
-	<scene id="2460" summary="2F/G3" level="38" enemies="m11,m16">君たちがその一角に踏み込むと、
+	<scene id="2460" summary="2F/G3" level="38" enemies="m11,m16" rule="9999" free1="-3..-1">君たちがその一角に踏み込むと、
 何体かの屍たちが襲い掛かってくる。
 
 Battle Sheetを開いて、討伐すること。
 討伐に成功したら、移動が可能になる。
 
 [西](2450)</scene>
-	<scene id="2470" summary="2F/F2" level="72">先に進むと、
+	<scene id="2470" summary="2F/F2" level="72" bgm="daemon">先に進むと、
 通路が次第と狭まってきたようだ。
 
 通路の幅に反比例して、
@@ -2848,7 +2882,7 @@ Battle Sheetを開いて、討伐すること。
 [DESTROY-Aを唱える](2550 "mDESTROY-A")
 [CHANGE-AIRを唱える](2560 "mCHANGE-AIR")
 [＜王杖の貝殻＞を使う](9000 "i100")</scene>
-	<scene id="2480" summary="EXPLOSION" level="39" enemies="m25">（EXPLOSION――！）
+	<scene id="2480" summary="EXPLOSION" level="39" enemies="m25" rule="9999" result="r34">（EXPLOSION――！）
 
 EXPLOSIONの呪文を唱えると、
 君を中心に無音の爆風が広がる！
@@ -2875,13 +2909,17 @@ EXPLOSIONの呪文を唱えると、
 
 [失敗したならば...](2470)
 [通路を無事に抜けられたならば...](2490)</scene>
-	<scene id="2490" summary="瘴気突破" level="40">瘴気の通路を抜けた先には、
+	<scene id="2490" summary="瘴気突破" level="40" bgm="daemon" result="r40">瘴気の通路を抜けた先には、
 更なる道が続いている。
 
+「油断しねであべ」
+
+老僕が短く呟いた。
+言うまでもない。
 先を急ごう。
 
 [先へ](2570)</scene>
-	<scene id="2500" summary="UN-CURSE" level="39">UN-CURSEの呪文を唱えると、
+	<scene id="2500" summary="UN-CURSE" level="39" rule="9999">UN-CURSEの呪文を唱えると、
 瘴気が徐々に後退していく。
 
 ただし、どこまで瘴気が続いているかは、
@@ -2907,7 +2945,7 @@ Battle Sheetを開いて、ダイスを振ること。
 
 [失敗したならば…](2470)
 [通路を無事に抜けられたならば...](2490)</scene>
-	<scene id="2510" summary="RESURRECT" level="39" enemies="m26,m27">RESURRECTは、
+	<scene id="2510" summary="RESURRECT" level="39" enemies="m26,m27" rule="9999" free1="-3..-1" result="r36">RESURRECTは、
 現世と冥府との境界を一時的に開け放つ魔法だ。
 
 冥府の門が開くと、瘴気も冥府へと流れ込んでいく
@@ -2925,7 +2963,7 @@ Battle Sheetを開いて、ダイスを振ること。
 （ゾロ目判定と失敗時の戦闘は成功するまで続けること）。
 
 [通路を無事に抜けられたならば...](2490)</scene>
-	<scene id="2520" summary="CURE" level="39">そもそもCUREは、
+	<scene id="2520" summary="CURE" level="39" rule="9999" result="r37">そもそもCUREは、
 崩れてしまった五象のバランスを整え、
 無害化するための魔法だ。
 
@@ -2946,7 +2984,7 @@ ${input?0}
 
 [成功したならば、速やかに通路を抜けよう](2490)
 [失敗したならば、速やかに撤退だ](2470)</scene>
-	<scene id="2530" summary="AIR-HAND" level="39" enemies="m28">背中に凄まじい打撃が撃ち込まれた！
+	<scene id="2530" summary="AIR-HAND" level="39" enemies="m28" rule="9999" result="r38">背中に凄まじい打撃が撃ち込まれた！
 
 君はなんと。
 AIR-HANDを自らの背中に打ち込んだのだ。
@@ -2966,7 +3004,7 @@ AIR-HANDに耐えた場合にのみ、先に進んでも良い。
 さもなければ、君の冒険はここで終了だ。
 
 [耐えきった！](2490)</scene>
-	<scene id="2540" summary="その他" level="39">君は呪文を唱えた。
+	<scene id="2540" summary="その他" level="39" result="r98">君は呪文を唱えた。
 
 が、現在利用すべき呪文でなかったようだ。
 何かが起こる風もなく、
@@ -2974,7 +3012,7 @@ AIR-HANDに耐えた場合にのみ、先に進んでも良い。
 
 
 [他の方法を考える](2470)</scene>
-	<scene id="2550" summary="DESTROY-A" level="39" enemies="m25">DESTROY-Aは、
+	<scene id="2550" summary="DESTROY-A" level="39" enemies="m25" rule="9999" result="r34">DESTROY-Aは、
 風象の力を${封じる|ロックアウトする}魔術だ。
 
 その力は、風に属するすべてのものに影響する。
@@ -3001,8 +3039,9 @@ AIR-HANDに耐えた場合にのみ、先に進んでも良い。
 ダメージ式も一度だけ反映すれば良いということだ。
 
 
-</scene>
-	<scene id="2560" summary="CHANGE-AIR" level="39">CHANGE-AIRの呪文を唱えると、
+[失敗したなら、速やかに撤退だ](2470)
+[成功したならば、速やかに通路を抜けよう](2490)</scene>
+	<scene id="2560" summary="CHANGE-AIR" level="39" rule="9999" result="r39">CHANGE-AIRの呪文を唱えると、
 君の身体は粒子レベルにまで分解され、大気と同化する。
 
 ただし、空気のようになったからといって、
@@ -3018,7 +3057,7 @@ Battle Sheetを開いて、ダメージを反映すること。
 そして、撤退だ。
 
 [撤退だ](2470)</scene>
-	<scene id="2570" summary="2F/E2" level="41">この一角には、
+	<scene id="2570" summary="2F/E2" level="41" bgm="blood">この一角には、
 南、北、東に抜ける道がある。
 ただし、東に抜ける道には、再び毒ガスが充満しつつある。
 戻るのは避けておいた方が無難だろう。
@@ -3028,7 +3067,7 @@ Battle Sheetを開いて、ダメージを反映すること。
 
 [南](2580)
 [北](2590)</scene>
-	<scene id="2580" summary="2F/E3" level="42" enemies="m13,m14">君たちがその一角に踏み込むと、
+	<scene id="2580" summary="2F/E3" level="42" enemies="m13,m14" rule="9999" free1="-3..-1">君たちがその一角に踏み込むと、
 何体かの屍たちが襲い掛かってくる。
 
 Battle Sheetを開いて、討伐すること。
@@ -3060,7 +3099,7 @@ Battle Sheetを開いて、討伐すること。
 [東](2620)
 [南](2630)
 [西](2640)</scene>
-	<scene id="2620" summary="2F/F2" level="45" enemies="m11,m13,m15">君たちがその一角に踏み込むと、
+	<scene id="2620" summary="2F/F2" level="45" enemies="m11,m13,m15" rule="9999" free1="-3..-1">君たちがその一角に踏み込むと、
 何体かの屍たちが襲い掛かってくる。
 
 Battle Sheetを開いて、討伐すること。
@@ -3068,7 +3107,12 @@ Battle Sheetを開いて、討伐すること。
 
 
 [西](2610)</scene>
-	<scene id="2630" summary="2F/E3" level="45" enemies="m12,m14,m16">
+	<scene id="2630" summary="2F/E3" level="45" enemies="m12,m14,m16" rule="9999" free1="-3..-1">君たちがその一角に踏み込むと、
+何体かの屍たちが襲い掛かってくる。
+
+Battle Sheetを開いて、討伐すること。
+討伐に成功したら、移動が可能になる。
+
 
 [北](2610)</scene>
 	<scene id="2640" summary="3F/D2" level="45">（ガクン！）
@@ -3089,7 +3133,7 @@ Battle Sheetを開いて、討伐すること。
 
 
 [辺りを見回すと...](2710)</scene>
-	<scene id="2650" summary="GIVE-VIGOR" level="47">GIVE-VIGORは魔物の力を増幅させるための魔法だ。
+	<scene id="2650" summary="GIVE-VIGOR" level="47" enemies="m40,m41,m42,m43" rule="9999" free1="-4..-1">GIVE-VIGORは魔物の力を増幅させるための魔法だ。
 
 呪文を唱えると、
 内壁から流れ落ちる体液の量は増して、
@@ -3127,7 +3171,7 @@ Battle Sheetを開いて、以下の手順で戦闘だ。
 先を急ごう。
 
 [先へ](2700)</scene>
-	<scene id="2670" summary="DELUGE" level="47" enemies="m44">DELUGEによって、
+	<scene id="2670" summary="DELUGE" level="47" enemies="m44" rule="9999">DELUGEによって、
 体液の池はみるみる水位を増していく。
 
 否。
@@ -3181,7 +3225,7 @@ Battle Sheetからダメージを反映しておくこと。
 
 
 [下](2780)</scene>
-	<scene id="2710" summary="1F/D2" level="72" enemies="m11,m12,m13,m14,m15,m16">上を見上げると、体液は内壁のそちこちに空いた穴から
+	<scene id="2710" summary="1F/D2" level="72" enemies="m11,m12,m13,m14,m15,m16" bgm="blood">上を見上げると、体液は内壁のそちこちに空いた穴から
 大量に噴き出ているようだ。
 
 体液の中には、無数の屍たちが無表情に漂っているが、
@@ -3217,7 +3261,7 @@ Battle Sheetからダメージを反映しておくこと。
 [DESTROY-Aを唱える](2750 "mDESTROY-A")
 [NOILA-TEMを唱える](2750 "mNOILA-TEM")
 [＜王杖の貝殻＞を使う](9000)</scene>
-	<scene id="2720" summary="FREEZE" level="47" enemies="m45">FREEZEの呪文を唱えると、
+	<scene id="2720" summary="FREEZE" level="47" enemies="m45" rule="9999">FREEZEの呪文を唱えると、
 みるみる体液の池は凍てついていく。
 
 もちろん、そこに浮いている君もろとも。
@@ -3242,7 +3286,7 @@ Battle Sheetを開いて、ダイスを振ること。
 
 
 [他の方法を考える](2710)</scene>
-	<scene id="2730" summary="AIR-HAND" level="47" enemies="m46">君の身体が下からの水圧で
+	<scene id="2730" summary="AIR-HAND" level="47" enemies="m46" rule="9999">君の身体が下からの水圧で
 一気に中空に放りだされる！
 
 AIR-HANDの見えない拳を、
@@ -3275,7 +3319,7 @@ Battle Sheetを開いて、ダイスを振る事。
 
 [無事に上層に着地した](2660)
 [失敗...](2710)</scene>
-	<scene id="2740" summary="LIGHT-CROSS" level="47">LIGHT-CROSS。
+	<scene id="2740" summary="LIGHT-CROSS" level="47" rule="9999">LIGHT-CROSS。
 本来は放射状に${十字架|クロス}を射出する魔法であるが、
 苦心して、帯状に放出することに成功する。
 
@@ -3320,7 +3364,7 @@ LIGHT-CROSSの効果は消え失せて、無条件に落下してしまう。
 
 
 </scene>
-	<scene id="2760" summary="EXPLOSION" level="47" enemies="m46">君の身体が下からの水圧で
+	<scene id="2760" summary="EXPLOSION" level="47" enemies="m46" rule="9999">君の身体が下からの水圧で
 一気に中空に放りだされる！
 
 EXPLOSIONを、
@@ -3352,7 +3396,7 @@ Battle Sheetを開いて、ダイスを振る事。
 
 
 </scene>
-	<scene id="2770" summary="PROTECT" level="47" enemies="m25">PROTECTは、君の身体の密度を高めて、
+	<scene id="2770" summary="PROTECT" level="47" enemies="m25" rule="9999">PROTECTは、君の身体の密度を高めて、
 物理的な強度を高める魔法だ。
 
 そんな魔法を水の中で使ったら、
@@ -3377,7 +3421,7 @@ Battle Sheetを開いて、
 
 [上](2700)
 [西](2790)</scene>
-	<scene id="2790" summary="2F/B2" level="51">その一角は、
+	<scene id="2790" summary="2F/B2" level="51" bgm="blood">その一角は、
 東西南北に抜ける十字路となっている。
 
 さて、どちらに進むか。
@@ -3388,14 +3432,14 @@ Battle Sheetを開いて、
 [北](2810 "!f93")
 [南](2820)
 [北](2850 "f93")</scene>
-	<scene id="2800" summary="2F/A2" level="52" enemies="m12,m14,m16">君たちがその一角に踏み込むと、
+	<scene id="2800" summary="2F/A2" level="52" enemies="m12,m14,m16" rule="9999" free1="-3..-1">君たちがその一角に踏み込むと、
 何体かの屍たちが襲い掛かってくる。
 
 Battle Sheetを開いて、討伐すること。
 討伐に成功したら、移動が可能になる。
 
 [東](2790)</scene>
-	<scene id="2810" summary="2F/B1" level="72">先に進むと、君は扉の前に出る。
+	<scene id="2810" summary="2F/B1" level="72" bgm="blood">先に進むと、君は扉の前に出る。
 
 巨大生物の内臓のような非日常の中で、
 （ほんの僅かにせよ）日常的な光景に、君は立ち止まる。
@@ -3461,7 +3505,7 @@ VITを鍛え直せばよいというものではなさそうだが…
 
 
 [他の方法を探そう](2810)</scene>
-	<scene id="2850" summary="2F/B1済" level="54" hp="full" mp="full" state="-all">閉ざされた扉を抜けたその先は、
+	<scene id="2850" summary="2F/B1済" level="54" hp="full" mp="full" state="-all" bgm="rest">閉ざされた扉を抜けたその先は、
 別世界であった。
 
 元のサスケハナ船内とも異なる、
@@ -3485,7 +3529,7 @@ VITを鍛え直せばよいというものではなさそうだが…
 
 
 [部屋を出る](2790)</scene>
-	<scene id="2860" summary="STONE-FLESH" level="53">STONE-FLESHは、
+	<scene id="2860" summary="STONE-FLESH" level="53" bgm="blood">STONE-FLESHは、
 正確には石化を解除するための魔法ではない。
 
 時間軸から切り離され、
@@ -3536,7 +3580,7 @@ STONE-FLESHの呪文を唱えると、
 [東](2830)
 [北](2900)
 [南](2910)</scene>
-	<scene id="2900" summary="1F/A2" level="55" enemies="m11,m13,m15">君たちがその一角に踏み込むと、
+	<scene id="2900" summary="1F/A2" level="55" enemies="m11,m13,m15" rule="9999" free1="-3..-1">君たちがその一角に踏み込むと、
 何体かの屍たちが襲い掛かってくる。
 
 Battle Sheetを開いて、討伐すること。
@@ -3569,7 +3613,7 @@ Battle Sheetを開いて、討伐すること。
 [北](2920)
 [南](2940)
 [東](2950)</scene>
-	<scene id="2940" summary="2F/A6" level="58" enemies="m11,m12,m13">君たちがその一角に踏み込むと、
+	<scene id="2940" summary="2F/A6" level="58" enemies="m11,m12,m13" rule="9999" free1="-3..-1">君たちがその一角に踏み込むと、
 何体かの屍たちが襲い掛かってくる。
 
 Battle Sheetを開いて、討伐すること。
@@ -3602,14 +3646,14 @@ Battle Sheetを開いて、討伐すること。
 [北](2980)
 [南](2990)
 [東](3000)</scene>
-	<scene id="2980" summary="3F/C4" level="61" enemies="m14,m15,m16">君たちがその一角に踏み込むと、
+	<scene id="2980" summary="3F/C4" level="61" enemies="m14,m15,m16" rule="9999" free1="-3..-1">君たちがその一角に踏み込むと、
 何体かの屍たちが襲い掛かってくる。
 
 Battle Sheetを開いて、討伐すること。
 討伐に成功したら、移動が可能になる。
 
 [南](2970)</scene>
-	<scene id="2990" summary="3F/C6" level="61" enemies="m12,m15,m16">君たちがその一角に踏み込むと、
+	<scene id="2990" summary="3F/C6" level="61" enemies="m12,m15,m16" rule="9999" free1="-3..-1">君たちがその一角に踏み込むと、
 何体かの屍たちが襲い掛かってくる。
 
 Battle Sheetを開いて、討伐すること。
@@ -3641,7 +3685,7 @@ Battle Sheetを開いて、討伐すること。
 [北](3010)
 [西](3030)
 [東](3040)</scene>
-	<scene id="3030" summary="2F/C6" level="64" enemies="m11,m13,m14">君たちがその一角に踏み込むと、
+	<scene id="3030" summary="2F/C6" level="64" enemies="m11,m13,m14" rule="9999" free1="-3..-1">君たちがその一角に踏み込むと、
 何体かの屍たちが襲い掛かってくる。
 
 Battle Sheetを開いて、討伐すること。
@@ -3664,7 +3708,7 @@ Battle Sheetを開いて、討伐すること。
 [下](3040)
 [南](3060)
 [東](3070)</scene>
-	<scene id="3060" summary="3F/E7" level="66" enemies="m11,m12,m13,m14,m15,m16">君たちがその一角に踏み込むと、
+	<scene id="3060" summary="3F/E7" level="66" enemies="m11,m12,m13,m14,m15,m16" rule="9999" free1="-3..-1">君たちがその一角に踏み込むと、
 何体かの屍たちが襲い掛かってくる。
 
 Battle Sheetを開いて、討伐すること。
@@ -3680,7 +3724,7 @@ Battle Sheetを開いて、討伐すること。
 
 [西](3050)
 [南](3080)</scene>
-	<scene id="3080" summary="3F/F7" level="72">通路には、
+	<scene id="3080" summary="3F/F7" level="72" bgm="blood">通路には、
 これまでに見たこともないほど、
 大量の屍たちが群れを為している。
 
@@ -3724,7 +3768,7 @@ ${/if}
 [REDUCE-LIFEを唱える](3290)
 [一旦戻る](3070)
 [＜王杖の貝殻＞を使う](9000)</scene>
-	<scene id="3090" summary="正面突破" level="68" enemies="m50">君にとっては、
+	<scene id="3090" summary="正面突破" level="68" enemies="m50" free1="-5..-3">君にとっては、
 正面突破が勇者の本懐ということなのだろう。
 
 宜しい。
@@ -3748,7 +3792,7 @@ ${敵|屍の大群}のHPがゼロになったら、
 先を急ごう。
 
 [先へ](3300)</scene>
-	<scene id="3110" summary="HEAL" level="68" enemies="m51">HEALは、
+	<scene id="3110" summary="HEAL" level="68" enemies="m51" free1="-3..-1" rule="9999">HEALは、
 肉体に生命エネルギーを注ぎ込む魔法だ。
 
 これを死と混沌――生ある者とは異なる摂理で
@@ -3801,7 +3845,7 @@ ${敵|屍の大群}のHPがゼロになったら、
 
 
 [群れを突破した](3100)</scene>
-	<scene id="3120" summary="PROTECT" level="68" enemies="m52">PROTECTを唱えると、
+	<scene id="3120" summary="PROTECT" level="68" enemies="m52" rule="9999">PROTECTを唱えると、
 君の身体はみるみる硬質化していく。
 
 これで屍たちの攻撃もかなり軽減できるように
@@ -3826,7 +3870,7 @@ ${敵|屍たちの通路}のHP（残り距離）がゼロになったら、
 
 
 [群れを突破](3100)</scene>
-	<scene id="3130" summary="HOLY-WATER" level="68" enemies="m53,m54">HOLY-WATERを唱えると、
+	<scene id="3130" summary="HOLY-WATER" level="68" enemies="m53,m54" free1="-3..-1" rule="9999">HOLY-WATERを唱えると、
 君の身体は聖水の${膜|バリアー}によって覆われた。
 
 黄泉に属する屍たちは、
@@ -3957,7 +4001,7 @@ Battle Sheetを開いて、ダメージを反映しておくこと。
 耐えるしかない（気が滅入ってMPが5減ってしまう）。
 
 [群れを抜けたら...](3100)</scene>
-	<scene id="3190" summary="RESURRECT" level="68" enemies="m55,m56">RESURRECTは、
+	<scene id="3190" summary="RESURRECT" level="68" enemies="m55,m56" free1="-3..-1" rule="9999">RESURRECTは、
 現世と冥府との境界を一時的に開け放つ魔法だ。
 
 本来、冥府の魂を引き戻すべきところを、
@@ -3982,7 +4026,7 @@ Battle Sheetを開いて、
 
 
 [群れを抜けたら...](3100)</scene>
-	<scene id="3200" summary="GIVE-VIGOR" level="68" enemies="m40,m41,m42">なにゆえに、
+	<scene id="3200" summary="GIVE-VIGOR" level="68" enemies="m40,m41,m42" rule="9999" free1="-3..-1">なにゆえに、
 君はこのような魔法を選んでしまったのか。
 
 GIVE-VIGERは、
@@ -4021,7 +4065,7 @@ Battle Sheetを開いて、
 強い慙愧の思いから、MPが7減ってしまう。
 
 [他の方法を考える](3080)</scene>
-	<scene id="3220" summary="CHANGE-AIR" level="68" enemies="m57">CHANGE-AIRの呪文を唱えると、
+	<scene id="3220" summary="CHANGE-AIR" level="68" enemies="m57" rule="9999">CHANGE-AIRの呪文を唱えると、
 君の身体は粒子レベルにまで分解され、大気と同化する。
 
 これで屍たちの群れを擦り抜けられる、
@@ -4049,7 +4093,7 @@ Battle Sheetを開いて、
 
 
 [他の方法を考える](3080)</scene>
-	<scene id="3240" summary="EXPLOSION" level="68" enemies="m25">（EXPLOSION――！）
+	<scene id="3240" summary="EXPLOSION" level="68" enemies="m25" rule="9999">（EXPLOSION――！）
 
 EXPLOSIONの呪文を唱えると、
 君を中心に無音の爆風が広がる！
@@ -4115,7 +4159,7 @@ CHANGE-AIRを発動させるのだ。
 
 
 [他の方法を考える](3080)</scene>
-	<scene id="3270" summary="PEACE" level="68" enemies="m58">PEACEの本質は、対象の精神操作だ。
+	<scene id="3270" summary="PEACE" level="68" enemies="m58" rule="9999">PEACEの本質は、対象の精神操作だ。
 
 PEACEの呪文を唱えると同時に、
 大量の屍たち――それらの構成する亡者の思念が
@@ -4149,7 +4193,7 @@ PEACEの呪文を唱えると同時に、
 君が通り抜けられるほどの成果は上げられない。
 
 [他の方法を考える](3080)</scene>
-	<scene id="3290" summary="REDUCE-LIFE" level="68" hp="-25" enemies="m59">REDUCE-LIFEは、
+	<scene id="3290" summary="REDUCE-LIFE" level="68" hp="-25" enemies="m59" rule="9999">REDUCE-LIFEは、
 己の生命力を弱めるための魔法だ。
 
 君はHPに25のダメージを得る。
@@ -4198,7 +4242,7 @@ Battle Sheetを開いて、ダイスを5回振ること。
 
 [東](3300)
 [北](3070)</scene>
-	<scene id="8990" summary="エティスHELP" level="33" flags="f92">異空間にあっては、
+	<scene id="8990" summary="エティスHELP" level="33" flags="f92" bgm="daemon">異空間にあっては、
 物理的な手段が通用する範囲も限られている。
 
 幸いにして、
@@ -4229,7 +4273,7 @@ Battle Sheetを開いて、ダイスを5回振ること。
 
 
 [通信を開く](9000)</scene>
-	<scene id="9000" summary="エティスHELP（Top）" level="72">＜王杖の貝殻＞に話しかけると、
+	<scene id="9000" summary="エティスHELP（Top）" level="72" bgm="help" result="r99">＜王杖の貝殻＞に話しかけると、
 エティスの皺枯れた声が聞こえてくる。
 
 「魔法の本質を知りたい、とな。
@@ -4501,6 +4545,19 @@ NOILA-TEMに秘められた力には、
 
 
 [戻る](90000)</scene>
+	<scene id="9999" summary="戦闘ルール" level="2">### 武器の耐久度
+
++ 武器の耐久度は、Status Sheetの［武器耐久度］（Free2）から確認できる。
++ 耐久度は戦闘都度、徐々に低下していく（ゼロ以下で武器は破損＆戦闘不可）。
++ 新たな武器は、屍たちとの戦闘によって入手できる（Items Sheetから「武器」を使用して耐久度を復活できる）
+
+### 老僕の助力
+
++ 老僕の助力によって、1戦闘について1体の屍を無条件に討伐できる（ダメージなしに、ドロップアイテムだけを入手可）。
++ 成功判定に失敗した場合も、老人のサポートで1度だけ再判定が可能（ただし、その場合は直後の戦闘で老人の助力を得ることは**できない**）
+
+
+</scene>
 	<scene id="90000" summary="ダミー（戻り先）" level="72">dummy
 
 </scene>
