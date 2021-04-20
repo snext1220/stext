@@ -135,6 +135,33 @@
 		<result id="r98" name="意味もなく溶けた" level="2">魔法の効果を得られなかった</result>
 		<result id="r39" name="混ぜるな危険" level="3">瘴気と混ざってしまった</result>
 		<result id="r40" name="瘴気突破" level="4">瘴気の通路を突破した</result>
+		<result id="r50" name="皆、活性化" level="4">水流も屍も活性化した</result>
+		<result id="r51" name="人間洗濯機" level="4">濁流に揉み上げられた</result>
+		<result id="r52" name="氷漬けソーサリアン" level="4">体液の池で氷漬けになった</result>
+		<result id="r53" name="人間噴水" level="4">魔法の噴水に乗った</result>
+		<result id="r54" name="黄金の鎖" level="4">黄金の鎖を登った</result>
+		<result id="r55" name="ブクブクブク..." level="4">重みで池の底に沈んだ</result>
+		<result id="r56" name="落とし穴脱出" level="4">落とし穴から生還した</result>
+		<result id="r57" name="VITではない" level="4">扉を力づくで押してみた</result>
+		<result id="r58" name="時の呪文" level="4">扉を元のことわりに戻した</result>
+		<result id="r59" name="安らぎの刻" level="4">癒しの部屋で回復した</result>
+		<result id="r65" name="勇者の本懐" level="4">屍の群れに飛び込んだ</result>
+		<result id="r66" name="屍と生命エネルギー" level="4">屍に生命エネルギーを与えた</result>
+		<result id="r67" name="堅忍不抜" level="4">屍からの攻撃にじっと耐えた</result>
+		<result id="r68" name="聖水の加護" level="4">聖水に護られながら戦った</result>
+		<result id="r69" name="流されて" level="4">屍たちと一緒に濁流に流された</result>
+		<result id="r70" name="氷柱の森" level="4">屍たちが氷柱の森になった</result>
+		<result id="r71" name="足蹴" level="4">使者を足蹴にした</result>
+		<result id="r72" name="死神さんご一行" level="4">冥府から死神たちを呼び起こした</result>
+		<result id="r73" name="皆、活性化2" level="4">屍たちが活性化した</result>
+		<result id="r74" name="生々しい欠片" level="4">生々しい欠片がよみがえった</result>
+		<result id="r75" name="混ぜるな危険2" level="4">屍たちの毒が混ざった</result>
+		<result id="r76" name="真空の通路2" level="4">屍たちが払われ、真空の通路ができた</result>
+		<result id="r77" name="ダブルクロス" level="4">貫通型LIGHT-CROSSを試した(?)</result>
+		<result id="r78" name="意味のなかった最強魔法" level="4">NOILA-TEMでは解決しなかった</result>
+		<result id="r79" name="亡者の思念" level="4">亡者の思念が流れ込んだ</result>
+		<result id="r80" name="亡者の仲間入り？" level="4">生命力が削がれて、亡者のようになった</result>
+		<result id="r85" name="群れ突破" level="5">屍たちの群れを突破した</result>
 	</results>
 	<licence>
 		<work name="メインテーマ（Battle for Honour）" category="bgm" creator="ユーフルカ" url="https://wingless-seraph.net/"></work>
@@ -145,7 +172,7 @@
 		<work name="休息（蛍道）" category="bgm" creator="ユーフルカ" url="https://wingless-seraph.net/"></work>
 		<work name="ダンジョン後半（Fatal Blood）" category="bgm" creator="ユーフルカ" url="https://wingless-seraph.net/"></work>
 		<work name="ダンジョン前半（聖域のデーモン）" category="bgm" creator="ユーフルカ" url="https://wingless-seraph.net/"></work>
-		<work name="エティスの助け（闇に還る時）" category="bgm"></work>
+		<work name="エティスの助け（闇に還る時）" category="bgm" creator="ユーフルカ" url="https://wingless-seraph.net/"></work>
 	</licence>
 	<scene id="0" summary="プロローグ" group="prologue" level="1" bgm="prologue">ペンタウァのはるかな東。
 否、時空さえも遥かに超えた、その世界に、
@@ -3133,7 +3160,7 @@ Battle Sheetを開いて、討伐すること。
 
 
 [辺りを見回すと...](2710)</scene>
-	<scene id="2650" summary="GIVE-VIGOR" level="47" enemies="m40,m41,m42,m43" rule="9999" free1="-4..-1">GIVE-VIGORは魔物の力を増幅させるための魔法だ。
+	<scene id="2650" summary="GIVE-VIGOR" level="47" enemies="m40,m41,m42,m43" rule="9999" free1="-4..-1" result="r50">GIVE-VIGORは魔物の力を増幅させるための魔法だ。
 
 呪文を唱えると、
 内壁から流れ落ちる体液の量は増して、
@@ -3171,7 +3198,7 @@ Battle Sheetを開いて、以下の手順で戦闘だ。
 先を急ごう。
 
 [先へ](2700)</scene>
-	<scene id="2670" summary="DELUGE" level="47" enemies="m44" rule="9999">DELUGEによって、
+	<scene id="2670" summary="DELUGE" level="47" enemies="m44" rule="9999" result="r51">DELUGEによって、
 体液の池はみるみる水位を増していく。
 
 否。
@@ -3286,7 +3313,7 @@ Battle Sheetを開いて、ダイスを振ること。
 
 
 [他の方法を考える](2710)</scene>
-	<scene id="2730" summary="AIR-HAND" level="47" enemies="m46" rule="9999">君の身体が下からの水圧で
+	<scene id="2730" summary="AIR-HAND" level="47" enemies="m46" rule="9999" result="r53">君の身体が下からの水圧で
 一気に中空に放りだされる！
 
 AIR-HANDの見えない拳を、
@@ -3319,7 +3346,7 @@ Battle Sheetを開いて、ダイスを振る事。
 
 [無事に上層に着地した](2660)
 [失敗...](2710)</scene>
-	<scene id="2740" summary="LIGHT-CROSS" level="47" rule="9999">LIGHT-CROSS。
+	<scene id="2740" summary="LIGHT-CROSS" level="47" rule="9999" result="r54">LIGHT-CROSS。
 本来は放射状に${十字架|クロス}を射出する魔法であるが、
 苦心して、帯状に放出することに成功する。
 
@@ -3356,7 +3383,7 @@ LIGHT-CROSSの効果は消え失せて、無条件に落下してしまう。
 
 [LIGHT-CROSSの効果が消えた](2710)
 [登攀に成功した](2660)</scene>
-	<scene id="2750" summary="その他" level="47">君は呪文を唱えた。
+	<scene id="2750" summary="その他" level="47" result="r98">君は呪文を唱えた。
 
 が、現在利用すべき呪文でなかったようだ。
 何かが起こる風もなく、
@@ -3364,7 +3391,7 @@ LIGHT-CROSSの効果は消え失せて、無条件に落下してしまう。
 
 
 </scene>
-	<scene id="2760" summary="EXPLOSION" level="47" enemies="m46" rule="9999">君の身体が下からの水圧で
+	<scene id="2760" summary="EXPLOSION" level="47" enemies="m46" rule="9999" result="r53">君の身体が下からの水圧で
 一気に中空に放りだされる！
 
 EXPLOSIONを、
@@ -3396,7 +3423,7 @@ Battle Sheetを開いて、ダイスを振る事。
 
 
 </scene>
-	<scene id="2770" summary="PROTECT" level="47" enemies="m25" rule="9999">PROTECTは、君の身体の密度を高めて、
+	<scene id="2770" summary="PROTECT" level="47" enemies="m25" rule="9999" result="r55">PROTECTは、君の身体の密度を高めて、
 物理的な強度を高める魔法だ。
 
 そんな魔法を水の中で使ったら、
@@ -3505,7 +3532,7 @@ VITを鍛え直せばよいというものではなさそうだが…
 
 
 [他の方法を探そう](2810)</scene>
-	<scene id="2850" summary="2F/B1済" level="54" hp="full" mp="full" state="-all" bgm="rest">閉ざされた扉を抜けたその先は、
+	<scene id="2850" summary="2F/B1済" level="54" hp="full" mp="full" state="-all" bgm="rest" result="r59">閉ざされた扉を抜けたその先は、
 別世界であった。
 
 元のサスケハナ船内とも異なる、
@@ -3529,7 +3556,7 @@ VITを鍛え直せばよいというものではなさそうだが…
 
 
 [部屋を出る](2790)</scene>
-	<scene id="2860" summary="STONE-FLESH" level="53" bgm="blood">STONE-FLESHは、
+	<scene id="2860" summary="STONE-FLESH" level="53" bgm="blood" result="r58">STONE-FLESHは、
 正確には石化を解除するための魔法ではない。
 
 時間軸から切り離され、
@@ -3548,7 +3575,7 @@ STONE-FLESHの呪文を唱えると、
 元の${理|ことわり}に戻ってきた事で、その役割を終えたのだ。
 
 [中に入ってみる](2850)</scene>
-	<scene id="2870" summary="その他" level="53">君は呪文を唱えた。
+	<scene id="2870" summary="その他" level="53" result="r98">君は呪文を唱えた。
 
 が、現在利用すべき呪文でなかったようだ。
 何かが起こる風もなく、
@@ -3559,7 +3586,7 @@ STONE-FLESHの呪文を唱えると、
 そこに佇んでいる。
 
 [他の方法を考える](2810)</scene>
-	<scene id="2880" summary="攻撃魔法" level="53">君は呪文を唱えた。
+	<scene id="2880" summary="攻撃魔法" level="53" result="r98">君は呪文を唱えた。
 
 呪文の力は、扉に確かに直撃したはずだ。
 しかし、扉はただただ動かない。
@@ -3768,7 +3795,7 @@ ${/if}
 [REDUCE-LIFEを唱える](3290)
 [一旦戻る](3070)
 [＜王杖の貝殻＞を使う](9000)</scene>
-	<scene id="3090" summary="正面突破" level="68" enemies="m50" free1="-5..-3">君にとっては、
+	<scene id="3090" summary="正面突破" level="68" enemies="m50" free1="-5..-3" result="r65">君にとっては、
 正面突破が勇者の本懐ということなのだろう。
 
 宜しい。
@@ -3786,13 +3813,13 @@ ${敵|屍の大群}のHPがゼロになったら、
 
 
 [意気揚々と先へ](3100)</scene>
-	<scene id="3100" summary="群れを突破" level="69" flags="f94">なんとか屍たちの群れを超えられたようだ。
+	<scene id="3100" summary="群れを突破" level="69" flags="f94" result="r85">なんとか屍たちの群れを超えられたようだ。
 
 君の前には、更なる道が続いている。
 先を急ごう。
 
 [先へ](3300)</scene>
-	<scene id="3110" summary="HEAL" level="68" enemies="m51" free1="-3..-1" rule="9999">HEALは、
+	<scene id="3110" summary="HEAL" level="68" enemies="m51" free1="-3..-1" rule="9999" result="r66">HEALは、
 肉体に生命エネルギーを注ぎ込む魔法だ。
 
 これを死と混沌――生ある者とは異なる摂理で
@@ -3845,7 +3872,7 @@ ${敵|屍の大群}のHPがゼロになったら、
 
 
 [群れを突破した](3100)</scene>
-	<scene id="3120" summary="PROTECT" level="68" enemies="m52" rule="9999">PROTECTを唱えると、
+	<scene id="3120" summary="PROTECT" level="68" enemies="m52" rule="9999" result="r67">PROTECTを唱えると、
 君の身体はみるみる硬質化していく。
 
 これで屍たちの攻撃もかなり軽減できるように
@@ -3870,7 +3897,7 @@ ${敵|屍たちの通路}のHP（残り距離）がゼロになったら、
 
 
 [群れを突破](3100)</scene>
-	<scene id="3130" summary="HOLY-WATER" level="68" enemies="m53,m54" free1="-3..-1" rule="9999">HOLY-WATERを唱えると、
+	<scene id="3130" summary="HOLY-WATER" level="68" enemies="m53,m54" free1="-3..-1" rule="9999" result="r68">HOLY-WATERを唱えると、
 君の身体は聖水の${膜|バリアー}によって覆われた。
 
 黄泉に属する屍たちは、
@@ -3902,7 +3929,7 @@ ${敵|屍の大群}のHPがゼロになったら、
 
 
 [群れを突破できたら...](3100)</scene>
-	<scene id="3140" summary="DELUGE" level="68" enemies="m44">DELUGEによる洪水は、
+	<scene id="3140" summary="DELUGE" level="68" enemies="m44" result="r69">DELUGEによる洪水は、
 みるみる水位を増して、屍たちを濁流に巻き込み始める。
 
 しかし、
@@ -3927,7 +3954,7 @@ Battle Sheetを開いて、ダメージを反映しておくこと。
 
 [屍たちは離散した（成功）](3100)
 [屍たちが戻ってきてしまった](3080)</scene>
-	<scene id="3150" summary="FREEZE" level="68">FREEZEの呪文を唱えると、
+	<scene id="3150" summary="FREEZE" level="68" result="r70">FREEZEの呪文を唱えると、
 瞬く間に屍たちは凍結し、奇怪な氷柱の森が出来上がる。
 
 ただし、
@@ -3947,7 +3974,7 @@ Battle Sheetを開いて、ダメージを反映しておくこと。
 [AIR-HANDを唱える](3160)
 [NOILA-TEMを唱える](3170)
 [LIGHT-CROSSを唱える](3180)</scene>
-	<scene id="3160" summary="FREEZE/AIR-HAND" level="69" mp="-5">AIR-HANDの呪文を唱えると、
+	<scene id="3160" summary="FREEZE/AIR-HAND" level="69" mp="-5" result="r71">AIR-HANDの呪文を唱えると、
 凝縮した大気が見えない拳となって
 氷柱の森に打ち込まれる。
 
@@ -3969,7 +3996,7 @@ Battle Sheetを開いて、ダメージを反映しておくこと。
 
 
 [群れを抜けたら...](3100)</scene>
-	<scene id="3170" summary="FREEZE/NOILA-TEM" level="69">成程、NOILA-TEMはペンタウァ史上最強の魔法だ。
+	<scene id="3170" summary="FREEZE/NOILA-TEM" level="69" result="r78">成程、NOILA-TEMはペンタウァ史上最強の魔法だ。
 
 しかし、如何せん、
 魔力を一点に結集することで
@@ -3981,7 +4008,7 @@ Battle Sheetを開いて、ダメージを反映しておくこと。
 
 
 [他の方法を考える](3150)</scene>
-	<scene id="3180" summary="FREEZE/LIGHT-CROSS" level="69" mp="-5">LIGHT-CROSSの呪文を唱えると、
+	<scene id="3180" summary="FREEZE/LIGHT-CROSS" level="69" mp="-5" result="r71">LIGHT-CROSSの呪文を唱えると、
 無数の${十字架|クロス}が飛散し、氷柱をなぎ倒し始める。
 
 なぎ倒された氷柱は、あるものは砕け散り、
@@ -4001,7 +4028,7 @@ Battle Sheetを開いて、ダメージを反映しておくこと。
 耐えるしかない（気が滅入ってMPが5減ってしまう）。
 
 [群れを抜けたら...](3100)</scene>
-	<scene id="3190" summary="RESURRECT" level="68" enemies="m55,m56" free1="-3..-1" rule="9999">RESURRECTは、
+	<scene id="3190" summary="RESURRECT" level="68" enemies="m55,m56" free1="-3..-1" rule="9999" result="r72">RESURRECTは、
 現世と冥府との境界を一時的に開け放つ魔法だ。
 
 本来、冥府の魂を引き戻すべきところを、
@@ -4026,7 +4053,7 @@ Battle Sheetを開いて、
 
 
 [群れを抜けたら...](3100)</scene>
-	<scene id="3200" summary="GIVE-VIGOR" level="68" enemies="m40,m41,m42" rule="9999" free1="-3..-1">なにゆえに、
+	<scene id="3200" summary="GIVE-VIGOR" level="68" enemies="m40,m41,m42" rule="9999" free1="-3..-1" result="r73">なにゆえに、
 君はこのような魔法を選んでしまったのか。
 
 GIVE-VIGERは、
@@ -4045,7 +4072,7 @@ Battle Sheetを開いて、
 君は、別の方法を検討しなおさなければならない。
 
 [他の方法を考える](3080)</scene>
-	<scene id="3210" summary="REJUVENATE" level="68" mp="-7">REJUVENATEの呪文を唱えると、
+	<scene id="3210" summary="REJUVENATE" level="68" mp="-7" result="r74">REJUVENATEの呪文を唱えると、
 空間がシワシワと揺れたかと思うと、
 屍たちが消え失せ、
 より生々しい生者だった姿が現れる。
@@ -4065,7 +4092,7 @@ Battle Sheetを開いて、
 強い慙愧の思いから、MPが7減ってしまう。
 
 [他の方法を考える](3080)</scene>
-	<scene id="3220" summary="CHANGE-AIR" level="68" enemies="m57" rule="9999">CHANGE-AIRの呪文を唱えると、
+	<scene id="3220" summary="CHANGE-AIR" level="68" enemies="m57" rule="9999" result="r75">CHANGE-AIRの呪文を唱えると、
 君の身体は粒子レベルにまで分解され、大気と同化する。
 
 これで屍たちの群れを擦り抜けられる、
@@ -4085,7 +4112,7 @@ Battle Sheetを開いて、
 結果はどうあれ、先に進みたまえ。
 
 [群れを突破できたら...](3100)</scene>
-	<scene id="3230" summary="その他" level="68">君は呪文を唱えた。
+	<scene id="3230" summary="その他" level="68" result="r98">君は呪文を唱えた。
 
 が、現在利用すべき呪文でなかったようだ。
 何かが起こる風もなく、
@@ -4093,7 +4120,7 @@ Battle Sheetを開いて、
 
 
 [他の方法を考える](3080)</scene>
-	<scene id="3240" summary="EXPLOSION" level="68" enemies="m25" rule="9999">（EXPLOSION――！）
+	<scene id="3240" summary="EXPLOSION" level="68" enemies="m25" rule="9999" result="r76">（EXPLOSION――！）
 
 EXPLOSIONの呪文を唱えると、
 君を中心に無音の爆風が広がる！
@@ -4119,7 +4146,7 @@ EXPLOSIONの呪文を唱えると、
 
 
 [群れを抜けたら...](3100)</scene>
-	<scene id="3250" summary="LIGHT-CROSS" level="68">LIGHT-CROSSの呪文を唱えると、
+	<scene id="3250" summary="LIGHT-CROSS" level="68" result="r77">LIGHT-CROSSの呪文を唱えると、
 無数の${十字架|クロス}が四散し、屍たちの群れをなぎ倒し始める。
 
 「${駄目|だま}なぐじゃ」
@@ -4147,7 +4174,7 @@ CHANGE-AIRを発動させるのだ。
 
 [他の方法を考える](3080)
 [群れを突破できたら...](3100)</scene>
-	<scene id="3260" summary="NOILA-TEM" level="68">成程、NOILA-TEMはペンタウァ史上最強の魔法だ。
+	<scene id="3260" summary="NOILA-TEM" level="68" result="r78">成程、NOILA-TEMはペンタウァ史上最強の魔法だ。
 
 しかし、如何せん、
 魔力を一点に結集することで
@@ -4159,7 +4186,7 @@ CHANGE-AIRを発動させるのだ。
 
 
 [他の方法を考える](3080)</scene>
-	<scene id="3270" summary="PEACE" level="68" enemies="m58" rule="9999">PEACEの本質は、対象の精神操作だ。
+	<scene id="3270" summary="PEACE" level="68" enemies="m58" rule="9999" result="r79">PEACEの本質は、対象の精神操作だ。
 
 PEACEの呪文を唱えると同時に、
 大量の屍たち――それらの構成する亡者の思念が
@@ -4182,7 +4209,7 @@ PEACEの呪文を唱えると同時に、
 
 [他の方法を考える](3080)
 [群れを突破できたら...](3100)</scene>
-	<scene id="3280" summary="AIR-HAND" level="68">AIR-HANDの呪文を唱えると、
+	<scene id="3280" summary="AIR-HAND" level="68" result="r98">AIR-HANDの呪文を唱えると、
 凝縮した大気が見えない拳となって
 目の前の屍たちに打ち込まれる。
 
@@ -4193,7 +4220,7 @@ PEACEの呪文を唱えると同時に、
 君が通り抜けられるほどの成果は上げられない。
 
 [他の方法を考える](3080)</scene>
-	<scene id="3290" summary="REDUCE-LIFE" level="68" hp="-25" enemies="m59" rule="9999">REDUCE-LIFEは、
+	<scene id="3290" summary="REDUCE-LIFE" level="68" hp="-25" enemies="m59" rule="9999" result="r80">REDUCE-LIFEは、
 己の生命力を弱めるための魔法だ。
 
 君はHPに25のダメージを得る。
@@ -4232,7 +4259,7 @@ Battle Sheetを開いて、ダイスを5回振ること。
 
 [上](3310)
 [西](3320)</scene>
-	<scene id="3310" summary="Goal" level="71" color="Yellow"></scene>
+	<scene id="3310" summary="Goal" level="71"></scene>
 	<scene id="3320" summary="3F/F7（済）" level="71">その一角は、
 さきほど屍たちでひしめき合っていたとは思えないほどに
 静まり返っている。
