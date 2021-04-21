@@ -165,6 +165,7 @@
 		<result id="r79" name="亡者の思念" level="4">亡者の思念が流れ込んだ</result>
 		<result id="r80" name="亡者の仲間入り？" level="4">生命力が削がれて、亡者のようになった</result>
 		<result id="r85" name="群れ突破" level="5">屍たちの群れを突破した</result>
+		<result id="r90" name="土方歳三" level="5">土方歳三と出会った</result>
 	</results>
 	<licence>
 		<work name="メインテーマ（Battle for Honour）" category="bgm" creator="ユーフルカ" url="https://wingless-seraph.net/"></work>
@@ -4559,7 +4560,7 @@ ${反吐|それ}はなにかによってかき混ぜられ、
 
 
 [そういえば、一緒に戦ってくれた老人は？](3420)</scene>
-	<scene id="3420" summary="Ending 2" level="80" end="happy" group="happy" nexts="baku02,baku03,baku04,baku05,baku06,baku07,baku08,baku09">「あそこですよ」
+	<scene id="3420" summary="Ending 2" level="80" end="happy" group="happy" nexts="baku02,baku03,baku04,baku05,baku06,baku07,baku08,baku09" result="r90">「あそこですよ」
 
 政四郎は笑いを含んだ、口調で言った。
 

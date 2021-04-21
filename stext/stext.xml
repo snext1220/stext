@@ -490,7 +490,7 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 </work>
 
 <work id="baku01" title="壱：黒船来航" author="リオ" series="幕末ソーサリアン"
-  tags="歴史,連作" published="2020-12-20" updated="2020-12-20" level="2" scenes="75" results="30" clears="r30"
+  tags="歴史,連作" published="2020-12-20" updated="2021-04-28" level="3" scenes="273" results="70" clears="r90"
   comment="ドラゴンモードに引き続き、導入を担当させて戴きました。導入ということで難易度は易しめ、謎は謎のままに流れていくので、まずは幕末の雰囲気を気軽に楽しんで戴ければと。伏線の回収は、きっと本編組の皆さまがなんとかしてくれるはず ;-)"
   quest="1FAIpQLScAMN7CxrT7rB05FCEoQBVjn3E1UwxOCmWSCLNtm88__CCXdA">
   <img src="./stext/baku01/capture/intro.png" height="120"

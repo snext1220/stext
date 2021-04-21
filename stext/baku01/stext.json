@@ -951,6 +951,12 @@
 			"name": "群れ突破",
 			"level": "5",
 			"text": "屍たちの群れを突破した"
+		},
+		{
+			"id": "r90",
+			"name": "土方歳三",
+			"level": "5",
+			"text": "土方歳三と出会った"
 		}
 	],
 	"licence": [
@@ -3109,7 +3115,8 @@
 			"level": 80,
 			"end": "happy",
 			"group": "happy",
-			"nexts": "baku02,baku03,baku04,baku05,baku06,baku07,baku08,baku09"
+			"nexts": "baku02,baku03,baku04,baku05,baku06,baku07,baku08,baku09",
+			"result": "r90"
 		},
 		{
 			"id": "8990",
