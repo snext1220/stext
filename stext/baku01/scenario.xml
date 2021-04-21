@@ -10,8 +10,8 @@
 	</groups>
 	<items>
 		<item id="i01" name="代わりの武器" target="free1" effect="@40">武器耐久度を回復させた。</item>
-		<item id="i100" name="王杖の貝殻" shared="true">大魔法使いエティスとのホットライン</item>
 		<item id="i02" name="苦無">支援砲撃の目印だ。政四郎から託された</item>
+		<item id="i100" name="王杖の貝殻" shared="true">大魔法使いエティスとのホットライン</item>
 	</items>
 	<flags>
 		<flag id="f00">ダミーフラグ（インポートScene用）</flag>
@@ -128,14 +128,12 @@
 		<result id="r30" name="シワシワ" level="3">血管が萎びていった</result>
 		<result id="r31" name="クロスの乱舞" level="3">血管を十字架が引き裂いた</result>
 		<result id="r32" name="血管注射" level="3">血管をNOILA-TEMで貫いた</result>
-		<result id="r99" name="エティスの助け" level="2">初めてエティスに助けてもらった</result>
 		<result id="r33" name="血管突破" level="3">血管の壁を抜けた</result>
 		<result id="r34" name="真空の通路" level="3">瘴気が払われ、真空の通路ができた</result>
 		<result id="r35" name="瘴気払い" level="3">UN-CURSEで瘴気を退けた</result>
 		<result id="r36" name="冥府の門" level="3">冥府の門が開かれた</result>
 		<result id="r37" name="やじろべえ" level="3">五象のバランスを取った</result>
 		<result id="r38" name="人間砲台" level="3">AIR-HANDで自分を弾き飛ばした</result>
-		<result id="r98" name="意味もなく溶けた" level="2">魔法の効果を得られなかった</result>
 		<result id="r39" name="混ぜるな危険" level="3">瘴気と混ざってしまった</result>
 		<result id="r40" name="瘴気突破" level="4">瘴気の通路を突破した</result>
 		<result id="r50" name="皆、活性化" level="4">水流も屍も活性化した</result>
@@ -166,6 +164,8 @@
 		<result id="r80" name="亡者の仲間入り？" level="4">生命力が削がれて、亡者のようになった</result>
 		<result id="r85" name="群れ突破" level="5">屍たちの群れを突破した</result>
 		<result id="r90" name="土方歳三" level="5">土方歳三と出会った</result>
+		<result id="r98" name="意味もなく溶けた" level="2">魔法の効果を得られなかった</result>
+		<result id="r99" name="エティスの助け" level="2">初めてエティスに助けてもらった</result>
 	</results>
 	<licence>
 		<work name="メインテーマ（Battle for Honour）" category="bgm" creator="ユーフルカ" url="https://wingless-seraph.net/"></work>
@@ -4629,7 +4629,8 @@ ${反吐|それ}はなにかによってかき混ぜられ、
 ＜本質＞の手がかりくらいは聞けるかもしれない。
 
 
-[通信を開く](9000)</scene>
+[通信を開く](9000)
+[戻る](90000)</scene>
 	<scene id="9000" summary="エティスHELP（Top）" level="81" bgm="help" result="r99">＜王杖の貝殻＞に話しかけると、
 エティスの皺枯れた声が聞こえてくる。
 
