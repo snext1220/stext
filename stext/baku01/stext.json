@@ -1026,7 +1026,8 @@
 		{
 			"name": "中盤戦闘（Everlasting Flame of Blue）",
 			"category": "bgm",
-			"creator": "ユーフルカ"
+			"creator": "ユーフルカ",
+			"url": "https://wingless-seraph.net/"
 		}
 	],
 	"scenes": [
@@ -1651,7 +1652,7 @@
 			"label": "1570:\nメインマスト",
 			"text": "恐らく変異の原因は、\r\nメインマストの上の＜${黒真珠|あれ}＞だ。\r\n\r\n直感的に元凶を把握した君は、\r\nメインマストに取り付く。\r\n\r\n幸い＜黒真珠＞は${代将|ペリー}の身体を\r\n完全には支配していないようだ。\r\n\r\n破壊するならば、${現在|いま}しかない。\r\n",
 			"level": 13,
-			"bgm": "battle"
+			"bgm": ""
 		},
 		{
 			"id": "1580",

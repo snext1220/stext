@@ -179,7 +179,7 @@
 		<work name="エティスの助け（闇に還る時）" category="bgm" creator="ユーフルカ" url="https://wingless-seraph.net/"></work>
 		<work name="コア（振り向いてはいけない）" category="bgm" creator="ユーフルカ" url="https://wingless-seraph.net/"></work>
 		<work category="bgm" creator="Az" name="エンディング" url="https://wingless-seraph.net/"></work>
-		<work name="中盤戦闘（Everlasting Flame of Blue）" category="bgm" creator="ユーフルカ"></work>
+		<work name="中盤戦闘（Everlasting Flame of Blue）" category="bgm" creator="ユーフルカ" url="https://wingless-seraph.net/"></work>
 	</licence>
 	<scene id="0" summary="プロローグ" group="prologue" level="1" bgm="prologue">ペンタウァのはるかな東。
 否、時空さえも遥かに超えた、その世界に、
@@ -1574,7 +1574,7 @@ ${黄金のマスク|ツタンカーメン}に淫らに絡んだ蛇は。
 
 
 [甲板の上は...](1600)</scene>
-	<scene id="1570" summary="メインマスト" level="13" bgm="battle">恐らく変異の原因は、
+	<scene id="1570" summary="メインマスト" level="13">恐らく変異の原因は、
 メインマストの上の＜${黒真珠|あれ}＞だ。
 
 直感的に元凶を把握した君は、
