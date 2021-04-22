@@ -1667,9 +1667,9 @@ ${屍たち|あれ}が
 
 
 [逃げる、逃げる、逃げる…！](1610)
-[屍？たちと戦う](1630)
-[アポピスに狙いを定める](1650)
 [ミシシッピーに特攻する](1660 "f81")
+[アポピスに狙いを定める](1650)
+[屍？たちと戦う](1630)
 [黒真珠こそ元凶だ](1670 "!f81")</scene>
 	<scene id="1610" summary="逃げる" level="15">僅かに甲板にいた者たちは
 既に＜無秩序＞に呑み込まれてしまったのだろうか。
@@ -1882,20 +1882,20 @@ ${ミシシッピー|黄金のマスク}が一党であることは明らかで�
 君は即座に次の一手を打たなければならない。
 
 
-[黒真珠こそ元凶だ](1670 "!f81")
+[逃げる、逃げる、逃げる…！](1610 "!f80")
 [ミシシッピーに特攻する](1660 "f81&amp;!f83")
 [アポピスに狙いを定める](1650)
-[逃げる、逃げる、逃げる…！](1610 "!f80")
 [屍？たちと戦う](1630 "!f82")
 [屍？たちと戦う](1640 "f82")
-[DELUGEを唱える](1810 "mDELUGE")
-[EXPLOSIONを唱える](1820 "mEXPLOSION")
+[黒真珠こそ元凶だ](1670 "!f81")
 [AIR-HANDを唱える](1830 "mAIR-HAND")
+[PROTECTを唱える](1860 "mPROTECT")
+[CHANGE-AIRを唱える](1880 "mCHANGE-AIR")
+[EXPLOSIONを唱える](1820 "mEXPLOSION")
+[DELUGEを唱える](1810 "mDELUGE")
 [FREEZEを唱える](1840 "mFREEZE")
 [LIGHT CROSSを唱える](1850 "mLIGHT-CROSS")
-[PROTECTを唱える](1860 "mPROTECT")
-[NOILA-TEMを唱える](1870 "mNOILA-TEM")
-[CHANGE-AIRを唱える](1880 "mCHANGE-AIR")</scene>
+[NOILA-TEMを唱える](1870 "mNOILA-TEM")</scene>
 	<scene id="1810" summary="DELUGE" level="18" free2="@100" result="r21">DELUGE（濁流）は、
 ＜黄金のマスク＞に怒涛のように押し寄せる！
 
@@ -2043,9 +2043,9 @@ Battle Sheetを開いて、ダメージを反映しておくこと。
 
 [態勢を整える](1800)
 [突撃する！](1890)
-[NOILA-TEMを唱える](1900 "mNOILA-TEM")
 [AIR-HANDを唱える](1910 "mAIR-HAND")
-[DELUGEを唱える](1920 "mDELUGE")</scene>
+[DELUGEを唱える](1920 "mDELUGE")
+[NOILA-TEMを唱える](1900 "mNOILA-TEM")</scene>
 	<scene id="1890" summary="AIR/突撃" level="19" enemies="m18,m19" result="r20">敵が困惑する一瞬の隙を突いて、
 ＜黄金のマスク＞に突き上げの一刀。
 
@@ -2345,9 +2345,9 @@ ${寡黙な医師|ウォーカー}は、
 
 [艦長に話しかける](2060)
 [操舵長に話しかける](2070)
+[調理責任者に話しかける](2160)
 [ソバカスの少年に話しかける](2080)
 [老僕に話しかける](2090)
-[調理責任者に話しかける](2160)
 [他のことを訊く](2040)</scene>
 	<scene id="2060" summary="艦長" level="27">「サスケハナの被害はどうなっているのだ！？
 　そもそも何処からの攻撃なのだ。
@@ -2555,10 +2555,10 @@ Battle Sheetを開いて、討伐すること。
 
 どちらに進むか。
 
-[南](2210)
-[西](2220)
 [東](2230 "!f91")
-[東](2290 "f91")</scene>
+[東](2290 "f91")
+[西](2220)
+[南](2210)</scene>
 	<scene id="2210" summary="1F/D5" level="30">ダンジョンのスタート地点だ。
 
 この一角からは、
@@ -2574,9 +2574,9 @@ Battle Sheetを開いて、討伐すること。
 
 どちらに進むか。
 
-[北](2240)
+[東](2200)
 [西](2250)
-[東](2200)</scene>
+[北](2240)</scene>
 	<scene id="2230" summary="1F/E4" level="81">進んだ先は行き止まりだった。
 
 血管（のようなもの）が膨張し、
@@ -2590,26 +2590,26 @@ Battle Sheetを開いて、討伐すること。
 
 [一旦引き返す](2200)
 [手持ちの武器で殴ってみる](2260)
-[DELUGEを唱える](2270 "mDELUGE")
-[FREEZEを唱える](2330 "mFREEZE")
-[EXPLOSIONを唱える](2380 "mEXPLOSION")
-[GIVE-VIGORを唱える](2390 "mGIVE-VIGOR")
-[AIR-HANDを唱える](2400 "mAIR-HAND")
-[REJUVENATEを唱える](2410 "mREJUVENATE")
-[LIGHT-CROSSを唱える](2420 "mLIGHT-CROSS")
-[NOILA-TEMを唱える](2430 "mNOILA-TEM")
 [HEALを唱える](2440 "mHEAL")
 [PEACEを唱える](2440 "mPEACE")
 [CUREを唱える](2440 "mCURE")
 [MELTを唱える](2440 "mMELT")
 [STONE-FLESHを唱える](2440 "mSTONE-FLESH")
 [UN-CURCEを唱える](2440 "mUN-CURCE")
+[AIR-HANDを唱える](2400 "mAIR-HAND")
 [RESURRECTを唱える](2440 "mRESURRECT")
 [REDUCE-LIFEを唱える](2440 "mREDUCE-LIFE")
+[REJUVENATEを唱える](2410 "mREJUVENATE")
 [PROTECTを唱える](2440 "mPROTECT")
 [HOLY-WATERを唱える](2440 "mHOLY-WATER")
 [CHANGE-AIRを唱える](2440 "mCHANGE-AIR")
+[GIVE-VIGORを唱える](2390 "mGIVE-VIGOR")
+[EXPLOSIONを唱える](2380 "mEXPLOSION")
+[DELUGEを唱える](2270 "mDELUGE")
+[FREEZEを唱える](2330 "mFREEZE")
 [DESTROY-Aを唱える](2440 "mDESTROY-A")
+[LIGHT-CROSSを唱える](2420 "mLIGHT-CROSS")
+[NOILA-TEMを唱える](2430 "mNOILA-TEM")
 [＜王杖の貝殻＞を使う](9000 "i100&amp;r99:baku01")
 [＜王杖の貝殻＞を使う](8990 "i100&amp;!r99:baku01")</scene>
 	<scene id="2240" summary="1F/C3" level="33" enemies="m12,m16" rule="9999" free1="-3..-1">君たちがその一角に踏み込むと、
@@ -2667,8 +2667,8 @@ Battle Sheetを開いて、討伐すること。
 
 どちらに進むか。
 
-[南](2300)
-[東](2310)</scene>
+[東](2310)
+[南](2300)</scene>
 	<scene id="2300" summary="1F/E5" level="37" enemies="m12,m15" rule="9999" free1="-3..-1">君たちがその一角に踏み込むと、
 何体かの屍たちが襲い掛かってくる。
 
@@ -2688,8 +2688,8 @@ Battle Sheetを開いて、討伐すること。
 
 どちらに進むか。
 
-[下](2310)
-[北](2450)</scene>
+[北](2450)
+[下](2310)</scene>
 	<scene id="2330" summary="FREEZE" level="33" result="r26">FREEZEの呪文を唱えると、
 血管（のようなもの）が凍結していく。
 
@@ -2708,9 +2708,9 @@ Battle Sheetを開いて、討伐すること。
 
 
 
+[MELTを唱える](2360 "mMELT")
 [AIR-HANDを唱える](2340 "mAIR-HAND")
 [EXPLOSIONを唱える](2350 "mEXPLOSION")
-[MELTを唱える](2360 "mMELT")
 [そのまま去る](2370)</scene>
 	<scene id="2340" summary="FREEZE/AIR-HAND" level="34">AIR-HANDの呪文を唱えると、
 凝縮した大気が見えない拳となって
@@ -2899,8 +2899,8 @@ Battle Sheetを開いて、ダイスを5回振ること。
 
 どちらに進むか。
 
-[南](2320)
 [東](2460)
+[南](2320)
 [北](2470)</scene>
 	<scene id="2460" summary="2F/G3" level="38" enemies="m11,m16" rule="9999" free1="-3..-1">君たちがその一角に踏み込むと、
 何体かの屍たちが襲い掛かってくる。
@@ -2926,26 +2926,26 @@ Battle Sheetを開いて、討伐すること。
 一旦は引き返すことをお勧めする。
 
 [一旦引き返す](2450)
-[EXPLOSIONを唱える](2480 "mEXPLOSION")
-[UN-CURSEを唱える](2500 "mUN-CURCE")
-[RESURRECTを唱える](2510 "mRESURRECT")
-[CUREを唱える](2520 "mCURE")
-[AIR-HANDを唱える](2530 "mAIR-HAND")
 [HEALを唱える](2540 "mHEAL")
 [PEACEを唱える](2540 "mPEACE")
+[CUREを唱える](2520 "mCURE")
 [MELTを唱える](2540 "mMELT")
 [STONE-FLESHを唱える](2540 "mSTONE-FLESH")
+[UN-CURSEを唱える](2500 "mUN-CURCE")
+[AIR-HANDを唱える](2530 "mAIR-HAND")
+[RESURRECTを唱える](2510 "mRESURRECT")
 [REDUCE-LIFEを唱える](2540 "mREDUCE-LIFE")
 [REJUVENATEを唱える](2540 "mREJUVENATE")
 [PROTECTを唱える](2540 "mPROTECT")
 [HOLY-WATERを唱える](2540 "mHOLY-WATER")
+[CHANGE-AIRを唱える](2560 "mCHANGE-AIR")
 [GIVE-VIGORを唱える](2540 "mGIVE-VIGOR")
+[EXPLOSIONを唱える](2480 "mEXPLOSION")
 [DELUGEを唱える](2540 "mDELUGE")
 [FREEZEを唱える](2540 "mFREEZE")
+[DESTROY-Aを唱える](2550 "mDESTROY-A")
 [LIGHT-CROSSを唱える](2540 "mLIGHT-CROSS")
 [NOILA-TEMを唱える](2540 "mNOILA-TEM")
-[DESTROY-Aを唱える](2550 "mDESTROY-A")
-[CHANGE-AIRを唱える](2560 "mCHANGE-AIR")
 [＜王杖の貝殻＞を使う](8990 "i100&amp;!r99:baku01")
 [＜王杖の貝殻＞を使う](9000 "i100&amp;r99:baku01")</scene>
 	<scene id="2480" summary="EXPLOSION" level="39" enemies="m25" rule="9999" result="r34">（EXPLOSION――！）
@@ -2973,8 +2973,8 @@ EXPLOSIONの呪文を唱えると、
 ダメージ式も一度だけ反映すれば良いということだ。
 
 
-[失敗したならば...](2470)
-[通路を無事に抜けられたならば...](2490)</scene>
+[通路を無事に抜けられたならば...](2490)
+[失敗したならば...](2470)</scene>
 	<scene id="2490" summary="瘴気突破" level="40" bgm="daemon" result="r40">瘴気の通路を抜けた先には、
 更なる道が続いている。
 
@@ -3009,8 +3009,8 @@ Battle Sheetを開いて、ダイスを振ること。
 　実行しておくこと）
 
 
-[失敗したならば…](2470)
-[通路を無事に抜けられたならば...](2490)</scene>
+[通路を無事に抜けられたならば...](2490)
+[失敗したならば…](2470)</scene>
 	<scene id="2510" summary="RESURRECT" level="39" enemies="m26,m27" rule="9999" free1="-3..-1" result="r36">RESURRECTは、
 現世と冥府との境界を一時的に開け放つ魔法だ。
 
@@ -3105,8 +3105,8 @@ AIR-HANDに耐えた場合にのみ、先に進んでも良い。
 ダメージ式も一度だけ反映すれば良いということだ。
 
 
-[失敗したなら、速やかに撤退だ](2470)
-[成功したならば、速やかに通路を抜けよう](2490)</scene>
+[成功したならば、速やかに通路を抜けよう](2490)
+[失敗したなら、速やかに撤退だ](2470)</scene>
 	<scene id="2560" summary="CHANGE-AIR" level="39" rule="9999" result="r39">CHANGE-AIRの呪文を唱えると、
 君の身体は粒子レベルにまで分解され、大気と同化する。
 
@@ -3154,17 +3154,17 @@ Battle Sheetを開いて、討伐すること。
 どちらに進むか。
 
 
-[下](2590)
-[南](2610)</scene>
+[南](2610)
+[下](2590)</scene>
 	<scene id="2610" summary="3F/E2" level="44">その一角には、
 東、西、南、北それぞれに抜ける道がある。
 
 どちらに進むか。
 
-[北](2600)
 [東](2620)
+[西](2640)
 [南](2630)
-[西](2640)</scene>
+[北](2600)</scene>
 	<scene id="2620" summary="2F/F2" level="45" enemies="m11,m13,m15" rule="9999" free1="-3..-1">君たちがその一角に踏み込むと、
 何体かの屍たちが襲い掛かってくる。
 
@@ -3280,7 +3280,6 @@ Battle Sheetからダメージを反映しておくこと。
 
 気を取り直して、次の方策を考えよう。
 
-[戻る]()
 [他の方法を考える](2710)</scene>
 	<scene id="2700" summary="3F/C2" level="49">その一角には、
 東に抜ける道と下の層への階段（のようなもの）がある。
@@ -3306,25 +3305,25 @@ Battle Sheetからダメージを反映しておくこと。
 さて、どうしたら元の場所まで戻れるだろうか。
 
 
-[GIVE-VIGORを唱える](2650 "mGIVE-VIGOR")
-[DELUGEを唱える](2670 "mDELUGE")
-[FREEZEを唱える](2720 "mFREEZE")
-[AIR-HANDを唱える](2730 "mAIR-HAND")
-[LIGHT-CROSSを唱える](2740 "mLIGHT-CROSS")
 [HEALを唱える](2750 "mHEAL")
 [PEACEを唱える](2750 "mPEACE")
 [CUREを唱える](2750 "mCURE")
 [MELTを唱える](2750 "mMELT")
 [STONE-FLESHを唱える](2750 "mSTONE-FLESH")
 [UN-CURCEを唱える](2750 "mUN-CURCE")
+[AIR-HANDを唱える](2730 "mAIR-HAND")
 [RESURRECTを唱える](2750 "mRESURRECT")
 [REDUCE-LIFEを唱える](2750 "mREDUCE-LIFE")
 [REJUVENATEを唱える](2750 "mREJUVENATE")
+[PROTECTを唱える](2770 "mPROTECT")
 [HOLY-WATERを唱える](2750 "mHOLY-WATER")
 [CHANGE-AIRを唱える](2750 "mCHANGE-AIR")
+[GIVE-VIGORを唱える](2650 "mGIVE-VIGOR")
 [EXPLOSIONを唱える](2760 "mEXPLOSION")
-[PROTECTを唱える](2770 "mPROTECT")
+[DELUGEを唱える](2670 "mDELUGE")
+[FREEZEを唱える](2720 "mFREEZE")
 [DESTROY-Aを唱える](2750 "mDESTROY-A")
+[LIGHT-CROSSを唱える](2740 "mLIGHT-CROSS")
 [NOILA-TEMを唱える](2750 "mNOILA-TEM")
 [＜王杖の貝殻＞を使う](8990 "i100&amp;!r99:baku01")
 [＜王杖の貝殻＞を使う](9000 "i100&amp;r99:baku01")</scene>
@@ -3421,8 +3420,8 @@ LIGHT-CROSSの効果は消え失せて、無条件に落下してしまう。
 その場合は、別の方策を検討しよう。
 
 
-[LIGHT-CROSSの効果が消えた](2710)
-[登攀に成功した](2660)</scene>
+[登攀に成功した](2660)
+[LIGHT-CROSSの効果が消えた](2710)</scene>
 	<scene id="2750" summary="その他" level="47" result="r98">君は呪文を唱えた。
 
 が、現在利用すべき呪文でなかったようだ。
@@ -3497,8 +3496,8 @@ Battle Sheetを開いて、
 
 [東](2780)
 [西](2800)
-[北](2810 "!f93")
 [南](2820)
+[北](2810 "!f93")
 [北](2850 "f93")</scene>
 	<scene id="2800" summary="2F/A2" level="52" enemies="m12,m14,m16" rule="9999" free1="-3..-1">君たちがその一角に踏み込むと、
 何体かの屍たちが襲い掛かってくる。
@@ -3524,12 +3523,13 @@ Battle Sheetを開いて、討伐すること。
 
 [引き返す](2790)
 [扉を押してみる](2840)
-[STONE-FLESHを唱える](2860 "mSTONE-FLESH")
 [HEALを唱える](2870 "mHEAL")
 [PEACEを唱える](2870 "mPEACE")
 [CUREを唱える](2870 "mCURE")
 [MELTを唱える](2870 "mMELT")
+[STONE-FLESHを唱える](2860 "mSTONE-FLESH")
 [UN-CURCEを唱える](2870 "mUN-CURCE")
+[AIR-HANDを唱える](2880 "mAIR-HAND")
 [RESURRECTを唱える](2870 "mRESURRECT")
 [REDUCE-LIFEを唱える](2870 "mREDUCE-LIFE")
 [REJUVENATEを唱える](2870 "mREJUVENATE")
@@ -3543,7 +3543,6 @@ Battle Sheetを開いて、討伐すること。
 [DESTROY-Aを唱える](2870 "mDESTROY-A")
 [LIGHT-CROSSを唱える](2880 "mLIGHT-CROSS")
 [NOILA-TEMを唱える](2880 "mNOILA-TEM")
-[AIR-HANDを唱える](2880 "mAIR-HAND")
 [＜王杖の貝殻＞を使う](8990 "i100&amp;!r99:baku01")
 [＜王杖の貝殻＞を使う](9000 "i100&amp;r99:baku01")</scene>
 	<scene id="2820" summary="2F/B3" level="52">その一角には、
@@ -3560,8 +3559,8 @@ Battle Sheetを開いて、討伐すること。
 どちらに進むか。
 
 
-[上](2820)
-[西](2890)</scene>
+[西](2890)
+[上](2820)</scene>
 	<scene id="2840" summary="扉を押す" level="53">君は扉を押してみるが、ビクともしない。
 鍵が掛かっているという感触ではなく、
 時が止まってしまったように、
@@ -3647,8 +3646,8 @@ STONE-FLESHの呪文を唱えると、
 
 
 [東](2830)
-[北](2900)
-[南](2910)</scene>
+[南](2910)
+[北](2900)</scene>
 	<scene id="2900" summary="1F/A2" level="55" enemies="m11,m13,m15" rule="9999" free1="-3..-1">君たちがその一角に踏み込むと、
 何体かの屍たちが襲い掛かってくる。
 
@@ -3671,17 +3670,17 @@ Battle Sheetを開いて、討伐すること。
 どちらに進むか。
 
 
-[下](2910)
-[南](2930)</scene>
+[南](2930)
+[下](2910)</scene>
 	<scene id="2930" summary="2F/A5" level="57">その一角には、
 北、南、東に抜ける道がある。
 
 どちらに進むか。
 
 
-[北](2920)
+[東](2950)
 [南](2940)
-[東](2950)</scene>
+[北](2920)</scene>
 	<scene id="2940" summary="2F/A6" level="58" enemies="m11,m12,m13" rule="9999" free1="-3..-1">君たちがその一角に踏み込むと、
 何体かの屍たちが襲い掛かってくる。
 
@@ -3704,17 +3703,18 @@ Battle Sheetを開いて、討伐すること。
 どちらに進むか。
 
 
-[下](2950)
-[東](2970)</scene>
+[東](2970)
+[下](2950)</scene>
 	<scene id="2970" summary="3F/C5" level="60">その一角には、
-北、南、東に抜ける道がある。
+北、南、東、西に抜ける道がある。
 
 どちらに進むか。
 
 
-[北](2980)
+[東](3000)
+[西](2960)
 [南](2990)
-[東](3000)</scene>
+[北](2980)</scene>
 	<scene id="2980" summary="3F/C4" level="61" enemies="m14,m15,m16" rule="9999" free1="-3..-1">君たちがその一角に踏み込むと、
 何体かの屍たちが襲い掛かってくる。
 
@@ -3743,17 +3743,17 @@ Battle Sheetを開いて、討伐すること。
 
 どちらに進むか。
 
-[上](3000)
-[南](3020)</scene>
+[南](3020)
+[上](3000)</scene>
 	<scene id="3020" summary="2F/D6" level="63">その一角には、
 北、西、東に抜ける道がある。
 
 どちらに進むか。
 
 
-[北](3010)
+[東](3040)
 [西](3030)
-[東](3040)</scene>
+[北](3010)</scene>
 	<scene id="3030" summary="2F/C6" level="64" enemies="m11,m13,m14" rule="9999" free1="-3..-1">君たちがその一角に踏み込むと、
 何体かの屍たちが襲い掛かってくる。
 
@@ -3774,9 +3774,9 @@ Battle Sheetを開いて、討伐すること。
 どちらに進むか。
 
 
-[下](3040)
+[東](3070)
 [南](3060)
-[東](3070)</scene>
+[下](3040)</scene>
 	<scene id="3060" summary="3F/E7" level="66" enemies="m11,m12,m13,m14,m15,m16" rule="9999" free1="-3..-1">君たちがその一角に踏み込むと、
 何体かの屍たちが襲い掛かってくる。
 
@@ -3814,28 +3814,28 @@ ${if f94}
 いずれにせよ、君は再度この通路を抜けなければならない。
 ${/if}
 
+[一旦戻る](3070)
 [正面突破だ！](3090)
 [HEALを唱える](3110 "mHEAL")
-[PROTECTを唱える](3120 "mPROTECT")
-[HOLY-WATERを唱える](3130 "mHOLY-WATER")
-[DELUGEを唱える](3140 "mDELUGE")
-[FREEZEを唱える](3150 "mFREEZE")
-[RESURRECTを唱える](3190 "mRESURRECT")
-[GIVE-VIGORを唱える](3200 "mGIVE-VIGOR")
-[REJUVENATEを唱える](3210 "mREJUVENATE")
-[CHANGE-AIRを唱える](3220 "mCHANGE-AIR")
+[PEACEを唱える](3270 "mPEACE")
 [CUREを唱える](3230 "mCURE")
 [MELTを唱える](3230 "mMELT")
 [STONE-FLESHを唱える](3230 "mSTONE-FLESH")
 [UN-CURCEを唱える](3230 "mUN-CURCE")
+[AIR-HANDを唱える](3280 "mAIR-HAND")
+[RESURRECTを唱える](3190 "mRESURRECT")
+[REDUCE-LIFEを唱える](3290 "mREDUCE-LIFE")
+[REJUVENATEを唱える](3210 "mREJUVENATE")
+[PROTECTを唱える](3120 "mPROTECT")
+[HOLY-WATERを唱える](3130 "mHOLY-WATER")
+[CHANGE-AIRを唱える](3220 "mCHANGE-AIR")
+[GIVE-VIGORを唱える](3200 "mGIVE-VIGOR")
 [EXPLOSIONを唱える](3240 "mEXPLOSION")
+[DELUGEを唱える](3140 "mDELUGE")
+[FREEZEを唱える](3150 "mFREEZE")
 [DESTROY-Aを唱える](3230 "mDESTROY-A")
 [LIGHT-CROSSを唱える](3250 "mLIGHT-CROSS")
 [NOILA-TEMを唱える](3260 "mNOILA-TEM")
-[PEACEを唱える](3270 "mPEACE")
-[AIR-HANDを唱える](3280 "mAIR-HAND")
-[REDUCE-LIFEを唱える](3290 "mREDUCE-LIFE")
-[一旦戻る](3070)
 [＜王杖の貝殻＞を使う](8990 "i100&amp;!f92")
 [＜王杖の貝殻＞を使う](9000 "i100&amp;f92")</scene>
 	<scene id="3090" summary="正面突破" level="68" enemies="m50" free1="-5..-3" result="r65">君にとっては、
@@ -4015,8 +4015,8 @@ Battle Sheetを開いて、ダメージを反映しておくこと。
 
 [他の方法を考える](3080)
 [AIR-HANDを唱える](3160)
-[NOILA-TEMを唱える](3170)
-[LIGHT-CROSSを唱える](3180)</scene>
+[LIGHT-CROSSを唱える](3180)
+[NOILA-TEMを唱える](3170)</scene>
 	<scene id="3160" summary="FREEZE/AIR-HAND" level="69" mp="-5" result="r71">AIR-HANDの呪文を唱えると、
 凝縮した大気が見えない拳となって
 氷柱の森に打ち込まれる。
@@ -4300,8 +4300,8 @@ Battle Sheetを開いて、ダイスを5回振ること。
 さて、どちらに進むか。
 
 
-[上](3310)
-[西](3320)</scene>
+[西](3320)
+[上](3310)</scene>
 	<scene id="3310" summary="Goal" level="71" bgm="core">（おぉ――！）
 
 甲板（であった場所）に出ると、

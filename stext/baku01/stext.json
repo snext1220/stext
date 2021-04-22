@@ -2716,7 +2716,7 @@
 			"id": "2970",
 			"summary": "3F/C5",
 			"label": "2970:\n3F/C5",
-			"text": "その一角には、\r\n北、南、東に抜ける道がある。\r\n\r\nどちらに進むか。\r\n",
+			"text": "その一角には、\r\n北、南、東、西に抜ける道がある。\r\n\r\nどちらに進むか。\r\n",
 			"level": 60
 		},
 		{
@@ -3347,14 +3347,14 @@
 			"label": "甲板を見渡す",
 			"id": "custom200-1500-10340",
 			"condition": "f53&f52&f32&f23&f12&f43",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "200",
 			"to": "300",
 			"label": "甲板を見渡す",
 			"condition": "!(f53&f52&f32&f23&f12&f43)",
-			"order": 1,
+			"order": 2,
 			"id": "1742cff8-a7c9-4b76-ba0e-c42431b12be0"
 		},
 		{
@@ -3362,7 +3362,7 @@
 			"to": "500",
 			"label": "艦長室に向かう",
 			"condition": "",
-			"order": 2,
+			"order": 3,
 			"id": "bc361264-862b-47ea-86ee-891403bd5897"
 		},
 		{
@@ -3370,7 +3370,7 @@
 			"to": "600",
 			"label": "医務室に向かう",
 			"condition": "",
-			"order": 3,
+			"order": 4,
 			"id": "f6914f86-f252-4087-b9d4-46ad05e16211"
 		},
 		{
@@ -3378,7 +3378,7 @@
 			"to": "700",
 			"label": "調理場に向かう",
 			"condition": "",
-			"order": 4,
+			"order": 5,
 			"id": "eaebc324-aab5-403a-9ab5-da3adc8cd35d"
 		},
 		{
@@ -3386,7 +3386,7 @@
 			"to": "800",
 			"label": "操舵室に向かう",
 			"condition": "",
-			"order": 5,
+			"order": 6,
 			"id": "910c625c-328b-4614-811a-9dd2504d35cd"
 		},
 		{
@@ -3394,7 +3394,7 @@
 			"to": "900",
 			"label": "下士官の部屋に向かう",
 			"condition": "",
-			"order": 6,
+			"order": 7,
 			"id": "ed8baf32-636b-42c6-8114-8c51d234b1c6"
 		},
 		{
@@ -3402,7 +3402,7 @@
 			"to": "400",
 			"label": "司令官室に向かう",
 			"condition": "",
-			"order": 7,
+			"order": 8,
 			"id": "6ca8ec4d-35be-4ace-9cb7-52801c226761"
 		},
 		{
@@ -3410,7 +3410,7 @@
 			"to": "1000",
 			"label": "船底に降りる",
 			"condition": "f23",
-			"order": 8,
+			"order": 9,
 			"id": "dba0ac21-1a66-4f89-b286-0fdd800b291c"
 		},
 		{
@@ -4329,35 +4329,35 @@
 			"to": "1550",
 			"label": "お爺さん、ここは危ない",
 			"id": "custom1540-1550-60548",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "1540",
 			"to": "1570",
 			"label": "元凶は黒真珠",
 			"id": "custom1540-1570-1151",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "1540",
 			"to": "1560",
 			"label": "まずは状況確認",
 			"id": "custom1540-1560-33331",
-			"order": 0
+			"order": 3
 		},
 		{
 			"from": "1550",
 			"to": "1560",
 			"label": "改めて状況を確認",
 			"id": "custom1550-1560-96368",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "1550",
 			"to": "1570",
 			"label": "元凶は黒真珠",
 			"id": "custom1550-1570-71054",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "1560",
@@ -4388,22 +4388,8 @@
 			"to": "1610",
 			"label": "逃げる、逃げる、逃げる…！",
 			"id": "custom1600-1610-23170",
-			"order": 0,
+			"order": 1,
 			"condition": ""
-		},
-		{
-			"from": "1600",
-			"to": "1630",
-			"label": "屍？たちと戦う",
-			"id": "custom1600-1630-34134",
-			"order": 0
-		},
-		{
-			"from": "1600",
-			"to": "1650",
-			"label": "アポピスに狙いを定める",
-			"id": "custom1600-1650-87912",
-			"order": 0
 		},
 		{
 			"from": "1600",
@@ -4411,7 +4397,21 @@
 			"label": "ミシシッピーに特攻する",
 			"id": "custom1600-1660-75021",
 			"condition": "f81",
-			"order": 0
+			"order": 2
+		},
+		{
+			"from": "1600",
+			"to": "1650",
+			"label": "アポピスに狙いを定める",
+			"id": "custom1600-1650-87912",
+			"order": 3
+		},
+		{
+			"from": "1600",
+			"to": "1630",
+			"label": "屍？たちと戦う",
+			"id": "custom1600-1630-34134",
+			"order": 4
 		},
 		{
 			"from": "1600",
@@ -4419,7 +4419,7 @@
 			"label": "黒真珠こそ元凶だ",
 			"id": "custom1600-1670-34662",
 			"condition": "!f81",
-			"order": 0
+			"order": 5
 		},
 		{
 			"from": "1610",
@@ -4485,11 +4485,11 @@
 		},
 		{
 			"from": "1800",
-			"to": "1670",
-			"label": "黒真珠こそ元凶だ",
-			"id": "custom1800-1670-79549",
-			"condition": "!f81",
-			"order": 0
+			"to": "1610",
+			"label": "逃げる、逃げる、逃げる…！",
+			"id": "custom1800-1610-81285",
+			"order": 1,
+			"condition": "!f80"
 		},
 		{
 			"from": "1800",
@@ -4497,22 +4497,14 @@
 			"label": "ミシシッピーに特攻する",
 			"id": "custom1800-1660-12173",
 			"condition": "f81&!f83",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "1800",
 			"to": "1650",
 			"label": "アポピスに狙いを定める",
 			"id": "custom1800-1650-64849",
-			"order": 0
-		},
-		{
-			"from": "1800",
-			"to": "1610",
-			"label": "逃げる、逃げる、逃げる…！",
-			"id": "custom1800-1610-81285",
-			"order": 0,
-			"condition": "!f80"
+			"order": 3
 		},
 		{
 			"from": "1800",
@@ -4520,7 +4512,7 @@
 			"label": "屍？たちと戦う",
 			"id": "custom1800-1630-97812",
 			"condition": "!f82",
-			"order": 0
+			"order": 4
 		},
 		{
 			"from": "1800",
@@ -4528,23 +4520,15 @@
 			"label": "屍？たちと戦う",
 			"id": "custom1800-1640-37489",
 			"condition": "f82",
-			"order": 0
+			"order": 5
 		},
 		{
 			"from": "1800",
-			"to": "1810",
-			"label": "DELUGEを唱える",
-			"id": "custom1800-1810-62591",
-			"condition": "mDELUGE",
-			"order": 0
-		},
-		{
-			"from": "1800",
-			"to": "1820",
-			"label": "EXPLOSIONを唱える",
-			"id": "custom1800-1820-99968",
-			"condition": "mEXPLOSION",
-			"order": 0
+			"to": "1670",
+			"label": "黒真珠こそ元凶だ",
+			"id": "custom1800-1670-79549",
+			"condition": "!f81",
+			"order": 6
 		},
 		{
 			"from": "1800",
@@ -4552,23 +4536,7 @@
 			"label": "AIR-HANDを唱える",
 			"id": "custom1800-1830-47145",
 			"condition": "mAIR-HAND",
-			"order": 0
-		},
-		{
-			"from": "1800",
-			"to": "1840",
-			"label": "FREEZEを唱える",
-			"id": "custom1800-1840-80950",
-			"condition": "mFREEZE",
-			"order": 0
-		},
-		{
-			"from": "1800",
-			"to": "1850",
-			"label": "LIGHT CROSSを唱える",
-			"id": "custom1800-1850-89155",
-			"condition": "mLIGHT-CROSS",
-			"order": 0
+			"order": 7
 		},
 		{
 			"from": "1800",
@@ -4576,15 +4544,7 @@
 			"label": "PROTECTを唱える",
 			"id": "custom1800-1860-68372",
 			"condition": "mPROTECT",
-			"order": 0
-		},
-		{
-			"from": "1800",
-			"to": "1870",
-			"label": "NOILA-TEMを唱える",
-			"id": "custom1800-1870-65658",
-			"condition": "mNOILA-TEM",
-			"order": 0
+			"order": 8
 		},
 		{
 			"from": "1800",
@@ -4592,7 +4552,47 @@
 			"label": "CHANGE-AIRを唱える",
 			"id": "custom1800-1880-15098",
 			"condition": "mCHANGE-AIR",
-			"order": 0
+			"order": 9
+		},
+		{
+			"from": "1800",
+			"to": "1820",
+			"label": "EXPLOSIONを唱える",
+			"id": "custom1800-1820-99968",
+			"condition": "mEXPLOSION",
+			"order": 10
+		},
+		{
+			"from": "1800",
+			"to": "1810",
+			"label": "DELUGEを唱える",
+			"id": "custom1800-1810-62591",
+			"condition": "mDELUGE",
+			"order": 11
+		},
+		{
+			"from": "1800",
+			"to": "1840",
+			"label": "FREEZEを唱える",
+			"id": "custom1800-1840-80950",
+			"condition": "mFREEZE",
+			"order": 12
+		},
+		{
+			"from": "1800",
+			"to": "1850",
+			"label": "LIGHT CROSSを唱える",
+			"id": "custom1800-1850-89155",
+			"condition": "mLIGHT-CROSS",
+			"order": 13
+		},
+		{
+			"from": "1800",
+			"to": "1870",
+			"label": "NOILA-TEMを唱える",
+			"id": "custom1800-1870-65658",
+			"condition": "mNOILA-TEM",
+			"order": 14
 		},
 		{
 			"from": "1810",
@@ -4641,22 +4641,14 @@
 			"to": "1800",
 			"label": "態勢を整える",
 			"id": "custom1880-1800-75064",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "1880",
 			"to": "1890",
 			"label": "突撃する！",
 			"id": "custom1880-1890-31755",
-			"order": 0
-		},
-		{
-			"from": "1880",
-			"to": "1900",
-			"label": "NOILA-TEMを唱える",
-			"id": "custom1880-1900-14739",
-			"condition": "mNOILA-TEM",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "1880",
@@ -4664,7 +4656,7 @@
 			"label": "AIR-HANDを唱える",
 			"id": "custom1880-1910-85557",
 			"condition": "mAIR-HAND",
-			"order": 0
+			"order": 3
 		},
 		{
 			"from": "1880",
@@ -4672,7 +4664,15 @@
 			"label": "DELUGEを唱える",
 			"id": "custom1880-1920-73538",
 			"condition": "mDELUGE",
-			"order": 0
+			"order": 4
+		},
+		{
+			"from": "1880",
+			"to": "1900",
+			"label": "NOILA-TEMを唱える",
+			"id": "custom1880-1900-14739",
+			"condition": "mNOILA-TEM",
+			"order": 5
 		},
 		{
 			"from": "1890",
@@ -4703,14 +4703,14 @@
 			"to": "1950",
 			"label": "止めの一撃を試みる！",
 			"id": "custom1970-1980-98209",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "1940",
 			"to": "1960",
 			"label": "速やかに逃亡を図る",
 			"id": "custom1970-1990-6944",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "1960",
@@ -4753,7 +4753,7 @@
 			"to": "2020",
 			"label": "あなたは誰？",
 			"id": "custom2010-2020-97282",
-			"order": 0,
+			"order": 1,
 			"condition": "!f84"
 		},
 		{
@@ -4761,21 +4761,21 @@
 			"to": "2050",
 			"label": "他の乗員たちは？",
 			"id": "custom2040-2050-12042",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "2040",
 			"to": "2100",
 			"label": "外の様子は？",
 			"id": "custom2040-2100-59748",
-			"order": 0
+			"order": 3
 		},
 		{
 			"from": "2040",
 			"to": "2110",
 			"label": "黒真珠とは？",
 			"id": "custom2040-2110-14327",
-			"order": 0
+			"order": 4
 		},
 		{
 			"from": "2040",
@@ -4783,49 +4783,49 @@
 			"label": "これからどうする？",
 			"id": "custom2040-2120-17032",
 			"condition": "f84&f85&f86&f87",
-			"order": 0
+			"order": 5
 		},
 		{
 			"from": "2050",
 			"to": "2060",
 			"label": "艦長に話しかける",
 			"id": "custom2050-2060-61496",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "2050",
 			"to": "2070",
 			"label": "操舵長に話しかける",
 			"id": "custom2050-2070-3779",
-			"order": 0
-		},
-		{
-			"from": "2050",
-			"to": "2080",
-			"label": "ソバカスの少年に話しかける",
-			"id": "custom2050-2080-87102",
-			"order": 0
-		},
-		{
-			"from": "2050",
-			"to": "2090",
-			"label": "老僕に話しかける",
-			"id": "custom2050-2090-21704",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "2050",
 			"to": "2160",
 			"label": "調理責任者に話しかける",
 			"id": "custom2050-2160-17946",
-			"order": 0
+			"order": 3
+		},
+		{
+			"from": "2050",
+			"to": "2080",
+			"label": "ソバカスの少年に話しかける",
+			"id": "custom2050-2080-87102",
+			"order": 4
+		},
+		{
+			"from": "2050",
+			"to": "2090",
+			"label": "老僕に話しかける",
+			"id": "custom2050-2090-21704",
+			"order": 5
 		},
 		{
 			"from": "2050",
 			"to": "2040",
 			"label": "他のことを訊く",
 			"id": "custom2050-2040-98620",
-			"order": "99"
+			"order": 6
 		},
 		{
 			"from": "2060",
@@ -4911,25 +4911,11 @@
 		},
 		{
 			"from": "2200",
-			"to": "2210",
-			"label": "南",
-			"id": "custom2200-2210-29350",
-			"order": 0
-		},
-		{
-			"from": "2200",
-			"to": "2220",
-			"label": "西",
-			"id": "custom2200-2220-31585",
-			"order": 0
-		},
-		{
-			"from": "2200",
 			"to": "2230",
 			"label": "東",
 			"id": "custom2200-2230-60329",
 			"condition": "!f91",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "2200",
@@ -4937,121 +4923,71 @@
 			"label": "東",
 			"id": "custom2200-2290-93312",
 			"condition": "f91",
-			"order": 0
+			"order": 2
+		},
+		{
+			"from": "2200",
+			"to": "2220",
+			"label": "西",
+			"id": "custom2200-2220-31585",
+			"order": 3
+		},
+		{
+			"from": "2200",
+			"to": "2210",
+			"label": "南",
+			"id": "custom2200-2210-29350",
+			"order": 4
 		},
 		{
 			"from": "2210",
 			"to": "2150",
 			"label": "南",
 			"id": "custom2210-2150-74772",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "2210",
 			"to": "2200",
 			"label": "北",
 			"id": "custom2210-2200-27854",
-			"order": 0
-		},
-		{
-			"from": "2220",
-			"to": "2240",
-			"label": "北",
-			"id": "custom2220-2240-96161",
-			"order": 0
-		},
-		{
-			"from": "2220",
-			"to": "2250",
-			"label": "西",
-			"id": "custom2220-2250-82250",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "2220",
 			"to": "2200",
 			"label": "東",
 			"id": "custom2220-2200-84259",
-			"order": 0
+			"order": 1
+		},
+		{
+			"from": "2220",
+			"to": "2250",
+			"label": "西",
+			"id": "custom2220-2250-82250",
+			"order": 2
+		},
+		{
+			"from": "2220",
+			"to": "2240",
+			"label": "北",
+			"id": "custom2220-2240-96161",
+			"order": 3
 		},
 		{
 			"from": "2230",
 			"to": "2200",
 			"label": "一旦引き返す",
 			"id": "custom2230-2200-23657",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "2230",
 			"to": "2260",
 			"label": "手持ちの武器で殴ってみる",
 			"id": "custom2230-2260-57428",
-			"order": 0,
+			"order": 2,
 			"condition": ""
-		},
-		{
-			"from": "2230",
-			"to": "2270",
-			"label": "DELUGEを唱える",
-			"id": "custom2230-2270-2014",
-			"condition": "mDELUGE",
-			"order": 0
-		},
-		{
-			"from": "2230",
-			"to": "2330",
-			"label": "FREEZEを唱える",
-			"id": "custom2230-2330-24253",
-			"condition": "mFREEZE",
-			"order": 0
-		},
-		{
-			"from": "2230",
-			"to": "2380",
-			"label": "EXPLOSIONを唱える",
-			"id": "custom2230-2380-9994",
-			"condition": "mEXPLOSION",
-			"order": 0
-		},
-		{
-			"from": "2230",
-			"to": "2390",
-			"label": "GIVE-VIGORを唱える",
-			"id": "custom2230-2390-44668",
-			"condition": "mGIVE-VIGOR",
-			"order": 0
-		},
-		{
-			"from": "2230",
-			"to": "2400",
-			"label": "AIR-HANDを唱える",
-			"id": "custom2230-2400-75251",
-			"condition": "mAIR-HAND",
-			"order": 0
-		},
-		{
-			"from": "2230",
-			"to": "2410",
-			"label": "REJUVENATEを唱える",
-			"id": "custom2230-2410-71129",
-			"condition": "mREJUVENATE",
-			"order": 0
-		},
-		{
-			"from": "2230",
-			"to": "2420",
-			"label": "LIGHT-CROSSを唱える",
-			"id": "custom2230-2420-17729",
-			"condition": "mLIGHT-CROSS",
-			"order": 0
-		},
-		{
-			"from": "2230",
-			"to": "2430",
-			"label": "NOILA-TEMを唱える",
-			"id": "custom2230-2430-81376",
-			"order": 0,
-			"condition": "mNOILA-TEM"
 		},
 		{
 			"from": "2230",
@@ -5059,7 +4995,7 @@
 			"label": "HEALを唱える",
 			"id": "custom2230-2440-94559",
 			"condition": "mHEAL",
-			"order": 0
+			"order": 3
 		},
 		{
 			"from": "2230",
@@ -5067,7 +5003,7 @@
 			"label": "PEACEを唱える",
 			"id": "custom2230-2440-15929",
 			"condition": "mPEACE",
-			"order": 0
+			"order": 4
 		},
 		{
 			"from": "2230",
@@ -5075,7 +5011,7 @@
 			"label": "CUREを唱える",
 			"id": "custom2230-2440-25538",
 			"condition": "mCURE",
-			"order": 0
+			"order": 5
 		},
 		{
 			"from": "2230",
@@ -5083,7 +5019,7 @@
 			"label": "MELTを唱える",
 			"id": "custom2230-2440-80249",
 			"condition": "mMELT",
-			"order": 0
+			"order": 6
 		},
 		{
 			"from": "2230",
@@ -5091,7 +5027,7 @@
 			"label": "STONE-FLESHを唱える",
 			"id": "custom2230-2440-96311",
 			"condition": "mSTONE-FLESH",
-			"order": 0
+			"order": 7
 		},
 		{
 			"from": "2230",
@@ -5099,7 +5035,15 @@
 			"label": "UN-CURCEを唱える",
 			"id": "custom2230-2440-57089",
 			"condition": "mUN-CURCE",
-			"order": 0
+			"order": 8
+		},
+		{
+			"from": "2230",
+			"to": "2400",
+			"label": "AIR-HANDを唱える",
+			"id": "custom2230-2400-75251",
+			"condition": "mAIR-HAND",
+			"order": 9
 		},
 		{
 			"from": "2230",
@@ -5107,7 +5051,7 @@
 			"label": "RESURRECTを唱える",
 			"id": "custom2230-2440-58933",
 			"condition": "mRESURRECT",
-			"order": 0
+			"order": 10
 		},
 		{
 			"from": "2230",
@@ -5115,7 +5059,15 @@
 			"label": "REDUCE-LIFEを唱える",
 			"id": "custom2230-2440-6251",
 			"condition": "mREDUCE-LIFE",
-			"order": 0
+			"order": 11
+		},
+		{
+			"from": "2230",
+			"to": "2410",
+			"label": "REJUVENATEを唱える",
+			"id": "custom2230-2410-71129",
+			"condition": "mREJUVENATE",
+			"order": 12
 		},
 		{
 			"from": "2230",
@@ -5123,7 +5075,7 @@
 			"label": "PROTECTを唱える",
 			"id": "custom2230-2440-7543",
 			"condition": "mPROTECT",
-			"order": 0
+			"order": 13
 		},
 		{
 			"from": "2230",
@@ -5131,7 +5083,7 @@
 			"label": "HOLY-WATERを唱える",
 			"id": "custom2230-2440-93493",
 			"condition": "mHOLY-WATER",
-			"order": 0
+			"order": 14
 		},
 		{
 			"from": "2230",
@@ -5139,7 +5091,39 @@
 			"label": "CHANGE-AIRを唱える",
 			"id": "custom2230-2440-50142",
 			"condition": "mCHANGE-AIR",
-			"order": 0
+			"order": 15
+		},
+		{
+			"from": "2230",
+			"to": "2390",
+			"label": "GIVE-VIGORを唱える",
+			"id": "custom2230-2390-44668",
+			"condition": "mGIVE-VIGOR",
+			"order": 16
+		},
+		{
+			"from": "2230",
+			"to": "2380",
+			"label": "EXPLOSIONを唱える",
+			"id": "custom2230-2380-9994",
+			"condition": "mEXPLOSION",
+			"order": 17
+		},
+		{
+			"from": "2230",
+			"to": "2270",
+			"label": "DELUGEを唱える",
+			"id": "custom2230-2270-2014",
+			"condition": "mDELUGE",
+			"order": 18
+		},
+		{
+			"from": "2230",
+			"to": "2330",
+			"label": "FREEZEを唱える",
+			"id": "custom2230-2330-24253",
+			"condition": "mFREEZE",
+			"order": 19
 		},
 		{
 			"from": "2230",
@@ -5147,7 +5131,23 @@
 			"label": "DESTROY-Aを唱える",
 			"id": "custom2230-2440-55209",
 			"condition": "mDESTROY-A",
-			"order": 0
+			"order": 20
+		},
+		{
+			"from": "2230",
+			"to": "2420",
+			"label": "LIGHT-CROSSを唱える",
+			"id": "custom2230-2420-17729",
+			"condition": "mLIGHT-CROSS",
+			"order": 21
+		},
+		{
+			"from": "2230",
+			"to": "2430",
+			"label": "NOILA-TEMを唱える",
+			"id": "custom2230-2430-81376",
+			"order": 22,
+			"condition": "mNOILA-TEM"
 		},
 		{
 			"from": "2230",
@@ -5155,7 +5155,7 @@
 			"label": "＜王杖の貝殻＞を使う",
 			"id": "custom2230-9000-82308",
 			"condition": "i100&r99:baku01",
-			"order": "98"
+			"order": 23
 		},
 		{
 			"from": "2230",
@@ -5163,7 +5163,7 @@
 			"label": "＜王杖の貝殻＞を使う",
 			"id": "custom2230-9000-11080",
 			"condition": "i100&!r99:baku01",
-			"order": "99"
+			"order": 24
 		},
 		{
 			"from": "2240",
@@ -5175,7 +5175,8 @@
 			"from": "2250",
 			"to": "2220",
 			"label": "東",
-			"id": "custom2250-2220-27155"
+			"id": "custom2250-2220-27155",
+			"order": 1
 		},
 		{
 			"from": "2260",
@@ -5205,17 +5206,17 @@
 		},
 		{
 			"from": "2290",
-			"to": "2300",
-			"label": "南",
-			"id": "custom2290-2300-80605",
-			"order": 0
-		},
-		{
-			"from": "2290",
 			"to": "2310",
 			"label": "東",
 			"id": "custom2290-2310-2913",
-			"order": 0
+			"order": 1
+		},
+		{
+			"from": "2290",
+			"to": "2300",
+			"label": "南",
+			"id": "custom2290-2300-80605",
+			"order": 2
 		},
 		{
 			"from": "2300",
@@ -5228,44 +5229,28 @@
 			"to": "2290",
 			"label": "西",
 			"id": "custom2310-2290-16433",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "2310",
 			"to": "2320",
 			"label": "上",
 			"id": "custom2310-2320-43200",
-			"order": 0
-		},
-		{
-			"from": "2320",
-			"to": "2310",
-			"label": "下",
-			"id": "custom2320-2310-68175",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "2320",
 			"to": "2450",
 			"label": "北",
 			"id": "custom2320-2450-13383",
-			"order": 0
+			"order": 1
 		},
 		{
-			"from": "2330",
-			"to": "2340",
-			"label": "AIR-HANDを唱える",
-			"id": "custom2330-2340-91492",
-			"condition": "mAIR-HAND",
-			"order": 0
-		},
-		{
-			"from": "2330",
-			"to": "2350",
-			"label": "EXPLOSIONを唱える",
-			"id": "custom2330-2350-82238",
-			"condition": "mEXPLOSION",
-			"order": 0
+			"from": "2320",
+			"to": "2310",
+			"label": "下",
+			"id": "custom2320-2310-68175",
+			"order": 2
 		},
 		{
 			"from": "2330",
@@ -5273,14 +5258,30 @@
 			"label": "MELTを唱える",
 			"id": "custom2330-2360-1826",
 			"condition": "mMELT",
-			"order": 0
+			"order": 1
+		},
+		{
+			"from": "2330",
+			"to": "2340",
+			"label": "AIR-HANDを唱える",
+			"id": "custom2330-2340-91492",
+			"condition": "mAIR-HAND",
+			"order": 2
+		},
+		{
+			"from": "2330",
+			"to": "2350",
+			"label": "EXPLOSIONを唱える",
+			"id": "custom2330-2350-82238",
+			"condition": "mEXPLOSION",
+			"order": 3
 		},
 		{
 			"from": "2330",
 			"to": "2370",
 			"label": "そのまま去る",
 			"id": "custom2330-2370-48594",
-			"order": 0
+			"order": 4
 		},
 		{
 			"from": "2340",
@@ -5404,24 +5405,24 @@
 		},
 		{
 			"from": "2450",
-			"to": "2320",
-			"label": "南",
-			"id": "custom2450-2320-26026",
-			"order": 0
-		},
-		{
-			"from": "2450",
 			"to": "2460",
 			"label": "東",
 			"id": "custom2450-2460-72776",
-			"order": 0
+			"order": 1
+		},
+		{
+			"from": "2450",
+			"to": "2320",
+			"label": "南",
+			"id": "custom2450-2320-26026",
+			"order": 2
 		},
 		{
 			"from": "2450",
 			"to": "2470",
 			"label": "北",
 			"id": "custom2450-2470-23716",
-			"order": 0
+			"order": 3
 		},
 		{
 			"from": "2460",
@@ -5434,47 +5435,7 @@
 			"to": "2450",
 			"label": "一旦引き返す",
 			"id": "custom2470-2450-19850",
-			"order": 0
-		},
-		{
-			"from": "2470",
-			"to": "2480",
-			"label": "EXPLOSIONを唱える",
-			"id": "custom2470-2480-79823",
-			"condition": "mEXPLOSION",
-			"order": 0
-		},
-		{
-			"from": "2470",
-			"to": "2500",
-			"label": "UN-CURSEを唱える",
-			"id": "custom2470-2500-76852",
-			"condition": "mUN-CURCE",
-			"order": 0
-		},
-		{
-			"from": "2470",
-			"to": "2510",
-			"label": "RESURRECTを唱える",
-			"id": "custom2470-2510-68289",
-			"condition": "mRESURRECT",
-			"order": 0
-		},
-		{
-			"from": "2470",
-			"to": "2520",
-			"label": "CUREを唱える",
-			"id": "custom2470-2520-90350",
-			"condition": "mCURE",
-			"order": 0
-		},
-		{
-			"from": "2470",
-			"to": "2530",
-			"label": "AIR-HANDを唱える",
-			"id": "custom2470-2530-2060",
-			"condition": "mAIR-HAND",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "2470",
@@ -5482,7 +5443,7 @@
 			"label": "HEALを唱える",
 			"id": "custom2470-2540-34686",
 			"condition": "mHEAL",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "2470",
@@ -5490,7 +5451,15 @@
 			"label": "PEACEを唱える",
 			"id": "custom2470-2540-2613",
 			"condition": "mPEACE",
-			"order": 0
+			"order": 3
+		},
+		{
+			"from": "2470",
+			"to": "2520",
+			"label": "CUREを唱える",
+			"id": "custom2470-2520-90350",
+			"condition": "mCURE",
+			"order": 4
 		},
 		{
 			"from": "2470",
@@ -5498,7 +5467,7 @@
 			"label": "MELTを唱える",
 			"id": "custom2470-2540-39791",
 			"condition": "mMELT",
-			"order": 0
+			"order": 5
 		},
 		{
 			"from": "2470",
@@ -5506,7 +5475,31 @@
 			"label": "STONE-FLESHを唱える",
 			"id": "custom2470-2540-9410",
 			"condition": "mSTONE-FLESH",
-			"order": 0
+			"order": 6
+		},
+		{
+			"from": "2470",
+			"to": "2500",
+			"label": "UN-CURSEを唱える",
+			"id": "custom2470-2500-76852",
+			"condition": "mUN-CURCE",
+			"order": 7
+		},
+		{
+			"from": "2470",
+			"to": "2530",
+			"label": "AIR-HANDを唱える",
+			"id": "custom2470-2530-2060",
+			"condition": "mAIR-HAND",
+			"order": 8
+		},
+		{
+			"from": "2470",
+			"to": "2510",
+			"label": "RESURRECTを唱える",
+			"id": "custom2470-2510-68289",
+			"condition": "mRESURRECT",
+			"order": 9
 		},
 		{
 			"from": "2470",
@@ -5514,7 +5507,7 @@
 			"label": "REDUCE-LIFEを唱える",
 			"id": "custom2470-2540-29659",
 			"condition": "mREDUCE-LIFE",
-			"order": 0
+			"order": 10
 		},
 		{
 			"from": "2470",
@@ -5522,7 +5515,7 @@
 			"label": "REJUVENATEを唱える",
 			"id": "custom2470-2540-53849",
 			"condition": "mREJUVENATE",
-			"order": 0
+			"order": 11
 		},
 		{
 			"from": "2470",
@@ -5530,7 +5523,7 @@
 			"label": "PROTECTを唱える",
 			"id": "custom2470-2540-47381",
 			"condition": "mPROTECT",
-			"order": 0
+			"order": 12
 		},
 		{
 			"from": "2470",
@@ -5538,55 +5531,7 @@
 			"label": "HOLY-WATERを唱える",
 			"id": "custom2470-2540-92081",
 			"condition": "mHOLY-WATER",
-			"order": 0
-		},
-		{
-			"from": "2470",
-			"to": "2540",
-			"label": "GIVE-VIGORを唱える",
-			"id": "custom2470-2540-76311",
-			"condition": "mGIVE-VIGOR",
-			"order": 0
-		},
-		{
-			"from": "2470",
-			"to": "2540",
-			"label": "DELUGEを唱える",
-			"id": "custom2470-2540-9869",
-			"condition": "mDELUGE",
-			"order": 0
-		},
-		{
-			"from": "2470",
-			"to": "2540",
-			"label": "FREEZEを唱える",
-			"id": "custom2470-2540-98374",
-			"condition": "mFREEZE",
-			"order": 0
-		},
-		{
-			"from": "2470",
-			"to": "2540",
-			"label": "LIGHT-CROSSを唱える",
-			"id": "custom2470-2540-51518",
-			"condition": "mLIGHT-CROSS",
-			"order": 0
-		},
-		{
-			"from": "2470",
-			"to": "2540",
-			"label": "NOILA-TEMを唱える",
-			"id": "custom2470-2540-5237",
-			"condition": "mNOILA-TEM",
-			"order": 0
-		},
-		{
-			"from": "2470",
-			"to": "2550",
-			"label": "DESTROY-Aを唱える",
-			"id": "custom2470-2550-68659",
-			"condition": "mDESTROY-A",
-			"order": 0
+			"order": 13
 		},
 		{
 			"from": "2470",
@@ -5594,14 +5539,70 @@
 			"label": "CHANGE-AIRを唱える",
 			"id": "custom2470-2560-99447",
 			"condition": "mCHANGE-AIR",
-			"order": 0
+			"order": 14
+		},
+		{
+			"from": "2470",
+			"to": "2540",
+			"label": "GIVE-VIGORを唱える",
+			"id": "custom2470-2540-76311",
+			"condition": "mGIVE-VIGOR",
+			"order": 15
+		},
+		{
+			"from": "2470",
+			"to": "2480",
+			"label": "EXPLOSIONを唱える",
+			"id": "custom2470-2480-79823",
+			"condition": "mEXPLOSION",
+			"order": 16
+		},
+		{
+			"from": "2470",
+			"to": "2540",
+			"label": "DELUGEを唱える",
+			"id": "custom2470-2540-9869",
+			"condition": "mDELUGE",
+			"order": 17
+		},
+		{
+			"from": "2470",
+			"to": "2540",
+			"label": "FREEZEを唱える",
+			"id": "custom2470-2540-98374",
+			"condition": "mFREEZE",
+			"order": 18
+		},
+		{
+			"from": "2470",
+			"to": "2550",
+			"label": "DESTROY-Aを唱える",
+			"id": "custom2470-2550-68659",
+			"condition": "mDESTROY-A",
+			"order": 19
+		},
+		{
+			"from": "2470",
+			"to": "2540",
+			"label": "LIGHT-CROSSを唱える",
+			"id": "custom2470-2540-51518",
+			"condition": "mLIGHT-CROSS",
+			"order": 20
+		},
+		{
+			"from": "2470",
+			"to": "2540",
+			"label": "NOILA-TEMを唱える",
+			"id": "custom2470-2540-5237",
+			"condition": "mNOILA-TEM",
+			"order": 21
 		},
 		{
 			"from": "2470",
 			"to": "8990",
 			"label": "＜王杖の貝殻＞を使う",
 			"id": "custom2470-8990-54897",
-			"order": "98",
+			"order": 22,
 			"condition": "i100&!r99:baku01"
 		},
 		{
@@ -5610,21 +5611,21 @@
 			"label": "＜王杖の貝殻＞を使う",
 			"id": "custom2470-9000-82722",
 			"condition": "i100&r99:baku01",
-			"order": "99"
-		},
-		{
-			"from": "2480",
-			"to": "2470",
-			"label": "失敗したならば...",
-			"id": "custom2480-2470-47454",
-			"order": 0
+			"order": 23
 		},
 		{
 			"from": "2480",
 			"to": "2490",
 			"label": "通路を無事に抜けられたならば...",
 			"id": "custom2480-2490-63990",
-			"order": 0
+			"order": 1
+		},
+		{
+			"from": "2480",
+			"to": "2470",
+			"label": "失敗したならば...",
+			"id": "custom2480-2470-47454",
+			"order": 2
 		},
 		{
 			"from": "2490",
@@ -5634,37 +5635,38 @@
 		},
 		{
 			"from": "2500",
-			"to": "2470",
-			"label": "失敗したならば…",
-			"id": "custom2500-2470-69511",
-			"order": 0
-		},
-		{
-			"from": "2500",
 			"to": "2490",
 			"label": "通路を無事に抜けられたならば...",
 			"id": "custom2500-2490-1829",
-			"order": 0
+			"order": 1
+		},
+		{
+			"from": "2500",
+			"to": "2470",
+			"label": "失敗したならば…",
+			"id": "custom2500-2470-69511",
+			"order": 2
 		},
 		{
 			"from": "2510",
 			"to": "2490",
 			"label": "通路を無事に抜けられたならば...",
-			"id": "custom2510-2490-90810"
+			"id": "custom2510-2490-90810",
+			"order": 1
 		},
 		{
 			"from": "2520",
 			"to": "2490",
 			"label": "成功したならば、速やかに通路を抜けよう",
 			"id": "custom2520-2490-10188",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "2520",
 			"to": "2470",
 			"label": "失敗したならば、速やかに撤退だ",
 			"id": "custom2520-2470-68506",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "2530",
@@ -5680,99 +5682,101 @@
 		},
 		{
 			"from": "2550",
-			"to": "2470",
-			"label": "失敗したなら、速やかに撤退だ",
-			"id": "custom2550-2470-89554",
-			"order": 0
-		},
-		{
-			"from": "2550",
 			"to": "2490",
 			"label": "成功したならば、速やかに通路を抜けよう",
 			"id": "custom2550-2490-81274",
-			"order": 0
+			"order": 1
+		},
+		{
+			"from": "2550",
+			"to": "2470",
+			"label": "失敗したなら、速やかに撤退だ",
+			"id": "custom2550-2470-89554",
+			"order": 2
 		},
 		{
 			"from": "2560",
 			"to": "2470",
 			"label": "撤退だ",
-			"id": "custom2560-2470-75319"
+			"id": "custom2560-2470-75319",
+			"order": 1
 		},
 		{
 			"from": "2570",
 			"to": "2580",
 			"label": "南",
 			"id": "custom2570-2580-248",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "2570",
 			"to": "2590",
 			"label": "北",
 			"id": "custom2570-2590-41591",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "2580",
 			"to": "2570",
 			"label": "北",
-			"id": "custom2580-2570-9877"
+			"id": "custom2580-2570-9877",
+			"order": 1
 		},
 		{
 			"from": "2590",
 			"to": "2570",
 			"label": "南",
 			"id": "custom2590-2570-98462",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "2590",
 			"to": "2600",
 			"label": "上",
 			"id": "custom2590-2600-84946",
-			"order": 0
-		},
-		{
-			"from": "2600",
-			"to": "2590",
-			"label": "下",
-			"id": "custom2600-2590-91674",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "2600",
 			"to": "2610",
 			"label": "南",
 			"id": "custom2600-2610-75454",
-			"order": 0
+			"order": 1
 		},
 		{
-			"from": "2610",
-			"to": "2600",
-			"label": "北",
-			"id": "custom2610-2600-42134",
-			"order": 0
+			"from": "2600",
+			"to": "2590",
+			"label": "下",
+			"id": "custom2600-2590-91674",
+			"order": 2
 		},
 		{
 			"from": "2610",
 			"to": "2620",
 			"label": "東",
 			"id": "custom2610-2620-63147",
-			"order": 0
-		},
-		{
-			"from": "2610",
-			"to": "2630",
-			"label": "南",
-			"id": "custom2610-2630-10501",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "2610",
 			"to": "2640",
 			"label": "西",
 			"id": "custom2610-2640-54516",
-			"order": 0
+			"order": 2
+		},
+		{
+			"from": "2610",
+			"to": "2630",
+			"label": "南",
+			"id": "custom2610-2630-10501",
+			"order": 3
+		},
+		{
+			"from": "2610",
+			"to": "2600",
+			"label": "北",
+			"id": "custom2610-2600-42134",
+			"order": 4
 		},
 		{
 			"from": "2620",
@@ -5809,27 +5813,20 @@
 			"to": "2680",
 			"label": "KRMよりも高かった",
 			"id": "custom2670-2680-47289",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "2670",
 			"to": "2690",
 			"label": "KRM以下だった",
 			"id": "custom2670-2690-60834",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "2680",
 			"to": "2700",
 			"label": "先へ",
 			"id": "custom2680-2700-56601"
-		},
-		{
-			"from": "2690",
-			"to": "",
-			"label": "戻る",
-			"id": "custom2690-2640-79847",
-			"order": 0
 		},
 		{
 			"from": "2690",
@@ -5846,51 +5843,11 @@
 		},
 		{
 			"from": "2710",
-			"to": "2650",
-			"label": "GIVE-VIGORを唱える",
-			"id": "custom2640-2650-8384",
-			"condition": "mGIVE-VIGOR",
-			"order": 0
-		},
-		{
-			"from": "2710",
-			"to": "2670",
-			"label": "DELUGEを唱える",
-			"id": "custom2640-2670-44998",
-			"condition": "mDELUGE",
-			"order": 0
-		},
-		{
-			"from": "2710",
-			"to": "2720",
-			"label": "FREEZEを唱える",
-			"id": "custom2710-2720-56443",
-			"condition": "mFREEZE",
-			"order": 0
-		},
-		{
-			"from": "2710",
-			"to": "2730",
-			"label": "AIR-HANDを唱える",
-			"id": "custom2710-2730-7624",
-			"condition": "mAIR-HAND",
-			"order": 0
-		},
-		{
-			"from": "2710",
-			"to": "2740",
-			"label": "LIGHT-CROSSを唱える",
-			"id": "custom2710-2740-15580",
-			"condition": "mLIGHT-CROSS",
-			"order": 0
-		},
-		{
-			"from": "2710",
 			"to": "2750",
 			"label": "HEALを唱える",
 			"id": "custom2710-2750-6239",
 			"condition": "mHEAL",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "2710",
@@ -5898,7 +5855,7 @@
 			"label": "PEACEを唱える",
 			"id": "custom2710-2750-30659",
 			"condition": "mPEACE",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "2710",
@@ -5906,7 +5863,7 @@
 			"label": "CUREを唱える",
 			"id": "custom2710-2750-78749",
 			"condition": "mCURE",
-			"order": 0
+			"order": 3
 		},
 		{
 			"from": "2710",
@@ -5914,7 +5871,7 @@
 			"label": "MELTを唱える",
 			"id": "custom2710-2750-82827",
 			"condition": "mMELT",
-			"order": 0
+			"order": 4
 		},
 		{
 			"from": "2710",
@@ -5922,7 +5879,7 @@
 			"label": "STONE-FLESHを唱える",
 			"id": "custom2710-2750-66058",
 			"condition": "mSTONE-FLESH",
-			"order": 0
+			"order": 5
 		},
 		{
 			"from": "2710",
@@ -5930,7 +5887,15 @@
 			"label": "UN-CURCEを唱える",
 			"id": "custom2710-2750-31648",
 			"condition": "mUN-CURCE",
-			"order": 0
+			"order": 6
+		},
+		{
+			"from": "2710",
+			"to": "2730",
+			"label": "AIR-HANDを唱える",
+			"id": "custom2710-2730-7624",
+			"condition": "mAIR-HAND",
+			"order": 7
 		},
 		{
 			"from": "2710",
@@ -5938,7 +5903,7 @@
 			"label": "RESURRECTを唱える",
 			"id": "custom2710-2750-75719",
 			"condition": "mRESURRECT",
-			"order": 0
+			"order": 8
 		},
 		{
 			"from": "2710",
@@ -5946,7 +5911,7 @@
 			"label": "REDUCE-LIFEを唱える",
 			"id": "custom2710-2750-6250",
 			"condition": "mREDUCE-LIFE",
-			"order": 0
+			"order": 9
 		},
 		{
 			"from": "2710",
@@ -5954,31 +5919,7 @@
 			"label": "REJUVENATEを唱える",
 			"id": "custom2710-2750-7104",
 			"condition": "mREJUVENATE",
-			"order": 0
-		},
-		{
-			"from": "2710",
-			"to": "2750",
-			"label": "HOLY-WATERを唱える",
-			"id": "custom2710-2750-38626",
-			"condition": "mHOLY-WATER",
-			"order": 0
-		},
-		{
-			"from": "2710",
-			"to": "2750",
-			"label": "CHANGE-AIRを唱える",
-			"id": "custom2710-2750-81735",
-			"condition": "mCHANGE-AIR",
-			"order": 0
-		},
-		{
-			"from": "2710",
-			"to": "2760",
-			"label": "EXPLOSIONを唱える",
-			"id": "custom2710-2760-61924",
-			"condition": "mEXPLOSION",
-			"order": 0
+			"order": 10
 		},
 		{
 			"from": "2710",
@@ -5986,7 +5927,55 @@
 			"label": "PROTECTを唱える",
 			"id": "custom2710-2770-22716",
 			"condition": "mPROTECT",
-			"order": 0
+			"order": 11
+		},
+		{
+			"from": "2710",
+			"to": "2750",
+			"label": "HOLY-WATERを唱える",
+			"id": "custom2710-2750-38626",
+			"condition": "mHOLY-WATER",
+			"order": 12
+		},
+		{
+			"from": "2710",
+			"to": "2750",
+			"label": "CHANGE-AIRを唱える",
+			"id": "custom2710-2750-81735",
+			"condition": "mCHANGE-AIR",
+			"order": 13
+		},
+		{
+			"from": "2710",
+			"to": "2650",
+			"label": "GIVE-VIGORを唱える",
+			"id": "custom2640-2650-8384",
+			"condition": "mGIVE-VIGOR",
+			"order": 14
+		},
+		{
+			"from": "2710",
+			"to": "2760",
+			"label": "EXPLOSIONを唱える",
+			"id": "custom2710-2760-61924",
+			"condition": "mEXPLOSION",
+			"order": 15
+		},
+		{
+			"from": "2710",
+			"to": "2670",
+			"label": "DELUGEを唱える",
+			"id": "custom2640-2670-44998",
+			"condition": "mDELUGE",
+			"order": 16
+		},
+		{
+			"from": "2710",
+			"to": "2720",
+			"label": "FREEZEを唱える",
+			"id": "custom2710-2720-56443",
+			"condition": "mFREEZE",
+			"order": 17
 		},
 		{
 			"from": "2710",
@@ -5994,7 +5983,15 @@
 			"label": "DESTROY-Aを唱える",
 			"id": "custom2710-2750-18175",
 			"condition": "mDESTROY-A",
-			"order": 0
+			"order": 18
+		},
+		{
+			"from": "2710",
+			"to": "2740",
+			"label": "LIGHT-CROSSを唱える",
+			"id": "custom2710-2740-15580",
+			"condition": "mLIGHT-CROSS",
+			"order": 19
 		},
 		{
 			"from": "2710",
@@ -6002,14 +5999,14 @@
 			"label": "NOILA-TEMを唱える",
 			"id": "custom2710-2750-74545",
 			"condition": "mNOILA-TEM",
-			"order": 0
+			"order": 20
 		},
 		{
 			"from": "2710",
 			"to": "8990",
 			"label": "＜王杖の貝殻＞を使う",
 			"id": "custom2710-8990-63738",
-			"order": "98",
+			"order": 21,
 			"condition": "i100&!r99:baku01"
 		},
 		{
@@ -6017,7 +6014,7 @@
 			"to": "9000",
 			"label": "＜王杖の貝殻＞を使う",
 			"id": "custom2640-9000-63658",
-			"order": "99",
+			"order": 22,
 			"condition": "i100&r99:baku01"
 		},
 		{
@@ -6031,28 +6028,28 @@
 			"to": "2660",
 			"label": "無事に上層に着地した",
 			"id": "custom2730-2660-59674",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "2730",
 			"to": "2710",
 			"label": "失敗...",
 			"id": "custom2730-2710-14241",
-			"order": 0
-		},
-		{
-			"from": "2740",
-			"to": "2710",
-			"label": "LIGHT-CROSSの効果が消えた",
-			"id": "custom2740-2710-89590",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "2740",
 			"to": "2660",
 			"label": "登攀に成功した",
 			"id": "custom2740-2660-98231",
-			"order": 0
+			"order": 1
+		},
+		{
+			"from": "2740",
+			"to": "2710",
+			"label": "LIGHT-CROSSの効果が消えた",
+			"id": "custom2740-2710-89590",
+			"order": 2
 		},
 		{
 			"from": "2750",
@@ -6064,14 +6061,15 @@
 			"from": "2760",
 			"to": "2660",
 			"label": "無事に縁に捕まった",
-			"id": "custom2760-2660-15950"
+			"id": "custom2760-2660-15950",
+			"order": 1
 		},
 		{
 			"from": "2760",
 			"to": "2710",
 			"label": "他の方法を考える",
 			"id": "custom2760-2710-95317",
-			"order": "2"
+			"order": 2
 		},
 		{
 			"from": "2770",
@@ -6098,14 +6096,21 @@
 			"to": "2780",
 			"label": "東",
 			"id": "custom2790-2780-48475",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "2790",
 			"to": "2800",
 			"label": "西",
 			"id": "custom2790-2800-74738",
-			"order": 0
+			"order": 2
+		},
+		{
+			"from": "2790",
+			"to": "2820",
+			"label": "南",
+			"id": "custom2790-2820-47516",
+			"order": 3
 		},
 		{
 			"from": "2790",
@@ -6113,14 +6118,7 @@
 			"label": "北",
 			"id": "custom2790-2810-14636",
 			"condition": "!f93",
-			"order": 0
-		},
-		{
-			"from": "2790",
-			"to": "2820",
-			"label": "南",
-			"id": "custom2790-2820-47516",
-			"order": 0
+			"order": 4
 		},
 		{
 			"from": "2790",
@@ -6128,7 +6126,7 @@
 			"label": "北",
 			"id": "custom2790-2850-10876",
 			"condition": "f93",
-			"order": 0
+			"order": 5
 		},
 		{
 			"from": "2800",
@@ -6141,22 +6139,14 @@
 			"to": "2790",
 			"label": "引き返す",
 			"id": "custom2810-2790-802",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "2810",
 			"to": "2840",
 			"label": "扉を押してみる",
 			"id": "custom2810-2840-95090",
-			"order": 0
-		},
-		{
-			"from": "2810",
-			"to": "2860",
-			"label": "STONE-FLESHを唱える",
-			"id": "custom2810-2860-76625",
-			"condition": "mSTONE-FLESH",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "2810",
@@ -6164,7 +6154,7 @@
 			"label": "HEALを唱える",
 			"id": "custom2810-2870-80493",
 			"condition": "mHEAL",
-			"order": 0
+			"order": 3
 		},
 		{
 			"from": "2810",
@@ -6172,7 +6162,7 @@
 			"label": "PEACEを唱える",
 			"id": "custom2810-2870-94202",
 			"condition": "mPEACE",
-			"order": 0
+			"order": 4
 		},
 		{
 			"from": "2810",
@@ -6180,7 +6170,7 @@
 			"label": "CUREを唱える",
 			"id": "custom2810-2870-70584",
 			"condition": "mCURE",
-			"order": 0
+			"order": 5
 		},
 		{
 			"from": "2810",
@@ -6188,7 +6178,15 @@
 			"label": "MELTを唱える",
 			"id": "custom2810-2870-38255",
 			"condition": "mMELT",
-			"order": 0
+			"order": 6
+		},
+		{
+			"from": "2810",
+			"to": "2860",
+			"label": "STONE-FLESHを唱える",
+			"id": "custom2810-2860-76625",
+			"condition": "mSTONE-FLESH",
+			"order": 7
 		},
 		{
 			"from": "2810",
@@ -6196,7 +6194,15 @@
 			"label": "UN-CURCEを唱える",
 			"id": "custom2810-2870-74325",
 			"condition": "mUN-CURCE",
-			"order": 0
+			"order": 8
+		},
+		{
+			"from": "2810",
+			"to": "2880",
+			"label": "AIR-HANDを唱える",
+			"id": "custom2810-2880-22454",
+			"order": 9,
+			"condition": "mAIR-HAND"
 		},
 		{
 			"from": "2810",
@@ -6204,7 +6210,7 @@
 			"label": "RESURRECTを唱える",
 			"id": "custom2810-2870-83445",
 			"condition": "mRESURRECT",
-			"order": 0
+			"order": 10
 		},
 		{
 			"from": "2810",
@@ -6212,7 +6218,7 @@
 			"label": "REDUCE-LIFEを唱える",
 			"id": "custom2810-2870-87702",
 			"condition": "mREDUCE-LIFE",
-			"order": 0
+			"order": 11
 		},
 		{
 			"from": "2810",
@@ -6220,7 +6226,7 @@
 			"label": "REJUVENATEを唱える",
 			"id": "custom2810-2870-58927",
 			"condition": "mREJUVENATE",
-			"order": 0
+			"order": 12
 		},
 		{
 			"from": "2810",
@@ -6228,7 +6234,7 @@
 			"label": "PROTECTを唱える",
 			"id": "custom2810-2870-50705",
 			"condition": "mPROTECT",
-			"order": 0
+			"order": 13
 		},
 		{
 			"from": "2810",
@@ -6236,7 +6242,7 @@
 			"label": "HOLY-WATERを唱える",
 			"id": "custom2810-2870-35794",
 			"condition": "mHOLY-WATER",
-			"order": 0
+			"order": 14
 		},
 		{
 			"from": "2810",
@@ -6244,7 +6250,7 @@
 			"label": "CHANGE-AIRを唱える",
 			"id": "custom2810-2870-27022",
 			"condition": "mCHANGE-AIR",
-			"order": 0
+			"order": 15
 		},
 		{
 			"from": "2810",
@@ -6252,7 +6258,7 @@
 			"label": "GIVE-VIGORを唱える",
 			"id": "custom2810-2870-94781",
 			"condition": "mGIVE-VIGOR",
-			"order": 0
+			"order": 16
 		},
 		{
 			"from": "2810",
@@ -6260,7 +6266,7 @@
 			"label": "EXPLOSIONを唱える",
 			"id": "custom2810-2870-13806",
 			"condition": "mEXPLOSION",
-			"order": 0
+			"order": 17
 		},
 		{
 			"from": "2810",
@@ -6268,7 +6274,7 @@
 			"label": "DELUGEを唱える",
 			"id": "custom2810-2870-89562",
 			"condition": "mDELUGE",
-			"order": 0
+			"order": 18
 		},
 		{
 			"from": "2810",
@@ -6276,7 +6282,7 @@
 			"label": "FREEZEを唱える",
 			"id": "custom2810-2870-96452",
 			"condition": "mFREEZE",
-			"order": 0
+			"order": 19
 		},
 		{
 			"from": "2810",
@@ -6284,7 +6290,7 @@
 			"label": "DESTROY-Aを唱える",
 			"id": "custom2810-2870-64941",
 			"condition": "mDESTROY-A",
-			"order": 0
+			"order": 20
 		},
 		{
 			"from": "2810",
@@ -6292,7 +6298,7 @@
 			"label": "LIGHT-CROSSを唱える",
 			"id": "custom2810-2870-5745",
 			"condition": "mLIGHT-CROSS",
-			"order": 0
+			"order": 21
 		},
 		{
 			"from": "2810",
@@ -6300,22 +6306,14 @@
 			"label": "NOILA-TEMを唱える",
 			"id": "custom2810-2870-2952",
 			"condition": "mNOILA-TEM",
-			"order": 0
-		},
-		{
-			"from": "2810",
-			"to": "2880",
-			"label": "AIR-HANDを唱える",
-			"id": "custom2810-2880-22454",
-			"order": 0,
-			"condition": "mAIR-HAND"
+			"order": 22
 		},
 		{
 			"from": "2810",
 			"to": "8990",
 			"label": "＜王杖の貝殻＞を使う",
 			"id": "custom2810-8990-83093",
-			"order": "98",
+			"order": 23,
 			"condition": "i100&!r99:baku01"
 		},
 		{
@@ -6323,7 +6321,7 @@
 			"to": "9000",
 			"label": "＜王杖の貝殻＞を使う",
 			"id": "custom2810-9000-18676",
-			"order": "99",
+			"order": 24,
 			"condition": "i100&r99:baku01"
 		},
 		{
@@ -6331,28 +6329,28 @@
 			"to": "2790",
 			"label": "北",
 			"id": "custom2820-2790-88923",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "2820",
 			"to": "2830",
 			"label": "下",
 			"id": "custom2820-2830-48776",
-			"order": 0
-		},
-		{
-			"from": "2830",
-			"to": "2820",
-			"label": "上",
-			"id": "custom2830-2820-87397",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "2830",
 			"to": "2890",
 			"label": "西",
 			"id": "custom2830-2890-30101",
-			"order": 0
+			"order": 1
+		},
+		{
+			"from": "2830",
+			"to": "2820",
+			"label": "上",
+			"id": "custom2830-2820-87397",
+			"order": 2
 		},
 		{
 			"from": "2840",
@@ -6390,21 +6388,21 @@
 			"to": "2830",
 			"label": "東",
 			"id": "custom2890-2830-39520",
-			"order": 0
-		},
-		{
-			"from": "2890",
-			"to": "2900",
-			"label": "北",
-			"id": "custom2890-2900-31674",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "2890",
 			"to": "2910",
 			"label": "南",
 			"id": "custom2890-2910-88753",
-			"order": 0
+			"order": 2
+		},
+		{
+			"from": "2890",
+			"to": "2900",
+			"label": "北",
+			"id": "custom2890-2900-31674",
+			"order": 3
 		},
 		{
 			"from": "2900",
@@ -6417,49 +6415,49 @@
 			"to": "2890",
 			"label": "北",
 			"id": "custom2910-2890-33633",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "2910",
 			"to": "2920",
 			"label": "上",
 			"id": "custom2910-2920-9551",
-			"order": 0
-		},
-		{
-			"from": "2920",
-			"to": "2910",
-			"label": "下",
-			"id": "custom2920-2910-12487",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "2920",
 			"to": "2930",
 			"label": "南",
 			"id": "custom2920-2930-30845",
-			"order": 0
+			"order": 1
 		},
 		{
-			"from": "2930",
-			"to": "2920",
-			"label": "北",
-			"id": "custom2930-2920-12227",
-			"order": 0
-		},
-		{
-			"from": "2930",
-			"to": "2940",
-			"label": "南",
-			"id": "custom2930-2940-79623",
-			"order": 0
+			"from": "2920",
+			"to": "2910",
+			"label": "下",
+			"id": "custom2920-2910-12487",
+			"order": 2
 		},
 		{
 			"from": "2930",
 			"to": "2950",
 			"label": "東",
 			"id": "custom2930-2950-23075",
-			"order": 0
+			"order": 1
+		},
+		{
+			"from": "2930",
+			"to": "2940",
+			"label": "南",
+			"id": "custom2930-2940-79623",
+			"order": 2
+		},
+		{
+			"from": "2930",
+			"to": "2920",
+			"label": "北",
+			"id": "custom2930-2920-12227",
+			"order": 3
 		},
 		{
 			"from": "2940",
@@ -6472,49 +6470,56 @@
 			"to": "2930",
 			"label": "西",
 			"id": "custom2950-2930-52171",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "2950",
 			"to": "2960",
 			"label": "上",
 			"id": "custom2950-2960-38617",
-			"order": 0
-		},
-		{
-			"from": "2960",
-			"to": "2950",
-			"label": "下",
-			"id": "custom2960-2950-27146",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "2960",
 			"to": "2970",
 			"label": "東",
 			"id": "custom2960-2970-10457",
-			"order": 0
+			"order": 1
 		},
 		{
-			"from": "2970",
-			"to": "2980",
-			"label": "北",
-			"id": "custom2970-2980-42411",
-			"order": 0
-		},
-		{
-			"from": "2970",
-			"to": "2990",
-			"label": "南",
-			"id": "custom2970-2990-27229",
-			"order": 0
+			"from": "2960",
+			"to": "2950",
+			"label": "下",
+			"id": "custom2960-2950-27146",
+			"order": 2
 		},
 		{
 			"from": "2970",
 			"to": "3000",
 			"label": "東",
 			"id": "custom2970-3000-33240",
-			"order": 0
+			"order": 1
+		},
+		{
+			"from": "2970",
+			"to": "2960",
+			"label": "西",
+			"id": "custom2970-2960-89220",
+			"order": 2
+		},
+		{
+			"from": "2970",
+			"to": "2990",
+			"label": "南",
+			"id": "custom2970-2990-27229",
+			"order": 3
+		},
+		{
+			"from": "2970",
+			"to": "2980",
+			"label": "北",
+			"id": "custom2970-2980-42411",
+			"order": 4
 		},
 		{
 			"from": "2980",
@@ -6533,49 +6538,49 @@
 			"to": "2970",
 			"label": "西",
 			"id": "custom3000-2970-94149",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "3000",
 			"to": "3010",
 			"label": "下",
 			"id": "custom3000-3010-37907",
-			"order": 0
-		},
-		{
-			"from": "3010",
-			"to": "3000",
-			"label": "上",
-			"id": "custom3010-3000-52463",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "3010",
 			"to": "3020",
 			"label": "南",
 			"id": "custom3010-3020-44677",
-			"order": 0
+			"order": 1
 		},
 		{
-			"from": "3020",
-			"to": "3010",
-			"label": "北",
-			"id": "custom3020-3010-81200",
-			"order": 0
-		},
-		{
-			"from": "3020",
-			"to": "3030",
-			"label": "西",
-			"id": "custom3020-3030-98354",
-			"order": 0
+			"from": "3010",
+			"to": "3000",
+			"label": "上",
+			"id": "custom3010-3000-52463",
+			"order": 2
 		},
 		{
 			"from": "3020",
 			"to": "3040",
 			"label": "東",
 			"id": "custom3020-3040-10707",
-			"order": 0
+			"order": 1
+		},
+		{
+			"from": "3020",
+			"to": "3030",
+			"label": "西",
+			"id": "custom3020-3030-98354",
+			"order": 2
+		},
+		{
+			"from": "3020",
+			"to": "3010",
+			"label": "北",
+			"id": "custom3020-3010-81200",
+			"order": 3
 		},
 		{
 			"from": "3030",
@@ -6588,35 +6593,35 @@
 			"to": "3020",
 			"label": "西",
 			"id": "custom3040-3020-80608",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "3040",
 			"to": "3050",
 			"label": "上",
 			"id": "custom3040-3050-14170",
-			"order": 0
-		},
-		{
-			"from": "3050",
-			"to": "3040",
-			"label": "下",
-			"id": "custom3050-3040-20047",
-			"order": 0
-		},
-		{
-			"from": "3050",
-			"to": "3060",
-			"label": "南",
-			"id": "custom3050-3060-14978",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "3050",
 			"to": "3070",
 			"label": "東",
 			"id": "custom3050-3070-4575",
-			"order": 0
+			"order": 1
+		},
+		{
+			"from": "3050",
+			"to": "3060",
+			"label": "南",
+			"id": "custom3050-3060-14978",
+			"order": 2
+		},
+		{
+			"from": "3050",
+			"to": "3040",
+			"label": "下",
+			"id": "custom3050-3040-20047",
+			"order": 3
 		},
 		{
 			"from": "3060",
@@ -6629,21 +6634,28 @@
 			"to": "3050",
 			"label": "西",
 			"id": "custom3070-3050-38082",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "3070",
 			"to": "3080",
 			"label": "南",
 			"id": "custom3070-3080-88278",
-			"order": 0
+			"order": 2
+		},
+		{
+			"from": "3080",
+			"to": "3070",
+			"label": "一旦戻る",
+			"id": "custom3080-3070-40867",
+			"order": 1
 		},
 		{
 			"from": "3080",
 			"to": "3090",
 			"label": "正面突破だ！",
 			"id": "custom3080-3090-35993",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "3080",
@@ -6651,71 +6663,15 @@
 			"label": "HEALを唱える",
 			"id": "custom3080-3110-79725",
 			"condition": "mHEAL",
-			"order": 0
+			"order": 3
 		},
 		{
 			"from": "3080",
-			"to": "3120",
-			"label": "PROTECTを唱える",
-			"id": "custom3080-3120-13222",
-			"condition": "mPROTECT",
-			"order": 0
-		},
-		{
-			"from": "3080",
-			"to": "3130",
-			"label": "HOLY-WATERを唱える",
-			"id": "custom3080-3130-35589",
-			"condition": "mHOLY-WATER",
-			"order": 0
-		},
-		{
-			"from": "3080",
-			"to": "3140",
-			"label": "DELUGEを唱える",
-			"id": "custom3080-3140-17299",
-			"condition": "mDELUGE",
-			"order": 0
-		},
-		{
-			"from": "3080",
-			"to": "3150",
-			"label": "FREEZEを唱える",
-			"id": "custom3080-3150-44456",
-			"condition": "mFREEZE",
-			"order": 0
-		},
-		{
-			"from": "3080",
-			"to": "3190",
-			"label": "RESURRECTを唱える",
-			"id": "custom3080-3190-35250",
-			"condition": "mRESURRECT",
-			"order": 0
-		},
-		{
-			"from": "3080",
-			"to": "3200",
-			"label": "GIVE-VIGORを唱える",
-			"id": "custom3190-3200-93447",
-			"condition": "mGIVE-VIGOR",
-			"order": 0
-		},
-		{
-			"from": "3080",
-			"to": "3210",
-			"label": "REJUVENATEを唱える",
-			"id": "custom3080-3210-50202",
-			"condition": "mREJUVENATE",
-			"order": 0
-		},
-		{
-			"from": "3080",
-			"to": "3220",
-			"label": "CHANGE-AIRを唱える",
-			"id": "custom3080-3220-2112",
-			"condition": "mCHANGE-AIR",
-			"order": 0
+			"to": "3270",
+			"label": "PEACEを唱える",
+			"id": "custom3080-3270-52749",
+			"order": 4,
+			"condition": "mPEACE"
 		},
 		{
 			"from": "3080",
@@ -6723,7 +6679,7 @@
 			"label": "CUREを唱える",
 			"id": "custom3080-3230-86448",
 			"condition": "mCURE",
-			"order": 0
+			"order": 5
 		},
 		{
 			"from": "3080",
@@ -6731,7 +6687,7 @@
 			"label": "MELTを唱える",
 			"id": "custom3080-3230-3183",
 			"condition": "mMELT",
-			"order": 0
+			"order": 6
 		},
 		{
 			"from": "3080",
@@ -6739,7 +6695,7 @@
 			"label": "STONE-FLESHを唱える",
 			"id": "custom3080-3230-66467",
 			"condition": "mSTONE-FLESH",
-			"order": 0
+			"order": 7
 		},
 		{
 			"from": "3080",
@@ -6747,7 +6703,71 @@
 			"label": "UN-CURCEを唱える",
 			"id": "custom3080-3230-50303",
 			"condition": "mUN-CURCE",
-			"order": 0
+			"order": 8
+		},
+		{
+			"from": "3080",
+			"to": "3280",
+			"label": "AIR-HANDを唱える",
+			"id": "custom3080-3280-10950",
+			"order": 9,
+			"condition": "mAIR-HAND"
+		},
+		{
+			"from": "3080",
+			"to": "3190",
+			"label": "RESURRECTを唱える",
+			"id": "custom3080-3190-35250",
+			"condition": "mRESURRECT",
+			"order": 10
+		},
+		{
+			"from": "3080",
+			"to": "3290",
+			"label": "REDUCE-LIFEを唱える",
+			"id": "custom3080-3290-16432",
+			"order": 11,
+			"condition": "mREDUCE-LIFE"
+		},
+		{
+			"from": "3080",
+			"to": "3210",
+			"label": "REJUVENATEを唱える",
+			"id": "custom3080-3210-50202",
+			"condition": "mREJUVENATE",
+			"order": 12
+		},
+		{
+			"from": "3080",
+			"to": "3120",
+			"label": "PROTECTを唱える",
+			"id": "custom3080-3120-13222",
+			"condition": "mPROTECT",
+			"order": 13
+		},
+		{
+			"from": "3080",
+			"to": "3130",
+			"label": "HOLY-WATERを唱える",
+			"id": "custom3080-3130-35589",
+			"condition": "mHOLY-WATER",
+			"order": 14
+		},
+		{
+			"from": "3080",
+			"to": "3220",
+			"label": "CHANGE-AIRを唱える",
+			"id": "custom3080-3220-2112",
+			"condition": "mCHANGE-AIR",
+			"order": 15
+		},
+		{
+			"from": "3080",
+			"to": "3200",
+			"label": "GIVE-VIGORを唱える",
+			"id": "custom3190-3200-93447",
+			"condition": "mGIVE-VIGOR",
+			"order": 16
 		},
 		{
 			"from": "3080",
@@ -6755,7 +6775,23 @@
 			"label": "EXPLOSIONを唱える",
 			"id": "custom3080-3240-4660",
 			"condition": "mEXPLOSION",
-			"order": 0
+			"order": 17
+		},
+		{
+			"from": "3080",
+			"to": "3140",
+			"label": "DELUGEを唱える",
+			"id": "custom3080-3140-17299",
+			"condition": "mDELUGE",
+			"order": 18
+		},
+		{
+			"from": "3080",
+			"to": "3150",
+			"label": "FREEZEを唱える",
+			"id": "custom3080-3150-44456",
+			"condition": "mFREEZE",
+			"order": 19
 		},
 		{
 			"from": "3080",
@@ -6763,7 +6799,7 @@
 			"label": "DESTROY-Aを唱える",
 			"id": "custom3080-3230-76644",
 			"condition": "mDESTROY-A",
-			"order": 0
+			"order": 20
 		},
 		{
 			"from": "3080",
@@ -6771,7 +6807,7 @@
 			"label": "LIGHT-CROSSを唱える",
 			"id": "custom3080-3250-19103",
 			"condition": "mLIGHT-CROSS",
-			"order": 0
+			"order": 21
 		},
 		{
 			"from": "3080",
@@ -6779,45 +6815,14 @@
 			"label": "NOILA-TEMを唱える",
 			"id": "custom3080-3260-24264",
 			"condition": "mNOILA-TEM",
-			"order": 0
-		},
-		{
-			"from": "3080",
-			"to": "3270",
-			"label": "PEACEを唱える",
-			"id": "custom3080-3270-52749",
-			"order": 0,
-			"condition": "mPEACE"
-		},
-		{
-			"from": "3080",
-			"to": "3280",
-			"label": "AIR-HANDを唱える",
-			"id": "custom3080-3280-10950",
-			"order": 0,
-			"condition": "mAIR-HAND"
-		},
-		{
-			"from": "3080",
-			"to": "3290",
-			"label": "REDUCE-LIFEを唱える",
-			"id": "custom3080-3290-16432",
-			"order": 0,
-			"condition": "mREDUCE-LIFE"
-		},
-		{
-			"from": "3080",
-			"to": "3070",
-			"label": "一旦戻る",
-			"id": "custom3080-3070-40867",
-			"order": "98"
+			"order": 22
 		},
 		{
 			"from": "3080",
 			"to": "8990",
 			"label": "＜王杖の貝殻＞を使う",
 			"id": "custom3080-8990-28090",
-			"order": "98",
+			"order": 23,
 			"condition": "i100&!f92"
 		},
 		{
@@ -6825,7 +6830,7 @@
 			"to": "9000",
 			"label": "＜王杖の貝殻＞を使う",
 			"id": "custom3080-9000-83622",
-			"order": "99",
+			"order": 24,
 			"condition": "i100&f92"
 		},
 		{
@@ -6863,42 +6868,42 @@
 			"to": "3100",
 			"label": "屍たちは離散した（成功）",
 			"id": "custom3140-3100-84610",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "3140",
 			"to": "3080",
 			"label": "屍たちが戻ってきてしまった",
 			"id": "custom3140-3080-43332",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "3150",
 			"to": "3080",
 			"label": "他の方法を考える",
 			"id": "custom3150-3070-35742",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "3150",
 			"to": "3160",
 			"label": "AIR-HANDを唱える",
 			"id": "custom3150-3160-74979",
-			"order": 0
-		},
-		{
-			"from": "3150",
-			"to": "3170",
-			"label": "NOILA-TEMを唱える",
-			"id": "custom3150-3170-26142",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "3150",
 			"to": "3180",
 			"label": "LIGHT-CROSSを唱える",
 			"id": "custom3150-3180-26169",
-			"order": 0
+			"order": 3
+		},
+		{
+			"from": "3150",
+			"to": "3170",
+			"label": "NOILA-TEMを唱える",
+			"id": "custom3150-3170-26142",
+			"order": 4
 		},
 		{
 			"from": "3160",
@@ -6959,14 +6964,14 @@
 			"to": "3080",
 			"label": "他の方法を考える",
 			"id": "custom3250-3080-75432",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "3250",
 			"to": "3100",
 			"label": "群れを突破できたら...",
 			"id": "custom3250-3100-13989",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "3260",
@@ -6979,14 +6984,14 @@
 			"to": "3080",
 			"label": "他の方法を考える",
 			"id": "custom3270-3080-37260",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "3270",
 			"to": "3100",
 			"label": "群れを突破できたら...",
 			"id": "custom3270-3100-59186",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "3280",
@@ -7002,17 +7007,17 @@
 		},
 		{
 			"from": "3300",
-			"to": "3310",
-			"label": "上",
-			"id": "custom3300-3310-21866",
-			"order": 0
-		},
-		{
-			"from": "3300",
 			"to": "3320",
 			"label": "西",
 			"id": "custom3300-3320-66814",
-			"order": 0
+			"order": 1
+		},
+		{
+			"from": "3300",
+			"to": "3310",
+			"label": "上",
+			"id": "custom3300-3310-21866",
+			"order": 2
 		},
 		{
 			"from": "3310",
@@ -7025,28 +7030,28 @@
 			"to": "3300",
 			"label": "東",
 			"id": "custom3320-3300-28980",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "3320",
 			"to": "3070",
 			"label": "北",
 			"id": "custom3320-3070-77898",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "3330",
 			"to": "3340",
 			"label": "苦無を打ち込めたら― ",
 			"id": "custom3330-3340-13962",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "3330",
 			"to": "3350",
 			"label": "さもなくば...",
 			"id": "custom3330-3350-19895",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "3340",
@@ -7071,14 +7076,14 @@
 			"to": "3390",
 			"label": "政四郎をどうした",
 			"id": "custom3380-3390-89715",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "3380",
 			"to": "3400",
 			"label": "貴様らは何者だ",
 			"id": "custom3380-3400-27663",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "3390",
@@ -7103,161 +7108,161 @@
 			"to": "9000",
 			"label": "通信を開く",
 			"id": "custom8990-9000-78831",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "8990",
 			"to": "90000",
 			"label": "戻る",
 			"id": "custom8990-90000-8018",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "9000",
 			"to": "9010",
 			"label": "HEALについて知りたい",
 			"id": "custom9000-9010-90040",
-			"order": 0
+			"order": 1
 		},
 		{
 			"from": "9000",
 			"to": "9020",
 			"label": "PEACEについて知りたい",
 			"id": "custom9000-9020-81040",
-			"order": 0
+			"order": 2
 		},
 		{
 			"from": "9000",
 			"to": "9030",
 			"label": "CUREについて知りたい",
 			"id": "custom9000-9030-64076",
-			"order": 0
+			"order": 3
 		},
 		{
 			"from": "9000",
 			"to": "9040",
 			"label": "MELTについて知りたい",
 			"id": "custom9000-9040-43646",
-			"order": 0
+			"order": 4
 		},
 		{
 			"from": "9000",
 			"to": "9050",
 			"label": "STONE-FLESHについて知りたい",
 			"id": "custom9000-9050-10702",
-			"order": 0
+			"order": 5
 		},
 		{
 			"from": "9000",
 			"to": "9060",
 			"label": "UN-CURCEについて知りたい",
 			"id": "custom9000-9060-77580",
-			"order": 0
+			"order": 6
 		},
 		{
 			"from": "9000",
 			"to": "9070",
 			"label": "AIR-HANDについて知りたい",
 			"id": "custom9000-9070-15891",
-			"order": 0
+			"order": 7
 		},
 		{
 			"from": "9000",
 			"to": "9080",
 			"label": "RESURRECTについて知りたい",
 			"id": "custom9000-9080-29591",
-			"order": 0
+			"order": 8
 		},
 		{
 			"from": "9000",
 			"to": "9090",
 			"label": "REDUCE-LIFEについて知りたい",
 			"id": "custom9000-9090-18759",
-			"order": 0
+			"order": 9
 		},
 		{
 			"from": "9000",
 			"to": "9100",
 			"label": "REJUVENATEについて知りたい",
 			"id": "custom9000-9100-34825",
-			"order": 0
+			"order": 10
 		},
 		{
 			"from": "9000",
 			"to": "9110",
 			"label": "PROTECTについて知りたい",
 			"id": "custom9000-9110-77318",
-			"order": 0
+			"order": 11
 		},
 		{
 			"from": "9000",
 			"to": "9120",
 			"label": "HOLY-WATERについて知りたい",
 			"id": "custom9000-9120-72449",
-			"order": 0
+			"order": 12
 		},
 		{
 			"from": "9000",
 			"to": "9130",
 			"label": "CHANGE-AIRについて知りたい",
 			"id": "custom9000-9130-49069",
-			"order": 0
+			"order": 13
 		},
 		{
 			"from": "9000",
 			"to": "9140",
 			"label": "GIVE-VIGORについて知りたい",
 			"id": "custom9000-9140-38008",
-			"order": 0
+			"order": 14
 		},
 		{
 			"from": "9000",
 			"to": "9150",
 			"label": "EXPLOSIONについて知りたい",
 			"id": "custom9000-9150-33355",
-			"order": 0
+			"order": 15
 		},
 		{
 			"from": "9000",
 			"to": "9160",
 			"label": "DELUGEについて知りたい",
 			"id": "custom9000-9160-71512",
-			"order": 0
+			"order": 16
 		},
 		{
 			"from": "9000",
 			"to": "9170",
 			"label": "FREEZEについて知りたい",
 			"id": "custom9000-9170-50268",
-			"order": 0
+			"order": 17
 		},
 		{
 			"from": "9000",
 			"to": "9180",
 			"label": "DESTROY-Aについて知りたい",
 			"id": "custom9170-9180-62280",
-			"order": 0
+			"order": 18
 		},
 		{
 			"from": "9000",
 			"to": "9190",
 			"label": "LIGHT-CROSSについて知りたい",
 			"id": "custom9000-9190-91327",
-			"order": 0
+			"order": 19
 		},
 		{
 			"from": "9000",
 			"to": "9200",
 			"label": "NOILA-TEMについて知りたい",
 			"id": "custom9000-9200-94574",
-			"order": 0
+			"order": 20
 		},
 		{
 			"from": "9000",
 			"to": "90000",
 			"label": "戻る",
 			"id": "custom9000-90000-45228",
-			"order": "99"
+			"order": 21
 		},
 		{
 			"from": "9010",

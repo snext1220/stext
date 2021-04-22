@@ -1316,6 +1316,7 @@ $(function () {
           }
           if (type === 'sort') {
             $(s_list).sortable({
+              forcePlaceholderSize: true,
               cursor: 'move',
               opacity: 0.2
             });
