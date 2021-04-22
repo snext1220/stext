@@ -593,6 +593,14 @@ $(function () {
       });
     },
 
+    // リンクリストを生成
+    createSortLinkList: function(id) {
+      Util.sortEdges();
+      return scenario.edges.filter(function(value) {
+        return value.from === id;
+      });
+    },
+
     // カラーリストを生成
     createColorList: function(id, colors = [ 
       'Purple', 'Olive', 'Blue', 'Gray', 'Green', 'Silver',
@@ -1241,7 +1249,14 @@ $(function () {
           //     }
           //   ].concat(dataset);
           // }
-          for(let obj of dataset) {
+          // データセットが関数の場合の加工処理
+          let v_dataset;
+          if (typeof(dataset) === 'function') {
+            v_dataset = dataset();
+          } else {
+            v_dataset = dataset;
+          } 
+          for(let obj of v_dataset) {
             let elem;
             let v_label;  // ラベル文字列
             let v_value;  // オプション値
@@ -1289,10 +1304,18 @@ $(function () {
                   </td>
                 </tr>`;
                 break;
+              case 'sort' :
+                elem = `<li id="${v_value}">
+                  <div>${v_label}</div>
+                </li>`;
+                break;
               default:
                 throw new Error('type属性の値が不正です。');
             }
             $(s_list).append(elem);
+          }
+          if (type === 'sort') {
+            $(s_list).sortable();
           }
           // データ量が多い場合にだけ先頭ボタンを表示
           if (dataset.length > 30) {
@@ -2476,6 +2499,29 @@ ${Util.createLinkText(value.id, scenario.edges)}
     'radio',
     'name',
     'id'
+  );
+
+  // ［シーン］タブ内でのソートリンク処理
+  Util.createSelectSidebarForDataset(
+    '#scene-select #scene-sortlink',
+    'sorts',
+    function() {
+      return Util.createSortLinkList(
+        $('#scene-attr #id').val()
+      );
+    },
+    'sort',
+    'label',
+    'id',
+    function(result, trigger, s_list) {
+      let order = 1;
+      let sorted = $(s_list).sortable('toArray');
+      for (let id of sorted) {
+        let edge = Util.getEdgeById(id);
+        edge.order = order;
+        order++;
+      }
+    }
   );
 
   // ［シーン］タブ内での次シナ処理
