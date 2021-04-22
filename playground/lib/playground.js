@@ -1306,7 +1306,7 @@ $(function () {
                 break;
               case 'sort' :
                 elem = `<li id="${v_value}">
-                  <div>${v_label}</div>
+                  <div class="ui-state-highlight ui-corner-all">${v_label}</div>
                 </li>`;
                 break;
               default:
@@ -1315,7 +1315,10 @@ $(function () {
             $(s_list).append(elem);
           }
           if (type === 'sort') {
-            $(s_list).sortable();
+            $(s_list).sortable({
+              cursor: 'move',
+              opacity: 0.2
+            });
           }
           // データ量が多い場合にだけ先頭ボタンを表示
           if (dataset.length > 30) {
@@ -2516,6 +2519,7 @@ ${Util.createLinkText(value.id, scenario.edges)}
     function(result, trigger, s_list) {
       let order = 1;
       let sorted = $(s_list).sortable('toArray');
+      // リスト内の順序を元にorder属性を振りなおし
       for (let id of sorted) {
         let edge = Util.getEdgeById(id);
         edge.order = order;
