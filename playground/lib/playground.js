@@ -1442,6 +1442,12 @@ $(function () {
             break;
         }
       }
+      // 移動先リンクがない場合、エラーログ
+      if (result.length === 0) {
+        if (!Util.getSceneById(id).end) {
+          console.error(`No Link: ${id}`);
+        }
+      }
       return result.join('\n');
     },
     // 指定されたidのタブを有効化＆フォーカス
