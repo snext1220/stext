@@ -1083,7 +1083,7 @@ $(function () {
         autoEdit: false
       };
 
-      // アイテム一覧の描画
+      // グループ一覧の描画
       grid['groups'] = 
       Util.createGrid('#groups_grid', scenario.groups, 
         [
@@ -2908,6 +2908,9 @@ ${Util.createLinkText(value.id, scenario.edges)}
         for(let key of keys) {
           grid[key].navigateNext();
         }
+        // グリッドを再ソート（保留中）
+        // Util.sortScenario();
+        // Util.createAllGrid();
       }
     });
   Util.disableTab();

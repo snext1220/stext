@@ -328,13 +328,13 @@ img.dice {
 } */
 
 #dialog_body input[type="number"], #dialog_body select, #dialog_body textarea,
-input[type="number"].sgml {
+input[type="text"].sgml {
   border-radius: 3px;
   background-color: #cad4ff;
   font-size: large;
 }
 
-input[type="number"].sgml {
+input[type="text"].sgml {
   width: 50px;
   margin-left: 5px;
   margin-right: 5px;

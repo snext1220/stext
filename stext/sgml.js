@@ -19,6 +19,9 @@
   // フラグ一覧
   var flags_map = {};
 
+  // パラメーター一覧
+  var params_map = {};
+
   // モンスター一覧
   var enemies_map = {};
 
@@ -2025,8 +2028,8 @@
         that.setStateStyle();
       });
       // ［+］［-］ボタンでの星の加減算
-      target.parent().on('click', '#sidr_status .spinner_up', this.incrementValue);
-      target.parent().on('click', '#sidr_status .spinner_down', this.decrementValue);
+      target.parent().on('click', '.spinner_up', this.incrementValue);
+      target.parent().on('click', '.spinner_down', this.decrementValue);
       // サイドバーの生成
       this.createSideBar(
         'status',
@@ -2860,6 +2863,8 @@
         items: [],
         // 所有しているフラグ
         flags: [],
+        // 所有しているパラメーター
+        params: {},
         // 冒険メモ（自由入力欄）
         memos: old_memo,       
         // 現在のシーン番号
@@ -3214,6 +3219,32 @@
         }
       }
       save_data.flags = flags;
+    },
+
+    // @params属性（at_params）の値に応じて、セーブデータのparamsプロパティを更新
+    updateParams: function(at_params) {
+      if(!at_params) { return; }
+      // パラメーター情報を取得
+      let params = save_data.params;
+      if (!params) {
+        save_data.params = {};
+      }
+      for(let p of at_params.split(',')) {
+        let [p_name, p_value] = p.split(':');
+        let current = params[p_name];
+        // 未初期化の場合は初期化
+        if (!current) {
+          current = params_map[p_name].initial;
+        }
+        // 値の更新
+        if (p_value.startsWith('@')) {
+          current = p_value;
+        } else {
+          current = Number(current) + Number(p_value);
+        }
+        params[p_name] = current;
+      }
+      save_data.params = params;
     },
 
     // 現在の状態異常に応じてステータスを更新
@@ -4518,6 +4549,16 @@
         flags_map = {};
         $('flags > flag', scenario_data).each(function() {
           flags_map[$(this).nsAttr('id')] = $(this).text().trim();
+        });
+
+        // パラメーター一覧を取得
+        $('params > param', scenario_data).each(function() {
+          params_map[$(this).nsAttr('id')] = {
+            min: $(this).nsAttr('min'),
+            max: $(this).nsAttr('max'),
+            initial: $(this).nsAttr('initial'),
+            desc: $(this).text().trim()
+          };
         });
       
         // モンスター覧を取得
