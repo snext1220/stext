@@ -17,8 +17,12 @@
 		<flag id="f02">Flag2</flag>
 		<flag id="f03">Flag3</flag>
 	</flags>
+	<params>
+		<param id="p01" min="0" max="50" initial="30">Param description</param>
+		<param id="p02">Param description</param>
+	</params>
 	<enemies>
-		<enemy id="m01" name="Enemy-01" element="earth" attack="physics" func="L+R-STR" drop="mon/2">Enemy description...</enemy>
+		<enemy id="m01" name="Enemy-01" element="earth" attack="physics" func="L+R-STR" drop="param/p01:10/TEST">Enemy description...</enemy>
 	</enemies>
 	<results>
 		<result id="r01" name="Result-01" level="1">Result description...</result>
@@ -26,7 +30,12 @@
 	<licence>
 		<work name="Bgm-01" category="bgm" creator="SText" url="https://example.com/"></work>
 	</licence>
-	<scene id="0" summary="プロローグ" group="prologue" items="i01,i02,i03" flags="f01,f02,f03">分岐テスト
+	<scene id="0" summary="プロローグ" group="prologue" enemies="m01" items="i01,i02,i03" flags="f01,f02,f03" params="p01:10,p02:Rio">分岐テスト
+
+${var?i01:name}：${var?i01:text}
+${var?m01:name}：${var?m01:element}：${var?m01:text}
+${var?r01:name}：${var?r01:level}：${var?r01:text}
+${var?p01:text}：${var?p01:value}
 
 [次へ](100)
 
@@ -47,6 +56,17 @@ f01,f02,f03、
 フラグ入手でf01～f03を入手した後、
 
 ボタンが出現するか確認してもらえますか。
+
+${var?p01:text}：${var?p01:value}
+${var?p02:text}：${var?p02:value}
+
+[次へ](200 "p01:10")
+[次へ（数値未満）](200 "!p01:60")
+[次へ（数値===）](200 "p01:@40")
+[次へ（文字列）](300 "p02:Rio")
+[次へ（文字列not）](400 "!p02:Suzuki")
+
+---
 
 [f01&amp;f02&amp;f03](1 "f01&amp;f02&amp;f03")
 [f01,f02,f03](2 "f01,f02,f03")

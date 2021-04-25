@@ -1083,6 +1083,14 @@
               `フラグ「${drops[2]}」を獲得しました。`,
               'フラグ獲得'
             );
+          } else if (drops[0] === 'param') {
+            // 自由パラメーターの付与（ex. param/p01:xxx/Value）
+            Util.updateParams(drops[1].trim());
+            toastr.options.timeOut = 5000;
+            toastr.info(
+              `「${drops[2]}」を獲得しました。`,
+              '獲得'
+            );
           } else {
             // freeX属性の加算（ex. free1/50/50Gold）
             let at_free1 = (drops[0] === 'free1' ? drops[1] : 0);
@@ -3106,6 +3114,30 @@
       return false;
     },
     
+    // 指定されたパラメーター条件を満たしているかを判定（引数はp＜id＞:値）
+    ifParam: function(cond) {
+      if (cond.startsWith('p')) {
+        let [p_name, p_value] = cond.split(':');
+        // 現在値を取得
+        let current = save_data.params[p_name];
+        // 未初期化の場合は初期化
+        if (!current) {
+          current = params_map[p_name].initial;
+        }
+        // 数値の場合（@付き）
+        if (p_value.startsWith('@')) {
+          return Number(p_value.substring(1)) === Number(current);         
+        // 文字列の場合
+        } else if (isNaN(p_value)) {
+          return p_value === current;
+        // 数値の場合（@なし）
+        } else {
+          return Number(current) >= Number(p_value)
+        }
+      }
+      return false;
+    },
+
     // 指定されたステータス条件を満たしているかを判定（引数はo＜条件＞）
     ifStatus: function(cond) {
       if (cond.indexOf('o') === 0) {
@@ -3236,11 +3268,28 @@
         if (!current) {
           current = params_map[p_name].initial;
         }
-        // 値の更新
-        if (p_value.startsWith('@')) {
+        // 値の更新（文字列ではそのままセット）
+        if (isNaN(p_value)) {
           current = p_value;
         } else {
-          current = Number(current) + Number(p_value);
+          if (p_value.startsWith('@')) {
+            current = p_value;
+          } else {
+            let min = params_map[p_name].min;
+            let max = params_map[p_name].max;
+            let tmp_current = Number(current) + Number(p_value);
+            if (min && max) {
+              if (tmp_current < Number(min)) {
+                current = Number(min);
+              } else if (tmp_current > Number(max)) {
+                current = Number(max);
+              } else {
+                current = tmp_current;  
+              }
+            } else {
+              current = tmp_current;
+            }
+          }
         }
         params[p_name] = current;
       }
@@ -3780,6 +3829,7 @@
         return (items_map[id].shared !== undefined);
       });
       c_save.flags = [];
+      c_save.params = {};
       c_save.scene = 0;
       c_save.ellapsed_scene = 0;
       c_save.bgm = '';
@@ -3991,6 +4041,54 @@
           return Util.random(Number(m_params[0]), Number(m_params[1]));
         case 'msg' :
           return Util.randomArray(m_params);
+        case 'var' :
+          if (m_params[0].startsWith('p')) {
+            let p = params_map[m_params[0]];
+            switch (m_params[1]) {             
+              case 'text' :
+                return p.desc;
+              case 'value' :
+                let v = 0;
+                // セーブデータから現在値を取得
+                if (save_data.params) {
+                  v = save_data.params[m_params[0]];
+                }
+                // セーブデータにない場合はinitial値
+                if (!v) {
+                  return p.initial;
+                }
+                return v;
+            };
+          } else if (m_params[0].startsWith('m')) {
+            let m = enemies_map[m_params[0]];
+            switch (m_params[1]) {
+              case 'name' :
+                return m.name;
+              case 'element' :
+                return Common.element_names[m.element];
+              case 'text' :
+                return m.desc;
+            }
+          } else if (m_params[0].startsWith('i')) {
+            let i = items_map[m_params[0]];
+            switch (m_params[1]) {
+              case 'name' :
+                return i.name;
+              case 'text' :
+                return i.desc;
+            }
+          } else if (m_params[0].startsWith('r')) {
+            let r = results_map[m_params[0]];
+            switch (m_params[1]) {
+              case 'name' :
+                return r.name;
+              case 'level' :
+                return r.level;
+              case 'text' :
+                return r.desc;
+            }
+          }
+          return 'Unknow Variable';
         case 'input' :
           return '<input type="button" class="spinner_down sgml" value="-" />'
             + '<input type="text" class="sgml" value="' + m_params[0] + '" />'
@@ -4006,6 +4104,7 @@
       return save_data.flags.indexOf(cond) !== -1 ||
         save_data.items.indexOf(cond) !== -1 ||
         Util.canUseMagicByName(cond) ||
+        Util.ifParam(cond) ||
         Util.ifStatus(cond) ||
         Util.isCharaState(cond) ||
         Util.hasStars(cond) ||
@@ -4216,6 +4315,7 @@
         // 現在のシーンのフラグ情報／アイテム／Free欄／実績情報を反映
         Util.updateItems(scene.nsAttr('items'));
         Util.updateFlags(scene.nsAttr('flags'));
+        Util.updateParams(scene.nsAttr('params'));
         Util.updateStars(scene.nsAttr('stars'));
         Util.updateHp2KrmMax({
           hp_m: scene.nsAttr('hp_max'),
