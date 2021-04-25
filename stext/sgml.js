@@ -2036,8 +2036,8 @@
         that.setStateStyle();
       });
       // ［+］［-］ボタンでの星の加減算
-      target.parent().on('click', '.spinner_up', this.incrementValue);
-      target.parent().on('click', '.spinner_down', this.decrementValue);
+      target.parent().on('click', '#sidr_status .spinner_up, .sgml.spinner_up', this.incrementValue);
+      target.parent().on('click', '#sidr_status .spinner_down, .sgml.spinner_down', this.decrementValue);
       // サイドバーの生成
       this.createSideBar(
         'status',
@@ -2250,7 +2250,7 @@
         that.showSimpleStatus();
       });
       // ［+］ボタンでの星加算
-      $('.spinner_up', template).click(this.incrementValue());
+      // $('.spinner_up', template).click(this.incrementValue());
       // サイドバーの生成
       this.createSideBar(
         'magic',
