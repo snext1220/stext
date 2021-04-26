@@ -1020,6 +1020,12 @@ $(function () {
           grid.invalidate();
         }
       });
+      grid.onCellChange.subscribe(function(e, args) {
+        // id更新時にソートを実行
+        if (args.cell === 0) {
+          isUpdatedInGrid = true;
+        }
+      });
       grid.onAddNewRow.subscribe(function (e, args) {
         let item = args.item;
         if (checkid) {
