@@ -2909,8 +2909,8 @@ ${Util.createLinkText(value.id, scenario.edges)}
           grid[key].navigateNext();
         }
         // グリッドを再ソート（保留中）
-        // Util.sortScenario();
-        // Util.createAllGrid();
+        Util.sortScenario();
+        Util.createAllGrid();
       }
     });
   Util.disableTab();
