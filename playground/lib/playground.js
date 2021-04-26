@@ -119,6 +119,8 @@ $(function () {
   let config = {};
   // グリッド
   let grid = {};
+  // グリッドになんらかの更新が発生したか
+  let isUpdatedInGrid = false;
   // ヘルプページ（キャッシュ）
   let help_page = '';
   // 共通データ
@@ -1034,6 +1036,8 @@ $(function () {
         data.push(item);
         grid.updateRowCount();
         grid.render();
+        // ソート用更新マーク
+        isUpdatedInGrid = true;
       });
       grid.onHeaderClick.subscribe(function (e, args) {
         window.open(Common.HELP_URL + helpName, 'help');
@@ -2908,9 +2912,12 @@ ${Util.createLinkText(value.id, scenario.edges)}
         for(let key of keys) {
           grid[key].navigateNext();
         }
-        // グリッドを再ソート（保留中）
-        Util.sortScenario();
-        Util.createAllGrid();
+        // グリッドを再ソート
+        if (isUpdatedInGrid) {
+          Util.sortScenario();
+          Util.createAllGrid();
+          isUpdatedInGrid = false;
+        }
       }
     });
   Util.disableTab();
