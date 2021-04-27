@@ -163,10 +163,10 @@
 		<result id="r79" name="亡者の思念" level="4">亡者の思念が流れ込んだ</result>
 		<result id="r80" name="亡者の仲間入り？" level="4">生命力が削がれて、亡者のようになった</result>
 		<result id="r85" name="群れ突破" level="5">屍たちの群れを突破した</result>
+		<result id="r86" name="あと一歩" level="4">反吐に巻き込まれた</result>
 		<result id="r90" name="土方歳三" level="5">土方歳三と出会った</result>
 		<result id="r98" name="意味もなく溶けた" level="2">魔法の効果を得られなかった</result>
 		<result id="r99" name="エティスの助け" level="2">初めてエティスに助けてもらった</result>
-		<result id="r86" name="あと一歩" level="4">反吐に巻き込まれた</result>
 	</results>
 	<licence>
 		<work name="メインテーマ（Battle for Honour）" category="bgm" creator="ユーフルカ" url="https://wingless-seraph.net/"></work>
@@ -4615,7 +4615,7 @@ ${反吐|それ}はなにかによってかき混ぜられ、
 （True Beginning――幕末ソーサリアン開幕！）
 
 </scene>
-	<scene id="8990" summary="エティスHELP" level="53" flags="f92" bgm="daemon">異空間にあっては、
+	<scene id="8990" summary="エティスHELP" level="53" flags="f92" bgm="help">異空間にあっては、
 物理的な手段が通用する範囲も限られている。
 
 幸いにして、
