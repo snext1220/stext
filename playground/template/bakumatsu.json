@@ -120,7 +120,8 @@
 			"level": 3,
 			"enemies": "m01",
 			"result": "r01",
-			"items": "i100,i101"
+			"items": "i100,i101",
+			"rule": "99000"
 		},
 		{
 			"id": "3",
@@ -151,19 +152,19 @@
 	"edges": [
 		{
 			"from": "0",
-			"to": "1",
-			"label": "これまでのあらすじ＆現在の実積率",
-			"condition": "",
-			"order": 1,
-			"id": "d5de855f-7c77-4323-9876-9e7984bc5d14"
-		},
-		{
-			"from": "0",
 			"to": "99000",
 			"label": "ダミー",
 			"id": "custom0-99999-36735",
 			"condition": "f00",
 			"order": 0
+		},
+		{
+			"from": "0",
+			"to": "1",
+			"label": "これまでのあらすじ＆現在の実積率",
+			"condition": "",
+			"order": 1,
+			"id": "d5de855f-7c77-4323-9876-9e7984bc5d14"
 		},
 		{
 			"from": "1",
