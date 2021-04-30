@@ -22,7 +22,7 @@
 		<param id="p02">Param description</param>
 	</params>
 	<enemies>
-		<enemy id="m01" name="Enemy-01" element="earth" attack="physics" func="L+R-STR" drop="param/p01:10/TEST">Enemy description...</enemy>
+		<enemy id="m01" name="Enemy-01" element="earth" attack="physics" func="L+2LM+M+RM+R-STR" drop="param/p01:10/TEST">Enemy description...</enemy>
 	</enemies>
 	<results>
 		<result id="r01" name="Result-01" level="1">Result description...</result>
@@ -30,7 +30,7 @@
 	<licence>
 		<work name="Bgm-01" category="bgm" creator="SText" url="https://example.com/"></work>
 	</licence>
-	<scene id="0" summary="プロローグ" group="prologue" enemies="m01" items="i01,i02,i03" flags="f01,f02,f03" params="p01:10,p02:Rio">分岐テスト
+	<scene id="0" summary="プロローグ" group="prologue" enemies="m01" items="i01,i02,i03" flags="f01,f02,f03" dice="6:5" params="p01:10,p02:Rio">分岐テスト
 
 ${var?i01:name}：${var?i01:text}
 ${var?m01:name}：${var?m01:element}：${var?m01:text}

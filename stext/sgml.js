@@ -61,7 +61,10 @@
   // 利用するストレージ
   var storage = localStorage;
 
-  // ダイスの現在値
+  // 現在のダイス
+  var dice_obj = null;
+
+  // ダイスの現在値（旧）
   var dice = [ 1, 1 ];
 
   // シーン単位のツイートメッセージ
@@ -1112,19 +1115,19 @@
       // ダイス回転音を準備
       // let ad = new Audio(ROOT + COMMON + 'dice.mp3');
       // ダイスの回転
-      let rotate_count;
-      let rotateCube = function() {
-        rotate_count++;
-        $('#sidr_battle #cubes').html(that.cube(2));
-        if(rotate_count > 20) { return; }
-        setTimeout(rotateCube, 50);
-      };
+      // let rotate_count;
+      // let rotateCube = function() {
+      //   rotate_count++;
+      //   $('#sidr_battle #cubes').html(that.cube(2));
+      //   if(rotate_count > 20) { return; }
+      //   setTimeout(rotateCube, 50);
+      // };
       // サイコロをリロード
-      target.parent().on('click', '#sidr_battle #cubes', function(e) {
-        SeAudio.play('dice', true);
-        rotate_count = 1;
-        rotateCube();
-      });
+      // target.parent().on('click', '#sidr_battle #cubes', function(e) {
+      //   SeAudio.play('dice', true);
+      //   rotate_count = 1;
+      //   rotateCube();
+      // });
 
       this.createSideBar(
         'battle',
@@ -1134,8 +1137,21 @@
           let current_scene = $(`scene[id=${save_data.scene}]`, scenario_data);
 
           // ダイスの反映
-          $('#sidr_battle #cubes').html(that.cube(2));
-          
+          // $('#sidr_battle #cubes').html(that.cube(2));
+          let d_type, d_num;
+          let at_dice = current_scene.nsAttr('dice');
+          if (at_dice) {
+            let dices = at_dice.split(':');
+            d_type = dices[0];
+            d_num  = dices[1];
+          }
+          dice_obj = new RpgDice(
+            '#sidr_battle #cubes',
+            (d_type ? d_type : 6),
+            (d_num ? d_num : 2),
+          );
+          dice_obj.show();
+
           // 簡易ステータスの反映
           that.showSimpleStatus();
 
@@ -3128,7 +3144,7 @@
         if (p_value.startsWith('@')) {
           return Number(p_value.substring(1)) === Number(current);         
         // 文字列の場合
-        } else if (isNaN(p_value)) {
+        } else if (!$.isNumeric(p_value)) {
           return p_value === current;
         // 数値の場合（@なし）
         } else {
@@ -3689,7 +3705,7 @@
     // ダメージ式funcに従って、ダメージを算出
     computeDamage: function(func) {
       var damage = 0;
-      var func_re = /([\+\-]?)(\d*)(R|L|STR|INT|DEX|KRM|FREE1|FREE2|FREE3)?]?/gi;
+      var func_re = /([\+\-]?)(\d*)(RM|LM|R|L|M|STR|INT|DEX|KRM|FREE1|FREE2|FREE3)?]?/gi;
       var result;
       while ((result = func_re.exec(func)) != null) {
         var sign = 1; // 符号
@@ -3734,12 +3750,19 @@
         }
         // パラメーター値の決定
         switch (result[3]) {
-          case 'L':
-            param = dice[0];
+          case 'L' :
+          case 'R' :
+          case 'LM' :
+          case 'RM' :
+          case 'M' :
+            param = dice_obj.getRoll(result[3]);
             break;
-          case 'R':
-            param = dice[1];
-            break;
+          // case 'L':
+          //   param = dice[0];
+          //   break;
+          // case 'R':
+          //   param = dice[1];
+          //   break;
           case 'STR':
           case 'INT':
           case 'DEX':
@@ -4494,6 +4517,7 @@
     constructor(target, type = 6 , num = 2) {
       // カスタムのダイス定義
       this.diceset = {
+        'low' : [1, 2, 3],
         'high' : [4, 5, 6],
         'cheat_l': [1, 1, 1, 2, 3, 4, 5, 6],
         'cheat_h': [1, 2, 3, 4, 5, 6, 6, 6],
@@ -4509,6 +4533,13 @@
       this.current.fill(1);
       // ダイスの回転数（内部用途）
       this.rotateCount = 1;
+      // イベントリスナーの登録
+      let that = this;
+      $(this.target)
+        .off()
+        .on('click', function() {
+          that.rotate(that);
+        });
     }
 
     // ダイスのためのHTMLを生成（private）
@@ -4516,10 +4547,10 @@
       let html = '';
       for (let i = 0; i < this.num; i++) {
         // ダイスの値を保管
-        if (Array.isArray(this.type)) {
-            // TODO
+        if ($.isNumeric(this.type)) {
+          this.current[i] = Util.random(1, Number(this.type));
         } else {
-          this.current[i] = Util.random(1, this.type);
+          this.current[i] = Util.randomArray(this.diceset[this.type]);
         }
         html += `<img src="${ROOT}${COMMON}cube${this.current[i]}.png" class="dice" />`;
       }
@@ -4535,15 +4566,20 @@
     }
 
     // ダイスを振る
-    rotate() {
-      //SeAudio.play('dice', true);
-      this.rotateCount = 1;
-      this.rotateOne(this);
+    rotate(that) {
+      SeAudio.play('dice', true);
+      that.rotateCount = 1;
+      that.rotateOne(that);
+    }
+
+    // ダイスの現在状態を反映
+    show() {
+      $(this.target).html(this.getHtml());
     }
 
     // 出目を取得
     getRoll(key) {
-      switch(this.num) {
+      switch(Number(this.num)) {
         case 2:
           if (key === 'L') { return this.current[0]; }
           if (key === 'R') { return this.current[1]; }
@@ -4563,7 +4599,7 @@
           if (key === 'L')  { return this.current[0]; }
           if (key === 'LM') { return this.current[1]; }
           if (key === 'M')  { return this.current[2]; }
-          if (key === 'LR') { return this.current[3]; }
+          if (key === 'RM') { return this.current[3]; }
           if (key === 'R')  { return this.current[4]; }
           break;
       }
