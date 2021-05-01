@@ -3073,6 +3073,20 @@
       return error_messages;
     },
 
+    // 引数destが90000（戻る）の場合のリンク先（それ以外はそのまま引数を返す）
+    // 内部パラメーターp99があればその値、さもなければfalse（ブラウザーバック）
+    getBackLinkNumber(dest) {
+      if (Number(dest) === 90000) {
+        if (save_data.params) {
+          let back = save_data.params['p99'];
+          return (back ? back : false);
+        } else {
+          return false;
+        }
+      }
+      return dest;
+    },
+
     // ランダムリンクから移動先を決定
     // dest：リンク先（「to1,to2,...;7」の形式）
     // 「;7」はキャッシュの日数
@@ -4668,8 +4682,13 @@
         // 複数移動先が指定されている場合、ランダムに選択
         num = Util.getRandomLinkNumber(num);
 
-        // リンク先90000で履歴バック
-        if (Number(num) === 90000) {
+        // リンク先90000で履歴バック（戻り値falseならばブラウザーバック）
+        // if (Number(num) === 90000) {
+        //   history.back();
+        //   return false;
+        // }
+        num = Util.getBackLinkNumber(num);
+        if (!num) {
           history.back();
           return false;
         }
@@ -4802,6 +4821,11 @@
             desc: $(this).text().trim()
           };
         });
+        // 予約パラメーター
+        params_map['p99'] = {
+          initial: 0,
+          desc: '戻り先の保存先'
+        };
       
         // モンスター覧を取得
         enemies_map = {};
