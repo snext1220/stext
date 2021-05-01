@@ -30,7 +30,7 @@
 	<licence>
 		<work name="Bgm-01" category="bgm" creator="SText" url="https://example.com/"></work>
 	</licence>
-	<scene id="0" summary="プロローグ" group="prologue" enemies="m01" items="i01,i02,i03" flags="f01,f02,f03" dice="5:2" params="p01:10,p99:1">分岐テスト
+	<scene id="0" summary="プロローグ" group="prologue" enemies="m01" items="i01,i02,i03" flags="f01,f02,f03" dice="8:5" params="p01:10,p99:1">分岐テスト
 
 ${var?i01:name}：${var?i01:text}
 ${var?m01:name}：${var?m01:element}：${var?m01:text}
