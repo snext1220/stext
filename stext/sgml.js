@@ -4512,12 +4512,11 @@
 
   class RpgDice {
     // target：ダイスの反映先
-    // type：ダイス型（数値：1～n、文字列：dicesetのキー）
+    // type：ダイス型（数値：1～20、文字列：dicesetのキー）
     // num：ダイスの個数（2～5）
     constructor(target, type = 6 , num = 2) {
       // カスタムのダイス定義
       this.diceset = {
-        'low' : [1, 2, 3],
         'high' : [4, 5, 6],
         'cheat_l': [1, 1, 1, 2, 3, 4, 5, 6],
         'cheat_h': [1, 2, 3, 4, 5, 6, 6, 6],
@@ -4542,6 +4541,22 @@
         });
     }
 
+    // ダイスのベース名を取得（private）
+    getImageName() {
+      // ダイスの上限値
+      let dice_max = 0;
+      if ($.isNumeric(this.type)) {
+        dice_max = Number(this.type);
+      } else {
+        dice_max = Math.max(...this.diceset[this.type]);
+      }
+      if (dice_max > 6) {
+        return 'cube_num';
+      } else {
+        return 'cube';
+      }
+    }
+
     // ダイスのためのHTMLを生成（private）
     getHtml() {
       let html = '';
@@ -4552,7 +4567,7 @@
         } else {
           this.current[i] = Util.randomArray(this.diceset[this.type]);
         }
-        html += `<img src="${ROOT}${COMMON}cube${this.current[i]}.png" class="dice" />`;
+        html += `<img src="${ROOT}${COMMON}cube/${this.getImageName()}${this.current[i]}.png" class="dice" />`;
       }
       return html;
     }
