@@ -4688,7 +4688,7 @@
         //   return false;
         // }
         num = Util.getBackLinkNumber(num);
-        if (!num) {
+        if (num === false) {
           history.back();
           return false;
         }
