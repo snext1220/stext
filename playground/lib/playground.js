@@ -1158,7 +1158,11 @@ $(function () {
             validator: function(value) {
               if (value.includes('<')) {
                 let msg = 'ダメージ式では「&lt;」ではなく「&gt;」を利用してください。';
-                toastr.error(msg, 'Fund Error');
+                toastr.error(msg, 'Func Error');
+                return { valid: false, msg: msg };
+              } else if (value.includes('ML') || value.includes('MR')) {
+                let msg = '「ML」は「LM」、「MR」は「RM」です。';
+                toastr.error(msg, 'Func Error');
                 return { valid: false, msg: msg };
               } else {
                 return { valid: true, msg: null };
