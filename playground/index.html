@@ -190,6 +190,8 @@
         <div id="scene-editor"></div>
         <div id="scene-view">
           <button id="scene-ext" type="button">エディター領域を拡げる</button>
+          <button id="scene-addscene" type="button">シーンを追加</button>　
+          <button id="scene-delscene" type="button" class="delaction">現在のシーンを削除</button>
         </div>
         <div id="scene-attr">
           <form>
@@ -213,11 +215,16 @@
                   <input id="items" type="text" class="tagsin" size="15" /></label>
               <label data-help="scene-flags">フラグ：
                 <input id="flags" type="text" size="15" /></label>
+              <label data-help="scene-params">内部パラ：
+                <input id="params" type="text" size="15" /></label>
+              <p></p>
               <label data-help="scene-enemies">敵：
                 <input id="enemies" type="text" size="15" /></label> 
+              <label data-help="scene-dice">ダイス：
+                <input id="dice" type="text" size="15" /></label> 
+                <label data-help="scene-result">実績：
+                  <input id="result" type="text" size="15" /></label> 
               <p></p>
-              <label data-help="scene-result">実績：
-                <input id="result" type="text" size="15" /></label> 
               <label data-help="scene-nexts">次シナリオ：
                 <input id="nexts" type="text" size="10" /></label> 
               <label data-help="scene-rule">戦闘ルール：
@@ -226,8 +233,8 @@
               <label>リンク：
                 <select id="edges-list" class="no-update"></select>
               </label>
-              <button id="scene-addedge" type="button">リンク追加</button>
-              <button id="scene-sortlink" type="button">表示ソート</button>
+              <button id="scene-addedge" type="button">追加</button>
+              <button id="scene-sortlink" type="button">並べ替え</button>
               <!-- <button id="scene-addscene" type="button">シーン追加</button> -->
             </fieldset>
             <fieldset>
@@ -291,10 +298,10 @@
               <label data-help="scene-color">背景色：
                   <select id="color"></select></label>
             </fieldset>
-            <p>
+            <!-- <p>
               <button id="scene-addscene" type="button">シーンを追加</button>　
               <button id="scene-delscene" type="button" class="delaction">現在のシーンを削除</button>
-            </p>
+            </p> -->
             
             <!--
             <fieldset>
