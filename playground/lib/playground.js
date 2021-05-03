@@ -126,6 +126,9 @@ $(function () {
   // 共通データ
   let Common = {
     HELP_URL: 'https://sorcerian.hateblo.jp/entry/2018/11/01/211745#',
+    // シーン＆エッジのインデックス番号
+    SCENE_INDEX: 8,
+    EDGE_INDEX : 9,
     // マイストレージの名前
     MY_STORAGE: 'pg2_save',
     // ストレージの一時保存名（ロード時）
@@ -153,6 +156,7 @@ $(function () {
       groups: [],
       items: [],
       flags: [],
+      params: [],
       enemies: [],
       results: [],
       licence: [],
@@ -202,6 +206,15 @@ $(function () {
         {
           id: 'f01',
           text: 'Flag description...'
+        }
+      ],
+      params: [
+        {
+          id: 'p01',
+          min: 0,
+          max: 100,
+          initial: 50,
+          text: 'Param description...'
         }
       ],
       enemies: [
@@ -624,7 +637,7 @@ $(function () {
     // 指定されたシーンの情報をフォームに反映
     setSceneInfo: function(id) {
       if (id !== undefined) {
-        Util.enableTab(7);
+        Util.enableTab(Common.SCENE_INDEX);
         let scene = Util.getSceneById(id);
         $('#scene-select #id').val(scene.id);
         $('#scene-select #summary').val(scene.summary);
@@ -690,7 +703,7 @@ $(function () {
     },
     // 指定されたエッジの情報をフォームに反映
     setEdgeInfo: function(id) {
-      Util.enableTab(8);
+      Util.enableTab(Common.EDGE_INDEX);
       let edge = Util.getEdgeById(id);
       $('#edge #id').val(edge.id);
       $('#edge #from').val(edge.from);
@@ -1138,6 +1151,24 @@ $(function () {
           formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
         ], grid_opts, 'flag');
 
+      // 内部パラメーター一覧の描画
+      if (scenario.params === undefined) { scenario.params = []; }
+      grid['params'] = 
+      Util.createGrid('#params_grid', scenario.params,
+        [
+          { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text,
+            validator: function(value) {
+              return Util.validateId(value, 'p', '内部パラメーター', 'params');
+            } 
+          },
+          { id: 'min', name: '最小値', field: 'min', width: 60, editor: Slick.Editors.Text },
+          { id: 'max', name: '最大値', field: 'max', width: 60, editor: Slick.Editors.Text },
+          { id: 'initial', name: '初期値', field: 'initial', width: 60, editor: Slick.Editors.Text },
+          { id: 'text', name: '説明', field: 'text', width: 300, editor: Slick.Editors.Text },
+          {id: 'delete', name: '削除', field: '', width: 35,
+          formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
+        ], grid_opts, 'param');
+
       // 敵一覧の描画
       grid['enemies'] = 
       Util.createGrid('#enemies_grid', scenario.enemies,
@@ -1501,7 +1532,7 @@ $(function () {
     disableTab: function() {
       $('#edit-area')
         .tabs('option', 'active', 0)
-        .tabs('option', 'disabled', [ 7, 8 ]);
+        .tabs('option', 'disabled', [ Common.SCENE_INDEX, Common.EDGE_INDEX ]);
     },
     // 現在のシナリオデータからscenario.xmlを生成
     // 戻り値：XML文字列
@@ -1514,6 +1545,7 @@ $(function () {
       let groups = $('<groups></groups>');
       let items = $('<items></items>');
       let flags = $('<flags></flags>');
+      let params = $('<params></params>');
       let enemies = $('<enemies></enemies>');
       let results = $('<results></results>');
       let licence = $('<licence></licence>');
@@ -1547,7 +1579,12 @@ $(function () {
         let flag = Util.objToElement('flag', t_flag);
         if (flag) { flags.append(flag); }
       }
-      result.append(flags);
+      // parameters要素
+      for (let t_param of scenario.params) {
+        let param = Util.objToElement('param0', t_param);
+        if (param) { params.append(param); }
+      }
+      result.append(params);
       // enemies要素
       for (let t_enemy of scenario.enemies) {
         let enemy = Util.objToElement('enemy', t_enemy);
@@ -1573,9 +1610,12 @@ $(function () {
           Util.createMoveButton(scene.attr('id')));
         if (scene) { result.append(scene); }
       }
-      // 整形したものを出力
+      // 整形したものを出力（<param>要素はHTML予約なので<param0>で退避）
       return vkbeautify.xml('<?xml version="1.0" encoding="utf-8"?>\n' +
-        result.get(0).outerHTML);
+        (result.get(0).outerHTML
+          .replace(/<param0(.+?)>/gi, '<param$1>')
+          .replace(/<\/param0>/gi, '</param>'))
+      );
     },
     // 指定された要素（jQueryオブジェクト）をオブジェクトに変換（For createJson）
     elementToObj: function(obj, isLabel) {
@@ -1630,6 +1670,9 @@ $(function () {
       });
       $('flags > flag', s_data).each(function(i, elem) {
         result.flags.push(Util.elementToObj($(elem)));
+      });
+      $('params > param', s_data).each(function(i, elem) {
+        result.params.push(Util.elementToObj($(elem)));
       });
       $('enemies > enemy', s_data).each(function(i, elem) {
         result.enemies.push(Util.elementToObj($(elem)));

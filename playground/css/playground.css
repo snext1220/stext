@@ -237,6 +237,10 @@ label {
     width: 500px;
 }
 
+/* タブ */
+.ui-tabs .ui-tabs-anchor {
+    font-size: smaller !important;
+}
 
 /* 未使用 */
   .pg_command img {
