@@ -4414,8 +4414,9 @@
         $(`<div id="debug_panel">
           <form>
             <label>Scene：<input id="debug_id" type="text" size="5" /></label>　
-            <label>Items：<input id="debug_items" type="text" size="7" /></label>　
-            <label>Flags：<input id="debug_flags" type="text" size="7" /></label>　
+            <label>Params：<input id="debug_params" type="text" size="25" /></label><br />
+            <label>Items：<input id="debug_items" type="text" size="15" /></label>　
+            <label>Flags：<input id="debug_flags" type="text" size="20" /></label>　
             <input id="debug_reload" type="button" value="Reload" />
           </form>
         </div>`)
@@ -4423,12 +4424,31 @@
 
         // 現在の状態をデバッグウィンドウに反映
         $('#debug_panel #debug_id').val(scene_num);
+        let t_params = [];
+        if (save_data.params) {
+          for (key in save_data.params) {
+            t_params.push(`${key}:${save_data.params[key]}`);
+          }
+          $('#debug_panel #debug_params').val(t_params.join(','));  
+        }
         $('#debug_panel #debug_items').val(save_data.items.join(','));
         $('#debug_panel #debug_flags').val(save_data.flags.join(','));
         // セーブデータを上書きの上、シーン移動
         $('#debug_panel #debug_reload').click(function(e) {
+          var debug_params = $('#debug_panel #debug_params').val().trim();
           var debug_items = $('#debug_panel #debug_items').val().trim();
           var debug_flags = $('#debug_panel #debug_flags').val().trim();
+
+          // パラメーター情報を反映
+          let new_params = {};
+          if(debug_params !== '') {
+            for (let t_param of debug_params.split(',')) {
+              let [t_key, t_value] = t_param.split(':');
+              new_params[t_key] = t_value;
+            }
+          }
+          save_data.params = new_params;
+
           if(debug_items !== '') {
             save_data.items = debug_items.split(',');
           } else {
