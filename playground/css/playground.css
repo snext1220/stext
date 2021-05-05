@@ -204,6 +204,11 @@ label {
     width: 88%;
 }
 
+.sidr-elem input[type="text"] {
+    width: 60px;
+    height: 40px;
+}
+
 #sidr_races_list .ui-checkboxradio-label,
 #sidr_ages_list .ui-checkboxradio-label,
 #sidr_sexes_list .ui-checkboxradio-label,

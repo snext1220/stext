@@ -1351,6 +1351,14 @@ $(function () {
                   </td>
                 </tr>`;
                 break;
+              case 'inputs' :
+                elem = `<tr>
+                  <td class="sidr-elem">${v_label}</td>
+                  <td class="sidr-elem">
+                    <input id="sidr_${v_value}_input" type="text" size="8" />
+                  </td>
+                </tr>`;
+                break;
               case 'sort' :
                 elem = `<li id="${v_value}">
                   <div class="ui-state-highlight ui-corner-all">${v_label}</div>
@@ -1401,6 +1409,17 @@ $(function () {
             });
             $(`${s_list} .sidr_${target}_minus:checked`).each(function() {
               result.push('-' + $(this).val());
+            });
+            result = result.join(',');
+            break;
+          case 'inputs' :
+            result = [];
+            $(`${s_list} .sidr-elem input[type="text"]`).each(function() {             
+              let v = $(this).val();
+              if (v !== undefined && v.trim() !== '') {
+                let id = $(this).attr('id'); 
+                result.push(`${id.split('_')[1]}:${v}`);
+              }
             });
             result = result.join(',');
             break;
@@ -2538,6 +2557,17 @@ ${Util.createLinkText(value.id, scenario.edges)}
     'flags',
     //scenario.flags,
     'plus_minus',
+    'text',
+    'id'
+  );
+
+  // ［シーン］タブ内でのparam処理
+  Util.createSelectSidebar(
+    '#scene-select #params',
+    'params',
+    'params',
+    //scenario.flags,
+    'inputs',
     'text',
     'id'
   );
