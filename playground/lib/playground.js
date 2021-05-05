@@ -644,7 +644,9 @@ $(function () {
         $('#scene-select #end').val(scene.end);
         $('#scene-select #items').val(scene.items);
         $('#scene-select #flags').val(scene.flags);
+        $('#scene-select #params').val(scene.params);
         $('#scene-select #enemies').val(scene.enemies);
+        $('#scene-select #dice').val(scene.dice);
         $('#scene-select #result').val(scene.result);
         $('#scene-select #nexts').val(scene.nexts);
         $('#scene-select #rule').val(scene.rule);
@@ -2624,8 +2626,16 @@ ${Util.createLinkText(value.id, scenario.edges)}
   
   // カーソル移動時に候補リストをクローズ
   $('#scene-select input').blur(function() {
-    console.log('blur');
-    $('#scene-select #hp, #scene-select #mp, #scene-select #stars, #scene-select #str, #scene-select #int, #scene-select #dex, #scene-select #krm, #scene-select #free1, #scene-select #free2, #scene-select #free3').autocomplete('close');
+    $('#scene-select #dice, #scene-select #hp, #scene-select #mp, #scene-select #stars, #scene-select #str, #scene-select #int, #scene-select #dex, #scene-select #krm, #scene-select #free1, #scene-select #free2, #scene-select #free3').autocomplete('close');
+  });
+
+  $('#scene-select #dice')
+  .autocomplete({
+    minLength: 0,
+    source: [ '6:2', 'high:3' ],
+    close: function(e, ui) {
+      $(this).trigger('input');
+    }
   });
 
   // hp／mp属性のオートコンプリート
