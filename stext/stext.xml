@@ -257,7 +257,7 @@
 </work>
 
 <work id="shadow" title="常闇から来たる影" author="ときのじ" series="連作ドラゴンモード"
-  tags="盗賊たちの塔,探索" published="2018-12-20" updated="2021-05-07" level="3" scenes="70" results="10" clears="r08"
+  tags="盗賊たちの塔,探索" published="2018-12-20" updated="2019-03-17" level="3" scenes="70" results="10" clears="r08"
   comment="ガラティーンに思い入れがあり「盗賊たちの塔」も印象的なシナリオだったので、その繋がりからこの竜を選びました。まさに「盗賊たちの塔・後伝」になりましたね。趣味に全振りするの楽しかったです。"
   quest="1FAIpQLSciyarp-KxuuIAqL-Ax93xBTV5Omuf1fQpAj40gkeShbrLb_A">
 <img src="./stext/shadow/capture/intro.png" height="120"
@@ -272,7 +272,7 @@
 
 ソーサリアンよ、他の者達が姫君の行方を捜索している間、シャドードラゴンを討伐して無力化し、再封印までの時間を稼ぐのだ！
 
-<p class="award">このシナリオには、Scenario 2「ゼロの創造」の設定が含まれています。あらかじめプレイしておくと、本シナリオをより楽しめます</p>
+<p class="award">このシナリオを解放するには、Scenario 2「ゼロの創造」の実績「宣教師の正体」を取得している必要があります！</p>
 </work>
 
 <work id="traitor" title="裏切り者の流儀" author="山田賢治さん" guest="true" series="連作ドラゴンモード"
@@ -294,7 +294,7 @@
 
 真相を見極め、陰謀渦巻く王宮から無事に脱出せよ。ソーサリアン！
 
-<p class="award">このシナリオには、Scenario 1「新・消えた王様の杖」、及びScenario 10「魂の選択」の設定が含まれています。あらかじめプレイしておくと、本シナリオをより楽しめます</p>
+<p class="award">このシナリオを解放するには、Scenario 1「新・消えた王様の杖」の実績「オタクの称号」、Scenario 10「魂の選択」の実績「ありがと！」を取得している必要があります！</p>
 </work>
 
 <work id="requiem" title="黄泉へ送るレクイエム" author="咲華さん" guest="true" series="連作ドラゴンモード"
@@ -315,7 +315,7 @@
 　急に現れ出したモンスター達の討伐、及び原因の追究を至急お願いする。
 　ペンタウァの人々の平穏をどうか取り戻してくれ―――！
 
-<p class="award">このシナリオには、Scenario 5「少女は英雄を語りて」、及びScenario 12「ソーサリアン性格診断占い」の設定が含まれています。あらかじめプレイしておくと、本シナリオをより楽しめます</p>
+<p class="award">このシナリオを解放するには、Scenario 5「少女は英雄を語りて」の実績「絵本の世界」、Scenario 12「ソーサリアン性格診断占い」の実績「さあ無に還ろう」を取得している必要があります！</p>
 </work>
 
 <work id="gold" title="金竜の陰謀" author="ちゃなさん" guest="true" series="連作ドラゴンモード"
@@ -336,7 +336,7 @@
 
 　ソーサリアンよ、この陰謀を解き明かし、金竜の脅威からペンタウァを救うのだ！
 
-<p class="award">このシナリオには、Scenario 4「災厄の夜　-テンペスト・ナイト-」、及びScenario 7「その名はドラゴンスレイヤー」の設定が含まれています。あらかじめプレイしておくと、本シナリオをより楽しめます</p>
+<p class="award">このシナリオを解放するには、Scenario 4「災厄の夜　-テンペスト・ナイト-」の実績（新たなる夜明け）、及びScenario 7「その名はドラゴンスレイヤー」の実績（娘を助けて武器屋を通常営業に戻した）を取得している必要があります！</p>
 </work>
 
 
@@ -393,7 +393,7 @@
 </work>
 
 <work id="king" title="終末の双王 - ドラゴンモード -" author="ときのじ" series="連作ドラゴンモード"
-  tags="ドラゴンとたたかう" published="2019-07-26" updated="2021-05-07" level="5" scenes="284" results="41" clears="r26"
+  tags="ドラゴンとたたかう" published="2019-07-26" updated="2019-11-10" level="5" scenes="284" results="41" clears="r26"
   comment="「企画にご参加いただいた皆様のシナリオ設定を活かした作品にしよう」「原作のドラゴンとたたかうの雰囲気を出すには」と考えながら執筆しました。
 STextならではの「ドラゴンとたたかう」をお楽しみください。"
   quest="1FAIpQLScY8peNmElKzxfZUal0M2LyQmRzLLlY4s71bJRKdogx1XrlnQ">
@@ -404,8 +404,6 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 これは、勇気と知略をもって竜に挑み、生還した勇者にのみ託される戦いである。
 
 混沌の王に挑む覚悟がある者よ、いざ決戦の地へ赴くのだ。
-
-<p class="award">このシナリオには、ドラゴンモード「プロローグ」から「本編Vol.6」までの設定が含まれています。あらかじめプレイしておくと、本シナリオをより楽しめます</p>
 </work>
 
 <work id="captive" title="新・囚われた魔法使い" author="Salvador" series="Playground100祭"
