@@ -276,7 +276,7 @@
 </work>
 
 <work id="traitor" title="裏切り者の流儀" author="山田賢治さん" guest="true" series="連作ドラゴンモード"
-  tags="アゾルバ王宮,犯人捜し" published="2019-01-21" updated="2019-01-21" level="2" scenes="33" results="4" clears="r99"
+  tags="アゾルバ王宮,犯人捜し" published="2019-01-21" updated="2021-05-06" level="2" scenes="33" results="4" clears="r99"
   comment="本のゲームブックには紙の良さがあり、電子書籍のゲームブックには電子本ならではの面白さがあります。「ではSTextは、ゲームブックにどんな可能性を見せてくれるだろうか」という思いで、ゲームブック用マークアップ言語に挑戦しました。これは「かなりの低負担でシナリオ作成ができ、そこそこ数値がいじれる、自動計算してくれるゲームブック」であると受け止めています。RPGツクールよりも気楽にインタラクティブなゲームを作りたいなら、現実的な選択肢の一つと言えると思います。プレイしてみて興味が湧いたら、創り手としての参加も待ってます！">
 <img src="./stext/traitor/capture/intro.png" height=""
   title="裏切り者の流儀" align="left" class="left"/>
@@ -298,7 +298,7 @@
 </work>
 
 <work id="requiem" title="黄泉へ送るレクイエム" author="咲華さん" guest="true" series="連作ドラゴンモード"
-  tags="暗黒の魔導士,探索" published="2019-02-25" updated="2019-02-25" level="2" scenes="68" results="11" clears="r11"
+  tags="暗黒の魔導士,探索" published="2019-02-25" updated="2021-05-06" level="2" scenes="68" results="11" clears="r11"
   comment="ゲームブックシナリオを書くのは初めてで、終始ワクワクドキドキしながら作っていました。この竜を選んだのは私がソーサリアンにハマったきっかけの竜であり、シナリオだったからです。別名「暗黒の魔導士・後伝」……になっていたら嬉しい限りです。こんなドラゴンとソーサリアンの関係もいかがでしょうか？">
 <img src="./stext/requiem/capture/intro.png" height=""
   title="黄泉へ送るレクイエム"  align="right" class="right"/>
@@ -319,7 +319,7 @@
 </work>
 
 <work id="gold" title="金竜の陰謀" author="ちゃなさん" guest="true" series="連作ドラゴンモード"
-  tags="呪われたオアシス" published="2019-03-25" updated="2019-03-25" level="3" scenes="64" results="12" clears="r10"
+  tags="呪われたオアシス" published="2019-03-25" updated="2021-05-06" level="3" scenes="64" results="12" clears="r10"
   comment="ソーサリアンTEXTの「職業システム」を活用したシナリオです。ランダムに生成されるプレイヤーキャラによってクリア手順が若干異なります。砂漠王ルワンと「元祖」ゴールドドラゴンの強さを存分にお楽しみください。
 なお、特定のキャラでしか取得できない実績があります。100%を目指す方はご注意ください。">
 <img src="./stext/gold/capture/intro.png" height="120"
