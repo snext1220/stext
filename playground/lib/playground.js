@@ -1417,7 +1417,7 @@ $(function () {
             $(`${s_list} .sidr-elem input[type="text"]`).each(function() {             
               let v = $(this).val();
               if (v !== undefined && v.trim() !== '') {
-                let id = $(this).attr('id'); 
+                let id = $(this).attr('id'); // sidr_p01_inputs
                 result.push(`${id.split('_')[1]}:${v}`);
               }
             });
