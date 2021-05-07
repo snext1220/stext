@@ -44,7 +44,7 @@
 		<work name="town2" category="picture" creator="みにくる" url="https://minikle.onlinestores.jp/"></work>
 	</licence>
 	<scene id="0">
-<![CDATA[
+
 *** プロローグ ***
 
 王は言った。
@@ -64,15 +64,8 @@
 なんと、王は交渉によってドラゴンを退けよというのだ。
 前代未聞の冒険が始まった。
 
-${if !(r02:ramidia&r02:vampire)}%red%
-　※このシナリオを解放するには、
-　　Scenario 6「鉄腕の吸血姫」の実績**「手を取り、ともに生きる」**
-　　Scenario 8「ラミディアの魔法使い」**「ロマンシアの宝剣」**
-　　を取得している必要があります！%/%
-${/if}
+[冒険に出発する](11)
 
-[冒険に出発する](11 "r02:vampire,r02:ramidia")
-]]>
 </scene>
 	<scene id="2" bgm="latenightbridge">
 ここはペンタウァである。
