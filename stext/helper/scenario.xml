@@ -13,7 +13,7 @@
 		<item id="i14" name="メモ2">メモには何も書かれていない</item>
 		<item id="i15" name="メモ3">メモには何も書かれていない</item>
 	</items>
-	<flags></flags>
+	<params></params>
 	<enemies>
 		<enemy id="m01" name="戦闘結果" attack="physics" func="10">戦闘結果</enemy>
 		<enemy id="m02" name="戦闘結果" attack="physics" func="20">戦闘結果</enemy>
@@ -892,7 +892,7 @@ BattleSheetを開きダメージボタンを押すこと……
 体力だけ奪われ、
 合わせて記憶も薄れていく――
 
-下のダメージボタンを押し、**HP-10**すること。
+BattleSheetを開きダメージボタンを押すこと。
 
 [進む](23 "-i10,i11,i12")
 [進む](32 "i10,i11,i12")
@@ -1780,10 +1780,6 @@ v0.92   2019/4/7    画像を追加。
 v0.93   2019/4/10   誤字修正。
 v1.01   2021/5/8    解放に必要な実績の解除。
                     BattleSheetに対応。
-
-</scene>
-	<scene id="99999" summary="戦闘ルール" level="21">※このシナリオには、Scenario 3「プレアオブ・ドールズ」、
-Scenario 13「トラベラーズ☆イン」の設定が含まれています。
 
 </scene>
 </scenario>
