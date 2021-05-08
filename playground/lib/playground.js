@@ -2419,7 +2419,8 @@ ${Util.createLinkText(value.id, scenario.edges)}
           tag: $('#upload-tag').val(),
           level: $('#upload-level').val(),
           intro: $('#upload-intro').val(),
-          comment: $('#upload-comment').val()
+          comment: $('#upload-comment').val(),
+          ftp: $('#upload-ftp').val(),
         };
         localStorage.setItem('pgflow_post', JSON.stringify(p));
         // アップロードデータの準備
@@ -2430,6 +2431,7 @@ ${Util.createLinkText(value.id, scenario.edges)}
         data.append('level', p.level);
         data.append('intro', p.intro);
         data.append('comment', p.comment);
+        data.append('ftp', p.ftp);
         data.append('scenario',
           new Blob([ Util.createXml() ], { type: "text/xml"}),
           'scenario.xml'
@@ -2472,7 +2474,10 @@ ${Util.createLinkText(value.id, scenario.edges)}
         $('#upload-tag').val(p.tag);
         $('#upload-level').val(p.level);
         $('#upload-intro').val(p.intro);
-        $('#upload-comment').val(p.comment);
+        $('#upload-comment').val(p.comment);        
+        if (p.ftp) {
+          $('#upload-ftp').prop('checked', true);
+        }
       }
     }
   });

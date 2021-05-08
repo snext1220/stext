@@ -164,6 +164,9 @@ label {
     width: 95%;
 }
 
+#upload-dialog input[type="checkbox"] {
+    width: auto;
+}
 
 /* コンテキストメニュー */
 .cxt {

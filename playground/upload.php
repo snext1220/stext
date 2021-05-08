@@ -86,7 +86,9 @@ if (empty($_POST) && $_SERVER["REQUEST_METHOD"] === "POST") {
         '----' . "\n" .
         $_POST['intro'] . "\n" .
         '----' . "\n" .
-        $_POST['comment']);
+        $_POST['comment'] . "\n" .
+        '----' . "\n" .
+        $_POST['ftp']);
 
     singleupload($_FILES['scenario']);
     multiupload($_FILES['bgms'], '/bgm');
@@ -94,7 +96,7 @@ if (empty($_POST) && $_SERVER["REQUEST_METHOD"] === "POST") {
     multiupload($_FILES['pics'], '/capture');
 }
 
-var_dump($success);
+// var_dump($success);
 if ($success) {
     header('Location: https://wings.msn.to/stext_mail.php?email='.$_POST['email'].'&key='.$_POST['key']);
     die();
