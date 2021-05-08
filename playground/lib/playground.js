@@ -2854,6 +2854,12 @@ ${Util.createLinkText(value.id, scenario.edges)}
       for(let flag of scenario.flags) {
         $('#sidr_links_flag').append(`<option value="${flag.id}">${flag.text}</option>`);
       }
+      // 内部パラ欄を生成
+      $('#sidr_links_param').empty()
+        .append('<option>パラメーターを選択</option>');
+      for(let param of scenario.params) {
+        $('#sidr_links_param').append(`<option value="${param.id}">${param.text}</option>`);
+      }
     }
   });
 
