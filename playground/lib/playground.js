@@ -2420,7 +2420,7 @@ ${Util.createLinkText(value.id, scenario.edges)}
           level: $('#upload-level').val(),
           intro: $('#upload-intro').val(),
           comment: $('#upload-comment').val(),
-          ftp: $('#upload-ftp').val(),
+          ftp: $('#upload-ftp').prop('checked') ? $('#upload-ftp').val() : '',
         };
         localStorage.setItem('pgflow_post', JSON.stringify(p));
         // アップロードデータの準備
