@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <scenario
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd" title="Untitled" author="Unnamed">
-	<init>
+	<init summary="true">
 		<constraint race="FIGHTER" sex="MALE" age="YOUNG,ADULT" imgset="custom" />
 		<label hp="生命力" mp="魔力" state="状態" str="強さ" int="賢さ" dex="器用" krm="善良"
 			free1="ほげ" free2="ふー" free3="ばー" />
@@ -43,7 +43,7 @@ ${var?p01:text}：${var?p01:value}
 [戻るテスト](6)
 	</scene>
 
-	<scene id="100" summary="プロローグ" items="-i01" str="full" group="prologue">
+	<scene id="100" summary="本文" items="-i01" str="full" group="prologue">
 
 ${result?scepter}
 ${result_rate?scepter}

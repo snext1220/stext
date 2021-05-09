@@ -4289,13 +4289,22 @@
         Util.createTweet('common', null, true);
       }
 
-      // ヘッダーテキスト／コントロールパネルの生成
-      $('<h5 id="scenario_title">' + 
-        //'<img id="ctrl_show" src="' + ROOT + COMMON + 'ctrl_show.png" /></a> ' +
-        $('scenario', scenario_data).nsAttr('title') +
-          '【' + scene_num + '】</span></h5>')
-        .prependTo(target);
-      
+      // ヘッダーテキスト
+      let init = $('init', scenario_data);
+      let at_summary;
+      if (init) {
+        at_summary = init.nsAttr('summary');
+      }
+      if (at_summary) {
+        $(`<h5 id="scenario_title">${$('scenario', scenario_data).nsAttr('title')}</h5>
+           <h3 class="scene_summary">${scene.nsAttr('summary')}</h3>`).prependTo(target);
+      } else {
+        $(`<h5 id="scenario_title">
+            ${$('scenario', scenario_data).nsAttr('title')}
+            【${scene_num}】
+          </h5>`).prependTo(target);
+      }
+
       // サイドパネル表示ボタンのカラー生成
       // var side_p = $('<div id="side_show">Battle Sheet</div>');
       if (scene.nsAttr('enemies')) {

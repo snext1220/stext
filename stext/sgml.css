@@ -45,6 +45,10 @@ h5#scenario_title {
   text-align: right;
 }
 
+h3.scene_summary {
+  text-decoration: underline;
+}
+
 #simple_status {
   font-size: small;
   font-weight: bold;
