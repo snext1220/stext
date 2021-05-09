@@ -905,25 +905,25 @@
         </table>
         <center id="cubes"></center>
         <div id="simple_status">
-          <span id="simple_status_hp_label"></span>
+          <span id="simple_status_hp_label">HP</span>
             :<span id="simple_status_hp" class="status_v"></span>　
-          <span id="simple_status_mp_label"></span>
+          <span id="simple_status_mp_label">MP</span>
             :<span id="simple_status_mp" class="status_v"></span>　|　
-          <span id="simple_status_str_label"></span>
+          <span id="simple_status_str_label">STR</span>
             :<span id="simple_status_str" class="status_v"></span>　
-          <span id="simple_status_int_label"></span>
+          <span id="simple_status_int_label">INT</span>
             :<span id="simple_status_int" class="status_v"></span>　
-          <span id="simple_status_dex_label"></span>
+          <span id="simple_status_dex_label">DEX</span>
             :<span id="simple_status_dex" class="status_v"></span>　
-          <span id="simple_status_krm_label"></span>
+          <span id="simple_status_krm_label">KRM</span>
             :<span id="simple_status_krm" class="status_v"></span>　｜　
           <span id="simple_status_frees">
             <br />
-            <span id="simple_status_free1_label"></span>
+            <span id="simple_status_free1_label">F1</span>
               :<span id="simple_status_f1" class="status_v"></span>　
-            <span id="simple_status_free2_label"></span>
+            <span id="simple_status_free2_label">F2</span>
               :<span id="simple_status_f2" class="status_v"></span>　
-            <span id="simple_status_free3_label"></span>
+            <span id="simple_status_free3_label">F3</span>
               :<span id="simple_status_f3" class="status_v"></span>　｜　
           </span>
           <span id="simple_status_state" class="status_v"></span>　
