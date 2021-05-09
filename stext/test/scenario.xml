@@ -3,6 +3,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd" title="Untitled" author="Unnamed">
 	<init>
 		<constraint race="FIGHTER" sex="MALE" age="YOUNG,ADULT" imgset="custom" />
+		<label hp="生命力" mp="魔力" state="状態" str="強さ" int="賢さ" dex="器用" krm="善良"
+			free1="ほげ" free2="ふー" free3="ばー" />
 	</init>
 	<groups>
 		<group start="0" end="1" title="Introduction"></group>

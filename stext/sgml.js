@@ -711,8 +711,35 @@
       return result;
     },
 
+    // 指定されたステータスラベルを設定
+    // target：反映先のセレクター、name：ステータス名
+    setStatusLabel(flabel, target, name) {
+      let tmp = flabel.nsAttr(name);
+      if (tmp) {
+        $(Util.formatMessage(target, name)).text(tmp);
+        // hp、mpのみmaxの表記の置換
+        if (name === 'hp' || name === 'mp') {
+          target = target.replace('_label', '_m_label');
+          $(Util.formatMessage(target, name)).text(tmp + ' MAX');
+        }
+      };
+    },
+
+    // すべてのステータスラベルを設定
+    setAllStatusLabels(target) {
+      let flabel = $('init > label', scenario_data);
+      if (flabel) {
+        let names = ['hp', 'mp', 'state',
+          'str', 'int', 'dex', 'krm', 'free1', 'free2', 'free3'];
+        for (let name of names) {
+          SideBar.setStatusLabel(flabel, target, name);
+        }
+      }
+    },
+
     // 簡易ステータスの整形
     showSimpleStatus() {
+      SideBar.setAllStatusLabels('#simple_status #simple_status_#{0}_label');
       $('#sidr_battle #simple_status_hp').text(save_data.chara.hp);
       $('#sidr_battle #simple_status_mp').text(save_data.chara.mp);
       $('#sidr_battle #simple_status_str').text(save_data.chara.str);
@@ -878,21 +905,29 @@
         </table>
         <center id="cubes"></center>
         <div id="simple_status">
-          HP:<span id="simple_status_hp" class="status_v"></span>　
-          MP:<span id="simple_status_mp" class="status_v"></span>　|　
-          STR:<span id="simple_status_str" class="status_v"></span>　
-          INT:<span id="simple_status_int" class="status_v"></span>　
-          DEX:<span id="simple_status_dex" class="status_v"></span>　
-          KRM:<span id="simple_status_krm" class="status_v"></span>　｜　
+          <span id="simple_status_hp_label"></span>
+            :<span id="simple_status_hp" class="status_v"></span>　
+          <span id="simple_status_mp_label"></span>
+            :<span id="simple_status_mp" class="status_v"></span>　|　
+          <span id="simple_status_str_label"></span>
+            :<span id="simple_status_str" class="status_v"></span>　
+          <span id="simple_status_int_label"></span>
+            :<span id="simple_status_int" class="status_v"></span>　
+          <span id="simple_status_dex_label"></span>
+            :<span id="simple_status_dex" class="status_v"></span>　
+          <span id="simple_status_krm_label"></span>
+            :<span id="simple_status_krm" class="status_v"></span>　｜　
           <span id="simple_status_frees">
             <br />
-            F1:<span id="simple_status_f1" class="status_v"></span>　
-            F2:<span id="simple_status_f2" class="status_v"></span>　
-            F3:<span id="simple_status_f3" class="status_v"></span>　｜　
+            <span id="simple_status_free1_label"></span>
+              :<span id="simple_status_f1" class="status_v"></span>　
+            <span id="simple_status_free2_label"></span>
+              :<span id="simple_status_f2" class="status_v"></span>　
+            <span id="simple_status_free3_label"></span>
+              :<span id="simple_status_f3" class="status_v"></span>　｜　
           </span>
           <span id="simple_status_state" class="status_v"></span>　
         </div>
-
         <div id="sidr_battle_close" class="sidr_close">閉じる</div>
         <div id="common_rule"></div>
       </div>`);
@@ -1896,148 +1931,6 @@
         <div id="sidr_status_submit" class="sidr_submit">確定</div>
         <div id="sidr_status_close" class="sidr_close">閉じる</div>
       </div>`);
-      // let template = $(`<div id="sidr_status" class="sidr_info">
-      //   <p class="side_tab">
-      //     <img src="${ROOT}${COMMON}side/sc_chara.png" class="cross" data-title="basic" />
-      //     <img src="${ROOT}${COMMON}side/sc_magic.png" class="cross" data-title="magic" />
-      //     <img src="${ROOT}${COMMON}side/sc_item.png" class="cross" data-title="item" />
-      //   </p>
-      //   <h2>
-      //     <img src="${ROOT}${COMMON}side/status.png" alt="Status" />
-      //   </h2>
-      //   <p id="sidr_status_bonus" class="bonus_msg"></p>
-      //   <table id="sidr_status_list">
-      //     <tr>
-      //     <td>
-      //       <div>
-      //       <span id="sidr_status_hp_label">HP</span><br />
-      //       <input type="button" class="spinner_down" value="-" />
-      //       <input id="sidr_status_hp" type="text" />
-      //       <input type="button" class="spinner_up" value="+" />
-      //       ／<!--<span id="sidr_status_hp_m"></span>-->
-      //         <input id="sidr_status_hp_m" type="text" />
-      //       </div>
-      //       <div>
-      //       <span id="sidr_status_mp_label">MP</span><br />
-      //       <input type="button" class="spinner_down" value="-" />
-      //       <input type="text" id="sidr_status_mp" />
-      //       <input type="button" class="spinner_up" value="+" />
-      //       ／<!--<span id="sidr_status_mp_m"></span>-->
-      //         <input type="text" id="sidr_status_mp_m" />
-      //       </div>
-      //       <div>
-      //       <span id="sidr_status_state_label">STATE</span><br />
-      //       <label><input type="radio" name="sidr_status_state" value="" />正常</label>
-      //       <label><input type="radio" name="sidr_status_state" value="poison" />毒</label>
-      //       <label><input type="radio" name="sidr_status_state" value="frozen" />凍結</label>
-      //       <label><input type="radio" name="sidr_status_state" value="stone" />石化
-      //       (<span id="sidr_status_stone_scene">0</span>)</label>
-      //       <label><input type="radio" name="sidr_status_state" value="curse" />呪い</label>
-      //       <label><input type="radio" name="sidr_status_state" value="forget" />忘却
-      //       (<span id="sidr_status_forget_scene">0</span>)</label>
-      //       <div id="sidr_status_state_desc">－－－</div>
-      //       </div>
-      //     </td>
-      //     <td>
-      //       <div>
-      //       <span id="sidr_status_str_label">STR</span><br />
-      //       <input type="button" class="spinner_down" value="-" />
-      //       <input type="text" id="sidr_status_str" />
-      //       <input type="button" class="spinner_up" value="+" />
-      //       <!--／<span id="sidr_status_str_i"></span>
-      //          <input type="text" id="sidr_status_str_i" />-->
-      //       </div>
-      //       <div>
-      //       <span id="sidr_status_int_label">INT</span><br />
-      //       <input type="button" class="spinner_down" value="-" />
-      //       <input type="text" id="sidr_status_int" />
-      //       <input type="button" class="spinner_up" value="+" />
-      //       <!--／<span id="sidr_status_int_i"></span>
-      //         <input type="text" id="sidr_status_int_i" />-->
-      //       </div>
-      //       <div>
-      //       <span id="sidr_status_dex_label">DEX</span><br />
-      //       <input type="button" class="spinner_down" value="-" />
-      //       <input type="text" id="sidr_status_dex" />
-      //       <input type="button" class="spinner_up" value="+" />
-      //       <!--／<span id="sidr_status_dex_i"></span>
-      //         <input type="text" id="sidr_status_dex_i" />-->
-      //       </div>
-      //       <div>
-      //       <span id="sidr_status_krm_label">KRM</span><br />
-      //       <input type="button" class="spinner_down" value="-" />
-      //       <input type="text" id="sidr_status_krm" />
-      //       <input type="button" class="spinner_up" value="+" />
-      //       <!--／<span id="sidr_status_krm_i"></span>
-      //         <input type="text" id="sidr_status_krm_i" />-->
-      //       </div>
-      //     </td>
-      //     </tr>
-      //   </table>
-      //   <div>
-      //     <table id="sidr_status_free_list">
-      //     <tr>
-      //       <td><span id="sidr_status_free1_label">FREE1</span></td>
-      //       <td><span id="sidr_status_free2_label">FREE2</span></td>
-      //       <td><span id="sidr_status_free3_label">FREE3</span></td>
-      //     </tr>
-      //     <tr>
-      //       <td>
-      //       <input type="button" class="spinner_down" value="-" />
-      //       <input type="text" id="sidr_status_free1" />
-      //       <input type="button" class="spinner_up" value="+" />・ 
-      //       </td>
-      //       <td>
-      //       <input type="button" class="spinner_down" value="-" />
-      //       <input type="text" id="sidr_status_free2" />
-      //       <input type="button" class="spinner_up" value="+" />・ 
-      //       </td>
-      //       <td>
-      //       <input type="button" class="spinner_down" value="-" />
-      //       <input type="text" id="sidr_status_free3" />
-      //       <input type="button" class="spinner_up" value="+" /> 
-      //       </td>
-      //     </tr>
-      //     </table>
-
-      //     <!--
-      //     <label class="entry">FREE：</label><br />
-      //     <table id="sidr_status_free_list">
-      //     <tr>
-      //     <td>
-      //     <input type="button" class="spinner_down" value="-" />
-      //     <input type="text" id="sidr_status_free1" />
-      //     <input type="button" class="spinner_up" value="+" />・
-      //     <span class="free-label">
-      //     <br />
-      //     <span id="sidr_status_free_label1"></span>
-      //     </span>
-      //     </td>
-      //     <td>
-      //     <input type="button" class="spinner_down" value="-" />
-      //     <input type="text" id="sidr_status_free2" />
-      //     <input type="button" class="spinner_up" value="+" />・
-      //     <span class="free-label">
-      //       <br />
-      //       <span id="sidr_status_free_label2"></span>
-      //     </span>
-      //     </td>
-      //     <td>
-      //     <input type="button" class="spinner_down" value="-" />
-      //     <input type="text" id="sidr_status_free3" />
-      //     <input type="button" class="spinner_up" value="+" />
-      //     <span class="free-label">
-      //       <br />
-      //       <span id="sidr_status_free_label3"></span>
-      //     </span>
-      //     </td>
-      //     </tr>
-      //     </table>
-      //     -->
-      //   </div>
-      //   <div id="sidr_status_submit" class="sidr_submit">確定</div>
-      //   <div id="sidr_status_close" class="sidr_close">閉じる</div>
-      // </div>`);
       // ステータスの初期化
       // $('#sidr_status_hp_m', template).text(save_data.chara.hp_m);
       // $('#sidr_status_mp_m', template).text(save_data.chara.mp_m);
@@ -2091,33 +1984,26 @@
           $('#sidr_status #sidr_status_free2').val(save_data.chara.free2);
           $('#sidr_status #sidr_status_free3').val(save_data.chara.free3);
           // ラベルを設定
-          let flabel = $('init > label', scenario_data);
-          if (flabel) {
-            let setLabel = function(name) {
-              let tmp = flabel.nsAttr(name);
-              if (tmp) {
-                $(`#sidr_status #sidr_status_${name}_label`).text(tmp);
-              }
-            };
-            setLabel('hp');
-            setLabel('mp');
-            setLabel('state');
-            setLabel('str');
-            setLabel('int');
-            setLabel('dex');
-            setLabel('krm');
-            setLabel('free1');
-            setLabel('free2');
-            setLabel('free3');
-            // $('#sidr_status #sidr_status_free_label1').text(flabel.nsAttr('free1'));
-            // $('#sidr_status #sidr_status_free_label2').text(flabel.nsAttr('free2'));
-            // $('#sidr_status #sidr_status_free_label3').text(flabel.nsAttr('free3'));
-          }
-          // 暫定
-          // $('#sidr_status #sidr_status_str_i').text(save_data.chara.str_i);
-          // $('#sidr_status #sidr_status_int_i').text(save_data.chara.int_i);
-          // $('#sidr_status #sidr_status_dex_i').text(save_data.chara.dex_i);
-          // $('#sidr_status #sidr_status_krm_i').text(save_data.chara.krm_i);
+          SideBar.setAllStatusLabels('#sidr_status #sidr_status_#{0}_label');
+          // let flabel = $('init > label', scenario_data);
+          // if (flabel) {
+          //   let setLabel = function(name) {
+          //     let tmp = flabel.nsAttr(name);
+          //     if (tmp) {
+          //       $(`#sidr_status #sidr_status_${name}_label`).text(tmp);
+          //     }
+          //   };
+          //   setLabel('hp');
+          //   setLabel('mp');
+          //   setLabel('state');
+          //   setLabel('str');
+          //   setLabel('int');
+          //   setLabel('dex');
+          //   setLabel('krm');
+          //   setLabel('free1');
+          //   setLabel('free2');
+          //   setLabel('free3');
+          // }
 
           $('#sidr_status #sidr_status_str').val(save_data.chara.str);
           $('#sidr_status #sidr_status_int').val(save_data.chara.int);
@@ -2691,6 +2577,17 @@
     // 先頭文字を除去
     ltrim: function(str) {
       return str.substr(1);
+    },
+
+    // メッセージをフォーマット
+    // format：書式文字列、args：埋め込む値
+    formatMessage: function(format, ...args) {
+      let result = format;
+      for (let i = 0; i < args.length; i++) {
+        let holder = '#{' + i + '}';
+        result = result.replace(holder, args[i]);
+      }
+      return result
     },
 
     // オブジェクトをディープコピー
