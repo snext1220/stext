@@ -359,7 +359,7 @@
 
 
 <work id="negotiator" title="ドラゴンネゴシエーター" author="Salvador" series="連作ドラゴンモード"
-  tags="ペトスの祭壇,推理" published="2019-05-27" updated="2019-05-27" level="2" scenes="39" results="4" clears="r04"
+  tags="ペトスの祭壇,推理" published="2019-05-27" updated="2021-05-08" level="2" scenes="39" results="4" clears="r04"
   comment="あなたの武器は剣や魔法ではなく「交渉」です。一風変わったドラゴンモードをお楽しみください。">
 <img src="./stext/negotiator/capture/intro.png" height="120"
   title="ドラゴンネゴシエーター"  align="left" class="left"/>
