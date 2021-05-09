@@ -148,6 +148,7 @@ $(function () {
       title: '',
       author: '',
       init: {
+        basic: {},
         constraint: {},
         bgm: {},
         label: {},
@@ -168,6 +169,10 @@ $(function () {
       title: 'Untitled',
       author: 'Unnamed',
       init: {
+        basic: {
+          summary: '',
+          imgset: ''
+        },
         constraint: {
           race: '',
           sex: '',
@@ -1574,6 +1579,8 @@ $(function () {
       result.attr('title', scenario.title);
       result.attr('author', scenario.author);
       // init要素
+      let basic = Util.objToElement('basic', scenario.init.basic);
+      if (basic) { inits.append(basic); }
       let constraint = Util.objToElement('constraint', scenario.init.constraint);
       if (constraint) { inits.append(constraint); }
       let bgm = Util.objToElement('bgm', scenario.init.bgm);
@@ -1600,6 +1607,7 @@ $(function () {
         let flag = Util.objToElement('flag', t_flag);
         if (flag) { flags.append(flag); }
       }
+      result.append(flags);
       // parameters要素
       for (let t_param of scenario.params) {
         let param = Util.objToElement('param0', t_param);
@@ -1679,6 +1687,7 @@ $(function () {
       let s_data = parser.parseFromString(data, 'text/xml');
       result.title = $('scenario', s_data).attr('title');
       result.author = $('scenario', s_data).attr('author');
+      result.init.basic = Util.elementToObj($('init > basic', s_data));
       result.init.constraint = Util.elementToObj($('init > constraint', s_data));
       result.init.bgm = Util.elementToObj($('init > bgm', s_data));
       result.init.label = Util.elementToObj($('init > label', s_data));
@@ -1858,7 +1867,7 @@ $(function () {
         html.get(0).outerHTML;
     },
 
-    // アンカータグの生成（crreateEpub用）
+    // アンカータグの生成（createEpub用）
     createLinkText:function(id, edges) {
       let result = [];
       edges.forEach(function(value) {
@@ -1935,6 +1944,8 @@ ${Util.createLinkText(value.id, scenario.edges)}
   // 基本情報を初期化
   $('#title').val(scenario.title);
   $('#author').val(scenario.author);
+  $('#basic-summary').prop('checked', !!scenario.init.basic.summary);
+  $('#basic-imgset').prop('checked', !!scenario.init.basic.imgset);
   $('#constraint-race').val(scenario.init.constraint.race);
   $('#constraint-sex').val(scenario.init.constraint.sex);
   $('#constraint-age').val(scenario.init.constraint.age);
@@ -1961,6 +1972,10 @@ ${Util.createLinkText(value.id, scenario.edges)}
       scenario[id[0]] = $(this).val();
     } else {
       scenario.init[id[0]][id[1]] = $(this).val();
+      // summary属性の処理
+      if ((id[1] === 'summary' || id[1] === 'imgset') && !$(this).prop('checked')) {
+        scenario.init[id[0]][id[1]] =  undefined;
+      }
     }
     // console.log('input')
   });

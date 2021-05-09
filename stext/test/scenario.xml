@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <scenario
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd" title="Untitled" author="Unnamed">
-	<init summary="true">
-		<constraint race="FIGHTER" sex="MALE" age="YOUNG,ADULT" imgset="custom" />
-		<label hp="生命力" mp="魔力" state="状態" str="強さ" int="賢さ" dex="器用" krm="善良"
-			free1="ほげ" free2="ふー" free3="ばー" />
+	<init>
+		<basic summary="true" imgset="custom"></basic>
+		<constraint race="FIGHTER" sex="MALE" age="YOUNG,ADULT"></constraint>
+		<label hp="生命力" mp="魔力" state="状態" str="強さ" int="賢さ" dex="器用" krm="善良" free1="ほげ" free2="ふー" free3="ばー"></label>
 	</init>
 	<groups>
 		<group start="0" end="1" title="Introduction"></group>
@@ -15,9 +15,9 @@
 		<item id="i03" name="Item-03">3Item description...</item>
 	</items>
 	<flags>
-		<flag id="f01">Flag description...</flag>
-		<flag id="f02">Flag2</flag>
-		<flag id="f03">Flag3</flag>
+		<flag id="f01">フラグ1</flag>
+		<flag id="f02">フラグ2</flag>
+		<flag id="f03">フラグ3</flag>
 	</flags>
 	<params>
 		<param id="p01" min="0" max="50" initial="30">Param description</param>
@@ -32,7 +32,7 @@
 	<licence>
 		<work name="Bgm-01" category="bgm" creator="SText" url="https://example.com/"></work>
 	</licence>
-	<scene id="0" summary="プロローグ" group="prologue" enemies="m01" items="i01,i02,i03" flags="f01,f02,f03" dice="8:5" params="p01:10,p99:1">分岐テスト
+	<scene id="0" summary="プロローグ" group="prologue" enemies="m01" items="i01,i02,i03" flags="f01,f02,f03" dice="8:5" params="p01:10,p99:1" level="1">分岐テスト
 
 ${var?i01:name}：${var?i01:text}
 ${var?m01:name}：${var?m01:element}：${var?m01:text}
@@ -40,10 +40,8 @@ ${var?r01:name}：${var?r01:level}：${var?r01:text}
 ${var?p01:text}：${var?p01:value}
 
 [次へ](100)
-[戻るテスト](6)
-	</scene>
-
-	<scene id="100" summary="本文" items="-i01" str="full" group="prologue">
+[戻るテスト](6)</scene>
+	<scene id="100" summary="本文" items="-i01" str="full" group="prologue" level="2">
 
 ${result?scepter}
 ${result_rate?scepter}
@@ -62,31 +60,36 @@ f01,f02,f03、
 ${var?p01:text}：${var?p01:value}
 ${var?p02:text}：${var?p02:value}
 
+
+
+
+
+
+
+---
+
 [次へ](200 "p01:10")
 [次へ（数値未満）](200 "!p01:60")
 [次へ（数値===）](200 "p01:@40")
 [次へ（文字列）](300 "p02:Rio")
 [次へ（文字列not）](400 "!p02:Suzuki")
-
----
-
 [f01&amp;f02&amp;f03](1 "f01&amp;f02&amp;f03")
 [f01,f02,f03](2 "f01,f02,f03")
 [！f01&amp;f02&amp;f03](3 "!(f01&amp;f02&amp;f03)")
 [フラグ入手f01](4)
 [フラグ入手f02](5)
 [フラグ入手f03](6)</scene>
-	<scene id="1" summary="分岐1">ここからが本文です。
+	<scene id="1" summary="分岐1" level="3">ここからが本文です。
 
 </scene>
-	<scene id="2" x="12.300003051757812" summary="分岐2"></scene>
-	<scene id="3" x="66.96846008300781" summary="分岐3"></scene>
-	<scene id="4" x="182.3000030517578" summary="フラグ入手1" flags="f01" end="happy" nexts="scepter">
-</scene>
-	<scene id="5" x="133.6315460205078" summary="フラグ入手2" flags="f02">
+	<scene id="2" x="12.300003051757812" summary="分岐2" level="3"></scene>
+	<scene id="3" x="66.96846008300781" summary="分岐3" level="3"></scene>
+	<scene id="4" x="182.3000030517578" summary="フラグ入手1" flags="f01" end="happy" nexts="scepter" group="happy" level="3"></scene>
+	<scene id="5" x="133.6315460205078" summary="フラグ入手2" flags="f02" level="3">
 
 [戻る](0)</scene>
-	<scene id="6" x="6.6315460205078125" summary="フラグ入手3" flags="f03">
+	<scene id="6" x="6.6315460205078125" summary="フラグ入手3" flags="f03" level="3">
+
 [戻るテスト](90000)
 [戻る](0)</scene>
 </scenario>

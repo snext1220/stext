@@ -1481,7 +1481,7 @@
         if (!sex)  { sex = save_data.chara.sex; }
         if (!age)  { age = save_data.chara.age; }
         let path = `${ROOT}${COMMON}`;
-        let imgset = $('init > constraint', scenario_data).attr('imgset');
+        let imgset = $('init > basic', scenario_data).attr('imgset');
         if (imgset === 'custom') {
           path = `${ROOT}${scenario_code}/chara/`;
         }
@@ -4290,10 +4290,10 @@
       }
 
       // ヘッダーテキスト
-      let init = $('init', scenario_data);
+      let basic = $('init > basic', scenario_data);
       let at_summary;
-      if (init) {
-        at_summary = init.nsAttr('summary');
+      if (basic) {
+        at_summary = basic.nsAttr('summary');
       }
       if (at_summary) {
         $(`<h5 id="scenario_title">${$('scenario', scenario_data).nsAttr('title')}</h5>
