@@ -1931,6 +1931,10 @@ ${Util.createLinkText(value.id, scenario.edges)}
     // 著者情報を初期化
     scenario.author = global_config.author;
   }
+
+  // 追加要素の対応
+  if (!scenario.init.basic) { scenario.init.basic = {}; }
+  if (!scenario.params)     { scenario.params = []; }
   // 初期化時に増分値を設定
   // $('#ctrl_incre').val(global_config.increment);
 
@@ -1944,7 +1948,6 @@ ${Util.createLinkText(value.id, scenario.edges)}
   // 基本情報を初期化
   $('#title').val(scenario.title);
   $('#author').val(scenario.author);
-  if (!scenario.init.basic) { scenario.init.basic = {}; }
   $('#basic-summary').prop('checked', !!scenario.init.basic.summary);
   $('#basic-imgset').prop('checked', !!scenario.init.basic.imgset);
   $('#constraint-race').val(scenario.init.constraint.race);

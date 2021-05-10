@@ -28,6 +28,7 @@
 			"text": "Flag description..."
 		}
 	],
+	"params": [],
 	"enemies": [
 		{
 			"id": "m01",

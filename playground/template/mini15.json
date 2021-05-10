@@ -63,6 +63,7 @@
 			"text": "逃亡"
 		}
 	],
+	"params": [],
 	"enemies": [
 		{
 			"id": "m01",
