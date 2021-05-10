@@ -1944,6 +1944,7 @@ ${Util.createLinkText(value.id, scenario.edges)}
   // 基本情報を初期化
   $('#title').val(scenario.title);
   $('#author').val(scenario.author);
+  if (!scenario.init.basic) { scenario.init.basic = {}; }
   $('#basic-summary').prop('checked', !!scenario.init.basic.summary);
   $('#basic-imgset').prop('checked', !!scenario.init.basic.imgset);
   $('#constraint-race').val(scenario.init.constraint.race);
