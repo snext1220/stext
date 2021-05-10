@@ -2,6 +2,7 @@
 	"title": "サンプルシナリオ「逆襲のヒドラ」",
 	"author": "執筆者名",
 	"init": {
+		"basic": {},
 		"constraint": {},
 		"bgm": {
 			"main": "@town02",

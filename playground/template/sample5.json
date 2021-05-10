@@ -2,6 +2,7 @@
 	"title": "サンプルシナリオ",
 	"author": "Rio",
 	"init": {
+		"basic": {},
 		"constraint": {
 			"race": "FIGHTER,WIZARD,DWARF,ELF",
 			"age": "YOUNG,ADULT,OLD"

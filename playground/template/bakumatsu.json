@@ -2,6 +2,7 @@
 	"title": "幕末テンプレート",
 	"author": "執筆者名",
 	"init": {
+		"basic": {},
 		"constraint": {},
 		"bgm": {
 			"main": "@town02",

@@ -2,6 +2,7 @@
 	"title": "チュートリアル",
 	"author": "Rio",
 	"init": {
+		"basic": {},
 		"constraint": {},
 		"bgm": {
 			"main": "@field05",

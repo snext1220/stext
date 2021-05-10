@@ -2,6 +2,7 @@
 	"title": "機能テスト",
 	"author": "リオ",
 	"init": {
+		"basic": {},
 		"constraint": {
 			"race": "WIZARD,ELF",
 			"sex": "FEMALE",

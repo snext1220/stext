@@ -2,6 +2,7 @@
 	"title": "短編15改変用",
 	"author": "作者名",
 	"init": {
+		"basic": {},
 		"constraint": {},
 		"bgm": {
 			"main": "field05",

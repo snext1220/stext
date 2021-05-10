@@ -2,6 +2,7 @@
 	"title": "Untitled",
 	"author": "Unnamed",
 	"init": {
+		"basic": {},
 		"constraint": {},
 		"bgm": {},
 		"label": {},
