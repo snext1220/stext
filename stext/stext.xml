@@ -491,12 +491,12 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 ソーサリアンとマーベルアベンジャーズがまさかのコラボ？異界から来た狂帝ディスファルコムと部下たちの前に地球は絶滅の危機に晒される。100日以内に七星の秘宝を集め、仲間たちと共に最凶のラスボスに立ち向かえ！君は1400万分の1の勝利を掴めるか？
 </work>
 
-<work id="baku01" title="壱：黒船来航" author="Rio" series="幕末ソーサリアン"
+<work id="baku01" title="序：黒船来航" author="Rio" series="幕末ソーサリアン"
   tags="歴史,連作" published="2020-12-20" updated="2021-04-28" level="3" scenes="274" results="71" clears="r90"
   comment="ドラゴンモードに引き続き、導入を担当させて戴きました。導入ということで謎は謎のままに流れていくので、まずは＜魔＞の雰囲気を気軽に楽しんで戴ければと。伏線の回収は、きっと本編組の皆さまがなんとかしてくれるはず ;-)"
   quest="1FAIpQLScAMN7CxrT7rB05FCEoQBVjn3E1UwxOCmWSCLNtm88__CCXdA">
   <img src="./stext/baku01/capture/intro.png" height="120"
-    title="壱：黒船来航" align="left" class="left" />
+    title="序：黒船来航" align="left" class="left" />
   <p class="award">幕末ソーサリアン序章（連作シナリオ）</p>
 ペンタウァのはるかな東。
 否、時空さえも遥かに超えた、その世界に、方向を示す意味があるのかも判らない。
