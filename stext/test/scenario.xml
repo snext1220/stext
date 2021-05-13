@@ -40,7 +40,9 @@ ${var?r01:name}：${var?r01:level}：${var?r01:text}
 ${var?p01:text}：${var?p01:value}
 
 [次へ](100)
+[バッドエンド](101)
 [戻るテスト](6)</scene>
+
 	<scene id="100" summary="本文" items="-i01" str="full" group="prologue" level="2">
 
 ${result?scepter}
@@ -60,12 +62,6 @@ f01,f02,f03、
 ${var?p01:text}：${var?p01:value}
 ${var?p02:text}：${var?p02:value}
 
-
-
-
-
-
-
 ---
 
 [次へ](200 "p01:10")
@@ -79,6 +75,7 @@ ${var?p02:text}：${var?p02:value}
 [フラグ入手f01](4)
 [フラグ入手f02](5)
 [フラグ入手f03](6)</scene>
+
 	<scene id="1" summary="分岐1" level="3">ここからが本文です。
 
 </scene>
@@ -92,4 +89,7 @@ ${var?p02:text}：${var?p02:value}
 
 [戻るテスト](90000)
 [戻る](0)</scene>
+
+<scene id="101" x="12.300003051757812" summary="分岐2" end="bad" nexts="test">bad</scene>
+
 </scenario>
