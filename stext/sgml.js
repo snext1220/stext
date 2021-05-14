@@ -3196,11 +3196,11 @@
           current = params_map[p_name].initial;
         }
         // 値の更新（文字列ではそのままセット）
-        if (isNaN(p_value)) {
+        if (isNaN(p_value) && !p_value.startsWith('@')) {
           current = p_value;
         } else {
           if (p_value.startsWith('@')) {
-            current = p_value;
+            current = p_value.substring(1);
           } else {
             let min = params_map[p_name].min;
             let max = params_map[p_name].max;
@@ -4748,10 +4748,10 @@
           };
         });
         // 予約パラメーター
-        params_map['p99'] = {
-          initial: 0,
-          desc: '戻り先の保存先'
-        };
+        // params_map['p99'] = {
+        //   initial: 0,
+        //   desc: '戻り先の保存先'
+        // };
       
         // モンスター覧を取得
         enemies_map = {};
