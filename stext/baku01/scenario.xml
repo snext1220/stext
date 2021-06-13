@@ -4,6 +4,7 @@
 	<init>
 		<bgm happy="@n30j001"></bgm>
 		<label free1="武器耐久度" free2="？？？"></label>
+		<intro keywords="幕末,ペリー,土方歳三" description="迫りくる&quot;魔&quot;の波動を感じたか!?ならば旅立て、激動の幕末日本へ!! 連作「幕末ソーサリアン」序章"></intro>
 	</init>
 	<groups>
 		<group start="0" end="1" title="Introduction"></group>
@@ -4579,7 +4580,7 @@ ${反吐|それ}はなにかによってかき混ぜられ、
 
 
 [そういえば、一緒に戦ってくれた老人は？](3420)</scene>
-	<scene id="3420" summary="Ending 2" level="80" end="happy" group="happy" nexts="baku01,baku02,baku03,baku04,baku05,baku06,baku07,baku08,baku09,baku10" result="r90" bgm="@n30j001">「あそこですよ」
+	<scene id="3420" summary="Ending 2" level="80" end="happy" group="happy" nexts="baku01,baku02,baku03,baku04,baku05,baku06,baku07,baku08,baku09,baku10,bakuXX" result="r90" bgm="@n30j001">「あそこですよ」
 
 政四郎は笑いを含んだ、口調で言った。
 

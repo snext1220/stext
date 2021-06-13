@@ -10,7 +10,10 @@
 			"free1": "武器耐久度",
 			"free2": "？？？"
 		},
-		"intro": {},
+		"intro": {
+			"keywords": "幕末,ペリー,土方歳三",
+			"description": "迫りくる\"魔\"の波動を感じたか!?ならば旅立て、激動の幕末日本へ!! 連作「幕末ソーサリアン」序章"
+		},
 		"basic": {}
 	},
 	"groups": [
@@ -3142,7 +3145,7 @@
 			"level": 80,
 			"end": "happy",
 			"group": "happy",
-			"nexts": "baku01,baku02,baku03,baku04,baku05,baku06,baku07,baku08,baku09,baku10",
+			"nexts": "baku01,baku02,baku03,baku04,baku05,baku06,baku07,baku08,baku09,baku10,bakuXX",
 			"result": "r90",
 			"bgm": "@n30j001"
 		},
