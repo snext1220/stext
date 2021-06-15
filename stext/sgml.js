@@ -3086,6 +3086,33 @@
       return false;
     },
 
+    // 指定された経過日数条件を満たしているかを判定（引数はe＜条件＞）
+    ifEllapsedScene(cond) {
+      if (cond.startsWith('e')) {
+        let current = Number(save_data.ellapsed_scene);
+        let cond_set = cond.substring(1).split(':');
+        if (cond_set.length === 1) {
+          return Number(current) >= Number(cond_set[0]);
+        } else if (cond_set.length === 3) {
+          let cycle = Number(cond_set[0]);  // 1周scene数
+          let div   = Number(cond_set[1]);  // 分割数
+          let index = Number(cond_set[2]);  // その何番目か
+
+          // 現在のシーンが何週目か
+          let t_cycle = Math.floor(current / cycle);
+          // 現在のシーンの分割時のシーン数
+          // let t_div = Math.floor(cycle / div);
+          // 現在の周回の先頭シーン
+          let min = (t_cycle * cycle) + (div * (index - 1)) + 1;
+          let max = (t_cycle * cycle) + (div * index);
+          return min <= current && current <= max;
+        } else {
+          console.error('Ellapsed_scene condition is invalid.');
+        }
+      }
+      return false;
+    },
+
     // 種族／性別／年齢／状態異常の合致を確認
     isCharaState: function(state) {
       if (state.indexOf('x') === 0) {
@@ -4040,6 +4067,7 @@
         Util.canUseMagicByName(cond) ||
         Util.ifParam(cond) ||
         Util.ifStatus(cond) ||
+        Util.ifEllapsedScene(cond) ||
         Util.isCharaState(cond) ||
         Util.hasStars(cond) ||
         Util.hasResult(cond);
@@ -4114,6 +4142,7 @@
         } catch (e) {
           console.error('Parse Error: リンク条件式');
           console.error(elem);
+          console.error(e);
         }
       });
     },

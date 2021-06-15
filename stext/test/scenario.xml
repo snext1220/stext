@@ -39,9 +39,21 @@ ${var?m01:name}：${var?m01:element}：${var?m01:text}
 ${var?r01:name}：${var?r01:level}：${var?r01:text}
 ${var?p01:text}：${var?p01:value}
 
+[経過日数テスト](50)
 [次へ](100)
 [バッドエンド](101)
 [戻るテスト](6)</scene>
+
+    <scene id="50">
+
+	[戻る](0)
+	[1日未経過](100 "!e15")
+	[1日経過](100 "e15")
+	[朝](100 "e15:5:1")
+	[昼](100 "e15:5:2")
+	[晩](100 "e15:5:3")
+
+	</scene>
 
 	<scene id="100" summary="本文" items="-i01" str="full" group="prologue" level="2">
 
