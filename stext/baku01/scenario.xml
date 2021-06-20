@@ -3,8 +3,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="http://www.web-deli.com/sorcerian/next/stext/common/sgml.xsd" title="序：黒船来航" author="リオ">
 	<init>
 		<bgm happy="@n30j001"></bgm>
-		<label free1="武器耐久度" free2="？？？"></label>
-		<intro keywords="幕末,ペリー,土方歳三" description="迫りくる&quot;魔&quot;の波動を感じたか!?ならば旅立て、激動の幕末日本へ!! 連作「幕末ソーサリアン」序章"></intro>
+		<label free1="武器耐久度" free2="？？？" free3="-"></label>
+		<intro keywords="幕末,ペリー,土方歳三" description="迫りくる＜魔＞の波動を感じたか!?ならば旅立て、激動の幕末日本へ!! 連作「幕末ソーサリアン」序章"></intro>
 	</init>
 	<groups>
 		<group start="0" end="1" title="Introduction"></group>

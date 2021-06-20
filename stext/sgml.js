@@ -555,7 +555,13 @@
     },
     // 指定されたシナリオコード（code）に対して実績カウントを追加
     incrementResult(code) {
-      this.scena_infos[code].results_count++;
+      if (this.scena_infos[code]) {
+        this.scena_infos[code].results_count++;
+      } else {
+        this.scena_infos[code] = {
+          results_count: 1
+        };
+      }
       // 経験値を再計算
       this.calculateExp();
     },
@@ -2532,6 +2538,17 @@
     }
   };
 
+  // 条件式のための関数群
+  let SgmlFunc = {
+    random: function(per) {
+      return Util.random(0, 100) <= per;
+    },
+
+    include: function() {
+      return false;
+    },
+  };
+
   // ユーティリティ
   var Util = {
     // msec秒だけ処理を休止
@@ -3120,6 +3137,24 @@
           save_data.chara.age, save_data.chara.state.toUpperCase(),
           save_data.chara.job ];
         return tmp_state.indexOf(state.substring(1).toUpperCase()) !== -1;
+      }
+      return false;
+    },
+
+    // 条件関数から真偽を判定
+    ifFunction: function(exp) {
+      let result = exp.match(/fn:(?<name>[a-z0-9]+)\[(?<args>.*?)\]/i);
+      if (result) {
+        let name = result.groups.name;
+        let args = result.groups.args.split(',');
+        switch (name) {
+          case 'random' :
+            return SgmlFunc.random(...args);
+          case 'include' :
+            return SgmlFunc.include(...args);
+          default :
+            throw new Error('Function Name is invalid.');
+        }
       }
       return false;
     },
@@ -3894,13 +3929,29 @@
       if (rule === undefined) {
         rule = '99999';
       }
-      $('#common_rule')
-        .html(
-          Util.decorateText(
-            $('scene#' + rule, scenario_data)
+      Util.showImage(
+        $('#common_rule')
+          .html(
+            Util.decorateText(
+              $('scene#' + rule, scenario_data)
+            )
           )
-        )
-        .markdown();
+          .markdown()
+      );
+    },
+
+    // target：加工対象の要素
+    showImage: function(target) {
+      let a_img = $('a:has(img)', target);
+      a_img.each(function(index, elem) {
+        let img_path = `${ROOT}${scenario_code}/${CAPTURE}${$(elem).attr('href')}`;
+        $(elem).attr('href', img_path)
+          .removeClass('scenebtn')
+          .addClass('scenepic')
+          .find('img')
+          .attr('src', img_path);  
+      });
+      $('a.scenepic', target).zoombox();
     },
 
     // 本文中のSGML式 ${...} を解析
@@ -4070,7 +4121,8 @@
         Util.ifEllapsedScene(cond) ||
         Util.isCharaState(cond) ||
         Util.hasStars(cond) ||
-        Util.hasResult(cond);
+        Util.hasResult(cond) ||
+        Util.ifFunction(cond);
     },
 
     // 引数org_cond（条件式cond,cond,...）の判定
@@ -4116,9 +4168,15 @@
       org_cond = org_cond.split('#OR#').join('|');
       org_cond = org_cond.split('#L#').join('(');
       org_cond = org_cond.split('#R#').join(')');
+      org_cond = org_cond.replace(/fn:[a-z0-9]+\(.*?\)/gi, function(match) {
+        return match
+          .replace('(', '[')
+          .replace(')', ']');
+      });
+      console.log(org_cond);
 
-
-      if (/([\&\|\!\(\)]{1})/.test(org_cond)) {
+      if (org_cond.includes('fn:') ||
+            /([\&\|\!\(\)]{1})/.test(org_cond)) {
         return Util.conditionFull(org_cond);
       } else if (org_cond.indexOf('-') !== 0) {
         // 指定の条件をすべて満たしていれば真
@@ -4428,16 +4486,17 @@
         .wrapAll('<div class="xbtn"></div>');
 
       // 挿絵の整形
-      var a_img = $('a:has(img)', target);
-      a_img.each(function(index, elem) {
-        var img_path = ROOT + scenario_code + '/' + CAPTURE + $(elem).attr('href');
-        $(elem).attr('href', img_path)
-          .removeClass('scenebtn')
-          .addClass('scenepic')
-          .find('img')
-          .attr('src', img_path);  
-      });
-      $('a.scenepic').zoombox();
+      Util.showImage(target);
+      // var a_img = $('a:has(img)', target);
+      // a_img.each(function(index, elem) {
+      //   var img_path = ROOT + scenario_code + '/' + CAPTURE + $(elem).attr('href');
+      //   $(elem).attr('href', img_path)
+      //     .removeClass('scenebtn')
+      //     .addClass('scenepic')
+      //     .find('img')
+      //     .attr('src', img_path);  
+      // });
+      // $('a.scenepic').zoombox();
 
       // 条件付きボタンの表示／非表示
       Util.showSceneButton();

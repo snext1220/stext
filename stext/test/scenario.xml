@@ -39,6 +39,7 @@ ${var?m01:name}：${var?m01:element}：${var?m01:text}
 ${var?r01:name}：${var?r01:level}：${var?r01:text}
 ${var?p01:text}：${var?p01:value}
 
+[Funcテスト](100 "fn:random(50)")
 [経過日数テスト](50)
 [次へ](100)
 [バッドエンド](101)
@@ -55,7 +56,8 @@ ${var?p01:text}：${var?p01:value}
 
 	</scene>
 
-	<scene id="100" summary="本文" items="-i01" str="full" group="prologue" level="2">
+	<scene id="100" summary="本文" items="-i01" 
+	str="full" group="prologue" level="2" rule="999">
 
 ${result?scepter}
 ${result_rate?scepter}
@@ -104,4 +106,10 @@ ${var?p02:text}：${var?p02:value}
 
 <scene id="101" x="12.300003051757812" summary="分岐2" end="bad" nexts="test">bad</scene>
 
+<scene id="999" summary="ルール">
++ ${title}
++ ${name}
+
+![幕末ソーサリアン](add3.gif)
+</scene>
 </scenario>
