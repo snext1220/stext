@@ -956,12 +956,18 @@
         e.stopImmediatePropagation();
 
         let hp = Number($(this).val());
+        let org_hp = $(this).nsAttr('data-org_hp');
         let func_opp = $(this).nsAttr('data-func_opp');
         let damage = Util.computeDamage(func_opp);
         if (damage < 0) { damage = 0; }
         hp -= damage;
         if (hp <= 0) { hp = 0; }
         $(this).val(hp);
+        // 内部パラメーターの反映
+        if (org_hp.startsWith('p')) {
+          Util.updateParams(`${org_hp}:@${hp}`);
+          Util.saveStorage();
+        }
         toastr.success(
           `${damage} Hit!`,
           '敵へのダメージ'
@@ -1266,9 +1272,15 @@
               }
 
               if (enemy.hp) {
+                let hp = enemy.hp;
+                // 内部パラメーター対応（現在値で置換）
+                if (enemy.hp.startsWith('p')) {
+                  hp = Util.getParamValue(hp);
+                }
                 $('.enemy_hp', row)
                   .attr('data-func_opp', enemy.func_opp)
-                  .val(enemy.hp);
+                  .attr('data-org_hp', enemy.hp)
+                  .val(hp);
                 show_hp = true;
               } else {
                 $('.enemy_hp', row).hide();
@@ -3954,6 +3966,20 @@
       $('a.scenepic', target).zoombox();
     },
 
+    // 指定された内部パラメーター値を取得
+    getParamValue: function(id) {
+      let v = 0;
+      // セーブデータから現在値を取得
+      if (save_data.params) {
+        v = save_data.params[id];
+      }
+      // セーブデータにない場合はinitial値
+      if (!v) {
+        v = params_map[id].initial;
+      }
+      return v;
+    },
+
     // 本文中のSGML式 ${...} を解析
     interpolation: function(match, sub) {
       var tmp_sub = sub.split('?');
@@ -4060,16 +4086,17 @@
               case 'text' :
                 return p.desc;
               case 'value' :
-                let v = 0;
-                // セーブデータから現在値を取得
-                if (save_data.params) {
-                  v = save_data.params[m_params[0]];
-                }
-                // セーブデータにない場合はinitial値
-                if (!v) {
-                  return p.initial;
-                }
-                return v;
+                return Util.getParamValue(m_params[0]);
+                // let v = 0;
+                // // セーブデータから現在値を取得
+                // if (save_data.params) {
+                //   v = save_data.params[m_params[0]];
+                // }
+                // // セーブデータにない場合はinitial値
+                // if (!v) {
+                //   return p.initial;
+                // }
+                // return v;
             };
           } else if (m_params[0].startsWith('m')) {
             let m = enemies_map[m_params[0]];
