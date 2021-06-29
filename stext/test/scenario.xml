@@ -34,7 +34,7 @@
 	<licence>
 		<work name="Bgm-01" category="bgm" creator="SText" url="https://example.com/"></work>
 	</licence>
-	<scene id="0" summary="プロローグ" group="prologue" enemies="m01,m02" items="i01,i02,i03" flags="f01,f02,f03" dice="8:5" params="p01:10" level="1">分岐テスト
+	<scene id="0" summary="プロローグ" group="prologue" enemies="m01,m02" items="i01,i02,i03" dice="8:5" params="p01:10" level="1">分岐テスト
 
 ${effect rotateInUpRight}ペンタウァのはるかな東。
 否、時空さえも遥かに超えた、その世界に、
@@ -53,20 +53,37 @@ ${var?m01:name}：${var?m01:element}：${var?m01:text}
 ${var?r01:name}：${var?r01:level}：${var?r01:text}
 ${var?p01:text}：${var?p01:value}
 
-[Funcテスト](100 "fn:random(50)")
+[rangeテスト](100 "fn:range(e,1,5)")
+[randomテスト](100 "fn:random(50)")
+[includeテスト（f01）](17)
+[includeテスト（f02）](18)
+[includeテスト（f03）](19)
+[includeテスト](100 "fn:include(2,f01,f02,f03)")
+
 [経過日数テスト](50)
 [次へ](100)
 [バッドエンド](101)
 [戻るテスト](6)</scene>
+
+<scene id="17" flags="f01">
+[戻る](0)
+</scene>
+<scene id="18" flags="f02">
+[戻る](0)
+</scene>
+<scene id="19" flags="f03">
+[戻る](0)
+</scene>
+
 
     <scene id="50" enemies="m02">
 
 	[戻る](0)
 	[1日未経過](100 "!e15")
 	[1日経過](100 "e15")
-	[朝](100 "e15:5:1")
-	[昼](100 "e15:5:2")
-	[晩](100 "e15:5:3")
+	[朝](100 "fn:cycle(15,5,1)")
+	[昼](100 "fn:cycle(15,5,2)")
+	[晩](100 "fn:cycle(15,5,3)")
 
 	</scene>
 

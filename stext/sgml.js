@@ -2552,13 +2552,53 @@
 
   // 条件式のための関数群
   let SgmlFunc = {
+    // fn:range(40)
+    // per％の確率でtrue
     random: function(per) {
       return Util.random(0, 100) <= per;
     },
 
-    include: function() {
-      return false;
+    // fn:include(2,f01,f02,f03)
+    // ids（フラグ／アイテム）をmin個以上持てばtrue
+    include: function(min, ...ids) {
+      let count = 0;
+      for (let id of ids) {
+        if (save_data.flags.indexOf(id) !== -1 ||
+            save_data.items.indexOf(id) !== -1) {
+          count++;
+        }  
+      }
+      return count >= min;
     },
+
+    // fn:range(str,5,10)
+    // keyがmin以上max未満でtrue（keyはhp、mp、str～krm、free1～3）
+    range: function(key, min, max) {
+      let v = 0;
+      if (key.startsWith('p')) {
+        v = Number(Util.getParamValue(key));
+      } else if (key === 'e') {
+        v = Number(save_data.ellapsed_scene);
+      } else {
+        v = Number(Util.getStatusValue(key));
+      }
+      return min <= v && v < max;
+    },
+
+    // fn:cycle(30,3,1)
+    // size：1周scene数、div：分割数、index：その何番目か
+    cycle: function(size, div, index) {
+      let current = Number(save_data.ellapsed_scene);
+      size  = Number(size);
+      div   = Number(div);
+      index = Number(index); 
+      // 現在のシーンが何週目か
+      let t_cycle = Math.floor(current / size);
+      // 現在の周回の先頭／末尾シーン
+      let min = (t_cycle * size) + (div * (index - 1)) + 1;
+      let max = (t_cycle * size) + (div * index);
+      return min <= current && current <= max;
+    }
   };
 
   // ユーティリティ
@@ -3164,6 +3204,10 @@
             return SgmlFunc.random(...args);
           case 'include' :
             return SgmlFunc.include(...args);
+          case 'range' :
+            return SgmlFunc.range(...args);
+          case 'cycle' :
+            return SgmlFunc.cycle(...args);
           default :
             throw new Error('Function Name is invalid.');
         }
@@ -3964,6 +4008,11 @@
           .attr('src', img_path);  
       });
       $('a.scenepic', target).zoombox();
+    },
+
+    // 指定されたステータス値を取得（hp、mp、str～krm、free1～3）
+    getStatusValue: function(key) {
+      return save_data.chara[key];
     },
 
     // 指定された内部パラメーター値を取得
