@@ -36,6 +36,18 @@
 	</licence>
 	<scene id="0" summary="プロローグ" group="prologue" enemies="m01,m02" items="i01,i02,i03" flags="f01,f02,f03" dice="8:5" params="p01:10" level="1">分岐テスト
 
+${effect rotateInUpRight}ペンタウァのはるかな東。
+否、時空さえも遥かに超えた、その世界に、
+<font color="Red">方向</font>を示す意味があるのかも判らない。${/effect}
+
+${effect rotateInUpRight}しかし、あえて言えば東、はるか極東の世界の物語りである。
+19世紀（この世界では100年で時を刻むのだそうだ）、
+そこは、${亜細亜|アジア}と呼ばれる地域。${/effect}
+
+${effect rotateInUpRight}亜細亜は、欧米列強と呼ばれる西の異国によって
+侵略の危機に晒されている。${/effect}
+
+
 ${var?i01:name}：${var?i01:text}
 ${var?m01:name}：${var?m01:element}：${var?m01:text}
 ${var?r01:name}：${var?r01:level}：${var?r01:text}

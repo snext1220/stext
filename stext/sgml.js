@@ -4247,6 +4247,34 @@
       }
     },
 
+    // ${effect}によるアニメーションの付与
+    applyEffect: function(tmp_scene) {
+      let effect_index = 0;
+      let effect_count = 0;
+      // .tell_effect1～Nまで順にエフェクトを再生
+      function runEffect() {
+        let clazz = `.tell_effect${++effect_index}`;
+        $(clazz)
+          .show()
+          .textillate({
+          in: {
+            effect: $(clazz).attr('data-effect'),
+            callback: function() {
+              if (effect_index <= effect_count) {
+                runEffect();
+              }
+            }
+          }
+        });
+      }
+      setTimeout(runEffect, 100);
+      // エフェクト適用のためのHTMLを準備
+      return tmp_scene.replace(/\${effect[\s]+(.+?)}([\s\S]+?)\${\/effect}/gi, function(match, args, body) {
+        let clazz = `tell_effect${++effect_count}`;
+        return `<div class="${clazz}" data-effect="${args}" style="display:none;">${body}</div>`;
+      });
+    },
+
     // Tweetボタンの生成
     parseTweet: function(match, body) {
       tweet_message = body;
@@ -4315,6 +4343,8 @@
         '<a href="$&" data-link="auto" target="_blank">$&</a>');
       // ${if cond}...${/if}による条件分岐
       tmp_scene = tmp_scene.replace(/\${if[\s]+(.+?)}([\s\S]+?)\${\/if}/gi, this.ifCondition);
+      // ${effect args}...${/effect}によるアニメーションの適用
+      tmp_scene = Util.applyEffect(tmp_scene);
       // ${tweet}...${/tweet}によるTwitter反映
       tmp_scene = tmp_scene.replace(/\${tweet}([\s\S]+?)\${\/tweet}/gi, this.parseTweet);
       // ${...}の箇所を式の内容に応じて処理
