@@ -47,12 +47,12 @@ ${effect rotateInUpRight}しかし、あえて言えば東、はるか極東の�
 ${effect rotateInUpRight}亜細亜は、欧米列強と呼ばれる西の異国によって
 侵略の危機に晒されている。${/effect}
 
-
 ${var?i01:name}：${var?i01:text}
 ${var?m01:name}：${var?m01:element}：${var?m01:text}
 ${var?r01:name}：${var?r01:level}：${var?r01:text}
 ${var?p01:text}：${var?p01:value}
 
+[日数テスト](100 "e7")
 [rangeテスト](100 "fn:range(e,1,5)")
 [randomテスト](100 "fn:random(50)")
 [includeテスト（f01）](17)
