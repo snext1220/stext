@@ -12,6 +12,7 @@ People called this plugin.....**Sorcerian Text**.
 - [SmartMenus](https://www.smartmenus.org/)
 - [toastr](https://github.com/CodeSeven/toastr)
 - [Zoombox](http://grafikart.github.io/Zoombox/)
+- [Textillate.js](https://textillate.js.org/)
 - [JavaScript Cookie](https://github.com/js-cookie/js-cookie)
 - [jQuery SelectBox](https://github.com/marcj/jquery-selectBox)
 - [SlickGrid（Playground Flow）](https://slickgrid.net/)
