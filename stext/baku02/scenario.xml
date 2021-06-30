@@ -8,6 +8,7 @@
 		<item id="i02" name="良質傷薬" target="hp" effect="40">HPを40回復させる薬</item>
 		<item id="i03" name="傷薬" target="hp" effect="15">HPを15回復させる薬</item>
 		<item id="i04" name="傷薬" target="hp" effect="15">HPを15回復させる薬</item>
+		<item id="i100" name="王杖の貝殻" shared="true">大魔法使いエティスのホットライン</item>
 	</items>
 	<flags>
 		<flag id="f01">茶屋フラグ</flag>
@@ -15,27 +16,27 @@
 	</flags>
 	<params></params>
 	<enemies>
-		<enemy id="m01" name="悪魔の樹" element="earth" attack="physics" func="10L+10R-STR" hp="600" func_opp="L+R+STR">災厄の樹、生きるものをすべて貪り取込む</enemy>
-		<enemy id="m02" name="ゴブリンＡ" element="earth" attack="physics" func="L+2R-STR" drop="mon/2" hp="10" func_opp="L+R+STR">ゴブリンの集団</enemy>
-		<enemy id="m03" name="ゴブリンＢ" element="earth" attack="physics" func="2L+R-STR" drop="mon/2" hp="10" func_opp="L+R+STR">ゴブリンの集団</enemy>
-		<enemy id="m04" name="ゴブリンＣ" element="earth" attack="physics" func="L+R-STR" drop="mon/2" hp="10" func_opp="L+R+STR">ゴブリンの集団</enemy>
-		<enemy id="m05" name="ゴブリンＤ" element="earth" attack="physics" func="2L+R-STR" drop="mon/2" hp="10" func_opp="L+R+STR">ゴブリンの集団</enemy>
-		<enemy id="m06" name="ゴブリンＥ" element="earth" attack="physics" func="L+2R-STR" drop="mon/2" hp="10" func_opp="L+R+STR">ゴブリンの集団</enemy>
-		<enemy id="m07" name="大男" element="earth" attack="physics" func="2L+2R-STR" hp="40" func_opp="L+R+STR">刀を持った大男</enemy>
-		<enemy id="m08" name="オーガＡ" element="earth" attack="physics" func="2L+2R-STR" drop="mon/2" hp="25" func_opp="L+R+STR">オーガの集団</enemy>
-		<enemy id="m09" name="オーガＢ" element="earth" attack="physics" func="3L+R-STR" drop="mon/2" hp="25" func_opp="L+R+STR">オーガの集団</enemy>
-		<enemy id="m10" name="オーガＣ" element="earth" attack="physics" func="L+3R-STR" drop="mon/2" hp="25" func_opp="L+R+STR">オーガの集団</enemy>
-		<enemy id="m11" name="浪人スケルトンＡ" element="spirit" attack="physics" func="2L+R-STR" drop="mon/2" hp="25" func_opp="L+R+STR">羽織をまとったスケルトン</enemy>
-		<enemy id="m12" name="浪人スケルトンＢ" element="spirit" attack="physics" func="L+2R-STR" drop="mon/2" hp="20" func_opp="L+R+STR">羽織をまとったスケルトン</enemy>
-		<enemy id="m13" name="浪人スケルトンＣ" element="spirit" attack="physics" func="2L+2R-STR" drop="mon/2" hp="20" func_opp="L+R+STR">羽織をまとったスケルトン</enemy>
+		<enemy id="m01" name="悪魔の樹" attack="physics" func="10L+10R-STR" hp="600" func_opp="L+R+STR">災厄の樹、生きるものをすべて貪り取込む</enemy>
+		<enemy id="m02" name="ゴブリンＡ" element="earth" attack="physics" func="L+2R-STR" drop="tue/2" hp="10" func_opp="L+R+STR">ゴブリンの集団</enemy>
+		<enemy id="m03" name="ゴブリンＢ" element="earth" attack="physics" func="2L+R-STR" drop="tue/2" hp="10" func_opp="L+R+STR">ゴブリンの集団</enemy>
+		<enemy id="m04" name="ゴブリンＣ" element="earth" attack="physics" func="L+R-STR" drop="thu/2" hp="10" func_opp="L+R+STR">ゴブリンの集団</enemy>
+		<enemy id="m05" name="ゴブリンＤ" element="earth" attack="physics" func="2L+R-STR" drop="thu/2" hp="10" func_opp="L+R+STR">ゴブリンの集団</enemy>
+		<enemy id="m06" name="ゴブリンＥ" element="earth" attack="physics" func="L+2R-STR" drop="sat/2" hp="10" func_opp="L+R+STR">ゴブリンの集団</enemy>
+		<enemy id="m07" name="大男" attack="physics" func="2L+2R-STR" hp="40" func_opp="L+R+STR">刀を持った大男</enemy>
+		<enemy id="m08" name="オーガＡ" element="earth" attack="physics" func="2L+2R-STR" hp="25" func_opp="L+R+STR">オーガの集団</enemy>
+		<enemy id="m09" name="オーガＢ" element="earth" attack="physics" func="3L+R-STR" hp="25" func_opp="L+R+STR">オーガの集団</enemy>
+		<enemy id="m10" name="オーガＣ" element="earth" attack="physics" func="L+3R-STR" hp="25" func_opp="L+R+STR">オーガの集団</enemy>
+		<enemy id="m11" name="浪人スケルトンＡ" element="spirit" attack="physics" func="2L+R-STR" drop="sun/2" hp="25" func_opp="L+R+STR">羽織をまとったスケルトン</enemy>
+		<enemy id="m12" name="浪人スケルトンＢ" element="spirit" attack="physics" func="L+2R-STR" drop="sun/2" hp="20" func_opp="L+R+STR">羽織をまとったスケルトン</enemy>
+		<enemy id="m13" name="浪人スケルトンＣ" element="spirit" attack="physics" func="2L+2R-STR" drop="sat/2" hp="20" func_opp="L+R+STR">羽織をまとったスケルトン</enemy>
 		<enemy id="m14" name="スケルトン有村" element="spirit" attack="physics" hp="100" func_opp="L+R+STR">有村スケルトン本体。倒すと戦闘が終了する</enemy>
-		<enemy id="m15" name="有村アーム" element="spirit" attack="physics" func="3L+R-STR" hp="15" func_opp="L+R+STR">刀を持った右腕</enemy>
-		<enemy id="m16" name="有村アーム" element="spirit" attack="physics" func="3L+R-STR" hp="15" func_opp="L+R+STR">刀を持った左腕</enemy>
+		<enemy id="m15" name="有村アーム" element="spirit" attack="physics" func="3L+R-STR" hp="15" func_opp="L+R+STR" drop="thu/2">刀を持った右腕</enemy>
+		<enemy id="m16" name="有村アーム" element="spirit" attack="physics" func="3L+R-STR" hp="15" func_opp="L+R+STR" drop="tue/2">刀を持った左腕</enemy>
 		<enemy id="m17" name="有村アーム" element="spirit" attack="physics" func="L+2R-STR" hp="20" func_opp="L+R+STR">なぎなたを持った右補助腕</enemy>
 		<enemy id="m18" name="有村アーム" element="spirit" attack="physics" func="L+2R-STR" hp="20" func_opp="L+R+STR">なぎなたを持った左補助腕</enemy>
-		<enemy id="m19" name="アメミット（頭）" attack="physics" element="earth" func="3L+2R-STR" hp="80" func_opp="L+R+STR">貪る頭、物理攻撃を仕掛けてくる。倒すと戦闘は終了する</enemy>
-		<enemy id="m20" name="アメミット（胴）" attack="str" element="earth" func="L+R-INT" hp="30" func_opp="2L+R+STR">貪る腕、ＳＴＲを奪ってくる</enemy>
-		<enemy id="m21" name="アメミット（下半身）" attack="physics" element="earth" func="2L+1R-STR" hp="40" func_opp="L+2R+STR">貪る足、物理攻撃を仕掛けてくる</enemy>
+		<enemy id="m19" name="アメミット（頭）" attack="physics" func="3L+2R-STR" hp="80" func_opp="L+R+STR">貪る頭、物理攻撃を仕掛けてくる。倒すと戦闘は終了する</enemy>
+		<enemy id="m20" name="アメミット（胴）" attack="str" element="water" func="L+R-INT" hp="30" func_opp="2L+R+STR">貪る腕、ＳＴＲを奪ってくる</enemy>
+		<enemy id="m21" name="アメミット（下半身）" attack="physics" element="fire" func="2L+1R-STR" hp="40" func_opp="L+2R+STR">貪る足、物理攻撃を仕掛けてくる</enemy>
 	</enemies>
 	<results>
 		<result id="r01" name="食い意地" level="2">これ以上はいけない</result>
@@ -49,9 +50,7 @@
 		<result id="r09" name="どうやってここに？" level="4">この戦いは負けイベントのつもりだったのですが、どうやって？</result>
 		<result id="r10" name="一世一代の大博打" level="3">それは日ノ本の明日を賭けた大勝負</result>
 	</results>
-	<licence>
-		<work category="bgm"></work>
-	</licence>
+	<licence></licence>
 	<scene id="0" summary="プロローグ" group="prologue" level="1" bgm="@none">　――安政７年
 
 　世間は一人の男の所業で大きく揺れていた。
@@ -72,7 +71,7 @@
 
 [次へ](1 "r90:baku01")
 [シナリオの解放条件が一致しません](10 "!r90:baku01")</scene>
-	<scene id="1" summary="あらすじ＆成長用ページ" level="2" rule="999" bgm="@field02">ここまでの幕末ソーサリアン！　あらすじ
+	<scene id="1" summary="あらすじ＆成長用ページ" level="2" rule="999" bgm="@field02" items="i100">ここまでの幕末ソーサリアン！　あらすじ
 
 ペンタウァのはるかな東、日本！
 ＜鎖国＞と呼ばれる独自の国策でもって、外界の侵入を数百年にもわたって拒んできた神秘の国に、いま侵略の手は伸びようとしていた。
@@ -352,6 +351,10 @@
 
 勝利条件
 右側のBattleSheetを開き、ダイスロール→敵のHP→ダイスロール→ＨＰが０ではない全ての敵の攻撃（青色のボタン）を繰り返しクリックし、あなたのHPが０になる前に全ての敵のHPを０にすること。
+※攻撃する場合、あなたは好きな敵を選び攻撃することができる。
+
+★特殊ルール
+あなたは右上のＭＡＧＩＣから「ＬＩＧＨＴ－ＣＲＯＳＳ」を唱えることができた場合、この戦闘は勝利したことして扱う。
 
 勝利条件を満たした場合は『戦闘に勝利した場合』を、
 また先にあなたのHPが０になった場合は『戦闘に敗北した場合』に進むこと。
@@ -515,6 +518,10 @@
 
 勝利条件
 右側のBattleSheetを開き、ダイスロール→敵のHP→ダイスロール→ＨＰが０ではない全ての敵の攻撃（青色のボタン）を繰り返しクリックし、あなたのHPが０になる前に全ての敵のHPを０にすること。
+※攻撃する場合、あなたは好きな敵を選び攻撃することができる。
+
+★特殊ルール
+あなたは右上のＭＡＧＩＣから「ＥＸＰＬＯＳＩＯＮ」を唱えることができた場合、この戦闘は勝利したことして扱う。
 
 勝利条件を満たした場合は『戦闘に勝利した場合』を、
 また先にあなたのHPが０になった場合は『戦闘に敗北した場合』に進むこと。
@@ -756,9 +763,13 @@
 
 勝利条件
 右側のBattleSheetを開き、ダイスロール→敵のHP→ダイスロール→ＨＰが０ではない全ての敵の攻撃（青色のボタン）を繰り返しクリックし、あなたのHPが０になる前に敵のHPを０にすること。
+※攻撃する場合、あなたは好きな敵を選び攻撃することができる。
 
-★特殊ルール
+★特殊ルール１
 この戦闘は『スケルトン有村』のＨＰを０にすればあなたの勝利となる。
+
+★特殊ルール２
+あなたは右上のＭＡＧＩＣから「ＬＩＧＨＴ－ＣＲＯＳＳ」を唱えることができた場合、この戦闘は勝利したことして扱う。
 
 勝利条件を満たした場合は『戦闘に勝利した場合』を、
 また先にあなたのHPが０になった場合は『戦闘に敗北した場合』に進むこと。
@@ -780,6 +791,10 @@
 
 勝利条件
 右側のBattleSheetを開き、ダイスロール→敵のHP→ダイスロール→ＨＰが０ではない全ての敵の攻撃（青色のボタン）を繰り返しクリックし、あなたのHPが０になる前に全ての敵のHPを０にすること。
+※攻撃する場合、あなたは好きな敵を選び攻撃することができる。
+
+★特殊ルール
+あなたは右上のＭＡＧＩＣから「ＥＸＰＬＯＳＩＯＮ」を唱えることができた場合、この戦闘は勝利したことして扱う。
 
 勝利条件を満たした場合は『戦闘に勝利した場合』を、
 また先にあなたのHPが０になった場合は『戦闘に敗北した場合』に進むこと。
@@ -931,6 +946,12 @@
 
 勝利条件
 右側のBattleSheetを開き、ダイスロール→敵のHP→ダイスロール→ＨＰが０ではない全ての敵の攻撃（青色のボタン）を繰り返しクリックし、あなたのHPが０になる前に全ての敵のHPを０にすること。
+※攻撃する場合、あなたは好きな敵を選び攻撃することができる。
+
+★特殊ルール
+あなたは攻撃（敵のＨＰをクリックする）を行う代わりに右上のＭＡＧＩＣから魔法を使用してもよい。
+その場合の効果は各魔法の説明に準ずる。
+魔法の効果を適応したその後は敵の攻撃となる。
 
 勝利条件を満たした場合は『戦闘に勝利した場合』を、
 また先にあなたのHPが０になった場合は『戦闘に敗北した場合』に進むこと。
@@ -1016,6 +1037,11 @@
 
 勝利条件
 右側のBattleSheetを開き、ダイスロール→敵のHP→ダイスロール→敵の攻撃（青色のボタン）を繰り返しクリックし、あなたのHPが０になる前に敵のHPを０にすること。
+
+★特殊ルール
+あなたは攻撃（敵のＨＰをクリックする）を行う代わりに右上のＭＡＧＩＣから魔法を使用してもよい。
+その場合の効果は各魔法の説明に準ずる。
+魔法の効果を適応したその後は敵の攻撃となる。
 
 勝利条件を満たした場合は『戦闘に勝利した場合』を、
 また先にあなたのHPが０になった場合は『戦闘に敗北した場合』に進むこと。
