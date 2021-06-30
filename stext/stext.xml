@@ -530,7 +530,7 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 </work>
 
 <work id="baku02" title="弐：桜田門外の変" author="鏡読みさん" series="幕末ソーサリアン"
-  tags="歴史,連作" published="2021-06-21" updated="2021-06-21" level="2" scenes="60" results="10" clears="r03"
+  tags="歴史,連作" published="2021-06-21" updated="2021-07-01" level="2" scenes="60" results="10" clears="r03"
   comment="戦闘が多めのシナリオです。初期ステータスではぎりぎり負ける調整なので、しっかり成長させてから挑戦することをお勧めします（特にSTR）">
   <img src="./stext/baku02/capture/intro.png" height="120"
     title="弐：桜田門外の変" align="right" class="right" />
