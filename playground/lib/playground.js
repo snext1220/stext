@@ -1239,7 +1239,7 @@ $(function () {
         [
           { id: 'name', name: '名前', field: 'name', width: 100, editor: Slick.Editors.Text },
           { id: 'category', name: '分類', field: 'category', width: 70, editor: SelectEditor,
-            options: [ 'bgm', 'picture' ] },
+            options: [ '', 'bgm', 'picture' ] },
           { id: 'creator', name: '作者', field: 'creator', width: 80, editor: Slick.Editors.Text },
           { id: 'url', name: 'URL', field: 'url', width: 230, editor: Slick.Editors.Text },
           {id: 'delete', name: '削除', field: '', width: 35,
