@@ -1621,7 +1621,7 @@ ${input?30}
 [実兵力（FREE1）がゼロになった](9100)
 </scene>
 
-<scene id="6000" bgm="none" se="dragon">
+<scene id="6000" bgm="@none" se="dragon">
 （――……！）
 
 山脈を抜けた後方で、
