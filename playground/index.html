@@ -641,6 +641,9 @@
             <option value="xCURSE">CURSE</option>
             <option value="xFORGET">FORGET</option>
           </optgroup>
+          <optgroup label="経過シーン">
+            <option value="e99">シーン数以上</option>
+          </optgroup>
           <optgroup label="職業">
             <option value="xのうふ">のうふ</option>
             <option value="xれんきんじゅつ">れんきんじゅつ</option>
@@ -706,6 +709,17 @@
         </select>
       </td>
     </tr>
+    <tr>
+      <th>FUNCS</th>
+      <td>
+        <select id="sidr_links_func">
+          <option value="">関数を選択</option>
+          <option value="fn:rand(per)">fn:rand</option>
+          <option value="fn:include(num,key,...)">fn:include</option>
+          <option value="fn:range(key,min,max)">fn:range</option>
+          <option value="fn:cycle(num,div,index)">fn:cycle</option>
+        </select>
+      </td>
     <tr>
       <th>STARS</th>
       <td>
@@ -936,13 +950,16 @@
     <li id="tag-white" data-command="white" class="sep">%white%</li>
     <li id="tag-if" data-command="if">${if}</li>
     <li id="tag-import" data-command="*import">${import}</li>
+    <li id="tag-effect" data-command="effect">${effect}</li>
     <li id="tag-input" data-command="*input">${input}</li>
     <li id="tag-ruby" data-command="ruby" class="sep">${ruby}</li>
     <li id="tag-title" data-command="*title">${title}</li>
+    <li id="tag-name" data-command="*name">${name}</li>
     <li id="tag-race" data-command="*race">${race}</li>
     <li id="tag-sex" data-command="*sex">${sex}</li>
     <li id="tag-state" data-command="*state">${state}</li>
     <li id="tag-age" data-command="*age">${age}</li>
+    <li id="tag-var" data-command="*var">${var}</li>
     <li id="tag-random" data-command="*random">${random}</li>
     <li id="tag-msg" data-command="*msg" class="sep">${msg}</li>
     <li id="tag-tweet" data-command="tweet">${tweet}</li>

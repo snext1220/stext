@@ -2882,7 +2882,7 @@ ${Util.createLinkText(value.id, scenario.edges)}
       $('#sidr_links_param').empty()
         .append('<option>パラメーターを選択</option>');
       for(let param of scenario.params) {
-        $('#sidr_links_param').append(`<option value="${param.id}">${param.text}</option>`);
+        $('#sidr_links_param').append(`<option value="${param.id}:99">${param.text}</option>`);
       }
     }
   });
@@ -3075,16 +3075,18 @@ ${Util.createLinkText(value.id, scenario.edges)}
       'red': '%red%$0%/%',
       'blue': '%blue%$0%/%',
       'white': '%white%$0%/%',
-      'ruby': '${$0|ruby}',
       'if': '${if condition}$0${/if}',
       '*import': '${import 99999}',
+      'effect': '${effect type}$0${/effect}',
       '*input': '${input?0}',
-      '*input': '${input?0}',
+      'ruby': '${$0|ruby}',
       '*title': '${title}',
+      '*name': '${name}',
       '*race': '${race?FIG:WIZ:DWA:ELF}',
       '*sex': '${sex?M:F}',
       '*state': '${state?NOR:POI:FRO:STO:FOR}',
       '*age': '${age?Y:A:O}',
+      '*var': '${var?key:prop}',
       '*random': '${rand?min:max}',
       '*msg': '${msg?str1:str2:...}',
       'tweet': '${tweet}%0%${/tweet}',
