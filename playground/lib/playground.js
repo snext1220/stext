@@ -2918,12 +2918,35 @@ ${Util.createLinkText(value.id, scenario.edges)}
 
   // エディターの生成
   let editor = ace.edit('scene-editor');
+  ace.config.loadModule('ace/ext/language_tools', function() {
+    editor.setOptions({
+        enableBasicAutocompletion: true,
+        enableSnippets: true,
+        enableLiveAutocompletion: true
+    });
+    const snippetManager = ace.require('ace/snippets').snippetManager;
+    const config = ace.require('ace/config');
+    ace.config.loadModule('ace/snippets/markdown', function(m) {
+      if (m) {
+        snippetManager.files.markdown = m;
+        m.snippets = snippetManager.parseSnippetFile(m.snippetText);
+        m.snippets.push(
+            {
+                "content": "$${var?${1:enemy_id}:${2:prop}}",
+                "name": "enemy:name",
+                "tabTrigger": "enemy:name"
+            }
+        );
+        snippetManager.register(m.snippets, m.scope);
+      }
+    });
+  });
   editor.$blockScrolling = Infinity;
-  editor.setOptions({
+  // editor.setOptions({
     // enableBasicAutocompletion: true,
     // enableSnippets: true,
     // enableLiveAutocompletion: true
-  });
+  // });
   editor.getSession().setUseWrapMode(true);
   editor.setTheme('ace/theme/chrome');
   editor.session.setMode('ace/mode/markdown');
