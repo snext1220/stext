@@ -2918,25 +2918,73 @@ ${Util.createLinkText(value.id, scenario.edges)}
 
   // エディターの生成
   let editor = ace.edit('scene-editor');
-  ace.config.loadModule('ace/ext/language_tools', function() {
+  ace.config.loadModule('ace/ext/language_tools', function(lang) {
+    editor.completers = [lang.snippetCompleter];
+    // delete lang.textCompleter;
+    // delete lang.keyWordCompleter;
     editor.setOptions({
-        enableBasicAutocompletion: true,
-        enableSnippets: true,
-        enableLiveAutocompletion: true
+      enableBasicAutocompletion: true,
+      enableSnippets: true,
+      enableLiveAutocompletion: true
     });
     const snippetManager = ace.require('ace/snippets').snippetManager;
     const config = ace.require('ace/config');
     ace.config.loadModule('ace/snippets/markdown', function(m) {
       if (m) {
         snippetManager.files.markdown = m;
-        m.snippets = snippetManager.parseSnippetFile(m.snippetText);
-        m.snippets.push(
+        //m.snippets = snippetManager.parseSnippetFile(m.snippetText);
+        //m.snippets.splice(0);
+        let s_list = [
+          { title: 'image', body: '![${1:text}](${2:file})' },
+          { title: 'title', body: '\\${title}' },
+          { title: 'name', body: '\\${name}' },
+          { title: 'job', body: '\\${job}' },
+          { title: 'hp', body: '\\${hp}' },
+          { title: 'mp', body: '\\${mp}' },
+          { title: 'str', body: '\\${str}' },
+          { title: 'int', body: '\\${int}' },
+          { title: 'dex', body: '\\${dex}' },
+          { title: 'krm', body: '\\${krm}' },
+          { title: 'free1', body: '\\${free1}' },
+          { title: 'free2', body: '\\${free2}' },
+          { title: 'free3', body: '\\${free3}' },
+          { title: 'race', body: '\\${race?${1:fighter}:${2:wizard}:${3:dwarf}:${4:elf}}' },
+          { title: 'sex', body: '\\${sex?${1:male}:${2:female}}' },
+          { title: 'state', body: '\\${state?${1:normal}:${2:poison}:${3:frozen}:${4:stone}:${5:forget}}' },
+          { title: 'age', body: '\\${age?${1:young}:${2:adult}:${3:old}}' },
+          { title: 'rand', body: '\\${rand?${1:min}:${2:max}}' },
+          { title: 'msg', body: '\\${msg?${1:arg1}:${2:arg2}:...}' },
+          { title: 'enemy:name', body: '\\${var?m${1:id}:name}' },
+          { title: 'enemy:element', body: '\\${var?m${1:id}:element}' },
+          { title: 'enemy:text', body: '\\${var?m${1:id}:text}' },
+          { title: 'result:name', body: '\\${var?r${1:id}:name}' },
+          { title: 'result:level', body: '\\${var?r${1:id}:level}' },
+          { title: 'result:text', body: '\\${var?r${1:id}:text}' },
+          { title: 'param:text', body: '\\${var?p${1:id}:text}' },
+          { title: 'param:value', body: '\\${var?p${1:id}:value}' },
+          { title: 'result:count', body: '\\${result?${1:id}}' },
+          { title: 'result:rate', body: '\\${result_rate?${1:id}}' },
+          { title: 'import', body: '\\${import ${1:id}}' },
+          { title: 'input', body: '\\${input?${1:init}}' },
+          { title: 'if', body: '\\${if ${1:condition}}${2:body}\\${/if}' },
+          { title: 'effect', body: '\\${effect ${1:type}}${2:body}\\${/effect}' },
+          { title: 'ruby', body: '\\${${1:word}|${2:ruby}}' },
+          { title: 'blue', body: '%blue%${1:body}%/%' },
+          { title: 'red', body: '%red%${1:body}%/%' },
+          { title: 'purple', body: '%purple%${1:body}%/%' },
+          { title: 'white', body: '%white%${1:body}%/%' },
+          { title: 'tweet', body: '\\${tweet}${1:body}\\${/tweet}' },
+        ];
+        m.snippets = [];
+        for (let item of s_list) {
+          m.snippets.push(
             {
-                "content": "$${var?${1:enemy_id}:${2:prop}}",
-                "name": "enemy:name",
-                "tabTrigger": "enemy:name"
+                content: item.body,
+                name: item.title,
+                tabTrigger: item.title
             }
-        );
+          );
+        }
         snippetManager.register(m.snippets, m.scope);
       }
     });

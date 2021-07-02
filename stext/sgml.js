@@ -4039,6 +4039,8 @@
           return save_data.chara.name;
         case 'title' :
           return save_data.chara.title;
+        case 'job' :
+          return save_data.chara.job;
         case 'hp' :
           return save_data.chara.hp;
         case 'mp' :
