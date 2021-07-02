@@ -106,7 +106,7 @@ label {
 @font-face {
     font-family: 'empty';
     /*src: url('empty.woff') format('woff');*/
-    src: url('./ime_jp_rp.woff') format('woff');
+    src: url('./ime_jp_rp.woff') format('woff') !important;
 }
 
 #scene-editor {
