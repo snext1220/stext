@@ -1895,6 +1895,42 @@ ${Util.createLinkText(value.id, scenario.edges)}
 
 `;
       });
+      result += `
+# 付録
+
+## 敵情報
+
+名前|属性|攻撃|概要
+----|----|----|----
+`;
+
+      let elem = { '': '無', 'earth': '地', 'fire': '火', 'water': '水', 'wind': '風', 'spirit': '霊' };
+      let atk  = { 'physics': '物理', 'magic': '魔法', 'both': '物理／魔法',
+        'str': 'STR', 'int': 'INT', 'dex': 'DEX', 'krm': 'KRM',
+       'free1': 'FREE1', 'free2': 'FREE2', 'free3': 'FREE3' };
+      scenario.enemies.forEach(function(value) {
+        result += `${value.name}|${elem[value.element]}|${atk[value.attack]}|${value.text}\n`;
+      });
+      result += `
+
+## アイテム情報
+
+名前|概要
+----|----
+`;
+      scenario.items.forEach(function(value) {
+        result += `${value.name}|${value.text}\n`;
+      });
+      result += `
+
+## 実績情報
+
+名前|難易度|概要
+----|----|----
+`;  
+      scenario.results.forEach(function(value) {
+        result += `${value.name}|${value.level}|${value.text}\n`;
+      });
       return result;
     },
 
@@ -3278,7 +3314,8 @@ ${Util.createLinkText(value.id, scenario.edges)}
     }
     let s = new StextShuffle(scenario);
     s.run();
-    Util.refreshScenario(s.scenario);    
+    Util.refreshScenario(s.scenario);
+    Util.sortScenes();
     // scenario = JSON.parse(JSON.stringify(s.scenario));
     Util.createNetwork({ fit: true });
     Util.disableTab();
