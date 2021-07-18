@@ -10,8 +10,8 @@
 		<group start="0" end="1" title="Introduction"></group>
 	</groups>
 	<items>
-		<item id="i01" name="Item-01">Item description...</item>
-		<item id="i02" name="Item-02">2Item description...</item>
+		<item id="i01" name="Item-01" target="none">Item description...</item>
+		<item id="i02" name="Item-02" target="none">2Item description...</item>
 		<item id="i03" name="Item-03">3Item description...</item>
 	</items>
 	<flags>
@@ -34,7 +34,7 @@
 	<licence>
 		<work name="Bgm-01" category="bgm" creator="SText" url="https://example.com/"></work>
 	</licence>
-	<scene id="0" summary="プロローグ" group="prologue" enemies="m01,m02" items="i01,i02,i03" dice="8:5" params="p01:10" level="1">分岐テスト
+	<scene id="0" summary="プロローグ" group="prologue" enemies="m01,m02" items="i01:@10,i02,i03" dice="8:5" params="p01:10" level="1">分岐テスト
 
 ${effect rotateInUpRight}ペンタウァのはるかな東。
 否、時空さえも遥かに超えた、その世界に、

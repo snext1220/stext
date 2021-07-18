@@ -1716,7 +1716,13 @@
               break;
           } 
           // アイテムを消費
-          Util.updateItems(`-${id}`);
+          if (Util.isCountableItem(id)) {
+            // 個数管理している場合は-1
+            Util.updateItems(`${id}:-1`);
+          } else {
+            // さもなければアイテムidを除去
+            Util.updateItems(`-${id}`); 
+          }
           Util.saveStorage();
           toastr.success(
             item.desc,
@@ -1761,7 +1767,11 @@
           for (let key of save_data.items) {
             let item = items_map[key];
             if (item.target) {
-              items.append(`<option value="${key}" class="canuse">★ ${item.name}（${item.desc}）</option>`);
+              if (Util.isCountableItem(key)) {
+                items.append(`<option value="${key}" class="canuse">★ ${item.name}（${item.desc}）× ${Util.getParamValue(`p${key}`)}</option>`);
+              } else {
+                items.append(`<option value="${key}" class="canuse">★ ${item.name}（${item.desc}）</option>`);
+              }
             } else {
               items.append(`<option value="${key}">${item.name}（${item.desc}）</option>`);
             }
@@ -3005,6 +3015,10 @@
         var keys = Object.keys(org);
         ids.forEach(function(id) {
           id = id.replace('-', '');
+          // アイテムの個数情報を除外
+          if (id.includes(':')) {
+            [id, _] = id.split(':');
+          }
           if(keys.indexOf(id) === -1) {
             error_messages.push({
               scene_id: scene_id,
@@ -3253,6 +3267,30 @@
       return false;
     },
 
+    // アイテムが個数管理をしているか
+    // 引数id：アイテムid
+    isCountableItem: function(id) {
+      // 個数が正数であれば、個数を持つ
+      return Number(Util.getParamValue(`p${id}`)) > 0;
+    },
+
+    // アイテムの個数情報を更新
+    // 引数item：i99、またはi99:99（個数付き）の形式
+    // 戻り値：個数情報を取り除いたアイテムid（i99、-i99）
+    updateItemQuantity: function(item) {
+      // 個数情報がなければ引数をそのまま返却
+      if (!item.includes(':')) { return item; }
+      // 内部パラメーター情報を設定
+      Util.updateParams(`p${item}`);
+      let [ id, _ ] = item.split(':');
+      let num = Util.getParamValue(`p${id}`);
+      // 更新の結果、個数がゼロの場合はアイテムを消去
+      if (Number(num) <= 0) {
+        id = `-${id}`;
+      }
+      return id;
+    },
+
     // @items属性（at_items）の値に応じて、セーブデータのitemsプロパティを更新
     updateItems: function(at_items) {
       if(!at_items) { return; }
@@ -3261,7 +3299,9 @@
 
       for (var i = 0; i < at_items.length; i++) {
         var item = at_items[i].trim();
-
+        // アイテムの個数情報を更新
+        item = Util.updateItemQuantity(item);
+        // アイテム情報の更新
         if (item.indexOf('-') === 0) {
           item = this.ltrim(item);
           items = this.shiftUnique(items, item);
@@ -4970,6 +5010,13 @@
             shared: $(this).nsAttr('shared'),
             target: $(this).nsAttr('target'),
             effect: $(this).nsAttr('effect'),
+            desc: $(this).text().trim()
+          };
+          // 個数管理用の内部パラメーター情報
+          params_map[`p${$(this).nsAttr('id')}`] = {
+            min: 0,
+            max: 99,
+            initial: 0,
             desc: $(this).text().trim()
           };
         });
