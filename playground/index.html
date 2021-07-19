@@ -99,105 +99,105 @@
       <form>
         <fieldset>
           <legend>基本情報</legend>
-          <label>タイトル：
+          <label data-help="scenario/title">タイトル：
             <input id="title" type="text" size="25" /></label>
-          <label>作者：
+          <label data-help="scenario/author">作者：
             <input id="author" type="text" size="15" /></label>
         </fieldset>
         <fieldset>
           <legend>共通動作</legend>
-          <label>パラグラフレス：
+          <label data-help="init/basic/summary">パラグラフレス：
             <input id="basic-summary" type="checkbox" value="true" /></label>
-          <label>自作キャラ画像：
+          <label data-help="init/basic/imgset">自作キャラ画像：
             <input id="basic-imgset" type="checkbox" value="custom" /></label> 
         </fieldset>
         <fieldset>
           <legend>キャラ制約</legend>
-            <label>種族：
+            <label data-help="init/constraint/race">種族：
               <input id="constraint-race" type="text" size="28" /></label>
-            <label>性別：
+            <label data-help="init/constraint/sex">性別：
               <input id="constraint-sex" type="text" size="15" /></label>
             <p></p>
-            <label>年齢：
+            <label data-help="init/constraint/age">年齢：
               <input id="constraint-age" type="text" size="20" /></label>
         </fieldset>
         <fieldset>
           <legend>BGM（<a href="https://soundcloud.com/venus-az/sets/sorcerian-text-original-sounds/s-2tzI5" target="help">標準BGMリスト</a>）
             （<a href="https://soundcloud.com/az2nd/sets/sorcerian-text-original-soundtrack/s-NrBqCSP9vPF" target="help">リスト2</a>）</legend>
-          <label>main：
+          <label data-help="init/bgm/main,init/bgm/common">main：
             <input id="bgm-main" type="text" size="10" /></label>
             <input id="bgm-main-file" type="file" accept=".mp3" class="hidden-file no-update" />
             <button id="bgm-main-ref" type="button">参照</button>
-          <label>happy：
+          <label data-help="init/bgm/happy,init/bgm/common">happy：
             <input id="bgm-happy" type="text" size="10" /></label>
             <input id="bgm-happy-file" type="file" accept=".mp3" class="hidden-file no-update" />
             <button id="bgm-happy-ref" type="button">参照</button>
-          <label>bad：
+          <label data-help="init/bgm/bad,init/bgm/common">bad：
             <input id="bgm-bad" type="text" size="10" /></label>
             <input id="bgm-bad-file" type="file" accept=".mp3" class="hidden-file no-update" />
             <button id="bgm-bad-ref" type="button">参照</button>
         </fieldset>
         <fieldset>
           <legend>表示ラベル</legend>
-            <label>HP：
+            <label data-help="init/label/status">HP：
               <input id="label-hp" type="text" size="15" /></label>
-            <label>MP：
+            <label data-help="init/label/status">MP：
               <input id="label-mp" type="text" size="15" /></label>
-            <label>STATE：
+            <label data-help="init/label/status">STATE：
               <input id="label-state" type="text" size="15" /></label>
             <p></p>
-            <label>STR：
+            <label data-help="init/label/status">STR：
               <input id="label-str" type="text" size="10" /></label>
-            <label>INT：
+            <label data-help="init/label/status">INT：
               <input id="label-int" type="text" size="10" /></label>
-            <label>DEX：
+            <label data-help="init/label/status">DEX：
               <input id="label-dex" type="text" size="10" /></label>
-            <label>KRM：
+            <label data-help="init/label/status">KRM：
               <input id="label-krm" type="text" size="10" /></label>
             <p></p>
-            <label>Free1：
+            <label data-help="init/label/free">Free1：
               <input id="label-free1" type="text" size="15" /></label>
-            <label>free2：
+            <label data-help="init/label/free">free2：
               <input id="label-free2" type="text" size="15" /></label>
-            <label>free3：
+            <label data-help="init/label/free">free3：
               <input id="label-free3" type="text" size="15" /></label>
         </fieldset>
         <fieldset>
           <legend>Twitter</legend>
-          <label>キーワード：
+          <label data-help="init/intro/keywords">キーワード：
             <input id="intro-keywords" type="text" size="15" /></label>
           <p></p>
-          <label>紹介文：
+          <label data-help="init/intro/keywords">紹介文：
             <input id="intro-description" type="text" size="60" /></label>
         </fieldset>
       </form>
     </div>
     <div id="groups" class="tab-panel">
-      <p>グループ情報を入力してください（タイトル行のダブルクリックでヘルプページを表示します）。</p>
+      <p>グループ情報を入力してください（タイトル行のダブルクリックでヘルプを表示します）。</p>
       <div id="groups_grid" class="config-grid"></div>
     </div>
     <div id="items" class="tab-panel">
-      <p>アイテム情報を入力してください（タイトル行のダブルクリックでヘルプページを表示します）。</p>
+      <p>アイテム情報を入力してください（タイトル行のダブルクリックでヘルプを表示します）。</p>
       <div id="items_grid" class="config-grid"></div>
     </div>
     <div id="flags" class="tab-panel">
-      <p>フラグ情報を入力してください（タイトル行のダブルクリックでヘルプページを表示します）。</p>
+      <p>フラグ情報を入力してください（タイトル行のダブルクリックでヘルプを表示します）。</p>
       <div id="flags_grid" class="config-grid"></div>
     </div>
     <div id="params" class="tab-panel">
-      <p>内部パラメーター情報を入力してください（タイトル行のダブルクリックでヘルプページを表示します）。</p>
+      <p>内部パラメーター情報を入力してください（タイトル行のダブルクリックでヘルプを表示します）。</p>
       <div id="params_grid" class="config-grid"></div>
     </div>
     <div id="enemies" class="tab-panel">
-      <p>敵／罠情報を入力してください（タイトル行のダブルクリックでヘルプページを表示します）。</p>
+      <p>敵／罠情報を入力してください（タイトル行のダブルクリックでヘルプを表示します）。</p>
       <div id="enemies_grid" class="config-grid"></div>
     </div>
     <div id="results" class="tab-panel">
-      <p>実績情報を入力してください（タイトル行のダブルクリックでヘルプページを表示します）。</p>
+      <p>実績情報を入力してください（タイトル行のダブルクリックでヘルプを表示します）。</p>
       <div id="results_grid" class="config-grid"></div>
     </div>
     <div id="works" class="tab-panel">
-      <p>ライセンス情報を入力してください（タイトル行のダブルクリックでヘルプページを表示します）。</p>
+      <p>ライセンス情報を入力してください（タイトル行のダブルクリックでヘルプを表示します）。</p>
       <div id="works_grid" class="config-grid"></div>
     </div>
     <div id="scene" class="tab-panel">
@@ -216,37 +216,37 @@
           <form>
             <fieldset>
               <legend>基本</legend>
-              <label data-help="scene-id">id：
+              <label data-help="scene/id">id：
                 <input id="id" type="text" size="3" disabled readonly />
                 <button id="scene-changescene" type="button">変更</button>
                 <!-- <span id="id"></span> -->
                 &nbsp;&nbsp;</label>
-              <label data-help="scene-summary">サマリー：
+              <label data-help="scene/summary">サマリー：
                 <input id="summary" type="text" class="wide" size="30" /></label>
-              <label data-help="scene-end">End：
+              <label data-help="scene/end">End：
                 <select id="end">
                   <option value=""></option>
                   <option value="happy">happy</option>
                   <option value="bad">bad</option>
                 </select></label>
               <p></p>
-              <label data-help="scene-items">アイテム：
+              <label data-help="scene/items">アイテム：
                   <input id="items" type="text" class="tagsin" size="15" /></label>
-              <label data-help="scene-flags">フラグ：
+              <label data-help="scene/flags">フラグ：
                 <input id="flags" type="text" size="15" /></label>
-              <label data-help="scene-params">内部パラ：
+              <label data-help="scene/params">内部パラ：
                 <input id="params" type="text" size="15" /></label>
               <p></p>
-              <label data-help="scene-enemies">敵：
+              <label data-help="scene/enemies">敵：
                 <input id="enemies" type="text" size="15" /></label> 
-              <label data-help="scene-dice">ダイス：
+              <label data-help="scene/dice">ダイス：
                 <input id="dice" type="text" size="15" /></label> 
-                <label data-help="scene-result">実績：
+                <label data-help="scene/result">実績：
                   <input id="result" type="text" size="15" /></label> 
               <p></p>
-              <label data-help="scene-nexts">次シナリオ：
+              <label data-help="scene/nexts">次シナリオ：
                 <input id="nexts" type="text" size="10" /></label> 
-              <label data-help="scene-rule">戦闘ルール：
+              <label data-help="scene/rule">戦闘ルール：
                   <input id="rule" type="text" size="10" /></label> 
               <p></p>
               <label>リンク：
@@ -259,24 +259,24 @@
             <fieldset>
               <legend>楽曲（<a href="https://soundcloud.com/venus-az/sets/sorcerian-text-original-sounds/s-2tzI5" target="help">標準BGMリスト</a>）
                 （<a href="https://soundcloud.com/az2nd/sets/sorcerian-text-original-soundtrack/s-NrBqCSP9vPF" target="help">リスト2</a>）</legend>
-              <label data-help="scene-bgm">BGM：
+              <label data-help="scene/bgm">BGM：
                   <input id="bgm" type="text"  class="wide" size="15" /></label>
                   <input id="bgm-file" type="file" accept=".mp3" class="hidden-file no-update" />
                   <button id="bgm-ref" type="button">参照</button>
-              <label data-help="scene-se">効果音：
+              <label data-help="scene/se">効果音：
                 <input id="se" type="text"  class="wide" size="15" /></label>
                 <input id="se-file" type="file" accept=".mp3" class="hidden-file no-update" />
                   <button id="se-ref" type="button">参照</button>
             </fieldset>
             <fieldset>
               <legend>ステータス</legend>
-              <label data-help="scene-hp">HP：
+              <label data-help="scene/hp_mp">HP：
                 <input id="hp" type="text" class="ac" size="10" /></label>
-              <label data-help="scene-mp">MP：
+              <label data-help="scene/hp_mp">MP：
                 <input id="mp" type="text" class="ac" size="10" /></label>
-              <label data-help="scene-stars">STARS：
+              <label data-help="scene/stars">STARS：
                 <input id="stars" type="text" class="ac" size="10" /></label>
-              <label data-help="scene-state">STATE：
+              <label data-help="scene/state">STATE：
                 <select id="state">
                   <option value=""></option>
                   <option value="poison">poison</option>
@@ -292,29 +292,29 @@
                   <option value="-all">-all</option>
                 </select>  
               <p></p>
-              <label data-help="scene-str">STR：
+              <label data-help="scene/status">STR：
                 <input id="str" type="text" class="ac" size="10" /></label>
-              <label data-help="scene-int">INT：
+              <label data-help="scene/status">INT：
                 <input id="int" type="text" class="ac" size="10" /></label>
-              <label data-help="scene-dex">DEX：
+              <label data-help="scene/status">DEX：
                 <input id="dex" type="text" class="ac" size="10" /></label>
-              <label data-help="scene-krm">KRM：
+              <label data-help="scene/status">KRM：
                 <input id="krm" type="text" class="ac" size="10" /></label>  
               <p></p>
-              <label data-help="scene-free1">FREE1：
+              <label data-help="scene/free">FREE1：
                 <input id="free1" type="text" class="ac" size="10" /></label>
-              <label data-help="scene-free2">FREE2：
+              <label data-help="scene/free">FREE2：
                 <input id="free2" type="text" class="ac" size="10" /></label>
-              <label data-help="scene-free3">FREE3：
+              <label data-help="scene/free">FREE3：
                 <input id="free3" type="text" class="ac" size="10" /></label>
             </fieldset>
             <fieldset>
               <legend>その他</legend>
-              <label data-help="scene-fixed">シャッフル除外：
+              <label data-help="scene/fixed">シャッフル除外：
                 <input id="fixed" type="checkbox" value="fixed" /></label>
-              <label data-help="scene-exclude">共通インポートの無効化：
+              <label data-help="scene/exclude">共通インポートの無効化：
                 <input id="exclude" type="checkbox" value="true" /></label>
-              <label data-help="scene-color">背景色：
+              <label data-help="scene/color">背景色：
                   <select id="color"></select></label>
             </fieldset>
             <!-- <p>
@@ -756,6 +756,12 @@
   <textarea id="sidr_links_cond" rows="10"></textarea>
   <div id="sidr_links_submit" class="sidr-btn sidr-ok">確定</div>
   <div id="sidr_links_close" class="sidr-btn">閉じる</div>
+</div>
+
+<!--ダイアログ（ヘルプ）-->
+<div id="help-dialog" title="Help">
+  <div id="help-body">
+  </div>
 </div>
 
 <!--ダイアログ（設定）-->

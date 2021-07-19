@@ -122,7 +122,7 @@ $(function () {
   // グリッドになんらかの更新が発生したか
   let isUpdatedInGrid = false;
   // ヘルプページ（キャッシュ）
-  let help_page = '';
+  let help_page;
   // 共通データ
   let Common = {
     HELP_URL: 'https://sorcerian.hateblo.jp/entry/2018/11/01/211745#',
@@ -318,25 +318,50 @@ $(function () {
         return 0;
       }
     },
-    // ヘルプテキストを取得（未完成）
-    getHelpText: function(key) {
-      let result = '';
-      if (!help_page) {
-        fetch('https://sorcerian.hateblo.jp/entry/2018/11/01/211745')
-          .then(function(response) {
-            return response.text();
-          })
-          .then(function(data) {
-            help_page = $(data);
-          });
-      }
-      // <key>-begin～<key>-endを取得
-      $(`#${key}-begin`, help_page).parent().nextUntil(`:has(#${key}-end)`)
-        .each(function(index, elem) {
-          result += elem.outerHTML;
+
+    // ヘルプページの取得
+    getHelpPage: function(selector) {
+      $.get('./lib/reference.xml')
+        .done(function(result) {
+          help_page = result;
+          Util.showHelpDialog(selector);
         });
-      return result;
     },
+
+    // セレクターに合致した要素をダイアログに反映＆表示
+    // 引数selectorは「init/basic/imgset」など
+    showHelpDialog: function(selector) {
+      selector = selector.replace(/\//g, ' > ');
+      if (help_page) {
+        $('#help-dialog > #help-body')
+          .html(
+            marked($(selector, help_page).text())
+          );
+        $('#help-dialog').dialog('open');
+      } else {
+        Util.getHelpPage(selector);
+      }
+    },
+
+    // ヘルプテキストを取得（未完成）
+    // getHelpText: function(key) {
+    //   let result = '';
+    //   if (!help_page) {
+    //     fetch('https://sorcerian.hateblo.jp/entry/2018/11/01/211745')
+    //       .then(function(response) {
+    //         return response.text();
+    //       })
+    //       .then(function(data) {
+    //         help_page = $(data);
+    //       });
+    //   }
+    //   // <key>-begin～<key>-endを取得
+    //   $(`#${key}-begin`, help_page).parent().nextUntil(`:has(#${key}-end)`)
+    //     .each(function(index, elem) {
+    //       result += elem.outerHTML;
+    //     });
+    //   return result;
+    // },
 
     // scene idの最大値を取得
     maxSceneId: function() {
@@ -1066,7 +1091,8 @@ $(function () {
         isUpdatedInGrid = true;
       });
       grid.onHeaderClick.subscribe(function (e, args) {
-        window.open(Common.HELP_URL + helpName, 'help');
+        Util.showHelpDialog(`${helpName}/${args.column.id}`);
+        //window.open(Common.HELP_URL + helpName, 'help');
       });
       return grid;
     },
@@ -1151,10 +1177,10 @@ $(function () {
           { id: 'id', name: 'id', field: 'id', width: 50, editor: Slick.Editors.Text,
             validator: function(value) {
               return Util.validateId(value, 'f', 'フラグ', 'flags');
-            } 
+            }
           },
           { id: 'text', name: '説明', field: 'text', width: 300, editor: Slick.Editors.Text },
-          {id: 'delete', name: '削除', field: '', width: 35,
+          { id: 'delete', name: '削除', field: '', width: 35,
           formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
         ], grid_opts, 'flag');
 
@@ -2138,19 +2164,24 @@ ${Util.createLinkText(value.id, scenario.edges)}
   });
   // ファイル選択ボックスココマデ
 
-  // ダイナミックヘルプ（基本情報）
-  $('#basic label').dblclick(function(e) {
-    //let id = $(this).find('input, select').attr('id').split('-')[1];
-    let id = $(this).find('input, select').attr('id');
-    window.open(Common.HELP_URL + id, 'help');
+  // ダイナミックヘルプ（新版）
+  $('#basic label,#scene label').dblclick(function(e) {
+    Util.showHelpDialog($(this).attr('data-help'));
   });
 
+  // ダイナミックヘルプ（基本情報）
+  // $('#basic label').dblclick(function(e) {
+  //   //let id = $(this).find('input, select').attr('id').split('-')[1];
+  //   let id = $(this).find('input, select').attr('id');
+  //   window.open(Common.HELP_URL + id, 'help');
+  // });
+
   // ダイナミックヘルプ（シーン情報）
-  $('#scene label').dblclick(function(e) {
-    // let id = $(this).find('input, select').attr('id');
-    let id = $(this).attr('data-help');
-    window.open(Common.HELP_URL + id, 'help');
-  });
+  // $('#scene label').dblclick(function(e) {
+  //   // let id = $(this).find('input, select').attr('id');
+  //   let id = $(this).attr('data-help');
+  //   window.open(Common.HELP_URL + id, 'help');
+  // });
 
   // ダイナミックヘルプの抑制
   $('#basic label > input, #basic label > select, #scene label > input, #scene label > select').dblclick(function(e) {
@@ -2169,6 +2200,29 @@ ${Util.createLinkText(value.id, scenario.edges)}
   //     ); 
   //   }
   // });
+
+  // ダイアログを初期化（ヘルプ）
+  $('#help-dialog').dialog({
+    autoOpen: false,
+    width: 640,
+    minHeight: 300,
+    maxHeight: 500,
+    show: 500,
+    hide: 500,
+    modal: true,
+    position: {
+      of : '#flow-area',
+      at: 'center top',
+      my: 'left top',
+    },
+    open: function() {
+    },
+    buttons: {
+      '閉じる': function() {
+        $(this).dialog('close');
+      }
+    }
+  });
 
   // ダイアログを初期化（設定情報）
   $('#pg-config').dialog({
