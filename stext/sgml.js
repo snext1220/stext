@@ -1712,6 +1712,9 @@
             case 'free3':
               Util.updateFrees(0, 0, item.effect);
               break;
+            case 'param':
+              Util.updateParams(item.effect);
+              break;
             default:
               break;
           } 
