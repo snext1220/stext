@@ -1,5 +1,9 @@
 body {
   background-color: #000;
+  background-image: url(../../image/site_wp.png);
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-attachment: fixed;
 }
 
 #main {

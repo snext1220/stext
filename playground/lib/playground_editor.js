@@ -297,7 +297,7 @@ $(function() {
     // Editor2Flow
     $('#pg_editor2flow').click(function(e){
       localStorage['editor2flow'] = editor.getValue();
-      window.open('./playground/', 'pgflow');
+      window.open('./', 'pgflow');
     });
   
     // 構文ハイライト
