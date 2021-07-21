@@ -383,51 +383,57 @@ $(function() {
       // ヘルプツリーの生成
       // parent：XML親要素、parent_node：親HTMLツリー、num：階層数
       function setChildNode(parent, parent_node, num) {
-          parent = $(parent);
-          //let name = parent.prop('tagName');
-          let ch = parent.children();
-          if (ch.length !== 0) {
-              let subtree =$('<ul></ul>')
-              ch.each(function(index, e) {
-                  //console.log(`${parent.prop('tagName')}:${$(e).prop('tagName')}`);
-                  let short_name = $(e).prop('tagName');
-                  let c_name = `${$(e).prop('tagName')} ―― ${$(e).attr('overview')}`;
-                  if (['outline', 'common'].includes($(e).prop('tagName'))) { return true; }
+        parent = $(parent);
+        //let name = parent.prop('tagName');
+        let ch = parent.children();
+        if (ch.length !== 0) {
+          let subtree =$('<ul></ul>')
+          ch.each(function(index, e) {
+            //console.log(`${parent.prop('tagName')}:${$(e).prop('tagName')}`);
+            let short_name = $(e).prop('tagName');
+            let c_name = `${$(e).prop('tagName')} ―― ${$(e).attr('overview')}`;
+            if (['outline', 'common'].includes($(e).prop('tagName'))) { return true; }
 
-                  
-                  let c_node = $('<li></li>')
-                      .attr('data-help', getPath(e));
-                  if ($(e).children().length === 0) {
-                      c_node
-                          .attr('data-jstree', '{ "icon" : "jstree-file" }')
-                          .text(`#${c_name}`);
-                  } else {
-                      c_node.text(c_name);
-                      if (num < 1 && short_name !== 'scene') {
-                          c_node.attr('data-jstree', '{ "opened" : true }');
-                      }
-                  }
-                  let alias = $(e).attr('name');
-                  if (alias) {
-                      c_node.text(`#${alias}`);
-                  }
+            let c_node = $('<li></li>')
+              .attr('data-help', getPath(e));
+            if ($(e).children().length === 0) {
+              c_node
+                .attr('data-jstree', '{ "icon" : "jstree-file" }')
+                .text(`#${c_name}`);
+            } else {
+              c_node.text(c_name);
+              if (num < 1 && short_name !== 'scene') {
+                c_node.attr('data-jstree', '{ "opened" : true }');
+              }
+            }
+            let alias = $(e).attr('name');
+            if (alias) {
+              c_node.text(`#${alias} ―― ${$(e).attr('overview')}`);
+            }
 
-                  subtree.append(c_node);
-                  if ($(e).children().length !== 0) {
-                      setChildNode(e, c_node, num + 1);
-                  }
-              });
-              $(parent_node).append(subtree);
-          } else {
-              // ToDo                    
-          }
+            subtree.append(c_node);
+            if ($(e).children().length !== 0) {
+              setChildNode(e, c_node, num + 1);
+            }
+          });
+          $(parent_node).append(subtree);
+        } else {
+            // ToDo
+        }
       }
 
+      // 「hoge/foo」を「hoge > foo」に変換
+      function transferQuery(selector) {
+        return  selector.replace(/\//g, ' > ');
+      }
+
+      let ref_data;
       let tree = $('#sgml_tree_body');
       $.get('./lib/reference.xml')
       .done(function(result){
+          ref_data = $(result);
           tree.empty();
-          $(result)
+          ref_data
               .children()
               .each(function(index, e) {
                   let name = `${$(e).prop('tagName')} ―― ${$(e).attr('overview')}`;
@@ -440,23 +446,44 @@ $(function() {
           $('#tree-area')
               .on('select_node.jstree', function(e, data) {
                 // console.log(data.node.data.help);
-                let selector = data.node.data.help.replace(/\//g, ' > ');
-                $.get('./lib/reference.xml')
-                  .done(function(result) {
-                    // console.log($(selector, result).text());
-                    let txt;
-                    let el = $(selector, result);
-                    if (el.children().length === 0) {
-                      txt = el.text();
-                    } else {
-                      console.log(el.children('outline'));
-                      txt = el.children('outline').text();
-                    }
-                    $('#sidr_help > #sidr_help_body').html(marked(txt));
-                    $.sidr('open', 'sidr_help');
-                  });              
+                let selector = transferQuery(data.node.data.help);
+                let txt;
+                let el = $(selector, ref_data);
+                if (el.children().length === 0) {
+                  txt = el.text();
+                } else {
+                  txt = el.children('outline').text();
+                }
+                let ref = el.attr('ref');
+                if (ref) {
+                  txt += $(transferQuery(ref), ref_data).text();
+                }
+                $('#sidr_help > #sidr_help_body').html(marked(txt));
+                $.sidr('open', 'sidr_help');          
               })
-              .jstree();
+              .jstree({
+                // plugins: [
+                //   "contextmenu"
+                // ],
+                // contextmenu: {
+                //   items: function(node) {
+                //     return {
+                //       insertSnippet: {
+                //         label: 'Snippet',
+                //         action: function() {
+                //           console.log(node);
+                //         }
+                //       },
+                //       showHelp: {
+                //         label: 'Help',
+                //         action: function() {
+                //           return;
+                //         }
+                //       }
+                //     };
+                //   }
+                // }
+              });
       });
 
     // トースト用Tips

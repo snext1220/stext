@@ -47,6 +47,29 @@ body {
   background-position: top center;
 }
 
+#sidr_help.sidr table {
+  border-collapse:  collapse;
+}
+
+#sidr_help.sidr th, #sidr_help.sidr td {
+  border: solid 1px;
+}
+
+#sidr_help.sidr blockquote {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 10px;
+    margin-inline-end: 10px;
+    border: solid 1px;
+    padding: 4px;
+    background-color: blanchedalmond;  
+}
+
+#sidr_help.sidr pre {
+  border: solid 1px;
+  padding: 7px;
+}
+
 .sidr-btn {
   margin: 20px;
   padding: 10px;
