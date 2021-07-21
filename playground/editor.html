@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<link rel="shortcut icon" href="https://www.web-deli.com/sorcerian/text/image/favicon.ico" />
+<title>SORCERIAN Text Playground Editor</title>
+<!--jQuery UI-->
+<link rel="stylesheet" href="css/jquery-ui.min.css" />
+<!--Other-->
+<link rel="stylesheet" href="../stext/jquery.sidr.light.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.sidr/2.2.1/stylesheets/jquery.sidr.light.min.css" /> -->
+<link rel="stylesheet" href="css/toastr.min.css" />
+<!--Playground-->
+<link rel="stylesheet" href="css/playground_editor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3S9L1E9YLJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3S9L1E9YLJ');
+</script>
+</head>
+<body>
+<div id="control">
+    <ul id="addmenu" class="cxt">
+        <li id="add_scene" class="addcom sep"
+            data-command="scene">&lt;scene&gt;</li>
+        <li id="add_item" class="addcom"
+            data-command="item">&lt;item&gt;</li>
+        <li id="add_flag" class="addcom"
+            data-command="flag">&lt;flag&gt;</li>
+        <li id="add_enemy" class="addcom"
+            data-command="enemy">&lt;enemy&gt;</li>
+        <li id="add_result" class="addcom"
+            data-command="result">&lt;result&gt;</li>
+        <li id="add_work" class="addcom sep"
+            data-command="work">&lt;work&gt;</li>
+        <li id="add_const" class="addcom"
+            data-command="constraint">&lt;constraint&gt;</li>
+        <li id="add_bgm" class="addcom"
+            data-command="bgm">&lt;bgm&gt;</li>
+        <li id="add_label" class="addcom"
+            data-command="label">&lt;label&gt;</li>
+        <li id="add_intro" class="addcom sep"
+            data-command="intro">&lt;intro&gt;</li>
+    </ul>
+    
+    <ul id="addmd" class="cxt">
+        <li id="tag-red" data-command="red">%red%</li>
+        <li id="tag-blue" data-command="blue">%blue%</li>
+        <li id="tag-white" data-command="white" class="sep">%white%</li>
+        <li id="tag-if" data-command="if">${if}</li>
+        <li id="tag-import" data-command="*import">${import}</li>
+        <li id="tag-input" data-command="*input">${input}</li>
+        <li id="tag-ruby" data-command="*ruby" class="sep">${ruby}</li>
+        <li id="tag-title" data-command="*title">${title}</li>
+        <li id="tag-race" data-command="*race">${race}</li>
+        <li id="tag-sex" data-command="*sex">${sex}</li>
+        <li id="tag-state" data-command="*state">${state}</li>
+        <li id="tag-age" data-command="*age">${age}</li>
+        <li id="tag-random" data-command="*random">${random}</li>
+        <li id="tag-msg" data-command="*msg" class="sep">${msg}</li>
+        <li id="tag-tweet" data-command="tweet">${tweet}</li>
+        <li id="tag-capture" data-command="*capture">![...]()</li>
+    </ul>
+    
+    <ul id="helpmenu" class="cxt">
+        <li id="help_pg"><a href="https://sorcerian.hateblo.jp/entries/2018/01/25" target="help">Playground入門</a></li>
+        <li id="help_ref"><a href="https://sorcerian.hateblo.jp/entry/2018/11/01/211745" target="help">タグリファレンス</a></li>
+        <li id="help_gbat"><a href="https://sorcerian.hateblo.jp/entries/2018/01/31" target="help">GBAT入門</a></li>
+        <li id="help_short"><a href="https://github.com/ajaxorg/ace/wiki/Default-Keyboard-Shortcuts" target="help">ショートカット一覧</a></li>
+    </ul>
+    
+    <div id="ctrl_panel" class="white">
+        <div id="ctrl_top">
+            <img src="../stext/common/pge_logo.png"
+                alt="ソーサリアン Text" height="100%" />
+            <span class="pg_command">
+                <img id="pg_run" src="../stext/common/pg_run.png" title="シナリオを実行" />
+                <img id="pg_tag" src="../stext/common/pg_tag.png" title="カーソル位置にタグを追加" />
+                <img id="pg_md" src="../stext/common/pg_md.png" title="カーソル位置に埋め込み構文を追加" />
+                <img id="pg_editor2flow" src="../stext/common/pg_e2f.png" title="PgFlowで編集" />
+                <img id="pg_clear" src="../stext/common/pg_clear.png" title="クリア" />｜
+                <img id="pg_gbat" src="../stext/common/pg_gbat.png" title="GBATファイルを読み込み(複数ファイル可）" />
+                <input id="gbat" type="file" accept=".gbat" multiple style="display: none;"/>
+                <img id="pg_save" src="../stext/common/pg_save.png" title="ブラウザーに保存" />
+                <img id="pg_dl" src="../stext/common/pg_dl.png" title="ダウンロード" />
+                <img id="pg_help" src="../stext/common/pg_help.png" title="マニュアルを参照" />
+            </span>
+
+            <select id="template">
+            <option value="">シナリオデータを選択してください。</option>
+            <optgroup label="チュートリアル">
+                <option value="tutorial1.xml">1. 基本のキ</option>
+                <option value="scenario_frame.xml">N. 試作用サンプル</option>
+            </optgroup>
+            <optgroup label="テンプレート">
+                <option value="scenario_empty.xml">空</option>
+                <option value="scenario_ref.xml">説明付き</option>
+                <option value="scenario_sample.xml">サンプル</option>
+            </optgroup>
+            <optgroup label="その他">
+                <!-- <option value="scenario_dra.xml">ドラゴンモード例</option> -->
+                <option value="scenario.xml">機能テスト用</option>
+                <option value="storage">マイストレージ</option>
+            </optgroup>
+            </select>
+            　　
+            <!-- 構文ハイライト： -->
+            <label><input type="radio" id="lang1" name="lang" value="xml" />
+            XML</label>
+            <label><input type="radio" id="lang2" name="lang"
+            value="markdown" checked />Markdown</label>
+        </div>
+    </div>
+</div>
+<div id="main" class="clearfix">
+    <div id="tree-area">
+        <ul id="sgml_tree_body">
+        </ul>
+    </div>
+    <div id="edit-area">
+        <div id="editor"></div>
+    </div>       
+</div>
+
+<!--サイドパネル（ヘルプ）-->
+<div id="sidr_help">
+    <div id="sidr_help_body"></div>
+    <div id="sidr_help_close" class="sidr-btn">閉じる</div>
+</div>
+
+<!--jQuery & jQuery UI-->
+<script src="../stext/jquery.min.js"></script>
+<script src="./lib/jquery-ui.min.js"></script>
+<!--Ace Editor-->
+<script src="./lib/ace/ace.js"></script>
+<script src="./lib/ace/ext-language_tools.js"></script>
+<!--Other-->
+<script src="lib/marked.min.js"></script>
+<script src="../stext/jquery.sidr.min.js"></script>
+<!-- <script src="lib/jquery.tagsinput-revisited.js"></script> -->
+<script src="lib/vkbeautify.js"></script>
+<script src="lib/toastr.min.js"></script>
+<!-- <script src="lib/jquery.splitter.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+<!--Playground-->
+<script src="../stext/sgml.js"></script>
+<script src="lib/playground_editor.js?version=20210720"></script>
+<!--Ptengine解析-->
+<script type="text/javascript">
+window._pt_lt = new Date().getTime();
+window._pt_sp_2 = [];
+_pt_sp_2.push('setAccount,17003b62');
+var _protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+(function() {
+    var atag = document.createElement('script'); atag.type = 'text/javascript'; atag.async = true;
+    atag.src = _protocol + 'js.ptengine.jp/pta.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(atag, s);
+})();
+</script>
+</body>
+</html>

@@ -26,7 +26,8 @@
 }
 .sidr.right {
   left: auto;
-  right: -260px;
+  right: -1000px;
+  /* right: -260px; */
 }
 .sidr.left {
   left: -1000px;

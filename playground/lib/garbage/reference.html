@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+    <script src="../stext/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+    <script>
+        $(function() {
+            function getPath(current) {
+                let path = $(current).prop('tagName');
+                $(current).parents().each(function(index, e) {
+                    path = `${$(e).prop('tagName')}/${path}`;
+                })
+                return path;
+            }
+
+
+            // parent：XML親要素、parent_node：親HTMLツリー、num：階層数
+            function setChildNode(parent, parent_node, num) {
+                parent = $(parent);
+                let name = parent.prop('tagName');
+                let ch = parent.children();
+                if (ch.length !== 0) {
+                    let subtree =$('<ul></ul>')
+                    ch.each(function(index, e) {
+                        //console.log(`${parent.prop('tagName')}:${$(e).prop('tagName')}`);
+                        let short_name = $(e).prop('tagName');
+                        let c_name = `${$(e).prop('tagName')} ―― ${$(e).attr('overview')}`;
+                        if (['outline', 'common'].includes($(e).prop('tagName'))) { return true; }
+
+                        
+                        let c_node = $('<li></li>')
+                            .attr('data-help', getPath(e));
+                        if ($(e).children().length === 0) {
+                            c_node
+                                .attr('data-jstree', '{ "icon" : "jstree-file" }')
+                                .text(`#${c_name}`);
+                        } else {
+                            c_node.text(c_name);
+                            if (num < 1 && short_name !== 'scene') {
+                                c_node.attr('data-jstree', '{ "opened" : true }');
+                            }
+                        }
+                        let alias = $(e).attr('name');
+                        if (alias) {
+                            c_node.text(`#${alias}`);
+                        }
+
+                        subtree.append(c_node);
+                        if ($(e).children().length !== 0) {
+                            setChildNode(e, c_node, num + 1);
+                        }
+                    });
+                    $(parent_node).append(subtree);
+                } else {
+                    // ToDo                    
+                }
+            }
+
+            let tree = $('#sgml_tree_body');
+            $.get('./lib/reference.xml')
+            .done(function(result){
+                tree.empty();
+                $(result)
+                    .children()
+                    .each(function(index, e) {
+                        let name = `${$(e).prop('tagName')} ―― ${$(e).attr('overview')}`;
+                        let c_node = $(`<li data-jstree='{ "opened" : true }'>${name}</li>`);
+                        tree.append(c_node);
+                        setChildNode(e, c_node, 0);
+                        //console.log($(e).prop('tagName'));
+                    });
+                $('#sgml_tree')
+                    .on('select_node.jstree', function(e, data) {
+                        console.log(data.node.data.help);
+                    })
+                    .jstree();
+
+
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <div id="sgml_tree">
+        <ul id="sgml_tree_body">
+        </ul>
+      </div>  
+</body>
+</html>
