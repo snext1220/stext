@@ -254,6 +254,30 @@ label {
     font-size: smaller !important;
 }
 
+ /* ヘルプ */
+#help-dialog table {
+  border-collapse:  collapse;
+}
+
+#help-dialog th, #help-dialog td {
+  border: solid 1px;
+}
+
+#help-dialog blockquote {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 10px;
+  margin-inline-end: 10px;
+  border: solid 1px;
+  padding: 4px;
+  background-color: blanchedalmond;  
+}
+
+#help-dialog pre {
+  border: solid 1px;
+  padding: 7px;
+}
+
 /* 未使用 */
   .pg_command img {
     margin-right: 5px;
