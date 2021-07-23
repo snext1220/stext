@@ -116,9 +116,11 @@ $(function () {
   // フローチャートの絞り込み条件
   let filter_where = [];
   // 設定情報
-  let config = {};
+  // let config = {};
   // グリッド
   let grid = {};
+  // サイドバー
+  // let side_set = new Set();
   // グリッドになんらかの更新が発生したか
   let isUpdatedInGrid = false;
   // ヘルプページ（キャッシュ）
@@ -341,6 +343,7 @@ $(function () {
       } else {
         Util.getHelpPage(selector);
       }
+      Util.closeAllSidebar();
     },
 
     // ヘルプテキストを取得（未完成）
@@ -1042,6 +1045,20 @@ $(function () {
           Util.setEdgeInfo(id);
         }
       });
+
+      // コンテキストメニュー
+      network.on('oncontext', function(e) {
+        let org_e = e.event;
+        // シーンタブとチャート上の選択ノードとが等しい場合
+        if ($('#scene-select #id').val() === e.nodes[0]) {         
+          $('#chart-menu').css({
+            display: 'block',
+            top: org_e.pageY,
+            left: org_e.pageX
+          });
+          org_e.preventDefault();
+        }
+      });
     },
     // ネットワークを初期化
     destroyNetwork: function() {
@@ -1471,6 +1488,13 @@ $(function () {
       // 選択をキャンセルした時
       $(s_cancel).click(function() {
         $.sidr('close', s_name);
+      });
+    },
+
+    // すべてのサイドバーを閉じる
+    closeAllSidebar() {
+      $('.mysidr').each(function(index, e) {
+        $.sidr('close', $(e).attr('id'));
       });
     },
 
@@ -2165,7 +2189,7 @@ ${Util.createLinkText(value.id, scenario.edges)}
   // ファイル選択ボックスココマデ
 
   // ダイナミックヘルプ（新版）
-  $('#basic label,#scene label').dblclick(function(e) {
+  $('#basic label, #scene label').dblclick(function(e) {
     Util.showHelpDialog($(this).attr('data-help'));
   });
 
@@ -2220,6 +2244,7 @@ ${Util.createLinkText(value.id, scenario.edges)}
     buttons: {
       '閉じる': function() {
         $(this).dialog('close');
+        Util.closeAllSidebar();
       }
     }
   });
@@ -3121,13 +3146,14 @@ ${Util.createLinkText(value.id, scenario.edges)}
   });
 
   // 現在のノードを削除
-  $('#scene #scene-delscene').click(function() {
+  $('#scene #scene-delscene, #ctx-scene-remove').click(function() {
     if (!confirm('この操作は元には戻せません！\n現在のシーンを削除しても構いませんか？')) {
       return;
     }
     let id = $('#scene-attr #id').val();
     Util.deleteScene(id);
     Util.createNetwork();
+    $('#chart-menu').css('display', 'none');
   });
 
   // リンク選択ボックスを生成
@@ -3137,13 +3163,15 @@ ${Util.createLinkText(value.id, scenario.edges)}
   });
 
   // リンク追加ダイアログ
-  $('#scene #scene-addedge').click(function(e) {
+  $('#scene #scene-addedge, #chart-menu #ctx-edge-add').click(function(e) {
     $('#edge-dialog').dialog('open');
+    $('#chart-menu').css('display', 'none');
   });
 
   // シーン追加ダイアログ
-  $('#scene #scene-addscene').click(function(e) {
+  $('#scene #scene-addscene, #chart-menu #ctx-scene-add').click(function(e) {
     $('#scene-dialog-link').dialog('open');
+    $('#chart-menu').css('display', 'none');
   });
 
   // シーン変更ダイアログ
@@ -3205,6 +3233,8 @@ ${Util.createLinkText(value.id, scenario.edges)}
           Util.createAllGrid();
           isUpdatedInGrid = false;
         }
+        // すべてのサイドバーをクローズ
+        Util.closeAllSidebar();
       }
     });
   Util.disableTab();
@@ -3495,6 +3525,9 @@ ${Util.createLinkText(value.id, scenario.edges)}
     }
     if (e.target.id !== 'ctrl_tag') {
       $('#tag-menu').css('display', 'none');
+    }
+    if (e.target.id !== 'chart-menu') {
+      $('#chart-menu').css('display', 'none');
     }
   });
 
