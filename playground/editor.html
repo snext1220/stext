@@ -27,18 +27,24 @@
 <body>
 <div id="control">
     <ul id="addmenu" class="cxt">
-        <li id="add_scene" class="addcom sep"
+        <li id="add_scene" class="addcom"
             data-command="scene">&lt;scene&gt;</li>
+        <li id="add_scene_simple" class="addcom sep"
+            data-command="scene_simple">&lt;scene&gt;(simple)</li>
         <li id="add_item" class="addcom"
             data-command="item">&lt;item&gt;</li>
         <li id="add_flag" class="addcom"
             data-command="flag">&lt;flag&gt;</li>
+        <li id="add_param" class="addcom"
+            data-command="param">&lt;param&gt;</li>
         <li id="add_enemy" class="addcom"
             data-command="enemy">&lt;enemy&gt;</li>
         <li id="add_result" class="addcom"
             data-command="result">&lt;result&gt;</li>
         <li id="add_work" class="addcom sep"
             data-command="work">&lt;work&gt;</li>
+        <li id="add_basic" class="addcom"
+            data-command="basic">&lt;basic&gt;</li>
         <li id="add_const" class="addcom"
             data-command="constraint">&lt;constraint&gt;</li>
         <li id="add_bgm" class="addcom"
@@ -55,16 +61,20 @@
         <li id="tag-white" data-command="white" class="sep">%white%</li>
         <li id="tag-if" data-command="if">${if}</li>
         <li id="tag-import" data-command="*import">${import}</li>
+        <li id="tag-effect" data-command="effect">${effect}</li>
         <li id="tag-input" data-command="*input">${input}</li>
-        <li id="tag-ruby" data-command="*ruby" class="sep">${ruby}</li>
+        <li id="tag-ruby" data-command="ruby" class="sep">${ruby}</li>
         <li id="tag-title" data-command="*title">${title}</li>
+        <li id="tag-name" data-command="*name">${name}</li>
         <li id="tag-race" data-command="*race">${race}</li>
         <li id="tag-sex" data-command="*sex">${sex}</li>
         <li id="tag-state" data-command="*state">${state}</li>
         <li id="tag-age" data-command="*age">${age}</li>
+        <li id="tag-var" data-command="*var">${var}</li>
         <li id="tag-random" data-command="*random">${random}</li>
         <li id="tag-msg" data-command="*msg" class="sep">${msg}</li>
-        <li id="tag-tweet" data-command="tweet">${tweet}</li>
+        <li id="tag-tweet" data-command="tweet" class="sep">${tweet}</li>
+        <li id="tag-link" data-command="link">[...]()</li>
         <li id="tag-capture" data-command="*capture">![...]()</li>
     </ul>
     

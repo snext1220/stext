@@ -3534,7 +3534,7 @@ ${Util.createLinkText(value.id, scenario.edges)}
   // Editorへの遷移
   $('#ctrl_flow2editor').click(function(){
     localStorage['flow2editor'] = Util.createXml();
-    window.open('../playground.aspx', 'pgeditor');
+    window.open('./editor.html', 'pgeditor');
   });
 
   // ページ移動時の警告

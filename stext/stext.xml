@@ -587,7 +587,7 @@ Playground Editor（Pg Editor）は、ブラウザー上で動作するソーサ
 
 構文ハイライト機能付きの簡易エディターを備え、テンプレート／.gbatファイルのインポートから、作成したシナリオのストレージ保存、ダウンロードなどにも対応しているので、簡易なシナリオであれば、Pg Editorひとつで完結して執筆作業を進めることも可能です。
 
-<a href="playground.aspx" target="stext" class="startbtn">Playground Editorを起動する</a>
+<a href="./playground/editor.html" target="stext" class="startbtn">Playground Editorを起動する</a>
 
 使い方などは、以下のマニュアルも参照してください。
 
