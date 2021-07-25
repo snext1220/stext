@@ -72,12 +72,6 @@ label {
     margin: 0 auto;
 }
 
-.clearfix:after {
-    /*content: "";
-    display: block;
-    clear: both;*/
-}
-
 #flow-area {
     /* float: left; */
     /* width: 535px; */
@@ -276,6 +270,13 @@ label {
 #help-dialog pre {
   border: solid 1px;
   padding: 7px;
+}
+
+.dynamic_help {
+  width: 20px;
+  height: 20px;
+  margin-bottom: -5px;
+  cursor: pointer;
 }
 
 /* 未使用 */

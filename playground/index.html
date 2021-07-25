@@ -124,15 +124,15 @@
         <fieldset>
           <legend>BGM（<a href="https://soundcloud.com/venus-az/sets/sorcerian-text-original-sounds/s-2tzI5" target="help">標準BGMリスト</a>）
             （<a href="https://soundcloud.com/az2nd/sets/sorcerian-text-original-soundtrack/s-NrBqCSP9vPF" target="help">リスト2</a>）</legend>
-          <label data-help="init/bgm/main,init/bgm/common">main：
+          <label data-help="init/bgm/main">main：
             <input id="bgm-main" type="text" size="10" /></label>
             <input id="bgm-main-file" type="file" accept=".mp3" class="hidden-file no-update" />
             <button id="bgm-main-ref" type="button">参照</button>
-          <label data-help="init/bgm/happy,init/bgm/common">happy：
+          <label data-help="init/bgm/happy">happy：
             <input id="bgm-happy" type="text" size="10" /></label>
             <input id="bgm-happy-file" type="file" accept=".mp3" class="hidden-file no-update" />
             <button id="bgm-happy-ref" type="button">参照</button>
-          <label data-help="init/bgm/bad,init/bgm/common">bad：
+          <label data-help="init/bgm/bad">bad：
             <input id="bgm-bad" type="text" size="10" /></label>
             <input id="bgm-bad-file" type="file" accept=".mp3" class="hidden-file no-update" />
             <button id="bgm-bad-ref" type="button">参照</button>
@@ -210,7 +210,7 @@
           <button id="scene-ext" type="button">エディター領域を拡げる</button>｜
           <button id="scene-addscene" type="button">シーンを追加</button>　
           <button id="scene-delscene" type="button" class="delaction">現在のシーンを削除</button>
-          
+          <img class="dynamic_help" src="../stext/common/pg_help_sub.png" data-help="scene/text" />  
         </div>
         <div id="scene-attr">
           <form>
@@ -361,6 +361,7 @@
         <p></p>
         <label>条件式：
           <input id="condition" type="text" size="25" /></label>
+        <img class="dynamic_help" src="../stext/common/pg_help_sub.png" data-help="scene/edge_flow" />
       </fieldset>
       <fieldset>
         <legend>特殊</legend>

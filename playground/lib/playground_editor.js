@@ -397,7 +397,8 @@ $(function() {
         //console.log(`${parent.prop('tagName')}:${$(e).prop('tagName')}`);
         let short_name = $(e).prop('tagName');
         let c_name = `${$(e).prop('tagName')} ―― ${$(e).attr('overview')}`;
-        if (['outline', 'common'].includes($(e).prop('tagName'))) { return true; }
+        if (['outline', 'common', 'edge_flow', 'edge_common'].
+          includes($(e).prop('tagName'))) { return true; }
 
         let c_node = $('<li></li>')
           .attr('data-help', getPath(e));

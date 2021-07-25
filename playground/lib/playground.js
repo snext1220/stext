@@ -321,6 +321,11 @@ $(function () {
       }
     },
 
+    // 「hoge/foo」を「hoge > foo」に変換
+    transferQuery: function(selector) {
+      return  selector.replace(/\//g, ' > ');
+    },
+
     // ヘルプページの取得
     getHelpPage: function(selector) {
       $.get('./lib/reference.xml')
@@ -333,12 +338,14 @@ $(function () {
     // セレクターに合致した要素をダイアログに反映＆表示
     // 引数selectorは「init/basic/imgset」など
     showHelpDialog: function(selector) {
-      selector = selector.replace(/\//g, ' > ');
       if (help_page) {
-        $('#help-dialog > #help-body')
-          .html(
-            marked($(selector, help_page).text())
-          );
+        let el = $(Util.transferQuery(selector), help_page);
+        let txt = el.text();
+        let ref = el.attr('ref');
+        if (ref) {
+          txt += $(Util.transferQuery(ref), help_page).text();
+        }
+        $('#help-dialog > #help-body').html(marked(txt));
         $('#help-dialog').dialog('open');
       } else {
         Util.getHelpPage(selector);
@@ -2189,7 +2196,7 @@ ${Util.createLinkText(value.id, scenario.edges)}
   // ファイル選択ボックスココマデ
 
   // ダイナミックヘルプ（新版）
-  $('#basic label, #scene label').dblclick(function(e) {
+  $('#basic label, #scene label, .dynamic_help').click(function(e) {
     Util.showHelpDialog($(this).attr('data-help'));
   });
 
