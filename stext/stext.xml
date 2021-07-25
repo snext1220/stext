@@ -563,7 +563,7 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 
 <work title="Playground Flow" author="リオ" type="dev">
  <img src="./image/util_new.png" height="120"
-   title="New Playground" class="left" />
+   title="Playground Flow" class="left" />
 Playground Flow（Pg Flow）は、ブラウザ上で動作するソーサリアン Textのシナリオ開発／実行環境。
 
 従来のように、SText固有のタグを意識する必要はありません。シーン同士をフローチャート上で繋ぎ、繋ぎ変えながら、ゲームブックの流れを設計できます。また、フラグ／アイテム情報も、専用のスプレッドシートから編集できるので、編集上の負担が大幅に軽減します。
@@ -578,12 +578,12 @@ STextでの開発に初めて着手するならば、まずはPlayground Flowの
 </work>
 
 <work title="Playground Editor" author="リオ" type="dev">
-<img src="./image/blog/pge_main.png" height="120"
-  title="Playground実行画面" class="right" />
+<img src="./image/blog/pge.png" height="120"
+  title="Playground Editor実行画面" class="right" />
 
 Playground Editor（Pg Editor）は、ブラウザー上で動作するソーサリアン Textのシナリオ開発／実行環境です。ソフトウェアのインストールなどが不要なので、手軽に実行できるのが特徴です。
 
-画像の表示、音声の再生には非対応ですが、それ以外の機能はほぼサポートしているので、シナリオの動作確認に活用ください。
+画像の表示、音声の再生は部分対応ですが、それ以外の機能はほぼサポートしているので、シナリオの動作確認に活用ください。
 
 構文ハイライト機能付きの簡易エディターを備え、テンプレート／.gbatファイルのインポートから、作成したシナリオのストレージ保存、ダウンロードなどにも対応しているので、簡易なシナリオであれば、Pg Editorひとつで完結して執筆作業を進めることも可能です。
 
