@@ -199,7 +199,8 @@ $(function () {
         {
           start: 0,
           end: 1,
-          title: 'Introduction'
+          title: 'Introduction',
+          rule: ''
         }
       ],
       items: [
@@ -1170,6 +1171,7 @@ $(function () {
           { id: 'start', name: '開始No.', field: 'start', width: 70, editor: Slick.Editors.Integer },
           { id: 'end', name: '終了No.', field: 'end', width: 70, editor: Slick.Editors.Integer },
           { id: 'title', name: 'グループ名', field: 'title', width: 250, editor: Slick.Editors.Text },
+          { id: 'rule', name: 'ルールid', field: 'rule', width: 70, editor: Slick.Editors.Integer },
           {id: 'delete', name: '削除', field: '', width: 35,
           formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }
         ], grid_opts, 'group', false);
@@ -2196,7 +2198,7 @@ ${Util.createLinkText(value.id, scenario.edges)}
   // ファイル選択ボックスココマデ
 
   // ダイナミックヘルプ（新版）
-  $('#basic label, #scene label, .dynamic_help').click(function(e) {
+  $('#basic label, #scene label, .dynamic_help').dblclick(function(e) {
     Util.showHelpDialog($(this).attr('data-help'));
   });
 

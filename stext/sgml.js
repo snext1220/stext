@@ -1203,7 +1203,10 @@
           that.showSimpleStatus();
 
           // 共通ルールの反映
-          Util.showRuleText(current_scene.nsAttr('rule'));
+          // Util.showRuleText(current_scene.nsAttr('rule'));
+          Util.showRuleText(
+            Util.detectRuleId(current_scene)
+          );
 
           // 以降の処理は最初開いた時だけ実行
           if (SideBar.isFirstOpenBattleSheet) {
@@ -4021,11 +4024,39 @@
       return allow_num.split(',').indexOf(scene_num) !== -1
     },
 
+    // 指定されたidが属するグループのrule属性を取得
+    getBelongingGroupRule: function(id) {
+      let result;
+      $('group', scenario_data).each(function() {
+        let c_id = Number(id);
+        let start = Number($(this).nsAttr('start'));
+        let end = Number($(this).nsAttr('end'));
+        if (start <= c_id && c_id <= end) {
+          result = $(this).nsAttr('rule');
+          return false;
+        }
+      });
+      return result;
+    },
+
+    // 与えられたシーンのBattleSheetに表示すべきルールを確定
+    detectRuleId: function(scene) {
+      // シーンのrule属性が最優先
+      let rule = scene.nsAttr('rule');
+      if (rule) {
+        return rule;
+      }
+      // グループのrule属性が第2優先
+      let g_rule = Util.getBelongingGroupRule(scene.nsAttr('id'));
+      if (g_rule && scene.nsAttr('enemies')) {
+        return g_rule; // 共通ルール
+      }
+      // グローバルルール（優先順位最低）
+      return '99999';
+    },
+
     // 共通ルールを取得＆反映
     showRuleText: function(rule) {
-      if (rule === undefined) {
-        rule = '99999';
-      }
       Util.showImage(
         $('#common_rule')
           .html(
