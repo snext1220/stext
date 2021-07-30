@@ -660,7 +660,7 @@ category属性が...
 + 「full」で初期値に戻す（非推奨）
 </status>
 
-<free overview="FREE演算">
+<free name="free1/free2/free3" overview="FREE演算">
 そのシーンに移動した時に加算／減算するfree1～3の値を表します。指定できる形式は、以下の通りです。
 
 + 「-5」「5」で、指定値だけ増減
