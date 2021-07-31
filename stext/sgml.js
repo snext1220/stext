@@ -3361,22 +3361,18 @@
         if (isNaN(p_value) && !p_value.startsWith('@')) {
           current = p_value;
         } else {
+          let min = params_map[p_name].min;
+          let max = params_map[p_name].max;
           if (p_value.startsWith('@')) {
-            current = p_value.substring(1);
+            current = Number(p_value.substring(1));
           } else {
-            let min = params_map[p_name].min;
-            let max = params_map[p_name].max;
-            let tmp_current = Number(current) + Number(p_value);
-            if (min && max) {
-              if (tmp_current < Number(min)) {
-                current = Number(min);
-              } else if (tmp_current > Number(max)) {
-                current = Number(max);
-              } else {
-                current = tmp_current;  
-              }
-            } else {
-              current = tmp_current;
+            current = Number(current) + Number(p_value);
+          }
+          if (min && max) {
+            if (current < Number(min)) {
+              current = Number(min);
+            } else if (current > Number(max)) {
+              current = Number(max);
             }
           }
         }
@@ -4095,7 +4091,7 @@
         v = save_data.params[id];
       }
       // セーブデータにない場合はinitial値
-      if (!v) {
+      if (v === null || v === undefined) {
         v = params_map[id].initial;
       }
       return v;
@@ -4252,9 +4248,23 @@
           }
           return 'Unknow Variable';
         case 'input' :
-          return '<input type="button" class="spinner_down sgml" value="-" />'
-            + '<input type="text" class="sgml" value="' + m_params[0] + '" />'
-            + '<input type="button" class="spinner_up sgml" value="+" />';
+          let key = m_params[0];
+          if (key.startsWith('p')) {
+            return `<span>
+            <input type="button" data-id="${key}"
+              class="spinner_down sgml sgml_param" value="-" />
+            <input type="text" class="sgml sgml_param" 
+               data-id="${key}" value="${Util.getParamValue(key)}" />
+            <input type="button" data-id="${key}"
+              class="spinner_up sgml sgml_param" value="+" />
+            </span>`;
+          } else {
+            return `<span>
+              <input type="button" class="spinner_down sgml" value="-" />
+              <input type="text" class="sgml" value="${key}" />
+              <input type="button" class="spinner_up sgml" value="+" />
+              </span>`;
+          }
         default :
           return match;
       }
@@ -4935,6 +4945,25 @@
         //history.pushState(to_move, 'Scene ' + to_move);
         Util.createScene(to_move);
         e.preventDefault();
+      });
+
+      // ${input?p01}での変更で内部パラメーターを更新
+      let param_handler = function(elem) {
+        // インクリメント／デクリメントの時間差で処理
+        setTimeout(function() {
+          let id = $(elem).attr('data-id');
+          let value = $(elem).val();
+          Util.updateParams(`${id}:@${value}`);
+          Util.saveStorage();
+          $(elem).val(Util.getParamValue(id));
+        }, 100);
+      };
+      target.on('click', 'input[type="button"].sgml_param', function(e) {
+        let elem = $(this).siblings('input[type="text"].sgml_param');
+        param_handler(elem.get(0));
+      });
+      target.on('input', 'input[type="text"].sgml_param', function(e) {
+        param_handler(this);
       });
 
       // 右クリック時にステータスダイアログを表示
