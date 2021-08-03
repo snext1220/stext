@@ -1186,7 +1186,7 @@ $(function () {
             } },
           { id: 'name', name: '名前', field: 'name', width: 80, editor: Slick.Editors.Text },
           { id: 'target', name: '効果対象', field: 'target', width: 60, editor: SelectEditor,
-            options: [ '', 'hp', 'mp', 'state', 'str', 'int', 'dex', 'krm', 'free1', 'free2', 'free3', 'none' ]
+            options: [ '', 'hp', 'mp', 'state', 'str', 'int', 'dex', 'krm', 'free1', 'free2', 'free3', 'param', 'none' ]
           },
           { id: 'effect', name: '効果値', field: 'effect', width: 80, editor: Slick.Editors.Text },
           { id: 'text', name: '説明', field: 'text', width: 250, editor: Slick.Editors.Text },
