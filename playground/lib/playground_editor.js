@@ -477,7 +477,7 @@ $(function() {
       });
       // 検索時の挙動
       let to = false;
-      $('#tree_keywd').keyup(function () {
+      $('#tree_keywd').on('input', function() {
         if(to) { clearTimeout(to); }
         to = setTimeout(function () {
           $('#help-tree').jstree(true)
