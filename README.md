@@ -19,6 +19,7 @@ People called this plugin.....**Sorcerian Text**.
 - [Ace Editor（Playground Flow/Editor）](https://ace.c9.io/)
 - [vis.js（Playground Flow）](https://visjs.org/)
 - [jQuery UI（Playground Flow/Editor）](https://jqueryui.com/)
+- [JsTree（Playground Editor）](https://www.jstree.com/)
 - [vkBeautify（GBAT2SText）](https://github.com/vkiryukhin/vkBeautify)
 
 ## Example
