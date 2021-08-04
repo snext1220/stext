@@ -24,6 +24,11 @@ body {
   overflow-y: scroll;
 }
 
+#tree_keywd {
+  width: 80%;
+  border-radius: 5px;
+}
+
 #edit-area {
   width: 680px;
   min-height: 745px;

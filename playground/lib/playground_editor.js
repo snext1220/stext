@@ -449,7 +449,7 @@ $(function() {
         setChildNode(e, c_node, 0);
         //console.log($(e).prop('tagName'));
       });
-    $('#tree-area')
+    $('#help-tree')
       .on('select_node.jstree', function(e, data) {
         // console.log(data.node.data.help);
         let selector = transferQuery(data.node.data.help);
@@ -468,33 +468,28 @@ $(function() {
         $.sidr('open', 'sidr_help');          
       })
       .jstree({
-        // plugins: [
-        //   "contextmenu"
-        // ],
-        // contextmenu: {
-        //   items: function(node) {
-        //     return {
-        //       insertSnippet: {
-        //         label: 'Snippet',
-        //         action: function() {
-        //           console.log(node);
-        //         }
-        //       },
-        //       showHelp: {
-        //         label: 'Help',
-        //         action: function() {
-        //           return;
-        //         }
-        //       }
-        //     };
-        //   }
-        // }
+        "plugins" : [ "search" ],
+        "search" : {
+          show_only_matches: true,
+          show_only_matches_children: true
+        }
+
+      });
+      // 検索時の挙動
+      let to = false;
+      $('#tree_keywd').keyup(function () {
+        if(to) { clearTimeout(to); }
+        to = setTimeout(function () {
+          $('#help-tree').jstree(true)
+            .search($('#tree_keywd').val());
+        }, 250);
       });
   });
 
     // トースト用Tips
     var tips = [
       '左側のツリーから要素／属性を選択すると、右のサイドバーにヘルプドキュメントが表示されます。',
+      'ヘルプツリー上部のテキストボックスからキーワードを入力すると、合致する要素／属性のみ表示されます。',
       '［試作用サンプル］テンプレートでは、あらかじめダミーデータが用意されています。これを書き換えることで、簡単なシナリオを手軽に作成できます。',
       'テストプレイ画面の上部に表示されているのは、デバッグパネルです。シーンidを入力することで、強制的にページを移動できます。',
       'テストプレイ画面の上部に表示されているのは、デバッグパネルです。アイテム／フラグidを入力することで、強制的にステータスを更新できます。',
