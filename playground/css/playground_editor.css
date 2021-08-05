@@ -134,8 +134,13 @@ body {
     color: #000;
     cursor: pointer;
   }
-  
-  .cxt li.sep {
-    border-bottom-width: 2px;
-    border-bottom-style: solid;
-  }
+
+.cxt a {
+    color: #000;
+    text-decoration: none;
+}
+
+.cxt li.sep {
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+}
