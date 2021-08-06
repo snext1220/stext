@@ -1265,7 +1265,7 @@ $(function () {
           { id: 'drop', name: 'ドロップ', field: 'drop', width: 80, editor: AutoCompleteEditor,
             dataSource: [ 'mon/', 'tue/', 'wed/', 'thu/', 'fri/', 'sat/', 'sun/', 'free1/', 'free2/', 'free3', ] },
           { id: 'text', name: '説明', field: 'text', width: 180, editor: Slick.Editors.LongText },
-          { id: 'hp', name: '敵HP', field: 'hp', width: 40, editor: Slick.Editors.Integer },
+          { id: 'hp', name: '敵HP', field: 'hp', width: 40, editor: Slick.Editors.Text },
           { id: 'func_opp', name: '敵ダメージ式', field: 'func_opp', width: 90, editor: Slick.Editors.LongText },
           { id: 'delete', name: '削除', field: '', width: 35,
           formatter: function () { return '<input type="button" class="btn-delete" value="×" />'; } }

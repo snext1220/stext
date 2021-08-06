@@ -2568,9 +2568,9 @@
 
   // 条件式のための関数群
   let SgmlFunc = {
-    // fn:range(40)
+    // fn:rand(40)
     // per％の確率でtrue
-    random: function(per) {
+    rand: function(per) {
       return Util.random(0, 100) <= per;
     },
 
@@ -3218,8 +3218,8 @@
         let name = result.groups.name;
         let args = result.groups.args.split(',');
         switch (name) {
-          case 'random' :
-            return SgmlFunc.random(...args);
+          case 'rand' :
+            return SgmlFunc.rand(...args);
           case 'include' :
             return SgmlFunc.include(...args);
           case 'range' :

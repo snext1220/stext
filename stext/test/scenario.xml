@@ -46,7 +46,7 @@ ${var?p02:text}：${var?p02:value}
 
 [日数テスト](100 "e7")
 [rangeテスト](100 "fn:range(e,1,5)")
-[randomテスト](100 "fn:random(50)")
+[randテスト](100 "fn:rand(50)")
 [includeテスト（f01）](17)
 [includeテスト（f02）](18)
 [includeテスト（f03）](19)
