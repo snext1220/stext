@@ -967,6 +967,7 @@
         if (org_hp.startsWith('p')) {
           Util.updateParams(`${org_hp}:@${hp}`);
           Util.saveStorage();
+          $(this).val(Util.getParamValue(org_hp));
         }
         toastr.success(
           `${damage} Hit!`,

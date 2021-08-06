@@ -22,7 +22,7 @@
 	<params>
 		<param id="p01" min="0" max="50" initial="30">Param description</param>
 		<param id="p02" initial="0">Param description</param>
-		<param id="p10" initial="80">敵の生命力</param>
+		<param id="p10" initial="80" min="40" max="80">敵の生命力</param>
 	</params>
 	<enemies>
 		<enemy id="m01" name="Enemy-01" element="earth" attack="physics" func="L+2LM+M+RM+R-STR" drop="param/p01:10/TEST">Enemy description...</enemy>
