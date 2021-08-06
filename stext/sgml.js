@@ -3160,14 +3160,17 @@
       if (cond.indexOf('o') === 0) {
         // 「oSTR6+」のような文字列を分解
         var cond_set = cond.match(
-          /o(hp|mp|str|int|dex|krm|freei|freeii|freeiii)\s*(\d{1,})(\+|-)\s*/i);
+          /o(hp|mp|str|int|dex|krm|freei|freeii|freeiii)\s*(\d{1,})(\+|-)?\s*/i);
         cond_set[1] = cond_set[1].toLowerCase();
         cond_set[1] = cond_set[1].replace('freeiii', 'free3');
         cond_set[1] = cond_set[1].replace('freeii', 'free2');
         cond_set[1] = cond_set[1].replace('freei',  'free1');
-        var current_value = save_data.chara[cond_set[1]];
+        var current_value = Number(save_data.chara[cond_set[1]]);
         // 「-」であれば指定値未満か、「+」であれば指定値より大きいかを判定
-        if (cond_set[3] === '-') {
+        // 【追加】空であれば以上と見なすように
+        if (!cond_set[3]) {
+          return current_value >= Number(cond_set[2]);
+        } else if (cond_set[3] === '-') {
           return current_value < Number(cond_set[2]);
         } else {
           return current_value > Number(cond_set[2]);

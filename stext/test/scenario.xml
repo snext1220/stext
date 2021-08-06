@@ -44,6 +44,8 @@ ${var?r01:name}：${var?r01:level}：${var?r01:text}
 ${var?p01:text}：${var?p01:value}
 ${var?p02:text}：${var?p02:value}
 
+
+[次へ（ステータステスト）](17)
 [日数テスト](100 "e7")
 [rangeテスト](100 "fn:range(e,1,5)")
 [randテスト](100 "fn:rand(50)")
@@ -58,6 +60,9 @@ ${var?p02:text}：${var?p02:value}
 [戻るテスト](6)</scene>
 
 <scene id="17" flags="f01">
+[次へ（oSTR5）](17 "oSTR5")
+[次へ（oSTR5+）](17 "oSTR5+")
+[次へ（oSTR5-）](17 "oSTR5-")
 [戻る](0)
 </scene>
 <scene id="18" flags="f02">
