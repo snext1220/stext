@@ -2602,14 +2602,14 @@
       return min <= v && v < max;
     },
 
-    // fn:cycle(30,3,1)
-    // size：1周scene数、div：分割数、index：その何番目か
+    // fn:cycle(30,10,1)
+    // size：1周scene数、div：分割するシーン数、index：その何番目か
     cycle: function(size, div, index) {
       let current = Number(save_data.ellapsed_scene);
       size  = Number(size);
       div   = Number(div);
       index = Number(index); 
-      // 現在のシーンが何週目か
+      // 現在のシーンが何週目か（0スタート）
       let t_cycle = Math.floor(current / size);
       // 現在の周回の先頭／末尾シーン
       let min = (t_cycle * size) + (div * (index - 1)) + 1;
