@@ -1988,7 +1988,7 @@ ${Util.createLinkText(value.id, scenario.edges)}
 ----|----|----
 `;  
       scenario.results.forEach(function(value) {
-        result += `${value.name}|${value.level}|${value.text}\n`;
+        result += `${value.name}|${Util.numToKanji(value.level)}|${value.text}\n`;
       });
       return result;
     },
