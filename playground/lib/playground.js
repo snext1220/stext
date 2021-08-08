@@ -3542,13 +3542,14 @@ ${Util.createLinkText(value.id, scenario.edges)}
 
   // Editorへの遷移
   $('#ctrl_flow2editor').click(function(){
+    $('body').css('opacity', 0.2);
     localStorage['flow2editor'] = Util.createXml();
     window.open('./editor.html', 'pgeditor');
   });
 
   // ページ移動時の警告
   $(window).on('beforeunload', function(){
-    return "ページを閉じてもよろしいですか？";
+      return "ページを閉じてもよろしいですか？";
   });
 
   // TIPS表示

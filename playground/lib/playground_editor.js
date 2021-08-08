@@ -301,6 +301,7 @@ $(function() {
 
   // Editor2Flow
   $('#pg_editor2flow').click(function(e){
+    $('body').css('opacity', 0.2);
     localStorage['editor2flow'] = editor.getValue();
     window.open('./', 'pgflow');
   });
