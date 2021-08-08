@@ -34,7 +34,7 @@
 	<licence>
 		<work name="Bgm-01" category="bgm" creator="SText" url="https://example.com/"></work>
 	</licence>
-	<scene id="0" summary="プロローグ" group="prologue" enemies="m01,m02" items="i01:@10,i02,i03" dice="8:5" params="p01:-35" level="1">分岐テスト
+	<scene id="0" summary="プロローグ" group="prologue" enemies="m01,m02" items="i01:@10,i02,i03" dice="8:5" params="p01:10" level="1">分岐テスト
 
 ${input?p01}
 

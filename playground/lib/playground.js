@@ -1984,7 +1984,7 @@ ${Util.createLinkText(value.id, scenario.edges)}
 
 ## 実績情報
 
-名前|難易度|概要
+名前|難度|概要
 ----|----|----
 `;  
       scenario.results.forEach(function(value) {
