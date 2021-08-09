@@ -1233,7 +1233,17 @@
                 atk = atk.replace(/[0-9]{1,2}/, '');
                 atk_org = atk;
               }
-              atk = Common.state_names[atk];
+              if (atk.startsWith('free')) {
+                let tmp_name = Util.getStatusLabel(atk);
+                // ラベルが設定できたらその値を、さもなくば既定値
+                if (tmp_name) {
+                  atk = tmp_name;
+                } else {
+                  atk = Common.state_names[atk];  
+                }
+              } else {
+                atk = Common.state_names[atk];
+              }
               let row = $(`<tr class="enemy_row" data-enemy="${key}">
                 <td>
                   <input type="checkbox" class="enemy_check" />
@@ -1247,6 +1257,7 @@
                 </td>
                 <td>
                   <img class="enemy_attack" />　
+                  <span class="enemy_attack_free"></span>
                   <span class="enemy_attack_old"></span>
                 </td>
                 <td>
@@ -1291,12 +1302,23 @@
               }
 
               if (atk) {
-                $('.enemy_attack', row).attr({
-                  src: `${ROOT}${COMMON}atk_${atk_org}.png`,
-                  title: atk
-                });
-                $('.enemy_attack_old', row).hide();
+                // FreeNの場合（ラベル付き）
+                if (!atk.startsWith('FREE')
+                  && atk_org.startsWith('free')) {
+                  $('.enemy_attack_free', row).text(atk.substring(0, 1));
+                  $('.enemy_attack', row).hide();
+                  $('.enemy_attack_old', row).hide();
+                // 
+                } else {
+                  $('.enemy_attack', row).attr({
+                    src: `${ROOT}${COMMON}atk_${atk_org}.png`,
+                    title: atk
+                  });
+                  $('.enemy_attack_free', row).hide();
+                  $('.enemy_attack_old', row).hide();
+                }
               } else {
+                $('.enemy_attack_free', row).hide();
                 $('.enemy_attack', row).hide();
                 $('.enemy_attack_old', row).text(enemy.attack);
               }

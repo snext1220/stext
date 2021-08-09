@@ -134,6 +134,13 @@ table.enemy td {
   border-bottom: 1px solid #ccc;
 }
 
+table.enemy span.enemy_attack_free {
+  background: url(./common/atk_custom.png) no-repeat center;
+  color: white;
+  font-weight: bolder;
+  padding: 6px;
+}
+
 .xbtn {
   width: 100%;
 }
