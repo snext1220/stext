@@ -272,6 +272,20 @@ label {
   padding: 7px;
 }
 
+#help-dialog #related-help {
+    width: 70%;
+    background-color: lavender;
+}
+
+#help-dialog #related-help li {
+    width: 100%;
+    padding: 5px;
+    list-style: none;
+    font-size: small;
+    cursor: pointer;
+}
+
+
 .dynamic_help {
   width: 20px;
   height: 20px;

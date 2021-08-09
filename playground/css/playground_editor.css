@@ -75,6 +75,19 @@ body {
   padding: 7px;
 }
 
+#sidr_help.sidr #sidr_help_related {
+  width: 70%;
+  background-color: lavender;
+}
+
+#sidr_help.sidr #sidr_help_related li {
+  width: 100%;
+  padding: 5px;
+  list-style: none;
+  font-size: smaller;
+  cursor: pointer;
+}
+
 .sidr-btn {
   margin: 20px;
   padding: 10px;

@@ -434,6 +434,38 @@ $(function() {
     return  selector.replace(/\//g, ' > ');
   }
 
+  // ヘルプバーの生成
+  function showHelpBar(selector) {
+    let txt;
+    let el = $(transferQuery(selector), ref_data);
+    if (el.children().length === 0) {
+      txt = el.text();
+    } else {
+      txt = el.children('outline').text();
+    }
+    let ref = el.attr('ref');
+    if (ref) {
+      txt += $(transferQuery(ref), ref_data).text();
+    }
+    $('#sidr_help > #sidr_help_body').html(marked(txt));
+
+    // 関連リンクの生成
+    let related = [];
+    if (el.attr('related')) {
+      el.attr('related').split(',').forEach(function(exp) {
+        let rel_e = $(transferQuery(exp), ref_data);
+        let rel_name = rel_e.attr('name');
+        if (!rel_name) {
+          rel_name = rel_e.prop('tagName')
+        }
+        related.push(`<li data-rel="${exp}">
+          <span class="ui-icon ui-icon-circle-arrow-e"></span>
+          ${rel_name}（${rel_e.attr('overview')}）</li>`);
+      });
+    }
+    $('#sidr_help #sidr_help_related').html(related.join(''));
+  }
+
   let ref_data;
   let tree = $('#sgml_tree_body');
   $.get('./lib/reference.xml')
@@ -452,20 +484,36 @@ $(function() {
       });
     $('#help-tree')
       .on('select_node.jstree', function(e, data) {
-        // console.log(data.node.data.help);
-        let selector = transferQuery(data.node.data.help);
-        let txt;
-        let el = $(selector, ref_data);
-        if (el.children().length === 0) {
-          txt = el.text();
-        } else {
-          txt = el.children('outline').text();
-        }
-        let ref = el.attr('ref');
-        if (ref) {
-          txt += $(transferQuery(ref), ref_data).text();
-        }
-        $('#sidr_help > #sidr_help_body').html(marked(txt));
+        showHelpBar(data.node.data.help);
+        // let txt;
+        // let el = $(selector, ref_data);
+        // if (el.children().length === 0) {
+        //   txt = el.text();
+        // } else {
+        //   txt = el.children('outline').text();
+        // }
+        // let ref = el.attr('ref');
+        // if (ref) {
+        //   txt += $(transferQuery(ref), ref_data).text();
+        // }
+        // $('#sidr_help > #sidr_help_body').html(marked(txt));
+
+        // // 関連リンクの生成
+        // let related = [];
+        // if (el.attr('related')) {
+        //   el.attr('related').split(',').forEach(function(exp) {
+        //     let rel_e = $(transferQuery(exp), ref_data);
+        //     let rel_name = rel_e.attr('name');
+        //     if (!rel_name) {
+        //       rel_name = rel_e.prop('tagName')
+        //     }
+        //     related.push(`<li data-rel="${exp}">
+        //       <span class="ui-icon ui-icon-circle-arrow-e"></span>
+        //       ${rel_name}（${rel_e.attr('overview')}）</li>`);
+        //   });
+        // }
+        // $('#sidr_help #sidr_help_related').html(related.join(''));
+
         $.sidr('open', 'sidr_help');          
       })
       .jstree({
@@ -485,6 +533,11 @@ $(function() {
             .search($('#tree_keywd').val());
         }, 250);
       });
+  });
+
+  // ダイナミックヘルプ（関連）
+  $('#sidr_help #sidr_help_related').on('click', 'li', function(e) {
+    showHelpBar($(this).attr('data-rel'));
   });
 
     // トースト用Tips

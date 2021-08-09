@@ -125,6 +125,9 @@ $(function () {
   let isUpdatedInGrid = false;
   // ヘルプページ（キャッシュ）
   let help_page;
+  // ヘルプページ（スタック。移動用）
+  let related_help = [];
+
   // 共通データ
   let Common = {
     HELP_URL: 'https://sorcerian.hateblo.jp/entry/2018/11/01/211745#',
@@ -339,6 +342,25 @@ $(function () {
     // セレクターに合致した要素をダイアログに反映＆表示
     // 引数selectorは「init/basic/imgset」など
     showHelpDialog: function(selector) {
+      let btn_obj =  [
+        {
+          text: '閉じる',
+          click: function() {
+            related_help = [];
+            $(this).dialog('close');
+            Util.closeAllSidebar();
+          }
+        },
+      ];
+      if (related_help.length > 0) {
+        btn_obj.unshift({
+          text: '戻る',
+          click: function() {
+            Util.showHelpDialog(related_help.pop());
+          }
+        });
+      }
+
       if (help_page) {
         let el = $(Util.transferQuery(selector), help_page);
         let txt = el.text();
@@ -347,7 +369,30 @@ $(function () {
           txt += $(Util.transferQuery(ref), help_page).text();
         }
         $('#help-dialog > #help-body').html(marked(txt));
-        $('#help-dialog').dialog('open');
+
+        // 関連ドキュメントを生成
+        let related = [];
+        if (el.attr('related')) {
+          el.attr('related').split(',').forEach(function(exp) {
+            let rel_e = $(Util.transferQuery(exp), help_page);
+            let rel_name = rel_e.attr('name');
+            if (!rel_name) {
+              rel_name = rel_e.prop('tagName')
+            }
+            related.push(`<li data-cur="${selector}" data-rel="${exp}">
+              <span class="ui-icon ui-icon-circle-arrow-e"></span>
+              ${rel_name}（${rel_e.attr('overview')}）</li>`);
+          });
+        }
+        $('#help-dialog > #related-help').html(related.join(''));
+
+        // ダイアログを生成
+        $('#help-dialog')
+          .dialog({
+            title: `${el.prop('tagName')}（${el.attr('overview')}）`,
+            buttons: btn_obj
+          })
+          .dialog('open');
       } else {
         Util.getHelpPage(selector);
       }
@@ -2202,6 +2247,13 @@ ${Util.createLinkText(value.id, scenario.edges)}
     Util.showHelpDialog($(this).attr('data-help'));
   });
 
+  // ダイナミックヘルプ（関連）
+  $('#help-dialog > #related-help').on('click', 'li', function(e) {
+    // 戻り先を記録
+    related_help.push($(this).attr('data-cur'));
+    Util.showHelpDialog($(this).attr('data-rel'));
+  });
+
   // ダイナミックヘルプ（基本情報）
   // $('#basic label').dblclick(function(e) {
   //   //let id = $(this).find('input, select').attr('id').split('-')[1];
@@ -2248,14 +2300,14 @@ ${Util.createLinkText(value.id, scenario.edges)}
       at: 'center top',
       my: 'left top',
     },
-    open: function() {
-    },
-    buttons: {
-      '閉じる': function() {
-        $(this).dialog('close');
-        Util.closeAllSidebar();
-      }
-    }
+    // open: function() {
+    // },
+    // buttons: {
+    //   '閉じる': function() {
+    //     $(this).dialog('close');
+    //     Util.closeAllSidebar();
+    //   }
+    // }
   });
 
   // ダイアログを初期化（設定情報）
