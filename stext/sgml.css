@@ -139,6 +139,10 @@ table.enemy span.enemy_attack_free {
   color: white;
   font-weight: bolder;
   padding: 6px;
+  display: inline-block;
+  width: 18px;
+  float: left;
+  text-align: center;
 }
 
 .xbtn {
