@@ -1305,7 +1305,9 @@
                 // FreeNの場合（ラベル付き）
                 if (!atk.startsWith('FREE')
                   && atk_org.startsWith('free')) {
-                  $('.enemy_attack_free', row).text(atk.substring(0, 1));
+                  $('.enemy_attack_free', row)
+                    .attr('title', atk)
+                    .text(atk.substring(0, 1));
                   $('.enemy_attack', row).hide();
                   $('.enemy_attack_old', row).hide();
                 // 
