@@ -303,7 +303,7 @@ $(function() {
   $('#pg_editor2flow').click(function(e){
     toastr.clear();
     toastr.options = {
-      positionClass = 'toast-bottom-full-width',
+      positionClass: 'toast-bottom-full-width',
       closeButton: false,
       timeOut: 0,
       extendedTimeOut: 0

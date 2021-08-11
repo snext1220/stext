@@ -3596,7 +3596,7 @@ ${Util.createLinkText(value.id, scenario.edges)}
   $('#ctrl_flow2editor').click(function(){
     toastr.clear();
     toastr.options = {
-      positionClass = 'toast-bottom-full-width',
+      positionClass: 'toast-bottom-full-width',
       closeButton: false,
       timeOut: 0,
       extendedTimeOut: 0
