@@ -3594,7 +3594,17 @@ ${Util.createLinkText(value.id, scenario.edges)}
 
   // Editorへの遷移
   $('#ctrl_flow2editor').click(function(){
+    toastr.clear();
+    toastr.options = {
+      positionClass = 'toast-bottom-full-width',
+      closeButton: false,
+      timeOut: 0,
+      extendedTimeOut: 0
+    };
+    toastr.error('PgEditorにて編集中です。PgFlowに戻るには、PgEditorの［PgFlowで編集］ボタンを押してください。',
+      'Playground Editorで編集中');
     $('body').css('opacity', 0.2);
+
     localStorage['flow2editor'] = Util.createXml();
     window.open('./editor.html', 'pgeditor');
   });

@@ -301,7 +301,17 @@ $(function() {
 
   // Editor2Flow
   $('#pg_editor2flow').click(function(e){
+    toastr.clear();
+    toastr.options = {
+      positionClass = 'toast-bottom-full-width',
+      closeButton: false,
+      timeOut: 0,
+      extendedTimeOut: 0
+    };
+    toastr.error('PgFlowにて編集中です。PgEditorに戻るには、PgFlowの［PgEditorで編集］ボタンを押してください。',
+      'Playground Flowで編集中');
     $('body').css('opacity', 0.2);
+
     localStorage['editor2flow'] = editor.getValue();
     window.open('./', 'pgflow');
   });
