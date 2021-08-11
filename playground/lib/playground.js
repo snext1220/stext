@@ -3592,8 +3592,10 @@ ${Util.createLinkText(value.id, scenario.edges)}
     }
   });
 
+  let is_active = true;
   // Editorへの遷移
   $('#ctrl_flow2editor').click(function(){
+    is_active = false;
     toastr.clear();
     toastr.options = {
       positionClass: 'toast-bottom-full-width',
@@ -3611,7 +3613,9 @@ ${Util.createLinkText(value.id, scenario.edges)}
 
   // ページ移動時の警告
   $(window).on('beforeunload', function(){
-      return "ページを閉じてもよろしいですか？";
+      if (is_active) {
+        return "ページを閉じてもよろしいですか？";
+      }
   });
 
   // TIPS表示

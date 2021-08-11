@@ -296,11 +296,16 @@ $(function() {
   });
 
   $(window).on('beforeunload', function(){
-    return "ページを閉じてもよろしいですか？";
+    if (is_active) {
+      return "ページを閉じてもよろしいですか？";
+    }
   });
 
+  // Flow2Editor移動でネガティブな状態か
+  let is_active = true;
   // Editor2Flow
   $('#pg_editor2flow').click(function(e){
+    is_active = false;
     toastr.clear();
     toastr.options = {
       positionClass: 'toast-bottom-full-width',
