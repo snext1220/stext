@@ -363,7 +363,15 @@ $(function () {
 
       if (help_page) {
         let el = $(Util.transferQuery(selector), help_page);
-        let txt = el.text();
+        // 本文
+        let txt;
+        if (el.children().length === 0) {
+          txt = el.text();
+        } else {
+          txt = el.children('outline').text();
+        }
+
+        // 共通テキスト
         let ref = el.attr('ref');
         if (ref) {
           txt += $(Util.transferQuery(ref), help_page).text();
@@ -373,7 +381,18 @@ $(function () {
         // 関連ドキュメントを生成
         let related = [];
         if (el.attr('related')) {
-          el.attr('related').split(',').forEach(function(exp) {
+          let at_related = [];
+          if (el.attr('related') === '@child') {
+            el.children().each(function(i, e) {
+              let tagName = $(e).prop('tagName');
+              if (tagName !== 'outline') {
+                at_related.push(`${el.prop('tagName')}/${tagName}`);
+              }
+            });
+          } else {
+            at_related = el.attr('related').split(',');
+          }
+          at_related.forEach(function(exp) {
             let rel_e = $(Util.transferQuery(exp), help_page);
             let rel_name = rel_e.attr('name');
             if (!rel_name) {

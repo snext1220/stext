@@ -451,12 +451,20 @@ $(function() {
 
   // ヘルプバーの生成
   function showHelpBar(selector) {
-    let txt;
+    // $('#help-tree').jstree(true).deselect_all();
+    // $('#help-tree').jstree(true).select_node(
+    //   selector.substring(selector.lastIndexOf('/') + 1), false, false);
+    //   console.log(selector.substring(selector.lastIndexOf('/') + 1));
+
     let el = $(transferQuery(selector), ref_data);
+    let title = el.prop('tagName');
+    if (el.attr('name')) { title = el.attr('name'); }
+    let txt = `### ${title} ― ${el.attr('overview')}\n\n`;
+
     if (el.children().length === 0) {
-      txt = el.text();
+      txt += el.text();
     } else {
-      txt = el.children('outline').text();
+      txt += el.children('outline').text();
     }
     let ref = el.attr('ref');
     if (ref) {
@@ -467,7 +475,18 @@ $(function() {
     // 関連リンクの生成
     let related = [];
     if (el.attr('related')) {
-      el.attr('related').split(',').forEach(function(exp) {
+      let at_related = [];
+      if (el.attr('related') === '@child') {
+        el.children().each(function(i, e) {
+          let tagName = $(e).prop('tagName');
+          if (tagName !== 'outline') {
+            at_related.push(`${el.prop('tagName')}/${tagName}`);
+          }
+        });
+      } else {
+        at_related = el.attr('related').split(',');
+      }
+      at_related.forEach(function(exp) {
         let rel_e = $(transferQuery(exp), ref_data);
         let rel_name = rel_e.attr('name');
         if (!rel_name) {

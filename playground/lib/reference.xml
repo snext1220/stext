@@ -15,12 +15,12 @@
 </author>
 
 <!--init要素-->
-<init overview="初期化情報">
+<init overview="初期化情報" related="@child">
 <outline>
 シナリオの初期化情報を表します。
 </outline>
 
-<basic overview="基本情報">
+<basic overview="基本情報" related="@child">
 <outline>
 シナリオ全般に関わる基本挙動を表します。
 </outline>
@@ -30,11 +30,11 @@ true（値は固定）を設定することで、パラグラフ番号レスモ�
 
 具体的には、以下のように表示が変化します。
 
-+ scene要素のsummary属性をシーン冒頭に表示
++ scene要素のsummary属性（サマリ文）をシーン冒頭に表示
 + シーン冒頭に表示されているシーン番号が非表示
 </summary>
 
-<imgset overview="キャラ画像">
+<imgset overview="キャラ画像" related="constraint">
 キャラの表示画像を変更する場合に、本属性を指定します。 設定値は「custom」で固定です。
 
 > 【Note】
@@ -52,7 +52,7 @@ true（値は固定）を設定することで、パラグラフ番号レスモ�
 
 </basic>
 
-<constraint overview="制約情報">
+<constraint overview="制約情報" related="@child">
 <outline>
 シナリオ起動時に生成される種族／性別／年齢を制限したい場合に指定します。
 
@@ -90,20 +90,20 @@ true（値は固定）を設定することで、パラグラフ番号レスモ�
 </age>
 </constraint>
 
-<bgm overview="既定の楽曲">
+<bgm overview="既定の楽曲" related="@child">
 <outline>
 シナリオで利用する楽曲を指定します。
 </outline>
 
-<main overview="メインテーマ" ref="init/bgm/common">
+<main overview="メインテーマ" ref="init/bgm/common" related="scene/bgm">
 メインテーマを表します（既定はmainです）。
 </main>
 
-<happy overview="ハッピーエンド" ref="init/bgm/common">
+<happy overview="ハッピーエンド" ref="init/bgm/common" related="scene/bgm">
 ハッピーエンドの曲を表します（既定はhappy）。
 </happy>
 
-<bad overview="バッドエンド" ref="init/bgm/common">
+<bad overview="バッドエンド" ref="init/bgm/common" related="scene/bgm">
 バッドエンドの曲を表します（既定はbad）。
 </bad>
 
@@ -117,10 +117,13 @@ true（値は固定）を設定することで、パラグラフ番号レスモ�
     + 特別な標準.mp3として無音を表す「@none」も利用できます。
     + 標準BGMについては、シナリオフォルダーに.mp3ファイルを格納する必要はありません。
 + 頭に「@」のないファイル名は、シナリオフォルダー配下の/bgmフォルダーを見に行きます。対応する.mp3ファイルを準備してください。
+
+特定のシーンで曲を切り替えたい場合には、scene要素のbgm属性を指定してください。
+
 </common>
 </bgm>
 
-<label overview="ラベル文字列">
+<label overview="ラベル文字列" related="@child">
 <outline>ステータスダイアログで表示されるラベル文字列を表します。</outline>
 
 <status name="hp/mp/state/str/int/dex/krm" overview="HP～KRMラベル">
@@ -138,7 +141,7 @@ free1～3は、対応する項目のラベルに表示すべき文字列を表�
 </free>
 </label>
 
-<intro overview="紹介情報">
+<intro overview="紹介情報" related="@child">
 
 <outline>
 ゲーム画面のメタ情報、Tweetボタンの紹介文などで利用される情報を定義します。
@@ -166,18 +169,18 @@ free1～3は、対応する項目のラベルに表示すべき文字列を表�
 配下のgroup要素は複数定義可能です。
 </outline>
 
-<group overview="個々のグループ">
+<group overview="個々のグループ" related="@child">
 <outline>
 シーンを束ねるためのグループ定義（シーンの範囲）を表します。グループは、シーンidの範囲で定義するので、関連するシーンは極力、特定のid範囲の中にまとめる（＝なるべく順番に記述する）ことを強くお勧めします。
 
 グループの情報はPlayground Flowでチャートの表示範囲を絞り込むために利用できます。
 </outline>
 
-<start overview="開始id">
+<start overview="開始id" related="scene/id">
 グループに入れるべきシーンのid値（開始）を表します。
 </start>
 
-<end overview="終了id">
+<end overview="終了id" related="scene/id">
 グループに入れるべきシーンのid値（終了）を表します。
 </end>
 
@@ -185,7 +188,7 @@ free1～3は、対応する項目のラベルに表示すべき文字列を表�
 グループの表示名を表します。 識別しやすいよう、10文字前後のわかりやすい名前を付けてください。
 </title>
 
-<rule overview="ルールid" related="scene/enemies">
+<rule overview="ルールid" related="scene/id,scene/enemies,scene/rule">
 グループに属する戦闘ルールのid値（シーンid）を表します。
 
 本項目が設定されており、かつ、グループに属するシーンで**敵情報（enemies属性）が設定されている場合**、BattleSheetに指定されたシーンのテキストを反映させます。グループ共通の戦闘ルールを指定したい場合に指定します。
@@ -211,7 +214,7 @@ BattleSheetに表示する戦闘ルールの優先順位は以下の通りです
 配下のitem要素は複数定義可能です。
 </outline>
 
-<item overview="個々のアイテム">
+<item overview="個々のアイテム" related="@child">
 <outline>
 個々のアイテム定義を表します。
 </outline>
@@ -275,7 +278,7 @@ target="none"の場合、effect属性の値は不要です（無視されます�
 配下のflag要素は複数定義可能です。
 </outline>
 
-<flag overview="個々のフラグ">
+<flag overview="個々のフラグ" related="@child">
 <outline>
 個々のフラグ定義を表します。
 </outline>
@@ -303,7 +306,7 @@ target="none"の場合、effect属性の値は不要です（無視されます�
 
 配下のparam要素は複数定義可能です。
 </outline>
-<param overview="個々のパラメーター情報">
+<param overview="個々のパラメーター情報" related="@child">
 <outline>
 個々の固有パラメーターを表します。
 
@@ -348,7 +351,7 @@ target="none"の場合、effect属性の値は不要です（無視されます�
 配下のenemy要素は複数定義可能です。
 </outline>
 
-<enemy overview="個々の敵情報">
+<enemy overview="個々の敵情報" related="@child">
 <outline>
 個々の敵／罠定義を表します。
 </outline>
@@ -441,8 +444,8 @@ strN～krmNのNには1～9の値を設定できます。str2の場合、STRを2�
     + 最小値、最大値を指定することもできますが、一般的には省略して構いません（指定時はmin／max双方指定してください）。
 </hp>
 
-<func_opp overview="ダメージ式（敵）">
-プレイヤーから敵を攻撃する際のダメージ式を表します（hp属性が指定されている場合にだけ有効です）。指定可能な式については、func属性の（1）に準じます。
+<func_opp overview="ダメージ式（敵）" related="enemy/func">
+プレイヤーから敵を攻撃する際のダメージ式を表します（hp属性が指定されている場合にだけ有効です）。指定可能な式については、func属性（ダメージ式）の（1）に準じます。
 </func_opp>
 
 <drop overview="ドロップアイテム">
@@ -477,7 +480,7 @@ strN～krmNのNには1～9の値を設定できます。str2の場合、STRを2�
 配下のresult要素は複数定義可能です。
 </outline>
 
-<result overview="個々の実績情報">
+<result overview="個々の実績情報" related="@child">
 <outline>
 個々の実績情報を表します。
 </outline>
@@ -510,7 +513,7 @@ strN～krmNのNには1～9の値を設定できます。str2の場合、STRを2�
 配下のwork要素は複数定義可能です。
 </outline>
 
-<work overview="個々のライセンス情報">
+<work overview="個々のライセンス情報" related="@child">
 <outline>
 シナリオ内部で利用している画像／楽曲のライセンス情報を表します。
 
@@ -575,7 +578,7 @@ category属性が...
 既定では、Playground Flowでシーンを識別するための情報で、プレイ画面には表示はされません。ただし、パラグラフレスモードを有効にすることで、本項目の値がページ上部に表示することもできます。
 </summary>
 
-<items overview="取得アイテム" related="scene/params">
+<items overview="取得アイテム" related="scene/params,item">
 そのシーンに移動した時に入手できるアイテムを表します。
 
 + カンマ区切りで複数列挙できます。
@@ -585,20 +588,20 @@ category属性が...
 
 + 「i01:5,...」とすることで、個数付きの指定も可能です（＝i01のアイテムを5個追加）
     + 内部的には個数管理用の内部パラメーター「pi01」が生成されます。
-+ 「i01:xxx」のxxxにはparams属性と同じように「@～」（固定値）、「-99」（削減）などの値を指定できます。
++ 「i01:xxx」のxxxにはparams属性（内部パラ）と同じように「@～」（固定値）、「-99」（削減）などの値を指定できます。
 + 個数管理されたアイテムは、個数がゼロになったところで削除されます。
     + 「-i01」のようにしてはいけません。
 + 個数指定可能なアイテムは利用可能（target属性を持つ）でなければなりません。
 
 </items>
 
-<flags overview="取得フラグ">
+<flags overview="取得フラグ" related="flag">
 そのシーンに移動した時に立つフラグを表します。
 
 カンマ区切りで複数列挙できます。「-f～」で、指定のフラグを喪失します（ただし、破棄できるのは隠しフラグだけです）。
 </flags>
 
-<params overview="取得パラメーター">
+<params overview="取得パラメーター" related="param">
 そのシーンに移動した時に加算／減算する内部パラメーターを表します。
 
 + p01:10 … p01を10加算
@@ -607,7 +610,7 @@ category属性が...
 + 「p01:10,p02:Rio」のように、カンマ区切りで複数列挙も可能です。
 </params>
 
-<enemies overview="登場する敵">
+<enemies overview="登場する敵" related="enemy">
 そのシーンで登場する敵／罠情報を表します。プレイ画面下部に敵リストを生成するのに利用されます。
 
 カンマ区切りで複数列挙できます。
@@ -673,7 +676,7 @@ category属性が...
 そのシーンに移動した時に取得できる実績を表します。複数指定はできません。
 </result>
 
-<bgm overview="楽曲" ref="init/bgm/common" related="scene/end">
+<bgm overview="楽曲" ref="init/bgm/common" related="bgm/main,scene/end">
 そのシーンに移動した時に、指定されたBGMに切り替えます。
 
 bgm／end属性が同時に指定された場合は、bgm属性で指定された曲が優先されます。
