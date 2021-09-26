@@ -95,6 +95,7 @@
 シナリオ現実績解除状況
 + 序：${result_rate?baku01} ％
 + 弐：${result_rate?baku02} ％
++ 参：${result_rate?baku03} ％
 
 
 [次へ](2)</scene>
