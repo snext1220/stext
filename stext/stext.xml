@@ -530,7 +530,7 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 </work>
 
 <work id="baku02" title="弐：桜田門外の変" author="鏡読みさん" series="幕末ソーサリアン"
-  tags="歴史,連作" published="2021-06-21" updated="2021-09-26" level="2" scenes="60" results="10" clears="r03"
+  tags="歴史,連作" published="2021-06-21" updated="2021-11-11" level="2" scenes="60" results="10" clears="r03"
   comment="戦闘が多めのシナリオです。初期ステータスではぎりぎり負ける調整なので、しっかり成長させてから挑戦することをお勧めします（特にSTR）">
   <img src="./stext/baku02/capture/intro.png" height="120"
     title="弐：桜田門外の変" align="right" class="right" />
@@ -548,7 +548,7 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 </work>
 
 <work id="baku03" title="参：京都動乱" author="ときのじ" series="幕末ソーサリアン"
-  tags="歴史,連作" published="2021-07-31" updated="2021-10-03" level="3" scenes="202" results="27" clears="r27"
+  tags="歴史,連作" published="2021-07-31" updated="2021-11-11" level="3" scenes="202" results="27" clears="r27"
   comment="日本人になりきりソーサリアンです。元治元年繋がりで、禁門の変だけでなく、池田屋事件についても少し出てきます。出したいキャラが多くて悩みました。今作もストーリー重視の小説風シナリオです。読み物メインで、育成必須な分岐・選択肢があります。">
   <img src="./stext/baku03/capture/intro.png" height="120"
     title="参：京都動乱" align="left" class="left"/>
@@ -568,6 +568,16 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
   <p class="award">序のクリア実績で解放されます。引き継ぎの際は［続きから］ボタンを押してゲームをスタートしてください。</p>
 </work>
 
+<work id="baku04" title="肆：朝廷の陰謀" author="ちゃな" series="幕末ソーサリアン"
+  tags="歴史,連作" published="2021-11-11" updated="2021-11-11" level="4" scenes="78" results="18" clears="r12"
+  comment="意図的に難易度を高く調整した意地悪な構造のシナリオです。初見ではまずクリアできませんのでご注意ください。">
+  <img src="./stext/baku04/capture/intro.png" height="120"
+    title="肆：朝廷の陰謀" align="right" class="right"/>
+  <p class="award">幕末ソーサリアン本編（連作シナリオ）</p>
+　幕末も迫りくる慶応2年。江戸時代最後の天皇である孝明天皇は病に臥せっていた。強硬な攘夷派である天皇が崩御すれば情勢は一気に開国へと傾くことになる。それに乗じて「魔」の暗躍を企図する者たちがいた……
+
+  <p class="award">序のクリア実績で解放されます。引き継ぎの際は［続きから］ボタンを押してゲームをスタートしてください。</p>
+</work>
 <!-- <work id="mini" title="ミニミニソーサリアンText" author="リオ" series="Playground100祭"
   tags="スゴロク,リメイク" published="2020-05" updated="" level="1" scenes="50" results="1" clears="r99" unpublished="true"
   comment="Next0401企画で作成したミニミニソーサリアン NextのSText版です。シナリオというか、STextならこんなこともできるよ的な作品だったり。むしろ開発者の皆さんの思い付きのきっかけになればと">
