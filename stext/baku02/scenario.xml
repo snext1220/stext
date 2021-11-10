@@ -96,6 +96,7 @@
 + 序：${result_rate?baku01} ％
 + 弐：${result_rate?baku02} ％
 + 参：${result_rate?baku03} ％
++ 肆：${result_rate?baku04} ％
 
 [次へ](2)</scene>
 	<scene id="2" summary="本文" level="3" bgm="@end01d" result="r02">　空は晴れ、息をすれば冷たい空気がのどを通り過ぎる。

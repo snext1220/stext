@@ -192,6 +192,7 @@ ${/if}
 + 序：${result_rate?baku01} ％
 + 弐：${result_rate?baku02} ％
 + 参：${result_rate?baku03} ％
++ 肆：${result_rate?baku04} ％
 
 [本編開始](2)
 [▶▶『田浦勇之助』の設定紹介を飛ばす](5 "r01:baku03")
