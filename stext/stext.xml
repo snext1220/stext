@@ -530,7 +530,7 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 </work>
 
 <work id="baku02" title="弐：桜田門外の変" author="鏡読みさん" series="幕末ソーサリアン"
-  tags="歴史,連作" published="2021-06-21" updated="2021-11-11" level="2" scenes="60" results="10" clears="r03"
+  tags="歴史,連作" published="2021-06-21" updated="2021-12-05" level="2" scenes="60" results="10" clears="r03"
   comment="戦闘が多めのシナリオです。初期ステータスではぎりぎり負ける調整なので、しっかり成長させてから挑戦することをお勧めします（特にSTR）">
   <img src="./stext/baku02/capture/intro.png" height="120"
     title="弐：桜田門外の変" align="right" class="right" />
@@ -544,7 +544,7 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 
 　あなたは彼らの動向を調査するため、何かに導かれるように江戸におもむいていた。
 
-  <p class="award">序のクリア実績で解放されます。引き継ぎの際は［続きから］ボタンを押してゲームをスタートしてください。</p>
+  <p class="award">引き継ぎの際は［続きから］ボタンを押してゲームをスタートしてください。</p>
 </work>
 
 <work id="baku03" title="参：京都動乱" author="ときのじ" series="幕末ソーサリアン"
@@ -569,7 +569,7 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 </work>
 
 <work id="baku04" title="肆：朝廷の陰謀" author="ちゃな" series="幕末ソーサリアン"
-  tags="歴史,連作" published="2021-11-11" updated="2021-11-11" level="4" scenes="78" results="18" clears="r12"
+  tags="歴史,連作" published="2021-11-11" updated="2021-12-05" level="4" scenes="78" results="18" clears="r12"
   comment="意図的に難易度を高く調整した意地悪な構造のシナリオです。初見ではまずクリアできませんのでご注意ください。">
   <img src="./stext/baku04/capture/intro.png" height="120"
     title="肆：朝廷の陰謀" align="right" class="right"/>
