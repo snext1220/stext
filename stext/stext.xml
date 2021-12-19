@@ -568,7 +568,7 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
   <p class="award">序のクリア実績で解放されます。引き継ぎの際は［続きから］ボタンを押してゲームをスタートしてください。</p>
 </work>
 
-<work id="baku04" title="肆：朝廷の陰謀" author="ちゃな" series="幕末ソーサリアン"
+<work id="baku04" title="肆：朝廷の陰謀" author="ちゃなさん" series="幕末ソーサリアン"
   tags="歴史,連作" published="2021-11-11" updated="2021-12-05" level="4" scenes="78" results="18" clears="r12"
   comment="意図的に難易度を高く調整した意地悪な構造のシナリオです。初見ではまずクリアできませんのでご注意ください。">
   <img src="./stext/baku04/capture/intro.png" height="120"
@@ -578,6 +578,20 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 
   <p class="award">序のクリア実績で解放されます。引き継ぎの際は［続きから］ボタンを押してゲームをスタートしてください。</p>
 </work>
+
+<work id="baku05" title="伍：龍がゆく" author="RYUさん" series="幕末ソーサリアン"
+  tags="歴史,連作" published="2021-12-20" updated="2021-12-20" level="3" scenes="67" results="30" clears="r500"
+  comment="幕末日本の事も坂本龍馬の事も全然知らないのに、こんなシナリオを作る事になってしまいました…幕末や龍馬好きな方すみません。どうか寛大な目でお目こぼしを…">
+  <img src="./stext/baku05/capture/intro.png" height="120"
+    title="伍：龍がゆく" align="left" class="left"/>
+  <p class="award">幕末ソーサリアン本編（連作シナリオ）</p>
+　魔王ギルバレスから幕末日本を救うため、坂本龍馬を”魔”の手から守れ！ソーサリアン！！ 
+”新選組”に”刺客”に”魔”…様々な敵が迫りくる！ 
+付かず離れず護衛するべく坂本龍馬からの信頼を得るのだ！
+
+  <p class="award">序のクリア実績で解放されます。引き継ぎの際は［続きから］ボタンを押してゲームをスタートしてください。</p>
+</work>
+
 <!-- <work id="mini" title="ミニミニソーサリアンText" author="リオ" series="Playground100祭"
   tags="スゴロク,リメイク" published="2020-05" updated="" level="1" scenes="50" results="1" clears="r99" unpublished="true"
   comment="Next0401企画で作成したミニミニソーサリアン NextのSText版です。シナリオというか、STextならこんなこともできるよ的な作品だったり。むしろ開発者の皆さんの思い付きのきっかけになればと">
