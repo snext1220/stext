@@ -31,7 +31,7 @@
 	</enemies>
 	<results>
 		<result id="r01" name="大手門戦" level="1">中断セーブ</result>
-		<result id="r02" name="逆にお見事" level="2">チュートリアルでミスなし</result>
+		<result id="r02" name="逆にお見事" level="2">チュートリアルで全ミス</result>
 	</results>
 	<licence>
 		<work category="bgm" name="邂逅" url="http://cybermarine.yukihotaru.com/top.htm" creator="真弓キシオ"></work>
