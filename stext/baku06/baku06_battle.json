@@ -1,0 +1,872 @@
+{
+	"title": "6会津炎上てすと",
+	"author": "cocotori",
+	"init": {
+		"basic": {},
+		"constraint": {},
+		"bgm": {},
+		"label": {
+			"free1": "敵命",
+			"free2": "自命"
+		},
+		"intro": {}
+	},
+	"groups": [
+		{
+			"start": "0",
+			"end": "1",
+			"title": "Introduction"
+		}
+	],
+	"items": [
+		{
+			"id": "i01",
+			"name": "Item-01",
+			"text": "Item description..."
+		}
+	],
+	"flags": [
+		{
+			"id": "f01",
+			"text": "Flag description..."
+		}
+	],
+	"params": [
+		{
+			"id": "p01",
+			"min": "0",
+			"max": "100",
+			"initial": "50",
+			"text": "Param description..."
+		}
+	],
+	"enemies": [
+		{
+			"id": "m01",
+			"name": "Enemy-01",
+			"element": "earth",
+			"attack": "physics",
+			"func": "L+R-STR",
+			"drop": "mon/2",
+			"text": "Enemy description..."
+		}
+	],
+	"results": [
+		{
+			"id": "r01",
+			"name": "Result-01",
+			"level": "1",
+			"text": "Result description..."
+		}
+	],
+	"licence": [
+		{
+			"name": "Bgm-01",
+			"category": "bgm",
+			"creator": "SText",
+			"url": "https://example.com/"
+		}
+	],
+	"scenes": [
+		{
+			"id": "0",
+			"summary": "プロローグ",
+			"group": "prologue",
+			"level": 1,
+			"text": "ここにプロローグを書きます。",
+			"label": "0:\nプロローグ"
+		},
+		{
+			"id": "101",
+			"summary": "攻撃開始",
+			"level": 3,
+			"text": "戦いが始まる。準備せよ！\n\n自　生命力（${free2}）\n敵　生命力（${free1}）",
+			"label": "101\n攻撃開始"
+		},
+		{
+			"id": "100",
+			"summary": "準備",
+			"level": 2,
+			"free1": "@6",
+			"free2": "@6",
+			"text": "バトルテスト",
+			"label": "100\n準備"
+		},
+		{
+			"id": "103",
+			"summary": "敵・中",
+			"level": 4,
+			"text": "敵は斬りかかってきた。\n\n速やかに迎撃の構えを選択せよ。",
+			"label": "103\n敵・中"
+		},
+		{
+			"id": "104",
+			"summary": "敵・下",
+			"level": 4,
+			"text": "敵は斬りかかってきた。\n\n速やかに迎撃の構えを選択せよ。",
+			"label": "104\n敵・下"
+		},
+		{
+			"id": "102",
+			"summary": "敵・上",
+			"level": 4,
+			"text": "敵は斬りかかってきた。\n\n速やかに迎撃の構えを選択せよ。",
+			"label": "102\n敵・上"
+		},
+		{
+			"id": "114",
+			"summary": "上段○",
+			"level": 5,
+			"free1": "-2",
+			"text": "敵　>>　中段\n**自　>>　上段**\n\n有効打！\n\nよろけた相手に斬りつけることに成功した。\n\n敵の生命力-2",
+			"label": "114\n上段○"
+		},
+		{
+			"id": "115",
+			"summary": "中段×",
+			"level": 5,
+			"free2": "-2",
+			"text": "**敵　>>　中段**\n自　>>　中段\n\nだめだ！\n\nこちらの攻撃は軽くいなされ攻撃を叩きつけられた。\n\n己の生命力-2",
+			"label": "115\n中段×"
+		},
+		{
+			"id": "116",
+			"summary": "下段×",
+			"level": 5,
+			"free2": "-2",
+			"text": "**敵　>>　中段**\n自　>>　下段\n\n痛！\n\n見当外れの箇所を守っていた。\n安々と攻撃を許してしまった。\n\n己の生命力-2",
+			"label": "116\n下段×"
+		},
+		{
+			"id": "118",
+			"summary": "上段×",
+			"level": 5,
+			"free2": "-2",
+			"text": "**敵　>>　下段**\n自　>>　上段\n\nだめだ！\n\nこちらの読みを軽々と見越し、\n防ぐことのかなわない攻撃を仕掛けられた。\n\n己の生命力-2",
+			"label": "118\n上段×"
+		},
+		{
+			"id": "119",
+			"summary": "中段○",
+			"level": 5,
+			"free1": "-2",
+			"text": "敵　>>　下段\n**自　>>　中段**\n\nよし！\n\n敵の防御を叩き壊した。\n\n敵の生命力-2",
+			"label": "119\n中段○"
+		},
+		{
+			"id": "120",
+			"summary": "下段×",
+			"level": 5,
+			"free2": "-2",
+			"text": "**敵　>>　下段**\n自　>>　下段\n\n痛！\n\n読みに敗れ攻撃を許してしまった。\n\n己の生命力-2",
+			"label": "120\n下段×"
+		},
+		{
+			"id": "110",
+			"summary": "上段×",
+			"level": 5,
+			"free2": "-2",
+			"text": "**敵　>>　上段**\n自　>>　上段\n\nなんという……！\n\nやつは鬼か？\nこちらの想像の倍の速度で斬りかかってきた。\n\n己の生命力-2",
+			"label": "110\n上段×"
+		},
+		{
+			"id": "111",
+			"summary": "中段×",
+			"level": 5,
+			"free2": "-2",
+			"text": "**敵　>>　上段**\n自　>>　中段\n\nだめだ！\n\n攻撃のタイミングはほぼ同時。\nしかし相手の力に押し負けてしまった。\n\n己の生命力-2",
+			"label": "111:\n中段×"
+		},
+		{
+			"id": "112",
+			"summary": "下段○",
+			"level": 5,
+			"free1": "-2",
+			"text": "**敵　>>　上段**\n自　>>　下段\n\n有効打！\n\n敵より素早く斬りかかり出鼻をくじいた！\n\n敵の生命力-2",
+			"label": "112\n下段○"
+		},
+		{
+			"id": "117",
+			"summary": "見切り",
+			"level": 5,
+			"free2": "-1",
+			"text": "**敵　>>　中段**\n\n攻撃を見極めよと集中する。\n\n――来た！\n**中段** からの素早い切込み。\n\n見きったぞ……！\n\n己の生命力-1",
+			"label": "117\n見切り"
+		},
+		{
+			"id": "121",
+			"summary": "見切り",
+			"level": 5,
+			"free2": "-1",
+			"text": "**敵　>>　下段**\n\n攻撃を見極めよと集中する。\n\n――来た！\n**下段** からの意識を外した切り上げ。\n\n見きったぞ……！\n\n己の生命力-1",
+			"label": "121\n見切り"
+		},
+		{
+			"id": "113",
+			"summary": "見切り",
+			"level": 5,
+			"free2": "-1",
+			"text": "**敵　>>　上段**\n\n攻撃を見極めよと集中する。\n\n――来た！\n**上段** からの力強いたたっ斬り。\n\n見きったぞ……！\n\n己の生命力-1",
+			"label": "113\n見切り"
+		},
+		{
+			"id": "131",
+			"summary": "2n周目",
+			"level": 7,
+			"text": "戦いはまだ続く\n\n自　生命力（${free2}）\n敵　生命力（${free1}）",
+			"label": "131\n2n周目"
+		},
+		{
+			"id": "105",
+			"summary": "勝利",
+			"level": 11,
+			"text": "勝ったッ……！\n\n荒い息を吐きつつも残心の構え。",
+			"label": "105\n勝利"
+		},
+		{
+			"id": "106",
+			"summary": "敗北",
+			"level": 11,
+			"end": "bad",
+			"group": "bad",
+			"text": "生命力が尽きてしまった。\n\n戦いに敗れたのだ。\n視界は徐々に暗くなっていく……",
+			"label": "106\n敗北"
+		},
+		{
+			"id": "132",
+			"summary": "敵・上",
+			"level": 8,
+			"text": "敵は斬りかかってきた。\n\n速やかに迎撃の構えを選択せよ。",
+			"label": "132\n敵・上"
+		},
+		{
+			"id": "133",
+			"summary": "敵・中",
+			"level": 8,
+			"label": "133\n敵・中",
+			"text": ""
+		},
+		{
+			"id": "134",
+			"summary": "敵・下",
+			"level": 8,
+			"label": "134\n敵・下"
+		},
+		{
+			"id": "140",
+			"summary": "上段×",
+			"level": 9,
+			"free2": "-2",
+			"text": "**敵　>>　上段**\n自　>>　上段\n\nなんという……！\n\nやつは鬼か？\nこちらの想像の倍の速度で斬りかかってきた。\n\n己の生命力-2",
+			"label": "140\n上段×"
+		},
+		{
+			"id": "141",
+			"summary": "中段×",
+			"level": 9,
+			"free2": "-2",
+			"text": "**敵　>>　上段**\n自　>>　中段\n\nだめだ！\n\n攻撃のタイミングはほぼ同時。\nしかし相手の力に押し負けてしまった。\n\n己の生命力-2",
+			"label": "141\n中段×"
+		},
+		{
+			"id": "142",
+			"summary": "下段○",
+			"level": 9,
+			"free1": "-2",
+			"text": "**敵　>>　上段**\n自　>>　下段\n\n有効打！\n\n敵より素早く斬りかかり出鼻をくじいた！\n\n敵の生命力-2",
+			"label": "142\n下段○"
+		},
+		{
+			"id": "143",
+			"summary": "見切り",
+			"level": 9,
+			"free2": "-1",
+			"text": "**敵　>>　上段**\n\n攻撃を見極めよと集中する。\n\n――来た！\n**上段** からの力強いたたっ斬り。\n\n見きったぞ……！\n\n己の生命力-1",
+			"label": "143\n見切り"
+		},
+		{
+			"id": "144",
+			"summary": "上段○",
+			"level": 9,
+			"label": "144\n上段○",
+			"text": ""
+		},
+		{
+			"id": "145",
+			"summary": "中段×",
+			"level": 9,
+			"label": "145\n中段×"
+		},
+		{
+			"id": "146",
+			"summary": "下段×",
+			"level": 9,
+			"label": "146\n下段×"
+		},
+		{
+			"id": "147",
+			"summary": "見切り",
+			"level": 9,
+			"label": "147\n見切り",
+			"text": ""
+		},
+		{
+			"id": "148",
+			"summary": "上段×",
+			"level": 9,
+			"label": "148\n上段×"
+		},
+		{
+			"id": "149",
+			"summary": "中段○",
+			"level": 9,
+			"label": "149\n中段○"
+		},
+		{
+			"id": "150",
+			"summary": "下段×",
+			"level": 9,
+			"label": "150\n下段×"
+		},
+		{
+			"id": "151",
+			"summary": "見切り",
+			"level": 9,
+			"label": "151\n見切り"
+		},
+		{
+			"id": "130",
+			"summary": "判定",
+			"level": 6,
+			"text": "自　生命力（${free2}）\n敵　生命力（${free1}）",
+			"label": "130\n判定"
+		},
+		{
+			"id": "160",
+			"summary": "判定2",
+			"level": 10,
+			"text": "自　生命力（${free2}）\n敵　生命力（${free1}）",
+			"label": "160\n判定2"
+		}
+	],
+	"edges": [
+		{
+			"from": "0",
+			"to": "100",
+			"label": "次へ",
+			"condition": "",
+			"order": "1",
+			"id": "7e1914d7-501d-497c-89cf-ae2b92deade8"
+		},
+		{
+			"from": "100",
+			"to": "101",
+			"label": "次へ",
+			"condition": "",
+			"order": "1",
+			"id": "8efe5658-91b1-42f5-b349-c534abe5343a"
+		},
+		{
+			"from": "101",
+			"to": "103",
+			"label": "start",
+			"type": "R",
+			"condition": "",
+			"order": "1",
+			"id": "5db3296a-4f78-4491-9889-df3d0a1bd79a"
+		},
+		{
+			"from": "101",
+			"to": "104",
+			"label": "start",
+			"type": "R",
+			"condition": "",
+			"order": "1",
+			"id": "39907b86-46b5-40e0-9325-ca6537c370d6"
+		},
+		{
+			"from": "101",
+			"to": "102",
+			"label": "start",
+			"type": "R",
+			"condition": "",
+			"order": "1",
+			"id": "c69b8271-fdfe-40a4-a6c7-e0c5fd4b3fdd"
+		},
+		{
+			"from": "101",
+			"to": "105",
+			"label": "勝利",
+			"condition": "!oFreeI1",
+			"order": "2",
+			"id": "d2273cff-1cb6-480b-bc1a-e81f974645a9"
+		},
+		{
+			"from": "101",
+			"to": "106",
+			"label": "死亡",
+			"condition": "!oFreeII1",
+			"order": "3",
+			"id": "45cf2903-69de-4ac9-bc34-ad1346dc8709"
+		},
+		{
+			"from": "102",
+			"to": "110",
+			"label": "上段",
+			"condition": "",
+			"order": "1",
+			"id": "944d3603-96c7-4fa0-9aba-91f6b9975086"
+		},
+		{
+			"from": "102",
+			"to": "111",
+			"label": "中段",
+			"condition": "",
+			"order": "2",
+			"id": "0aa99448-6131-49b2-8d17-f2d22a924dc6"
+		},
+		{
+			"from": "102",
+			"to": "112",
+			"label": "下段",
+			"condition": "",
+			"order": "3",
+			"id": "f59e420a-9820-46fb-95b1-75cf1857e086"
+		},
+		{
+			"from": "102",
+			"to": "113",
+			"label": "見切り",
+			"condition": "",
+			"order": "4",
+			"id": "3ac72a72-2543-4fec-950a-f0b45a0223ab"
+		},
+		{
+			"from": "103",
+			"to": "114",
+			"label": "上段",
+			"condition": "",
+			"order": "1",
+			"id": "678bf474-56c6-4ffd-a6f8-2f92d763dde7"
+		},
+		{
+			"from": "103",
+			"to": "115",
+			"label": "中段",
+			"condition": "",
+			"order": "2",
+			"id": "3e172b2d-8454-44dd-b498-1e391e580ee6"
+		},
+		{
+			"from": "103",
+			"to": "116",
+			"label": "下段",
+			"condition": "",
+			"order": "3",
+			"id": "242b9fd3-010b-4ced-910e-c4eda8977dbd"
+		},
+		{
+			"from": "103",
+			"to": "117",
+			"label": "見切り",
+			"condition": "",
+			"order": "4",
+			"id": "13c57f53-b02b-4979-aa64-d41f03110e2e"
+		},
+		{
+			"from": "104",
+			"to": "118",
+			"label": "上段",
+			"condition": "",
+			"order": "1",
+			"id": "97517b06-4da2-464f-8e49-f57b72a0e63f"
+		},
+		{
+			"from": "104",
+			"to": "119",
+			"label": "中段",
+			"condition": "",
+			"order": "2",
+			"id": "2b7b02d7-4a99-49e6-b227-9626e438e0e0"
+		},
+		{
+			"from": "104",
+			"to": "120",
+			"label": "下段",
+			"condition": "",
+			"order": "3",
+			"id": "d946752b-3cae-44dc-b2e9-5ef07b203f54"
+		},
+		{
+			"from": "104",
+			"to": "121",
+			"label": "見切り",
+			"condition": "",
+			"order": "4",
+			"id": "66b02d47-7c20-4101-b2b8-856c38981e10"
+		},
+		{
+			"from": "110",
+			"to": "130",
+			"label": "next",
+			"condition": "",
+			"order": "1",
+			"id": "c1d46f0e-0d95-483b-abb2-bfd1d7640c96"
+		},
+		{
+			"from": "111",
+			"to": "130",
+			"label": "next",
+			"condition": "",
+			"order": "1",
+			"id": "d231041b-7aab-4522-b03a-43bdf85454de"
+		},
+		{
+			"from": "112",
+			"to": "130",
+			"label": "next",
+			"condition": "",
+			"order": "1",
+			"id": "1598b80d-8279-4530-a81a-ba4c7ff479c2"
+		},
+		{
+			"from": "113",
+			"to": "130",
+			"label": "next",
+			"condition": "",
+			"order": "1",
+			"id": "c9647c30-97c1-42b7-8fe8-6b82cf0ef73b"
+		},
+		{
+			"from": "114",
+			"to": "130",
+			"label": "next",
+			"condition": "",
+			"order": "1",
+			"id": "7cb210a7-78b9-48a0-846b-6296a368aa4b"
+		},
+		{
+			"from": "115",
+			"to": "130",
+			"label": "next",
+			"condition": "",
+			"order": "1",
+			"id": "a06951ce-aeb6-4da2-8f59-24831f8ac224"
+		},
+		{
+			"from": "116",
+			"to": "130",
+			"label": "next",
+			"condition": "",
+			"order": "1",
+			"id": "0c4ad4d9-912c-4771-97e6-dd6be62b1efa"
+		},
+		{
+			"from": "117",
+			"to": "130",
+			"label": "next",
+			"condition": "",
+			"order": "1",
+			"id": "0d472fd0-91a4-431e-829d-432c851b3644"
+		},
+		{
+			"from": "118",
+			"to": "130",
+			"label": "next",
+			"condition": "",
+			"order": "1",
+			"id": "b4829e26-e24f-46e6-881e-e6f5bfc383fb"
+		},
+		{
+			"from": "119",
+			"to": "130",
+			"label": "next",
+			"condition": "",
+			"order": "1",
+			"id": "2d601b18-d4f3-4c8d-8f8e-1f577d258bc2"
+		},
+		{
+			"from": "120",
+			"to": "130",
+			"label": "next",
+			"condition": "",
+			"order": "1",
+			"id": "bcd15fa0-4210-4445-8388-aed329cd0a05"
+		},
+		{
+			"from": "121",
+			"to": "130",
+			"label": "next",
+			"condition": "",
+			"order": "1",
+			"id": "273bdb93-2e3c-466f-8abf-50d3c278181b"
+		},
+		{
+			"from": "130",
+			"to": "105",
+			"label": "勝利",
+			"condition": "!oFreeI1",
+			"order": "1",
+			"id": "552eabbb-9c21-42b8-b346-8f4e16d32418"
+		},
+		{
+			"from": "130",
+			"to": "106",
+			"label": "敗北",
+			"condition": "!oFreeII1",
+			"order": "2",
+			"id": "b8f6fdc3-d133-40e5-8a0f-a0cfefd1a7ac"
+		},
+		{
+			"from": "130",
+			"to": "131",
+			"label": "次のラウンド",
+			"condition": "oFreeI1&oFreeII1",
+			"order": "3",
+			"id": "f7c7f231-e92d-4d49-a835-89bcd38c8785"
+		},
+		{
+			"from": "131",
+			"to": "132",
+			"label": "start",
+			"condition": "",
+			"order": "1",
+			"id": "1d7ff8c6-e982-49f5-9618-4c9117c6cb10",
+			"type": "R"
+		},
+		{
+			"from": "131",
+			"to": "133",
+			"label": "start（今回はなし）",
+			"condition": "!oFreeI0",
+			"order": "1",
+			"id": "5bae6f1c-92f5-4fe7-b0e5-cf97b1197245",
+			"type": "R"
+		},
+		{
+			"from": "131",
+			"to": "134",
+			"label": "start（今回はなし）",
+			"condition": "!oFreeI0",
+			"order": "1",
+			"id": "1af348fa-cc13-43c1-b621-13e45175e22b",
+			"type": "R"
+		},
+		{
+			"from": "132",
+			"to": "140",
+			"label": "上段",
+			"condition": "",
+			"order": "1",
+			"id": "f15d729b-a9b6-4a70-81f9-d0bc0d2f4108"
+		},
+		{
+			"from": "132",
+			"to": "141",
+			"label": "中段",
+			"condition": "",
+			"order": "2",
+			"id": "4601f0f5-2666-44e3-bdf5-60f1d05d4489"
+		},
+		{
+			"from": "132",
+			"to": "142",
+			"label": "下段",
+			"condition": "",
+			"order": "3",
+			"id": "ad12ead8-60c8-40d6-89a1-96913bf0c192"
+		},
+		{
+			"from": "132",
+			"to": "143",
+			"label": "見切り",
+			"condition": "",
+			"order": "4",
+			"id": "a88db9ed-6a43-445b-9e3f-641584d30b42"
+		},
+		{
+			"from": "133",
+			"to": "144",
+			"label": "上段",
+			"condition": "",
+			"order": "1",
+			"id": "3b6f206f-18b4-42f8-a9e3-0550b7bbefac"
+		},
+		{
+			"from": "133",
+			"to": "145",
+			"label": "中段",
+			"condition": "",
+			"order": "2",
+			"id": "c060117d-bddb-4e64-a67c-823310f19e29"
+		},
+		{
+			"from": "133",
+			"to": "146",
+			"label": "下段",
+			"condition": "",
+			"order": "3",
+			"id": "89ab4138-ed6b-4e04-b7a7-02d42ef4d9c4"
+		},
+		{
+			"from": "133",
+			"to": "147",
+			"label": "見切り",
+			"condition": "",
+			"order": "4",
+			"id": "f1ad9144-b264-4731-b133-d6b15f40ff79"
+		},
+		{
+			"from": "134",
+			"to": "148",
+			"label": "上段",
+			"condition": "",
+			"order": "1",
+			"id": "0ed25378-645e-45fc-aed3-111f3c476dc5"
+		},
+		{
+			"from": "134",
+			"to": "149",
+			"label": "中段",
+			"condition": "",
+			"order": "2",
+			"id": "a4d47925-a113-44cb-817c-fb8d3802a143"
+		},
+		{
+			"from": "134",
+			"to": "150",
+			"label": "下段",
+			"condition": "",
+			"order": "3",
+			"id": "c758a674-b6fb-4eb3-92d8-6481755319da"
+		},
+		{
+			"from": "134",
+			"to": "151",
+			"label": "見切り",
+			"condition": "",
+			"order": "4",
+			"id": "811d54d0-67a9-4f1f-a060-b8cab7dace6e"
+		},
+		{
+			"from": "140",
+			"to": "160",
+			"label": "next",
+			"condition": "",
+			"order": "1",
+			"id": "7ce04177-f251-475a-9265-ee440c7db447"
+		},
+		{
+			"from": "141",
+			"to": "160",
+			"label": "next",
+			"condition": "",
+			"order": "1",
+			"id": "8a4a77b5-ea73-480b-b668-b5015095b797"
+		},
+		{
+			"from": "142",
+			"to": "160",
+			"label": "next",
+			"condition": "",
+			"order": "1",
+			"id": "7164a0ec-1103-440a-8526-21dd9089a3c5"
+		},
+		{
+			"from": "143",
+			"to": "160",
+			"label": "next",
+			"condition": "",
+			"order": "1",
+			"id": "03e43c1e-0d1a-4d5d-bf30-71564547e2fd"
+		},
+		{
+			"from": "144",
+			"to": "160",
+			"label": "next",
+			"condition": "",
+			"order": "1",
+			"id": "4f536c12-80cb-41c4-b1d4-a375b0dcd0cd"
+		},
+		{
+			"from": "145",
+			"to": "160",
+			"label": "next",
+			"condition": "",
+			"order": "1",
+			"id": "eb38ff6e-343a-432a-b023-7ed208cb53b4"
+		},
+		{
+			"from": "146",
+			"to": "160",
+			"label": "next",
+			"condition": "",
+			"order": "1",
+			"id": "c8eda9df-1a8b-46e3-85c0-2d020faad81f"
+		},
+		{
+			"from": "147",
+			"to": "160",
+			"label": "next",
+			"condition": "",
+			"order": "1",
+			"id": "5b2a26f3-7c67-4a17-b480-9387170d1bf2"
+		},
+		{
+			"from": "148",
+			"to": "160",
+			"label": "next",
+			"condition": "",
+			"order": "1",
+			"id": "33c404fd-eb94-43f4-a98e-4664cfa5e0ce"
+		},
+		{
+			"from": "149",
+			"to": "160",
+			"label": "next",
+			"condition": "",
+			"order": "1",
+			"id": "4f499d46-462c-41c0-9229-e9c7b26ac6d1"
+		},
+		{
+			"from": "150",
+			"to": "160",
+			"label": "next",
+			"condition": "",
+			"order": "1",
+			"id": "741608dc-1d89-47bb-bad8-fcf231b000f7"
+		},
+		{
+			"from": "151",
+			"to": "160",
+			"label": "next",
+			"condition": "",
+			"order": "1",
+			"id": "b3262949-99ff-41e0-934a-b79a4d619b92"
+		},
+		{
+			"from": "160",
+			"to": "105",
+			"label": "勝利",
+			"condition": "!oFreeI1",
+			"order": "1",
+			"id": "ee9ba411-6eb3-46bd-acd5-ef99e818a46b"
+		},
+		{
+			"from": "160",
+			"to": "106",
+			"label": "敗北",
+			"condition": "!oFreeII1",
+			"order": "2",
+			"id": "30da3936-3bd3-497d-be7b-4cb7b19b3def"
+		},
+		{
+			"from": "160",
+			"to": "101",
+			"label": "次のラウンド",
+			"condition": "oFreeI1&oFreeII1",
+			"order": "3",
+			"id": "ffabae59-dd07-44b2-899e-07c264c4c6a8"
+		}
+	]
+}
