@@ -854,7 +854,7 @@
 			"to": "46",
 			"label": "大手門戦へ（中段セーブ）",
 			"id": "custom0-100-40577",
-			"condition": "r01",
+			"condition": "r01:baku06",
 			"order": 0
 		},
 		{
