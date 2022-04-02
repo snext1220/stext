@@ -39,6 +39,8 @@
 		<work name="森の民" category="bgm" creator="真弓キシオ" url="http://cybermarine.yukihotaru.com/top.htm"></work>
 		<work creator="あき" category="bgm" name="遺跡" url="https://cnoc.web.fc2.com/index.html"></work>
 		<work url="https://dova-s.jp/" category="bgm" name="合戦の時" creator="shimtone"></work>
+		<work name="打撃3" category="bgm" creator="Killy" url="https://soundeffect-lab.info/"></work>
+		<work url="https://soundeffect-lab.info/" creator="Killy" category="bgm" name="刀で斬る5"></work>
 	</licence>
 	<scene id="0" summary="プロローグ" group="prologue" level="1" bgm="@none" rule="99001">**「プロローグ」**
 ***
@@ -1514,7 +1516,7 @@ ${name}の意識は薄く薄く拡散していく……
 	<scene id="107" summary="見切り" level="31">一閃、刹那。
 
 [結果は――](117,113,121)</scene>
-	<scene id="110" summary="敵・上×" level="32" free2="-2">**敵　&gt;&gt;　上段**
+	<scene id="110" summary="敵・上×" level="32" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
 自　&gt;&gt;　上段
 
 **LOSE**
@@ -1527,7 +1529,7 @@ ${name}の意識は薄く薄く拡散していく……
 **己の生命力-2**
 
 [next](130)</scene>
-	<scene id="111" summary="敵・中○" level="32" free1="-2">敵　&gt;&gt;　中段
+	<scene id="111" summary="敵・中○" level="32" free1="-2" se="koukaonrabo_katana">敵　&gt;&gt;　中段
 **自　&gt;&gt;　上段**
 
 **WIN**
@@ -1539,7 +1541,7 @@ ${name}の意識は薄く薄く拡散していく……
 **敵の生命力-2**
 
 [next](130)</scene>
-	<scene id="112" summary="敵・下×" level="32" free2="-2">**敵　&gt;&gt;　下段**
+	<scene id="112" summary="敵・下×" level="32" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
 自　&gt;&gt;　上段
 
 **LOSE**
@@ -1552,7 +1554,7 @@ ${name}の意識は薄く薄く拡散していく……
 **己の生命力-2**
 
 [next](130)</scene>
-	<scene id="113" summary="敵・上" level="32" free2="-1">**敵　&gt;&gt;　上段**
+	<scene id="113" summary="敵・上" level="32" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
 
 攻撃を見極めよと集中する。
 
@@ -1564,7 +1566,7 @@ ${name}の意識は薄く薄く拡散していく……
 **己の生命力-1**
 
 [next](130)</scene>
-	<scene id="114" summary="敵・上×" level="32" free2="-2">**敵　&gt;&gt;　上段**
+	<scene id="114" summary="敵・上×" level="32" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
 自　&gt;&gt;　中段
 
 **LOSE**
@@ -1577,7 +1579,7 @@ ${name}の意識は薄く薄く拡散していく……
 **己の生命力-2**
 
 [next](130)</scene>
-	<scene id="115" summary="敵・中×" level="32" free2="-2">**敵　&gt;&gt;　中段**
+	<scene id="115" summary="敵・中×" level="32" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　中段**
 自　&gt;&gt;　中段
 
 **LOSE**
@@ -1589,7 +1591,7 @@ ${name}の意識は薄く薄く拡散していく……
 **己の生命力-2**
 
 [next](130)</scene>
-	<scene id="116" summary="敵・下○" level="32" free1="-2">敵　&gt;&gt;　下段
+	<scene id="116" summary="敵・下○" level="32" free1="-2" se="koukaonrabo_katana">敵　&gt;&gt;　下段
 **自　&gt;&gt;　中段**
 
 **WIN**
@@ -1601,7 +1603,7 @@ ${name}の意識は薄く薄く拡散していく……
 **敵の生命力-2**
 
 [next](130)</scene>
-	<scene id="117" summary="敵・中" level="32" free2="-1">**敵　&gt;&gt;　中段**
+	<scene id="117" summary="敵・中" level="32" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　中段**
 
 攻撃を見極めよと集中する。
 
@@ -1613,7 +1615,7 @@ ${name}の意識は薄く薄く拡散していく……
 **己の生命力-1**
 
 [next](130)</scene>
-	<scene id="118" summary="敵・上○" level="32" free1="-2">敵　&gt;&gt;　上段
+	<scene id="118" summary="敵・上○" level="32" free1="-2" se="koukaonrabo_katana">敵　&gt;&gt;　上段
 **自　&gt;&gt;　下段**
 
 **WIN**
@@ -1625,7 +1627,7 @@ ${name}の意識は薄く薄く拡散していく……
 **敵の生命力-2**
 
 [next](130)</scene>
-	<scene id="119" summary="敵・中×" level="32" free2="-2">**敵　&gt;&gt;　中段**
+	<scene id="119" summary="敵・中×" level="32" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　中段**
 自　&gt;&gt;　下段
 
 **LOSE**
@@ -1638,7 +1640,7 @@ ${name}の意識は薄く薄く拡散していく……
 **己の生命力-2**
 
 [next](130)</scene>
-	<scene id="120" summary="敵・下×" level="32" free2="-2">**敵　&gt;&gt;　下段**
+	<scene id="120" summary="敵・下×" level="32" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
 自　&gt;&gt;　下段
 
 **LOSE**
@@ -1650,7 +1652,7 @@ ${name}の意識は薄く薄く拡散していく……
 **己の生命力-2**
 
 [next](130)</scene>
-	<scene id="121" summary="敵・下" level="32" free2="-1">**敵　&gt;&gt;　下段**
+	<scene id="121" summary="敵・下" level="32" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
 
 攻撃を見極めよと集中する。
 
@@ -1690,7 +1692,7 @@ ${name}の意識は薄く薄く拡散していく……
 	<scene id="135" summary="見切り" level="35">一閃、刹那。
 
 [結果は――](143,147,151)</scene>
-	<scene id="140" summary="敵・上×" level="36" free2="-2">**敵　&gt;&gt;　上段**
+	<scene id="140" summary="敵・上×" level="36" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
 自　&gt;&gt;　上段
 
 **LOSE**
@@ -1703,7 +1705,7 @@ ${name}の意識は薄く薄く拡散していく……
 **己の生命力-2**
 
 [next](160)</scene>
-	<scene id="141" summary="敵・上×" level="36" free2="-2">**敵　&gt;&gt;　上段**
+	<scene id="141" summary="敵・上×" level="36" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
 自　&gt;&gt;　上段
 
 **LOSE**
@@ -1716,7 +1718,7 @@ ${name}の意識は薄く薄く拡散していく……
 **己の生命力-2**
 
 [next](160)</scene>
-	<scene id="142" summary="敵・上×" level="36" free2="-2">**敵　&gt;&gt;　上段**
+	<scene id="142" summary="敵・上×" level="36" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
 自　&gt;&gt;　上段
 
 **LOSE**
@@ -1729,7 +1731,7 @@ ${name}の意識は薄く薄く拡散していく……
 **己の生命力-2**
 
 [next](160)</scene>
-	<scene id="143" summary="敵・上" level="36" free2="-1">**敵　&gt;&gt;　上段**
+	<scene id="143" summary="敵・上" level="36" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
 
 攻撃を見極めよと集中する。
 
@@ -1741,7 +1743,7 @@ ${name}の意識は薄く薄く拡散していく……
 **己の生命力-1**
 
 [next](160)</scene>
-	<scene id="144" summary="敵・上×" level="36" free2="-2">**敵　&gt;&gt;　上段**
+	<scene id="144" summary="敵・上×" level="36" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
 自　&gt;&gt;　中段
 
 **LOSE**
@@ -1754,7 +1756,7 @@ ${name}の意識は薄く薄く拡散していく……
 **己の生命力-2**
 
 [next](160)</scene>
-	<scene id="145" summary="敵・上×" level="36" free2="-2">**敵　&gt;&gt;　上段**
+	<scene id="145" summary="敵・上×" level="36" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
 自　&gt;&gt;　中段
 
 **LOSE**
@@ -1767,7 +1769,7 @@ ${name}の意識は薄く薄く拡散していく……
 **己の生命力-2**
 
 [next](160)</scene>
-	<scene id="146" summary="敵・上×" level="36" free2="-2">**敵　&gt;&gt;　上段**
+	<scene id="146" summary="敵・上×" level="36" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
 自　&gt;&gt;　中段
 
 **LOSE**
@@ -1780,7 +1782,7 @@ ${name}の意識は薄く薄く拡散していく……
 **己の生命力-2**
 
 [next](160)</scene>
-	<scene id="147" summary="敵・上" level="36" free2="-1">**敵　&gt;&gt;　上段**
+	<scene id="147" summary="敵・上" level="36" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
 
 攻撃を見極めよと集中する。
 
@@ -1792,7 +1794,7 @@ ${name}の意識は薄く薄く拡散していく……
 **己の生命力-1**
 
 [next](160)</scene>
-	<scene id="148" summary="敵・上○" level="36" free1="-2">敵　&gt;&gt;　上段
+	<scene id="148" summary="敵・上○" level="36" free1="-2" se="koukaonrabo_katana">敵　&gt;&gt;　上段
 **自　&gt;&gt;　下段**
 
 **WIN**
@@ -1804,7 +1806,7 @@ ${name}の意識は薄く薄く拡散していく……
 **敵の生命力-2**
 
 [next](160)</scene>
-	<scene id="149" summary="敵・上○" level="36" free1="-2">敵　&gt;&gt;　上段
+	<scene id="149" summary="敵・上○" level="36" free1="-2" se="koukaonrabo_katana">敵　&gt;&gt;　上段
 **自　&gt;&gt;　下段**
 
 **WIN**
@@ -1816,7 +1818,7 @@ ${name}の意識は薄く薄く拡散していく……
 **敵の生命力-2**
 
 [next](160)</scene>
-	<scene id="150" summary="敵・上○" level="36" free1="-2">敵　&gt;&gt;　上段
+	<scene id="150" summary="敵・上○" level="36" free1="-2" se="koukaonrabo_katana">敵　&gt;&gt;　上段
 **自　&gt;&gt;　下段**
 
 **WIN**
@@ -1828,7 +1830,7 @@ ${name}の意識は薄く薄く拡散していく……
 **敵の生命力-2**
 
 [next](160)</scene>
-	<scene id="151" summary="敵・上" level="36" free2="-1">**敵　&gt;&gt;　上段**
+	<scene id="151" summary="敵・上" level="36" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
 
 攻撃を見極めよと集中する。
 
@@ -2055,7 +2057,8 @@ ${name}：
 　　　　　　　　脱退している。
 
 [次へ](46)</scene>
-	<scene id="88888" summary="履歴" level="3">rev 001 2022/03/29 テストプレイの意見を参考に修正
+	<scene id="88888" summary="履歴" level="3">rev 002 2022/04/02 効果音追加
+rev 001 2022/03/29 テストプレイの意見を参考に修正
 rev 000 2022/03/27 新規作成
 
 </scene>
