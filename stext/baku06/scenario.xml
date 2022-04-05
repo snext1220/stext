@@ -41,6 +41,7 @@
 		<work url="https://dova-s.jp/" category="bgm" name="合戦の時" creator="shimtone"></work>
 		<work name="打撃3" category="bgm" creator="Killy" url="https://soundeffect-lab.info/"></work>
 		<work url="https://soundeffect-lab.info/" creator="Killy" category="bgm" name="刀で斬る5"></work>
+		<work category="picture" url="https://kage-design.com/" name="シルエット各種" creator="silhouette design"></work>
 	</licence>
 	<scene id="0" summary="プロローグ" group="prologue" level="1" bgm="@none" rule="99001">**「プロローグ」**
 ***
@@ -111,7 +112,7 @@ ${if !r90:baku01}%red%
 　**「土方歳三」**を取得している必要があります！%/%
 ${/if}
 
-[次へ](2)</scene>
+[次へ](2 "r90:baku01")</scene>
 	<scene id="2" summary="本編スタート" level="3" items="i100,i101" bgm="CMP0002-kaikou">ソーサリアンは黒真珠を追う。
 
 黒真珠を追うものは彼らだけではない。
@@ -295,6 +296,8 @@ ${name}は頭を抱えていた。
 迷わなくてよいのだ。ソーサリアンがなすべきは魔の行動の阻止。
 その他のことは今はいい。己の役目をまっとうせよ。
 
+![ethis](02.png)
+
 [次へ](9)</scene>
 	<scene id="8" summary="貝殻（ホットライン）を用意した" level="11">
 「手紙は届いたかなソーサリアン」
@@ -342,6 +345,8 @@ ${name}は頭を抱えていた。
 迷わなくてよいのだ。ソーサリアンがなすべきは魔の行動の阻止。
 その他のことは今はいい。己の役目をまっとうせよ。
 
+![ethis](02.png)
+
 [次へ](9)</scene>
 	<scene id="9" summary="出発前" level="12">出発の時、来たり。
 
@@ -359,6 +364,8 @@ ${name}は無駄に二階から飛び降りただけになった。
 しかし馬も船も、伝手などない。
 
 何か使えるものはないか――
+
+![famble](01.png)
 
 [万屋へ](10)
 [道場へ](11)
@@ -525,6 +532,8 @@ ${name}は無駄に二階から飛び降りただけになった。
 それは憤懣やるかたなき。
 せめてもの応援に、大型串団子を注文し、
 きちんと代金を支払った。
+
+![娘々](03.png)
 
 [戻る](14)</scene>
 	<scene id="16" summary="国境" level="18" flags="f01">四谷門方面まで向かい、甲州街道へ。
@@ -867,6 +876,8 @@ ${name}は迷わず、
 
 通った！　しかしこの住所リスト、
 100件以上ある気がするが……！？
+
+![宅配](04.png)
 
 [次へ](27)</scene>
 	<scene id="29" summary="移動中" level="15" bgm="@none">　
@@ -1432,6 +1443,8 @@ ${name}は落ち着かせようと説得を試みる。
 **中段 &gt; 下段**
 **下段 &gt; 上段**
 
+（有利　&gt;　不利）
+
 である。
 
 お互いの体力は、**6**。
@@ -1952,7 +1965,7 @@ ${name}は嘆息する。
 [次へ](164)</scene>
 	<scene id="164" summary="後編へ" level="38">前編はここまでとなります。
 
-
+![タイトル絵](image01.png)
 
 </scene>
 	<scene id="165" summary="伏見2" level="9">伏見の奉行所と言えば新選組の屯所として使われている。
@@ -2057,7 +2070,8 @@ ${name}：
 　　　　　　　　脱退している。
 
 [次へ](46)</scene>
-	<scene id="88888" summary="履歴" level="3">rev 002 2022/04/02 効果音追加
+	<scene id="88888" summary="履歴" level="3">rev 003 2022/04/05 挿絵追加
+rev 002 2022/04/02 効果音追加
 rev 001 2022/03/29 テストプレイの意見を参考に修正
 rev 000 2022/03/27 新規作成
 
@@ -2094,6 +2108,8 @@ rev 000 2022/03/27 新規作成
 	<scene id="99999" summary="無指定共通ルール" level="3">**上段 &gt; 中段**
 **中段 &gt; 下段**
 **下段 &gt; 上段**
+
+（有利　&gt;　不利）
 
 である。
 
