@@ -592,6 +592,20 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
   <p class="award">序のクリア実績で解放されます。引き継ぎの際は［続きから］ボタンを押してゲームをスタートしてください。</p>
 </work>
 
+<work id="baku06" title="陸：戊辰に吠えるもののふ共" author="cocotori" series="幕末ソーサリアン"
+  tags="歴史,連作" published="2022-04-11" updated="2022-04-11" level="2" scenes="67" results="2" clears="r500"
+  comment="歴史を学び、大真面目に作りました。キョンシーやモヒカン族は登場しますが、大真面目です。">
+  <img src="./stext/baku06/capture/intro.png" height="120"
+    title="陸：戊辰に吠えるもののふ共" align="right" class="right"/>
+  <p class="award">幕末ソーサリアン本編（連作シナリオ）</p>
+　慶応4年。激動の時代である。明治の世が始まろうという中、旧体の誇りと権威にしがみつき、戦う侍達。
+彼らの胸に去来する思いは何か。ソーサリアンとともに、それを解き明かす旅に出よう。
+
+<p class="award">2022/4/11現在、前半部分のみ遊べます。</p>
+
+  <p class="award">序のクリア実績で解放されます。引き継ぎの際は［続きから］ボタンを押してゲームをスタートしてください。</p>
+</work>
+
 <!-- <work id="mini" title="ミニミニソーサリアンText" author="リオ" series="Playground100祭"
   tags="スゴロク,リメイク" published="2020-05" updated="" level="1" scenes="50" results="1" clears="r99" unpublished="true"
   comment="Next0401企画で作成したミニミニソーサリアン NextのSText版です。シナリオというか、STextならこんなこともできるよ的な作品だったり。むしろ開発者の皆さんの思い付きのきっかけになればと">
