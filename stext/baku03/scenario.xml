@@ -139,7 +139,6 @@
 
 ![禁門](baku03-01.png)
 
-
 [これまでのあらすじ](1)</scene>
 	<scene id="1" summary="これまでのあらすじ" level="2" rule="999" items="i100">### これまでのあらすじ
 
@@ -191,6 +190,7 @@
 + 参：${result_rate?baku03} ％
 + 肆：${result_rate?baku04} ％
 + 伍：${result_rate?baku05} ％
++ 陸：${result_rate?baku06} ％
 
 [本編開始](2)
 [▶▶『田浦勇之助』の設定紹介を飛ばす](5 "r01:baku03")

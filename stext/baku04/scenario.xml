@@ -131,6 +131,7 @@ ${/if}
 + 参：${result_rate?baku03} ％
 + 肆：${result_rate?baku04} ％
 + 伍：${result_rate?baku05} ％
++ 陸：${result_rate?baku06} ％
 
 [某所で……](67)</scene>
 	<scene id="2" summary="衛視" level="18" end="bad" group="bad" result="r09" nexts="baku04">天皇を護衛する衛視の中に裏切り者が紛れ込んでいたのだ。
