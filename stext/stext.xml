@@ -593,8 +593,8 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 </work>
 
 <work id="baku06" title="陸：戊辰に吠えるもののふ共" author="cocotori" series="幕末ソーサリアン"
-  tags="歴史,連作" published="2022-04-11" updated="2022-04-11" level="2" scenes="67" results="2" clears="r500"
-  comment="歴史を学び、大真面目に作りました。キョンシーやモヒカン族は登場しますが、大真面目です。">
+  tags="歴史,連作" published="2022-04-11" updated="2022-04-11" level="2" scenes="99" results="2" clears="r500"
+  comment="歴史を学び、大真面目に作りました。その結果、キョンシーやモヒカン族も登場します。">
   <img src="./stext/baku06/capture/intro.png" height="120"
     title="陸：戊辰に吠えるもののふ共" align="right" class="right"/>
   <p class="award">幕末ソーサリアン本編（連作シナリオ）</p>
