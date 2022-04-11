@@ -99,11 +99,11 @@
 詳細は、右の%red%BattleSheet%/%を開いて確認してください。
 
 + 序：${result_rate?baku01} ％
-+ シナリオ02：${result_rate?baku02} ％
-+ シナリオ03：${result_rate?baku03} ％
-+ シナリオ04：${result_rate?baku04} ％
-+ シナリオ05：${result_rate?baku05} ％
-+ シナリオ06：${result_rate?baku06} ％ 
++ 弐：${result_rate?baku02} ％
++ 参：${result_rate?baku03} ％
++ 肆：${result_rate?baku04} ％
++ 伍：${result_rate?baku05} ％
++ 陸：${result_rate?baku06} ％ 
 
 ---
 
@@ -249,7 +249,7 @@ ${name}は思い返す。一緒に行くべきだったかと。
 「貝殻を使って呼び出せ」
 
 
-${name}は迷わず法螺貝を手にとった。
+${name}は迷わず貝殻を手にとった。
 
 
 「手紙は届いたかなソーサリアン」
