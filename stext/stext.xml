@@ -569,14 +569,14 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 </work>
 
 <work id="baku04" title="肆：朝廷の陰謀" author="ちゃなさん" series="幕末ソーサリアン"
-  tags="歴史,連作" published="2021-11-11" updated="2022-04-11" level="4" scenes="78" results="18" clears="r12"
+  tags="歴史,連作" published="2021-11-11" updated="2022-05-06" level="4" scenes="78" results="18" clears="r12"
   comment="意図的に難易度を高く調整した意地悪な構造のシナリオです。初見ではまずクリアできませんのでご注意ください。">
   <img src="./stext/baku04/capture/intro.png" height="120"
     title="肆：朝廷の陰謀" align="right" class="right"/>
   <p class="award">幕末ソーサリアン本編（連作シナリオ）</p>
 　幕末も迫りくる慶応2年。江戸時代最後の天皇である孝明天皇は病に臥せっていた。強硬な攘夷派である天皇が崩御すれば情勢は一気に開国へと傾くことになる。それに乗じて「魔」の暗躍を企図する者たちがいた……
 
-  <p class="award">序のクリア実績で解放されます。引き継ぎの際は［続きから］ボタンを押してゲームをスタートしてください。</p>
+  <p class="award">引き継ぎの際は［続きから］ボタンを押してゲームをスタートしてください。</p>
 </work>
 
 <work id="baku05" title="伍：龍がゆく" author="RYUさん" series="幕末ソーサリアン"
