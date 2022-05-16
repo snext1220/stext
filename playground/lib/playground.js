@@ -1857,14 +1857,14 @@ $(function () {
                 label: '',
                 type: 'Q',
                 correct: tmp_label[0],
-                order: order
+                order: String(order)
               });
               result.edges.push({
                 from: elem.id,
                 to: tmp_label[2],
                 label: '',
                 type: 'Q',
-                order: order
+                order: String(order)
               });
               break;
             case 'X':
@@ -1875,7 +1875,7 @@ $(function () {
                   to: tmp,
                   label: '',
                   type: 'X',
-                  order: order
+                  order: String(order)
                 });
               }
               break;
@@ -1886,7 +1886,7 @@ $(function () {
                   to: tmp_to,
                   label: tmp_label,
                   condition: tmp_condition,
-                  order: order
+                  order: String(order)
                 });
               } else {
                 // 「;」以降がキャッシュ時間
@@ -1901,7 +1901,7 @@ $(function () {
                     label: tmp_label,
                     type: 'R',
                     condition: tmp_condition,
-                    order: order
+                    order: String(order)
                   };
                   // 最初のリンクだけにcacheを反映
                   if (is_first) {
