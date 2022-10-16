@@ -3441,7 +3441,7 @@ ${name}は軽く肩をすくめ、
 それ以上は、言葉にならなかった。
 
 [次へ](227)</scene>
-	<scene id="221" summary="終結" level="88" result="r06">その後。
+	<scene id="221" summary="終結" level="88" result="r06" end="happy" group="happy">その後。
 
 松平容保、そして養子の喜徳は
 大阪へと送られることとなった。
