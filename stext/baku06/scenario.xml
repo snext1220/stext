@@ -57,6 +57,8 @@
 		<work name="打撃3" category="bgm" creator="Killy" url="https://soundeffect-lab.info/"></work>
 		<work url="https://soundeffect-lab.info/" creator="Killy" category="bgm" name="刀で斬る5"></work>
 		<work category="picture" url="https://kage-design.com/" name="シルエット各種" creator="silhouette design"></work>
+		<work category="bgm" name="雨の日のネオン" creator="甘茶" url=" 	https://amachamusic.chagasi.com/"></work>
+		<work name="ダークマター" category="bgm" creator="甘茶" url=" 	https://amachamusic.chagasi.com/"></work>
 	</licence>
 	<scene id="0" level="1" summary="プロローグ" group="prologue" bgm="@none" rule="99001">**「プロローグ」**
 ***
