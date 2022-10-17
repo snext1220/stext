@@ -57,8 +57,9 @@
 		<work name="打撃3" category="bgm" creator="Killy" url="https://soundeffect-lab.info/"></work>
 		<work url="https://soundeffect-lab.info/" creator="Killy" category="bgm" name="刀で斬る5"></work>
 		<work category="picture" url="https://kage-design.com/" name="シルエット各種" creator="silhouette design"></work>
-		<work category="bgm" name="雨の日のネオン" creator="甘茶" url=" 	https://amachamusic.chagasi.com/"></work>
-		<work name="ダークマター" category="bgm" creator="甘茶" url=" 	https://amachamusic.chagasi.com/"></work>
+		<work category="bgm" name="雨の日のネオン" creator="甘茶" url="  https://amachamusic.chagasi.com/"></work>
+		<work name="ダークマター" category="bgm" creator="甘茶" url="  https://amachamusic.chagasi.com/"></work>
+		<work creator="まんぼう二等兵" url="https://dova-s.jp/" category="bgm" name="追跡者"></work>
 	</licence>
 	<scene id="0" level="1" summary="プロローグ" group="prologue" bgm="@none" rule="99001">**「プロローグ」**
 ***
@@ -74,7 +75,7 @@
 古代ソーサリアンによって封印されたはずだが……？
 
 時代は幕末。
-長き鎖国政策による特異的さが、
+長き鎖国政策による特異さが、
 否応ない海外列強の影響を受け変容していく時代。
 
 [ダミー](99000 "f99")
@@ -1428,7 +1429,7 @@ ${name}は落ち着かせようと説得を試みる。
 恐れず一歩を踏み出し、そして勝て。
 
 [次へ](100)</scene>
-	<scene id="47" summary="敵・下4×" level="70" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
+	<scene id="47" summary="敵・下4×" level="73" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
 自　&gt;&gt;　上段
 
 **LOSE**
@@ -1441,7 +1442,7 @@ ${name}は落ち着かせようと説得を試みる。
 **己の生命力-2**
 
 [next](1130)</scene>
-	<scene id="48" summary="敵・下5×" level="70" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
+	<scene id="48" summary="敵・下5×" level="73" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
 自　&gt;&gt;　上段
 
 **LOSE**
@@ -1454,7 +1455,7 @@ ${name}は落ち着かせようと説得を試みる。
 **己の生命力-2**
 
 [next](1130)</scene>
-	<scene id="49" summary="敵・下4○" level="70" se="koukaonrabo_katana" free1="-2">敵　&gt;&gt;　下段
+	<scene id="49" summary="敵・下4○" level="73" se="koukaonrabo_katana" free1="-2">敵　&gt;&gt;　下段
 **自　&gt;&gt;　中段**
 
 **WIN**
@@ -1466,7 +1467,7 @@ ${name}は落ち着かせようと説得を試みる。
 **敵の生命力-2**
 
 [next](1130)</scene>
-	<scene id="50" summary="敵・下5○" level="70" se="koukaonrabo_katana" free1="-2">敵　&gt;&gt;　下段
+	<scene id="50" summary="敵・下5○" level="73" se="koukaonrabo_katana" free1="-2">敵　&gt;&gt;　下段
 **自　&gt;&gt;　中段**
 
 **WIN**
@@ -1478,7 +1479,7 @@ ${name}は落ち着かせようと説得を試みる。
 **敵の生命力-2**
 
 [next](1130)</scene>
-	<scene id="51" summary="敵・下4×" level="70" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
+	<scene id="51" summary="敵・下4×" level="73" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
 自　&gt;&gt;　下段
 
 **LOSE**
@@ -1490,7 +1491,7 @@ ${name}は落ち着かせようと説得を試みる。
 **己の生命力-2**
 
 [next](1130)</scene>
-	<scene id="52" summary="敵・下5×" level="70" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
+	<scene id="52" summary="敵・下5×" level="73" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
 自　&gt;&gt;　下段
 
 **LOSE**
@@ -2227,7 +2228,7 @@ ${name}は武器を構え警戒を強めるが――
 この国を脅かしていたと言うのか。
 
 [次へ](171)</scene>
-	<scene id="171" level="40" summary="1">どうする！？
+	<scene id="171" level="40" summary="1" bgm="dova_manbou_tsuisekisha">どうする！？
 
 土方との激戦により、君の体力は限界に近い。
 
@@ -2824,7 +2825,7 @@ ${name}は隅っこの方で大人しくしている。
 「名乗りが必要か？
 　わしは松平容保。ここ、会津の監督を任されておる」
 
-松平容保。
+**松平容保。**
 
 元、徳川将軍家の腹心の一人。
 慶喜公が大阪に居を構えた折に共に西に渡り、
@@ -2925,6 +2926,10 @@ ${name}は隅っこの方で大人しくしている。
 [萱野長修](206)
 [西郷邸へ](224 "f09")</scene>
 	<scene id="200" level="60" summary="町">町に出てきた。
+
+鶴ヶ城に巣食う魔も気になるが、
+土方の動向も重要だ。
+
 長修が聞いたという話がいつのことかわからぬが。
 まだ痕跡が残っているといいが……
 
@@ -2938,6 +2943,7 @@ ${name}は隅っこの方で大人しくしている。
 
 城に戻り、馬を貸してもらい出発することにした。
 
+[一旦軍議に戻る](199)
 [次へ](201)</scene>
 	<scene id="201" level="61" summary="二本松" bgm="dova_simtone_kassen">怒号。土煙。飛び交う弾丸。
 
@@ -3012,9 +3018,6 @@ ${name}は隅っこの方で大人しくしている。
 七星の力で脅威を払う。
 
 黒焦げになる兵士。
-ようやく一息。肩で荒い呼吸を繰り返す。
-
-なんという過酷な戦いであろうか。
 
 --
 
@@ -3022,7 +3025,7 @@ ${name}は隅っこの方で大人しくしている。
 当時、兵力の多くは白河方面に集結していた。
 二本松を守るのは限られた少年兵、老人兵だったという。
 
-[次へ](207)</scene>
+[次へ](251)</scene>
 	<scene id="202" level="52" summary="庭4">うむ、と一呼吸入れて語りだす。
 
 松平：
@@ -3115,7 +3118,7 @@ ${name}は軽く肩をすくめ、
 　この情報は役に立ちますかな」
 
 [戻る](199)</scene>
-	<scene id="207" level="62" summary="二本松その後">二本松城はその日のうちに新政府軍に制圧された。
+	<scene id="207" level="65" summary="二本松その後">二本松城はその日のうちに新政府軍に制圧された。
 
 二本松兵を含む列藩同盟は、
 南の白河、守山、三春と各地で戦闘を継続しており
@@ -3134,7 +3137,7 @@ ${name}は軽く肩をすくめ、
 鶴ヶ城に籠城し、徹底抗戦の構えを見せた――
 
 [次へ](208)</scene>
-	<scene id="208" level="63" summary="軍議3">**軍議3**
+	<scene id="208" level="66" summary="軍議3" bgm="amacha_amenohinoneon">**軍議3**
 --
 
 鶴ヶ城本丸。
@@ -3204,7 +3207,7 @@ ${name}は軽く肩をすくめ、
 雷に打たれたように、声を失う家臣たち。
 
 [次へ](229)</scene>
-	<scene id="209" level="66" summary="籠城初戦バトル">――いや。
+	<scene id="209" level="69" summary="籠城初戦バトル">――いや。
 
 中も、安全ではない。
 
@@ -3231,7 +3234,7 @@ ${name}は軽く肩をすくめ、
 叩き潰してやる。
 
 [次へ](231)</scene>
-	<scene id="210" level="75" summary="階段">最上階を目指そうと階段に差し掛かると。
+	<scene id="210" level="78" summary="階段">最上階を目指そうと階段に差し掛かると。
 
 横に広い壁のような怪物。
 門番か！？
@@ -3242,7 +3245,7 @@ ${name}は軽く肩をすくめ、
 
 [強行突破だ](214)
 [一旦引く](216)</scene>
-	<scene id="211" level="75" summary="鶴の間" flags="f12">こちらは大奥たちの控えの間になっていたはず。
+	<scene id="211" level="78" summary="鶴の間" flags="f12">こちらは大奥たちの控えの間になっていたはず。
 
 この混乱をうけて、無事でいるだろうか。
 ただでさえ外は銃撃戦で振動が絶えない。
@@ -3258,13 +3261,13 @@ ${name}は軽く肩をすくめ、
 
 [許さん、叩き切る](212)
 [だめだ、ここで消耗するわけには](213)</scene>
-	<scene id="212" level="76" summary="戦う">複数人バトルである。
+	<scene id="212" level="79" summary="戦う">複数人バトルである。
 
 一匹一匹は強くないが、倒す順番を間違えると
 窮地に立たされる危険性がある。
 
 [次へ](217)</scene>
-	<scene id="213" level="76" summary="先を急ぐ">許せ。
+	<scene id="213" level="79" summary="先を急ぐ">許せ。
 薄情かもしれぬ。
 だが流されてはならぬ。
 君に、仇討ちの大義はない。
@@ -3273,7 +3276,7 @@ ${name}は軽く肩をすくめ、
 階段に向かって走る。
 
 [次へ](217)</scene>
-	<scene id="214" level="76" summary="強行突破">強行突破するには並大抵の覚悟では実現できぬ。
+	<scene id="214" level="79" summary="強行突破">強行突破するには並大抵の覚悟では実現できぬ。
 これまでに鍛えた能力は十分か？
 修羅場をくぐり抜け備えてきた才覚は？
 
@@ -3284,7 +3287,7 @@ ${name}は軽く肩をすくめ、
 
 [力 + サイコロ合計が20以上](226)
 [力 + サイコロ合計が20未満](225)</scene>
-	<scene id="215" level="73" summary="倒した">小悪魔風の魔を叩き潰し、一息つく。
+	<scene id="215" level="76" summary="倒した">小悪魔風の魔を叩き潰し、一息つく。
 
 松平：
 「もしやこれが、魔、の仕業だと？」
@@ -3305,7 +3308,7 @@ ${name}は軽く肩をすくめ、
 この城のどこかに、この状況を作り出した魔がいる！
 
 [次へ](216)</scene>
-	<scene id="216" level="74" summary="中継地点">魔の親玉はどこだ？
+	<scene id="216" level="77" summary="中継地点">魔の親玉はどこだ？
 家老たちの安全も気になる。
 
 どこへ向かおうか。
@@ -3313,14 +3316,14 @@ ${name}は軽く肩をすくめ、
 [鶴の間](211)
 [階段へ](210)
 [階段へ](217 "f12")</scene>
-	<scene id="217" level="77" summary="階段2">先程まで階段は怪物が塞いでいた。
+	<scene id="217" level="80" summary="階段2">先程まで階段は怪物が塞いでいた。
 今はいなくなっている。
 チャンスだ。
 
 一足飛びで駆け上がる。
 
 [次へ](218)</scene>
-	<scene id="218" level="78" summary="最上階" bgm="@none">天守閣最上階。
+	<scene id="218" level="81" summary="最上階" bgm="@none">天守閣最上階。
 
 まず目に入ったのは、雑多に倒れ伏す家臣たち。
 みな、生気を吸い取られたかのように青白い顔をしている。
@@ -3402,7 +3405,7 @@ ${name}は軽く肩をすくめ、
 古の記憶を呼び出したか。
 
 [次へ](219)</scene>
-	<scene id="219" level="79" summary="ラストバトル" bgm="amacha_darkmatter">ぬえ。
+	<scene id="219" level="82" summary="ラストバトル" bgm="amacha_darkmatter">ぬえ。
 
 正体不明のヤツを呼び表す名は、本来ない。
 けれど人は、名をつけ呼び表すことで
@@ -3455,7 +3458,7 @@ ${name}は軽く肩をすくめ、
 僅かな差異、気配を感じ取り勝利を勝ち取れ。
 
 [次へ](2100)</scene>
-	<scene id="220" level="90" summary="戦いの後">ぬえ：
+	<scene id="220" level="93" summary="戦いの後">ぬえ：
 「この＄％～＠に傷を負わすとは。
 　プク、スーズースー、楽しませてくれる……愉悦！」
 
@@ -3498,7 +3501,7 @@ ${name}は軽く肩をすくめ、
 閃――――ぬえの首を切り落とす。
 
 [次へ](250)</scene>
-	<scene id="221" level="93" summary="終結" result="r06" end="happy" group="happy">その後。
+	<scene id="221" level="96" summary="終結" result="r06" end="happy" group="happy">その後。
 
 松平容保、そして養子の喜徳は
 大阪へと送られることとなった。
@@ -3549,9 +3552,6 @@ ${name}は軽く肩をすくめ、
 
 </scene>
 	<scene id="222" level="44" summary="暗転" bgm="@none">暗転。意識は真っ暗である。
-　
-　
-　
 
 [次へ](177)</scene>
 	<scene id="223" level="51" summary="庭3">それはそうと。
@@ -3620,20 +3620,20 @@ ${name}は軽く肩をすくめ、
 今の話、他の連中に聞かせることもあるまい。
 
 [戻る](199)</scene>
-	<scene id="225" level="77" summary="負け">うわーーーーっ
+	<scene id="225" level="80" summary="負け">うわーーーーっ
 壁のような敵のタックルにより為す術もなく吹き飛ばされる。
 
 強力な押し出し。すごろくで言えば
 3歩戻るのような手を華麗に決められた。
 
 [戻る](216)</scene>
-	<scene id="226" level="77" summary="勝ち">切り払った斬撃が敵の核を割る、確かな手応え。
+	<scene id="226" level="80" summary="勝ち">切り払った斬撃が敵の核を割る、確かな手応え。
 怪物は苦悶の呻きをあげて泥と化した。
 
 さあ、もう遮るものはない。
 
 [次へ](218)</scene>
-	<scene id="227" level="92" summary="後2">城を覆う、青白い炎も同時に消滅した。
+	<scene id="227" level="95" summary="後2">城を覆う、青白い炎も同時に消滅した。
 今ならば外に出ることも可能だろう。
 
 松平：
@@ -3675,7 +3675,7 @@ ${name}は軽く肩をすくめ、
 **おい、二回目はないぞ。何を期待している。**
 
 [戻る](185)</scene>
-	<scene id="229" level="64" summary="結界">誰も、松平の歩みを止められず、
+	<scene id="229" level="67" summary="結界" bgm="@none">誰も、松平の歩みを止められず、
 そのまま部屋を出るかと思えたそのとき。
 　
 　
@@ -3691,7 +3691,7 @@ ${name}は軽く肩をすくめ、
 視界が暗転し、上か下かもわからぬ。
 
 [次へ](230)</scene>
-	<scene id="230" level="65" summary="最下層">気がつくと、そこは本丸最下層のようだ。
+	<scene id="230" level="68" summary="最下層" bgm="amacha_amenohinoneon">気がつくと、そこは本丸最下層のようだ。
 転がり落ちたのか？
 
 松平が外に出ると言ったがどうなった？
@@ -3747,7 +3747,7 @@ ${name}は軽く肩をすくめ、
 我らに手を出すことはできないのか――
 
 [次へ](209)</scene>
-	<scene id="231" level="67" summary="観察" result="r04" bgm="dova_simtone_kassen" free1="@6" free2="@6">羽をはやした、異形の悪魔。
+	<scene id="231" level="70" summary="観察" result="r04" bgm="dova_simtone_kassen" free1="@6" free2="@6">羽をはやした、異形の悪魔。
 
 キュッ、キュッと機敏に飛び回る。
 すばしっこそうな敵だ。
@@ -3793,12 +3793,12 @@ ${name}は軽く肩をすくめ、
 **このルールは、Battle Sheetを開くことでいつでも確認する事ができる。**
 
 [次へ](1101)</scene>
-	<scene id="232" level="69" summary="見切り">一閃、刹那。
+	<scene id="232" level="72" summary="見切り">一閃、刹那。
 
 [結果は――](1121)
 [結果は――](1117 "!oFreeI1")
 [結果は――](1113 "!oFreeI1")</scene>
-	<scene id="233" level="70" summary="敵・下3×" se="koukaonrabo_hit" free2="-2">**敵　&gt;&gt;　下段**
+	<scene id="233" level="73" summary="敵・下3×" se="koukaonrabo_hit" free2="-2">**敵　&gt;&gt;　下段**
 自　&gt;&gt;　上段
 
 **LOSE**
@@ -3811,7 +3811,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-2**
 
 [next](1130)</scene>
-	<scene id="234" level="85" summary="3n+1,4" params="p01:@3">ぬえ：
+	<scene id="234" level="88" summary="3n+1,4" params="p01:@3">ぬえ：
 「ホーホー……今からまっすぐ真ん中を狙う……」
 
 ！？
@@ -3828,7 +3828,7 @@ ${name}は軽く肩をすくめ、
 [中段](2133)
 [下段](2134)
 [見切り](249)</scene>
-	<scene id="235" level="85" summary="3n+1,5" params="p01:@4">ぬえ：
+	<scene id="235" level="88" summary="3n+1,5" params="p01:@4">ぬえ：
 「キキキギギギ……
 　足元……警戒しなくて大丈夫かぁ……？」
 
@@ -3846,7 +3846,7 @@ ${name}は軽く肩をすくめ、
 [中段](2133)
 [下段](2134)
 [見切り](249)</scene>
-	<scene id="237" level="90" summary="ヒント">やつのブラフに気をつけよ。
+	<scene id="237" level="93" summary="ヒント">やつのブラフに気をつけよ。
 自分の手段を正しく教えてくれるとも、
 逆に必ず違う手を選ぶ“だけ”とも到底思えぬ。
 
@@ -3860,8 +3860,8 @@ ${name}は軽く肩をすくめ、
 負ける要素は何一つとして、ない。
 
 [game over](238)</scene>
-	<scene id="238" level="91" summary="game over" end="bad" group="bad"></scene>
-	<scene id="239" level="70" summary="敵・下2×" se="koukaonrabo_hit" free2="-2">**敵　&gt;&gt;　下段**
+	<scene id="238" level="94" summary="game over" end="bad" group="bad"></scene>
+	<scene id="239" level="73" summary="敵・下2×" se="koukaonrabo_hit" free2="-2">**敵　&gt;&gt;　下段**
 自　&gt;&gt;　上段
 
 **LOSE**
@@ -3874,7 +3874,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-2**
 
 [next](1130)</scene>
-	<scene id="240" level="70" summary="敵・下2○" free1="-2" se="koukaonrabo_katana">敵　&gt;&gt;　下段
+	<scene id="240" level="73" summary="敵・下2○" free1="-2" se="koukaonrabo_katana">敵　&gt;&gt;　下段
 **自　&gt;&gt;　中段**
 
 **WIN**
@@ -3886,7 +3886,7 @@ ${name}は軽く肩をすくめ、
 **敵の生命力-2**
 
 [next](1130)</scene>
-	<scene id="241" level="70" summary="敵・下3○" free1="-2" se="koukaonrabo_katana">敵　&gt;&gt;　下段
+	<scene id="241" level="73" summary="敵・下3○" free1="-2" se="koukaonrabo_katana">敵　&gt;&gt;　下段
 **自　&gt;&gt;　中段**
 
 **WIN**
@@ -3898,7 +3898,7 @@ ${name}は軽く肩をすくめ、
 **敵の生命力-2**
 
 [next](1130)</scene>
-	<scene id="242" level="70" summary="敵・下2×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
+	<scene id="242" level="73" summary="敵・下2×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
 自　&gt;&gt;　下段
 
 **LOSE**
@@ -3910,7 +3910,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-2**
 
 [next](1130)</scene>
-	<scene id="243" level="70" summary="敵・下3×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
+	<scene id="243" level="73" summary="敵・下3×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
 自　&gt;&gt;　下段
 
 **LOSE**
@@ -3922,7 +3922,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-2**
 
 [next](1130)</scene>
-	<scene id="244" level="81" summary="3n+0,2" params="p01:@1">ぬえ：
+	<scene id="244" level="84" summary="3n+0,2" params="p01:@1">ぬえ：
 「ホーホー……今からまっすぐ真ん中を狙う……」
 
 ！？
@@ -3939,7 +3939,7 @@ ${name}は軽く肩をすくめ、
 [中段](2103)
 [下段](2104)
 [見切り](246)</scene>
-	<scene id="245" level="93" summary="3n+0,3" params="p01:@2">ぬえ：
+	<scene id="245" level="96" summary="3n+0,3" params="p01:@2">ぬえ：
 「キキキギギギ……
 　足元……警戒しなくて大丈夫かぁ……？」
 
@@ -3957,12 +3957,12 @@ ${name}は軽く肩をすくめ、
 [中段](2103)
 [下段](2104)
 [見切り](246)</scene>
-	<scene id="246" level="82" summary="見切り">一閃、刹那。
+	<scene id="246" level="85" summary="見切り">一閃、刹那。
 
 [結果は――](2113 "p01:@0")
 [結果は――](2117 "p01:@1")
 [結果は――](2121 "p01:@2")</scene>
-	<scene id="247" level="85" summary="3n+1,2" params="p01:@1">ぬえ：
+	<scene id="247" level="88" summary="3n+1,2" params="p01:@1">ぬえ：
 「ププスーー……上から行くぞ……」
 
 ！？
@@ -3979,7 +3979,7 @@ ${name}は軽く肩をすくめ、
 [中段](2133)
 [下段](2134)
 [見切り](249)</scene>
-	<scene id="248" level="85" summary="3n+1,3" params="p01:@2">ぬえ：
+	<scene id="248" level="88" summary="3n+1,3" params="p01:@2">ぬえ：
 「ホーホー……今からまっすぐ真ん中を狙う……」
 
 ！？
@@ -3996,12 +3996,12 @@ ${name}は軽く肩をすくめ、
 [中段](2133)
 [下段](2134)
 [見切り](249)</scene>
-	<scene id="249" level="86" summary="見切り">一閃、刹那。
+	<scene id="249" level="89" summary="見切り">一閃、刹那。
 
 [結果は――](2147 "p01:@0|p01:@5")
 [結果は――](2151 "p01:@1|p01:@2")
 [結果は――](2143 "p01:@3|p01:@4")</scene>
-	<scene id="250" summary="退治" level="91" bgm="@none">ぬえ：
+	<scene id="250" summary="退治" level="94" bgm="@none">ぬえ：
 「ばかな――……」
 
 宙を舞うその首は途中で
@@ -4020,7 +4020,106 @@ ${name}は軽く肩をすくめ、
 それ以上は、言葉にならなかった。
 
 [次へ](227)</scene>
-	<scene id="1101" level="68" summary="攻撃開始">小悪魔は攻撃を仕掛けてくる……！
+	<scene id="251" summary="土方" level="62" bgm="@none">突然の戦い、命の危機。
+
+耳のそばで心臓の鼓動。
+キーンと耳鳴りがして何も聞こえぬ。
+
+そのせいで、反応が遅れた。
+
+茂みの奥から別の兵士が飛び出てきたことに気づいたのは、
+銃剣を目の前に突きつけられた後。
+
+間に合わぬ――瞳に映り込む、冷たき刀影―――
+　
+　
+　
+
+[次へ](252)</scene>
+	<scene id="252" summary="土方2" level="63" se="koukaonrabo_katana">体の中心を衝撃が駆け抜ける、斬撃音。
+間近で聞こえたその音に、${name}の意識は手放され――
+
+！？
+
+ドサリと血潮を吹きながら倒れたのは、兵士の方だった。
+
+その真後ろで、返り血を真っ赤に浴びて立つ男。
+　
+　
+「ここまで来ていたのか、ソーサリアン」
+
+ああ、ああ……お前は、土方！
+
+幾ばくか頬はこけ、不健康そうな無精髭をはやしていたが、
+その鋭い眼光は紛れもない彼のものであった。
+
+[次へ](253)</scene>
+	<scene id="253" summary="土方3" level="64" bgm="dova_simtone_kassen">土方：
+「貴様がここに来ているということは
+　やはりこの近くに魔が？」
+　
+それもあるが、お前を探していたのだ。
+ようやく会えた。
+会津には魔が潜んでいる。
+共に奴らの野望を阻止しよう。
+
+土方：
+「わしのことはいい……」
+
+「わしは倭の一族としての使命を放棄し、
+　己が信念のために戦い続ける男じゃ。
+　
+　もはやわしに魔を討伐することはできん」
+
+それはどういうことか……！？
+
+それには答えず。
+
+土方：
+「貴様は松平公と行動を共にしているのか？
+　ならば一刻も早く城にもどれ。
+　
+　二本松はもはや落ちる。急いで戻らねば
+　取り返しがつかなくなるぞ」
+　
+お前は！
+
+土方：
+「わしは、ここで一人でも多く敵を道連れにする」
+
+土方……！　やけになるな！
+
+何故かニヤリとする土方。
+
+土方：
+「一つヒントをやろう。
+　魔とは……そうだな、おそらく天守閣。
+　鶴ヶ城天守閣で相まみえることになる。
+　無事に切り抜けろよ。貴様にならできるだろう」
+
+それはどういうことだと問いただそうとしたところに、
+土方の振り上げた白刃に阻まれる。
+そのまま振り下ろす……！
+
+バゴォォォンッッ
+
+刀が振り下ろされたのか……今！？　地面に！？
+明らかに想定と異なる衝撃に、もんどり打って転がる${name}。
+さながら爆発。砲弾が打ち込まれたが如く。
+
+うつ伏せに転がり、朦朧とした視界の向こうで、
+土方は背を向いて去ってゆく。
+
+ま、待て……
+
+つかむように伸ばした手。
+それに応じたわけでもなかろうが、
+短くこちらを振り向く土方。
+
+その瞳は、赤く輝いていたように、見えた。
+
+[次へ](207)</scene>
+	<scene id="1101" level="71" summary="攻撃開始">小悪魔は攻撃を仕掛けてくる……！
 
 速やかに迎撃の構えを選択せよ。
 
@@ -4031,7 +4130,7 @@ ${name}は軽く肩をすくめ、
 [中段](1103)
 [下段](1104)
 [見切り](232)</scene>
-	<scene id="1102" level="69" summary="上段">一閃、刹那。
+	<scene id="1102" level="72" summary="上段">一閃、刹那。
 
 [結果は――](239)
 [結果は――](1110 "!oFreeI1")
@@ -4040,30 +4139,30 @@ ${name}は軽く肩をすくめ、
 [結果は――](233)
 [結果は――](47)
 [結果は――](48)</scene>
-	<scene id="1103" level="69" summary="中段">一閃、刹那。
+	<scene id="1103" level="72" summary="中段">一閃、刹那。
 
 [結果――](1116,240,241,49,50)
 [結果は――](1114 "!oFreeI1")
 [結果は――](1115 "!oFreeI1")</scene>
-	<scene id="1104" level="69" summary="下段">敵は斬りかかってきた。
+	<scene id="1104" level="72" summary="下段">敵は斬りかかってきた。
 
 速やかに迎撃の構えを選択せよ。
 
 [結果は――](1120,242,243,51,52)
 [結果は――](1118 "!oFreeI1")
 [結果は――](1119 "!oFreeI1")</scene>
-	<scene id="1105" level="72" summary="勝利">勝ったッ……！
+	<scene id="1105" level="75" summary="勝利">勝ったッ……！
 
 荒い息を吐きつつも残心の構え。
 
 [次へ](215)</scene>
-	<scene id="1106" level="72" summary="敗北" end="bad" group="bad">生命力が尽きてしまった。
+	<scene id="1106" level="75" summary="敗北" end="bad" group="bad">生命力が尽きてしまった。
 
 戦いに敗れたのだ。
 視界は徐々に暗くなっていく……
 
 </scene>
-	<scene id="1110" level="70" summary="敵・上×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
+	<scene id="1110" level="73" summary="敵・上×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
 自　&gt;&gt;　上段
 
 **LOSE**
@@ -4075,7 +4174,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-2**
 
 [next](1130)</scene>
-	<scene id="1111" level="70" summary="敵・中○" se="koukaonrabo_katana" free1="-2">敵　&gt;&gt;　中段
+	<scene id="1111" level="73" summary="敵・中○" se="koukaonrabo_katana" free1="-2">敵　&gt;&gt;　中段
 **自　&gt;&gt;　上段**
 
 **WIN**
@@ -4087,7 +4186,7 @@ ${name}は軽く肩をすくめ、
 **敵の生命力-2**
 
 [next](1130)</scene>
-	<scene id="1112" level="70" summary="敵・下×" se="koukaonrabo_hit" free2="-2">**敵　&gt;&gt;　下段**
+	<scene id="1112" level="73" summary="敵・下×" se="koukaonrabo_hit" free2="-2">**敵　&gt;&gt;　下段**
 自　&gt;&gt;　上段
 
 **LOSE**
@@ -4100,7 +4199,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-2**
 
 [next](1130)</scene>
-	<scene id="1113" level="70" summary="敵・上" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
+	<scene id="1113" level="73" summary="敵・上" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
 
 攻撃を見極めよと集中する。
 
@@ -4112,7 +4211,7 @@ ${name}は軽く肩をすくめ、
 己の生命力-1
 
 [next](1130)</scene>
-	<scene id="1114" level="70" summary="敵・上×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
+	<scene id="1114" level="73" summary="敵・上×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
 自　&gt;&gt;　中段
 
 **LOSE**
@@ -4125,7 +4224,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-2**
 
 [next](1130)</scene>
-	<scene id="1115" level="70" summary="敵・中×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　中段**
+	<scene id="1115" level="73" summary="敵・中×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　中段**
 自　&gt;&gt;　中段
 
 **LOSE**
@@ -4137,7 +4236,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-2**
 
 [next](1130)</scene>
-	<scene id="1116" level="70" summary="敵・下○" se="koukaonrabo_katana" free1="-2">敵　&gt;&gt;　下段
+	<scene id="1116" level="73" summary="敵・下○" se="koukaonrabo_katana" free1="-2">敵　&gt;&gt;　下段
 **自　&gt;&gt;　中段**
 
 **WIN**
@@ -4149,7 +4248,7 @@ ${name}は軽く肩をすくめ、
 **敵の生命力-2**
 
 [next](1130)</scene>
-	<scene id="1117" level="70" summary="敵・中" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　中段**
+	<scene id="1117" level="73" summary="敵・中" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　中段**
 
 攻撃を見極めよと集中する。
 
@@ -4161,7 +4260,7 @@ ${name}は軽く肩をすくめ、
 己の生命力-1
 
 [next](1130)</scene>
-	<scene id="1118" level="70" summary="敵・上○" se="koukaonrabo_katana" free1="-2">敵　&gt;&gt;　上段
+	<scene id="1118" level="73" summary="敵・上○" se="koukaonrabo_katana" free1="-2">敵　&gt;&gt;　上段
 **自　&gt;&gt;　下段**
 
 **WIN**
@@ -4173,7 +4272,7 @@ ${name}は軽く肩をすくめ、
 **敵の生命力-2**
 
 [next](1130)</scene>
-	<scene id="1119" level="70" summary="敵・中×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　中段**
+	<scene id="1119" level="73" summary="敵・中×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　中段**
 自　&gt;&gt;　下段
 
 **LOSE**
@@ -4186,7 +4285,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-2**
 
 [next](1130)</scene>
-	<scene id="1120" level="70" summary="敵・下×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
+	<scene id="1120" level="73" summary="敵・下×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
 自　&gt;&gt;　下段
 
 **LOSE**
@@ -4198,7 +4297,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-2**
 
 [next](1130)</scene>
-	<scene id="1121" level="70" summary="敵・下" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
+	<scene id="1121" level="73" summary="敵・下" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
 
 攻撃を見極めよと集中する。
 
@@ -4210,13 +4309,13 @@ ${name}は軽く肩をすくめ、
 己の生命力-1
 
 [next](1130)</scene>
-	<scene id="1130" level="96" summary="判定">自　生命力（${free2}）
+	<scene id="1130" level="99" summary="判定">自　生命力（${free2}）
 敵　生命力（${free1}）
 
 [次のラウンド](1101 "oFreeI1&amp;oFreeII1")
 [勝利](1105 "!oFreeI1")
 [敗北](1106 "!oFreeII1")</scene>
-	<scene id="2100" level="80" summary="準備" free1="@6" free2="@6" result="r05" bgm="amacha_darkmatter">ぬえ。その本質はなんだかわからぬ者。
+	<scene id="2100" level="83" summary="準備" free1="@6" free2="@6" result="r05" bgm="amacha_darkmatter">ぬえ。その本質はなんだかわからぬ者。
 惑わされるな。本質を掴め。
 
 戦いの前に。
@@ -4258,7 +4357,7 @@ ${name}は軽く肩をすくめ、
 **このルールは、Battle Sheetを開くことでいつでも確認する事ができる。**
 
 [次へ](2101,244,245)</scene>
-	<scene id="2101" level="93" summary="3n+0" params="p01:@0">ぬえ：
+	<scene id="2101" level="96" summary="3n+0" params="p01:@0">ぬえ：
 「ププスーー……上から行くぞ……」
 
 ！？
@@ -4275,34 +4374,34 @@ ${name}は軽く肩をすくめ、
 [中段](2103)
 [下段](2104)
 [見切り](246)</scene>
-	<scene id="2102" level="94" summary="上段">一閃、刹那。
+	<scene id="2102" level="97" summary="上段">一閃、刹那。
 
 [結果は――](2110 "p01:@0")
 [結果は――](2111 "p01:@1")
 [結果は――](2112 "p01:@2")</scene>
-	<scene id="2103" level="94" summary="中段">一閃、刹那。
+	<scene id="2103" level="97" summary="中段">一閃、刹那。
 
 [結果は――](2114 "p01:@0")
 [結果は――](2115 "p01:@1")
 [結果は――](2116 "p01:@2")</scene>
-	<scene id="2104" level="94" summary="下段">一閃、刹那。
+	<scene id="2104" level="97" summary="下段">一閃、刹那。
 
 [結果は――](2118 "p01:@0")
 [結果は――](2119 "p01:@1")
 [結果は――](2120 "p01:@2")</scene>
-	<scene id="2105" level="89" summary="勝利">勝ったッ……！
+	<scene id="2105" level="92" summary="勝利">勝ったッ……！
 
 十分なダメージを与えたはず！
 
 [次へ](220)</scene>
-	<scene id="2106" level="89" summary="敗北">生命力が尽きてしまった。
+	<scene id="2106" level="92" summary="敗北">生命力が尽きてしまった。
 
 戦いに敗れたのだ。
 視界は徐々に暗くなっていく……
 
 [game over](238)
 [ヒントを見る](237)</scene>
-	<scene id="2110" level="95" summary="敵・上×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
+	<scene id="2110" level="98" summary="敵・上×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
 自　&gt;&gt;　上段
 
 **LOSE**
@@ -4314,7 +4413,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-2**
 
 [next](2130)</scene>
-	<scene id="2111" level="95" summary="敵・中○" se="koukaonrabo_katana" free1="-2">敵　&gt;&gt;　中段
+	<scene id="2111" level="98" summary="敵・中○" se="koukaonrabo_katana" free1="-2">敵　&gt;&gt;　中段
 **自　&gt;&gt;　上段**
 
 **WIN**
@@ -4327,7 +4426,7 @@ ${name}は軽く肩をすくめ、
 **敵の生命力-2**
 
 [next](2130)</scene>
-	<scene id="2112" level="95" summary="敵・下×" se="koukaonrabo_hit" free2="-2">**敵　&gt;&gt;　下段**
+	<scene id="2112" level="98" summary="敵・下×" se="koukaonrabo_hit" free2="-2">**敵　&gt;&gt;　下段**
 自　&gt;&gt;　上段
 
 **LOSE**
@@ -4340,7 +4439,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-2**
 
 [next](2130)</scene>
-	<scene id="2113" level="83" summary="敵・上" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
+	<scene id="2113" level="86" summary="敵・上" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
 
 攻撃を見極めよと集中する。
 
@@ -4352,7 +4451,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-1**
 
 [next](2130)</scene>
-	<scene id="2114" level="95" summary="敵・上×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
+	<scene id="2114" level="98" summary="敵・上×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
 自　&gt;&gt;　中段
 
 **LOSE**
@@ -4366,7 +4465,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-2**
 
 [next](2130)</scene>
-	<scene id="2115" level="95" summary="敵・中×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　中段**
+	<scene id="2115" level="98" summary="敵・中×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　中段**
 自　&gt;&gt;　中段
 
 **LOSE**
@@ -4380,7 +4479,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-2**
 
 [next](2130)</scene>
-	<scene id="2116" level="95" summary="敵・下○" se="koukaonrabo_katana" free1="-2">敵　&gt;&gt;　下段
+	<scene id="2116" level="98" summary="敵・下○" se="koukaonrabo_katana" free1="-2">敵　&gt;&gt;　下段
 **自　&gt;&gt;　中段**
 
 **WIN**
@@ -4394,7 +4493,7 @@ ${name}は軽く肩をすくめ、
 **敵の生命力-2**
 
 [next](2130)</scene>
-	<scene id="2117" level="83" summary="敵・中" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　中段**
+	<scene id="2117" level="86" summary="敵・中" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　中段**
 
 攻撃を見極めよと集中する。
 
@@ -4406,7 +4505,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-1**
 
 [next](2130)</scene>
-	<scene id="2118" level="95" summary="敵・上○" se="koukaonrabo_katana" free1="-2">**敵　&gt;&gt;　上段**
+	<scene id="2118" level="98" summary="敵・上○" se="koukaonrabo_katana" free1="-2">**敵　&gt;&gt;　上段**
 自　&gt;&gt;　下段
 
 **WIN**
@@ -4421,7 +4520,7 @@ ${name}は軽く肩をすくめ、
 **敵の生命力-2**
 
 [next](2130)</scene>
-	<scene id="2119" level="95" summary="敵・中×" se="koukaonrabo_hit" free2="-2">**敵　&gt;&gt;　中段**
+	<scene id="2119" level="98" summary="敵・中×" se="koukaonrabo_hit" free2="-2">**敵　&gt;&gt;　中段**
 自　&gt;&gt;　下段
 
 **LOSE**
@@ -4434,7 +4533,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-2**
 
 [next](2130)</scene>
-	<scene id="2120" level="95" summary="敵・下×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
+	<scene id="2120" level="98" summary="敵・下×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
 自　&gt;&gt;　下段
 
 **LOSE**
@@ -4449,7 +4548,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-2**
 
 [next](2130)</scene>
-	<scene id="2121" level="83" summary="敵・下" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
+	<scene id="2121" level="86" summary="敵・下" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
 
 攻撃を見極めよと集中する。
 
@@ -4461,13 +4560,13 @@ ${name}は軽く肩をすくめ、
 **己の生命力-1**
 
 [next](2130)</scene>
-	<scene id="2130" level="84" summary="判定">自　生命力（${free2}）
+	<scene id="2130" level="87" summary="判定">自　生命力（${free2}）
 敵　生命力（${free1}）
 
 [勝利](2105 "!oFreeI1")
 [敗北](2106 "!oFreeII1")
 [次のラウンド](2131,247,248,234,235,2163 "oFreeI1&amp;oFreeII1")</scene>
-	<scene id="2131" level="85" summary="3n+1" params="p01:@0">ぬえ：
+	<scene id="2131" level="88" summary="3n+1" params="p01:@0">ぬえ：
 「ププスーー……上から行くぞ……」
 
 ！？
@@ -4484,22 +4583,22 @@ ${name}は軽く肩をすくめ、
 [中段](2133)
 [下段](2134)
 [見切り](249)</scene>
-	<scene id="2132" level="86" summary="上段">一閃、刹那。
+	<scene id="2132" level="89" summary="上段">一閃、刹那。
 
 [結果は――](2140 "p01:@3|p01:@4")
 [結果は――](2141 "p01:@0|p01:@5")
 [結果は――](2142 "p01:@1|p01:@2")</scene>
-	<scene id="2133" level="86" summary="中段">一閃、刹那。
+	<scene id="2133" level="89" summary="中段">一閃、刹那。
 
 [結果は――](2144 "p01:@3|p01:@4")
 [結果は――](2145 "p01:@0|p01:@5")
 [結果は――](2146 "p01:@1|p01:@2")</scene>
-	<scene id="2134" level="86" summary="下段">一閃、刹那。
+	<scene id="2134" level="89" summary="下段">一閃、刹那。
 
 [結果は――](2148 "p01:@3|p01:@4")
 [結果は――](2149 "p01:@0|p01:@5")
 [結果は――](2150 "p01:@1|p01:@2")</scene>
-	<scene id="2140" level="87" summary="敵・上×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
+	<scene id="2140" level="90" summary="敵・上×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
 自　&gt;&gt;　上段
 
 **LOSE**
@@ -4511,7 +4610,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-2**
 
 [next](2160)</scene>
-	<scene id="2141" level="87" summary="敵・中○" free1="-2" se="koukaonrabo_katana">敵　&gt;&gt;　中段
+	<scene id="2141" level="90" summary="敵・中○" free1="-2" se="koukaonrabo_katana">敵　&gt;&gt;　中段
 **自　&gt;&gt;　上段**
 
 **WIN**
@@ -4524,7 +4623,7 @@ ${name}は軽く肩をすくめ、
 **敵の生命力-2**
 
 [next](2160)</scene>
-	<scene id="2142" level="87" summary="敵・下×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
+	<scene id="2142" level="90" summary="敵・下×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
 自　&gt;&gt;　上段
 
 **LOSE**
@@ -4537,7 +4636,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-2**
 
 [next](2160)</scene>
-	<scene id="2143" level="87" summary="敵・上" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
+	<scene id="2143" level="90" summary="敵・上" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
 
 攻撃を見極めよと集中する。
 
@@ -4549,7 +4648,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-1**
 
 [next](2160)</scene>
-	<scene id="2144" level="87" summary="敵・上×" se="koukaonrabo_hit" free2="-2">**敵　&gt;&gt;　上段**
+	<scene id="2144" level="90" summary="敵・上×" se="koukaonrabo_hit" free2="-2">**敵　&gt;&gt;　上段**
 自　&gt;&gt;　中段
 
 **LOSE**
@@ -4563,7 +4662,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-2**
 
 [next](2160)</scene>
-	<scene id="2145" level="87" summary="敵・中×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　中段**
+	<scene id="2145" level="90" summary="敵・中×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　中段**
 自　&gt;&gt;　中段
 
 **LOSE**
@@ -4577,7 +4676,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-2**
 
 [next](2160)</scene>
-	<scene id="2146" level="87" summary="敵・下○" se="koukaonrabo_katana" free1="-2">敵　&gt;&gt;　下段
+	<scene id="2146" level="90" summary="敵・下○" se="koukaonrabo_katana" free1="-2">敵　&gt;&gt;　下段
 **自　&gt;&gt;　中段**
 
 **WIN**
@@ -4591,7 +4690,7 @@ ${name}は軽く肩をすくめ、
 **敵の生命力-2**
 
 [next](2160)</scene>
-	<scene id="2147" level="87" summary="敵・中" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　中段**
+	<scene id="2147" level="90" summary="敵・中" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　中段**
 
 攻撃を見極めよと集中する。
 
@@ -4603,7 +4702,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-1**
 
 [next](2160)</scene>
-	<scene id="2148" level="87" summary="敵・上○" se="koukaonrabo_katana" free1="-2">**敵　&gt;&gt;　上段**
+	<scene id="2148" level="90" summary="敵・上○" se="koukaonrabo_katana" free1="-2">**敵　&gt;&gt;　上段**
 自　&gt;&gt;　下段
 
 **WIN**
@@ -4618,7 +4717,7 @@ ${name}は軽く肩をすくめ、
 **敵の生命力-2**
 
 [next](2160)</scene>
-	<scene id="2149" level="87" summary="敵・中×" se="koukaonrabo_hit" free2="-2">**敵　&gt;&gt;　中段**
+	<scene id="2149" level="90" summary="敵・中×" se="koukaonrabo_hit" free2="-2">**敵　&gt;&gt;　中段**
 自　&gt;&gt;　下段
 
 **LOSE**
@@ -4631,7 +4730,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-2**
 
 [next](2160)</scene>
-	<scene id="2150" level="87" summary="敵・下×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
+	<scene id="2150" level="90" summary="敵・下×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
 自　&gt;&gt;　下段
 
 **LOSE**
@@ -4646,7 +4745,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-2**
 
 [next](2160)</scene>
-	<scene id="2151" level="87" summary="敵・下" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
+	<scene id="2151" level="90" summary="敵・下" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
 
 攻撃を見極めよと集中する。
 
@@ -4658,13 +4757,13 @@ ${name}は軽く肩をすくめ、
 **己の生命力-1**
 
 [next](2160)</scene>
-	<scene id="2160" level="88" summary="判定2">自　生命力（${free2}）
+	<scene id="2160" level="91" summary="判定2">自　生命力（${free2}）
 敵　生命力（${free1}）
 
 [次のラウンド](2161,2164,2166 "oFreeI1&amp;oFreeII1")
 [勝利](2105 "!oFreeI1")
 [敗北](2106 "!oFreeII1")</scene>
-	<scene id="2161" level="89" summary="3n+2">ぬえ：
+	<scene id="2161" level="92" summary="3n+2">ぬえ：
 「ププスーー……上から行くぞ……」
 
 ！？
@@ -4681,10 +4780,10 @@ ${name}は軽く肩をすくめ、
 [中段](2165)
 [下段](2168)
 [見切り](2169)</scene>
-	<scene id="2162" level="90" summary="上段">一閃、刹那。
+	<scene id="2162" level="93" summary="上段">一閃、刹那。
 
 [結果は――](2171,2172,2173)</scene>
-	<scene id="2163" level="85" summary="3n+1,6" params="p01:@5">ぬえ：
+	<scene id="2163" level="88" summary="3n+1,6" params="p01:@5">ぬえ：
 「ホーホー……今からまっすぐ真ん中を狙う……」
 
 ！？
@@ -4701,7 +4800,7 @@ ${name}は軽く肩をすくめ、
 [中段](2133)
 [下段](2134)
 [見切り](249)</scene>
-	<scene id="2164" level="89" summary="3n+2,2">ぬえ：
+	<scene id="2164" level="92" summary="3n+2,2">ぬえ：
 「ホーホー……今からまっすぐ真ん中を狙う……」
 
 ！？
@@ -4718,10 +4817,10 @@ ${name}は軽く肩をすくめ、
 [中段](2165)
 [下段](2168)
 [見切り](2169)</scene>
-	<scene id="2165" level="90" summary="中段">一閃、刹那。
+	<scene id="2165" level="93" summary="中段">一閃、刹那。
 
 [結果は――](2175,2176,2177)</scene>
-	<scene id="2166" level="89" summary="3n+2,3">ぬえ：
+	<scene id="2166" level="92" summary="3n+2,3">ぬえ：
 「キキキギギギ……
 　足元……警戒しなくて大丈夫かぁ……？」
 
@@ -4739,13 +4838,13 @@ ${name}は軽く肩をすくめ、
 [中段](2165)
 [下段](2168)
 [見切り](2169)</scene>
-	<scene id="2168" level="90" summary="下段">一閃、刹那。
+	<scene id="2168" level="93" summary="下段">一閃、刹那。
 
 [結果は――](2179,2180,2181)</scene>
-	<scene id="2169" level="90" summary="見切り">一閃、刹那。
+	<scene id="2169" level="93" summary="見切り">一閃、刹那。
 
 [結果は――](2174,2178,2182)</scene>
-	<scene id="2171" level="91" summary="敵・上×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
+	<scene id="2171" level="94" summary="敵・上×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
 自　&gt;&gt;　上段
 
 **LOSE**
@@ -4757,7 +4856,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-2**
 
 [next](2183)</scene>
-	<scene id="2172" level="91" summary="敵・中○" se="koukaonrabo_katana" free1="-2">敵　&gt;&gt;　中段
+	<scene id="2172" level="94" summary="敵・中○" se="koukaonrabo_katana" free1="-2">敵　&gt;&gt;　中段
 **自　&gt;&gt;　上段**
 
 **WIN**
@@ -4770,7 +4869,7 @@ ${name}は軽く肩をすくめ、
 **敵の生命力-2**
 
 [next](2183)</scene>
-	<scene id="2173" level="91" summary="敵・下×" se="koukaonrabo_hit" free2="-2">**敵　&gt;&gt;　下段**
+	<scene id="2173" level="94" summary="敵・下×" se="koukaonrabo_hit" free2="-2">**敵　&gt;&gt;　下段**
 自　&gt;&gt;　上段
 
 **LOSE**
@@ -4783,7 +4882,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-2**
 
 [next](2183)</scene>
-	<scene id="2174" level="91" summary="敵・上" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
+	<scene id="2174" level="94" summary="敵・上" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　上段**
 
 攻撃を見極めよと集中する。
 
@@ -4795,7 +4894,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-1**
 
 [next](2183)</scene>
-	<scene id="2175" level="91" summary="敵・上×" se="koukaonrabo_hit" free2="-2">**敵　&gt;&gt;　上段**
+	<scene id="2175" level="94" summary="敵・上×" se="koukaonrabo_hit" free2="-2">**敵　&gt;&gt;　上段**
 自　&gt;&gt;　中段
 
 **LOSE**
@@ -4809,7 +4908,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-2**
 
 [next](2183)</scene>
-	<scene id="2176" level="91" summary="敵・中×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　中段**
+	<scene id="2176" level="94" summary="敵・中×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　中段**
 自　&gt;&gt;　中段
 
 **LOSE**
@@ -4823,7 +4922,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-2**
 
 [next](2183)</scene>
-	<scene id="2177" level="91" summary="敵・下○" free1="-2" se="koukaonrabo_katana">敵　&gt;&gt;　下段
+	<scene id="2177" level="94" summary="敵・下○" free1="-2" se="koukaonrabo_katana">敵　&gt;&gt;　下段
 **自　&gt;&gt;　中段**
 
 **WIN**
@@ -4837,7 +4936,7 @@ ${name}は軽く肩をすくめ、
 **敵の生命力-2**
 
 [next](2183)</scene>
-	<scene id="2178" level="91" summary="敵・中" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　中段**
+	<scene id="2178" level="94" summary="敵・中" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　中段**
 
 攻撃を見極めよと集中する。
 
@@ -4849,7 +4948,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-1**
 
 [next](2183)</scene>
-	<scene id="2179" level="91" summary="敵・上○" free1="-2" se="koukaonrabo_katana">**敵　&gt;&gt;　上段**
+	<scene id="2179" level="94" summary="敵・上○" free1="-2" se="koukaonrabo_katana">**敵　&gt;&gt;　上段**
 自　&gt;&gt;　下段
 
 **WIN**
@@ -4864,7 +4963,7 @@ ${name}は軽く肩をすくめ、
 **敵の生命力-2**
 
 [next](2183)</scene>
-	<scene id="2180" level="91" summary="敵・中×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　中段**
+	<scene id="2180" level="94" summary="敵・中×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　中段**
 自　&gt;&gt;　下段
 
 **LOSE**
@@ -4877,7 +4976,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-2**
 
 [next](2183)</scene>
-	<scene id="2181" level="91" summary="敵・下×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
+	<scene id="2181" level="94" summary="敵・下×" free2="-2" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
 自　&gt;&gt;　下段
 
 **LOSE**
@@ -4892,7 +4991,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-2**
 
 [next](2183)</scene>
-	<scene id="2182" level="91" summary="敵・下" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
+	<scene id="2182" level="94" summary="敵・下" free2="-1" se="koukaonrabo_hit">**敵　&gt;&gt;　下段**
 
 攻撃を見極めよと集中する。
 
@@ -4904,7 +5003,7 @@ ${name}は軽く肩をすくめ、
 **己の生命力-1**
 
 [next](2183)</scene>
-	<scene id="2183" level="92" summary="判定3">自　生命力（${free2}）
+	<scene id="2183" level="95" summary="判定3">自　生命力（${free2}）
 敵　生命力（${free1}）
 
 [勝利](2105 "!oFreeI1")
