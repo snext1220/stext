@@ -39,7 +39,9 @@
 		<param id="p01" min="0" max="10" initial="0">ランダム制御用</param>
 	</params>
 	<enemies>
-		<enemy id="m01" name="鬼" element="earth" attack="physics" func="L+R">日本に古くから住む人間とは異なる種族。魔の力により狂暴化している。</enemy>
+		<enemy id="m01" name="ジャンプする悪魔" element="wind" attack="physics" func="L+R-DEX" func_opp="L+R" hp="7">日本に古くから住む人間とは異なる種族。魔の力により狂暴化している。</enemy>
+		<enemy id="m02" name="笑う悪魔" element="spirit" attack="physics" func="L+R+5-INT" func_opp="L+R" hp="5"></enemy>
+		<enemy id="m03" name="ムキムキの悪魔" element="fire" attack="physics" func="L+R+8-STR" func_opp="L+R" hp="10"></enemy>
 	</enemies>
 	<results>
 		<result id="r01" name="大手門戦" level="1">中断セーブ</result>
@@ -3261,12 +3263,15 @@ ${name}は軽く肩をすくめ、
 
 [許さん、叩き切る](212)
 [だめだ、ここで消耗するわけには](213)</scene>
-	<scene id="212" level="79" summary="戦う">複数人バトルである。
+	<scene id="212" level="79" summary="戦う" rule="99002" enemies="m01,m02,m03">複数相手の戦い。
 
-一匹一匹は強くないが、倒す順番を間違えると
-窮地に立たされる危険性がある。
+いつものように読み合いバトルをしている余裕はない。
+通常バトルにより叩き伏せる。
 
-[次へ](217)</scene>
+右の **Battle Sheet** を開き、指示に従え。
+
+[敵を全て倒した](217)
+[自分のHPが尽きた](1106)</scene>
 	<scene id="213" level="79" summary="先を急ぐ">許せ。
 薄情かもしれぬ。
 だが流されてはならぬ。
@@ -4031,9 +4036,6 @@ ${name}は軽く肩をすくめ、
 銃剣を目の前に突きつけられた後。
 
 間に合わぬ――瞳に映り込む、冷たき刀影―――
-　
-　
-　
 
 [次へ](252)</scene>
 	<scene id="252" summary="土方2" level="63" se="koukaonrabo_katana">体の中心を衝撃が駆け抜ける、斬撃音。
@@ -4156,7 +4158,7 @@ ${name}は軽く肩をすくめ、
 荒い息を吐きつつも残心の構え。
 
 [次へ](215)</scene>
-	<scene id="1106" level="75" summary="敗北" end="bad" group="bad">生命力が尽きてしまった。
+	<scene id="1106" level="80" summary="敗北" end="bad" group="bad">生命力が尽きてしまった。
 
 戦いに敗れたのだ。
 視界は徐々に暗くなっていく……
@@ -5042,10 +5044,25 @@ rev 000 2022/03/27 新規作成
 
 ※ただし、「最終章をhappyでクリアする毎に1度だけ」
 
+[ダミー](99002 "f99")
 [ダミー](99999 "f99")
 [ダミー](99001 "f99")
 [ダミー](88888 "f99")</scene>
 	<scene id="99001" level="3" summary="空ルール"></scene>
+	<scene id="99002" summary="通常戦闘ルール" level="3">サイコロを振り、残っている敵（HPが0より大きい）の分だけ
+**%blue%青いダメージ計算式ボタン%/%** を押してダメージを受けよ。
+
+耐えきったならば、反撃だ。
+好きな相手を選び、 **HPボタン** を押せ。ダメージを与えられる。
+
+これで1ラウンド終了である。
+
+全ての敵のHPが0になるか、自分のHPが0になるまで続けること。
+
+--
+**敵へのダメージ計算式：サイコロ L+R**
+
+</scene>
 	<scene id="99999" level="3" summary="無指定共通ルール">**上段 &gt; 中段**
 **中段 &gt; 下段**
 **下段 &gt; 上段**
