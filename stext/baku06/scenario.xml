@@ -39,9 +39,9 @@
 		<param id="p01" min="0" max="10" initial="0">ランダム制御用</param>
 	</params>
 	<enemies>
-		<enemy id="m01" name="ジャンプする悪魔" element="wind" attack="physics" func="L+R-DEX" func_opp="L+R" hp="7">日本に古くから住む人間とは異なる種族。魔の力により狂暴化している。</enemy>
-		<enemy id="m02" name="笑う悪魔" element="spirit" attack="physics" func="L+R+5-INT" func_opp="L+R" hp="5"></enemy>
-		<enemy id="m03" name="ムキムキの悪魔" element="fire" attack="physics" func="L+R+8-STR" func_opp="L+R" hp="10"></enemy>
+		<enemy id="m01" name="ジャンプする悪魔" element="wind" attack="physics" func="L+R-DEX" func_opp="L+R" hp="7">機敏だ</enemy>
+		<enemy id="m02" name="笑う悪魔" element="spirit" attack="physics" func="L+R+5-INT" func_opp="L+R" hp="5">癇に障る笑いをする。惑わされてはならない。</enemy>
+		<enemy id="m03" name="ムキムキの悪魔" element="fire" attack="physics" func="L+R+8-STR" func_opp="L+R" hp="10">見るからにヤバい筋肉をしている</enemy>
 	</enemies>
 	<results>
 		<result id="r01" name="大手門戦" level="1">中断セーブ</result>
@@ -2188,7 +2188,7 @@ ${name}：
 **パークス！**
 　
 　
-記憶にあるだろうか、正四郎の警告を。
+記憶にあるだろうか、政四郎の警告を。
 魔の暗躍の後ろに西洋人の影あり。
 その名はパークス。
 
@@ -2285,6 +2285,8 @@ ${name}は武器を構え警戒を強めるが――
 ええいどうしようもない！
 そのまま海水に飛び込む！
 
+![ティーカップ](05.png)
+
 [次へ](173)</scene>
 	<scene id="173" level="42" summary="3">ガボガボガボ
 
@@ -2351,6 +2353,8 @@ ${name}は武器を構え警戒を強めるが――
 勢いよく潜っていくが、
 水圧が高まるにつれて、意識が、だんだんと、……ガボ、ボ
 
+![目指すは竜宮！](10.png)
+
 [次へ](222)</scene>
 	<scene id="175" level="43" summary="五右衛門風呂">風呂。全ての水は風呂につながる。
 
@@ -2365,6 +2369,8 @@ ${name}は武器を構え警戒を強めるが――
 その繰り返しは確実に体力を蝕む！
 
 いつしか${name}は意識を失い……
+
+![多次元風呂宇宙](08.png)
 
 [次へ](222)</scene>
 	<scene id="176" level="43" summary="河童">本来海は、人の生きることが叶わぬ世界。
@@ -2385,6 +2391,8 @@ ${name}は武器を構え警戒を強めるが――
 河童は河の生き物である。
 
 ガボガボ……
+
+![海に河童？](09.png)
 
 [次へ](222)</scene>
 	<scene id="177" level="45" summary="7">陸奥国に広がる巨大な湖、猪苗代湖。
@@ -2414,6 +2422,8 @@ ${name}は武器を構え警戒を強めるが――
 まだ生きている！
 
 男はしばし思案し……
+
+![ダイコン](06.png)
 
 [次へ](178)</scene>
 	<scene id="178" level="46" summary="8" bgm="CMP0005-mori_no_tami">ユール:
@@ -2946,7 +2956,7 @@ ${name}は隅っこの方で大人しくしている。
 城に戻り、馬を貸してもらい出発することにした。
 
 [一旦軍議に戻る](199)
-[次へ](201)</scene>
+[二本松へ向かう](201)</scene>
 	<scene id="201" level="61" summary="二本松" bgm="dova_simtone_kassen">怒号。土煙。飛び交う弾丸。
 
 何事か……！？
@@ -3631,6 +3641,8 @@ ${name}は軽く肩をすくめ、
 強力な押し出し。すごろくで言えば
 3歩戻るのような手を華麗に決められた。
 
+![強い壁](07.png)
+
 [戻る](216)</scene>
 	<scene id="226" level="80" summary="勝ち">切り払った斬撃が敵の核を割る、確かな手応え。
 怪物は苦悶の呻きをあげて泥と化した。
@@ -4134,16 +4146,12 @@ ${name}は軽く肩をすくめ、
 [見切り](232)</scene>
 	<scene id="1102" level="72" summary="上段">一閃、刹那。
 
-[結果は――](239)
+[結果は――](239,1112,47,48,233)
 [結果は――](1110 "!oFreeI1")
-[結果は――](1111 "!oFreeI1")
-[結果は――](1112)
-[結果は――](233)
-[結果は――](47)
-[結果は――](48)</scene>
+[結果は――](1111 "!oFreeI1")</scene>
 	<scene id="1103" level="72" summary="中段">一閃、刹那。
 
-[結果――](1116,240,241,49,50)
+[結果は――](1116,240,241,49,50)
 [結果は――](1114 "!oFreeI1")
 [結果は――](1115 "!oFreeI1")</scene>
 	<scene id="1104" level="72" summary="下段">敵は斬りかかってきた。
@@ -5011,7 +5019,8 @@ ${name}は軽く肩をすくめ、
 [勝利](2105 "!oFreeI1")
 [敗北](2106 "!oFreeII1")
 [次のラウンド](2101,244,245 "oFreeI1&amp;oFreeII1")</scene>
-	<scene id="88888" level="3" summary="履歴">rev 005 2022/10/16 小悪魔戦、ランダムが不調なので固定化
+	<scene id="88888" level="3" summary="履歴">rev 006 2022/10/22 テストプレイの意見を参考に修正、挿絵追加
+rev 005 2022/10/16 小悪魔戦、ランダムが不調なので固定化
 rev 004 2022/10/16 後編追加
 rev 003 2022/04/05 挿絵追加
 rev 002 2022/04/02 効果音追加
