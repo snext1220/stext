@@ -593,7 +593,7 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 </work>
 
 <work id="baku06" title="陸：戊辰に吠えるもののふ共" author="cocotori" series="幕末ソーサリアン"
-  tags="歴史,連作" published="2022-04-11" updated="2022-04-11" level="2" scenes="99" results="6" clears="r06"
+  tags="歴史,連作" published="2022-04-11" updated="2022-10-24" level="2" scenes="265" results="6" clears="r06"
   comment="歴史を学び、大真面目に作りました。その結果、キョンシーやモヒカン族も登場します。">
   <img src="./stext/baku06/capture/intro.png" height="120"
     title="陸：戊辰に吠えるもののふ共" align="right" class="right"/>
@@ -601,9 +601,7 @@ STextならではの「ドラゴンとたたかう」をお楽しみください
 　慶応4年。激動の時代である。明治の世が始まろうという中、旧体の誇りと権威にしがみつき、戦う侍達。
 彼らの胸に去来する思いは何か。ソーサリアンとともに、それを解き明かす旅に出よう。
 
-<p class="award">2022/4/11現在、前半部分のみ遊べます。</p>
-
-  <p class="award">序のクリア実績で解放されます。引き継ぎの際は［続きから］ボタンを押してゲームをスタートしてください。</p>
+  <p class="award">引き継ぎの際は［続きから］ボタンを押してゲームをスタートしてください。</p>
 </work>
 
 <!-- <work id="mini" title="ミニミニソーサリアンText" author="リオ" series="Playground100祭"
