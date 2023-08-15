@@ -25,23 +25,44 @@
 		<item id="i10" name="Br.Potion" target="mp" effect="full">★自動 MPを全回復</item>
 		<item id="i11" name="エルフのぬりぐすり" target="hp" effect="400">★自動 HPを400回復</item>
 		<item id="i12" name="エルフののみぐすり" target="mp" effect="400">★自動 MPを400回復</item>
-		<item id="i13" name="吸血鬼の爪" target="none">★手動 使用後に1回だけ通常攻撃で敵を倒した際にHPを200回復</item>
-		<item id="i14" name="吸血鬼の牙" target="none">★手動 使用後に1回だけ通常攻撃で敵を倒した際にMPを200回復</item>
+		<item id="i13" name="吸血鬼の爪" target="none">★手動 使用後に1回だけ通常攻撃で敵にDMを与えた際にHPを300回復</item>
+		<item id="i14" name="吸血鬼の牙" target="none">★手動 使用後に1回だけ通常攻撃で敵にDMを与えた際にMPを300回復</item>
 		<item id="i15" name="きのぼう">ただの木の棒だ…</item>
 		<item id="i16" name="こいし">ただの小石だ…</item>
 		<item id="i17" name="ひとにぎりのすな">ただの一握りの砂だ…</item>
-		<item id="i20" name="ウェンカムイ" target="none">★手動 全ての攻撃DMを1/2にする※他と重複も可だが効果は1ターン</item>
-		<item id="i21" target="str" name="ベアクロー" effect="@255">★自動 1ターンだけSTRが255になる※手動で戻す</item>
-		<item id="i22" target="state" effect="-stone" name="熊胆">★自動 石化/強石化解除</item>
-		<item id="i23" name="イビルソード" target="none">★手動 敵を全滅(各DM1)するが全状態異常にかかる</item>
+		<item id="i20" name="ウェンカムイ" target="none">★手動 1ターン中､全ての攻撃DMを1/2にする※他と重複可</item>
+		<item id="i21" target="str" name="ベアクロー" effect="100">★自動 1ターン中､STR+100※手動で戻す</item>
+		<item id="i22" target="none" name="熊胆">★手動 1戦闘中､全状態異常を防ぐ※強も</item>
+		<item id="i23" name="イビルソード" target="none">★手動 敵を全滅(HP敵はDM1)するが全状態異常にかかる</item>
 		<item id="i24" name="エリクサー(偽)" target="none">★手動 HP/MPを全回復するが全状態異常にかかる</item>
-		<item id="i25" name="せいすい(偽)" target="none">★手動 全状態異常を解除(強は不可)するがHP/MPが半分になる</item>
+		<item id="i25" name="せいすい(偽)" target="none">★手動 全状態異常を解除(強も)するがHP/MPが半分になる</item>
 		<item id="i26" name="どくけし" target="state" effect="-poison">★自動 毒解除※猛毒は不可</item>
-		<item id="i28" target="state" effect=" -frozen" name="ホッカイロ">★自動 凍結解除※強凍結は不可</item>
+		<item id="i27" name="解毒剤" target="state" effect="-poison">★自動 毒/猛毒解除</item>
+		<item id="i28" target="state" effect="-frozen" name="ホッカイロ">★自動 凍結解除※強凍結は不可</item>
+		<item id="i29" name="おうごんのさけ" target="state" effect="-frozen">★自動 凍結/強凍結解除</item>
 		<item id="i30" name="とんかち" target="state" effect="-forget">★自動 忘却解除※全忘却は不可</item>
+		<item id="i31" name="ハンマー" target="state" effect="-forget">★自動 忘却/全忘却解除</item>
 		<item id="i32" name="きんのはり" target="state" effect="-stone">★自動 石化解除※強石化は不可</item>
+		<item id="i33" name="みかがみ" target="state" effect="-stone">★自動 石化/強石化解除</item>
 		<item id="i34" name="じゅうじか" target="state" effect="-curse">★自動 呪い解除※呪怨は不可</item>
-		<item id="i36" name="せいすい" target="state" effect="-all">★自動 全状態異常解除※強は不可</item>
+		<item id="i35" name="バイブル" target="state" effect="-curse">★自動 呪い/呪怨解除</item>
+		<item id="i36" name="せいすい" target="state" effect="-all">★自動 全状態異常解除※強も</item>
+		<item id="i37" name="ばんのうやく" target="state" effect="-all">★自動 全状態異常解除※強は不可</item>
+		<item id="i40" name="エクスカリパー">えくすかりぱー</item>
+		<item id="i41" name="イピルソード">いぴるそーど</item>
+		<item id="i42" name="MurasamaBlade">むらさまぶれーど</item>
+		<item id="i50" name="ひのきのぼう">武器…？</item>
+		<item id="i51" name="ぬののふく">鎧…？</item>
+		<item id="i52" name="おなべのフタ">盾…？</item>
+		<item id="i60" name="オリハルコソ">永久不滅の金属…らしい</item>
+		<item id="i61" name="アダマソタイト">超絶硬い鉱物…っぽい</item>
+		<item id="i62" name="クレリマ">魔力を発生する銀…なのかー？</item>
+		<item id="i70" name="口卜の剣">こうぼくのけん</item>
+		<item id="i71" name="口卜の鎧">こうぼくのよろい</item>
+		<item id="i72" name="口卜の盾">こうぼくのたて</item>
+		<item id="i80" name="カの盾">かのたて</item>
+		<item id="i81" name="賢者の右">渾身の右ストレート</item>
+		<item id="i82" name="光の玉">ひかる君の…タマ</item>
 		<item id="i101" name="ロングソード">★武器 片/両 STR+12/+16 DEX±0/+3</item>
 		<item id="i102" name="スピア">★武器 片/両 STR+8/+12 DEX±0/+3 ２体攻撃</item>
 		<item id="i103" name="カタナブレード">★武器 片/両 STR+30/+40 DEX±0/+3</item>
@@ -50,7 +71,7 @@
 		<item id="i106" name="ハルバード">★武器 片/両 STR+50/+70 DEX-8/+8 ２体攻撃</item>
 		<item id="i107" name="ツインソード">★武器 両専 STR+8 DEX+8 ２体攻撃</item>
 		<item id="i108" name="ダブルトマホーク">★武器 両専 STR+30 DEX+5 ２体攻撃</item>
-		<item id="i109" name="バスタードソード">★武器 片/両 STR+50/+65 DEX±0/+3 両時２体攻撃</item>
+		<item id="i109" name="バスタードソード">★武器 片/両 STR+50/+65 DEX±0/+5 両時２体攻撃</item>
 		<item id="i201" name="ラウンドシールド">★盾 DEX+5 DM-3</item>
 		<item id="i202" name="カイトシールド">★盾 DEX+10 DM-5</item>
 		<item id="i203" name="ラージシールド">★盾 DEX+15 DM-15</item>
@@ -79,10 +100,21 @@
 		<item id="i1209" name="蔓のミサンガ">草の蔓(つる)で編まれた簡素な腕輪</item>
 		<item id="i2005" name="木の枝">拒絶の森の入口の枝だ</item>
 		<item id="i2535" name="エリクサー(並)" target="none">★手動 HP/MP/状態異常を全回復</item>
-		<item id="i2861" name="どくがのこな" target="none">★手動 全敵を1ターン行動不能にする※通常敵のみ</item>
+		<item id="i2744" name="タリスマン(中)" target="none">★KRM+15 ★手動 即死時に身代わり※その際はUSEで消滅</item>
+		<item id="i2745" name="紅玉(浄化済)">今やほとんどただの水晶玉</item>
+		<item id="i2861" name="どくがのこな" target="none">★手動 1ターン中､全敵を行動不能にする※通常敵のみ</item>
 		<item id="i2900" name="紅玉">赤黒く鳴動する不気味な水晶玉</item>
-		<item id="i2903" name="タリスマン(小)">KRM+1/タリスマンになり始めの小石</item>
-		<item id="i3360" name="エリクサー(特)" target="none">★手動 死亡時に生き返る真のエリクサー</item>
+		<item id="i2903" name="タリスマン(小)">★KRM+3 タリスマンになり始めの小石</item>
+		<item id="i3185" name="ペリュトンのはね" target="none">★手動 敵2体を岩で倒す※HP敵はDM1</item>
+		<item id="i3186" name="ハーピーのはね" target="none">★手動 1戦闘中､歌で待機敵の攻撃を封じる※通常敵のみ</item>
+		<item id="i3360" name="エリクサー(特)" target="none">★手動 死亡時にHP/MP/状態異常を全回復※魔法/ブースト等全て維持</item>
+		<item id="i4110" name="竜の翼">ブルードラゴンのツバサ</item>
+		<item id="i4111" name="竜の爪">ブルードラゴンのツメ</item>
+		<item id="i4120" name="竜の鱗">ブルードラゴンのウロコ</item>
+		<item id="i4130" name="竜の髭">ブルードラゴンのヒゲ</item>
+		<item id="i4131" name="竜の角">ブルードラゴンのツノ</item>
+		<item id="i4140" name="竜の牙">ブルードラゴンのキバ</item>
+		<item id="i4150" name="竜の逆鱗">ブルードラゴンの逆鱗</item>
 		<item id="i4221" name="隼の剣">★武器 片/両 STR+45/+45 DEX+8/+15 隼斬り/２回攻撃</item>
 		<item id="i4222" name="イージスの盾">★盾 DEX+20 DM-20 無敵の守り</item>
 		<item id="i4223" name="リフレクス">★鎧 DM-55 DEX+5 リフレクト</item>
@@ -138,6 +170,7 @@
 		<flag id="f3191">山の見張りを倒した</flag>
 		<flag id="f3250">*ふりだしに戻るその3を踏んだ</flag>
 		<flag id="f3320">*ふりだしに戻るその4を踏んだ</flag>
+		<flag id="f3362">*青竜後山頂行済</flag>
 		<flag id="f4200">ブルードラゴンを倒した</flag>
 		<flag id="f4221">隼の剣を手に入れた</flag>
 		<flag id="f4222">イージスの盾を手に入れた</flag>
@@ -145,12 +178,16 @@
 		<flag id="f4224">ブラックリングを手に入れた</flag>
 		<flag id="f4225">ブラックリング(第1段階)を装備した</flag>
 		<flag id="f4226">ブラックリングを装備しなかった</flag>
+		<flag id="f5012">ゲーリブダーが邪魔</flag>
+		<flag id="f5021">ゲーリブダーを倒した</flag>
 		<flag id="f10000">ギャグルート隠し用</flag>
 	</flags>
 	<params>
 		<param id="p2851" min="0" max="100" initial="0">現在の経過時間</param>
 		<param id="p2861" min="0" max="777" initial="0">モス･ジャイアントHP</param>
 		<param id="p2862" min="0" max="7" initial="0">体内蓄積毒素</param>
+		<param id="p4101" min="0" max="3000" initial="0">ブルードラゴンHP</param>
+		<param id="p4110" min="0" max="15" initial="0">ブルードラゴン距離</param>
 	</params>
 	<enemies>
 		<enemy id="m1" name="ゴブリンLv1" element="earth" attack="physics" func="L+R+20-STR-FREE1-10FREE2">※チュートリアル専用特殊敵</enemy>
@@ -183,17 +220,17 @@
 		<enemy id="m412" name="スコーピオンG(青)Lv4/忘却" element="earth" attack="physics" func="4L+4R+150-STR-FREE1-10FREE2">こちらは神経毒により忘却を引き起こすのでやっかい。それでSTRが下がるとさらに忘却しやすく…</enemy>
 		<enemy id="m413" name="スコーピオンG(黒)Lv5/呪い+石化/魔法耐性" element="spirit" attack="magic" func="5L+5R+200-INT-KRM-FREE1-10FREE2" drop="item/i32/金針,item/i34/十字架,item/i36/聖水">魔王の呪力が世に放たれ形を成した姿…"魔のサソリ"とも言われ､なんと呪いで魔法を封じた上に石化させてくる｡</enemy>
 		<enemy id="m421" name="GホーネットLv4/毒" element="wind" attack="physics" func="5L+5R+200-STR-DEX-FREE1-10FREE2">数十cm-1m程の巨大なスズメバチ｡その攻撃的な容姿､素早さ､尾の巨大な毒針は見る者に大きな恐怖を与える｡</enemy>
-		<enemy id="m422" name="Gホーネット(興奮)Lv5/毒" element="wind" attack="physics" func="7L+7R+250-STR-DEX-FREE1-10FREE2" drop="mon/1,tue/1,wed/1,thu/1,fri/1,sat/1,sun/1,item/i26/毒消,item/i5/傷薬">敵からの攻撃を受けたなど何かしらの理由で興奮して攻撃的になっている状態｡逃げた方がよい｡</enemy>
-		<enemy id="m511" name="マイコニッドA Lv5/毒" element="wind" attack="physics" func="5L+5R+250-STR-DEX-FREE1-10FREE2" drop="mon/1,tue/1,wed/1,thu/1,fri/1,sat/1,sun/1,item/i26/毒消,item/i26/毒消,item/i26/毒消">人型のキノコ｡キノコが人型を成したのか､人がキノコになったのか…戦闘力でなく､放出される多種多様で強力な胞子がやっかい｡毒タイプは風に乗せて毒胞子をバラまく｡</enemy>
-		<enemy id="m512" name="マイコニッドB Lv5/凍結" element="water" attack="physics" func="5L+5R+250-STR-DEX-FREE1-10FREE2" drop="mon/1,tue/1,wed/1,thu/1,fri/1,sat/1,sun/1,item/i28/ﾎｯｶｲﾛ,item/i28/ﾎｯｶｲﾛ,item/i28/ﾎｯｶｲﾛ">凍結タイプ｡凍結胞子が付着して相手の活動停止を狙う…氷魔法を得意とした魔法使いが苗床(ベース)とか？</enemy>
-		<enemy id="m513" name="マイコニッドC Lv5/忘却" element="fire" attack="physics" func="5L+5R+250-STR-DEX-FREE1-10FREE2" drop="mon/1,tue/1,wed/1,thu/1,fri/1,sat/1,sun/1,item/i30/ﾄﾝｶﾁ,item/i30/ﾄﾝｶﾁ,item/i30/ﾄﾝｶﾁ">忘却タイプ｡神経毒胞子で忘却はいいとして､なぜ火属性なのか…植物とか菌に火は無理だよなぁ｡</enemy>
-		<enemy id="m514" name="マイコニッドD Lv5/石化" element="earth" attack="physics" func="5L+5R+250-STR-DEX-FREE1-10FREE2" drop="mon/1,tue/1,wed/1,thu/1,fri/1,sat/1,sun/1,item/i32/金針,item/i32/金針,item/i32/金針">石化タイプ｡普通に大地の力で相手を地に返すべく石化胞子をバラまく｡</enemy>
-		<enemy id="m515" name="マイコニッドE Lv5/呪い" element="spirit" attack="physics" func="5L+5R+250-STR-DEX-FREE1-10FREE2" drop="mon/1,tue/1,wed/1,thu/1,fri/1,sat/1,sun/1,item/i34/十字架,item/i34/十字架,item/i34/十字架">呪いタイプ｡これも普通に苗床(ベース)の怨念で呪いの胞子をバラまく｡</enemy>
+		<enemy id="m422" name="Gホーネット(興奮)Lv5/毒" element="wind" attack="physics" func="7L+7R+250-STR-DEX-FREE1-10FREE2" drop="mon/1,wed/1,fri/1,item/i26/毒消,item/i5/傷薬">敵からの攻撃を受けたなど何かしらの理由で興奮して攻撃的になっている状態｡逃げた方がよい｡</enemy>
+		<enemy id="m511" name="マイコニッドA Lv5/毒" element="wind" attack="physics" func="5L+5R+250-STR-DEX-FREE1-10FREE2" drop="mon/1,wed/1,fri/1,item/i26/毒消">人型のキノコ｡キノコが人型を成したのか､人がキノコになったのか…戦闘力でなく､放出される多種多様で強力な胞子がやっかい｡毒タイプは風に乗せて毒胞子をバラまく｡</enemy>
+		<enemy id="m512" name="マイコニッドB Lv5/凍結" element="water" attack="physics" func="5L+5R+250-STR-DEX-FREE1-10FREE2" drop="mon/1,wed/1,fri/1,item/i28/ﾎｯｶｲﾛ">凍結タイプ｡凍結胞子が付着して相手の活動停止を狙う…氷魔法を得意とした魔法使いが苗床(ベース)とか？</enemy>
+		<enemy id="m513" name="マイコニッドC Lv5/忘却" element="fire" attack="physics" func="5L+5R+250-STR-DEX-FREE1-10FREE2" drop="tue/1,tue/1,sun/1,item/i30/ﾄﾝｶﾁ">忘却タイプ｡神経毒胞子で忘却はいいとして､なぜ火属性なのか…植物とか菌に火は無理だよなぁ｡</enemy>
+		<enemy id="m514" name="マイコニッドD Lv5/石化" element="earth" attack="physics" func="5L+5R+250-STR-DEX-FREE1-10FREE2" drop="tue/1,thu/1,sat/1,item/i32/金針">石化タイプ｡普通に大地の力で相手を地に返すべく石化胞子をバラまく｡</enemy>
+		<enemy id="m515" name="マイコニッドE Lv5/呪い" element="spirit" attack="physics" func="5L+5R+250-STR-DEX-FREE1-10FREE2" drop="mon/1,sat/1,sun/1,item/i34/十字架">呪いタイプ｡これも普通に苗床(ベース)の怨念で呪いの胞子をバラまく｡</enemy>
 		<enemy id="m521" name="アスティラゴアLv5/防御不能" element="earth" attack="magic" func="5L+5R+150-INT-FREE1-10FREE2">走る脳髄｡その正体は死体の脳髄に寄生した菌で､脳の力を引き出して精神感応波で攻撃してくる｡その目的は…仲間を増やす事だ！！</enemy>
-		<enemy id="m522" name="アスティラゴア(怨霊)Lv6/防御不能" element="spirit" attack="both" func="6L+6R+300-STR-INT-FREE1-10FREE2" drop="mon/1,tue/1,wed/1,thu/1,fri/1,sat/1,sun/1,mon/1,tue/1,wed/1,thu/1,fri/1,sat/1,sun/1,item/i9/R.Potion,item/i10/B.Potion">さらにその脳髄に元の持ち主の怨念が取り付いたもの｡「オマエもコッチに来い…」と触手で絞め殺そうと…菌の本能と怨念で2重に怖い！！</enemy>
+		<enemy id="m522" name="アスティラゴア(怨霊)Lv6/防御不能" element="spirit" attack="both" func="6L+6R+300-STR-INT-FREE1-10FREE2" drop="mon/1,tue/1,wed/1,thu/1,fri/1,sat/1,sun/1,item/i5/傷薬,item/i6/気付薬,item/i7/Hiﾎﾟｰｼｮﾝ,item/i8/Hiｴｰﾃﾙ,item/i9/R.Potion,item/i10/B.Potion">さらにその脳髄に元の持ち主の怨念が取り付いたもの｡「オマエもコッチに来い…」と触手で絞め殺そうと…菌の本能と怨念で2重に怖い！！</enemy>
 		<enemy id="m611" name="リザードマンLv6/毒" element="water" attack="physics" func="7L+7R+300-STR-FREE1-10FREE2">名の通りのトカゲ人間｡知能も文化もそれなりにあるが非常に残虐(武器には毒が塗ってある)…というか"他生物を狩る事が全て"的な蛮族文化｡</enemy>
 		<enemy id="m612" name="リザードメイジLv6/凍結" element="water" attack="magic" func="6L+6R+250-INT-FREE1-10FREE2">高齢にならないと魔法を使える程の知能は無く､必然的に個体数は少ないが､使うとなると水魔法を高Lvで使いこなしてくる｡</enemy>
-		<enemy id="m613" name="リザードマスターLv7/防御不能/魔法無効/他" attack="both" func="7L+7R+666-STR-INT-DEX-KRM-FREE1-10FREE2" drop="item/i23/E.Sword" hp="666" func_opp="7L+7R+STR+INT+DEX+KRM-100">リザードマンの族長で､一族に伝わる伝説の邪剣"イビルソード"を持つ｡その強さはすでにボスクラス｡</enemy>
+		<enemy id="m613" name="リザードマスターLv7/防御不能/魔法無効/他" attack="both" func="7L+7R+666-STR-INT-DEX-KRM-FREE1-10FREE2" drop="item/i23/EvilSword" hp="666" func_opp="7L+7R+STR+INT+DEX+KRM-100">リザードマンの族長で､一族に伝わる伝説の邪剣"イビルソード"を持つ｡その強さはすでにボスクラス｡</enemy>
 		<enemy id="m614" name="リザードガーダーLv6" element="water" attack="防御" drop="item/i24/ｴﾘｸｻｰ" hp="300" func_opp="7L+7R+STR+INT+DEX+KRM-100">族長を守護する盾｡リザードマスターを攻撃せんとする者の前に立ちはだかり､徹底的にその攻撃を防ぐ｡</enemy>
 		<enemy id="m615" name="リザードガーダーLv6" element="water" attack="防御" drop="item/i25/聖水" hp="300" func_opp="7L+7R+STR+INT+DEX+KRM-100">族長を守護する盾｡リザードマスターを攻撃せんとする者の前に立ちはだかり､徹底的にその攻撃を防ぐ｡</enemy>
 		<enemy id="m621" name="ワーウルフLv6" element="wind" attack="physics" func="8L+8R+350-STR-FREE1-10FREE2">狼男｡吸血鬼の眷属であったり人の魔法強化であったりするが､これは森の狼が凶暴強化されたもの｡ﾊﾟﾜﾌﾘｬｱｧｧｰｰ!!</enemy>
@@ -203,26 +240,26 @@
 		<enemy id="m721" name="ブーブリLv7" element="earth" attack="physics" func="8L+8R+375-STR-DEX-FREE1-10FREE2,10L+10R+350-STR-DEX-FREE1-10FREE2,12L+12R+325-STR-DEX-FREE1-10FREE2">大型の陸戦タイプの鳥｡大きなクチバシと強靭な体を持ち､素早い｡</enemy>
 		<enemy id="m731" name="ブラックゴートLv7/呪" element="spirit" attack="magic" func="5L+5R+400-INT-KRM-FREE1-10FREE2,6L+6R+350-INT-KRM-FREE1-10FREE2,4L+4R+420-INT-KRM-FREE1-10FREE2">山岳に棲む山羊が人間の呪術の象徴通りに暗黒化したもの｡</enemy>
 		<enemy id="m741" name="サンダーバードLv7/防御不能/魔法耐性" element="wind" attack="both" func="7L+7R+350-STR-INT-FREE1-10FREE2,7L+7R+350-STR-INT-FREE1-10FREE2,7L+7R+350-STR-INT-FREE1-10FREE2,9L+9R+450-STR-INT-FREE1-10FREE2" drop="wed/2">帯電･蓄電体質を持つ恐るべき鳥｡巣に近付く者を急襲､放電する｡</enemy>
-		<enemy id="m811" name="ワイバーンLv8/魔法耐性" element="earth" attack="physics" func="8L+8R+475-STR-FREE1-10FREE2,7L+7R+525-STR-FREE1-10FREE2,6L+6R+575-STR-FREE1-10FREE2" drop="tue/3">飛竜と呼ばれる小型の竜｡竜族の中では下位に位置するが､それでも他の種族を遥かに上回る戦闘力を持つ｡</enemy>
-		<enemy id="m821" name="グリフォンLv8/魔法耐性" element="wind" attack="physics" func="10L+10R+475-STR-DEX-FREE1-10FREE2,12L+12R+450-STR-DEX-FREE1-10FREE2,14L+14R+425-STR-DEX-FREE1-10FREE2" drop="wed/3">ワシの頭部と翼を持つライオン｡非常に獰猛で巨体に似合わぬ俊敏さを持つ｡</enemy>
-		<enemy id="m831" name="アラコッラLv8/魔法耐性/防御不能" element="spirit" attack="magic" func="7L+7R+400-INT-FREE1-10FREE2,7L+7R+400-INT-FREE1-10FREE2,6L+6R+350-INT-FREE1-10FREE2,6L+6R+350-INT-FREE1-10FREE2,8L+8R+450-INT-FREE1-10FREE2" drop="thu/3">低級の悪魔｡とはいっても普通の人間に何とかできるレベルの存在ではなく､魂に作用する強力な魔法を使う｡</enemy>
-		<enemy id="m841" name="スペクテーターLv8/魔法無効/猛毒" attack="magic" func="10L+10R+450-INT-DEX-KRM-FREE1-10FREE2" drop="mon/5">古代人が財宝の番人として作った魔法生物｡強力な魔法障壁を持ち､様々な魔法を使い､そして人の心を読む｡</enemy>
-		<enemy id="m842" name="スペクテーターLv8/魔法無効/強凍結" attack="magic" func="10L+10R+450-INT-DEX-KRM-FREE1-10FREE2" drop="wed/5">古代人が財宝の番人として作った魔法生物｡強力な魔法障壁を持ち､様々な魔法を使い､そして人の心を読む｡</enemy>
-		<enemy id="m843" name="スペクテーターLv8/魔法無効/全忘却" attack="magic" func="10L+10R+450-INT-DEX-KRM-FREE1-10FREE2" drop="thu/5">古代人が財宝の番人として作った魔法生物｡強力な魔法障壁を持ち､様々な魔法を使い､そして人の心を読む｡</enemy>
-		<enemy id="m844" name="スペクテーターLv8/魔法無効/呪怨" attack="magic" func="10L+10R+450-INT-DEX-KRM-FREE1-10FREE2" drop="fri/5">古代人が財宝の番人として作った魔法生物｡強力な魔法障壁を持ち､様々な魔法を使い､そして人の心を読む｡</enemy>
-		<enemy id="m845" name="スペクテーターLv8/魔法無効/強石化" attack="magic" func="10L+10R+450-INT-DEX-KRM-FREE1-10FREE2" drop="sat/5">古代人が財宝の番人として作った魔法生物｡強力な魔法障壁を持ち､様々な魔法を使い､そして人の心を読む｡</enemy>
+		<enemy id="m811" name="ワイバーンLv8/魔法耐性" element="earth" attack="physics" func="8L+8R+475-STR-FREE1-10FREE2,7L+7R+525-STR-FREE1-10FREE2,6L+6R+575-STR-FREE1-10FREE2" drop="tue/3,thu/3,sat/3,sun/3,sun/3">飛竜と呼ばれる小型の竜｡竜族の中では下位に位置するが､それでも他の種族を遥かに上回る戦闘力を持つ｡</enemy>
+		<enemy id="m821" name="グリフォンLv8/魔法耐性" element="wind" attack="physics" func="10L+10R+475-STR-DEX-FREE1-10FREE2,12L+12R+450-STR-DEX-FREE1-10FREE2,14L+14R+425-STR-DEX-FREE1-10FREE2" drop="mon/3,wed/3,wed/3,wed/3,wed/3">ワシの頭部と翼を持つライオン｡非常に獰猛で巨体に似合わぬ俊敏さを持つ｡</enemy>
+		<enemy id="m831" name="アラコッラLv8/魔法耐性/防御不能" element="spirit" attack="magic" func="7L+7R+400-INT-FREE1-10FREE2,7L+7R+400-INT-FREE1-10FREE2,6L+6R+350-INT-FREE1-10FREE2,6L+6R+350-INT-FREE1-10FREE2,8L+8R+450-INT-FREE1-10FREE2" drop="tue/3,tue/3,thu/3,thu/3,sat/3">低級の悪魔｡とはいっても普通の人間に何とかできるレベルの存在ではなく､魂に作用する強力な魔法を使う｡</enemy>
+		<enemy id="m841" name="スペクテーターLv8/魔法無効/猛毒" attack="magic" func="10L+10R+450-INT-DEX-KRM-FREE1-10FREE2" drop="tue/7,item/i40/ｴｸｽｶﾘﾊﾟｰ,item/i41/ｲﾋﾟﾙｿｰﾄﾞ,item/i42/MurasamaBlade">古代人が財宝の番人として作った魔法生物｡強力な魔法障壁を持ち､様々な魔法を使い､そして人の心を読む｡</enemy>
+		<enemy id="m842" name="スペクテーターLv8/魔法無効/強凍結" attack="magic" func="10L+10R+450-INT-DEX-KRM-FREE1-10FREE2" drop="wed/7,item/i50/檜の棒,item/i51/布の服,item/i52/お鍋の蓋">古代人が財宝の番人として作った魔法生物｡強力な魔法障壁を持ち､様々な魔法を使い､そして人の心を読む｡</enemy>
+		<enemy id="m843" name="スペクテーターLv8/魔法無効/全忘却" attack="magic" func="10L+10R+450-INT-DEX-KRM-FREE1-10FREE2" drop="thu/7,item/i60/ｵﾘﾊﾙｺｿ,item/i61/ｱﾀﾞﾏｿﾀｲﾄ,item/i62/ｸﾚﾘﾏ">古代人が財宝の番人として作った魔法生物｡強力な魔法障壁を持ち､様々な魔法を使い､そして人の心を読む｡</enemy>
+		<enemy id="m844" name="スペクテーターLv8/魔法無効/呪怨" attack="magic" func="10L+10R+450-INT-DEX-KRM-FREE1-10FREE2" drop="fri/7,item/i70/ﾛﾄの剣,item/i71/ﾛﾄの鎧,item/i72/ﾛﾄの盾">古代人が財宝の番人として作った魔法生物｡強力な魔法障壁を持ち､様々な魔法を使い､そして人の心を読む｡</enemy>
+		<enemy id="m845" name="スペクテーターLv8/魔法無効/強石化" attack="magic" func="10L+10R+450-INT-DEX-KRM-FREE1-10FREE2" drop="sat/7,item/i80/カの盾,item/i81/賢者の右,item/i82/光の玉">古代人が財宝の番人として作った魔法生物｡強力な魔法障壁を持ち､様々な魔法を使い､そして人の心を読む｡</enemy>
 		<enemy id="m1060" name="ファイヤーエレメントLv5/防御不能" element="fire" attack="both" func="5L+5R+500-STR-INT-DEX-KRM-FREE1-10FREE2" func_opp="5L+5R+STR+INT+DEX+KRM-200" hp="100">時に人を暖かく照らし､また時に人を業火で戒める､火を司る精霊｡これはかなり大きくなってしまったやつ｡</enemy>
-		<enemy id="m1101" name="触手1Lv4/魔法耐性" element="earth" attack="physics" func="6L+6R+300-STR-DEX-FREE1-10FREE2" drop="thu/1">ﾍﾟｼﾍﾟｼ担当｡</enemy>
-		<enemy id="m1102" name="触手2Lv4/魔法耐性" element="earth" attack="physics" func="4L+4R+400-STR-DEX-FREE1-10FREE2" drop="sat/1">捕まえ担当｡</enemy>
-		<enemy id="m1103" name="触手3Lv4/魔法耐性" element="water" attack="magic" func="7L+7R+300-INT-DEX-FREE1-10FREE2" drop="wed/1">水しぶき担当｡</enemy>
-		<enemy id="m1104" name="触手4Lv4/魔法耐性" element="water" attack="magic" func="5L+5R+400-INT-DEX-FREE1-10FREE2" drop="fri/1">水弾担当｡</enemy>
-		<enemy id="m1105" name="触手5Lv4/魔法耐性" element="earth" attack="physics" func="6L+6R+300-STR-DEX-FREE1-10FREE2" drop="thu/1">ﾍﾟｼﾍﾟｼ担当｡</enemy>
-		<enemy id="m1106" name="触手6Lv4/魔法耐性" element="water" attack="magic" func="7L+7R+300-INT-DEX-FREE1-10FREE2" drop="wed/1">水しぶき担当｡</enemy>
-		<enemy id="m1107" name="触手7Lv4/魔法耐性" element="earth" attack="physics" func="4L+4R+400-STR-DEX-FREE1-10FREE2" drop="sat/1">捕まえ担当｡</enemy>
-		<enemy id="m1108" name="触手8Lv4/魔法耐性" element="water" attack="magic" func="5L+5R+400-INT-DEX-FREE1-10FREE2" drop="fri/1">水弾担当｡</enemy>
+		<enemy id="m1101" name="触手1Lv4" element="earth" attack="physics" func="6L+6R+300-STR-DEX-FREE1-10FREE2" drop="thu/1">ﾍﾟｼﾍﾟｼ担当｡</enemy>
+		<enemy id="m1102" name="触手2Lv4" element="earth" attack="physics" func="4L+4R+400-STR-DEX-FREE1-10FREE2" drop="sat/1">捕まえ担当｡</enemy>
+		<enemy id="m1103" name="触手3Lv4" element="water" attack="magic" func="7L+7R+300-INT-DEX-FREE1-10FREE2" drop="wed/1">水しぶき担当｡</enemy>
+		<enemy id="m1104" name="触手4Lv4" element="water" attack="magic" func="5L+5R+400-INT-DEX-FREE1-10FREE2" drop="fri/1">水弾担当｡</enemy>
+		<enemy id="m1105" name="触手5Lv4" element="earth" attack="physics" func="6L+6R+300-STR-DEX-FREE1-10FREE2" drop="thu/1">ﾍﾟｼﾍﾟｼ担当｡</enemy>
+		<enemy id="m1106" name="触手6Lv4" element="water" attack="magic" func="7L+7R+300-INT-DEX-FREE1-10FREE2" drop="wed/1">水しぶき担当｡</enemy>
+		<enemy id="m1107" name="触手7Lv4" element="earth" attack="physics" func="4L+4R+400-STR-DEX-FREE1-10FREE2" drop="sat/1">捕まえ担当｡</enemy>
+		<enemy id="m1108" name="触手8Lv4" element="water" attack="magic" func="5L+5R+400-INT-DEX-FREE1-10FREE2" drop="fri/1">水弾担当｡</enemy>
 		<enemy id="m1109" name="ウォｰタｰガン命中判定" element="water" attack="magic" func="*(L+R)-(DEX+KRM)÷10" drop="mon/1">墨霧で視界を遮断しているので回避には運がからむ｡</enemy>
 		<enemy id="m1110" name="ウォｰタｰガンDM判定/防御不能" element="water" attack="magic" func="L+R+200-INT-FREE1-10FREE2" drop="tue/1">超高水圧の水鉄砲｡</enemy>
-		<enemy id="m1111" name="本体体当たりLv4/防御不能/魔法無効" attack="physics" func="4L+4R+600-STR-DEX-KRM-FREE1-10FREE2" drop="sun/1" hp="888" func_opp="4L+4R+STR+INT+DEX+KRM+10FREE2">覚悟を決めた巨体での突進｡</enemy>
+		<enemy id="m1111" name="本体体当たりLv4/防御不能" attack="physics" func="4L+4R+600-STR-DEX-KRM-FREE1-10FREE2" drop="sun/1" hp="888" func_opp="4L+4R+STR+INT+DEX+KRM+10FREE2" element="spirit">覚悟を決めた巨体での突進｡</enemy>
 		<enemy id="m1112" name="欠片袋" drop="mon/1" attack="月" func="*LorR×月"></enemy>
 		<enemy id="m1113" name="欠片袋" attack="火" func="*LorR×火" drop="tue/1"></enemy>
 		<enemy id="m1114" name="欠片袋" attack="水" func="*LorR×水" drop="wed/1"></enemy>
@@ -231,13 +268,13 @@
 		<enemy id="m1117" name="欠片袋" attack="土" func="*LorR×土" drop="sat/1"></enemy>
 		<enemy id="m1118" name="欠片袋" attack="太" func="*LorR×太" drop="sun/1"></enemy>
 		<enemy id="m1120" name="触手からの脱出" attack="捕縛" func="*欠片総数+KRM>10(L+R)">入念な下準備と運を兼ね備えた者こそが生き残るのだ｡</enemy>
-		<enemy id="m1121" name="触手1&amp;2Lv5/魔法耐性" element="earth" attack="physics" func="10L+10R+300-STR-DEX-FREE1-10FREE2" drop="thu/7">ﾍﾟｼﾍﾟｼ担当1&amp;2｡</enemy>
-		<enemy id="m1122" name="触手3&amp;4Lv5/魔法耐性" element="water" attack="magic" func="12L+12R+300-INT-DEX-FREE1-10FREE2" drop="wed/7">水しぶき担当1&amp;2｡</enemy>
-		<enemy id="m1123" name="触手5Lv5/魔法耐性" element="earth" attack="physics" func="3L+3R+600-STR-DEX-FREE1-10FREE2" drop="sat/7">捕まえ担当2(1は殉職)…1の仇だ！(怒)</enemy>
-		<enemy id="m1124" name="触手6&amp;7Lv5/魔法耐性" element="water" attack="magic" func="8L+8R+400-INT-DEX-FREE1-10FREE2" drop="fri/7">水弾担当1&amp;2｡</enemy>
+		<enemy id="m1121" name="触手1&amp;2Lv5" element="earth" attack="physics" func="10L+10R+300-STR-DEX-FREE1-10FREE2" drop="thu/7">ﾍﾟｼﾍﾟｼ担当1&amp;2｡</enemy>
+		<enemy id="m1122" name="触手3&amp;4Lv5" element="water" attack="magic" func="12L+12R+300-INT-DEX-FREE1-10FREE2" drop="wed/7">水しぶき担当1&amp;2｡</enemy>
+		<enemy id="m1123" name="触手5Lv5" element="earth" attack="physics" func="3L+3R+600-STR-DEX-FREE1-10FREE2" drop="sat/7">捕まえ担当2(1は殉職)…1の仇だ！(怒)</enemy>
+		<enemy id="m1124" name="触手6&amp;7Lv5" element="water" attack="magic" func="8L+8R+400-INT-DEX-FREE1-10FREE2" drop="fri/7">水弾担当1&amp;2｡</enemy>
 		<enemy id="m1125" name="ウォｰタｰガン命中判定" element="water" attack="magic" func="*(L+R)-(DEX+KRM)÷10" drop="mon/2">墨霧で視界を遮断しているので回避には運がからむ｡</enemy>
 		<enemy id="m1126" name="ウォｰタｰガンDM判定/防御不能" element="water" attack="magic" func="L+R+200-INT-FREE1-10FREE2" drop="tue/2">超高水圧の水鉄砲｡</enemy>
-		<enemy id="m1127" name="本体体当たりLv5/防御不能/魔法無効" attack="physics" func="5L+5R+600-STR-DEX-KRM-FREE1-10FREE2" hp="888" func_opp="5L+5R+STR+INT+DEX+KRM+10FREE2" drop="sun/2">覚悟を決めた巨体での突進｡</enemy>
+		<enemy id="m1127" name="本体体当たりLv5/防御不能" attack="physics" func="5L+5R+600-STR-DEX-KRM-FREE1-10FREE2" hp="888" func_opp="5L+5R+STR+INT+DEX+KRM+10FREE2" drop="sun/2" element="spirit">覚悟を決めた巨体での突進｡</enemy>
 		<enemy id="m1128" name="欠片箱" attack="月" func="*L+R×月" drop="mon/1"></enemy>
 		<enemy id="m1129" name="欠片箱" attack="火" func="*L+R×火" drop="tue/1"></enemy>
 		<enemy id="m1130" name="欠片箱" attack="水" func="*L+R×水" drop="wed/1"></enemy>
@@ -251,7 +288,7 @@
 		<enemy id="m1305" name="ザシュマー(本気)Lv5/魔法耐性" element="fire" attack="both" func="7L+7R+500-STR-INT-DEX-KRM-FREE1-10FREE2" drop="item/i14/吸血牙" hp="600" func_opp="5L+5R+STR+INT+DEX+KRM-50">再生してかなり本気になった｡勝てるか？</enemy>
 		<enemy id="m1403" name="ゾマ(石礫)Lv5/5回" element="earth" attack="physics" func="6L+6R+300-STR-DEX-FREE1-10FREE2" hp="9999" func_opp="STR+INT+DEX+KRM-999" drop="item/i15/？">物理耐性実験-君は延々と飛来する石礫(十数cm)にどこまで耐えられるか？</enemy>
 		<enemy id="m1404" name="ゾマ(水球)Lv5/4回/防御不能" element="water" attack="magic" func="4L+4R+300-INT-DEX-FREE1-10FREE2" drop="item/i16/？" hp="9999" func_opp="STR+INT+DEX+KRM-999">魔法耐性実験-今度は水球(数十cm)が君の頭に取り付いて窒息させようとしてくる…必死によけろ！</enemy>
-		<enemy id="m1405" name="ゾマ(電撃)Lv6/3回/防御&amp;魔法防御不能" attack="both" func="6L+6R+400-STR-INT-KRM-FREE1-10FREE2" drop="item/i17/？" hp="9999" func_opp="STR+INT+DEX+KRM-999">総合実験-お待ちかね?の電撃攻撃｡防御できず回避も困難…気合だ！気合で耐えろ！</enemy>
+		<enemy id="m1405" name="ゾマ(電撃)Lv6/3回/防御不能/魔法防御不能" attack="both" func="6L+6R+400-STR-INT-KRM-FREE1-10FREE2" drop="item/i17/？" hp="9999" func_opp="STR+INT+DEX+KRM-999">総合実験-お待ちかね?の電撃攻撃｡防御できず回避も困難…気合だ！気合で耐えろ！</enemy>
 		<enemy id="m2851" name="毒の鱗粉Lv7/毒" attack="physics" func="7L+7R+400-STR-FREE1-10FREE2" drop="mon/1,tue/1,wed/1,thu/1,fri/1,sat/1,sun/1,item/i2861/毒蛾粉">その名の通り毒を含んだ鱗粉｡吸い込むと危険｡</enemy>
 		<enemy id="m2852" name="凍結の鱗粉Lv7/凍結" attack="magic" func="7L+7R+400-INT-FREE1-10FREE2" drop="mon/1,tue/1,wed/1,thu/1,fri/1,sat/1,sun/1,item/i2861/毒蛾粉">FREEZEの魔法で低温の結晶をまとわせた鱗粉｡体にまとわりつくと凍結してしまう｡</enemy>
 		<enemy id="m2853" name="忘却の鱗粉Lv7/忘却" attack="physics" func="7L+7R+400-DEX-FREE1-10FREE2" drop="mon/1,tue/1,wed/1,thu/1,fri/1,sat/1,sun/1,item/i2861/毒蛾粉">脳に作用して幻覚を見せる鱗粉｡夢の世界への片道切符｡</enemy>
@@ -260,38 +297,46 @@
 		<enemy id="m2861" name="モスG追撃判定" func="*2(L+R)⇔経過時間" attack="判定">ここでこれまでの経過時間は奴との距離となる｡</enemy>
 		<enemy id="m2862" name="モスGLv7/猛毒/魔法耐性" attack="physics" func="10L+10R+500-STR-DEX-FREE1-10FREE2" func_opp="7L+7R+STR+INT+DEX+KRM-100" hp="p2861" drop="item/i2861/毒蛾粉" element="wind">追いつかれた奴は最後の抵抗として､自らの猛毒の毒針を近付けまいと必死に連射してくる！</enemy>
 		<enemy id="m2863" name="モスG本体Lv7/魔法無効" drop="item/i2861/毒蛾粉" func="*毒針:1/2､距離~10:x2､11~15:x1､16~:1/2" hp="p2861" func_opp="7L+7R+STR+INT+DEX+KRM" attack="補正" element="wind">ついに届いた怒りの一撃！渾身の攻撃を叩き込め！</enemy>
-		<enemy id="m3020" name="毒矢の罠(毒)" attack="poison" func="DEX>8L+8R">毒が塗られた矢が飛んでくる仕掛け(そのまんま)｡</enemy>
+		<enemy id="m3009" name="欠片拾" attack="月" func="*LorR×月" drop="mon/1"></enemy>
+		<enemy id="m3010" name="欠片拾" attack="火" func="*LorR×火" drop="tue/1"></enemy>
+		<enemy id="m3011" name="欠片拾" attack="水" func="*LorR×水" drop="wed/1"></enemy>
+		<enemy id="m3012" name="欠片拾" attack="木" func="*LorR×木" drop="thu/1"></enemy>
+		<enemy id="m3013" name="欠片拾" attack="金" func="*LorR×金" drop="fri/1"></enemy>
+		<enemy id="m3014" name="欠片拾" attack="土" func="*LorR×土" drop="sat/1"></enemy>
+		<enemy id="m3015" name="欠片拾" attack="太" func="*LorR×太" drop="sun/1"></enemy>
+		<enemy id="m3020" name="毒矢の罠(毒)" attack="poison" func="DEX>9L+9R">毒が塗られた矢が飛んでくる仕掛け(そのまんま)｡</enemy>
 		<enemy id="m3041" name="鳥の糞(毒)" attack="poison" func="KRM>8L+8R">お約束…やっぱハーピィ？</enemy>
 		<enemy id="m3050" name="冷気噴射(凍結)" attack="frozen" func="INT>14L+14R">低温の冷気が噴きつけられる仕掛け(そのまんま)｡</enemy>
-		<enemy id="m3090" name="金ダライ(忘却)" attack="forget" func="STR>15L+15R">もはや伝説と化した様式美…</enemy>
-		<enemy id="m3120" name="墓(呪い)" attack="curse" func="INT+KRM>23L+23R">なんで墓やねん…(あんまりいいの思いつかなかったもんで)</enemy>
-		<enemy id="m3160" name="石化光線(石化)" attack="stone" func="DEX+KRM>17L+17R">石化って､イメージでは呪いとかなんだけど…(でもソーサのメデューサもアケのD&amp;Dも光線)</enemy>
-		<enemy id="m3185" name="ペリュトンLv8/魔法耐性/耐久力3" element="wind" attack="physics" func="8L+8R+450-STR-DEX-FREE1-10FREE2" drop="wed/2">大きく発達したクチバシと足を持つ大型の鳥｡その大きな足で持ってきた岩を獲物めがけて落下させぶつける｡</enemy>
-		<enemy id="m3186" name="ハーピーLv8/魔法耐性" element="spirit" attack="本体" func="*耐久力3" drop="thu/2">上半身が人間の女性となっている大型の鳥｡高い魔力を持ち､特にその魔力のこもった歌声で人間を狂わせる｡</enemy>
-		<enemy id="m3187" name="魔歌Lv1/防御不能" attack="magic" func="7L+7R+500-INT-KRM-FREE1-10FREE2">チャージLv1(準備行動0回時)</enemy>
-		<enemy id="m3188" name="魔歌Lv2/防御不能/忘却" attack="magic" func="7L+7R+625-INT-KRM-FREE1-10FREE2">チャージLv2(準備行動1回時)</enemy>
-		<enemy id="m3189" name="魔歌Lv3/防御不能/忘却/呪/石化" attack="magic" func="7L+7R+750-INT-KRM-FREE1-10FREE2">チャージLv3(準備行動2回時)</enemy>
+		<enemy id="m3090" name="金ダライ(忘却)" attack="forget" func="STR>14L+14R">もはや伝説と化した様式美…</enemy>
+		<enemy id="m3120" name="墓(呪い)" attack="curse" func="INT+KRM>22L+22R">なんで墓やねん…(あんまりいいの思いつかなかったもんで)</enemy>
+		<enemy id="m3160" name="石化光線(石化)" attack="stone" func="DEX+KRM>18L+18R">石化って､イメージでは呪いとかなんだけど…(でもソーサのメデューサもアケのD&amp;Dも光線)</enemy>
+		<enemy id="m3185" name="ペリュトンLv8/魔法耐性" element="wind" attack="physics" func="8L+8R+450-STR-DEX-FREE1-10FREE2" drop="item/i3185/羽根" hp="600" func_opp="8L+8R+STR+DEX">大きく発達したクチバシと足を持つ大型の鳥｡その大きな足で持ってきた岩を獲物めがけて落下させぶつける｡</enemy>
+		<enemy id="m3186" name="ハーピーLv8/魔法耐性" element="spirit" attack="本体" drop="item/i3186/羽根" hp="500" func_opp="7L+7R+INT+KRM">上半身が人間の女性となっている大型の鳥｡高い魔力を持ち､特にその魔力のこもった歌声で人間を狂わせる｡</enemy>
+		<enemy id="m3187" name="魔歌Lv1/防御･回避不能" attack="magic" func="7L+7R+500-INT-KRM-FREE1-10FREE2">その声は聴く者の脳に直接響く魔の歌声｡</enemy>
+		<enemy id="m3188" name="魔歌Lv2/防御･回避不能/忘却" attack="magic" func="7L+7R+625-INT-KRM-FREE1-10FREE2">その歌は聴く者を魅了し忘我へと誘う｡</enemy>
+		<enemy id="m3189" name="魔歌Lv3/防御･回避不能/忘却/呪/石化" attack="magic" func="7L+7R+750-INT-KRM-FREE1-10FREE2">その言霊は聴く者への呪となり魂を石と化す｡</enemy>
 		<enemy id="m3200" name="毒ガス(猛毒)" attack="poison" func="DEX+KRM>10L+10R+60">猛毒…1ターン/シーンにつきMAXHPの10%が減少､HEALでのHP回復不可｡</enemy>
-		<enemy id="m3210" name="凍結結界(強凍結)" attack="frozen" func="INT+DEX>10L+10R+95">強凍結…1ターン/シーンにつきMAXMPの10%が減少､PEACEでのMP回復不可｡</enemy>
+		<enemy id="m3210" name="凍結結界(強凍結)" attack="frozen" func="INT+DEX>10L+10R+105">強凍結…1ターン/シーンにつきMAXMPの10%が減少､PEACEでのMP回復不可｡</enemy>
 		<enemy id="m3220" name="オリハルコンのタライ(全忘却)" attack="forget" func="STR+DEX>10L+10R+100">全忘却…STR/INT両方が半分に､2重に受けるとSTR/INT両方が0になる｡</enemy>
-		<enemy id="m3230" name="墓場(呪怨)" attack="curse" func="INT+KRM>10L+10R+100">呪怨…七星欠片行動(魔法/ブースト)不可｡※UN-CURSE/REDUCE-LIFE/月ブーストは可｡</enemy>
+		<enemy id="m3230" name="墓場(呪怨)" attack="curse" func="INT+KRM>7L+7R+111">呪怨…七星欠片行動(魔法/ブースト)不可｡※UN-CURSE/REDUCE-LIFE/月ブーストは可｡</enemy>
 		<enemy id="m3240" name="石化ビーム(強石化)" attack="stone" func="DEX+KRM>10L+10R+60">強石化…5ターン/シーン経過で完全石化により死亡､2重に受けても完全石化により死亡｡</enemy>
-		<enemy id="m4003" name="電撃Lv9/防御不能/魔法防御不能" attack="both" func="13L+13R+777-STR-INT-DEX-KRM-FREE1-10FREE2">チャージせずに撃ってくるため攻撃力が低いがそれでも…</enemy>
-		<enemy id="m4004" name="突進Lv9" attack="physics" func="10L+10R+777-STR-INT-DEX-KRM-FREE1-10FREE2">回避と防御に専念すればなんとかさばけるか？</enemy>
-		<enemy id="m4005" name="突風Lv9" attack="both" func="8L+8R+500-STR-INT-FREE1-10FREE2">これも防御に専念すれば…むしろ逃げるには追い風だが…</enemy>
+		<enemy id="m4003" name="電撃Lv9/防御不能/魔法防御不能" attack="both" func="10L+10R+777-STR-INT-DEX-KRM-FREE1-10FREE2">チャージせずに撃ってくるため攻撃力が低いがそれでも…</enemy>
+		<enemy id="m4004" name="突進Lv9/魔法防御不能" attack="physics" func="10L+10R+666-STR-DEX-FREE1-10FREE2">回避と防御に専念すればなんとかさばけるか？</enemy>
+		<enemy id="m4005" name="突風Lv9" attack="magic" func="10L+10R+555-INT-KRM-FREE1-10FREE2">これも防御に専念すれば…むしろ逃げるには追い風だが…</enemy>
 		<enemy id="m4010" name="突風Lv9" attack="magic" func="8L+8R-KRM">神に祈れ！</enemy>
-		<enemy id="m4011" name="突進Lv9" attack="physics" func="10L+10R-KRM">悪魔にも祈れ！</enemy>
-		<enemy id="m4012" name="電撃Lv9" attack="both" func="12L+12R-KRM">そして死ねぇー！！</enemy>
-		<enemy id="m4110" name="突風Lv9" attack="both" func="10L+10R+555-STR-INT-FREE1-10FREE2" drop="sat/2">嵐の風をコントロールして集中させる凄まじい突風｡風速50m？</enemy>
-		<enemy id="m4111" name="突風" attack="距離" func="*3(L+R)-(STR÷10)+(準備行動回数×2)" drop="thu/2">嵐の風をコントロールして集中させる凄まじい突風｡風速50m？</enemy>
-		<enemy id="m4120" name="ダッシュ" attack="ダッシュ" func="*(DEX÷10)-(準備行動回数×2)" drop="wed/2">ﾀﾞｯｼｭ､ﾀﾞｰｯｼｭ､ﾀﾞｯｼｭ!!</enemy>
-		<enemy id="m4130" name="電撃Lv9/防御不能/魔法防御不能" attack="both" func="20L+20R+999-STR-INT-DEX-KRM-FREE1-10FREE2" drop="sun/2">雷雲の雷を集めて放つ､恐るべき電撃｡その電圧は数千万ボルトにも達する｡</enemy>
-		<enemy id="m4131" name="電撃" attack="回避" func="*3(L+R)＜＞{(DEX+KRM)÷10}+最終距離-(準備行動回数×2)※右側が上回ったなら回避成功｡" drop="fri/2">雷雲の雷を集めて放つ､恐るべき電撃｡その電圧は数千万ボルトにも達する｡</enemy>
-		<enemy id="m4140" name="突進Lv9/距離0-2/魔法防御不能" attack="physics" func="30L+30R+999-STR-INT-DEX-KRM-FREE1-10FREE2" drop="tue/2">スピードとパワーが物理の限界を超えたその攻撃は､牙/角/爪のどこが当たっても致命傷となる｡</enemy>
-		<enemy id="m4141" name="突進Lv9/距離3-5/魔法防御不能" attack="physics" func="24L+24R+999-STR-INT-DEX-KRM-FREE1-10FREE2" drop="tue/2">スピードとパワーが物理の限界を超えたその攻撃は､牙/角/爪のどこが当たっても致命傷となる｡</enemy>
-		<enemy id="m4142" name="突進Lv9/距離6-10/魔法防御不能" attack="physics" func="14L+14R+999-STR-INT-DEX-KRM-FREE1-10FREE2" drop="tue/2">スピードとパワーが物理の限界を超えたその攻撃は､牙/角/爪のどこが当たっても致命傷となる｡</enemy>
-		<enemy id="m4143" name="突進Lv9/距離11-15/魔法防御不能" attack="physics" func="10L+10R+999-STR-INT-DEX-KRM-FREE1-10FREE2" drop="tue/2">スピードとパワーが物理の限界を超えたその攻撃は､牙/角/爪のどこが当たっても致命傷となる｡</enemy>
-		<enemy id="m4144" name="ブルードラゴンLv9/魔法完全無効" attack="本体" func="*耐久力9" drop="mon/2">最強のドラゴン｡攻撃力/知力/魔力全てが高く獰猛｡ある程度天候を操り､雷雲をたずさえる｡</enemy>
+		<enemy id="m4011" name="突進Lv9" attack="physics" func="10L+10R-KRM">悪魔に願え！！</enemy>
+		<enemy id="m4012" name="電撃Lv9" attack="both" func="12L+12R-KRM">そして死ねぇー！！！</enemy>
+		<enemy id="m4110" name="突風Lv9" attack="both" func="10L+10R+666-STR-INT-FREE1-10FREE2" drop="item/i4110/竜翼,sat/2,sat/2,sat/2,sat/2,sat/2,sat/2">嵐の風を収束させた凄まじい突風｡風速50m？</enemy>
+		<enemy id="m4111" name="突風" attack="距離" func="*3(L+R)-(STR÷10)+(準備回数×2)" drop="item/i4111/竜爪,fri/2,fri/2,fri/2,fri/2,fri/2,fri/2">嵐の風を収束させた凄まじい突風｡風速50m？</enemy>
+		<enemy id="m4120" name="ダッシュ" attack="ダッシュ" func="*(DEX÷10)-(準備行動回数×2)" drop="item/i4120/竜鱗,thu/2,thu/2,thu/2,thu/2,thu/2,thu/2">ﾀﾞｯｼｭﾀﾞｰｯｼｭﾀﾞｯｼｭ!!ｷｯｸｱｰﾝﾄﾞﾀﾞｯｼｭ!!</enemy>
+		<enemy id="m4130" name="電撃Lv9/防御不能/魔法防御不能" attack="both" func="30L+30R+999-STR-INT-DEX-KRM-FREE1-10FREE2" drop="item/i4130/竜髭,mon/2,mon/2,mon/2,mon/2,mon/2,mon/2">雷雲の雷を集めて放つ､恐るべき電撃｡その電圧は数千万ボルトにも達する｡</enemy>
+		<enemy id="m4131" name="電撃" attack="回避" func="*3(L+R)⇔(DEX+KRM)÷10+(距離-準備回数×2)※右側が上回ったら回避" drop="item/i4131/竜角,wed/2,wed/2,wed/2,wed/2,wed/2,wed/2">雷雲の雷を集めて放つ､恐るべき電撃｡その電圧は数千万ボルトにも達する｡</enemy>
+		<enemy id="m4140" name="突進Lv9/魔法防御不能" attack="physics" func="50L+50R+999-STR-INT-DEX-KRM-FREE1-10FREE2" drop="item/i4140/竜牙,tue/2,tue/2,tue/2,tue/2,tue/2,tue/2">スピードとパワーが物理の限界を超えたその攻撃は､牙/角/爪のどこが当たっても致命傷となる｡</enemy>
+		<enemy id="m4141" name="突進Lv9/魔法防御不能" attack="physics" func="30L+30R+999-STR-INT-DEX-KRM-FREE1-10FREE2" drop="item/i4140/竜牙,tue/2,tue/2,tue/2,tue/2,tue/2,tue/2">スピードとパワーが物理の限界を超えたその攻撃は､牙/角/爪のどこが当たっても致命傷となる｡</enemy>
+		<enemy id="m4142" name="突進Lv9/魔法防御不能" attack="physics" func="20L+20R+999-STR-INT-DEX-KRM-FREE1-10FREE2" drop="item/i4140/竜牙,tue/2,tue/2,tue/2,tue/2,tue/2,tue/2">スピードとパワーが物理の限界を超えたその攻撃は､牙/角/爪のどこが当たっても致命傷となる｡</enemy>
+		<enemy id="m4143" name="突進Lv9/魔法防御不能" attack="physics" func="10L+10R+999-STR-INT-DEX-KRM-FREE1-10FREE2" drop="item/i4140/竜牙,tue/2,tue/2,tue/2,tue/2,tue/2,tue/2">スピードとパワーが物理の限界を超えたその攻撃は､牙/角/爪のどこが当たっても致命傷となる｡</enemy>
+		<enemy id="m4144" name="突進Lv9/魔法防御不能" attack="physics" func="10L+10R+999-STR-INT-DEX-KRM-FREE1-10FREE2" drop="tue/2">スピードとパワーが物理の限界を超えたその攻撃は､牙/角/爪のどこが当たっても致命傷となる｡</enemy>
+		<enemy id="m4150" name="ブルードラゴンLv9/魔法完全無効" attack="本体" drop="item/i4150/逆鱗,sun/2,sun/2,sun/2,sun/2,sun/2,sun/2" hp="p4101" func_opp="9L+9R+STR+INT+DEX+KRM-100">最強のドラゴン｡攻撃力/知力/魔力全てが高く獰猛｡ある程度天候を操り､雷雲をたずさえる｡</enemy>
 		<enemy id="m9999" func="3L+3R>p2851" name="tesuto" attack="poison"></enemy>
 	</enemies>
 	<results>
@@ -894,20 +939,21 @@ ${魅了|チャーム}系の魔力が漏れてんぞ
 
 [出発！](106)</scene>
 	<scene id="401" level="125" flags="f401" summary="大酒場-チュートリアル">
-中央のひときわ大きなこの酒場は、この街の情報集積所と言っていい。
-ここにはありとあらゆる情報…そう、このゲームに必要な知識が詰まっている。
-# 人はコレを【チュートリアル】と呼ぶ。
+中央のひときわ大きなこの酒場は､この街の情報集積所と言っていい｡
+ここにはありとあらゆる情報…つまりこのゲームに必要な知識が詰まっている｡
+## %blue%**★そして人はそれを【チュートリアル】と呼ぶ｡★**%/%
 
-※ブラウザの【戻る】の仕様変更により､このチュートリアルを見にくる時に気を付けて欲しい事ができた｡それは…
+さてまずこのチュートリアルを見る際に気をつけて欲しいのが…
 
-**【戦闘中にチュートリアルを見にいって､ブラウザの戻る機能で戻ってくると､戦闘内容がリセットされてしまう】**
+%red%**【戦闘中にチュートリアルを見にきて､ブラウザの戻る機能で戻ってくると､戦闘内容がリセットされてしまう】**%/%
 
 という事｡
-これはブラウザの戻るで完全に全てを戻す事ができるようになったためだが､戻ってきたシーンの初期状態にされてしまうため、そのシーンに入って行った事がすべて無かった事にされてしまう｡
-つまり､そのシーンに入って戦闘を行って増減したHP/MPや星が元に戻り､撃破した敵に施したチェックも消えてしまうため､実質戦闘がリセットされると思って欲しい｡
-チュートリアルが必要になるのは戦闘中であるのは重々承知だが､必要になりそうな説明は戦闘開始前に先に見にいくようにしてもらいたい｡
-なお､複雑だったり量が多い説明は【メモ欄にコピーしてしまう】のがオススメだ｡
-※PCの場合は右クリックがステータス表示になってしまい使えないので､左クリックやShift+カーソルで範囲指定して【Ctrl+C】でコピーし【Ctrl+V】で貼り付けるといい｡
+散々｢戦闘からチュートリアルを見る場合は【ブラウザの戻る】で戻れ｣と言っておいてナンだが､これは【戻ってきた際にそのシーンの初期状態にされてしまう】という仕様のためで､そのシーンに入った後に行った事がすべて無かった事にされてしまう｡
+つまり､そのシーンに入って戦闘を行って増減したHP/MPや星が元に戻り､撃破した敵に施したチェックも消えてしまうため､実質戦闘リセットと思って欲しい｡
+チュートリアルが必要になるのは戦闘中であるのは重々承知の上で､大変申し訳ないのだが､必要になりそうな説明は戦闘開始前に先に見にいくようにしてもらいたい｡
+なお､複雑だったり量が多い説明は【STATUS＞Character中央のメモ欄にコピーしてしまう】のがオススメだ｡
+※PCの場合はマウスだとやりにくいのでキーボードコマンドでやるとよい｡
+
 
 [チュートリアル基本編](402)
 [チュートリアル魔法その他編](403)
@@ -1196,54 +1242,59 @@ EXPが255に達してLvUPしたら0にする事｡255を上回った分は次に
 **●HP表示のある敵について**
 一部の敵…ほぼボスや中ボス限定だが､文字列のさらに後ろに【数字(HP)】が表示されている場合がある｡これはもちろんその数字を0にすれば倒せる事を意味しているのだが､基本一撃で敵を倒すこのシナリオにおいてはちょっとわかりにくいので詳しく説明する｡
 具体的には､普通に指定敵として攻撃＝ダイスを振って計算式クリックしてDMを受けたら､その後に【敵HPをクリックすると数字が減って敵にもDMが入る】｡
-※【ダメージ×n】はこの敵HPへの攻撃にも適用されているので､×1にしておかないと正常に数値が減らないので注意｡
+※敵計算式最上段の【ダメージ×n】はこの敵HPへの攻撃にも適用されているので､×1にしておかないと正常に数値が減らないので注意｡
 この互いへの攻撃を1回ずつ行った後は通常通り残敵から防御DMを受けてターン終了､次のターンへと移る｡
-なお魔法でDMを与える際には後述の【nDM】のn回クリックしてDMを与える事ができる｡※2DMならHPを2回クリック｡
+なお魔法でDMを与える際には後述の【DMn】のn回クリックしてDMを与える事ができる｡※DM2ならHPを2回クリック｡
 ※その他魔法使用時のルールなども通常と同じだが､前述の通りHP表示のある敵はほぼボスや中ボスなので､HPを減らせる手段やタイミングは通常と異なる場合が多く､その都度ルールを確認の事｡
 
 今回のBattle SheetにいるHP200のゴブリンに対しては…
-1回の攻撃でHPを100減らすように設定されているので､指定攻撃2回または魔法2DM以上(収束EXPLOSION×2発など※後述)で倒せる｡
+1回の攻撃でHPを100減らすように設定されているので､指定攻撃2回または魔法DM2以上(収束EXPLOSION×2発など※後述)で倒せる｡
 ※今回は説明のために敵HPへのDMは100に固定されているが､実際の戦闘ではダイスやプレイヤーキャラの能力値で変化するので､何回の攻撃が必要かはその都度変わってくるぞ｡
 
-**●防御不能攻撃について**
+**●防御不能について**
 【防御不能】と書かれた攻撃については､【すべての防御によるDM半減が一切できない】事を表すので､特大の注意を払う事｡
-なお魔法での1/2化(PROTECT/HOLY-WATER)は特に注釈無ければ可能だ｡
+なお魔法【PROTECT/HOLY-WATERによるDM半減】は特に注釈無ければ可能だ｡
 どうせ防御できないのなら､あえて【盾を外して回避に賭ける】のもいい｡
 今回のBattle Sheetにいるトロルの攻撃は防御不能なので…
 盾防御に成功しても､待機敵として攻撃を受けても､1/2でなくそのままのDMを受けるので最優先で倒す事｡しかしLv3にしてはL+Rなので盾を外しての回避がしやすいハズだ｡
 
+**●魔法防御不能について**
+【魔法防御不能】と書かれた攻撃については､魔法【PROTECT/HOLY-WATERによるDM半減ができない】事を表す｡
+あまり見かけないが､ほぼ上記の防御不能とセットになっており､このシナリオにおける最大の脅威となっているので､見た時は覚悟を決めるように｡
+
 **★攻撃魔法の【拡散】と【収束】ついて**
 これは攻撃魔法を【敵全体に対して放つ】のか【敵1体に集中して放つ】のかという事で､攻撃魔法を使う際に任意に選んでよい｡
 【魔法耐性】【魔法無効】に対して【拡散】【収束】で使った際の効果を以下にまとめた｡
-※【nDM】とは敵HPにDMを与える回数の事｡通常敵は1DMで倒せて0DMは無効｡
+※【DMn】とは敵HPにDMを与える回数の事｡通常敵はDM1で倒せてDM0は無効｡
 
 **●${魔法耐性|マジックレジスト}**
 魔法に対する高い耐性を持ち､属性を合わせた攻撃魔法であっても効果が薄い｡
 基本的には収束通常攻撃魔法か重攻撃魔法でDMを与える(倒す)事ができる｡
-**・通常攻撃魔法(拡散/収束)…0DM/1DM**
-**・重攻撃魔法(拡散/収束)…1DM/3DM**
-**・NOILA-TEM(拡散/収束)…0DM/2DM**
+**・通常攻撃魔法(拡散/収束)…DM0/DM1**
+**・重攻撃魔法(拡散/収束)…DM1/DM3**
+**・NOILA-TEM(拡散/収束)…DM0/DM2**
 
 **●${魔法無効|マジックキャンセル}**
 特殊な能力により魔法を無効化する｡
-例外として収束NOILA-TEMのみ効果がある(ただし1DM)｡
-**・通常攻撃魔法(拡散/収束)…0DM/0DM**
-**・重攻撃魔法(拡散/収束)…0DM/0DM**
-**・NOILA-TEM(拡散/収束)…0DM/1DM**
+例外として収束NOILA-TEMのみ効果がある(ただしDM1)｡
+**・通常攻撃魔法(拡散/収束)…DM0/DM0**
+**・重攻撃魔法(拡散/収束)…DM0/DM0**
+**・NOILA-TEM(拡散/収束)…DM0/DM1**
 
 ※なお【魔法耐性】【魔法無効】の無い通常の敵に対しては…
-**・通常攻撃魔法(拡散/収束)…1DM/3DM**
-**・重攻撃魔法(拡散/収束)…2DM/6DM**
-**・NOILA-TEM(拡散/収束)…1DM/4DM**
+**・通常攻撃魔法(拡散/収束)…DM1/DM3**
+**・重攻撃魔法(拡散/収束)…DM2/DM6**
+**・NOILA-TEM(拡散/収束)…DM1/DM4**
 
 今回のBattle Sheetにいる敵に魔法を使った場合…
-・EXPLOSION(拡散)…ゴブリン0DM/オーク0DM/トロル1DM
-・EXPLOSION(収束)…ゴブリン1DM/オーク0DM/トロル3DM
-・NOILA-TEM(拡散)…ゴブリン0DM/オーク0DM/トロル1DM
-・NOILA-TEM(収束)…ゴブリン2DM/オーク1DM/トロル4DM
-・BOMBARD(拡散)…ゴブリン1DM/オーク0DM/トロル2DM
-・BOMBARD(収束)…ゴブリン3DM/オーク0DM/トロル6DM
+・EXPLOSION(拡散)…ゴブリンDM0/オークDM0/トロルDM1
+・EXPLOSION(収束)…ゴブリンDM1/オークDM0/トロルDM3
+・NOILA-TEM(拡散)…ゴブリンDM0/オークDM0/トロルDM1
+・NOILA-TEM(収束)…ゴブリンDM2/オークDM1/トロルDM4
+・BOMBARD(拡散)…ゴブリンDM1/オークDM0/トロルDM2
+・BOMBARD(収束)…ゴブリンDM3/オークDM0/トロルDM6
 ※BOMBARDはEXPLOSIONの重魔法
+
 
 [戻る](403)</scene>
 	<scene id="420" level="12" summary="魔法･強状態異常">## ★強状態異常について
@@ -2272,29 +2323,41 @@ ${/if}
 
 こんなに並んでるのにたったこれだけとは…
 しかも相場より高いような…
+　　
+　　
 
-[ロングソード　価格：欠片１０個](610)</scene>
+[ロングソード　価格：欠片１０個](610)
+[やめる](605)</scene>
 	<scene id="607" level="12" summary="盾･娘助前">
 店主「…盾はこれだけだ。」
 
 こんなに並んでるのにたったこれだけとは…
 しかも相場より高いような…
+　　
+　　
 
-[ラウンドシールド　価格：欠片８個](611)</scene>
+[ラウンドシールド　価格：欠片８個](611)
+[やめる](605)</scene>
 	<scene id="608" level="12" summary="鎧･娘助前">
 店主「…鎧はこれだけだ。」
 
 こんなに並んでるのにたったこれだけとは…
 しかも相場より高いような…
+　　
+　　
 
-[チェインメイル　価格：欠片１６個](612)</scene>
+[チェインメイル　価格：欠片１６個](612)
+[やめる](605)</scene>
 	<scene id="609" level="12" summary="指輪･娘助前">
 店主「…指輪はこれだけだ。」
 
 こんなに並んでるのにたったこれだけとは…
 しかも相場より高いような…
+　　
+　　
 
-[ホワイトリング　価格：欠片２０個](613)</scene>
+[ホワイトリング　価格：欠片２０個](613)
+[やめる](605)</scene>
 	<scene id="610" level="13" summary="長剣･娘助前">
 ### ★武器Lv1…ロングソード
 ### ・片手持時…STR+12　・両手持時…STR+16 DEX+3
@@ -2356,6 +2419,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](605)</scene>
 	<scene id="615" items="i201" level="14" summary="円盾買･娘助前">　　
@@ -2364,6 +2429,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](605)</scene>
 	<scene id="616" items="i301" level="14" summary="鎖鎧買･娘助前">　　
@@ -2372,6 +2439,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](605)</scene>
 	<scene id="617" items="i401" level="14" summary="白輪買･娘助前">　　
@@ -2380,6 +2449,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](605)</scene>
 	<scene id="620" summary="短剣2" level="13">
@@ -2398,13 +2469,15 @@ ${/if}
 
 [買う](621 "!i107")
 [売る](622 "i107")
-[戻る](703)</scene>
+[やめる](704)</scene>
 	<scene id="621" summary="短剣2買" level="14" items="i107">　　
 　　
 トール「役に立ててうれしいぜ。」
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="622" summary="短剣2売" level="14" items="-i107">　　
@@ -2413,6 +2486,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を増やしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="630" summary="手斧2" level="13">
@@ -2432,13 +2507,15 @@ ${/if}
 
 [買う](631 "!i108")
 [売る](632 "i108")
-[戻る](703)</scene>
+[やめる](704)</scene>
 	<scene id="631" summary="手斧2買" level="14" items="i108">　　
 　　
 トール「役に立ててうれしいぜ。」
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="632" summary="手斧2売" level="14" items="-i108">　　
@@ -2447,6 +2524,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を増やしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="640" summary="大剣" level="115">
@@ -2465,21 +2544,25 @@ ${/if}
 
 [買う](641 "!i109")
 [売る](642 "i109")
-[戻る](800)</scene>
+[やめる](801)</scene>
 	<scene id="641" summary="大剣買" level="116" items="i109">　　
 　　
-トール「役に立ててうれしいぜ。」
+トール「よし！頼んだぜ！」
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](800)</scene>
 	<scene id="642" summary="大剣売" level="116" items="-i109">　　
 　　
-トール「役に立ててうれしいぜ。」
+トール「よし！頼んだぜ！」
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を増やしておく事。**
+　　
+　　
 
 [戻る](800)</scene>
 	<scene id="643" summary="手盾" level="13">　
@@ -2496,7 +2579,7 @@ ${/if}
 
 [買う](644 "!i205")
 [売る](645 "i205")
-[戻る](703)</scene>
+[やめる](705)</scene>
 	<scene id="644" summary="手盾買" level="14" items="i205">
 　　
 　　
@@ -2504,6 +2587,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="645" summary="手盾売" level="14" items="-i205">
@@ -2513,6 +2598,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を増やしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="646" summary="小盾" level="13">
@@ -2529,7 +2616,7 @@ ${/if}
 
 [買う](647 "!i206")
 [売る](648 "i206")
-[戻る](703)</scene>
+[やめる](705)</scene>
 	<scene id="647" summary="小盾買" level="14" items="i206">
 　　
 　　
@@ -2537,6 +2624,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="648" summary="小盾売" level="14" items="-i206">
@@ -2546,6 +2635,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を増やしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="649" summary="革鎧" level="13">
@@ -2562,7 +2653,7 @@ ${/if}
 
 [買う](650 "!i306")
 [売る](651 "i306")
-[戻る](703)</scene>
+[やめる](706)</scene>
 	<scene id="650" summary="革鎧買" level="14" items="i306">
 　　
 　　
@@ -2570,6 +2661,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="651" summary="革鎧売" level="14" items="-i306">
@@ -2579,6 +2672,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を増やしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="652" summary="帯鎧" level="13">
@@ -2595,7 +2690,7 @@ ${/if}
 
 [買う](653 "!i307")
 [売る](654 "i307")
-[戻る](703)</scene>
+[やめる](706)</scene>
 	<scene id="653" summary="帯鎧買" level="14" items="i307">
 　　
 　　
@@ -2603,6 +2698,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="654" summary="帯鎧売" level="14" items="-i307">
@@ -2612,6 +2709,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を増やしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="655" summary="ミス鎧" level="115">
@@ -2628,7 +2727,7 @@ ${/if}
 
 [買う](656 "!i308")
 [売る](657 "i308")
-[戻る](800)</scene>
+[やめる](821)</scene>
 	<scene id="656" summary="ミス鎧買" level="116" items="i308">
 　　
 　　
@@ -2636,6 +2735,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](800)</scene>
 	<scene id="657" summary="ミス鎧売" level="116" items="-i308">
@@ -2645,6 +2746,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を増やしておく事。**
+　　
+　　
 
 [戻る](800)</scene>
 	<scene id="701" level="10" summary="入る･娘助後">
@@ -2694,41 +2797,53 @@ ${/if}
 
 これでまだ全部じゃないとは…さすがは大型店だ。
 しかもギリギリまで値引きしてくれているようで相場よりずいぶん安い。
+　　
+　　
 
 [ロングソード　価格：欠片５個](708)
 [スピア　価格：欠片７個](709)
 [ツインソード	価格：欠片６個](620)
 [カタナブレード　価格：欠片１２個](710)
 [モーニングスター　価格：欠片１８個](711)
-[ダブルトマホーク		価格：欠片１５個](630)</scene>
+[ダブルトマホーク		価格：欠片１５個](630)
+[やめる](703)</scene>
 	<scene id="705" level="12" summary="盾･娘助後">
 トール「盾はこんなもんだな。」
 
 これでまだ全部じゃないとは…さすがは大型店だ。
 しかもギリギリまで値引きしてくれているようで相場よりずいぶん安い。
+　　
+　　
 
 [バックラー		価格：欠片３個](643)
 [ラウンドシールド　価格：欠片４個](712)
 [スモールシールド	価格：欠片８個](646)
-[カイトシールド　価格：欠片１０個](713)</scene>
+[カイトシールド　価格：欠片１０個](713)
+[やめる](703)</scene>
 	<scene id="706" level="12" summary="鎧･娘助後">
 トール「鎧はこんなもんだな。」
 
 これでまだ全部じゃないとは…さすがは大型店だ。
 しかもギリギリまで値引きしてくれているようで相場よりずいぶん安い。
+　　
+　　
 
 [レザーアーマー	価格：欠片６個](649)
 [チェインメイル　価格：欠片８個](714)
 [バンデッドアーマー	価格：欠片１８個](652)
-[ブレストプレート 価格：欠片２０個](715)</scene>
+[ブレストプレート 価格：欠片２０個](715)
+[やめる](703)</scene>
 	<scene id="707" level="12" summary="指輪･娘助後">
 トール「指輪はこんなもんだな。」
 
 これでまだ全部じゃないとは…さすがは大型店だ。
 しかもギリギリまで値引きしてくれているようで相場よりずいぶん安い。
+　　
+　　
 
 [ホワイトリング　価格：欠片１０個](716)
-[グリーンリング　価格：欠片２１個](717)</scene>
+[グリーンリング　価格：欠片２１個](717)
+[やめる](703)</scene>
 	<scene id="708" level="13" summary="長剣･娘助後">
 ### ★武器Lv1…ロングソード
 ### ・片手持時…STR+12　・両手持時…STR+16 DEX+3
@@ -2745,7 +2860,7 @@ ${/if}
 
 [買う](718 "!i101")
 [売る](751 "i101")
-[戻る](703)</scene>
+[やめる](704)</scene>
 	<scene id="709" level="13" summary="槍">
 ### ★武器Lv1…スピア　※2体攻撃武器
 ### ・片手持時…STR+8 DEX±0　・両手持時…STR+12 DEX+3
@@ -2760,7 +2875,7 @@ ${/if}
 
 [買う](719 "!i102")
 [売る](752 "i102")
-[戻る](703)</scene>
+[やめる](704)</scene>
 	<scene id="710" level="13" summary="刀">
 ### ★武器Lv2…カタナブレード
 ### ・片手持時…STR+30　・両手持時…STR+40 DEX+3
@@ -2777,7 +2892,7 @@ ${/if}
 
 [買う](720 "!i103")
 [売る](753 "i103")
-[戻る](703)</scene>
+[やめる](704)</scene>
 	<scene id="711" level="13" summary="鉄球">
 ### ★武器Lv2…モーニングスター　※2体攻撃武器
 ### ・片手持時…STR+20 DEX-3　・両手持時…STR+40 DEX-3
@@ -2794,7 +2909,7 @@ ${/if}
 
 [買う](721 "!i104")
 [売る](754 "i104")
-[戻る](703)</scene>
+[やめる](704)</scene>
 	<scene id="712" level="13" summary="円盾･娘助後">　
 ### ★盾Lv1…ラウンドシールド　・DEX+5 DM-3
 
@@ -2808,7 +2923,7 @@ ${/if}
 
 [買う](722 "!i201")
 [売る](755 "i201")
-[戻る](703)</scene>
+[やめる](705)</scene>
 	<scene id="713" level="13" summary="中盾">
 ### ★盾Lv2…カイトシールド　・DEX+10 DM-5
 
@@ -2822,7 +2937,7 @@ ${/if}
 
 [買う](723 "!i202")
 [売る](756 "i202")
-[戻る](703)</scene>
+[やめる](705)</scene>
 	<scene id="714" level="13" summary="鎖鎧･娘助後">
 ### ★鎧Lv1…チェインメイル　・DM-10
 
@@ -2836,7 +2951,7 @@ ${/if}
 
 [買う](724 "!i301")
 [売る](757 "i301")
-[戻る](703)</scene>
+[やめる](706)</scene>
 	<scene id="715" level="13" summary="胸鎧">
 ### ★鎧Lv2…ブレストプレート　・DM-25
 
@@ -2850,7 +2965,7 @@ ${/if}
 
 [買う](725 "!i302")
 [売る](758 "i302")
-[戻る](703)</scene>
+[やめる](706)</scene>
 	<scene id="716" level="13" summary="白輪･娘助後">
 ### ★指輪Lv1…ホワイトリング　・INT+10 KRM+3
 
@@ -2864,7 +2979,7 @@ ${/if}
 
 [買う](726 "!i401")
 [売る](759 "i401")
-[戻る](703)</scene>
+[やめる](707)</scene>
 	<scene id="717" level="13" summary="緑輪">
 ### ★指輪Lv2…グリーンリング　・INT+21 KRM+7
 
@@ -2878,13 +2993,15 @@ ${/if}
 
 [買う](727 "!i402")
 [売る](760 "i402")
-[戻る](703)</scene>
+[やめる](707)</scene>
 	<scene id="718" items="i101" level="14" summary="長剣買･娘助後">　　
 　　
 トール「役に立ててうれしいぜ。」
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="719" items="i102" level="14" summary="槍買">　　
@@ -2893,6 +3010,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="720" items="i103" level="14" summary="刀買">　　
@@ -2901,6 +3020,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="721" items="i104" level="14" summary="鉄球買">　　
@@ -2909,6 +3030,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="722" items="i201" level="14" summary="円盾買･娘助後">　　
@@ -2917,6 +3040,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="723" items="i202" level="14" summary="中盾買">　　
@@ -2925,6 +3050,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="724" items="i301" level="14" summary="鎖鎧買･娘助後">　　
@@ -2933,6 +3060,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="725" items="i302" level="14" summary="胸鎧買">　　
@@ -2941,6 +3070,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="726" items="i401" level="14" summary="白輪買･娘助後">　　
@@ -2949,6 +3080,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="727" items="i402" level="14" summary="緑輪買">　　
@@ -2957,6 +3090,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="731" items="i731,-i1062" level="11" summary="ファイヤE聞く">
@@ -3362,6 +3497,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を増やしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="752" items="-i102" level="14" summary="槍売">　　
@@ -3370,6 +3507,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を増やしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="753" items="-i103" level="14" summary="刀売">　　
@@ -3378,6 +3517,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を増やしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="754" items="-i104" level="14" summary="鉄球売">　　
@@ -3386,6 +3527,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を増やしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="755" items="-i201" level="14" summary="円盾売･娘助後">　　
@@ -3394,6 +3537,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を増やしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="756" items="-i202" level="14" summary="中盾売">　　
@@ -3402,6 +3547,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を増やしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="757" items="-i301" level="14" summary="鎖鎧売･娘助後">　　
@@ -3410,6 +3557,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を増やしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="758" items="-i302" level="14" summary="胸鎧売">　　
@@ -3418,6 +3567,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を増やしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="759" items="-i401" level="14" summary="白輪売･娘助後">　　
@@ -3426,6 +3577,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を増やしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="760" items="-i402" level="14" summary="緑輪売">　　
@@ -3434,6 +3587,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を増やしておく事。**
+　　
+　　
 
 [戻る](703)</scene>
 	<scene id="799" bgm="@field05" level="112" summary="もっと強力な武器は無いか？">
@@ -3493,10 +3648,13 @@ ${/if}
 うーん、すごい…
 価格もすごいが、このレベルだと本来の相場は倍以上じゃなかろうか…
 ((((；ﾟДﾟ))))ｶﾞｸｶﾞｸﾌﾞﾙﾌﾞﾙ
+　　
+　　
 
 [バトルアックス　価格：欠片２５個](802)
 [ハルバード　価格：欠片４０個](805)
-[バスタードソード	価格：欠片３２個](640)</scene>
+[バスタードソード	価格：欠片３２個](640)
+[やめる](800)</scene>
 	<scene id="802" level="115" summary="戦斧">
 ### ★武器Lv3…バトルアックス
 ### ・片手持時…STR+60 DEX-5　・両手持時…STR+90 DEX±0
@@ -3512,13 +3670,15 @@ ${/if}
 
 [買う](803 "!i105")
 [売る](804 "i105")
-[戻る](800)</scene>
+[やめる](801)</scene>
 	<scene id="803" items="i105" level="116" summary="戦斧買">　　
 　　
 トール「よし！頼んだぜ！」
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](800)</scene>
 	<scene id="804" items="-i105" level="116" summary="戦斧売">　　
@@ -3527,6 +3687,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を増やしておく事。**
+　　
+　　
 
 [戻る](800)</scene>
 	<scene id="805" level="115" summary="矛">
@@ -3544,13 +3706,15 @@ ${/if}
 
 [買う](806 "!i106")
 [売る](807 "i106")
-[戻る](800)</scene>
+[やめる](801)</scene>
 	<scene id="806" items="i106" level="116" summary="矛買">　　
 　　
 トール「よし！頼んだぜ！」
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](800)</scene>
 	<scene id="807" items="-i106" level="116" summary="矛売">　　
@@ -3559,6 +3723,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を増やしておく事。**
+　　
+　　
 
 [戻る](800)</scene>
 	<scene id="811" level="114" summary="盾･この木会後">　　
@@ -3569,9 +3735,12 @@ ${/if}
 うーん、すごい…
 価格もすごいが、このレベルだと本来の相場は倍以上じゃなかろうか…
 ((((；ﾟДﾟ))))ｶﾞｸｶﾞｸﾌﾞﾙﾌﾞﾙ
+　　
+　　
 
 [ラージシールド 価格：欠片２０個](812)
-[ドワーフの盾 価格：欠片２５個](815)</scene>
+[ドワーフの盾 価格：欠片２５個](815)
+[やめる](800)</scene>
 	<scene id="812" level="115" summary="大盾">
 ### ★盾Lv3…ラージシールド　・DEX+15 DM-15
 
@@ -3585,13 +3754,15 @@ ${/if}
 
 [買う](813 "!i203")
 [売る](814 "i203")
-[戻る](800)</scene>
+[やめる](811)</scene>
 	<scene id="813" items="i203" level="116" summary="大盾買">　　
 　　
 トール「よし！頼んだぜ！」
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](800)</scene>
 	<scene id="814" items="-i203" level="116" summary="大盾売">　　
@@ -3600,6 +3771,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を増やしておく事。**
+　　
+　　
 
 [戻る](800)</scene>
 	<scene id="815" summary="ドワ盾" level="115">
@@ -3616,13 +3789,15 @@ ${/if}
 
 [買う](816 "!i204")
 [売る](817 "i204")
-[戻る](800)</scene>
+[やめる](811)</scene>
 	<scene id="816" summary="ドワ盾買" level="116" items="i204">　　
 　　
 トール「よし！頼んだぜ！」
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](800)</scene>
 	<scene id="817" summary="ドワ盾売" level="116" items="-i204">　　
@@ -3631,6 +3806,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を増やしておく事。**
+　　
+　　
 
 [戻る](800)</scene>
 	<scene id="821" level="114" summary="鎧･この木会後">　　
@@ -3641,11 +3818,14 @@ ${/if}
 うーん、すごい…
 価格もすごいが、このレベルだと本来の相場は倍以上じゃなかろうか…
 ((((；ﾟДﾟ))))ｶﾞｸｶﾞｸﾌﾞﾙﾌﾞﾙ
+　　
+　　
 
 [ハーフプレート 価格：欠片３０個](822)
 [エルフの革鎧 価格：欠片４０個](828)
 [フルプレート 価格：欠片６０個](825)
-[ミスリルアーマー 価格：欠片７０個](655)</scene>
+[ミスリルアーマー 価格：欠片７０個](655)
+[やめる](800)</scene>
 	<scene id="822" level="115" summary="半鎧">
 ### ★鎧Lv3…ハーフプレート　・DM-40 DEX-3
 
@@ -3659,13 +3839,15 @@ ${/if}
 
 [買う](823 "!i303")
 [売る](824 "i303")
-[戻る](800)</scene>
+[やめる](821)</scene>
 	<scene id="823" items="i303" level="116" summary="半鎧買">　　
 　　
 トール「よし！頼んだぜ！」
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](800)</scene>
 	<scene id="824" items="-i303" level="116" summary="半鎧売">　　
@@ -3674,6 +3856,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を増やしておく事。**
+　　
+　　
 
 [戻る](800)</scene>
 	<scene id="825" level="115" summary="全鎧">
@@ -3689,13 +3873,15 @@ ${/if}
 
 [買う](826 "!i304")
 [売る](827 "i304")
-[戻る](800)</scene>
+[やめる](821)</scene>
 	<scene id="826" items="i304" level="116" summary="全鎧買">　　
 　　
 トール「よし！頼んだぜ！」
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](800)</scene>
 	<scene id="827" items="-i304" level="116" summary="全鎧売">　　
@@ -3704,6 +3890,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を増やしておく事。**
+　　
+　　
 
 [戻る](800)</scene>
 	<scene id="828" summary="エル鎧" level="115">
@@ -3720,13 +3908,15 @@ ${/if}
 
 [買う](829 "!i305")
 [売る](830 "i305")
-[戻る](800)</scene>
+[やめる](821)</scene>
 	<scene id="829" summary="エル鎧買" level="116" items="i305">　　
 　　
 トール「よし！頼んだぜ！」
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](800)</scene>
 	<scene id="830" summary="エル鎧売" level="116" items="-i305">　　
@@ -3735,6 +3925,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を増やしておく事。**
+　　
+　　
 
 [戻る](800)</scene>
 	<scene id="831" level="114" summary="指輪･この木会後">　　
@@ -3745,9 +3937,12 @@ ${/if}
 うーん、すごい…
 価格もすごいが、このレベルだと本来の相場は倍以上じゃなかろうか…
 ((((；ﾟДﾟ))))ｶﾞｸｶﾞｸﾌﾞﾙﾌﾞﾙ
+　　
+　　
 
 [レッドリング 価格：欠片３９個](832)
-[ブルーリング 価格：欠片５４個](835)</scene>
+[ブルーリング 価格：欠片５４個](835)
+[やめる](800)</scene>
 	<scene id="832" level="115" summary="赤輪">
 ### ★指輪Lv3…レッドリング　・INT+39 KRM+13
 
@@ -3761,13 +3956,15 @@ ${/if}
 
 [買う](833 "!i403")
 [売る](834 "i403")
-[戻る](800)</scene>
+[やめる](831)</scene>
 	<scene id="833" items="i403" level="116" summary="赤輪買">　　
 　　
 トール「よし！頼んだぜ！」
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](800)</scene>
 	<scene id="834" items="-i403" level="116" summary="赤輪売">　　
@@ -3776,6 +3973,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を増やしておく事。**
+　　
+　　
 
 [戻る](800)</scene>
 	<scene id="835" level="115" summary="青輪">
@@ -3791,13 +3990,15 @@ ${/if}
 
 [買う](836 "!i404")
 [売る](837 "i404")
-[戻る](800)</scene>
+[やめる](831)</scene>
 	<scene id="836" items="i404" level="116" summary="青輪買">　　
 　　
 トール「よし！頼んだぜ！」
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を減らしておく事。**
+　　
+　　
 
 [戻る](800)</scene>
 	<scene id="837" items="-i404" level="116" summary="青輪売">　　
@@ -3806,6 +4007,8 @@ ${/if}
 　　
 　　
 **%red%【手動】%/%※価格分の欠片（どれでも）を増やしておく事。**
+　　
+　　
 
 [戻る](800)</scene>
 	<scene id="850" level="9" summary="地竜教について1">
@@ -3968,8 +4171,8 @@ ${/if}
 君は今までの人生で最も後味の悪いウソをついて、その場を後にした。
 
 [出る](110)</scene>
-	<scene id="999" summary="★ゾマ行動早見表" level="124">${if f1407&amp;!f4224}
-**%blue%★ゾマ行動早見表★%/%**
+	<scene id="999" summary="★ゾマランダム行動早見表" level="124">${if f1407&amp;!f4224}
+**%blue%★ゾマランダム行動早見表★%/%**
 **●L1…何もしない※ゾロ目2ターン**
 **●L2…HP敵以外1体倒す※ゾロ目2体**
 **●L3…HP敵以外1体復活※ゾロ目2体**
@@ -3978,7 +4181,7 @@ ${/if}
 **●L6…無料魔法※ゾロ目2回**
 ${/if}
 ${if f4224}
-**%blue%★ゾマ行動早見表(強化後)★%/%**
+**%blue%★ゾマランダム行動早見表(強化後)★%/%**
 **●L1…何もしない※ゾロ目2ターン**
 **●L2…HP敵も1体倒す※ゾロ目2体**
 **●L3…HP敵も1体復活※ゾロ目2体**
@@ -4708,7 +4911,7 @@ ${import 1000}
 [西へ](1047)
 [東へ](1049)
 [南へ](1041)</scene>
-	<scene id="1049" level="47" summary="平原7段目-7上端右端">
+	<scene id="1049" level="47" summary="平原7段目-7上端右端" bgm="@field05">
 ここは平原の端。
 
 切り立った崖の向こうは海だ。
@@ -4718,7 +4921,7 @@ ${import 1000}
 [スカーフが…](1050 "i603")
 [西へ](1048)
 [南へ](1042,1073,1074)</scene>
-	<scene id="1050" enemies="m4,m3" level="48" summary="武器娘助1">
+	<scene id="1050" enemies="m4,m3" level="48" summary="武器娘助1" bgm="@field03">
 飛んでいったスカーフを追って茂みに入ると、少女がゴブリンに襲われていた！
 ゲスな笑みを浮かべながらにじり寄ってくる２体のゴブリンを、石を投げ、木の棒を振り回して必死に寄せ付けまいとする少女。
 
@@ -4736,7 +4939,7 @@ ${import 1000}
 
 [だが許るさん！蹴散らす！！](1051)
 [戦闘その他の説明（チュートリアル）を見る](401)</scene>
-	<scene id="1051" items="-i603" flags="f1051" level="49" summary="武器娘助2">
+	<scene id="1051" items="-i603" flags="f1051" level="49" summary="武器娘助2" bgm="@field02">
 多少凶暴化してはいてもしょせんはゴブリン、冒険者としてそれなりの経験を持つ君の敵ではなかった。
 
 しかしさて、なんと声を掛けたものか…
@@ -4824,7 +5027,7 @@ ${import 1000}
 ２人はハッとしてお互いに顔を見て、恥ずかしそうにうつむきながら話しだした…
 
 [あんな感じで店大丈夫か？](1056)</scene>
-	<scene id="1056" result="r1056" level="53" summary="武器娘助後3">
+	<scene id="1056" result="r1056" level="53" summary="武器娘助後3" bgm="@field02">
 トール「す、すまん…ルネが熱を出して、こいつが手伝わなくなってから店の事が滞ってて…」
 ココネ「あ、あたしだけのせいにしないでよ…聞いたわよ、あたしの事探してくれる人がいないからって、ブスーっと店に座って、来る人に悪態ついてたって。」
 トール「そりゃ元はと言えばおまえが…」
@@ -5196,7 +5399,7 @@ ${import 1121}
 ${import 1107}
 
 [旅立つ！](1201)</scene>
-	<scene id="1107" bgm="@town03" level="124" summary="★欠片袋ルール">%blue%**★【欠片袋】七星欠片入手ルール★**%/%
+	<scene id="1107" level="124" summary="★欠片袋ルール">%blue%**★【欠片袋】七星欠片入手ルール★**%/%
 
 欠片袋とは主にボス戦勝利後に手に入る【たくさんの七星欠片が入った袋】の事で､まぁ平たく言えばボス撃破のご褒美である｡
 入手した際は以下の手順で得る欠片を決定する｡
@@ -5239,7 +5442,7 @@ ${import 1107}
 ${import 1109}
 
 [旅立つ！](1201)</scene>
-	<scene id="1109" bgm="@town03" level="124" summary="★欠片箱ルール">%blue%**★【欠片箱】七星欠片入手ルール★**%/%
+	<scene id="1109" level="124" summary="★欠片箱ルール">%blue%**★【欠片箱】七星欠片入手ルール★**%/%
 
 欠片箱とは主にボス戦勝利後に手に入る【たくさんの七星欠片が入った箱】の事で､まぁ平たく言えばボス撃破のご褒美である｡
 入手した際は以下の手順で得る欠片を決定する｡
@@ -5267,7 +5470,7 @@ ${import 1109}
 ## %blue%欠片総数+KRM&gt;10(L+R)%/%
 つまり【君が現在所持している七星欠片すべての合計数】と【KRM（基本値×Lv+指輪分）】を足した数値が【ダイス左右の合計値×10】を上回るかどうか、ダイスを振って判定せよ。
 ※同数だった場合はやり直しとする。
-※なお君はすでに動く事はできないので、一切の魔法の使用(REJUVENATEも)や欠片を使用してのブーストといったあらゆる行動はできない。また現在かかっている魔法やブーストがあった場合もそれらは解除されるものとする。
+※なお君はすでに動く事はできないので、一切の魔法の使用(【REJUVENATE】も)や欠片を使用してのブーストといったあらゆる行動はできない。また現在かかっている魔法やブーストがあった場合もそれらは解除されるものとする。
 
 [上回った](1111)
 [下回った](1112)</scene>
@@ -5286,7 +5489,7 @@ ${import 1109}
 
 しかし天の助けか、誘爆した欠片が発動して七星の力が君の身に宿った！
 **%red%【手動】%/%※すべてのブーストを欠片を使わず発動。**
-上記の通りHP/MPはMAXも現在値も1/2にした上で1Lv分をUP、各ステータスを1Lv分UP（太は効果無し）、なおこのボス戦中は強制発動なのでRESURRECTで生き返った際も発動させっぱなしでよい。
+上記の通りHP/MPはMAXも現在値も1/2にした上で1Lv分をUP、各ステータスも1Lv分UPせよ。なおこのボス戦中は強制発動なので【RESURRECT】で生き返った際も発動させっぱなしでよい。
 
 欠片は全て爆発したわけではなく、半分残ったようだ…
 **%blue%【自動】%/%※手持ちの欠片は全種1/2となる。**
@@ -5352,12 +5555,14 @@ ${import 1123}
 	<scene id="1120" summary="★クラG表ルール1" level="124">
 %blue%**★クラーケン･ジャイアント：触手★**%/%
 
-・通常戦闘と同じく準備行動2回後に指定部位と戦い､残り部位からの攻撃を防御で受ける所までで1ターンとする｡
-・**戦う部位は上から順**に､指定はできない｡
-・【2体攻撃武器】であっても2つの部位と同時に戦う事はできない(相手が巨体ゆえ)｡
-・攻撃魔法は属性を合わせれば効果はあるが魔法耐性があるので収束で撃って1つの部位しか倒せない｡しかし**狙う部位は指定できる｡**
-・倒した部位から得られる**EXPは通常の2倍**とする｡
-・表示されている部位を全て倒した後は**魔法などの行動を挟まずに**速やかに次のシーンへ移動する事｡
+●通常戦闘と同じく､準備行動2回後に指定敵(部位)と戦い､残敵(部位)の攻撃を防御で受ける所までを1セット1ターンとする｡
+●指定部位とは**上から順に戦う事､**とばす事はできない｡
+●【2体攻撃武器】でも2つの部位を同時に攻撃はできない(相手が巨体ゆえ)｡
+●攻撃魔法は属性を合わせれば効果はあるが､1つの部位しか倒せない｡しかし**狙う部位は指定できる｡**
+
+※倒した部位から得られる**EXPは通常の2倍**とする｡
+※表示されている部位を全て倒した後は**魔法などの行動を挟まずに**速やかに次のシーンへ移動する事｡
+
 
 </scene>
 	<scene id="1121" summary="★クラG表ルール2" level="124">
@@ -5368,25 +5573,31 @@ ${import 1123}
 ②(D)2段目の式でウォｰタｰガンの**DMを決定｡**
 ③**①で決定した数だけ2段目の式をクリック**してDMを受ける｡
 ④(D)**3段目の式をクリック**して本体体当たりのDMを受ける｡
-⑤最後に**敵HP数値をクリック**して減らす｡※DM×1で行う事
+⑤最後に**【敵HP】をクリック**して減らす｡※DM×1で行う事
 この①-⑤の流れで1ターンとし､敵HPが0になったら撃破で勝利｡
-・戦利品は①②④ごとに1回得る(EXPは④後にのみ2倍得る)｡
-・攻撃魔法DELUGEを使う事でウォｰタｰガンを相殺可能｡①-③を飛ばして(戦利品は得る)直接④へ移行できるが､**DELUGEを使った時点で強制的に④へ移行する**ものとする(準備行動中でも)｡
-・本体は魔法無効なので収束NOILA-TEM(DM1)のみ有効｡使った場合は④をせずに⑤を行ってよいが(EXPは得る)､これもその直後に**強制的に①-③を行ってターン終了**とする｡つまり魔法でDMを避けられるのはどちらかだけという事｡
-・ウォｰタｰガン/体当たりとも**防御不能**だがPROTECT/HOLY-WATERは有効｡
-・ウォｰタｰガンは①で命中/回避判定をするので盾無回避は不可｡
+●**攻撃魔法【DELUGE】を使う事でウォｰタｰガンを相殺可能｡**
+①-③を飛ばして(戦利品は得る)直接④へ移行できるが､**使った時点で強制的に④へ移行する**ものとする(準備行動中でも)｡
+●本体への攻撃魔法は【LIGHT-CROSS】(DM1)か【NOILA-TEM】(DM1)のみ有効｡使った場合は④をせずに⑤を行ってよいが(EXPは得る)､これもその直後に**強制的に①-③を行ってターン終了**とする｡つまり魔法でDMを避けられるのはどちらかだけという事｡
+●ウォｰタｰガン/体当たりとも【防御不能】だが魔法防御は有効｡
+●ウォｰタｰガンは①で命中/回避判定をするので盾無回避は不可｡
+
+※戦利品は①②④ごとに1回得る(EXPは④後にのみ2倍得る)｡
+※【敵HP/防御不能】についてはチュートリアル【魔法その他編：特殊能力を持つ敵について】を参照｡
+
 
 </scene>
 	<scene id="1122" summary="★クラG裏ルール1" level="124">
 %blue%**★クラーケン･ジャイアントEX：触手★**%/%
 
-・通常戦闘と同じく準備行動2回後に指定部位と戦い､残り部位からの攻撃を防御で受ける所までで1ターンとする｡
-・戦う部位は**上から順**に､指定はできない｡
-・【2体攻撃武器】であっても2つの部位と同時に戦う事はできない(相手が巨体ゆえ)｡
-・攻撃魔法は属性を合わせれば効果はあるが､魔法耐性があるので収束で撃って1つの部位しか倒せない｡しかし**狙う部位は指定できる｡**
-・倒した部位から得られる**EXPは通常の2倍**とする｡
-・**怒りで命中率が落ちている**ため､攻撃の際に振った**ダイスの左右計が偶数なら攻撃を回避**したものとして､計算式をクリックせずにその部位を倒してよい(奇数でも盾防御/盾無回避は可能)｡
+●通常戦闘と同じく､準備行動2回後に指定敵(部位)と戦い､残敵(部位)の攻撃を防御で受ける所までを1セット1ターンとする｡
+●指定部位とは**上から順に戦う事､**とばす事はできない｡
+●【2体攻撃武器】でも2つの部位を同時に攻撃はできない(相手が巨体ゆえ)｡
+●攻撃魔法は属性を合わせれば効果はあるが､1つの部位しか倒せない｡しかし**狙う部位は指定できる｡**
+●**怒りで命中率が落ちている**ため､攻撃の際に振った**ダイスの左右計が偶数なら攻撃を回避**したものとして､計算式をクリックせずにその部位を倒してよい(奇数でも盾防御/盾無回避は可能)｡
 またそのターンの残り部位からの攻撃についても､**1回1回ダイスを振って回避判定**をして偶数なら回避､奇数なら防御とする。
+
+※倒した部位から得られる**EXPは通常の2倍**とする｡
+
 
 </scene>
 	<scene id="1123" summary="★クラG裏ルール2" level="124">
@@ -5399,13 +5610,17 @@ ${import 1123}
 ※怒りで命中率が落ちてるので､毎回(D)で偶数時は回避とする
 ④(D)**3段目の式をクリック**して本体体当たりのDMを受ける｡
 ※これも(D)が偶数時は回避
-⑤最後に**敵HP数値をクリック**して減らす｡※DM×1で行う事
+⑤最後に**【敵HP】をクリック**して減らす｡※DM×1で行う事
 この①-⑤の流れで1ターンとし､敵HPが0になったら撃破で勝利｡
-・戦利品は①②④ごとに1回得る(EXPは④後にのみ2倍得る)｡
-・攻撃魔法DELUGEを使う事でウォｰタｰガンを相殺可能｡①-③を飛ばして(戦利品は得る)直接④へ移行できるが､**DELUGEを使った時点で強制的に④へ移行する**ものとする(準備行動中でも)｡
-・本体は魔法無効なので収束NOILA-TEM(DM1)のみ有効｡使った場合は④をせずに⑤を行ってよいが(EXPは得る)､これもその直後に**強制的に①-③を行ってターン終了**とする｡つまり魔法でDMを避けられるのはどちらかだけという事｡
-・ウォｰタｰガン/体当たりとも**防御不能**だがPROTECT/HOLY-WATERは有効｡
-・ウォｰタｰガンは①で命中/回避判定をするので盾無回避は不可｡
+●**攻撃魔法【DELUGE】を使う事でウォｰタｰガンを相殺可能｡**
+①-③を飛ばして(戦利品は得る)直接④へ移行できるが､**使った時点で強制的に④へ移行する**ものとする(準備行動中でも)｡
+●本体への攻撃魔法は【LIGHT-CROSS】(DM1)か【NOILA-TEM】(DM1)のみ有効｡使った場合は④をせずに⑤を行ってよいが(EXPは得る)､これもその直後に**強制的に①-③を行ってターン終了**とする｡つまり魔法でDMを避けられるのはどちらかだけという事｡
+●ウォｰタｰガン/体当たりとも【防御不能】だが魔法防御は有効｡
+●ウォｰタｰガンは①で命中/回避判定をするので盾無回避は不可｡
+
+※戦利品は①②④ごとに1回得る(EXPは④後にのみ2倍得る)｡
+※【敵HP/防御不能】についてはチュートリアル【魔法その他編：特殊能力を持つ敵について】を参照｡
+
 
 </scene>
 	<scene id="1201" items="-i1106,-i1109,i1201" bgm="@field02" level="27" hp="full" mp="full" summary="泉南クラG跡NPC選">
@@ -5427,7 +5642,7 @@ ${import 1123}
 経験や勘を信じて身を滅ぼす､というのはよくある話。
 （ノーマル）
 
-・【中央（水上）をCHANGE-AIRで突っ切る】　※要CHANGE-AIR
+・【中央（水上）をCHANGE-AIRで突っ切る】　※要【CHANGE-AIR】
 天の啓示か､はたまた究極のせっかちさんか。
 （非推奨：ハード）
 
@@ -5435,7 +5650,7 @@ ${import 1123}
 [右側（東）から迂回する](1251 "f1210")
 [左側（西）から迂回する](1301 "-f1308")
 [左側（西）から迂回する](1351 "f1308")
-[中央（水上）をCHANGE-AIRで突っ切る](1401 "mCHANGE-AIR")</scene>
+[中央（水上）を【CHANGE-AIR】で突っ切る](1401 "mCHANGE-AIR")</scene>
 	<scene id="1202" level="28" summary="マベ登場1">
 素素直に右側（東）へ進んだ君。
 
@@ -5626,11 +5841,11 @@ ${import 1211}
 HPは低いが､高Lv防御魔法の使い手なので防御力は高い｡
 **●魔法無効**
 魔法に対しても高い防御力を有するため､攻撃魔法はほぼ無効｡
-収束NOILA-TEM(DM1)のみ効果がある｡
+収束【NOILA-TEM】(DM1)のみ効果がある｡
 **●その他**
 EXPは1回HPを減らすごとに得るが､戦利品は倒した時のみ得る事｡
 
-※その他詳細は各チュートリアルを参照｡
+※【魔法無効】についてはチュートリアル【魔法その他編：特殊能力を持つ敵について】を参照｡
 
 </scene>
 	<scene id="1250" level="31" summary="マベ説明">## ★マーベル(聖戦士)について
@@ -5895,11 +6110,12 @@ ${import 1310}
 高い再生能力を持つためHPは高い｡が､防御力はそれほどでもない｡
 **●魔法耐性**
 高位吸血鬼なので当然のごとく高い魔法耐性を持つ｡
-収束DELUGE(DM1)と収束NOILA-TEM(DM2)のみ効果がある｡
+収束【DELUGE】(DM1)と､収束【NOILA-TEM】(DM2)のみ有効｡
 **●その他**
 EXPは1回HPを減らすごとに得るが､戦利品は倒した時のみ得る事｡
 
-※その他詳細は各チュートリアルを参照｡
+※【魔法耐性】についてはチュートリアル【魔法その他編：特殊能力を持つ敵について】を参照｡
+
 
 </scene>
 	<scene id="1350" level="30" summary="ザシュ説明">${import 1352}
@@ -6042,7 +6258,7 @@ ${import 1414}
 ゾマ「おぬし、人間にしてはいろいろと強過ぎじゃ。」
 君「えへへ…いやぁ、それほどでも…(鼻声)」
 
-ゾマ「肉体的な強さはの、まぁこれくらいならそこそこ見かけるレベルではあるがの、これにこの魔法力が付くとなると話は別じゃて。うむ、非常に興味深い…研究所に持って帰って魔法解析にかけて、その後解剖せねばのぅー」
+ゾマ「肉体的な強さはの、まぁこれくらいならそこそこ見かけるレベルではあるがの、これにこの魔法力が付くとなると話は別じゃて。うむ、非常に興味深い…${研究所|ラボ}に持って帰って魔法解析にかけて、その後解剖せねばのぅー」
 君「うわあああぁぁぁーーー！！！まって！まって！まってくださいいぃぃーー！！ちゃんと！ちゃんと理由がありますから！！」
 ゾマ「ほ？」
 君「わ、私の生まれ育った国はですね、魔法の研究が非常に盛んでして…住民のほとんどが魔法をしかも日常的に使うんです、なのでそこで生活してると自然と魔法を使うようになってですね、その上に進んだ道の能力が上乗せされるんです…なので剣や武器での戦いの修行に明け暮れた自分は、結構な戦士である上に魔法も使えるんですよ………納得していただけましたか？」
@@ -6176,65 +6392,69 @@ ${import 1412}
 	<scene id="1412" summary="★ゾマ戦1ルール" level="124">
 %blue%**★究極のリッチー…ゾマ先生の実験その1：${石礫|いしつぶて}★**%/%
 
-・この実験はボス戦扱いなので､実験全てが終わるまでを【1戦闘】とするが…ブーストや魔法の効果は**1実験ごとにゾマがリセットするため継続しない｡**
+●この実験はボス戦扱いなので､実験全てが終わるまでを【1戦闘】とするが…ブーストや魔法の効果は**1実験ごとにゾマがリセットするため継続しない｡**
 ・にもかかわらず､1つの実験終了後は【戦闘終了状態】ではないので､**準備行動をはさまずに速やかに次の実験へ移行する事｡**
-・また既に言うまでもないとは思うが､**逃亡(通常/欠片/魔法)する事はできない｡**
-・これはゾマの実験であり君はただ単に【攻撃に耐える】だけなので､基本は防御するように(したかったら攻撃してもいいがゾマに当たる事は無いし､それで攻撃がゆるむ事も無い)｡
+●また既に言うまでもないとは思うが､**逃亡(通常/欠片/魔法)する事はできない｡**
+●これはゾマの実験であり君はただ単に【攻撃に耐える】だけなので､基本は防御するように(したかったら攻撃してもいいがゾマに当たる事は無いし､それで攻撃がゆるむ事も無い)｡
 **①通常通り準備行動をする(攻撃しないのであれば3回可能)｡**
 **②ダイスを振って計算式をクリック｡**
 **③②を実験名の所に書かれている回数分､連続で行う｡**
 **④実験終了｡**
 ※盾防御に成功した場合は回避とする｡盾無回避でも可｡
-※PROTECTは効果あり｡RESURRECTも効果があるが実験後にリセットされるので…逆に**各実験につき1度使用できる**｡
-※REJUVENATEは**ゾマに感知されてキャンセルされるので､無効｡**
-※EXPLOSIONで【攻撃2回分を相殺】する事ができる｡なお言うまでもないが､**ゾマ本体に対しては収束NOILA-TEMであっても効果は無い｡**
+※【PROTECT】は効果あり｡【RESURRECT】も効果があるが実験後にリセットされるので…逆に**各実験につき1度使用できる**｡
+※【REJUVENATE】は**ゾマに感知されてキャンセルされ無効｡**
+※攻撃魔法【EXPLOSION】で【攻撃2回分を相殺】する事ができる｡なお言うまでもないが､**ゾマ本体に対しては収束【NOILA-TEM】であっても効果は無い｡**
 ※EXPは実験(計算式クリック)1回ごとに得る事(回避･相殺時も)｡
 ※戦利品は実験終了後に1つ得る事｡
 **ゾマ｢ご褒美は取ってみてのお楽しみじゃ｡｣**
 説明に割り込んでくるんじゃねぇ～
+
 
 </scene>
 	<scene id="1413" summary="★ゾマ戦2ルール" level="124">
 %blue%**★究極のリッチー…ゾマ先生の実験その2：水球★**%/%
 
-・この実験はボス戦扱いなので､実験全てが終わるまでを【1戦闘】とするが…ブーストや魔法の効果は**1実験ごとにゾマがリセットするため継続しない｡**
-・にもかかわらず､1つの実験終了後は【戦闘終了状態】ではないので､**準備行動をはさまずに速やかに次の実験へ移行する事｡**
-・また既に言うまでもないとは思うが､**逃亡(通常/欠片/魔法)する事はできない｡**
-・これはゾマの実験であり君はただ単に【攻撃に耐える】だけなので､基本は防御するように(したかったら攻撃してもいいがゾマに当たる事は無いし､それで攻撃がゆるむ事も無い)｡
+●この実験はボス戦扱いなので､実験全てが終わるまでを【1戦闘】とするが…ブーストや魔法の効果は**1実験ごとにゾマがリセットするため継続しない｡**
+●にもかかわらず､1つの実験終了後は【戦闘終了状態】ではないので､**準備行動をはさまずに速やかに次の実験へ移行する事｡**
+●また既に言うまでもないとは思うが､**逃亡(通常/欠片/魔法)する事はできない｡**
+●これはゾマの実験であり君はただ単に【攻撃に耐える】だけなので､基本は防御するように(したかったら攻撃してもいいがゾマに当たる事は無いし､それで攻撃がゆるむ事も無い)｡
 **①通常通り準備行動をする(攻撃しないのであれば3回可能)｡**
 **②ダイスを振って計算式をクリック｡**
 **③②を実験名の所に書かれている回数分､連続で行う｡**
 **④実験終了｡**
 ※防御不能なので盾防御は無効｡盾無回避は可｡
-※HOLY-WATERは効果あり｡RESURRECTも効果があるが実験後にリセットされるので…逆に**各実験につき1度使用できる**｡
-※REJUVENATEは**ゾマに感知されてキャンセルされるので､無効｡**
-※DELUGEで【攻撃2回分を相殺】する事ができる｡なお言うまでもないが､**ゾマ本体に対しては収束NOILA-TEMであっても効果は無い｡**
+※【HOLY-WATER】は効果あり｡【RESURRECT】も効果があるが実験後にリセットされるので…逆に**各実験につき1度使用できる**｡
+※【REJUVENATE】は**ゾマに感知されてキャンセルされ無効｡**
+※攻撃魔法【DELUGE】で【攻撃2回分を相殺】する事ができる｡なお言うまでもないが､**ゾマ本体に対しては収束【NOILA-TEM】であっても効果は無い｡**
 ※EXPは実験(計算式クリック)1回ごとに得る事(回避･相殺時も)｡
 ※戦利品は実験終了後に1つ得る事｡
 **ゾマ｢ご褒美は取ってみてのお楽しみじゃ｡｣**
 説明に割り込んでくるんじゃねぇ～
 
+
 </scene>
 	<scene id="1414" summary="★ゾマ戦3ルール" level="124">
-%blue%**★究極のリッチー…ゾマ先生の実験その3(ラスト)：電撃★**%/%
+%blue%**★究極のリッチーゾマ先生の実験その3(ラスト)：電撃★**%/%
 
-・この実験はボス戦扱いなので､実験全てが終わるまでを【1戦闘】とするが…ブーストや魔法の効果は**1実験ごとにゾマがリセットするため継続しない｡**
-・にもかかわらず､1つの実験終了後は【戦闘終了状態】ではないので､**準備行動をはさまずに速やかに次の実験へ移行する事｡**
-・また既に言うまでもないとは思うが､**逃亡(通常/欠片/魔法)する事はできない｡**
-・これはゾマの実験であり君はただ単に【攻撃に耐える】だけなので､基本は防御するように(したかったら攻撃してもいいがゾマに当たる事は無いし､それで攻撃がゆるむ事も無い)｡
+●この実験はボス戦扱いなので､実験全てが終わるまでを【1戦闘】とするが…ブーストや魔法の効果は**1実験ごとにゾマがリセットするため継続しない｡**
+●にもかかわらず､1つの実験終了後は【戦闘終了状態】ではないので､**準備行動をはさまずに速やかに次の実験へ移行する事｡**
+●また既に言うまでもないとは思うが､**逃亡(通常/欠片/魔法)する事はできない｡**
+●これはゾマの実験であり君はただ単に【攻撃に耐える】だけなので､基本は防御するように(したかったら攻撃してもいいがゾマに当たる事は無いし､それで攻撃がゆるむ事も無い)｡
 **①通常通り準備行動をする(攻撃しないのであれば3回可能)｡**
 **②ダイスを振って計算式をクリック｡**
 **③②を実験名の所に書かれている回数分､連続で行う｡**
 **④実験終了｡**
 ※防御不能なので盾防御は無効｡また光速攻撃は人間に回避できる次元ではないので盾無回避も不可｡だが【運よく外れる】事があるので盾防御と同じ計算で…
 %blue%**【6L+6RをKRMが上回った場合は回避】**%/%とする｡
-※PROTECT/HOLY-WATERともに効果無し｡RESURRECTは効果があるが実験後にリセットされるので…逆に**各実験につき1度使用できる**｡
-※REJUVENATEは**ゾマに感知されてキャンセルされるので､無効｡**
-※アイテム【錆びた剣】を所持している場合､それを避雷針代わりにして【攻撃1回分を相殺】する事ができる｡なお言うまでもないが､**ゾマ本体に対しては収束NOILA-TEMであっても効果は無い｡**
+※【魔法防御不能】なので【PROTECT/HOLY-WATER】とも無効｡【RESURRECT】は効果があるが実験後にリセットされるので…逆に**各実験につき1度使用できる**｡
+※【REJUVENATE】は**ゾマに感知されてキャンセルされ無効｡**
+※アイテム【錆びた剣】を所持している場合､それを避雷針代わりにして【攻撃1回分を相殺】する事ができる｡なお言うまでもないが､**ゾマ本体に対しては収束【NOILA-TEM】であっても効果は無い｡**
 ※EXPは実験(計算式クリック)1回ごとに得る事(回避･相殺時も)｡
 ※戦利品は実験終了後に1つ得る事｡
+※【魔法防御不能】についてはチュートリアル【魔法その他編：特殊能力を持つ敵について】を参照｡
 **ゾマ｢ご褒美は取ってみてのお楽しみじゃ｡｣**
 説明に割り込んでくるんじゃねぇ～
+
 
 </scene>
 	<scene id="1450" level="35" summary="ゾマ説明">${import 1451}
@@ -6459,33 +6679,40 @@ EXP/戦利品は得られない｡倒す敵は残っている敵の中の一番�
 ※HPクリック時に**【KRM÷10(端数四捨五入)】が【L+R】以上だった場合**は七星神の力で打ち破り､1/2せずともよい｡
 **●【強石化】**
 **2重に受けると即死**､5ターン経過でも死亡｡
-**●魔法耐性**
-収束LIGHT-CROSSでDM1､収束NOILA-TEMでもDM2だが､収束TILTE(※重魔法)ならDM3｡
+**●【魔法耐性】**
+収束【LIGHT-CROSS】でDM1､収束【NOILA-TEM】でもDM2｡
 **●【仲間を呼ぶ】**
 **毎ターン最初にワーウルフ/ワータイガーが補充される**
-呼ぶタイミングはそのターンの準備行動前､撃破済チェックを外して復活させる事※復活分からもEXP/戦利品は得る｡
+呼ぶタイミングはそのターンの準備行動前､撃破済チェックを外して復活させる事※復活分からもEXP/戦利品は得てよい｡
 **●【逃亡不可】**
-通常逃亡/太陽の欠片での逃亡ともに不可｡**CHANGE-AIRで「戻る｣方向へのみ逃亡可能**だが戦利品を得る(盗む)事はできず､このシーンから移動しただけで効果は切れる｡
+通常逃亡/太陽の欠片での逃亡ともに不可｡**【CHANGE-AIR】で「戻る｣方向へのみ逃亡可能**だが戦利品を得る(盗む)事はできず､このシーンから移動しただけで効果は切れる｡
 
-※強石化/魔法耐性についてはチュートリアル【魔法その他編：強状態異常について/特殊能力を持つ敵について】を参照｡
+※EXPは敵HPにDMを与えるごとに得る(DM×1につき2倍のEXP)｡
+※【強石化/魔法耐性】についてはチュートリアル【魔法その他編：強状態異常について/特殊能力を持つ敵について】を参照｡
+${if f1407}**ゾマ｢ベアクロー×2で200万パワー！！｣**
+え？
+**ゾマ｢2倍のジャンプで400万パワー！！！｣**
+はい？
+**ゾマ｢3倍の回転で1200万パワーじゃー！！！！｣**
+理屈の意味は分からんがとにかくすごいパワーだ～${/if}
 
 ${if f1204}
 %blue%**★ワーベアー：マーベル効果★**%/%
-**●ワーベアーの攻撃から君を守る事はできない｡**
+●ワーベアーの攻撃から君を守る事はできない｡
 ※その他は通常通り｡
 ${/if}
 
 ${if f1302}
 %blue%**★ワーベアー：ザシュマー効果★**%/%
-**●ザシュマーがワーベアーを攻撃する際もDMは1/2｡**
+●ザシュマーがワーベアーを攻撃する際もDMは1/2｡
 ※その他は通常通り｡
 ${/if}
 
 ${if f1407}
 %blue%**★ワーベアー：ゾマ効果★**%/%
-**●【ギブアップ】は不可｡**
+●【ギブアップ】は不可｡
 ※その他は通常通り｡
-**%blue%★ゾマ行動早見表★%/%**
+**%blue%★ゾマランダム行動早見表★%/%**
 **●L1…何もしない※ゾロ目2ターン**
 **●L2…HP敵以外1体倒す※ゾロ目2体**
 **●L3…HP敵以外1体復活※ゾロ目2体**
@@ -6493,6 +6720,7 @@ ${if f1407}
 **●L5…Lv×20DM(R奇数HP/R偶数MP)※ゾロ目両方**
 **●L6…無料魔法※ゾロ目2回**
 ${/if}
+
 
 </scene>
 	<scene id="2100" summary="★森･敵出用" level="124">## %red%${msg?  ★Now your enemy is appeared !!★:  ★「モンスターがあらわれた！ コマンド？」★:  ★HERE COMES A NEW CHALLENGER！★}%/%
@@ -6971,46 +7199,50 @@ ${import 2100}
 [ザシュマーについての説明を見る](443 "f1302")
 [ゾマについての説明を見る](444 "f1407")</scene>
 	<scene id="2220" summary="★リザードマスタールール" level="124">%blue%**★伝説の邪悪剣…リザードマスター★**%/%
-**●【HP666】**
+**●HP666**
 不吉な数字の上に邪悪力で守られ防御力が高い｡
-**●【前衛/後衛】**
-**前衛のリザードガーダーがいる間は､後衛のリザードマスターには攻撃/魔法とも届かない｡**が､リザードマスターからの攻撃は特殊なため通常通りこちらに届く｡そしてリザードガーダーは常に防御しているので**こちらの攻撃は全て1/2にする事｡**
+**●前衛/後衛**
+前衛のリザードガーダーがいる間は､後衛のリザードマスターには**攻撃/魔法とも届かない｡**が､リザードマスターからの攻撃は特殊なため通常通りこちらに届く｡そしてリザードガーダーは常に防御しているので**こちらの攻撃は全て1/2**にする事｡
 ※なおリザードガーダーに対しては2体攻撃武器は有効とする｡
-**●【エナジードレイン】**
+**●エナジードレイン**
 **MAXHP/MAXMP/STR/INT/DEX/KRMを全て1Lv分下げる事｡**
 イビルソードから発生する霧は生あるものの精気を吸い取ってそれを力に変えており､弱い生物はそれだけで死んでしまう｡
-※戦闘突入時にダイスを振り**【KRM÷10(端数四捨五入)+3】が【L+R】を上回った場合**は七星神の加護により回避とする｡
-※同数の場合は振り直し､また低下はこの戦闘中のみとする｡
-**●【防御不能】**
+※戦闘突入時にダイスを振り**【KRM÷10(端数四捨五入)+3】が【L+R】を上回った場合**は七星神の加護に守られ､下げずともよい｡なお同数の場合は振直し､また低下はこの戦闘中のみとする｡
+**●防御不能**
 **待機攻撃でも1/2にならず盾防御も不可｡**
 その刀身から発せられる邪悪力による衝撃波は､肉体/精神に直接強烈なダメージを与える｡魔法による加護のみ有効｡
-**●【魔法無効】**
-収束NOILA-TEMでのみDM1｡
+**●魔法無効**
+収束【NOILA-TEM】でのみDM1｡
 **●【逃亡不可】**
-通常逃亡/太陽の欠片での逃亡ともに不可｡**CHANGE-AIRで「戻る｣方向へのみ逃亡可能**だが戦利品を得る(盗む)事はできず､このシーンから移動しただけで効果は切れる｡
+通常逃亡/太陽の欠片での逃亡ともに不可｡**【CHANGE-AIR】で「戻る｣方向へのみ逃亡可能**だが戦利品を得る(盗む)事はできず､このシーンから移動しただけで効果は切れる｡
 
-※防御不能/魔法無効についてはチュートリアル【魔法その他編：特殊能力を持つ敵について】を参照｡
+※EXPは敵HPにDMを与えるごとに得る(DM×1につき2倍のEXP)｡
+※【魔法無効】についてはチュートリアル【魔法その他編：特殊能力を持つ敵について】を参照｡
+${if f1407}**ゾマ｢イビルソードか…しかしこやつに装備できるかの？｣**
+の､呪い武器かもよ？
+**ゾマ｢じゃがコレどうせ1回使うと…｣**
+わー！バラすんじゃねー${/if}
 
 ${if f1204}
 %blue%**★リザードマスター：マーベル効果★**%/%
 邪悪力に対抗する聖霊力を有するので…
-**●リザードマスターの攻撃から君を守る事はできないが､待機攻撃は1/2にする事ができる｡**※指定攻撃時に受けるDMは1/2にできない｡
+●リザードマスターの攻撃から君を守る事はできないが､**待機攻撃は1/2**にする事ができる｡※指定攻撃時に受けるDMは1/2にできない｡
 ※その他は通常通り｡
 ${/if}
 
 ${if f1302}
 %blue%**★リザードマスター：ザシュマー効果★**%/%
-**●ザシュマーもリザードガーダーがいる間はリザードマスターを攻撃できず､ガーダーを攻撃する際もDMは1/2｡**
+●ザシュマーもリザードガーダーがいる間は**リザードマスターを攻撃できず､**ガーダーを攻撃する際もDMは1/2｡
 ※その他は通常通り｡
 ${/if}
 
 ${if f1407}
 %blue%**★リザードマスター：ゾマ効果★**%/%
-**●【ギブアップ】は不可｡**
-**●【2:敵を倒す】…リザードガーダーがいる場合はゾマがDM×1で攻撃｡**※ゾロ目時も同｡
-**●【3:敵を復活】…リザードガーダーが倒されている場合はゾマが1体復活させる｡※HP0だがチェックを外してHP表示の無い敵扱いで｡**※ゾロ目時も同｡
+●【ギブアップ】は不可｡
+●【2:敵を倒す】…リザードガーダーがいる場合は**ゾマがDM×1で攻撃｡**※ゾロ目時も同｡
+●【3:敵を復活】…リザードガーダーが倒されている場合は**ゾマが1体復活させる｡**※HP0だがチェックを外してHP表示の無い敵扱いで｡※ゾロ目時も同｡
 ※その他は通常通り｡
-**%blue%★ゾマ行動早見表★%/%**
+**%blue%★ゾマランダム行動早見表★%/%**
 **●L1…何もしない※ゾロ目2ターン**
 **●L2…HP敵以外1体倒す※ゾロ目2体**
 **●L3…HP敵以外1体復活※ゾロ目2体**
@@ -7018,6 +7250,7 @@ ${if f1407}
 **●L5…Lv×20DM(R奇数HP/R偶数MP)※ゾロ目両方**
 **●L6…無料魔法※ゾロ目2回**
 ${/if}
+
 
 </scene>
 	<scene id="2221" enemies="m614,m615,m613" bgm="@battle03" result="r2551" level="124" summary="※森2段目-2-奥-蜥蜴主1/9" rule="2220">
@@ -8621,7 +8854,7 @@ ${import 2100}
 
 気が付けば、先程まで常にあらゆる方向からしていた、茂みや木の奥からの不穏当なざわめきも無く…
 ただそよ風に揺られる枝葉のこすれる小さな音…敵意なく、ただ仲間と楽しげにさえずる小鳥達の声…
-ここだけが、ただの普通の、森の生き物たちの平和な営みにあふれる森のようだ…
+ここだけが、ただの普通の、生き物たちの平和な営みにあふれる森のようだ…
 
 この雰囲気の出所を探るべく耳を澄ましてみると…奥の方からわずかに水音がする…岩清水だ。
 しかしただの岩清水ではない、澄み切った清純な…まるで聖水の神の祝福を、自然の恵みに置き換えたような…
@@ -8757,48 +8990,42 @@ ${import 2100}
 
 邪気はだいぶ晴れたものの、相変わらず凶悪なモンスターに囲まれてはいる訳だが…
 
+[御神木（弟）へ](2655 "f2543&amp;!f2544")
+[御神木（弟）へ](2656 "f2544")
 [御神木（弟）へ](2543 "!f2543")
-[御神木（弟）へ](2544 "f2543")
 [戻る](2451)</scene>
-	<scene id="2543" level="35" summary="モス後弟初" flags="f2543">
-${主|ぬし}（弟）「…よう！よく来たな！こっちはあっちみたいに回復させてやれるような環境じゃないが、まあゆっくりしていってくれ。」
-なるほど地がこれなら、悪気にあてられるとああなるワケだ。
+	<scene id="2543" level="35" summary="モス後弟初" flags="f2543">${主|ぬし}（弟）「…よう！よく来たな！こっちはあっちみたいに回復させてやれるような環境じゃないが、まあゆっくりしていってくれ。」
+なるほど地がこれなら、毒気にあてられるとああなるワケだ。
 
 主（弟）「…うっ！その節はホントに迷惑かけちまったな、俺とした事が面目無い…」
 …で、兄弟仲は実際悪いのか？
 
-主（弟）「…聞きにくい事をズケズケと聞いてくるなー、そりゃ兄者の予備みたいな扱いに不満も劣等感も無い訳じゃないけどよ、俺は俺で自分の役割ってもんを大事には思ってるんだぜ？」
+主（弟）「…普通は聞きにくい事をズケズケと聞いてくるなー、そりゃ兄者の予備みたいな扱いに不満も劣等感も無い訳じゃないけどよ、俺は俺で自分の役割ってもんを大事には思ってるんだぜ？」
 じゃあ乗っ取られてる時のオマエは別人だったのか？
 
 主（弟）「…いや、あん時は意識も記憶もハッキリあって…ただとにかく無性に腹が立ってしょうがないって感じだったんだ。あと、あの蛾と奴から発する気の事もなんだか猛烈に好きになっちまって…」
-そんだけ？じゃあ、あれ以来何か他に変わった事とかは？
+ふーん…やっぱあんま支配されてるような感じじゃなかったのな。
+じゃあ、あれ以来何か他に変わった事とかは？
 
 主（弟）「…う～ん、ここら辺は荒っぽい奴らが多いけど、そのせいでむしろ外から入ってくる奴がいないし、お互い手も出さないから実は平和そのものなんだよ。だから、これといって何も無いなぁ～…」
-ちょっとマトモな情報は引き出せそうに無いな…
+そっか、そんじゃあじゃましたな。
 
-うん、じゃましたな、じゃーな。
 主（弟）「…おぅ、またな。」
 
+
 [戻る](2542)</scene>
-	<scene id="2544" summary="モス後弟アイテム" level="35">
-${主|ぬし}（弟）「…お、なんだまた来たのか？う～ん、変わった事といえば…あ、言い忘れてたが一応ここも森の力がある程度集まる所でな、兄者の所とは違って森全体のって感じじゃなく…なんつーか、森で発現したそれぞれの力みたいなもんが巡り巡って戻ってくる…そんな場所なんだ。んで、そういう部分というか機能はだいぶ回復してきたわけなんだが…」
-…なんだ？全く要領を得ないな？さっぱりわかんねーぞ？
+	<scene id="2544" summary="アイテム復活" level="36">
+${主|ぬし}（弟）「あんたの使ったアイテムの中で復活できそうなのは…」
 
-主（弟）「えーい、しょうがねーなー…あんたが今まで使った物の中にもこの森で力を得た物があるだろう？ここならそれに力を注入して再び戻す事ができるって言ってんだよ。」
-えっ？もしかしてアイテムを復活させてくれるって事？
-
-主（弟）「そーいう事。あ、ただし注入するための力は出してもらうぜ。復活させるだけでも結構大変なんでな。」
-むむむ…
-
-主（弟）「あんたの使ったアイテムの中で復活できそうなのは…」
 
 [【イビルソード】](2545 "!i23")
 [【ウェンカムイ】](2546 "!i20")
 [【RedPotion】](2547 "!i9")
 [【Br.Potion】](2548 "!i10")
 [【せいすい】](2549 "!i36")
-[戻る](2542)</scene>
-	<scene id="2545" summary="イビルソード？" level="36">
+[【タリスマン(中)】](2657 "!i2903&amp;!i2744")
+[やめておく](2550)</scene>
+	<scene id="2545" summary="イビルソード？" level="37">
 ${主|ぬし}（弟）「【イビルソード】を復活させるには…
 
 **欠片：月１/火１/水１/木１/金１/土１/太１**
@@ -8807,7 +9034,7 @@ ${主|ぬし}（弟）「【イビルソード】を復活させるには…
 
 [たのむ](2650 "s1:1:1:1:1:1:1")
 [やめる](2544)</scene>
-	<scene id="2546" summary="ウェンカムイ？" level="36">
+	<scene id="2546" summary="ウェンカムイ？" level="37">
 ${主|ぬし}（弟）「【ウェンカムイ】を復活させるには…
 
 **欠片：月１/火１/水１/木１/金１/土１/太１**
@@ -8816,7 +9043,7 @@ ${主|ぬし}（弟）「【ウェンカムイ】を復活させるには…
 
 [たのむ](2651 "s1:1:1:1:1:1:1")
 [やめる](2544)</scene>
-	<scene id="2547" summary="RedPotion？" level="36">
+	<scene id="2547" summary="RedPotion？" level="37">
 ${主|ぬし}（弟）「【RedPotion】を復活させるには…
 
 **欠片：木２/土２**
@@ -8825,7 +9052,7 @@ ${主|ぬし}（弟）「【RedPotion】を復活させるには…
 
 [たのむ](2652 "s0:0:0:2:0:2:0")
 [やめる](2544)</scene>
-	<scene id="2548" summary="Br.Potion？" level="36">
+	<scene id="2548" summary="Br.Potion？" level="37">
 ${主|ぬし}（弟）「【Br.Potion】を復活させるには…
 
 **欠片：水２/金２**
@@ -8834,7 +9061,7 @@ ${主|ぬし}（弟）「【Br.Potion】を復活させるには…
 
 [たのむ](2653 "s0:0:2:0:2:0:0")
 [やめる](2544)</scene>
-	<scene id="2549" summary="せいすい？" level="36">
+	<scene id="2549" summary="せいすい？" level="37">
 ${主|ぬし}（弟）「【せいすい】を復活させるには…
 
 **欠片：火１/水１/金１/土１**
@@ -8843,6 +9070,17 @@ ${主|ぬし}（弟）「【せいすい】を復活させるには…
 
 [たのむ](2654 "s0:1:1:0:1:1:0")
 [やめる](2544)</scene>
+	<scene id="2550" summary="アイテム復活終" level="37">
+${主|ぬし}（弟）「…お、もういいのか？」
+
+あぁ、じゃましたな。
+
+主（弟）「またきてくれよなっ！」
+
+オイオイｗ
+
+
+[戻る](2542)</scene>
 	<scene id="2551" enemies="m614,m615,m613" bgm="@battle03" result="r2551" level="35" summary="★森5段目-2-奥蜥蜴主固定" rule="2220">
 リザードマン…だよな？
 ゴツイ鎧を着た１回り大きな奴が、ドッシリと切り株に腰をかけて静かに目を閉じている…
@@ -9343,7 +9581,7 @@ ${import 2100}
 **%blue%【アイテム】%/%【エリクサー(並)】を入手**
 
 [戻る](2641)</scene>
-	<scene id="2650" summary="イビルソード復活" level="37" items="i23" stars="-1,-1,-1,-1,-1,-1,-1">
+	<scene id="2650" summary="イビルソード復活" level="38" items="i23" stars="-1,-1,-1,-1,-1,-1,-1">
 ${主|ぬし}（弟）「………よし！できたぜ。」
 
 **%blue%【アイテム】%/%【イビルソード】を入手**
@@ -9351,7 +9589,7 @@ ${主|ぬし}（弟）「………よし！できたぜ。」
 **%blue%【自動】%/%※欠片：月１/火１/水１/木１/金１/土１/太１を消費**
 
 [戻る](2544)</scene>
-	<scene id="2651" summary="ウェンカムイ復活" level="37" items="i20" stars="-1,-1,-1,-1,-1,-1,-1">
+	<scene id="2651" summary="ウェンカムイ復活" level="38" items="i20" stars="-1,-1,-1,-1,-1,-1,-1">
 ${主|ぬし}（弟）「………よし！できたぜ。」
 
 **%blue%【アイテム】%/%【ウェンカムイ】を入手**
@@ -9359,7 +9597,7 @@ ${主|ぬし}（弟）「………よし！できたぜ。」
 **%blue%【自動】%/%※欠片：月１/火１/水１/木１/金１/土１/太１を消費**
 
 [戻る](2544)</scene>
-	<scene id="2652" summary="RedPotion復活" level="37" items="i9" stars="0,0,0,-2,0,-2,0">
+	<scene id="2652" summary="RedPotion復活" level="38" items="i9" stars="0,0,0,-2,0,-2,0">
 ${主|ぬし}（弟）「………よし！できたぜ。」
 
 **%blue%【アイテム】%/%【RedPotion】を入手**
@@ -9367,7 +9605,7 @@ ${主|ぬし}（弟）「………よし！できたぜ。」
 **%blue%【自動】%/%※欠片：木２/土２を消費**
 
 [戻る](2544)</scene>
-	<scene id="2653" summary="Br.Potion復活" level="37" items="i10" stars="0,0,-2,0,-2,0,0">
+	<scene id="2653" summary="Br.Potion復活" level="38" items="i10" stars="0,0,-2,0,-2,0,0">
 ${主|ぬし}（弟）「………よし！できたぜ。」
 
 **%blue%【アイテム】%/%【Br.Potion】を入手**
@@ -9375,12 +9613,52 @@ ${主|ぬし}（弟）「………よし！できたぜ。」
 **%blue%【自動】%/%※欠片：水２/金２を消費**
 
 [戻る](2544)</scene>
-	<scene id="2654" summary="せいすい復活" level="37" items="i36" stars="0,-1,-1,0,-1,-1,0">
+	<scene id="2654" summary="せいすい復活" level="38" items="i36" stars="0,-1,-1,0,-1,-1,0">
 ${主|ぬし}（弟）「………よし！できたぜ。」
 
 **%blue%【アイテム】%/%【せいすい】を入手**
 
 **%blue%【自動】%/%※欠片：火１/水１/金１/土１を消費**
+
+[戻る](2544)</scene>
+	<scene id="2655" summary="アイテム復活初回" level="35" flags="f2544">${主|ぬし}（弟）「…お、なんだまた来たのか？う～ん、変わった事といえば…あ、言い忘れてたが一応ここも森の力がある程度集まる所でな、兄者の所とは違って森全体のって感じじゃなく…なんつーか、森で発現したそれぞれの力みたいなもんが巡り巡って戻ってくる…そんな場所なんだ。んで、そういう部分というか機能はだいぶ回復してきたわけなんだが…」
+…なんだ？全く要領を得ないな？さっぱりわかんねーぞ？
+
+主（弟）「えーい、しょうがねーなー…あんたが今まで使った物の中にもこの森で力を得た物があるだろう？ここならそれに力を注入して再び戻す事ができるって言ってんだよ。」
+えっ？もしかしてアイテムを復活させてくれるって事？
+
+主（弟）「そーいう事。あ、ただし注入するための力は出してもらうぜ。復活させるだけでも結構大変なんでな。」
+むむむ…
+
+
+[「あんたの使ったアイテムの中で復活できそうなのは…」](2544)</scene>
+	<scene id="2656" summary="アイテム復活2以降" level="35">${主|ぬし}（弟）「…あんたもマメだな、アイテムの復活のためだけにこんな所までわざわざ…」
+サブ扱いにコンプレックス独白しといて自分で”こんな所”言っちゃうのはどーなんだ？
+
+主（弟）「まぁ俺の性格設定上しょーがねーかなとｗ」
+割り切ってやがるｗ
+
+主（弟）「そうそう。だから役割ちゃんとやりますよっと。」
+じゃタノムわ。
+
+
+[「あんたの使ったアイテムの中で復活できそうなのは…」](2544)</scene>
+	<scene id="2657" summary="タリスマン(中)？" level="37">
+${主|ぬし}（弟）「【タリスマン(中)】を復活させるには…
+
+**欠片：木２/金６/太２**
+
+が必要だ。」
+
+[たのむ](2658 "s0:0:0:2:6:0:2")
+[やめる](2544)</scene>
+	<scene id="2658" summary="タリスマン(中)復活" level="38" items="i2744" stars="0,0,0,-2,-6,0,-2">
+${主|ぬし}（弟）「………よし！できたぜ。」
+
+**%blue%【アイテム】%/%【タリスマン(中)】を入手**
+
+**%blue%【自動】%/%※欠片：木２/金６/太２を消費**
+
 
 [戻る](2544)</scene>
 	<scene id="2701" level="108" summary="森主モス前-単身1">
@@ -9408,11 +9686,11 @@ ${主|ぬし}（弟）「………よし！できたぜ。」
 主「…なんと…ではこの事態にもそれが関係して…？」
 君「そうそう、それが聞きたかったんだけど、この森って今どうなってんの？かなりの異常事態らしいけど？」
 主「……それに巻き込まないための、森の閉鎖と警告だったのですが…」
-君「いやそれじゃ困るのよ､俺はここ通って先に行かなきゃならんから｡」
+君「いやそれじゃ困るのよ、俺はここ通って先に行かなきゃならんから。」
 主「…！ではあなたは、この森を救うために来てくださったと…？」
 君「いやだから、この先に用があるからこのまま通れないんじゃ困るんだって…まぁ知り合いにちょっと頼まれた所もあるはあるんだけどさ。」
 
-主「…すでに事態は私の力ではどうにもならない所まで来てしまっています…であれば､例え外の無関係な存在であっても､今､ここまで来られた縁とその力を頼みにするのもまた､世界に満ちる自然と因果の力…あなた方は”神”と呼ぶのでしたね…その導きであると言えるのかもしれません…」
+主「…すでに事態は私の力ではどうにもならない所まで来てしまっています…であれば、例え外の無関係な存在であっても、今、ここまで来られた縁とその力を頼みにするのもまた、世界に満ちる自然と因果の力…あなた方は”神”と呼ぶのでしたね…その導きであると言えるのかもしれません…」
 君「仕事柄なのはわかるけどさ、あんまり回りくどいと機会を逸失したりするよ？」
 主「…失礼しました…では本題に入りましょう…」
 
@@ -9441,8 +9719,8 @@ ${主|ぬし}（弟）「………よし！できたぜ。」
 主「…はい…実はここからさらに森の西の奥深くに、私の弟…同じ日同じ時に同じ所から飛んだ種から生まれたもう一本の御神木があるのです…その弟は、私に万が一の事があった時に私の代わりとなるべく、私と同等の力を持っていて…ただ、現在はまだそこが森の中心になっていないだけで…そしてその弟が、奴いや正確にはその”なにか”の邪気に乗っ取られたのです…」
 おいおい…完全にそっちの計画的な失敗じゃねーか。
 
-主「…返す言葉もありません…そして乗っ取られた弟の力でその邪気はこの森に強く満ち､まるで魔界のような場所にしてしまいました…そこから離れ､かつ基本的に弟と同類である私の力では､その邪気をこの森に封じ込めるのが精一杯で…それも､時と共に力を増す奴らに破られるのは時間の問題です…そうなれば､この島は本当に地獄と化してしまうでしょう…」
-うーん、まぁシナリオレベルが上がるだけかな？とも思うけど…
+主「…返す言葉もありません…そして乗っ取られた弟の力でその邪気はこの森に強く満ち、まるで魔界のような場所にしてしまいました…そこから離れ、かつ基本的に弟と同類である私の力では、その邪気をこの森に封じ込めるのが精一杯で…それも、時と共に力を増す奴らに破られるのは時間の問題です…そうなれば、この島は本当に地獄と化してしまうでしょう…」
+まぁ俺的にはそうなってもシナリオレベルがちょっと上がるだけかなー
 
 主「…お願いします、弟の所へ行き、奴を倒して邪気を発する”なにか”を突き止め、私の所に持ってきてください…私が”それ”を私と森のすべての力を使ってでも浄化します…もはやそれしかこの事態を収拾する方法はありません…」
 ＲＰＧ的にはいろんな方法がありそうだけどね…（モスを操ってる奴がいてそいつを倒したら解決とか、その”なにか”の破壊とか）
@@ -9544,9 +9822,9 @@ ${主|ぬし}（弟）「………よし！できたぜ。」
 マーベル「なんてこと…」
 いやいや…完全にそっちの計画的な失敗じゃねーか。
 
-主「…返す言葉もありません…そして乗っ取られた弟の力でその邪気はこの森に強く満ち､まるで魔界のような場所にしてしまいました…そこから離れ､かつ基本的に弟と同類である私の力では､その邪気をこの森に封じ込めるのが精一杯で…それも､時と共に力を増す奴らに破られるのは時間の問題です…そうなれば､この島は本当に地獄と化してしまうでしょう…」
+主「…返す言葉もありません…そして乗っ取られた弟の力でその邪気はこの森に強く満ち、まるで魔界のような場所にしてしまいました…そこから離れ、かつ基本的に弟と同類である私の力では、その邪気をこの森に封じ込めるのが精一杯で…それも、時と共に力を増す奴らに破られるのは時間の問題です…そうなれば、この島は本当に地獄と化してしまうでしょう…」
 マーベル「それで、その身を賭して守られていたのですね…」
-うーん、俺的にはそうなってもまぁシナリオレベルが上がるだけかな？とも思うけど…
+まぁ俺的にはそうなってもシナリオレベルがちょっと上がるだけかなー
 
 主「…お願いします、弟の所へ行き、奴を倒して邪気を発する”なにか”を突き止め、私の所に持ってきてください…私が”それ”を私と森のすべての力を使ってでも浄化します…もはやそれしかこの事態を収拾する方法はありません…」
 マーベル「…わかりました、この私が命に代えてでもその不届きな蛾を倒し、その邪気の元をお持ちします！」
@@ -9634,7 +9912,7 @@ ${主|ぬし}（弟）「………よし！できたぜ。」
 主「…！ではあなたは、この森を救うために来てくださったと…？」
 ザシュマー「どこをどう取ればそうなるのだ！我輩の知らぬ所でこれほどの事態を引き起こしている奴がいるというのなら、その顔くらいは見てやろう、というだけの事だ。わかったか！」
 
-主「…すでに事態は私の力ではどうにもならない所まで来てしまっています…であれば､例え外の無関係な存在であっても､今､ここまで来られた縁とその力を頼みにするのもまた､世界に満ちる自然と因果の力…あなた方は”神”と呼ぶのでしたね…その導きであると言えるのかもしれません…」
+主「…すでに事態は私の力ではどうにもならない所まで来てしまっています…であれば、例え外の無関係な存在であっても、今、ここまで来られた縁とその力を頼みにするのもまた、世界に満ちる自然と因果の力…あなた方は”神”と呼ぶのでしたね…その導きであると言えるのかもしれません…」
 ザシュマー「ふざけるな！世に満ちる力とはすなわち弱肉強食の絶対の掟！それが”魔”であり、それに則った”法”を”魔法”と呼ぶのだ！この痴れ者が！いますぐ訂正…」
 まあまあまあ、信仰の違いは置いといてさ…
 
@@ -9670,9 +9948,9 @@ ${主|ぬし}（弟）「………よし！できたぜ。」
 ザシュマー「ほう、つまり奴に貴様と同程度の力が上乗せされているという訳だな…ならば少しは楽しめそうか？」
 おいおい…完全にそっちの計画的な失敗じゃねーか。
 
-主「…返す言葉もありません…そして乗っ取られた弟の力でその邪気はこの森に強く満ち､まるで魔界のような場所にしてしまいました…そこから離れ､かつ基本的に弟と同類である私の力では､その邪気をこの森に封じ込めるのが精一杯で…それも､時と共に力を増す奴らに破られるのは時間の問題です…そうなれば､この島は本当に地獄と化してしまうでしょう…」
+主「…返す言葉もありません…そして乗っ取られた弟の力でその邪気はこの森に強く満ち、まるで魔界のような場所にしてしまいました…そこから離れ、かつ基本的に弟と同類である私の力では、その邪気をこの森に封じ込めるのが精一杯で…それも、時と共に力を増す奴らに破られるのは時間の問題です…そうなれば、この島は本当に地獄と化してしまうでしょう…」
 ザシュマー「ほうほう、確かに今のこの森の状態はとても心地が良い。それが島全体に広がるのならなお良いが…」
-うーん、俺的にはそうなってもまぁシナリオレベルが上がるだけかな？とも思うけど…
+まぁ俺的にはそうなってもシナリオレベルがちょっと上がるだけかなー
 
 主「…お願いします、弟の所へ行き、奴を倒して邪気を発する”なにか”を突き止め、私の所に持ってきてください…私が”それ”を私と森のすべての力を使ってでも浄化します…もはやそれしかこの事態を収拾する方法はありません…」
 ザシュマー「…本来、これだけの邪気を単体で発生させるというのは、魔王かそれに準ずるクラスの力が必要だ。それだけの力が、魔界に関係の無い経路で発生しているというのは見逃す事ができぬ。よって、この件は我輩が調査し、その内容如何によってはその場で撃滅する。」
@@ -9756,7 +10034,7 @@ ${主|ぬし}（弟）「………よし！できたぜ。」
 主「…！ではあなたは、この森を救うために来てくださったと…？」
 君「いやまぁ、たぶん結果的にはそうなるだろうけど…その過程で何がどうなるかまでは保証できませんよ？この人？ホント研究のためなら何でもするから…」
 
-主「…すでに事態は私の力ではどうにもならない所まで来てしまっています…であれば､例え外の無関係な存在であっても､今､ここまで来られた縁とその力を頼みにするのもまた､世界に満ちる自然と因果の力…あなた方は”神”と呼ぶのでしたね…その導きであると言えるのかもしれません…」
+主「…すでに事態は私の力ではどうにもならない所まで来てしまっています…であれば、例え外の無関係な存在であっても、今、ここまで来られた縁とその力を頼みにするのもまた、世界に満ちる自然と因果の力…あなた方は”神”と呼ぶのでしたね…その導きであると言えるのかもしれません…」
 ゾマ「ほ。すべてを見通しあやつる”真の神”…そんなモノが居ると本気で思っておるのか？自然から生まれ土に還るだけの土くれや石ころが、意思を持ったならすがりそうな思想じゃて。」
 いつになく、自身の意や感情を込めて話すゾマ…どうやらこういう存在には思う所があるようだ。
 その理由が出自に対してなのか年齢に対してなのかはわからないが…
@@ -9788,9 +10066,9 @@ ${主|ぬし}（弟）「………よし！できたぜ。」
 ゾマ「もう一本あるんかの？それはよいのー…(ﾋｯﾋｯﾋ」
 おいおい…完全にそっちの計画的な失敗じゃねーか（また物騒な物言いしてるがコワイのでスルー
 
-主「…返す言葉もありません…そして乗っ取られた弟の力でその邪気はこの森に強く満ち､まるで魔界のような場所にしてしまいました…そこから離れ､かつ基本的に弟と同類である私の力では､その邪気をこの森に封じ込めるのが精一杯で…それも､時と共に力を増す奴らに破られるのは時間の問題です…そうなれば､この島は本当に地獄と化してしまうでしょう…」
+主「…返す言葉もありません…そして乗っ取られた弟の力でその邪気はこの森に強く満ち、まるで魔界のような場所にしてしまいました…そこから離れ、かつ基本的に弟と同類である私の力では、その邪気をこの森に封じ込めるのが精一杯で…それも、時と共に力を増す奴らに破られるのは時間の問題です…そうなれば、この島は本当に地獄と化してしまうでしょう…」
 ゾマ「それはまたよい実験場になりそうじゃのー…まぁあまりLvが高い方に偏り過ぎるのもよくないんじゃが。」
-うーん、俺的にはそうなってもまぁシナリオレベルが上がるだけかな？とも思うけど…
+まぁ俺的にはそうなってもシナリオレベルがちょっと上がるだけかなー
 
 主「…お願いします、弟の所へ行き、奴を倒して邪気を発する”なにか”を突き止め、私の所に持ってきてください…私が”それ”を私と森のすべての力を使ってでも浄化します…もはやそれしかこの事態を収拾する方法はありません…」
 ゾマ「まぁ今ワシが知りたいのはそっちじゃしな。いったいどんな力がどこから作用しておるのか…興味津々じゃ。」
@@ -9837,19 +10115,89 @@ ${主|ぬし}（弟）「………よし！できたぜ。」
 お？それは楽でいいな…いやそんぐらいはしてもらって当然か。
 
 [さっそくトールの武器屋へ](799)</scene>
-	<scene id="2741" level="52" summary="主モス後" hp="full" mp="full" state="-all">
+	<scene id="2741" level="52" summary="森主･モス後" hp="full" mp="full" state="-all">
 件の邪気を払って以降、森の${主|ぬし}も圧力を解き、聖水域から精気を導いているようで、御神木周辺もかなり清らかな気が流れているな…
 
 主「…よく来られました…して、なにか成果は…？」
-いや、地竜教の成り立ちやゴタゴタに関してはわかったが、肝心の現在何をやってるのかがさっぱりだ。」
-主「…そうですか…私の方もこれといった情報は…」
-まぁ、あせってもしょうがない…とりあえず先に進んでいくさ。
-主「…では、お気をつけて…せめてゆっくり休んでいってください…」
+
+
+
+[いや、特になにも…](2742)
+[いや、地竜教の…](2743 "f856&amp;!f5012")
+[…おや？タリスマンが…](2744 "f4200&amp;i2903")
+[いやーまいった…](2745 "f5012&amp;!f5021")</scene>
+	<scene id="2742" summary="森主･モス後話後" level="53" hp="full" mp="full" state="-all">
+${主|ぬし}「…では、お気をつけて…せめてゆっくり休んでいってください…」
 あぁ、そうさせてもらうよ。
 
 **%blue%【自動】%/%※全ての状態異常が解除され、ＨＰ/ＭＰが全回復。**
 
+
 [御神木を後にする](2593)</scene>
+	<scene id="2743" summary="森主･地竜教話後" level="53">
+いや、地竜教の成り立ちやゴタゴタに関してはわかったんだが…
+肝心の”今現在、総本山とやらで何をやってるのか”がさっぱりだ。
+
+${主|ぬし}「…そうですか…私の方もこれといった情報は…」
+
+まぁ、あせってもしょうがない…とりあえず先に進んでいくさ。
+
+
+[戻る](2742)</scene>
+	<scene id="2744" summary="森主･青竜後･タリス中" level="53" items="-i2903,i2744">${主|ぬし}「…おや？…タリスマンが…なにか強い力を示しているようですが…」
+えっ？そ、そうなの？俺にはちょっとわからんのだが…
+
+
+主「…これは…タリスマンとなるのに必要な力が…かなり得られています…一体なぜ…？」
+えーっ！なんでー？(ﾎﾞｶｯ！ｲﾃｯ！
+ど、どうして…？
+${if f1251}あれ？誰もいないのに一体誰が…？${/if}
+${if f1204}マーベル「いえなぜかわかりませんが殴らなきゃいけないような気がして…」${/if}
+${if f1302}ザシュマー「いやなぜかはわからぬが殴らなければならんような気がして…」${/if}
+${if f1407}ゾマ「いやなんかわからんのじゃが殴らなきゃいかんような気がして…」${/if}
+
+主「…もしかして…自然災害のような…そう、なにか”超自然的な力”をその身に受けませんでしたか？」
+うーん………
+あっ！ひょっとして…ブルードラゴンから受けた突風や電撃の事か？
+
+主「えぇっ！…彼と戦ったのですか？それこそ一体なぜ…？」
+へっ？いやそりゃドラゴンいりゃ戦うでしょ普通（いや普通は逃げるやろ
+って、知り合いだったのか？そっちこそ一体どういう事なんだってばよ！
+
+主「…彼はこの島を大変気に入っていました…なのでこの地に危害を加える気など無く…この地を終の棲家にしたいとすら思っていたのですよ…」
+主「…その存在の強大さから、私にはその意思を感じ取る事ができました…そして彼の方も私の事を感知していたので…直接ではありませんが、時折お互いに意思を通わせていたのです…」
+おいおい、その大自然ことなかれ主義も大概にしろよ？
+地に危害が無いって、住まう人間どころかモンスターにとってもとんでもない脅威だろーがよ！（実際モンスターども超ビビってたし
+
+主「…彼が脅威…それは虫や小動物にとって鳥や獣がそうであるように、上位の捕食者であるという事を言うのであれば…あなた方人間もほとんどの生き物にとっては脅威ですが…」
+ぬ…そう言われると…いや、俺達人間はそんなむやみに殺したりは…してるか…いや、奴は…してなかった…のかもしれんが…しかし…ぐぬぬぬ…
+
+${if f1251}と、ともかく、俺はこの地に住まう者達の平穏のために奴を倒したんだ！それを無意味な殺生のように言われる筋合いは…あんたがこの島の守護神のようなものなんだったらなおさら…ないハズだ！${/if}
+${if f1204}マーベル「おっしゃる事はわかります…しかし大き過ぎる力や存在は${歪|ゆがみ}を生むのです。彼の機嫌一つで他種族の生活圏がもろとも破壊されてしまう…というのはあまりにも被害が大き過ぎて、自然界のバランスが崩されてしまいます。彼自身に悪意や罪はなくとも、去っていただくしかないのではないでしょうか？」
+ともかく、俺達はこの地に住まう者達の平穏のために奴を倒したんだ。それを無意味な殺生のように言われる筋合いは…あんたがこの島の守護神のようなものなんだったらなおさら…ないハズだ。${/if}
+${if f1302}ザシュマー「ふん、くだらんな。強者は${何人|なんぴと}からの挑戦も受けねばならぬ…それが力を持つ者の責務だ。そしてそれは力が支配する魔界…ひいては全ての世界に通ずる掟。我々はそれを行使したに過ぎぬ。」
+ともかく、俺達はこの地に住まう者達の平穏のために奴を倒したんだ。それを無意味な殺生のように言われる筋合いは…あんたがこの島の守護神のようなものなんだったらなおさら…ないハズだ。${/if}
+${if f1407}ゾマ「弱肉強食これ自然の摂理。それに従って奴はより強い力…ワシらに駆逐されたに過ぎぬのじゃが…それを受け入れられぬとは、おぬし本当に大自然教の信者かの？(ﾋﾋｯ」
+ともかく、俺達はこの地に住まう者達の平穏のために奴を倒したんだ。それを無意味な殺生のように言われる筋合いは…あんたがこの島の守護神のようなものなんだったらなおさら…ないハズだ。${/if}
+
+主「…そうですね…私としたことが、少し彼に肩入れし過ぎていたようです…何事も自然のあるがままに…（彼の出自にも思う所があったゆえに…この地で安らかに過ごしてほしいと思ったのですが…）」
+
+主「…では、この力を解放してタリスマンを進化させましょう…」
+
+主「………………………………………………………………………」
+
+主「…さあ、これでかなりの力を発揮するようになったハズです…」
+んー？あんま変わってないような気がするが…まぁなんかありがたい光を放ってるような気もするか。
+
+**%blue%【アイテム】%/%【タリスマン(小)】が【タリスマン(中)】に進化**
+
+**★【タリスマン(中)】**
+タリスマンになりつつある小石｡加護が大幅にUPしKRMが+15､そして即死系(HP0/MP0以外での死亡)の攻撃を受けた際に1度だけ身代わりとなってくれる｡
+※”身代わり”なので死亡＞復活ではなくステータスなどに変化無し｡またその際は【USE】で消滅させる事｡
+
+
+[戻る](2742)</scene>
+	<scene id="2745" level="53" hp="@80" mp="@70" str="@6" int="@6" dex="@7" krm="@5" free1="@10" free2="@1" free3="@0"></scene>
 	<scene id="2801" bgm="@talk01" level="35" summary="モス前弟-単身1">
 ”${主|ぬし}の弟”の近くまで慎重に歩みを進めてきたが、いまだモスの気配は無い…
 
@@ -10006,9 +10354,9 @@ ${主|ぬし}（弟）「………よし！できたぜ。」
 **●追撃シーン：本体攻撃**
 やはり後方にいるので攻撃に参加できず…回復魔法の使用は可｡
 
+
 </scene>
-	<scene id="2812" level="124" summary="★モスG説明-ザシュ">
-%blue%**★モス･ジャイアント：ザシュマー効果★**%/%
+	<scene id="2812" level="124" summary="★モスG説明-ザシュ">%blue%**★モス･ジャイアント：ザシュマー効果★**%/%
 **●鱗粉シーン**
 ザシュマーも攻撃参加で**鱗粉との戦闘での経過時間【-1】｡**
 **●追撃シーン：追撃判定**
@@ -10033,13 +10381,14 @@ ${主|ぬし}（弟）「………よし！できたぜ。」
 ･【3:敵を復活】…ゾマが攻撃妨害で**君の本体への攻撃DMを×1/2にする**(防御で1/2なら1/4に)｡※ゾロ目時も同｡
 ※モスにDMを与えたらゾマは一旦結界を解いて逃がすので次へ｡
 ※その他は通常通り｡
-**%blue%★ゾマ行動早見表★%/%**
+**%blue%★ゾマランダム行動早見表★%/%**
 **●L1…何もしない※ゾロ目2ターン**
 **●L2…HP敵以外1体倒す※ゾロ目2体**
 **●L3…HP敵以外1体復活※ゾロ目2体**
 **●L4…Lv×20回復(R奇数HP/R偶数MP)※ゾロ目両方**
 **●L5…Lv×20DM(R奇数HP/R偶数MP)※ゾロ目両方**
 **●L6…無料魔法※ゾロ目2回**
+
 
 </scene>
 	<scene id="2814" items="-i2535" level="124" summary="※モスG説明-エリクサー">
@@ -10077,7 +10426,10 @@ ${主|ぬし}（弟）「………よし！できたぜ。」
 ・解除/無効化せずに開始行動もしくは次の鱗粉通過で発症する｡
 ※鱗粉通過後は行動せずに速やかに次のシーンへ移動する事｡
 ※鱗粉シーンでEXPは得られないが戦利品は通過時に得てよい｡
-
+${if f1407}**ゾマ｢めんどくさいのーもうちょっとサクサク行けんのかの？｣**
+まぁそういうコンセプトのボスなので…
+**ゾマ｢全部魔法でＧＯじゃ！｣**
+さすがにそれは星がもたんでしょｗ${/if}
 ${if f1204}
 ${import 2811}
 ${/if}
@@ -10104,12 +10456,15 @@ ${/if}
 ついにモスとの戦闘｡最後の抵抗である毒針攻撃を受けつつ本体へ攻撃するが､戦闘行動で本体への攻撃DMも以下の通り変わる｡
 **・攻撃…本体への攻撃【DM×1】**
 **・防御…本体への攻撃【DM×1/2】**
-**・攻撃魔法NOILA-TEM…本体への攻撃【DM×2】**
-**・攻撃魔法TORNADO…本体への攻撃【DM×3】※DM×1で3回**
+**・収束【NOILA-TEM】…本体への攻撃【DM×2】**
+**・収束【TORNADO】…本体への攻撃【DM×3】※DM×1で3回**
 ※本体攻撃時は準備行動ができない(すると逃げられる)事以外は通常の戦闘と同様とする｡
 ※追撃シーンではモスにDMを与えた時に限り**3倍のEXP**と戦利品を得てよい｡
 ※モスにはDMを与えた直後に逃げられるので､次のシーンへ｡
-
+${if f1407}**ゾマ｢あんまりのんびりしておると…｣**
+わーっ！わーっ！
+**ゾマ｢ワシのおしおきが炸裂するかもよ？｣**
+ズコー！！${/if}
 ${if f1204}
 ${import 2811}
 ${/if}
@@ -10142,7 +10497,10 @@ ${/if}
 ・解除/無効化せずに開始行動もしくは次の鱗粉通過で発症する｡
 ※鱗粉通過後は行動せずに速やかに次のシーンへ移動する事｡
 ※鱗粉シーンでEXPは得られないが戦利品は通過時に得てよい｡
-
+${if f1407}**ゾマ｢めんどくさいのーもうちょっとサクサク行けんのかの？｣**
+まぁそういうコンセプトのボスなので…
+**ゾマ｢全部魔法でＧＯじゃ！｣**
+さすがにそれは星がもたんでしょｗ${/if}
 ${if f1204}
 %blue%**★モス･ジャイアント：マーベル効果★**%/%
 防御魔法によるDM軽減【Lv×3】は通常通り行う｡
@@ -10182,7 +10540,7 @@ ${if f1407}
 ･【3:敵を復活】…ゾマが攻撃妨害で**君の本体への攻撃DMを×1/2にする**(防御で1/2なら1/4に)｡※ゾロ目時も同｡
 ※モスにDMを与えたらゾマは一旦結界を解いて逃がすので､次のシーンへ｡
 ※その他は通常通り｡
-**%blue%★ゾマ行動早見表★%/%**
+**%blue%★ゾマランダム行動早見表★%/%**
 **●L1…何もしない※ゾロ目2ターン**
 **●L2…HP敵以外1体倒す※ゾロ目2体**
 **●L3…HP敵以外1体復活※ゾロ目2体**
@@ -10206,12 +10564,15 @@ ${/if}
 ついにモスとの戦闘｡最後の抵抗である毒針攻撃を受けつつ本体へ攻撃するが､戦闘行動で本体への攻撃DMも以下の通り変わる｡
 **・攻撃…本体への攻撃【DM×1】**
 **・防御…本体への攻撃【DM×1/2】**
-**・攻撃魔法NOILA-TEM…本体への攻撃【DM×2】**
-**・攻撃魔法TORNADO…本体への攻撃【DM×3】※DM×1で3回**
+**・収束【NOILA-TEM】…本体への攻撃【DM×2】**
+**・収束【TORNADO】…本体への攻撃【DM×3】※DM×1で3回**
 ※本体攻撃時は準備行動ができない(すると逃げられる)事以外は通常の戦闘と同様とする｡
 ※追撃シーンではモスにDMを与えた時に限り**3倍のEXP**と戦利品を得てよい｡
 ※モスにはDMを与えた直後に逃げられるので､次のシーンへ｡
-
+${if f1407}**ゾマ｢あんまりのんびりしておると…｣**
+わーっ！わーっ！
+**ゾマ｢ワシのおしおきが炸裂するかもよ？｣**
+ズコー！！${/if}
 ${if f1204}
 %blue%**★モス･ジャイアント：マーベル効果★**%/%
 防御魔法によるDM軽減【Lv×3】は通常通り行う｡
@@ -10251,7 +10612,7 @@ ${if f1407}
 ･【3:敵を復活】…ゾマが攻撃妨害で**君の本体への攻撃DMを×1/2にする**(防御で1/2なら1/4に)｡※ゾロ目時も同｡
 ※モスにDMを与えたらゾマは一旦結界を解いて逃がすので､次のシーンへ｡
 ※その他は通常通り｡
-**%blue%★ゾマ行動早見表★%/%**
+**%blue%★ゾマランダム行動早見表★%/%**
 **●L1…何もしない※ゾロ目2ターン**
 **●L2…HP敵以外1体倒す※ゾロ目2体**
 **●L3…HP敵以外1体復活※ゾロ目2体**
@@ -10482,7 +10843,7 @@ ${input?p2851}
 
 ${import 2818}
 
-[死ねよやあああぁぁぁーーー！！！（次へ）](2869)
+[負けてらんないのよぉー！アンタなんかにぃぃーー！！（次へ）](2869)
 [戦闘その他の説明（チュートリアル）を見る](401)</scene>
 	<scene id="2862" summary="モスG追撃-2" level="43" flags="f2862" enemies="m2861,m2862,m2863" rule="2816">
 …さぁやっと追いついたぞ…
@@ -10694,12 +11055,8 @@ ${if f1407}
 ${/if}
 
 </scene>
-	<scene id="2869" summary="モスG追撃-結果分岐" level="44">
-「死ねよやあああぁぁぁーーー！！！」
-
-と情緒不安定になるほどイラつくのもわかるが…
-
-まぁ落ち着きたまえよ( ´･ω･)つ旦
+	<scene id="2869" summary="モスG追撃-結果分岐" level="44">　　
+　　
 
 [ドンハーゲナウェーイ！！](2851 "!p2861:@0&amp;!p2862:@7")
 [ヒィーハァー！アイガッタビッグワーン！！](2900 "p2861:@0&amp;f1251")
@@ -10813,6 +11170,10 @@ ${/if}
 
 **%blue%【アイテム】%/%【タリスマン(小)】を入手**
 
+**★【タリスマン(小)】**
+タリスマンになり始めの小石｡申し訳程度だが加護があるのでKRMが+3される｡
+
+
 [御神木を後にする](2593)</scene>
 	<scene id="2904" summary="モス撃破-単身2" level="46" bgm="@none" se="2-guon" items="i2900" flags="f2900">
 「グゥオン！」
@@ -10842,7 +11203,6 @@ ${/if}
 
 
 ${import 1107}
-
 
 [森の${主|ぬし}の所へ](2901 "f1251")
 [森の${主|ぬし}の所へ](2911 "f1204")
@@ -10976,6 +11336,10 @@ ${import 1107}
 君はそれにヒモをつけて首にかけた。
 
 **%blue%【アイテム】%/%【タリスマン(小)】を入手**
+
+**★【タリスマン(小)】**
+タリスマンになり始めの小石｡申し訳程度だが加護があるのでKRMが+3される｡
+
 
 [よし、いったん帰るか…](2914)</scene>
 	<scene id="2914" bgm="@field02" result="r2914" level="51" summary="モス撃破後主-マベ4">
@@ -11159,6 +11523,10 @@ ${import 1107}
 
 **%blue%【アイテム】%/%【タリスマン(小)】を入手**
 
+**★【タリスマン(小)】**
+タリスマンになり始めの小石｡申し訳程度だが加護があるのでKRMが+3される｡
+
+
 [御神木を後にする](2593)</scene>
 	<scene id="2924" summary="モス撃破-ザシュ2" level="46" bgm="@none" items="i2900" flags="f2900" se="2-guon-zuban">
 「グゥオン！」
@@ -11278,22 +11646,16 @@ ${import 1107}
 主「…いえ…これはただの受信機ではなく、邪気を蓄積する事ができる物のようです…かなりの時間をかけて蓄積し、その上で送った分との相乗効果であれだけの邪気を発していたようです…」
 ほっ…じゃあ、あんな状況がそこら中に発生する事は無さそうだな…
 
-ゾマ「ピンポーン！正解じゃ。無駄に長生きはしとらんようじゃの、ほっほっほ。」
-うーん相変わらず主がキライなのか、かなり上からバカにした感じだｗ
-君「先生はやっぱり、発信元についてもご存知なんですよ…ね？(ｵｿﾙｵｿﾙ」
-ゾマ「当然じゃ。じゃからつまらんと言うておるじゃろ。」
-君「その…できればそれをご教授願いたいのですが…」
-ゾマ「うーむ…何でもかんでもすぐに答えを与えて、生徒を甘やかすのもよくないでのー…ほれ、考える力が育たんと言うではないか。」
-いつから生徒になったんだよｗまぁ先生言うたのは俺だけどもｗ
-ゾマ「じゃから、これは宿題じゃ。」
-いつ帰って（あんたから離れて）勉強するんですか？ｗ
+ザシュマー「…大体正解だ。これほどの事はそうは起こらん…が、それは発信している奴の本気次第だ。場合によってはこの島程度は一瞬で地獄と化す事は覚悟しておけ。」
+君「…一応聞いておくけど、その発信元の事はわかってるけど話す気はないんだな？」
+ザシュマー「…聞かぬ方が身のためだぞ。万一それが知れ渡ったら、もはやこの騒ぎは収拾がつかぬ。我輩もそれは避けたい…であるからして、これは教えてやろう。お前達が死力を尽くし、その上で我輩が手を貸せば…この件は我輩も利害が一致するのでな…最悪の事態を回避する事はまだ十分に可能なハズだ、という我輩の見立てだけはな。」
 
-まー…誰もわかってないよりはいいか…
+…それほどの事かよ…まーいろいろ気になるが、これ以上聞いても無駄なんだろうし…
 んじゃ、とりあえずこの件はめでたく解決！という事でよろしいか？
 
 主「…どうも…私はこれを…どこかで見た事が…あるようなのですが…」
 ΩΩΩ／ﾅ､ﾅﾝﾀﾞｯﾃｰ!!!
-ゾマ「ほ？」
+ザシュマー「なに！？」
 主「…ここまでの長期の精神疲労で…記憶の前後が激しく………」
 ﾄﾞｷﾄﾞｷ…
 主「………！！！…そうだ、遠い過去ではなく最近の記憶の方でした……あの、”地竜教”を名乗る人間達の集団が…確かこれと同じ物をかざして、それによりモンスターに襲われる事なくこの森を通っていった事がありました…今の状態のようにあまり邪気を発してはいなかったので、多少不思議には思ったのですが…てっきりそういう類の魔法のようなものだとばかり…」
@@ -11302,8 +11664,8 @@ ${import 1107}
 …しかし、ここに来てまたしても、人間がからんでくるか…しかも”竜”の文字が入ってくるとは…
 どうにもまったく、キナ臭くてしょうがねぇ…
 人間の最大の敵は、やはり人間なのか？
-ゾマ「ほー、なるほどの。」
-さらに理解が進んだご様子。
+ザシュマー「…地…竜…教…だと？バカな！…いや…そうか、そういう事だったのか！…しかし、人間とはなんと愚かで浅はかな…」
+奴の中でいろいろとつながったようだな…
 
 主「…地竜教は、この森を抜けた火山のふもと…かつて人間達が鉱石を掘り出していた山の穴の中に集まって居を構え、なにやら怪しげな事をしているようなのですが…まさか彼らがこの一件、いや一連の騒ぎの黒幕だとでも…？」
 まだそうと決まった訳ではないが…その可能性や、大きく関与しているであろうと考えておいた方がよさそうだな。
@@ -11319,6 +11681,10 @@ ${import 1107}
 君はそれにヒモをつけて首にかけた。
 
 **%blue%【アイテム】%/%【タリスマン(小)】を入手**
+
+**★【タリスマン(小)】**
+タリスマンになり始めの小石｡申し訳程度だが加護があるのでKRMが+3される｡
+
 
 [御神木を後にする](2593)</scene>
 	<scene id="2934" summary="モス撃破-ゾマ2" level="46" items="i2900" flags="f2900" bgm="@none" se="2-guon-pasyun">
@@ -11346,7 +11712,7 @@ ${import 1107}
 じゃ、じゃあ…この状態なら何かに包めば問題なく持っていけるだろうし、また邪気が強まらないうちに森の${主|ぬし}の所へ持っていこうか…
 
 [おっとその前に…](2905)</scene>
-	<scene id="3000" bgm="@town02" level="125">
+	<scene id="3000" bgm="@town02" level="125" summary="山麓">
 ${if f1251}
 数々の苦難を乗り越えて、ついに「拒絶の森」抜けた君の眼前に広がる風景…それは雄大に…そして敢然と立ち広がる「モルカフ火山」。
 ${/if}
@@ -11362,7 +11728,7 @@ ${/if}
 山としてはかなり大きく、この島自体がこの山そのものといっていいほど、島の面積を占めている。
 
 聞いた通り、ふもとからは…
-山を登るための道が西へ、鉱山として採掘に使われていた坑道（鉱洞）に続く道が東へと伸びている…
+山を登るための道が西へ、東側にあるかつての採掘場に続く道が東へと伸びている…
 
 ${if f1251}
 …さて、君は？
@@ -11371,11 +11737,12 @@ ${if f1250}
 …さて、君達は？
 ${/if}
 
-[もちろん、余計な寄り道などしていられない。東の坑道ルートへ](3001 "f1251&amp;!f3001")
-[もちろん、余計な寄り道などしていられない。東の坑道ルートへ](3002 "f1204&amp;!f3001")
-[もちろん、余計な寄り道などしていられない。東の坑道ルートへ](3003 "f1302&amp;!f3001")
-[もちろん、余計な寄り道などしていられない。東の坑道ルートへ](3004 "f1407&amp;!f3001")
-[もう、山頂に用は無いだろう。東の坑道ルートへ](5000 "f4200")
+[もう、山頂に用は無いだろう。東の採掘場ルートへ](4999 "f4200")
+[もちろん、余計な寄り道などしていられない。東の採掘場ルートへ](3001 "f1251&amp;!f3001")
+[もちろん、余計な寄り道などしていられない。東の採掘場ルートへ](3002 "f1204&amp;!f3001")
+[もちろん、余計な寄り道などしていられない。東の採掘場ルートへ](3003 "f1302&amp;!f3001")
+[もちろん、余計な寄り道などしていられない。東の採掘場ルートへ](3004 "f1407&amp;!f3001")
+[もう、山頂に用は無いだろう。東の採掘場ルートへ](5000 "f5000")
 [仕方ない、まずは登るしかない。西の登山ルートへ](3006 "f3001&amp;!f4200")
 [理由は無くとも人は山を登る…そう、そこに山があるから。](3006 "f4200")
 [とりあえず戻る。](2593)</scene>
@@ -11505,7 +11872,13 @@ ${/if}
 よし、だいたいいつも通りだ…
 
 [戻る](3000)</scene>
-	<scene id="3006" bgm="@talk02" level="53">
+	<scene id="3005" summary="★山･敵出用" level="124">## %red%${msg?  ★Now your enemy is appeared !!★:  ★「モンスターがあらわれた！ コマンド？」★:  ★HERE COMES A NEW CHALLENGER！★}%/%
+※チュートリアルを見る場合は必ずブラウザの「戻る」で戻ってくるように。
+さもなければ、君の戦いは「酒場で酔っ払いが見た夢」となるだろう。
+わかりにくければ【見るだけ見た後にブラウザの「戻る」をこのシーンに戻ってくるまで連打】だ。
+
+</scene>
+	<scene id="3006" bgm="@talk02" level="53" summary="すごろくスタート説明">
 さて、この登山エリアはダイスを振って出た数字に応じて進み、止まったマス目に書いてある文に従ってもらう…いわゆる【すごろく】になっている。
 人生の浮き沈みを味わったり、お化け屋敷を脱出したり、社長になって電車で日本中を回ったりはしないが…
 アイテムを拾ったり、トラップにかかったり、敵が出てきたりする。
@@ -11526,7 +11899,7 @@ ${/if}
 [よっしゃ！いくぜぇ～！！](3013 "f1302")
 [よっしゃ！いくぜぇ～！！](3014 "f1407")
 [ちょっと待って…（戻る）](3000)</scene>
-	<scene id="3007" level="62">
+	<scene id="3007" level="62" summary="振出A" enemies="m3009,m3010,m3011,m3012,m3013,m3014,m3015" rule="3009">
 ${if f1251}
 イテテテ…
 エライ目に遭いながら、ふもとに戻ってきてしまった君。
@@ -11548,21 +11921,18 @@ ${if f1407}
 さて、どうする？
 ${/if}
 
-おっとその前に…他にも落ちてきた奴がいてその時に落とした物だろうか？七星欠片が落ちているぞ！さっさと拾って再チャレンジ！！（もしくは帰る）
-以下のルールで入手する種類と数を決定せよ。
+おっとその前に…他にも落ちてきた奴がいてその時に落とした物だろうか？七星欠片が落ちているぞ！
+Battle Sheetを開いてダイスを振ってさっさと拾って再チャレンジ！！（もしくは帰る）
 
-★ダイスを振って出た出目の左右それぞれが種類と数で、どちらをどちらに充てるかは自由に決めてよい。また、どの星を得るかも自由に決めてよいものとする。
-★例：左２/右４と出た場合、２種類（どの星かは自由）/４つ、２つ/４種類、のどちらでもよい。
+${import 3009}
 
-※入手した星は手動で反映させておく事。
 
 [気を取り直して再チャレンジ！！](3011 "f1251")
 [気を取り直して再チャレンジ！！](3012 "f1204")
 [気を取り直して再チャレンジ！！](3013 "f1302")
 [気を取り直して再チャレンジ！！](3014 "f1407")
 [もうやだ！もう帰るぅ～～！！（帰る）](3000)</scene>
-	<scene id="3008" flags="f3008" stars="div2" bgm="@talk02" se="3-31kb-pyuun-poke" result="r3008" level="103" summary="青竜逃成功">
-### 「あ～れ～」
+	<scene id="3008" flags="f3008" stars="div2" bgm="@talk02" se="3-31kb-pyuun-poke" result="r3008" level="103" summary="青竜･逃成功後･通常">### 「あ～れ～」
 
 ふもとまで一気に落ちてしまった君。
 
@@ -11571,17 +11941,41 @@ ${/if}
 
 また、七星欠片を入れてあった袋が破けており、中身をバラ撒いてしまったようだ（なるほどこうやってそこかしこに…）。
 
-※ＨＰ/ＭＰを１残して全て減らす事。【手動】
-七星欠片の所持数は種類ごとに全て半分となる。【自動】
+**%red%【手動】%/%※ＨＰ/ＭＰともに１となる。**
+**%blue%【自動】%/%※七星欠片の所持数は種類ごとに全て半分となる。**
+
 
 [いったん帰ろう…](3000)</scene>
-	<scene id="3011" result="r3011" level="54" se="3-iitenki" summary="１マス目いい天気（単身）" hp="200" mp="200">
+	<scene id="3009" summary="★山星拾いルール" level="124">
+%blue%**★七星欠片拾得ルール★**%/%
+以下のルールで入手する七星欠片の種類と数を決定せよ。
+
+★ダイスを振って出た出目の左右それぞれが【種類】と【数】で､どちらをどちらに充てるかは自由に決めてよい｡また､どの星を得るかも自由に決めてよいものとする｡
+※例えば出目が左2/右4なら【2種類/各4個】【各2個/4種類】のどちらでもよい｡
+
+★決定した種類と数だけ【戦利品】をクリックして星を得る事。
+
+
+</scene>
+	<scene id="3010" summary="青竜･逃成功後･滑落" level="103" se="3-31kb-pyuun-poke" bgm="@talk02" result="r3008" flags="f3008">
+### 「あ～れ～」
+
+ふもとまで一気に落ちてしまった君。
+
+奴から逃げるのに必死で、ブレーキをかけたりルートを選ぶ余裕など無く、山頂からふもとまで転げ落ちたダメージは甚大だ。
+五体満足で生きているのが不思議なくらいである。
+
+**%red%【手動】%/%※ＨＰ/ＭＰともに１となる。**
+
+
+[いったん帰ろう…](3000)</scene>
+	<scene id="3011" result="r3011" level="54" se="3-iitenki" summary="1マス目･天気･単身" hp="100" mp="100">
 いやぁ～しっかしいい天気だなぁ～…
 こんな状況や理由で来たんでなければ、格好のピクニック登山になったんだろうけど…
 
 まぁそんな事を言ってても始まらない、せめて気分よく進んで行こう。
 
-**%blue%【自動】%/%※ＨＰ/ＭＰがそれぞれ２００回復。**
+**%blue%【自動】%/%※ＨＰ/ＭＰともに１００回復。**
 
 [１](3020)
 [２](3030)
@@ -11592,7 +11986,7 @@ ${/if}
 [４](3050)
 [５](3060)
 [６](3070)</scene>
-	<scene id="3012" result="r3012" level="63" se="3-iitenki" summary="１マス目いい天気（マベ）" hp="200" mp="200">
+	<scene id="3012" result="r3012" level="63" se="3-iitenki" summary="1マス目･天気･マベ" hp="100" mp="100">
 いやぁ～しっかしいい天気だなぁ～…
 こんな状況や理由で来たんでなければ、格好のピクニック登山になったんだろうけど…
 マーベル「ホントそうですよね～…でもまぁ、せっかくなんですし？少しはそういう気分で…休憩くらいはしてもいいんじゃないでしょうか？ね？」
@@ -11603,7 +11997,7 @@ ${/if}
 
 ？まぁそんな事を言ってても始まらない、せめて気分よく進んで行こう。
 
-**%blue%【自動】%/%※ＨＰ/ＭＰがそれぞれ２００回復。**
+**%blue%【自動】%/%※ＨＰ/ＭＰともに１００回復。**
 
 [１](3020)
 [２](3030)
@@ -11614,7 +12008,7 @@ ${/if}
 [４](3050)
 [５](3060)
 [６](3070)</scene>
-	<scene id="3013" result="r3013" level="63" summary="１マス目いい天気（ザシュ）" se="3-iitenki" hp="200" mp="200">
+	<scene id="3013" result="r3013" level="63" summary="1マス目･天気･ザシュ" se="3-iitenki" hp="100" mp="100">
 いやぁ～しっかしいい天気だなぁ～…
 こんな状況や理由で来たんでなければ、格好のピクニック登山になったんだろうけど…
 ザシュマー「…わからぬな。暗雲立ち込める漆黒の空でなく、こんな何も無い（光をさえぎらぬ）空のどこがよいのだ。」
@@ -11624,7 +12018,7 @@ ${/if}
 
 へいへい…まぁそんな事を言ってても始まらない、せめて気分よく進んで行こう。
 
-**%blue%【自動】%/%※ＨＰ/ＭＰがそれぞれ２００回復。**
+**%blue%【自動】%/%※ＨＰ/ＭＰがそれぞれ１００回復。**
 
 [１](3020)
 [２](3030)
@@ -11635,15 +12029,15 @@ ${/if}
 [４](3050)
 [５](3060)
 [６](3070)</scene>
-	<scene id="3014" result="r3014" level="63" se="3-iitenki" summary="１マス目いい天気（ゾマ）" hp="200" mp="200">
+	<scene id="3014" result="r3014" level="63" se="3-iitenki" summary="1マス目･天気･ゾマ" hp="100" mp="100">
 いやぁ～しっかしいい天気だなぁ～…
 こんな状況や理由で来たんでなければ、格好のピクニック登山になったんだろうけど…
-ゾマ「ほぉーん…お日様がまぶしいのぉー。研究所の実験動物達も連れてきて、たまには日向ぼっこでもさせてやらんとのー。」
+ゾマ「ほぉーん…お日様がまぶしいのぉー。${研究所|ラボ}の実験動物達も連れてきて、たまには日向ぼっこでもさせてやらんとのー。」
 
 …どこからツッコんでいいかわからんが、とにかくその仲間入りをしないように全力をそそごう…
 まだそうなっていないしあわせを噛みしめつつ、今はせめて気分よく進んで行こう。
 
-**%blue%【自動】%/%※ＨＰ/ＭＰがそれぞれ２００回復。**
+**%blue%【自動】%/%※ＨＰ/ＭＰともに１００回復。**
 
 [１](3020)
 [２](3030)
@@ -11656,7 +12050,8 @@ ${/if}
 [６](3070)</scene>
 	<scene id="3020" enemies="m3020" se="3-21kb-yumiya-dova" level="55" summary="2マス目･毒矢">
 うわっと！毒矢の罠（毒）だ！
-ダイスを振って、以下の式をクリックして回避判定をせよ。
+
+Battle Sheetを開いてダイスを振って、表示式をクリックして回避判定をせよ。
 
 ※「各種説明（チュートリアル）へ」を見に行った際は【ブラウザの戻る機能】で戻ってくる事。さもなければ、君の冒険は酒場で酔っぱらいが見た夢となるだろう…
 
@@ -11670,7 +12065,7 @@ ${/if}
 [５](3070)
 [６](3080)
 [各種説明（チュートリアル）へ](401)</scene>
-	<scene id="3030" enemies="m711,m711,m711" level="56">
+	<scene id="3030" enemies="m711,m711,m711" level="56" summary="3マス目･ヒルG" rule="999">
 敵が現れた！ヒルジャイアントだ！
 戦って撃破せよ。
 
@@ -11678,7 +12073,8 @@ ${/if}
 丘や高地に棲む巨人。物静かでおとなしい性格のハズだが、件の邪気により凶暴化、（特にナワバリに侵入する）人間を襲うようになった。
 強さにはある程度個体差がある。
 
-※「各種説明（チュートリアル）へ」を見に行った際は【ブラウザの戻る機能】で戻ってくる事。さもなければ、君の冒険は酒場で酔っぱらいが見た夢となるだろう…
+${import 3005}
+
 
 [１](3041 "f1251")
 [１](3042 "f1204")
@@ -11690,10 +12086,10 @@ ${/if}
 [５](3080)
 [６](3090)
 [各種説明（チュートリアル）へ](401)</scene>
-	<scene id="3041" enemies="m3041" se="3-hyuun-peta" result="r3041" level="57" summary="4マス目･糞単身">
+	<scene id="3041" enemies="m3041" se="3-hyuun-peta" result="r3041" level="57" summary="4マス目･糞･単身">
 天気がいい時のお約束（なのか？）、空から鳥（タイプのモンスター）の糞が降ってきた！
 
-ダイスを振って、以下の式をクリックして回避判定をせよ。
+Battle Sheetを開いてダイスを振って、表示式をクリックして回避判定をせよ。
 
 ※「各種説明（チュートリアル）へ」を見に行った際は【ブラウザの戻る機能】で戻ってくる事。さもなければ、君の冒険は酒場で酔っぱらいが見た夢となるだろう…
 
@@ -11704,7 +12100,7 @@ ${/if}
 [５](3090)
 [６](3100)
 [各種説明（チュートリアル）へ](401)</scene>
-	<scene id="3042" se="3-hyuun-bikin" result="r3042" level="64" summary="4マス目･糞マベ">
+	<scene id="3042" se="3-hyuun-bikin" result="r3042" level="64" summary="4マス目･糞･マベ">
 天気がいい時のお約束（なのか？）、空から鳥（タイプのモンスター）の糞が降ってきた！
 
 マーベル「………ハッ！(ﾋﾟｷｰﾝ!ﾍﾞﾁｬｯ」
@@ -11724,7 +12120,7 @@ ${/if}
 [５](3090)
 [６](3100)
 [各種説明（チュートリアル）へ](401)</scene>
-	<scene id="3043" se="3-hyuun-bow" result="r3043" level="64" summary="4マス目･糞ザシュ">
+	<scene id="3043" se="3-hyuun-bow" result="r3043" level="64" summary="4マス目･糞･ザシュ">
 天気がいい時のお約束（なのか？）、空から鳥（タイプのモンスター）の糞が降ってきた！
 
 ザシュマー「…フンッ！(ﾎﾞｩｯ!」
@@ -11742,7 +12138,7 @@ ${/if}
 [５](3090)
 [６](3100)
 [各種説明（チュートリアル）へ](401)</scene>
-	<scene id="3044" se="3-hyuun-peta" result="r3044" level="64" summary="4マス目･糞ゾマ">
+	<scene id="3044" se="3-hyuun-peta" result="r3044" level="64" summary="4マス目･糞･ゾマ">
 天気がいい時のお約束（なのか？）、空から鳥（タイプのモンスター）の糞が降ってきた！
 
 君「…えっ？おわっ！」
@@ -11769,7 +12165,7 @@ ${/if}
 	<scene id="3050" enemies="m3050" se="3-25kb-gasu-labo" level="58" summary="5マス目･冷気">
 うわっと！冷気噴射の罠（凍結）だ！
 
-ダイスを振って、以下の式をクリックして回避判定をせよ。
+Battle Sheetを開いてダイスを振って、表示式をクリックして回避判定をせよ。
 
 ※「各種説明（チュートリアル）へ」を見に行った際は【ブラウザの戻る機能】で戻ってくる事。さもなければ、君の冒険は酒場で酔っぱらいが見た夢となるだろう…
 
@@ -11783,15 +12179,16 @@ ${/if}
 [６](3113 "f1302")
 [６](3114 "f1407")
 [各種説明（チュートリアル）へ](401)</scene>
-	<scene id="3060" enemies="m721,m721,m721,m721" level="59">
+	<scene id="3060" enemies="m721,m721,m721,m721" level="59" summary="6マス目･ブーブリ" rule="999">
 敵が現れた！ブーブリだ！
 戦って撃破せよ。
 
 **・【ブーブリ】**
 大きなクチバシが特徴の大型の鳥。翼は機能してはいるが、走った方が速いため基本的に地上を移動する。しかしそれゆえに強靭な体を持ち、見かけからは想像し得ない素早さで襲い掛かる。
-個体によってどんどん素早さが増す傾向が有る。
+個体によってどんどん素早さが増す傾向が見られる。
 
-※「各種説明（チュートリアル）へ」を見に行った際は【ブラウザの戻る機能】で戻ってくる事。さもなければ、君の冒険は酒場で酔っぱらいが見た夢となるだろう…
+${import 3005}
+
 
 [１](3070)
 [２](3080)
@@ -11803,7 +12200,7 @@ ${/if}
 [５](3114 "f1407")
 [６](3120)
 [各種説明（チュートリアル）へ](401)</scene>
-	<scene id="3070" flags="f3071" se="3-31kb-pyuun-poke" result="r3070" level="60" summary="滑落1">
+	<scene id="3070" flags="f3071" se="3-31kb-pyuun-poke" result="r3070" level="60" summary="7マス目･滑落1">
 あっ！と気付いた時にはもう遅い…滑落の罠だ！！
 
 君の足元はもろくも崩れ去り…
@@ -11814,17 +12211,19 @@ ${/if}
 [「フン！」](3073 "f1302")
 [「ホイ。」](3074 "f1407&amp;!f3070")
 [「ホイ。」](3076 "f1407&amp;f3070")</scene>
-	<scene id="3071" flags="f3070" level="61">
+	<scene id="3071" flags="f3070" level="61" summary="振出Aｰ1･単身･踏無" hp="-300" mp="-300">
 ### 「あ～れ～」
 
 山肌をひたすら転げ落ちてゆく君…
 
 かろうじて、致命的に危険な物にぶつかったり高所から落下したりしないよう、抵抗して転がる方向を調整したりはしたが…それなりにヒドイ目には遭った。
 
-※ＨＰとＭＰをＭＡＸの半分量減らす事。それで０になった場合は１残してよい。【手動】
+**%blue%【自動】%/%※ＨＰ/ＭＰともに３００減。**
+※それで０になった場合は１残してよい。
+
 
 [イテテテ…](3007)</scene>
-	<scene id="3072" level="61">
+	<scene id="3072" level="61" summary="振出A-1･マベ">
 ### 「あ～れ～」
 ### 「きゃあ～」
 
@@ -11833,7 +12232,7 @@ ${/if}
 だったが、マーベルのマントにかけられた魔法「風の精霊の守護」によって君達の体は守られ、転落を防ぐまでには至らずともさしたるＤＭを受ける事無く、なんとか落ち着く位置まで降りる事ができた。
 
 [ふぅ…](3007)</scene>
-	<scene id="3073" level="61">
+	<scene id="3073" level="61" summary="振出A-1･ザシュ">
 ### 「あ～れ～」
 
 ### 「フン！」
@@ -11846,7 +12245,7 @@ ${/if}
 
 [早く近くの足場に連れて行ってくれ](3080)
 [いや、せっかくだし一度下まで降りよう](3007)</scene>
-	<scene id="3074" flags="f3070" stars="-2,0,0,-2,-2,-2,0" level="61">
+	<scene id="3074" flags="f3070" stars="-2,0,0,-2,-2,-2,0" level="61" summary="振出A-1･ゾマ･踏無">
 ### 「あ～れ～」
 
 ### 「ホイ。」
@@ -11871,21 +12270,23 @@ ${/if}
 ●FLY(CHANGE-AIRの重魔法)		※必要INT＝255
 古の禁呪｡世界のバランスを崩す禁断の魔法として封印された｡
 
-※CHANGE-AIR 2回分の星が減。【自動】
+**%blue%【自動】%/%※【CHANGE-AIR】 ２回分の星が減。**
+
 
 [早く近くの足場へ行かなければ！](3080)
 [いや、せっかくだし一度下まで降りよう](3007)</scene>
-	<scene id="3075" level="61">
+	<scene id="3075" level="61" hp="-200" mp="-200" summary="振出A-1･単身･踏有">
 ### 「あ～れ～」
 
 またしても山肌をひたすら転げ落ちてゆく君…
 
 慣れたもので、転がる方向をうまく調整してはいるのだが…やはりヒドイ目に遭う事に変わりは無いのだった。
 
-※ＨＰとＭＰをＭＡＸの半分減らす事。それで０になった場合は１残してよい。【手動】
+**%blue%【自動】%/%※ＨＰ/ＭＰともに２００減。**
+※それで０になった場合は１残してよい。
 
 [イテテテ…](3007)</scene>
-	<scene id="3076" stars="-2,0,0,-2,-2,-2,0" level="61">
+	<scene id="3076" stars="-2,0,0,-2,-2,-2,0" level="61" summary="振出A-1･ゾマ･踏有">
 ### 「あ～れ～」
 
 ### 「ホイ。」
@@ -11904,20 +12305,18 @@ ${/if}
 **●FLY(CHANGE-AIRの重魔法)**	※必要INT＝255
 古の禁呪｡世界のバランスを崩す禁断の魔法として封印された｡
 
-※CHANGE-AIR 2回分の星が減。【自動】
+**%blue%【自動】%/%※【CHANGE-AIR】 ２回分の星が減。**
+
 
 [早く近くの足場へ行かなければ！](3080)
 [いや、せっかくだし一度下まで降りよう](3007)</scene>
-	<scene id="3080" level="65">
+	<scene id="3080" level="65" enemies="m3009,m3010,m3011,m3012,m3013,m3014,m3015" rule="3009" summary="8マス目･星拾">
 ラッキー！七星欠片が落ちている！
 
-以下のルールで入手する種類と数を決定せよ。
+Battle Sheetを開いてダイスを振ってさっさと拾って先へ進むのだ！！
 
-★ダイスを振って出た出目の左右それぞれが種類と数で、どちらをどちらに充てるかは自由に決めてよい。また、どの星を得るかも自由に決めてよいものとする。
+${import 3009}
 
-★例：左２/右４と出た場合【２種類/４つｏｒ２つ/４種類】のどちらでもよい。
-
-★入手した星は手動で反映させておく事。
 
 [１](3090)
 [２](3100)
@@ -11931,9 +12330,10 @@ ${/if}
 	<scene id="3090" enemies="m3090" se="3-36kb-tarai-poke" level="66" summary="9マス目･金ダライ">
 うわっと！君の頭上の空間から突然、謎の金ダライが落ちてきた！
 
-ダイスを振って、以下の式をクリックして回避判定をせよ。
+Battle Sheetを開いてダイスを振って、表示式をクリックして回避判定をせよ。
 
 ※「各種説明（チュートリアル）へ」を見に行った際は【ブラウザの戻る機能】で戻ってくる事。さもなければ、君の冒険は酒場で酔っぱらいが見た夢となるだろう…
+
 
 [１](3100)
 [２](3111 "f1251")
@@ -11948,7 +12348,7 @@ ${/if}
 [６](3153 "f1302")
 [６](3154 "f1407")
 [各種説明（チュートリアル）へ](401)</scene>
-	<scene id="3100" enemies="m731,m731,m731" level="67">
+	<scene id="3100" enemies="m731,m731,m731" level="67" summary="10マス目･黒山羊" rule="999">
 敵が現れた！ブラックゴートだ！
 戦って撃破せよ。
 
@@ -11957,7 +12357,8 @@ ${/if}
 なお、人間をさらって改造したりはしない｡呪ってやるぅ～(それは羊
 個体ごとに（恨みの）強さに差が有る。
 
-※「各種説明（チュートリアル）へ」を見に行った際は【ブラウザの戻る機能】で戻ってくる事。さもなければ、君の冒険は酒場で酔っぱらいが見た夢となるだろう…
+${import 3005}
+
 
 [１](3111 "f1251")
 [１](3112 "f1204")
@@ -11972,7 +12373,7 @@ ${/if}
 [５](3154 "f1407")
 [６](3160)
 [各種説明（チュートリアル）へ](401)</scene>
-	<scene id="3111" result="r3111" level="68">
+	<scene id="3111" result="r3111" level="68" mp="full" summary="11マス目･歌･単身">
 天気は良いし、さしたる脅威も無く順調に歩を進めていく君。
 気分も晴れやかに、ついつい鼻歌がもれる。
 
@@ -11980,7 +12381,7 @@ ${/if}
 
 軽快なようでいて、なんだか不吉な曲調…楽しそうではあるが、まるで悪魔がワルツを踊っているような…そんな何とも言えない歌を、特に考えなしに思い浮かべながら、足取り軽く進んでゆく君であった。
 
-※ＭＰを全回復。【手動】
+**%blue%【自動】%/%※ＭＰを全回復。**
 
 [１](3120)
 [２](3130)
@@ -11991,7 +12392,7 @@ ${/if}
 [４](3154 "f1407")
 [５](3160)
 [６](3170)</scene>
-	<scene id="3112" result="r3112" level="68">
+	<scene id="3112" result="r3112" level="68" mp="full" state="-all" summary="11マス目･歌･マベ">
 天気は良いし、さしたる脅威も無く順調に歩を進めていく君達。
 気分も晴れやかに、ついつい鼻歌がもれる。
 
@@ -12004,7 +12405,7 @@ ${/if}
 しかしそんな変な歌でもエルフの歌声。
 よりいっそう気分晴れやかに、足取りも軽くなって進んでゆく君達であった。
 
-※ＭＰと状態異常を全回復。【手動】
+**%blue%【自動】%/%※ＭＰと状態異常を全回復。**
 
 [１](3120)
 [２](3130)
@@ -12015,7 +12416,7 @@ ${/if}
 [４](3154 "f1407")
 [５](3160)
 [６](3170)</scene>
-	<scene id="3113" result="r3113" level="68">
+	<scene id="3113" result="r3113" level="68" summary="11マス目･歌･ザシュ" mp="-200">
 天気は良いし、さしたる脅威も無く順調に歩を進めていく君達。
 気分も晴れやかに、ついつい鼻歌がもれる。
 
@@ -12035,7 +12436,9 @@ ${/if}
 
 晴れやかな気分は台無しに、足取りも重くなったがそれを隠すように進んでゆく君（と、より晴れやかで軽快なザシュマー）であった。
 
-※ＭＰをＭＡＸの５０％減らす事（０になった場合は１残してよい）。【手動】
+**%blue%【自動】%/%※ＭＰが２００減。**
+※それで０になった場合は１残してよい。
+
 
 [１](3120)
 [２](3130)
@@ -12046,7 +12449,7 @@ ${/if}
 [４](3154 "f1407")
 [５](3160)
 [６](3170)</scene>
-	<scene id="3114" result="r3114" level="68">
+	<scene id="3114" result="r3114" level="68" hp="-300" mp="-300" summary="11マス目･歌･ゾマ">
 天気は良いし、さしたる脅威も無く順調に歩を進めていく君達。
 気分も晴れやかに、ついつい鼻歌がもれる。
 
@@ -12063,7 +12466,9 @@ ${/if}
 
 晴れやかな気分は一転、おしおきされながらの行軍となった。
 
-※ＨＰ/ＭＰをＭＡＸの５０％減らす事（０になった場合は１残してよい）。【手動】
+**%blue%【自動】%/%※ＨＰ/ＭＰともに３００減。**
+※それで０になった場合は１残してよい。
+
 
 [１](3120)
 [２](3130)
@@ -12077,9 +12482,10 @@ ${/if}
 	<scene id="3120" enemies="m3120" se="3-31kb-noroi-labo" level="69" summary="12マス目･墓">
 うわっと！突然目の前に禍々しく呪いの言葉を発する墓が現れた！
 
-ダイスを振って、以下の式をクリックして回避判定をせよ。
+Battle Sheetを開いてダイスを振って、表示式をクリックして回避判定をせよ。
 
 ※「各種説明（チュートリアル）へ」を見に行った際は【ブラウザの戻る機能】で戻ってくる事。さもなければ、君の冒険は酒場で酔っぱらいが見た夢となるだろう…
+
 
 [１](3130)
 [２](3140)
@@ -12095,7 +12501,7 @@ ${/if}
 [６](3184 "f1407&amp;!f3191")
 [６](3186 "f3191")
 [各種説明（チュートリアル）へ](401)</scene>
-	<scene id="3130" enemies="m741,m741,m741,m741" level="70">
+	<scene id="3130" enemies="m741,m741,m741,m741" level="70" summary="13マス目･雷鳥" rule="999">
 敵が現れた！サンダーバードだ！
 戦って撃破せよ。
 
@@ -12105,9 +12511,9 @@ ${/if}
 またその体質上、魔法は効き難い。
 なお人命救助に活躍したり、ストーンリバーとビッグスロープ間を２時間３０分で移動したりはしない｡
 つがいの産卵を守っている個体は凄まじい攻撃性を見せるので注意｡
-%red%New!!%/%
-※【魔法耐性】についてはチュートリアル【特殊能力を持つ敵について】を参照の事｡
-※「各種説明（チュートリアル）へ」を見に行った際は【ブラウザの戻る機能】で戻ってくる事。さもなければ、君の冒険は酒場で酔っぱらいが見た夢となるだろう…
+
+${import 3005}
+
 
 [１](3140)
 [２](3151 "f1251")
@@ -12122,7 +12528,7 @@ ${/if}
 [５](3184 "f1407&amp;!f3191")
 [５](3186 "f3191")
 [各種説明（チュートリアル）へ](401)</scene>
-	<scene id="3140" flags="f3140" se="3-31kb-pyuun-poke" result="r3140" level="71" summary="滑落2">
+	<scene id="3140" flags="f3140" se="3-31kb-pyuun-poke" result="r3140" level="71" summary="14マス目･滑落2">
 あっ！と気付いた時にはもう遅い…滑落の罠だ！！
 
 君の足元はもろくも崩れ去り…
@@ -12133,17 +12539,19 @@ ${/if}
 [「フン！」](3143 "f1302")
 [「ホイ。」](3144 "f1407&amp;!f3070")
 [「ホイ。」](3146 "f1407&amp;f3070")</scene>
-	<scene id="3141" flags="f3070" level="72">
+	<scene id="3141" flags="f3070" level="72" summary="振出A-2･単身･踏無" hp="-300" mp="-300">
 ### 「あ～れ～」
 
 山肌をひたすら転げ落ちてゆく君…
 
 かろうじて、致命的に危険な物にぶつかったり高所から落下したりしないよう、抵抗して転がる方向を調整したりはしたが…それなりにヒドイ目には遭った。
 
-※ＨＰとＭＰをＭＡＸの半分量減らす事。それで０になった場合は１残してよい。【手動】
+**%blue%【自動】%/%※ＨＰ/ＭＰともに３００減。**
+※それで０になった場合は１残してよい。
+
 
 [イテテテ…](3007)</scene>
-	<scene id="3142" level="72">
+	<scene id="3142" level="72" summary="振出A-2･マベ">
 ### 「あ～れ～」
 ### 「きゃあ～」
 
@@ -12152,7 +12560,7 @@ ${/if}
 だったが、マーベルのマントにかけられた魔法「風の精霊の守護」によって君達の体は守られ、転落を防ぐまでには至らずともさしたるＤＭを受ける事無く、なんとか落ち着く位置まで降りる事ができた。
 
 [ふぅ…](3007)</scene>
-	<scene id="3143" level="72">
+	<scene id="3143" level="72" summary="振出A-2･ザシュ">
 ### 「あ～れ～」
 
 ### 「フン！」
@@ -12165,7 +12573,7 @@ ${/if}
 
 [早く近くの足場に連れて行ってくれ](3153)
 [いや、せっかくだし一度下まで降りよう](3007)</scene>
-	<scene id="3144" flags="f3070" stars="-2,0,0,-2,-2,-2,0" level="72">
+	<scene id="3144" flags="f3070" stars="-2,0,0,-2,-2,-2,0" level="72" summary="振出A-2･ゾマ･踏無">
 ### 「あ～れ～」
 
 ### 「ホイ。」
@@ -12190,21 +12598,24 @@ ${/if}
 **●FLY(CHANGE-AIRの重魔法)**	※必要INT＝255
 古の禁呪｡世界のバランスを崩す禁断の魔法として封印された｡
 
-※CHANGE-AIR 2回分の星が減。【自動】
+**%blue%【自動】%/%※【CHANGE-AIR】 ２回分の星が減。**
+
 
 [早く近くの足場へ行かなければ！](3154)
 [いや、せっかくだし一度下まで降りよう](3007)</scene>
-	<scene id="3145" level="72">
+	<scene id="3145" level="72" hp="-200" mp="-200" summary="振出A-2･単身･踏有">
 ### 「あ～れ～」
 
 またしても山肌をひたすら転げ落ちてゆく君…
 
 慣れたもので、転がる方向をうまく調整してはいるのだが…やはりヒドイ目に遭う事に変わりは無いのだった。
 
-※ＨＰとＭＰをＭＡＸの半分量減らす事。それで０になった場合は１残してよい。【手動】
+**%blue%【自動】%/%※ＨＰ/ＭＰともに２００減。**
+※それで０になった場合は１残してよい。
+
 
 [イテテテ…](3007)</scene>
-	<scene id="3146" stars="-2,0,0,-2,-2,-2,0" level="72">
+	<scene id="3146" stars="-2,0,0,-2,-2,-2,0" level="72" summary="振出A-2･ゾマ･踏有">
 ### 「あ～れ～」
 
 ### 「ホイ。」
@@ -12223,17 +12634,18 @@ ${/if}
 **●FLY(CHANGE-AIRの重魔法)**	※必要INT＝255
 古の禁呪｡世界のバランスを崩す禁断の魔法として封印された｡
 
-※CHANGE-AIR 2回分の星が減。【自動】
+**%blue%【自動】%/%※【CHANGE-AIR】 ２回分の星が減。**
+
 
 [早く近くの足場へ行かなければ！](3154)
 [いや、せっかくだし一度下まで降りよう](3007)</scene>
-	<scene id="3151" result="r3151" level="71">
+	<scene id="3151" result="r3151" level="71" hp="300" mp="300" summary="15マス目･休･単身" se="3-iitenki">
 あーあ…こう天気が良いと「俺はなんでこんな事してんだろう？」とか思っちまうなー…
 
 イカンイカン、ここしばらく厳しい戦いが続いたもんで心が疲れているのかもしれん。まぁそういう時は、しっかり休息する事が大切だな、うん。
 襲われる方向も限定されてるし、警戒はしつつもちょっと休んでいこう。
 
-※ＨＰ/ＭＰをＭＡＸの半分量回復する事。【手動】
+**%blue%【自動】%/%※ＨＰ/ＭＰともに３００回復。**
 
 [１](3160)
 [２](3170)
@@ -12242,7 +12654,7 @@ ${/if}
 [３](3183 "f1302&amp;!f3191")
 [３](3184 "f1407&amp;!f3191")
 [３](3186 "f3191")</scene>
-	<scene id="3152" result="r3152" level="71">
+	<scene id="3152" result="r3152" level="71" summary="15マス目･休･マベ" hp="full" mp="full" state="-all" se="3-iitenki">
 あーあ…こう天気が良いと「俺はなんでこんな事してんだろう？」とか思っちまうなー…
 マーベル「本当ですねー…澄み渡る空と暖かい日差し、清廉な空気を胸いっぱいに吸い込んでいると、戦いの事なんて忘れてしまいそう…」
 
@@ -12257,7 +12669,8 @@ ${/if}
 い、いえ他意は無いんです…
 最高の環境とおいしい食事で身も心も満たされた君達だった。
 
-※ＨＰ/ＭＰをＭＡＸまでと全ての状態異常を回復する事。【手動】
+**%blue%【自動】%/%※ＨＰ/ＭＰともに全回復し、全ての状態異常が解除。**
+
 
 [１](3160)
 [２](3170)
@@ -12266,7 +12679,7 @@ ${/if}
 [３](3183 "f1302&amp;!f3191")
 [３](3184 "f1407&amp;!f3191")
 [３](3186 "f3191")</scene>
-	<scene id="3153" result="r3153" level="73">
+	<scene id="3153" result="r3153" level="73" hp="300" mp="300" summary="15マス目･休･ザシュ" se="3-iitenki">
 あーあ…こう天気が良いと「俺はなんでこんな事してんだろう？」とか思っちまうなー…(ﾁﾗｯ
 
 ザシュマー「…だから、魔界の住人である我輩にそういう事で同意を求めるな。そもそも闘争が日常たる魔界では逆だ。闘争の途切れた平穏な日々に奈落の穴を見つめながら「我輩は一体何をしているのだ…」という思いに駆られる事はあるがな。」
@@ -12282,7 +12695,8 @@ ${/if}
 いつもより言葉のトゲも小さく、すんなり引き下がるザシュマー。
 なんだかんだで君の事を認め、君とのやり取りも楽しんでいるからこそ、君のペースに合わせる事に異議は無いのだろう。
 
-※ＨＰ/ＭＰをＭＡＸの半分量回復する事。【手動】
+**%blue%【自動】%/%※ＨＰ/ＭＰともに３００回復。**
+
 
 [１](3160)
 [２](3170)
@@ -12291,7 +12705,7 @@ ${/if}
 [３](3183 "f1302&amp;!f3191")
 [３](3184 "f1407&amp;!f3191")
 [３](3186 "f3191")</scene>
-	<scene id="3154" items="i2535" result="r3154" level="73">
+	<scene id="3154" items="i2535" result="r3154" level="73" hp="full" mp="full" state="-all" summary="15マス目･休･ゾマ" se="3-iitenki">
 あーあ…こう天気が良いと「俺はなんでこんな事してんだろう？」とか思っちまうなー…(ﾁﾗｯ
 
 ゾマ「…なんじゃ？休憩が必要か？」
@@ -12310,8 +12724,9 @@ ${/if}
 君「えっ、いいんですか？」
 ゾマ「おぬしに持たせてある分は緊急用じゃからちゃんと持っててもらわねば困るでな…（実は例の泉と小さな空間通路を開いてあるのでいくらでも補充できるというのはナイショじゃ、無限に回復し放題というのでは緊張感の欠片も無いでの）」
 
-※ＨＰ/ＭＰをＭＡＸまでと全ての状態異常を回復する事。【手動】
-※さらにエリクサー(並)を持っていないなら入手。
+**%blue%【自動】%/%※ＨＰ/ＭＰともに全回復し、全ての状態異常が解除。**
+**%blue%【アイテム】%/%【エリクサー(並)】を入手**
+
 
 [１](3160)
 [２](3170)
@@ -12323,9 +12738,10 @@ ${/if}
 	<scene id="3160" enemies="m3160" se="3-22kb-biimu-dova" level="74" summary="16マス目･石化">
 うわっと！石化光線の罠だ！
 
-ダイスを振って、以下の式をクリックして回避判定をせよ。
+Battle Sheetを開いてダイスを振って、表示式をクリックして回避判定をせよ。
 
 ※「各種説明（チュートリアル）へ」を見に行った際は【ブラウザの戻る機能】で戻ってくる事。さもなければ、君の冒険は酒場で酔っぱらいが見た夢となるだろう…
+
 
 [１](3170)
 [２](3181 "f1251&amp;!f3191")
@@ -12334,7 +12750,7 @@ ${/if}
 [２](3184 "f1407&amp;!f3191")
 [２](3186 "f3191")
 [各種説明（チュートリアル）へ](401)</scene>
-	<scene id="3170" enemies="m711,m721,m731,m741" level="75">
+	<scene id="3170" enemies="m711,m721,m731,m741" level="75" summary="17マス目･Lv7全" rule="999">
 敵が現れた！ヒルジャイアント/ブーブリ/ブラックゴート/サンダーバードだ！
 戦って撃破せよ。
 
@@ -12342,9 +12758,9 @@ ${/if}
 どうやら見張り台への侵攻を阻止するために集められた部隊のようだが…
 しかし、各勢力からの最強の個体が集まっているわけでもない所に、イマイチ統率し切れていないようなあやふやさや雑さを感じる…
 逆にポロッと強力な個体が混ざる事も…
-%red%New!!%/%
-※【魔法耐性】についてはチュートリアル【特殊能力を持つ敵について】を参照の事｡
-※「各種説明（チュートリアル）へ」を見に行った際は【ブラウザの戻る機能】で戻ってくる事。さもなければ、君の冒険は酒場で酔っぱらいが見た夢となるだろう…
+
+${import 3005}
+
 
 [１](3181 "f1251&amp;!f3191")
 [１](3182 "f1204&amp;!f3191")
@@ -12352,7 +12768,7 @@ ${/if}
 [１](3184 "f1407&amp;!f3191")
 [１](3186 "f3191")
 [各種説明（チュートリアル）へ](401)</scene>
-	<scene id="3181" level="76">
+	<scene id="3181" level="76" summary="18マス目-1･中ボス前･単身">
 さぁついに、と言うかやっとこさ、件の見張り台まで登ってきたワケだが…その見張り台には誰もいない…
 君が目指して登ってきた事にも到着にも気付かぬハズは無く、さっさと逃げてしまったのか、それとも…
 
@@ -12373,7 +12789,7 @@ ${/if}
 ちょっと、いやかなり疲れるが仕方が無い…
 
 [その時！](3185)</scene>
-	<scene id="3182" level="76">
+	<scene id="3182" level="76" summary="18マス目-1･中ボス前･マベ">
 さぁついに、と言うかやっとこさ、件の見張り台まで登ってきたワケだが…その見張り台には誰もいない…
 君達が目指して登ってきた事にも到着にも気付かぬハズは無く、さっさと逃げてしまったのか、それとも…
 
@@ -12399,7 +12815,7 @@ ${/if}
 ちょっと、いやかなり疲れるが仕方が無い…
 
 [その時！](3185)</scene>
-	<scene id="3183" level="76">
+	<scene id="3183" level="76" summary="18マス目-1･中ボス前･ザシュ">
 さぁついに、と言うかやっとこさ、件の見張り台まで登ってきたワケだが…その見張り台には誰もいない…
 君達が目指して登ってきた事にも到着にも気付かぬハズは無く、さっさと逃げてしまったのか、それとも…
 
@@ -12426,7 +12842,7 @@ ${/if}
 ちょっと、いやかなり疲れるが仕方が無い…
 
 [その時！](3185)</scene>
-	<scene id="3184" level="76">
+	<scene id="3184" level="76" summary="18マス目-1･中ボス前･ゾマ">
 さぁついに、と言うかやっとこさ、件の見張り台まで登ってきたワケだが…その見張り台には…
 
 君「…あれ？さっきゾマ先生がやっつけた敵の死体がもう無い………そういやこの島に来てからずっと、やけに倒したモンスターが片付けられるの早いなとは思ってるんだが…人里近ければ“優秀な掃除屋がいるんだな”で済む話だし、森の奥地はまだ“周りの奴等に即喰い荒らされる”で説明が付くんだが、こんな所でさすがにそれはおかしい…いったいどういう事なんだ？」
@@ -12458,8 +12874,9 @@ ${/if}
 ゾマ｢…好きにせよ。｣
 ちょっと、いやかなり疲れるが仕方が無い…
 
+
 [その時！](3185)</scene>
-	<scene id="3185" enemies="m3185,m3186,m3187,m3188,m3189" bgm="@field03" level="77" summary="山ペリュハピ">
+	<scene id="3185" enemies="m3185,m3186,m3187,m3188,m3189" bgm="@field03" level="77" summary="18マス目-2･ペリュハピ" rule="3188">
 君がせっせと岩を落とし始めたその時！
 奥の方の岩積み山の影から、２体のモンスターが飛び出してきた！
 ペリュトンとハーピーだ！
@@ -12478,68 +12895,32 @@ ${/if}
 などと感心している場合ではない。
 多少のスペースがあるとはいえ狭い山の中腹で、自在に空を飛び、攻撃手段である岩を大量に備えている敵と戦わねばならないのだ…覚悟して挑みたまえ。
 
-## ★中ボス「ペリュトン＆ハーピー」ルール★
-●ペリュトンは常に上空から岩を落としてくるが､それは君の1行動ごとに行われる…つまりターン開始前の魔法使用であっても､1回ごとに岩攻撃を受けるのだ｡
-当然､ペリュトンに攻撃を加える際にも受けるので､魔法を2回使用して準備した上でペリュトンに攻撃した場合､計3回の岩攻撃を受ける事になる｡
-※準備行動1回ごとにダイスを振って式をクリックしてDMを受ける事｡
-※この準備行動時に受ける岩攻撃は､待機敵攻撃扱いではなく通常通りのDMを受けるが､盾防御(盾無回避)は可能｡
+${import 3005}
 
-●ハーピーは魔歌で攻撃してくるが､その声に魔力を込めるごとに効果は3段階にアップし､それは君の1行動ごとに1段階アップする…つまりこれもターン開始前の魔法使用1回ごとにアップするので､ハーピーからの攻撃は…
-・準備無しでターン開始(魔歌Lv1)
-・準備1回でターン開始(魔歌Lv2)
-・準備2回でターン開始(魔歌Lv3)
-となる。
-※行った準備行動回数に対応した式をクリックしてDMを受ける事｡
+${import 3188}
 
-※2体同時攻撃武器であっても2体同時にDMを与える事はできない｡【複数の敵との戦闘について】もしくは【特殊能力を持つ敵について】を参照｡
-※1DMを与える(耐久力を1減らす)ごとに､Lv差で得られるEXPの2倍と､右の取得物を得てよい(2以上のDMを与えた場合もまとめて得てよい)｡
-%red%New!!%/%
-※【魔法耐性】についてはチュートリアル【特殊能力を持つ敵について】を参照の事｡
-※「各種説明（チュートリアル）へ」を見に行った際は【ブラウザの戻る機能】で戻ってくる事。さもなければ、君の冒険は酒場で酔っぱらいが見た夢となるだろう…
-
-${if f1204}
-**●この戦闘でのマーベルの効果**
-・Lv分のDM軽減は通常通り｡
-・回復魔法は1ターンにつき1回使用でき､行動回数にもカウントしない｡
-・ペリュトンの岩は1ターンに2回まで防いでくれる｡準備行動分で使い切っていなければ待機攻撃の分も防いでくれるが､本体へ攻撃した時の分は防いでくれない｡
-・ハーピーの攻撃は防げない｡
-${/if}
-${if f1302}
-**●この戦闘でのザシュマーの効果**
-・怒り狂っているので攻撃力2倍！(耐久力を2減らしてくれる)
-・しかしこちらと連係が取れないので攻撃対象は選べず､君が攻撃時に振ったダイスの合計が偶数時はペリュトンを､奇数時はハーピーを攻撃する｡
-・他は通常通りで､やはり君が攻撃した直後に(待機敵からの攻撃前に)攻撃する｡
-${/if}
-${if f1407}
-**●この戦闘でのゾマの効果**
-・基本的に通常通り｡
-・【敵を倒す】の優先順位は【上から順に生きている敵の耐久力を1減らす】で､ペリュトンが生きているならそちらを､死んでいるならハーピーの耐久力を1減らす｡
-・【敵を復活】の優先順位は【上から順に生きている敵の耐久力を1回復】で､ペリュトンが死んでいてもハーピーが生きていて､耐久力が減っているならその耐久力を1回復する｡ただし生きている敵の耐久力が満タンだったり､敵を全滅させた直後の場合は死んでいる敵を耐久力1で復活させる(全滅時は上のペリュトンを復活)｡
-・【敵を全滅】はそのまま全滅させてかまわない(今回はゾマも割とメンドクサがっているので)｡
-・【ギブアップ】はできない｡
-${/if}
 
 [て、手強い…](3191 "f1251&amp;!f3191")
 [て、手強い…](3192 "f1204&amp;!f3191")
 [て、手強い…](3193 "f1302&amp;!f3191")
 [て、手強い…](3194 "f1407&amp;!f3191")
 [各種説明（チュートリアル）へ](401)</scene>
-	<scene id="3186" level="76">
+	<scene id="3186" level="76" items="i3185,i3186" summary="18マス目･中ボス倒済1">
 …うん。見張り台にはまだ代わりの敵は補充されていないようだ。
 
 まぁ、普通は１回倒したのにそんなにスグにまた違う奴（もしくは同じ奴）が居るワケは無いんだけど…
 
 ${if f1251}
-今までにも経験があるんだが、妙に次の敵が来るのが早い場合があるんだよなー…ヒドイとちょっと目を放して移動しただけで次の敵が…
+今までにも経験があるんだが、妙に次の敵が来るのが早い場合があるんだよなーヒドイとちょっと目を放して移動しただけで次の敵が…
 ${/if}
 ${if f1204}
-今までにも経験があるんだが、妙に次の敵が来るのが早い場合があるんだよなー…ヒドイとちょっと目を放して移動しただけで次の敵が…
+今までにも経験があるんだが、妙に次の敵が来るのが早い場合があるんだよなーヒドイとちょっと目を放して移動しただけで次の敵が…
 ${/if}
 ${if f1302}
-今までにも経験があるんだが、妙に次の敵が来るのが早い場合があるんだよなー…ヒドイとちょっと目を放して移動しただけで次の敵が…
+今までにも経験があるんだが、妙に次の敵が来るのが早い場合があるんだよなーヒドイとちょっと目を放して移動しただけで次の敵が…
 ${/if}
 ${if f1407}
-しかし、そんな事が可能だとは…確かに今までにも、妙に次の敵が来るのが早い場合があるとは思ってたんだよなー…ヒドイとちょっと目を放して移動しただけで次の敵が…
+しかし、そんな事が可能だとは…確かに今までにも、妙に次の敵が来るのが早い場合があるとは思ってたんだよなーヒドイとちょっと目を放して移動しただけで次の敵が…
 ゾマ「他にも色々なパターンがあるぞい、例えば…」
 ${/if}
 
@@ -12548,8 +12929,13 @@ ${/if}
 ただし、この魔法には最大の弱点があり、そのモンスターを守護する場所から離れた所へ誘い出して同様に視界や意識の外に置くと、これまた一瞬で消え失せてしまうのだ。
 かつては要所によくこの魔法がかけられていたが、この弱点を駆使した勇者が超強力な赤い悪魔を戦わずして消しまくった事で、あまり使われなくなったとかなんとか…
 
+おや？何か落ちているぞ？
+
+**%blue%【アイテム】%/%【ペリュトンのはね】【ハーピーのはね】を入手**
+
+
 [有馬くん元気かな？](3196)</scene>
-	<scene id="3187" items="-i2535" level="124">
+	<scene id="3187" items="-i2535" level="124" summary="※旧エリク並使用">
 君はエリクサー(並)を口に含んで、少しずつノドの奥へと送り込んだ…
 
 すると、その清純な気はみるみるうちに君達の体内にゆきわたり、あらゆる気を浄化してそのめぐりを整えて正常に…いや、より良い状態にまでしてくれた。
@@ -12559,7 +12945,60 @@ ${/if}
 ※【ブラウザの戻る】ではなく下の選択肢で元のシーンへ戻る事。
 
 [戻る](3185)</scene>
-	<scene id="3191" flags="f3191" bgm="@talk02" level="78">
+	<scene id="3188" summary="★ペリュハピルール" level="124">
+%blue%**★落石の番人…ペリュトン＆ハーピー★**%/%
+**●【岩の狩人…ペリュトン】**
+ペリュトンは常に上空から岩を落としてくるが､それは【君の1行動ごとに行われる】…つまりターン開始前の**準備行動であっても､1回ごとに岩攻撃を受ける｡**
+当然､ペリュトンに攻撃するなど開始行動の際にも受けるので､例えば魔法2回使用で準備した上でペリュトンに攻撃する場合､計3回の岩攻撃を受ける事になる｡
+※岩攻撃1回ごとにダイスを振り､式クリックでDMを受ける事｡
+※このペリュトンの岩攻撃は**準備行動時/開始行動時(攻撃時)/待機敵攻撃時の区別をしない**ものとする｡なので待機敵攻撃時も防御で1/2にならないが､**すべて盾防御/盾無回避が可能**(毎回必ずダイスを振る事)｡
+
+**●【誘惑の魔声…ハーピー】**
+ハーピーは魔歌で攻撃してくるが､その声に魔力を込めるごとに効果は3段階にアップし､それは【君の1行動ごとに1段階アップする】…つまりこれもターン開始前の**準備行動1回ごとにアップする**ので､ハーピーからの攻撃は以下のようになる｡
+**・準備0回でターン開始…魔歌Lv1：MPDM**
+**・準備1回でターン開始…魔歌Lv2：MPDM＋忘却**
+**・準備2回でターン開始…魔歌Lv3：MPDM＋忘却/呪/石化**
+※準備行動回数に対応した式をクリックしてDMを受ける事｡
+※魔歌は【歌】なので**防御も回避も不可(盾防御/盾無回避も不可)**だが【HOLLY-WATER】は効果あり｡
+※状態異常を受けるかどうかの判定は通常通り｡
+
+※2体攻撃武器は無効(それぞれ距離を取っているため)｡
+※EXPは敵HPにDMを与えるごとに得る(DM×1につき2倍のEXP)｡
+${if f1407}**ゾマ｢この程度の奴らは瞬殺してくれんとの｡時間の無駄じゃて｡｣**
+アンタじゃねーんだから…つかだったらジャマすんなよとｗ
+しかし実は半分その通りで､速攻をかけないと時間が経つほどキツくなるぞ${/if}
+${if f1204}
+%blue%**★ペリュトン＆ハーピー：マーベル効果★**%/%
+●ペリュトンの岩は**1ターンに2回まで防いでくれる｡**準備行動時/開始行動時(攻撃時)/待機敵攻撃時の区別なくどれでも可｡
+●ハーピーの攻撃は防げない｡
+※その他は通常通り｡
+${/if}
+
+${if f1302}
+%blue%**★ペリュトン＆ハーピー：ザシュマー効果★**%/%
+●怒り狂っているので**攻撃力2倍！**(HPクリック時DM×2)
+●しかしこちらと連係が取れないので攻撃対象は選べず､君が開始行動時に振ったダイスの合計が偶数時はペリュトンを､奇数時はハーピーを攻撃する｡
+※その他は通常通り｡
+${/if}
+
+${if f1407}
+%blue%**★ペリュトン＆ハーピー：ゾマ効果★**%/%
+●【ギブアップ】は不可｡
+●【2:敵を倒す】…上から生きている方を**ゾマがDM×1で攻撃｡**※ゾロ目時も同｡
+●【3:敵を復活】…上から死んでいる方を**ゾマが1体復活させる｡**※HP0だがチェックを外してHP表示の無い敵扱いで｡※ゾロ目時も同｡
+※その他は通常通り｡
+**%blue%★ゾマランダム行動早見表★%/%**
+**●L1…何もしない※ゾロ目2ターン**
+**●L2…HP敵以外1体倒す※ゾロ目2体**
+**●L3…HP敵以外1体復活※ゾロ目2体**
+**●L4…Lv×20回復(R奇数HP/R偶数MP)※ゾロ目両方**
+**●L5…Lv×20DM(R奇数HP/R偶数MP)※ゾロ目両方**
+**●L6…無料魔法※ゾロ目2回**
+${/if}
+
+
+</scene>
+	<scene id="3191" flags="f3191" bgm="@talk02" level="78" summary="19マス目･中ボス後･単身" hp="full" mp="full" state="-all">
 強力なモンスターが、地の利を活かした上に理にかなった連係で攻撃してくる、というのは本当に強い…
 これまでのように単に凶暴化している程度の奴らとはワケが違う…これはもう相当に気を引き締めてかからないと…
 
@@ -12569,15 +13008,17 @@ ${/if}
 さて、敵が居ないならここは絶好の休憩ポイントである。
 十分な休息を取った君は心身ともに充実した上で後半戦に挑むのであった。
 
-※ＨＰ/ＭＰと状態異常を全回復する事。【手動】
-※ここからは選んだ目の半分ずつしか進めない（端数は切捨て切上げどちらでもよい）。
+**%blue%【自動】%/%※ＨＰ/ＭＰともに全回復し、全ての状態異常が解除。**
+
+※ここからは選んだ目の半分ずつしか進めない（端数は切捨/切上どちらでも）。
 ※またここはちょうど中間ポイントであるが、山を降りたければ降りてもよい。
+
 
 [１](3200)
 [２](3210)
 [３](3220)
 [山を降りる（帰る）](3000)</scene>
-	<scene id="3192" flags="f3191" bgm="@talk02" level="78">
+	<scene id="3192" flags="f3191" bgm="@talk02" level="78" hp="full" mp="full" state="-all" summary="19マス目･中ボス後･マベ">
 強力なモンスターが、地の利を活かした上に理にかなった連係で攻撃してくる、というのは本当に強い…
 これまでのように単に凶暴化している程度の奴らとはワケが違う…これはもう相当に気を引き締めてかからないと…
 
@@ -12601,15 +13042,17 @@ ${/if}
 さて、敵が居ないならここは絶好の休憩ポイントである。
 十分な休息を取った君達は心身ともに充実した上で後半戦に挑むのであった。
 
-※ＨＰ/ＭＰと状態異常を全回復する事。【手動】
-※ここからは選んだ目の半分ずつしか進めない（端数は切捨て切上げどちらでもよい）。
+**%blue%【自動】%/%※ＨＰ/ＭＰともに全回復し、全ての状態異常が解除。**
+
+※ここからは選んだ目の半分ずつしか進めない（端数は切捨/切上どちらでも）。
 ※またここはちょうど中間ポイントであるが、山を降りたければ降りてもよい。
+
 
 [１](3200)
 [２](3210)
 [３](3220)
 [山を降りる（帰る）](3000)</scene>
-	<scene id="3193" flags="f3191" bgm="@talk02" level="78">
+	<scene id="3193" flags="f3191" bgm="@talk02" level="78" hp="full" mp="full" state="-all" summary="19マス目･中ボス後･ザシュ">
 強力なモンスターが、地の利を活かした上に理にかなった連係で攻撃してくる、というのは本当に強い…
 これまでのように単に凶暴化している程度の奴らとはワケが違う…これはもう相当に気を引き締めてかからないと…
 
@@ -12625,15 +13068,17 @@ ${/if}
 さて、敵が居ないならここは絶好の休憩ポイントである。
 十分な休息を取った君達は心身ともに充実した上で後半戦に挑むのであった。
 
-※ＨＰ/ＭＰと状態異常を全回復する事。【手動】
-※ここからは選んだ目の半分ずつしか進めない（端数は切捨て切上げどちらでもよい）。
+**%blue%【自動】%/%※ＨＰ/ＭＰともに全回復し、全ての状態異常が解除。**
+
+※ここからは選んだ目の半分ずつしか進めない（端数は切捨/切上どちらでも）。
 ※またここはちょうど中間ポイントであるが、山を降りたければ降りてもよい。
+
 
 [１](3200)
 [２](3210)
 [３](3220)
 [山を降りる（帰る）](3000)</scene>
-	<scene id="3194" flags="f3191" bgm="@talk02" level="78">
+	<scene id="3194" flags="f3191" bgm="@talk02" level="78" hp="full" mp="full" state="-all" summary="19マス目･中ボス後･ゾマ">
 強力なモンスターが、地の利を活かした上に理にかなった連係で攻撃してくる、というのは本当に強い…
 これまでのように単に凶暴化している程度の奴らとはワケが違う…これはもう相当に気を引き締めてかからないと…
 
@@ -12660,15 +13105,17 @@ ${/if}
 さて、敵が居ないならここは絶好の休憩ポイントである。
 十分な休息を取った君達は心身ともに充実した上で後半戦に挑むのであった。
 
-※ＨＰ/ＭＰと状態異常を全回復する事。【手動】
-※ここからは選んだ目の半分ずつしか進めない（端数は切捨て切上げどちらでもよい）。
+**%blue%【自動】%/%※ＨＰ/ＭＰともに全回復し、全ての状態異常が解除。**
+
+※ここからは選んだ目の半分ずつしか進めない（端数は切捨/切上どちらでも）。
 ※またここはちょうど中間ポイントであるが、山を降りたければ降りてもよい。
+
 
 [１](3200)
 [２](3210)
 [３](3220)
 [山を降りる（帰る）](3000)</scene>
-	<scene id="3195" level="86">
+	<scene id="3195" level="86" enemies="m3009,m3010,m3011,m3012,m3013,m3014,m3015" rule="3009" summary="19マス目･振出B">
 ${if f1251}
 イテテテ…
 エライ目に遭いながらも、中腹の見張り台が広く多数岩が詰んであったのも幸いして、なんとかそこで止まる事ができたが…
@@ -12690,19 +13137,15 @@ ${if f1407}
 さて、どうする？
 ${/if}
 
-おっとその前に…他にも落ちてきた奴がいてその時に落とした物だろうか？七星欠片が落ちているぞ！さっさと拾って再チャレンジ！！（もしくは帰る）
+おっとその前に…他にも落ちてきた奴がいてその時に落とした物だろうか？七星欠片が落ちているぞ！
+Battle Sheetを開いてダイスを振ってさっさと拾って再チャレンジ！！（もしくは帰る）
 
-以下のルールで入手する種類と数を決定せよ。
+${import 3009}
 
-★ダイスを振って出た出目の左右それぞれが種類と数で、どちらをどちらに充てるかは自由に決めてよい。また、どの星を得るかも自由に決めてよいものとする。
-
-★例：左２/右４と出た場合【２種類/４つｏｒ２つ/４種類】のどちらでもよい。
-
-★入手した星は手動で反映させておく事。
 
 [気を取り直して再チャレンジ！！](3200)
 [もうやだ！もう帰るぅ～～！！（帰る）](3000)</scene>
-	<scene id="3196" level="77">
+	<scene id="3196" level="77" hp="full" mp="full" state="-all" summary="19マス目･中ボス倒済2">
 ${if f1251}
 さて、敵が居ないならここは絶好の休憩ポイントである。
 十分な休息を取った君は心身ともに充実した上で後半戦に挑むのであった。
@@ -12712,9 +13155,11 @@ ${if f1250}
 十分な休息を取った君達は心身ともに充実した上で後半戦に挑むのであった。
 ${/if}
 
-※ＨＰ/ＭＰと状態異常を全回復する事。【手動】
-※ここからは選んだ目の半分ずつしか進めない（端数は切捨て切上げどちらでもよい）。
+**%blue%【自動】%/%※ＨＰ/ＭＰともに全回復し、全ての状態異常が解除。**
+
+※ここからは選んだ目の半分ずつしか進めない（端数は切捨/切上どちらでも）。
 ※またここはちょうど中間ポイントであるが、山を降りたければ降りてもよい。
+
 
 [１](3200)
 [２](3210)
@@ -12723,10 +13168,11 @@ ${/if}
 	<scene id="3200" enemies="m3200" se="3-25kb-gasu-labo" level="79" summary="20マス目･猛毒">
 うわっと！毒ガス（猛毒）の罠だ！
 
-ダイスを振って、以下の式をクリックして回避判定をせよ。
-%red%New!!%/%
-※【猛毒(強状態異常)】についてはチュートリアル【状態異常について3】を参照の事｡
+Battle Sheetを開いてダイスを振って、表示式をクリックして回避判定をせよ。
+
+※【猛毒】についてはチュートリアル【魔法その他編：強状態異常について】を参照｡
 ※「各種説明（チュートリアル）へ」を見に行った際は【ブラウザの戻る機能】で戻ってくる事。さもなければ、君の冒険は酒場で酔っぱらいが見た夢となるだろう…
+
 
 [１](3210)
 [２](3220)
@@ -12735,10 +13181,11 @@ ${/if}
 	<scene id="3210" enemies="m3210" se="3-22kb-touketu-labo" level="80" summary="21マス目･強凍結">
 うわっと！凍結結界（強凍結）の罠だ！
 
-ダイスを振って、以下の式をクリックして回避判定をせよ。
-%red%New!!%/%
-※【強凍結(強状態異常)】についてはチュートリアル【状態異常について3】を参照の事｡
+Battle Sheetを開いてダイスを振って、表示式をクリックして回避判定をせよ。
+
+※【強凍結】についてはチュートリアル【魔法その他編：強状態異常について】を参照｡
 ※「各種説明（チュートリアル）へ」を見に行った際は【ブラウザの戻る機能】で戻ってくる事。さもなければ、君の冒険は酒場で酔っぱらいが見た夢となるだろう…
+
 
 [１](3220)
 [２](3230)
@@ -12747,10 +13194,11 @@ ${/if}
 	<scene id="3220" enemies="m3220" se="3-36kb-tarai-poke" level="81" summary="22マス目･全忘却">
 うわっと！君の頭上の空間から突然､オリハルコンのタライが落ちてきた！
 
-ダイスを振って、以下の式をクリックして回避判定をせよ。
-%red%New!!%/%
-※【全忘却(強状態異常)】についてはチュートリアル【状態異常について3】を参照の事｡
+Battle Sheetを開いてダイスを振って、表示式をクリックして回避判定をせよ。
+
+※【全忘却】についてはチュートリアル【魔法その他編：強状態異常について】を参照｡
 ※「各種説明（チュートリアル）へ」を見に行った際は【ブラウザの戻る機能】で戻ってくる事。さもなければ、君の冒険は酒場で酔っぱらいが見た夢となるだろう…
+
 
 [１](3230)
 [２](3240)
@@ -12759,10 +13207,11 @@ ${/if}
 	<scene id="3230" enemies="m3230" se="3-31kb-noroi-labo" level="82" summary="23マス目･呪怨">
 うわっと！突然目の前に禍々しく呪いの言葉を発する墓場が現れた！
 
-ダイスを振って、以下の式をクリックして回避判定をせよ。
-%red%New!!%/%
-※【呪怨(強状態異常)】についてはチュートリアル【状態異常について3】を参照の事｡
+Battle Sheetを開いてダイスを振って、表示式をクリックして回避判定をせよ。
+
+※【呪怨】についてはチュートリアル【魔法その他編：強状態異常について】を参照｡
 ※「各種説明（チュートリアル）へ」を見に行った際は【ブラウザの戻る機能】で戻ってくる事。さもなければ、君の冒険は酒場で酔っぱらいが見た夢となるだろう…
+
 
 [１](3240)
 [２](3250)
@@ -12771,15 +13220,16 @@ ${/if}
 	<scene id="3240" enemies="m3240" se="3-22kb-biimu-dova" level="83" summary="24マス目･強石化">
 うわっと！石化ビーム（強石化）の罠だ！
 
-ダイスを振って、以下の式をクリックして回避判定をせよ。
-%red%New!!%/%
-※【強石化(強状態異常)】についてはチュートリアル【状態異常について3】を参照の事｡
+Battle Sheetを開いてダイスを振って、表示式をクリックして回避判定をせよ。
+
+※【強石化】についてはチュートリアル【魔法その他編：強状態異常について】を参照｡
 ※「各種説明（チュートリアル）へ」を見に行った際は【ブラウザの戻る機能】で戻ってくる事。さもなければ、君の冒険は酒場で酔っぱらいが見た夢となるだろう…
+
 
 [１](3250)
 [２](3260)
 [各種説明（チュートリアル）へ](401)</scene>
-	<scene id="3250" flags="f3250" se="3-31kb-pyuun-poke" result="r3250" level="84" summary="滑落1">
+	<scene id="3250" flags="f3250" se="3-31kb-pyuun-poke" result="r3250" level="84" summary="滑落3">
 あっ！と気付いた時にはもう遅い…滑落の罠だ！！
 
 君の足元はもろくも崩れ去り…
@@ -12790,17 +13240,19 @@ ${/if}
 [「ホイ。」](3254 "f1407&amp;!f3070")
 [「あ～れ～」](3255 "f1251&amp;f3070")
 [「ホイ。」](3256 "f1407&amp;f3070")</scene>
-	<scene id="3251" flags="f3070" level="85">
+	<scene id="3251" flags="f3070" level="85" summary="振出B-1･単身･踏無" hp="-300" mp="-300">
 ### 「あ～れ～」
 
 山肌をひたすら転げ落ちてゆく君…
 
 かろうじて、致命的に危険な物にぶつかったり高所から落下したりしないよう、抵抗して転がる方向を調整したりはしたが…それなりにヒドイ目には遭った。
 
-※ＨＰとＭＰをＭＡＸの半分量減らす事。それで０になった場合は１残してよい。【手動】
+**%blue%【自動】%/%※ＨＰ/ＭＰともに３００減。**
+※それで０になった場合は１残してよい。
+
 
 [イテテテ…](3195)</scene>
-	<scene id="3252" level="85">
+	<scene id="3252" level="85" summary="振出B-1･マベ">
 ### 「あ～れ～」
 ### 「きゃあ～」
 
@@ -12808,8 +13260,9 @@ ${/if}
 
 だったが、マーベルのマントにかけられた魔法「風の精霊の守護」によって君達の体は守られ、転落を防ぐまでには至らずともさしたるＤＭを受ける事無く、なんとか落ち着く位置まで降りる事ができた。
 
+
 [ふぅ…](3195)</scene>
-	<scene id="3253" level="85">
+	<scene id="3253" level="85" summary="振出B-1･ザシュ">
 ### 「あ～れ～」
 
 ### 「フン！」
@@ -12820,9 +13273,10 @@ ${/if}
 
 滞空してはいるが、この状態で敵に襲われてはひとたまりも無い。
 
+
 [早く近くの足場に連れて行ってくれ](3260)
 [いや、せっかくだし一度下まで降りよう](3195)</scene>
-	<scene id="3254" flags="f3070" stars="-2,0,0,-2,-2,-2,0" level="85">
+	<scene id="3254" flags="f3070" stars="-2,0,0,-2,-2,-2,0" level="85" summary="振出B-1･ゾマ･踏無">
 ### 「あ～れ～」
 
 ### 「ホイ。」
@@ -12847,21 +13301,24 @@ ${/if}
 **●FLY(CHANGE-AIRの重魔法)	**	※必要INT＝255
 古の禁呪｡世界のバランスを崩す禁断の魔法として封印された｡
 
-※CHANGE-AIR 2回分の星が減。【自動】
+**%blue%【自動】%/%※【CHANGE-AIR】 ２回分の星が減。**
+
 
 [早く近くの足場へ行かなければ！](3260)
 [いや、せっかくだし一度下まで降りよう](3195)</scene>
-	<scene id="3255" level="85">
+	<scene id="3255" level="85" hp="-200" mp="-200" summary="振出B-1･単身･踏有">
 ### 「あ～れ～」
 
 またしても山肌をひたすら転げ落ちてゆく君…
 
 慣れたもので、転がる方向をうまく調整してはいるのだが…やはりヒドイ目に遭う事に変わりは無いのだった。
 
-※ＨＰとＭＰをＭＡＸの半分量減らす事。それで０になった場合は１残してよい。【手動】
+**%blue%【自動】%/%※ＨＰ/ＭＰともに２００減。**
+※それで０になった場合は１残してよい。
+
 
 [イテテテ…](3195)</scene>
-	<scene id="3256" stars="-2,0,0,-2,-2,-2,0" level="85">
+	<scene id="3256" stars="-2,0,0,-2,-2,-2,0" level="85" summary="振出B-1･ゾマ･踏有">
 ### 「あ～れ～」
 
 ### 「ホイ。」
@@ -12880,11 +13337,12 @@ ${/if}
 **●FLY(CHANGE-AIRの重魔法)	**	※必要INT＝255
 古の禁呪｡世界のバランスを崩す禁断の魔法として封印された｡
 
-※CHANGE-AIR 2回分の星が減。【自動】
+**%blue%【自動】%/%※【CHANGE-AIR】 ２回分の星が減。**
+
 
 [早く近くの足場へ行かなければ！](3260)
 [いや、せっかくだし一度下まで降りよう](3195)</scene>
-	<scene id="3260" level="86">
+	<scene id="3260" level="86" rule="3009" enemies="m3009,m3010,m3011,m3012,m3013,m3014,m3015" summary="26マス目･敵入口･星拾">
 うぉ…視界に見渡す限り、モンスターだらけだ…
 どうやらここが最終防衛ラインという事らしい。
 
@@ -12899,20 +13357,17 @@ ${if f1407}
 ゾマ「…STR/INT/WIS/AGL/DEX/CHR/MGRと、ほとんど戦闘と同じ能力が試されておったのじゃがな…かようにストレスが溜まっておったのか…”気の持ちよう”というやつかの。」
 ${/if}
 
-おっとその前に…どういう訳か七星欠片が落ちているぞ！さっさと拾って戦いに身を投じるのだ！
+おっとその前に…どういう訳か七星欠片が落ちているぞ！
 
-以下のルールで入手する種類と数を決定せよ。
+Battle Sheetを開いてダイスを振ってさっさと拾って戦いに身を投じるのだ！！
 
-★ダイスを振って出た出目の左右それぞれが種類と数で、どちらをどちらに充てるかは自由に決めてよい。また、どの星を得るかも自由に決めてよいものとする。
+${import 3009}
 
-★例：左２/右４と出た場合【２種類/４つｏｒ２つ/４種類】のどちらでもよい。
-
-★入手した星は手動で反映させておく事。
 
 [１](3270)
 [２](3280)
 [３](3290)</scene>
-	<scene id="3270" enemies="m811,m811,m811" level="87">
+	<scene id="3270" enemies="m811,m811,m811" level="87" summary="27マス目･飛竜" rule="999">
 敵が現れた！ワイバーンだ！
 戦って撃破せよ。
 
@@ -12921,15 +13376,15 @@ ${/if}
 知力は高くはなく、魔法も使えずブレスも吐かないが、フィジカルのみで圧倒的な強さを誇る。
 ただ知力が普通の動物程度なのもあって、力を認めた相手であれば付き従い背に乗せる事もあるようだ。
 その戦闘能力の性質上、個体差は主にパワーに表れる。
-%red%New!!%/%
-※【魔法耐性】についてはチュートリアル【特殊能力を持つ敵について】を参照の事｡
-※「各種説明（チュートリアル）へ」を見に行った際は【ブラウザの戻る機能】で戻ってくる事。さもなければ、君の冒険は酒場で酔っぱらいが見た夢となるだろう…
+
+${import 3005}
+
 
 [１](3280)
 [２](3290)
 [３](3300)
 [各種説明（チュートリアル）へ](401)</scene>
-	<scene id="3280" enemies="m821,m821,m821" level="88">
+	<scene id="3280" enemies="m821,m821,m821" level="88" rule="999" summary="28マス目･グリフォ">
 敵が現れた！グリフォンだ！
 戦って撃破せよ。
 
@@ -12938,15 +13393,15 @@ ${/if}
 獰猛ではあるがそれなりの知力を有するので、力任せではなくスピードを活かした戦いをする。
 またその知力ゆえに自分を上回ると認めた者に対しては従順で、その背に強者を乗せる事もある。
 なおその俊敏さにはかなり個体差があるようだ。
-%red%New!!%/%
-※【魔法耐性】についてはチュートリアル【特殊能力を持つ敵について】を参照の事｡
-※「各種説明（チュートリアル）へ」を見に行った際は【ブラウザの戻る機能】で戻ってくる事。さもなければ、君の冒険は酒場で酔っぱらいが見た夢となるだろう…
+
+${import 3005}
+
 
 [１](3290)
 [２](3300)
 [３](3310)
 [各種説明（チュートリアル）へ](401)</scene>
-	<scene id="3290" enemies="m831,m831,m831,m831" level="89">
+	<scene id="3290" enemies="m831,m831,m831,m831" level="89" rule="999" summary="29マス目･アラコラ">
 敵が現れた！アラコッラだ！
 戦って撃破せよ。
 
@@ -12955,15 +13410,15 @@ ${/if}
 悪魔としては低級なため必ず多数で行動し、これまた悪魔としては低級だが人から見れば強力な魔力をもって”人の魂を無理に引き剥がす”恐ろしい魔法を使う。
 これほどの存在がなぜ低級なのか？それは悪魔の本来の役目は”誘惑により人心を堕落させ世界そのものを荒廃させて、数多の魂を地獄に落とし邪神に捧げる事”であり、こうやって直接力技でいちいち魂を入手するというのは、悪魔としては三流なのである。
 悪魔という規格外の存在のため、個体差は大きい。
-%red%New!!%/%
-※【魔法耐性】についてはチュートリアル【特殊能力を持つ敵について】を参照の事｡
-※「各種説明（チュートリアル）へ」を見に行った際は【ブラウザの戻る機能】で戻ってくる事。さもなければ、君の冒険は酒場で酔っぱらいが見た夢となるだろう…
+
+${import 3005}
+
 
 [１](3300)
 [２](3310)
 [３](3320)
 [各種説明（チュートリアル）へ](401)</scene>
-	<scene id="3300" enemies="m841,m842,m843,m844,m845" level="90">
+	<scene id="3300" enemies="m841,m842,m843,m844,m845" level="90" rule="999" summary="30マス目･スペクテ">
 敵が現れた！スペクテーターだ！
 戦って撃破せよ。
 
@@ -12974,10 +13429,9 @@ ${/if}
 古代人亡き後もその命令…いや”存在理由”である「財宝を守る」を忠実に実行し続ける、あわれな存在ではあるが…その行動には一切の感情も迷いも無く、機械のごとく侵入者を排除するのみである。
 また逆にこれが居る所にはそれなりの財宝があると見てもよい。
 好んで使う…というよりは過去の戦闘経験上有効であった魔法の違いが、そのまま個体差となっている。
-%red%New!!%/%
-※【魔法無効】についてはチュートリアル【特殊能力を持つ敵について】を参照の事｡
-※【猛毒/強凍結/全忘却/呪怨/強石化(強状態異常)】についてはチュートリアル【状態異常について3】を参照の事｡
-※「各種説明（チュートリアル）へ」を見に行った際は【ブラウザの戻る機能】で戻ってくる事。さもなければ、君の冒険は酒場で酔っぱらいが見た夢となるだろう…
+
+${import 3005}
+
 
 [１](3310)
 [２](3320)
@@ -12985,7 +13439,7 @@ ${/if}
 [３](3331 "f3008&amp;!f4200")
 [３](3332 "f4200")
 [各種説明（チュートリアル）へ](401)</scene>
-	<scene id="3310" enemies="m811,m821,m831,m845" level="91">
+	<scene id="3310" enemies="m811,m821,m831,m845" level="91" rule="999" summary="31マス目･Lv8全">
 敵が現れた！ワイバーン/グリフォン/アラコッラ/スペクテーターだ！
 戦って撃破せよ。
 
@@ -12994,10 +13448,9 @@ ${/if}
 全員総出で体を張って侵攻を食い止める気らしい…
 しかし雰囲気を見るに、これほどの奴らが”侵入を許した際の恐怖”に駆られて守る”統率者”とはいったいどれほどの存在なのか？
 森の時と違い、例の邪気は島全体と変わらない程度なので、その邪気の出所という訳では無さそうだが…
-%red%New!!%/%
-※【魔法耐性/魔法無効】についてはチュートリアル【特殊能力を持つ敵について】を参照の事｡
-※【強石化(強状態異常)】についてはチュートリアル【状態異常について3】を参照の事｡
-※「各種説明（チュートリアル）へ」を見に行った際は【ブラウザの戻る機能】で戻ってくる事。さもなければ、君の冒険は酒場で酔っぱらいが見た夢となるだろう…
+
+${import 3005}
+
 
 [１](3320)
 [２](3330 "!(f3008|f4200)")
@@ -13015,17 +13468,19 @@ ${/if}
 [「フン！」](3323 "f1302")
 [「ホイ。」](3324 "f1407&amp;!f3070")
 [「ホイ。」](3326 "f1407&amp;f3070")</scene>
-	<scene id="3321" flags="f3070" level="93">
+	<scene id="3321" flags="f3070" level="93" summary="振出B-2･単身･踏無" hp="-300" mp="-300">
 ### 「あ～れ～」
 
 山肌をひたすら転げ落ちてゆく君…
 
 かろうじて、致命的に危険な物にぶつかったり高所から落下したりしないよう、抵抗して転がる方向を調整したりはしたが…それなりにヒドイ目には遭った。
 
-※ＨＰとＭＰをＭＡＸの半分量減らす事。それで０になった場合は１残してよい。【手動】
+**%blue%【自動】%/%※ＨＰ/ＭＰともに３００減。**
+※それで０になった場合は１残してよい。
+
 
 [イテテテ…](3195)</scene>
-	<scene id="3322" level="93">
+	<scene id="3322" level="93" summary="振出B-2･マベ">
 ### 「あ～れ～」
 ### 「きゃあ～」
 
@@ -13034,7 +13489,7 @@ ${/if}
 だったが、マーベルのマントにかけられた魔法「風の精霊の守護」によって君達の体は守られ、転落を防ぐまでには至らずともさしたるＤＭを受ける事無く、なんとか落ち着く位置まで降りる事ができた。
 
 [ふぅ…](3195)</scene>
-	<scene id="3323" level="93">
+	<scene id="3323" level="93" summary="振出B-2･ザシュ">
 ### 「あ～れ～」
 
 ### 「フン！」
@@ -13048,7 +13503,7 @@ ${/if}
 [早く近くの足場に連れて行ってくれ](3330 "!f4200")
 [早く近くの足場に連れて行ってくれ](3332 "f4200")
 [いや、せっかくだし一度下まで降りよう](3195)</scene>
-	<scene id="3324" flags="f3070" stars="-2,0,0,-2,-2,-2,0" level="93">
+	<scene id="3324" flags="f3070" stars="-2,0,0,-2,-2,-2,0" level="93" summary="振出B-2･ゾマ･踏無">
 ### 「あ～れ～」
 
 ### 「ホイ。」
@@ -13073,22 +13528,25 @@ ${/if}
 **●FLY(CHANGE-AIRの重魔法)**	※必要INT＝255
 古の禁呪｡世界のバランスを崩す禁断の魔法として封印された｡
 
-※CHANGE-AIR 2回分の星が減。【自動】
+**%blue%【自動】%/%※【CHANGE-AIR】 ２回分の星が減。**
+
 
 [早く近くの足場へ行かなければ！](3330 "!f4200")
 [早く近くの足場へ行かなければ！](3332 "f4200")
 [いや、せっかくだし一度下まで降りよう](3195)</scene>
-	<scene id="3325" level="93">
+	<scene id="3325" level="93" hp="-200" mp="-200" summary="振出B-2･単身･踏有">
 ### 「あ～れ～」
 
 またしても山肌をひたすら転げ落ちてゆく君…
 
 慣れたもので、転がる方向をうまく調整してはいるのだが…やはりヒドイ目に遭う事に変わりは無いのだった。
 
-※ＨＰとＭＰをＭＡＸの半分量減らす事。それで０になった場合は１残してよい。【手動】
+**%blue%【自動】%/%※ＨＰ/ＭＰともに２００減。**
+※それで０になった場合は１残してよい。
+
 
 [イテテテ…](3195)</scene>
-	<scene id="3326" stars="-2,0,0,-2,-2,-2,0" level="93">
+	<scene id="3326" stars="-2,0,0,-2,-2,-2,0" level="93" summary="振出B-2･ゾマ･踏有">
 ### 「あ～れ～」
 
 ### 「ホイ。」
@@ -13107,12 +13565,13 @@ ${/if}
 **●FLY(CHANGE-AIRの重魔法)**	※必要INT＝255
 古の禁呪｡世界のバランスを崩す禁断の魔法として封印された｡
 
-※CHANGE-AIR 2回分の星が減。【自動】
+**%blue%【自動】%/%※【CHANGE-AIR】 ２回分の星が減。**
+
 
 [早く近くの足場へ行かなければ！](3330 "!f4200")
 [早く近くの足場へ行かなければ！](3332 "f4200")
 [いや、せっかくだし一度下まで降りよう](3195)</scene>
-	<scene id="3330" bgm="3-BlueDestiny1.10mb" se="3-45kb-thunder-labo" level="94" summary="山頂･初">
+	<scene id="3330" bgm="3-BlueDestiny1.10mb" se="3-45kb-thunder-labo" level="94" summary="33マス目･山頂前1･初･星拾" enemies="m3009,m3010,m3011,m3012,m3013,m3014,m3015" rule="3009">
 敵の最終防衛ラインを突破したその先には…
 ただ静寂があった。
 
@@ -13125,18 +13584,15 @@ ${/if}
 なんと！七星欠片がそこかしこに、しかも大量に落ちている！
 
 統率者がこういう物を好むのか、それゆえに貢物として集められたのか、とにかく頂上を取り囲むように七色に美しく輝く欠片が、そこら中にバラ撒かれている…
-その統率者との戦いに備えるためにも、これをもらっていかない手は無い。
+その統率者との戦いのためにも、これをもらっていかない手は無い。
 
-以下のルールで入手する種類と数を決定せよ。
+Battle Sheetを開いてダイスを振り、強敵との戦いに備えるのだ！！
 
-★ダイスを振って出た出目の左右それぞれが種類と数で、どちらをどちらに充てるかは自由に決めてよい。また、どの星を得るかも自由に決めてよいものとする。
+${import 3009}
 
-★例：左２/右４と出た場合【２種類/４つｏｒ２つ/４種類】のどちらでもよい。
-
-★入手した星は手動で反映させておく事。
 
 [１](3340)</scene>
-	<scene id="3331" bgm="3-BlueDestiny1.10mb" se="3-45kb-thunder-labo" level="92" summary="山頂･再">
+	<scene id="3331" bgm="3-BlueDestiny1.10mb" se="3-45kb-thunder-labo" level="92" summary="33マス目･山頂前1･再･星拾" enemies="m3009,m3010,m3011,m3012,m3013,m3014,m3015" rule="3009">
 再び敵の最終防衛ラインを突破し、ブルードラゴンのテリトリーに入った君…
 
 相変わらず暗雲が立ち込め雷鳴が轟いているのはいいんだが…
@@ -13148,16 +13604,13 @@ ${/if}
 まぁ自分に有利な事をあまり疑って詮索していても仕方が無い。これもスクロールアウトの法則だか魔法だかなんかなんだろう、と気にせずいただいていく事にしよう。
 奴と戦うにはいくらあっても足りないのは確かなんだからな…
 
-以下のルールで入手する種類と数を決定せよ。
+Battle Sheetを開いてダイスを振り、奴との戦いに備えるのだ！！
 
-★ダイスを振って出た出目の左右それぞれが種類と数で、どちらをどちらに充てるかは自由に決めてよい。また、どの星を得るかも自由に決めてよいものとする。
+${import 3009}
 
-★例：左２/右４と出た場合【２種類/４つｏｒ２つ/４種類】のどちらでもよい。
-
-★入手した星は手動で反映させておく事。
 
 [１](3341)</scene>
-	<scene id="3332" bgm="3-BlueDestiny1.10mb" se="3-45kb-thunder-labo" level="94" summary="山頂･倒後">
+	<scene id="3332" bgm="3-BlueDestiny1.10mb" se="3-45kb-thunder-labo" level="94" summary="33マス目･山頂前1･倒後">
 ${if f1251}
 なんとなく、敵の最終防衛ラインを突破して、もういないブルードラゴンのテリトリーまでやってきた君…
 ${/if}
@@ -13183,7 +13636,7 @@ ${if f3008}
 ${/if}
 
 [１](3342)</scene>
-	<scene id="3340" level="95">
+	<scene id="3340" level="95" summary="34マス目･山頂前2･初･星拾" enemies="m3009,m3010,m3011,m3012,m3013,m3014,m3015" rule="3009">
 頂上へ続く道にはまだまだ大量の七星欠片が落ちている…
 
 七色に美しく輝く欠片が、強欲な者を死地へと誘っているようにも思えるが…
@@ -13191,16 +13644,13 @@ ${/if}
 いや、そんな余計な事を考えている余裕は無い。
 もらえる時にもらえる物はシッカリもらっておく…これは冒険者としての鉄則だ。それが紙一重で生死を分かつのだ。
 
-以下のルールで入手する種類と数を決定せよ。
+Battle Sheetを開いてダイスを振り、生き残るために拾うのだ！！
 
-★ダイスを振って出た出目の左右それぞれが種類と数で、どちらをどちらに充てるかは自由に決めてよい。また、どの星を得るかも自由に決めてよいものとする。
+${import 3009}
 
-★例：左２/右４と出た場合【２種類/４つｏｒ２つ/４種類】のどちらでもよい。
-
-★入手した星は手動で反映させておく事。
 
 [１](3350)</scene>
-	<scene id="3341" level="93">
+	<scene id="3341" level="93" summary="34マス目･山頂前2･再･星拾" enemies="m3009,m3010,m3011,m3012,m3013,m3014,m3015" rule="3009">
 ここにもやはりまたしても大量の七星欠片が落ちている…
 
 疑念がよけいに、欠片の七色の美しい輝きを妖しく見せる…
@@ -13211,16 +13661,13 @@ ${/if}
 
 結局、余計な事を考えても無駄なのでもらっていくしか選択肢は無いのだが。
 
-以下のルールで入手する種類と数を決定せよ。
+Battle Sheetを開いてダイスを振り、余計な事を考えずに拾うのだ！！
 
-★ダイスを振って出た出目の左右それぞれが種類と数で、どちらをどちらに充てるかは自由に決めてよい。また、どの星を得るかも自由に決めてよいものとする。
+${import 3009}
 
-★例：左２/右４と出た場合【２種類/４つｏｒ２つ/４種類】のどちらでもよい。
-
-★入手した星は手動で反映させておく事。
 
 [１](3351)</scene>
-	<scene id="3342" level="95">
+	<scene id="3342" level="95" summary="34マス目･山頂前2･倒後">
 頂上へ続く道にも、やはり七星欠片は落ちてはいない…
 
 ${if f1251}
@@ -13231,7 +13678,7 @@ ${if f1250}
 ${/if}
 
 [１](3352)</scene>
-	<scene id="3350" level="96">
+	<scene id="3350" level="96" summary="35マス目･山頂前3･初･星拾" enemies="m3009,m3010,m3011,m3012,m3013,m3014,m3015" rule="3009">
 もう頂上は目の前だ…しかしやはり七星欠片が落ちていて、そちらばかりに目が行ってしまう…
 
 それを必死に拾い集めている間にパックリとやられてしまう、なんてオチは笑えないぞ…
@@ -13240,32 +13687,26 @@ ${/if}
 
 とにかく、死なない程度に？せっせと拾うのだ。
 
-以下のルールで入手する種類と数を決定せよ。
+Battle Sheetを開いてダイスを振り、死なない程度に拾うのだ！！
 
-★ダイスを振って出た出目の左右それぞれが種類と数で、どちらをどちらに充てるかは自由に決めてよい。また、どの星を得るかも自由に決めてよいものとする。
+${import 3009}
 
-★例：左２/右４と出た場合【２種類/４つｏｒ２つ/４種類】のどちらでもよい。
-
-★入手した星は手動で反映させておく事。
 
 [１](3360)</scene>
-	<scene id="3351" level="94">
+	<scene id="3351" level="94" summary="35マス目･山頂前3･再･星拾" enemies="m3009,m3010,m3011,m3012,m3013,m3014,m3015" rule="3009">
 頂上の目前まで来たが…さすがに奴の事が気になって、七星欠片どころでは無い。
 
 下手をすればここまで出てきて襲いかかってくるかもしれないのだ。
 
 しかし、いっこうにそういった様子は無く…またしても巣を留守にしているのかもしれない…であれば、この隙にまたせっせと拾い集めておくのが戦いの準備として正しい行為であろう。
 
-以下のルールで入手する種類と数を決定せよ。
+Battle Sheetを開いてダイスを振り、戦いに備えて拾うのだ！！
 
-★ダイスを振って出た出目の左右それぞれが種類と数で、どちらをどちらに充てるかは自由に決めてよい。また、どの星を得るかも自由に決めてよいものとする。
+${import 3009}
 
-★例：左２/右４と出た場合【２種類/４つｏｒ２つ/４種類】のどちらでもよい。
-
-★入手した星は手動で反映させておく事。
 
 [１](3361)</scene>
-	<scene id="3352" level="96">
+	<scene id="3352" level="96" summary="35マス目･山頂前3･倒後">
 さぁ！ついに頂上の目前までやって来たぞ！
 
 もちろん七星欠片は落ちてはいない、というか今さら落ちていたらここまでの期待が台無しなので、落ちていない方が安心だ（もはや何がなんだか）。
@@ -13279,8 +13720,9 @@ ${/if}
 
 えぇい！鬼が出るか蛇が出るか！
 
-[１](3362)</scene>
-	<scene id="3360" items="i3360" result="r3360" level="97">## ゴーーール！！！
+[１](3363 "f3362")
+[１](3362 "!f3362")</scene>
+	<scene id="3360" items="i3360" result="r3360" level="97" summary="36マス目･ゴール･初">## ゴーーール！！！
 ## おめでとう！！君はついにこの山を登りきった！！
 
 え？音楽がぜんぜん祝ってる感じになってないって？
@@ -13288,9 +13730,9 @@ ${/if}
 しかし…敵と罠だらけでその上ふりだしに戻りまくる、とてもタチの悪いすごろくを踏破した君を、祝わずにはいられなかったのだよ。
 そしてコレは私からの心ばかりのお祝いだ、受け取ってくれたまえ。
 
-**%blue%【アイテム】%/%
-★エリクサー(特)（★手動 死亡時に生き返る真のエリクサー）
-を入手。**
+
+**%blue%【アイテム】%/%【エリクサー(特)】を入手**
+
 **★【エリクサー(特)】**
 【USE】で使用すると生き返り､HP/MPが全回復かつ全ての状態異常を回復してしかもかかっている魔法やブーストはそのまま…という究極の回復アイテム｡
 また自動発動扱いなので行動消費も無い。※効果の発動は手動で行う事｡
@@ -13308,7 +13750,7 @@ ${/if}
 
 [山頂へ](4000)
 [帰る（下山する）](3000)</scene>
-	<scene id="3361" items="i3360" level="95">
+	<scene id="3361" items="i3360" level="95" summary="36マス目･ゴール･再">
 ## ゴール！！おつかれさま！君は再びこの山を登りきった！
 
 ふむ。あのブルードラゴンから逃げおおせるとは、ある意味剛の者よの。
@@ -13316,7 +13758,9 @@ ${/if}
 
 …と言っても倒さなきゃ進まないんだけどねｗ
 
-さぁもっていないなら再びエリクサー(特)受け取って、今度こそブルードラゴンと戦いたまえ。
+さぁもっていないなら再び【エリクサー(特)】を受け取って、今度こそブルードラゴンと戦いたまえ。
+
+**%blue%【アイテム】%/%【エリクサー(特)】を入手**
 
 え？気前がいいって？
 いやね、ぶっちゃけるとそうじゃなくって…ブルードラゴンは死ぬ事を前提の強さにしてあるので、コレが無いと倒せなくてハマっちゃうかなーって(ﾃﾍﾍﾟﾛ
@@ -13324,9 +13768,10 @@ ${/if}
 …すでに知っているとは思うが、ここから先はもうかなりのリスクを負わないと戻る事はできない。
 よって、まだ自信が無いのなら帰って（下山して）もよい。
 
+
 [山頂へ](4007)
 [帰る（下山する）](3000)</scene>
-	<scene id="3362" bgm="@town03" result="r3362" level="97">
+	<scene id="3362" bgm="@town03" result="r3362" level="97" summary="36マス目･ゴール･倒後" flags="f3362">
 ## ゴール！！おつかれさま！君は再びこの山を登りきった！
 
 うむ。このメンドクサイすごろく山を、シーンの変化確認や、もしかしたら何かあるかも？程度でワザワザ登って来た…その意識の高さは賞賛に値する！エライ！
@@ -13347,7 +13792,30 @@ ${/if}
 あきらめて帰りたまえ。
 
 [帰る](3000)</scene>
-	<scene id="4000" level="98">
+	<scene id="3363" summary="アイテム店準備中" level="97" bgm="@town03" items="i16">
+### **%blue%★アイテムショップ”ＧＡＭＥａＨＯＬｉＣ”ただいま準備中…★%/%**
+
+・・・見つかってしまったか。
+
+君はすごいな、あれだけ言われてまたここに来るとは・・・
+
+ご褒美にこれをあげよう（もう持ってるかもしれんが）
+
+**%blue%【アイテム】%/%【こいし】を入手**
+
+ま、まて！投げるな！他でもいくつか手に入れただろうが、こういうジョーク系？のアイテムはこのアイテムショップで役に立つのだ！
+※【USE】で空消費して無くせないのはそのため
+
+それを予見してスペクテーターのガラクタを稼ぎに来てたんならここにたどり着くのは必然と言えるが・・・まさかそんなエスパーはいないよな？
+
+このアイテムショップでは、必須ではないけども楽になったり別の攻略ができるようになるモノが手に入るぞ。
+もちろん入手にはそれなりの”対価”が必要だが・・・
+
+まぁ第四部と共に開店予定なのでガラクタでも集めながら待っててくれたまえ
+
+
+[帰る](3000)</scene>
+	<scene id="4000" level="98" summary="青竜巣1･初">
 ${if f1251}
 ついに山頂に辿り着いた君…
 ${/if}
@@ -13377,8 +13845,9 @@ ${/if}
 
 そして、ことさら大切に何かを保管しているかのような、縦穴の奥の方へと進んでいくのだった…
 
+
 [巣の奥へ](4001)</scene>
-	<scene id="4001" level="99">
+	<scene id="4001" level="99" summary="青竜巣2･初">
 巣の奥には…宝の山。
 
 金銀財宝がきらびやかに光を放っている…
@@ -13398,7 +13867,7 @@ ${if f1407}
 ゾマ「あらやだ…これは…もう…決まったのぉ…」
 ${/if}
 
-## その時！強大な気配が巨大な存在感をともなって外に迫ってきているのを感じた！
+## その時！！凄まじく強大な気配が、圧倒的な存在感をともなって外に迫ってきているのを感じた！！
 
 ${if f1251}
 あわてて外に出た君の目に映ったのは…！！
@@ -13418,7 +13887,7 @@ ${/if}
 
 **・【ブルードラゴン】**
 （神に近い真のドラゴン以外の）通常のドラゴンの中では最も強力。知力/魔力ともに高いのだが、基本的には獰猛。ある程度天候を操り、雷雲をたずさえる。
-フィジカル的戦闘力でも他のドラゴンを凌駕し、それらを活かす知力もあり、弱点と呼べるものは皆無である。”モンスター”と呼べるモノの中では事実上最強と言ってもいいだろう（神や邪神と魔王などを除くなら）。
+フィジカル的戦闘力でも他のドラゴンを凌駕し、それらを活かす知力もあり、弱点と呼べるものは皆無である。”モンスター”と呼べるモノの中では事実上最強と言っていいだろう。
 その力ゆえに眷属を離れて独自の行動を取る事があり、その結果“正義のドラゴン”となって人間に力を貸す事もあるようだが…
 
 ### …ほーら、やっぱりいたよ…モンスター共が恐れて近付かない…山頂に金銀財宝の山…そんなもん、ドラゴンに決まってんだろーが！！
@@ -13477,54 +13946,50 @@ ${/if}
 [あきらめて戦う](4101)
 [絶対ヤダ、逃げる](4003 "f1251&amp;!(f3071&amp;f3140&amp;f3250&amp;f3320)")
 [絶対ヤダ、逃げる](4010 "f1251&amp;f3071&amp;f3140&amp;f3250&amp;f3320")</scene>
-	<scene id="4003" enemies="m4003,m4004,m4005" level="101">
-君はこともあろうに、怒り狂っているドラゴン相手に、背を向けて逃げようというのか…
+	<scene id="4003" enemies="m4005,m4004,m4003" level="101" summary="青竜･逃･通常" rule="4013">君はこともあろうに、怒り狂っているドラゴン相手に、背を向けて逃げようというのか…
 
 いいだろう、まともに戦うよりはまだ生き残る可能性がある、と判断したのなら死ぬ気で逃げ切ってみるがよい。
 
-ダイスを降って、ゾロ目が出たら逃亡成功。
-ゾロ目ではない時は出目の合計によって以下の攻撃を受けるので、１回式をクリックしてＤＭを受けた後、再びダイスを振って判定。
-これをゾロ目が出るまで繰り返すのだ。
-※準備行動/防御/盾防御/回避などの判定は通常通りしてよいが､EXPや取得物は得られない。
+Battle Sheetを開いてルールに従って逃亡成否を判定せよ。
 
-●出目合計10～12の時は【電撃】
-●出目合計5～9の時は【突撃】
-●出目合計2～4の時は【突風】
+${import 4013}
+
 
 [逃げ切った！](4004)
 [逃げ切れず死んでしまった…](4005 "i3360")
-[逃げ切れず死んでしまった…](4006 "!i3360")</scene>
-	<scene id="4004" level="102">
+[逃げ切れず死んでしまった…](4006 "!i3360")
+[各種説明（チュートリアル）へ](401)</scene>
+	<scene id="4004" level="102" summary="青竜･逃成功･通常">
 怒り狂うドラゴンから、まさしく命からがら逃げ出す事に成功した君だったが…勢い余って…
 
 [「あ～れ～」](3008)</scene>
-	<scene id="4005" items="-i3360" level="102">
-
+	<scene id="4005" items="-i3360" level="102" summary="青竜･逃失敗･通常･エリ特有" hp="full" mp="full" state="-all">
 ## ＤＭＧ－１００００００！！
 
-## Ｙｏｕ　ａｒｅ　ｄｅａｄ！！
+## Ｙｏｕ ａｒｅ ｄｅａｄ！！
 
-## Ｈｉｔ　ａｎｙ　ｋｅｙ　ｔｏ　ｕｓｅ　Ｅｌｉｘｉｒ…
-　　
-　　
-※ＨＰ/ＭＰと状態異常を全回復する事（魔法やブーストの状態も全て維持してよい）。【手動】
+## Ｈｉｔ ａｎｙ ｋｅｙ ｔｏ ｕｓｅ Ｅｌｉｘｉｒ…
+
+**%blue%【自動】%/%※【エリクサー(特)】を使用しＨＰ/ＭＰと状態異常を全回復（魔法やブーストの状態も全て維持してよい）。**
+
 
 [Ｔｒｙ　ａｇａｉｎ！！](4003)</scene>
-	<scene id="4006" result="r4006" end="bad" group="bad" level="102">
+	<scene id="4006" result="r4006" end="bad" group="bad" level="102" summary="青竜･逃失敗･通常エリ特無">
 突風で吹き飛ばされ、ぶん殴られ、電撃で黒焦げにされ…
 
 同じやられるなら、戦った方がよかったのではないか？
 
 いや、もはや言うまい…
 
-君は自分の責任に置いてそう判断し、それに賭けて実行したのだ…
+君は自分の責任においてそう判断し、それに賭けて実行したのだ…
 
-身ぐるみをドラゴンに剥ぎ取られ、風通しのよい所に干されて保存食となった君も、また奴の中で生きる…
+そして身ぐるみをドラゴンに剥ぎ取られ、風通しのよい所に干されて保存食となった君もまた、奴の中で生き続ける…
 
 などというのが、いかに都合のよい考え方か、わかろうというものだ。
 
+
 </scene>
-	<scene id="4007" level="96">
+	<scene id="4007" level="96" summary="青竜巣1･再">
 再び山頂のブルードラゴンの巣に辿り着いた君…
 
 直前で感じた通り、またしても留守にしているようだ。
@@ -13535,12 +14000,13 @@ ${/if}
 
 これは、チャンスかもしれない。
 
-どうにかして罠を張り、待ち伏せすれば例えドラゴンと言えども、有利に戦いを進める事ができるハズだ。
+どうにかして罠を張り、待ち伏せすれば例えドラゴンといえども、有利に戦いを進める事ができるハズだ。
 
 そのための準備や位置取りを考えるためにも、もう一度シッカリと全体を把握しておく必要がある…そのために再び縦穴の奥の方へと進んでいくのだった…
 
+
 [巣の奥へ](4008)</scene>
-	<scene id="4008" level="97">
+	<scene id="4008" level="97" summary="青竜巣2･再">
 巣の奥には…やはり宝の山。
 
 金銀財宝がきらびやかに光を放っている…
@@ -13558,7 +14024,7 @@ ${/if}
 
 うん、これしかないな。
 
-…しかし人ではないとはいえ、住処を破壊するというのはあまり気持ちのいい話では無いな…いや、ヘタをすればその台所に自分が並ぶかもしれんのだ、そんなセンチな事を言ってる場合では無い。
+…しかし人ではないとはいえ、住処を破壊するというのはあまり気持ちのいい話ではないな…いや、ヘタをすればその台所に自分が並ぶかもしれんのだ、そんなセンチな事を言ってる場合ではない。
 
 プランもまとまって心に余裕ができたのか、そんな余計な事を考えながら外に出た君の目に映ったのは…！！
 
@@ -13585,8 +14051,7 @@ ${/if}
 [しょうがない、普通に戦う](4101)
 [やっぱヤダ、逃げる](4003 "!(f3071&amp;f3140&amp;f3250&amp;f3320)")
 [やっぱヤダ、逃げる](4010 "f3071&amp;f3140&amp;f3250&amp;f3320")</scene>
-	<scene id="4010" enemies="m4010,m4011,m4012" level="101">
-あぁ、君はなんという…
+	<scene id="4010" level="101" summary="青竜･逃･滑落">あぁ、君はなんという…
 
 滑落の罠全てに掛かった上で、さらにここでも逃げを打つとは。
 
@@ -13596,31 +14061,26 @@ ${/if}
 
 当然のごとく、頂上にも仕掛けられている滑落の罠を、これまた当然のごとく踏んだ君。
 今まさにドラゴンの猛攻を受けんとする瞬間に、これで助かる道理は無い…
-しかし、どんな状態でも拾う神はいる（らしい）。
-以下の式で、転がり落ちる際に受ける攻撃の種類と成否を判定せよ。
 
-運が…運がよければ助かるだろう…君にそれを求めるのは酷というものだが。
+しかし！この瞬間！その運の悪さでここまで生き抜いてきた君の生存本能は！ある一つのひらめきを見た！！
+「そうだ！奴のためにあれだけ山頂にバラまかれてた七星欠片だ…これを今バラまけば奴の気を引けるんじゃないのか！？」
 
-まず１回目の出目合計で、攻撃種類を判定。
-次に２回目の出目合計で、それぞれの式でそれが運よく当たらない可能性に賭けろ！
-※式をクリックして何もDMを受けなければ【KRMが上回ったとして回避成功】､DMを1でも受けたなら【KRMが下回ったので回避失敗】となる｡
-※これらは一瞬の出来事のため､レジェベネートによるダイスの振り直しは間に合わないものとする｡準備魔法やブーストも不可｡
 
-●出目合計2～5の時は【突風】
-●出目合計6～7の時は【突進】
-●出目合計8～12の時は【電撃】
-
-[当たらなかった！](4011)
-[当たった…](4012)</scene>
-	<scene id="4011" level="102">
+[う、うおおおぉぉぉ！！！（血涙](4014 "s70")
+[う、うおおおぉぉぉ！！！（血涙](4015 "s49&amp;!s70")
+[う、うおおおぉぉぉ！！！（血涙](4017 "!s49")
+[い、いやだー！もったいなーーい！！](4018)</scene>
+	<scene id="4011" level="103" summary="青竜･逃成功･滑落">
 まさしく捨てる神あれば拾う神あり…
 
-滑落の罠を踏んで（それが幸いしたのかもしれないが）、まともに受ける事も避ける事も出来なかったドラゴンの攻撃が、見事に落下していく君をそれたのである。
+さんざん滑落の罠を踏んだあげく、最後のトドメに付いてきたドラゴンの攻撃…
+それが、落下していく君から見事にそれたのだ。
 
 君は神に感謝しながら…
 
-[「あ～れ～」](3008)</scene>
-	<scene id="4012" result="r4012" end="bad" group="bad" level="102" items="-i3360">
+
+[「あ～れ～」](3010)</scene>
+	<scene id="4012" result="r4012" end="bad" group="bad" level="103" items="-i3360" summary="青竜･逃失敗･滑落">
 最も高い頂上からの滑落…ただそれだけでも死に至りかねないのに、その上ドラゴンの攻撃を受けたのである…
 
 君は満身創痍の状態で、ただただ山肌を転がり落ちていった…
@@ -13652,77 +14112,170 @@ ${/if}
 %/%
 
 </scene>
-	<scene id="4101" level="101">
-さぁーみなさんお待ちかね！ついにブルードラゴンとの戦いだ！
-だがちょっと待て！はやる気持ちを抑えて、ルールをシッカリ、よーく読むんだ。
-今回は本当にヤバイからな？
-今までだって決して楽ではなかっただろうが、それでもまぁなんとか死なないように、とこちらにも手加減があったのだよ。
-だがすでに散々あおった手前もあるし、なんといっても「バックアップ＆リストア」機能の標準装備によって「死んでもぜんぜんＯＫ」という、ゲームに置いては普通に当たり前だが、君達にとっては迷惑この上ない仕様が解禁されたので、本気でやらせてもらう事にする。
+	<scene id="4013" summary="★青竜逃亡戦ルール" level="124">%blue%**★ブルードラゴン逃亡戦ルール★**%/%
 
-## ★ブルードラゴン戦基本ルール★
-●基本的な戦闘の流れは…
-**１：【突風】…距離＆ＤＭ**
-**２：【チャージ】…距離詰め**
-**３：【電撃】…回避＆ＤＭ**
-**４：【突進】…ＤＭ＆反撃**
-この４つを順におこなって４でブルードラゴンにＤＭを与えて、その耐久力が０になるまでこれを繰り返す。
-この戦いにおける特殊なルールは…
+**ダイスを振って､ゾロ目が出たら逃亡成功｡**
 
-●既に中ボスで同様の扱いをしたが､ダイスを振る前の準備行動｢魔法/ブースト/武器持替｣は全て1行動とカウントし､その回数が戦闘に影響を与えるものとする｡詳細は以下の通り｡
-・魔法の使用…1回の使用で1行動とカウントするが､重魔法の使用の際に2回クリックするのはまとめて1行動にカウント｡
-・ブースト…	基本仕様通り､何を何回使おうと1行動とカウント｡
-・武器持替…これも基本仕様通り1つを1回持替に付き1行動｡
-※各計算で1/10する際は小数点以下は四捨五入とする｡
+ゾロ目以外は逃亡失敗…なんと3つの攻撃を連続で受ける事に…
+基本的には通常の戦闘逃亡判定と同じで
+**準備行動2回＞逃亡判定＞失敗＞防御で上から順に攻撃を受ける＞準備行動に戻る**
+の流れで､これをゾロ目が出るまで繰り返す。
+ダイスは攻撃ごとに毎回振って盾無回避などの判定を行う事｡
+一応言うまでもないが､EXPは得られず通常の逃亡判定(偶数奇数)や太陽の欠片/【CHANGE-AIR】での逃亡は無効とする｡
+※【魔法防御不能】についてはチュートリアル【魔法その他編：特殊能力を持つ敵について】を参照｡
 
-●各戦いで得られるEXPや取得物は…
-・EXP…計算式の名前に表示されているLvに応じたEXPの2倍を得てよい(Lvが表示されていない場合は得られない)｡
-・取得物…計算式の右に表示されている物をクリックして得てよい｡
-※ともに前の式で回避したなど計算式を使わなかった場合は得られないが､例外的に魔法使用によってそうした場合は得てよい｡
-※REJUVENATEの使用で計算をやり直した場合は最終的に実行した時のみ得る事｡
+**●突風Lv9…防御/魔法防御とも可能､盾無回避も可能｡**
+**●突進Lv9…魔法防御不可､盾無回避は可能｡**
+**●電撃Lv9…防御/魔法防御とも不可､盾無回避も不可だが【KRMが10LRを上回った場合】は回避とする｡**
 
-●ブルードラゴンには魔法無効で､基本通り収束NOILA-TEMでなら1DMを与える事ができるのだが…それは当たればの話で､今回はどの状況で撃っても距離があるため弾かれてしまうので､結局無効とする｡
 
-●エリクサー(特)を所持した状態で死亡した場合は､選択肢｢Ｙｏｕ　ａｒｅ　ｄｅａｄ！！｣を選択して使用して戻ってくるように｡これは行動回数には含めない｡また魔法RESURRECTを使用中に死亡した場合も､生き返る事を行動回数に含めなくてよいし､重複した際にはどちらを先に発動するかも自由に選択してよい｡ただしこの2つの復帰時の状態は違いがあるので注意する事｡
+</scene>
+	<scene id="4014" summary="青竜･逃70↑･滑落" level="102" stars="div1000">
+大量にバラまかれた七星欠片は、あたり一帯をその輝きで埋め尽くした。
+その大きな光に…本能的に抗えないのもあってか奴の目は奪われ、その注意は完全にそれた。そしてそれは落下していくこちらを攻撃するタイミングを逃すには十分な時間であった。
 
-●ブルードラゴン戦説明/各種説明（チュートリアル）/NPCの説明を見た場合は【ブラウザの戻る機能】で戻る事｡
+見事である。
+数々の滑落の罠を踏み、最後ももはやどうしようもない状況で喰らうはずであったドラゴンの攻撃を、刹那の機転で防いだ君の実力は間違いなく本物だ。
 
-[この戦いにおけるマーベルの説明](4102 "f1204")
-[この戦いにおけるザシュマーの説明](4103 "f1302")
-[この戦いにおけるゾマの説明](4104 "f1407")
-[各種説明（チュートリアル）へ](401)
-[いざ！尋常に勝負！！](4110)</scene>
-	<scene id="4102" level="102">
-明らかなレベルオーバーにより戦いには参加できないので、防御魔法や回復魔法に専念してもらう（何かの攻撃を防いだりはできない）。
+などと褒めたところで状況は何も変わらないし、そもそも逃げたのが…
+いや今は何も言うまい、とにかく君は最低の状況で最大の脅威から逃げおおせたのだから。
+
+君は自身の行動に満足しながら…
+
+
+[「あ～れ～」](3010)</scene>
+	<scene id="4015" summary="青竜･逃49-69･滑落" level="102" enemies="m4010,m4011,m4012" stars="div1000" rule="4016">バラまかれた七星欠片は、君の周囲をその輝きで取り囲んだ。
+その光に…本能的に抗えないのもあってか一瞬奴の目は奪われ、その注意はある程度それたのだが…こちらを攻撃するタイミングをわずかに外すにとどまったようだ。
+
+攻撃が外れる可能性は高まったもののこんな状況である。喰らえばひとたまりもない事に変わりは無い。
+
+悪あがきにしては上出来だが、やはり後はその攻撃が外れるのを祈るのみ…
+まぁ運が悪くなければ助かるだろう…君にとってはそれこそが問題なのだが。
+
+Battle Sheetを開いて、転がり落ちる際に受ける攻撃の種類と成否を判定せよ。
+
+【※今回は注意をある程度そらしたボーナスとして**成否判定時のダイスの出目の合計が偶数だった場合**は式をクリックせずともハズレとしてよい。】
+
+${import 4016}
+
+
+[ハズレ！](4011)
+[アタリ！](4012)</scene>
+	<scene id="4016" summary="★青竜･逃落ルール" level="124">%blue%**★ブルードラゴン追撃判定ルール★**%/%
+
+**1：ダイスを振って攻撃種類を決定｡**
+・LR計2~5：突風
+・LR計6~8：突進
+・LR計9~12：電撃
+**2：さらにダイスを振ってその攻撃の式をクリック**
+・何もDMを受けなければ**%blue%【KRMが上回ったのでハズレ】%/%**
+・DMを1でも受けたなら**%red%【KRMが下回ったのでアタリ】%/%**
+
+※これらは一瞬の出来事のため､【REJUVENATE】によるダイスの振り直しは間に合わないものとする｡その他一切の行動も不可｡
+
+
+</scene>
+	<scene id="4017" summary="青竜･逃48↓･滑落" level="102" enemies="m4010,m4011,m4012" rule="4016" stars="div1000">バラまかれた七星欠片は、君をその輝きで取り囲んだ。
+その光に…本能的に抗えないのもあってかわずかに奴の目は奪われ、その注意は多少それたかに見えたが…こちらを攻撃するタイミングを外すまでには至らなかったようだ。
+
+攻撃が外れる可能性が少しは高まったものの、やはりこの状況では喰らえばひとたまりもない。
+
+悪あがきもしないよりはマシだが、結局は攻撃が外れるかどうかは神頼みだ…
+まぁ運がよければ助かるだろう…君にそれを求めるのは酷というものだが。
+
+Battle Sheetを開いて、転がり落ちる際に受ける攻撃の種類と成否を判定せよ。
+
+【※今回はわずかに注意をそらしたボーナスとして**種類判定/成否判定のどちらかでもゾロ目が出た場合**は式をクリックせずともハズレとしてよい。】
+
+${import 4016}
+
+
+[ハズレ！](4011)
+[アタリ！](4012)</scene>
+	<scene id="4018" summary="青竜･逃･滑落" level="102" enemies="m4010,m4011,m4012" rule="4016">
+君は…君は本当に…
+
+いや、むしろこれでこそ君らしいと言えるのかもしれん。
+
+「金は墓まで持って行けぬ」とはよく言うが、昨今は2周目以降に色々持ち越せたりもするしな。
+
+もはや何も言うまい！
+さぁ！生き残るためにすべてを賭けてダイスを振るがよい！
+
+Battle Sheetを開いて、転がり落ちる際に受ける攻撃の種類と成否を判定せよ。
+
+【※…とは言ったが、やはりこういった判定にはKRMを使うので、こういう事態に備えてしっかりKRMを上げてあるなら助かる可能性は十分にあるぞ。】
+
+${import 4016}
+
+
+[ハズレ！](4011)
+[アタリ！](4012)</scene>
+	<scene id="4101" level="101" summary="青竜戦･説明" params="p4101:@3000">さぁーみなさんお待ちかね！ついにブルードラゴンとの戦いだ！
+だがちょっと待て！はやる気持ちを抑えて、ルールをシッカリよーく読むんだ。
+コイツは本当にヤバイからな？
+今までだって決して楽ではなかっただろうが、それでもまぁギリギリなんとか死なないように、とこちらにも手加減があったのだよ。
+だがすでに散々あおった手前もあるし、なんといっても【バックアップ＆リストア】があるのだから「死んでもぜんぜんＯＫ」なハズなのでね。
+そんな訳だから、くれぐれもバックアップは怠らぬように。
+
+**%blue%★ブルードラゴン戦基本ルール★%/%**
+●ブルードラゴン戦の基本的な流れは…
+**1：【突風(物理魔法攻撃)】…距離離し**
+**2：【ダッシュ(電撃チャージ)】…距離詰め**
+**3：【電撃(物理魔法攻撃)】…回避**
+**4：【突進(物理攻撃)】…反撃**
+この4つを順におこなって､4でブルードラゴンにDMを与えてそのHPが0になるまでこれを繰り返す｡
+
+●各戦いで得られるEXPや戦利品は…
+・EXP…計算式を使った(クリック)した際に､名前にLv表示がある場合はLvに応じたEXPを得てよい｡
+・戦利品…同様に計算式を使った場合にのみ得てよい｡
+※ともに前の式で回避したなど､計算式を使わなかった場合は得られないが､例外的に魔法使用によってそうした場合は得てよい｡
+※【REJUVENATE】の使用でやり直した場合は最終的に実行した時のみ得る事｡
+
+●ブルードラゴンには魔法無効で､基本通り収束【NOILA-TEM】でなら1DMを与える事ができるハズなのだが…それは当たればの話で､今回は撃つヒマが無いか撃てる時は距離があるため弾かれてしまうので､結局無効となる｡
+
+●各種アイテムの効果について
+1ターン効果があるものは原則1シーン中のみの効果となるが､電撃＞突進の流れは連続で行われるためまとめて1シーン扱いとする｡
+直接DMを与える系のアイテムはブルードラゴンに効果は無い。
+
+${if f1204}　
+${import 4102}
+${/if}
+${if f1302}　
+${import 4103}
+${/if}
+${if f1407}　
+${import 4104}
+${/if}
+
+[いざ！尋常に勝負！！](4110)
+[各種説明（チュートリアル）へ](401)</scene>
+	<scene id="4102" level="124" summary="★青竜マベ説明">%blue%**★対ブルードラゴン戦：マーベル効果★**%/%
+明らかなレベルオーバーにより戦いには参加できないので､防御魔法や回復魔法に専念してもらう(攻撃を防いだりはできない)｡
 しかしそれにより…
+**●DM軽減は通常の【君のLv×3】から【君のLv×7】へ倍増｡**
+Statusウィンドウの【DM軽減】への反映を忘れずに｡
+**●回復魔法も戦闘1セット(突風～突進)につき【2回使用可能】｡**
+もちろん行動回数にはカウントせず､使用タイミングも制限無し｡
 
-**●DM軽減は通常の【君のLv×3】ではなく【君のLv×7】とする｡ステータスウィンドウの修正/反映を忘れずに｡**
-**・回復魔法は戦闘1セット（突風～突進）につき1回可能で､行動回数にはカウントしない｡また準備行動をはさめない電撃＞突進間などでも可能とする｡**
+</scene>
+	<scene id="4103" level="124" summary="★青竜ザシュ説明">%blue%**★対ブルードラゴン戦：ザシュマー効果★**%/%
+なぜかブルードラゴンは君を優先して狙うが､さすがに2人同時に相手をすると各攻撃の命中率は落ちるので…
+**●準備回数の絡む計算時に【回数を反映させなくてもよい】｡**
+つまり準備行動をしても回避判定などが不利にならない｡
+**●突進に対する【反撃はザシュマーも行う】｡**
+が､前述の通り奴は君を狙ってくるのでカウンターである事の性質上､【ザシュマーの攻撃倍率は君の1/2】とする｡なお君が反撃しなかった場合でもザシュマーは必ず攻撃する｡
 
-※この説明を見た後は【ブラウザの戻る機能】で元のシーンに戻るように｡環境の都合で戻れない場合は以下の戻るから【ブルードラゴン戦説明】へ戻り､元のシーンまで(戦わずに)進めて戻るように｡
+</scene>
+	<scene id="4104" level="124" summary="★青竜ゾマ説明">%blue%**★対ブルードラゴン戦：ゾマ効果★**%/%
+ゾマは今回見物を決め込んでいるので…
+**●【特に行動はしない】(それが一番助かるのだが)｡**
+**●【エリクサー(並)をエリクサー(特)と同効果で使用できる】｡**
+唯一の行動で､エリクサー(並)を所持している場合は君が死亡した時に自動で使ってくれるのだ｡
 
-[戻る　※ブルードラゴン戦説明へ](4101)</scene>
-	<scene id="4103" level="102">
-非常に高い戦意高揚により…
 
-**・【攻撃力2倍】(減らす耐久力2)｡**
-
-ただし敵の攻撃は耐えたり回避したりはしてくれるが､攻撃のタイミングは君と同じ【突進に対する反撃時のみ】とする｡
-だが君が突進を通常防御した場合でも攻撃してくれる｡
-
-※この説明を見た後は【ブラウザの戻る機能】で元のシーンに戻るように｡環境の都合で戻れない場合は以下の戻るから【ブルードラゴン戦説明】へ戻り､元のシーンまで(戦わずに)進めて戻るように｡
-
-[戻る　※ブルードラゴン戦説明へ](4101)</scene>
-	<scene id="4104" level="102" summary="青竜ゾマ説明">
-**・ゾマは今回見物を決め込んでいるので､【特に行動はしない】(それが一番助かるのだが)｡**
-
-**・唯一､エリクサー(並)を所持している場合は【君が死亡した時に自動で使ってくれる】(続きが見たい)｡**
-これはほぼエリクサー(特)代わりで､行動にカウントされず､使用(発動)タイミングに制限も無い｡
-エリクサー(特)同様に死んだ際には選択肢「しょうがないのー」を選択して使用して戻ってくるように｡
-
-※この説明を見た後は【ブラウザの戻る機能】で元のシーンに戻るように｡環境の都合で戻れない場合は以下の戻るから【ブルードラゴン戦説明】へ戻り､元のシーンまで(戦わずに)進めて戻るように｡
-
-[戻る　※ブルードラゴン戦説明へ](4101)</scene>
-	<scene id="4105" items="-i2535" level="103">
+</scene>
+	<scene id="4105" items="-i2535" level="124">
 君「うーぉ　うーぉ　うーぉ・・・（フェードアウト」
 
 ゾマ「おぉ　そーさりあんよ　しんでしまうとは　なにごとじゃ」
@@ -13738,7 +14291,7 @@ ${/if}
 [２：チャージ](4120)
 [３：電撃](4130)
 [４：突進](4140)</scene>
-	<scene id="4106" items="-i3360" level="105">
+	<scene id="4106" items="-i3360" level="124">
 
 ## ＤＭＧ－１００００００！！
 
@@ -13754,133 +14307,351 @@ ${/if}
 [Ｔｒｙ　ａｇａｉｎ！！（２：チャージ）](4120)
 [Ｔｒｙ　ａｇａｉｎ！！（３：電撃）](4130)
 [Ｔｒｙ　ａｇａｉｎ！！（４：突進）](4140)</scene>
-	<scene id="4110" enemies="m4111,m4110" se="3-25kb-wing-labo" level="102" summary="青竜1突風">
+	<scene id="4110" enemies="m4110,m4111" se="3-25kb-wing-labo" level="102" summary="青竜戦1･突風" rule="4111" params="p4110:@0">
 ## ★１：突風
-**●攻撃説明**
-まず奴は、たずさえる雷雲によって引き起こした嵐を羽ばたきでコントロールし、君に叩きつけてくる。そうやって君の動きを封じつつ押し込んで距離を離すのが目的だ。
+●まず奴は、雷雲によって引き起こされた嵐を魔力で収束…それを羽ばたきでコントロールして君に叩きつけてくる。そうやって君の動きを封じつつ押し込んで距離を離すのが目的だ。
 押されずに耐えて距離を離されるな！
 
-**●ルール説明**
-ダイスを振って出た出目で計算式に従って、押し込まれた距離と受けるＤＭを決定せよ。算出された距離にはダイスを振る前に準備行動した回数×２の数値をプラス。
-突風攻撃は１回なのでダイスを振る回数は１回、その１回の出目で距離とＤＭの両方を算出する。つまり準備行動＞ダイス＞ＤＭ算出＆距離算出という流れとなる。
-距離は上段の計算式に従って手動で計算し、ＤＭは下段の自動計算式をクリックして受ける事。
-重魔法【TORNADO】を使用すると突風を相殺でき、距離とＤＭの両方の計算結果を【０】にできる。ＤＭは式をクリックせず、距離は準備行動に関係無く０（もしくは０～１５までの好きな数値）としてよい。
-またこの突風に対しては魔法防御（PROTECT/HOLY-WATER）は効果がある。防御/盾防御も普通に可能だ。REJUVENATEも好きなだけしてよい。
+**%blue%★${var?p4110:text}★%/%**
+${input?p4110}
 
-※意図的に距離を離したいなら抵抗せず離れてもよい。離される距離は最短で０～最長で１５とする（計算結果がこの範囲外になった場合も範囲内に収める事）。
+${import 4112}
+
+
+[ウッイッンッグッタイフーーン～あーらしをよぶっぜぇ～♪（次へ）](4120)
+[各種説明（チュートリアル）へ](401)</scene>
+	<scene id="4111" summary="★青竜戦1･突風ルールBS用" level="124">%blue%**★対ブルードラゴン戦：突風ルール★**%/%
+**●まず通常通りダイスを振って1段目の式でDMを受ける｡**
+**●次に2段目の式%blue%【3(L+R)-(STR÷10)+(準備回数×2)】%/%を出目はそのままで計算して､突風により離された距離を決定する｡**
+※1段目の式では準備行動が2回可能だが､その分距離は離れる｡
+※突風に対しては防御/魔法防御/盾防御/盾無回避いずれも可能｡
+※2段目の計算結果には**1段目で防御(後退)したなら【+2】､攻撃(前進)したなら【-2】を加える事｡**
+※なお､距離を離したいなら計算結果以上に離れてもよい(距離は最短0～最長15､この範囲外になった場合も範囲内に収める事)｡
 ※STRを÷10する際の小数点以下は四捨五入とする｡
-※算出した距離はフリー数字ボックスにメモするとよいが､次のシーンへは持ち越されず､説明などを見に行っても消えてしまうので注意｡
+※**重魔法【TORNADO】の使用で突風を相殺可能｡DMを無効化**(式をクリックせず)､**距離を0~15の好きな数値**にしてよい｡
+※算出した距離は±BOXに入力｡次のシーンへ持ち越される｡
+※EXPはLv表示がある計算式使用時にのみ､戦利品も同様に計算式使用時にのみ得てよいが､ともに前の式で回避したなどして計算式を使わなかった場合は得られない｡だが例外的に魔法使用によりそうなった場合は得てよい｡
+${if f1407}**ゾマ｢全パーツを集めるとブルードラゴン完成じゃ！週間ブルードラゴン第1号は特別定価半額！書店で！(ﾃﾞｱ○ｽﾃｨｰﾆｯ｣**
+ウソの中に真実を混ぜるんじゃねぇ～ｗ${/if}
+${if f1204}${import 4102}${/if}
+${if f1302}${import 4103}${/if}
+${if f1407}${import 4104}${/if}
 
-**★突風(距離)計算例**
-ダイス計7､Lv9+全ブースト､STR6､バトルアックス､準備行動2回の場合…
-(3×7=21)-(10×6+60=120÷10=12)+(2×2=4)=距離13
 
-${input?0}
+</scene>
+	<scene id="4112" summary="★青竜戦1･突風ルールシーン用" level="124">%blue%**★対ブルードラゴン戦：突風ルール★**%/%
+**●まず通常通りダイスを振って1段目の式でDMを受ける｡**
+**●次に2段目の式%blue%【3(L+R)-(STR÷10)+(準備回数×2)】%/%を出目はそのままで計算して､突風により離された距離を決定する｡**
+※1段目の式では準備行動が2回可能だが､その分距離は離れる｡
+※突風に対しては防御/魔法防御/盾防御/盾無回避いずれも可能｡
+※2段目の計算結果には**1段目で防御(後退)したなら【+2】､攻撃(前進)したなら【-2】を加える事｡**
+※なお､距離を離したいなら計算結果以上に離れてもよい(距離は最短0～最長15､この範囲外になった場合も範囲内に収める事)｡
+※STRを÷10する際の小数点以下は四捨五入とする｡
+※**重魔法【TORNADO】の使用で突風を相殺可能｡DMを無効化**(式をクリックせず)､**距離を0~15の好きな数値**にしてよい｡
+※算出した距離は±BOXに入力｡次のシーンへ持ち越される｡
+※EXPはLv表示がある計算式使用時にのみ､戦利品も同様に計算式使用時にのみ得てよいが､ともに前の式で回避したなどして計算式を使わなかった場合は得られない｡だが例外的に魔法使用によりそうなった場合は得てよい｡
+${if f1407}**ゾマ｢全パーツを集めるとブルードラゴン完成じゃ！週間ブルードラゴン第1号は特別定価半額！書店で！(ﾃﾞｱ○ｽﾃｨｰﾆｯ｣**
+ウソの中に真実を混ぜるんじゃねぇ～ｗ${/if}
+${if f1204}%blue%**★対ブルードラゴン戦：マーベル効果★**%/%
+明らかなレベルオーバーにより戦いには参加できないので､防御魔法や回復魔法に専念してもらう(攻撃を防いだりはできない)｡
+しかしそれにより…
+**●DM軽減は通常の【君のLv×3】から【君のLv×7】へ倍増｡**
+Statusウィンドウの【DM軽減】への反映を忘れずに｡
+**●回復魔法も戦闘1セット(突風～突進)につき【2回使用可能】｡**
+もちろん行動回数にはカウントせず､使用タイミングも制限無し｡${/if}
+${if f1302}%blue%**★対ブルードラゴン戦：ザシュマー効果★**%/%
+なぜかブルードラゴンは君を優先して狙うが､さすがに2人同時に相手をすると各攻撃の命中率は落ちるので…
+**●準備回数の絡む計算時に【回数を反映させなくてもよい】｡**
+つまり準備行動をしても回避判定などが不利にならない｡
+**●突進に対する【反撃はザシュマーも行う】｡**
+が､前述の通り奴は君を狙ってくるのでカウンターである事の性質上､【ザシュマーの攻撃倍率は君の1/2】とする｡なお君が反撃しなかった場合でもザシュマーは必ず攻撃する｡${/if}
+${if f1407}%blue%**★対ブルードラゴン戦：ゾマ効果★**%/%
+ゾマは今回見物を決め込んでいるので…
+**●【特に行動はしない】(それが一番助かるのだが)｡**
+**●【エリクサー(並)をエリクサー(特)と同効果で使用できる】｡**
+唯一の行動で､エリクサー(並)を所持している場合は君が死亡した時に自動で使ってくれるのだ｡${/if}
 
-[ブルードラゴン戦説明へ](4101)
-[各種説明（チュートリアル）へ](401)
-[「しょうがないのー」](4105 "i2535")
-[Ｙｏｕ　ａｒｅ　ｄｅａｄ！！](4106 "i3360")
-[おわーっ！（次へ）](4120)</scene>
-	<scene id="4120" enemies="m4120" se="3-36kb-charge" level="104" summary="青竜2チャージ">
-## ★２：チャージ
-**●攻撃説明**
-次に奴は、君を黒焦げにするための電撃を、自らが呼んだ雷雲から電力を集めてチャージする。
-その間に離された距離を詰めろ！
 
-**●ルール説明**
-計算式に従って手動でダッシュで詰める距離を決定せよ。ダイスは振らないが準備行動をしたならその回数×２の数値を式の計算数値からマイナス。
+</scene>
+	<scene id="4120" enemies="m4120" se="3-36kb-charge" level="103" summary="青竜戦2･ダッシュ" rule="4121">## ★２：ダッシュ
+●次に奴は、君を黒焦げにするための電撃を、自らが呼んだ雷雲から${雷|いかづち}を集めてチャージする。
+その間にダッシュで距離を詰めろ！
 
-※意図的に距離を離したいなら詰めずに離れてもよい。詰めた後の距離は最短で０～最長で１５とする（計算結果がこの範囲外になった場合も範囲内に収める事）。
+**%blue%★${var?p4110:text}★%/%**
+${input?p4110}
+
+${import 4122}
+
+
+[ダーッシュ！ダーッシュ！ダンダンダダン♪（次へ）](4130)
+[各種説明（チュートリアル）へ](401)</scene>
+	<scene id="4121" summary="青竜戦2･ダッシュルールBS用" level="124">%blue%**★対ブルードラゴン戦：ダッシュルール★**%/%
+**●計算式%blue%【(DEX÷10)-(準備回数×2)】%/%に従ってダッシュで詰める距離を決定｡**
+※ダイスは振らないが計算前に準備行動が2回可能｡その分ダッシュは遅れる｡
+※距離を離したいなら詰めた距離から最長15の間で自由に調整してもよい｡
 ※DEXを÷10する際の小数点以下は四捨五入とする｡
-※この離された距離と詰めた結果の距離を【最終距離】とする。本体に攻撃して最初の突風に戻ってくるまで使用する数値なので、シッカリ覚えておくように。
-※算出した最終距離はフリー数字ボックスにメモするとよいが､次のシーンへは持ち越されず､説明などを見に行っても消えてしまうので注意｡
+※変更された距離は±BOXに入力｡次のシーンへ持ち越される｡
+※EXPはLv表示がある計算式使用時にのみ､戦利品も同様に計算式使用時にのみ得てよいが､ともに前の式で回避したなどして計算式を使わなかった場合は得られない｡だが例外的に魔法使用によりそうなった場合は得てよい｡
+${if f1407}**ゾマ｢全パーツを集めるとブルードラゴン完成じゃ！週間ブルードラゴン第1号は特別定価半額！書店で！(ﾃﾞｱ○ｽﾃｨｰﾆｯ｣**
+ウソの中に真実を混ぜるんじゃねぇ～ｗ${/if}
+${if f1204}${import 4102}${/if}
+${if f1302}${import 4103}${/if}
+${if f1407}${import 4104}${/if}
 
-**★ダッシュ計算例**
-Lv9+全ブースト､DEX7､バトルアックス/ラージシールド/フルプレート､準備行動1回の場合…
-(10×7-5+15-5=75÷10=8)-(1×2=2)=ダッシュ距離6
-前シ－ンの例の距離13から､このダッシュ距離6を引いて､最終距離は7｡
 
-${input?0}
+</scene>
+	<scene id="4122" summary="青竜戦2･ダッシュルールシーン用" level="124">%blue%**★対ブルードラゴン戦：ダッシュルール★**%/%
+**●計算式%blue%【(DEX÷10)-(準備回数×2)】%/%に従ってダッシュで詰める距離を決定｡**
+※ダイスは振らないが計算前に準備行動が2回可能｡その分ダッシュは遅れる｡
+※距離を離したいなら詰めた距離から最長15の間で自由に調整してもよい｡
+※DEXを÷10する際の小数点以下は四捨五入とする｡
+※変更された距離は±BOXに入力｡次のシーンへ持ち越される｡
+※EXPはLv表示がある計算式使用時にのみ､戦利品も同様に計算式使用時にのみ得てよいが､ともに前の式で回避したなどして計算式を使わなかった場合は得られない｡だが例外的に魔法使用によりそうなった場合は得てよい｡
+${if f1407}**ゾマ｢全パーツを集めるとブルードラゴン完成じゃ！週間ブルードラゴン第1号は特別定価半額！書店で！(ﾃﾞｱ○ｽﾃｨｰﾆｯ｣**
+ウソの中に真実を混ぜるんじゃねぇ～ｗ${/if}
+${if f1204}%blue%**★対ブルードラゴン戦：マーベル効果★**%/%
+明らかなレベルオーバーにより戦いには参加できないので､防御魔法や回復魔法に専念してもらう(攻撃を防いだりはできない)｡
+しかしそれにより…
+**●DM軽減は通常の【君のLv×3】から【君のLv×7】へ倍増｡**
+Statusウィンドウの【DM軽減】への反映を忘れずに｡
+**●回復魔法も戦闘1セット(突風～突進)につき【2回使用可能】｡**
+もちろん行動回数にはカウントせず､使用タイミングも制限無し｡${/if}
+${if f1302}%blue%**★対ブルードラゴン戦：ザシュマー効果★**%/%
+なぜかブルードラゴンは君を優先して狙うが､さすがに2人同時に相手をすると各攻撃の命中率は落ちるので…
+**●準備回数の絡む計算時に【回数を反映させなくてもよい】｡**
+つまり準備行動をしても回避判定などが不利にならない｡
+**●突進に対する【反撃はザシュマーも行う】｡**
+が､前述の通り奴は君を狙ってくるのでカウンターである事の性質上､【ザシュマーの攻撃倍率は君の1/2】とする｡なお君が反撃しなかった場合でもザシュマーは必ず攻撃する｡${/if}
+${if f1407}%blue%**★対ブルードラゴン戦：ゾマ効果★**%/%
+ゾマは今回見物を決め込んでいるので…
+**●【特に行動はしない】(それが一番助かるのだが)｡**
+**●【エリクサー(並)をエリクサー(特)と同効果で使用できる】｡**
+唯一の行動で､エリクサー(並)を所持している場合は君が死亡した時に自動で使ってくれるのだ｡${/if}
 
-[ブルードラゴン戦説明へ](4101)
-[各種説明（チュートリアル）へ](401)
-[「しょうがないのー」](4105 "i2535")
-[Ｙｏｕ　ａｒｅ　ｄｅａｄ！！](4106 "i3360")
-[まてまてぇーい！！（次へ）](4130)</scene>
-	<scene id="4130" enemies="m4131,m4130" se="3-42kb-Lightning-labo" level="106" summary="青竜3電撃">
-## ★３：電撃
-**●攻撃説明**
-ついに放たれる、奴の基本にして最大攻撃。
-基本的に”防ぐ”という事はできない…そして喰らえば人間などひとたまりも無い威力！
-なんとしても回避せよ！
 
-**●ルール説明**
-ダイスを振って出た出目で回避の正否を判定し、回避に失敗した場合はさらにダイスを振ってＤＭを決定せよ。【最終距離】によって回避成功率が変わる。
-まず上段の回避判定式に従って手動で計算して判定、回避成功時はそのまま次へ、回避失敗時は下段の自動計算式をクリックしてＤＭを受ける事。
-この電撃は防御/魔法防御（PROTECT/HOLY-WATER）共に不能。回避もこの式判定によってのみ可能で、盾未装備による盾防御成功時の回避は不可とする。
-この回避＞ＤＭの流れは一瞬で行われるため、魔法などの行動をはさむ事はできない（REJUVENATEも不可、ただしエリクサーなど一部例外アリ）。
-準備行動は回避判定前にのみ可能だが、その分回避が遅れるので回避判定側（DEXKRM距離）の最終数値から回数×２の数値を引く事。ただしその数字は【最終距離】を変化させるものではないので【最終距離】は変動させないように。
-重魔法【ICE STORM】を使用すると､超伝導により電撃を散らせて威力を軽減する事ができる。ＤＭを1/2してよいが、回避判定前に使用する事。
-REJUVENATEは使用可能だが、可能回数は準備行動の残り回数分＝最大で２回とし、他の準備行動をしても回数は減るものとする。また他の準備行動同様に使用ごとに回避判定側から数字を引く事。
-例えば準備行動ナシで回避判定を行って失敗したのでレジェベした場合、次の回避判定時には回避判定側から２を引き、また失敗してレジェベしたら２回目の回避判定時には４を引き、それが失敗しても３回目のレジェベはできない。何か他の準備行動を１回した後ならレジェベは１回で、準備行動２回済ならレジェベ不可だ。
+</scene>
+	<scene id="4130" enemies="m4131,m4130" se="3-42kb-Lightning-labo" level="104" summary="青竜戦3･電撃" rule="4131">## ★３：電撃
+●ついに放たれる、奴の基本にして最大攻撃。
+基本的に”防ぐ”という事はできない…そして喰らえば人間などひとたまりも無い威力！！なんとしても回避せよ！！！！
 
-※左側と右側の数値が同数の場合はやり直し(ダイス振り直し)とする｡
-※DEX+KRMを÷10する際の小数点以下は四捨五入とする｡
-※前シーンで算出した最終距離はフリー数字ボックスにメモするとよいが､次のシーンへは持ち越されず､説明などを見に行っても消えてしまうので注意｡
+**%blue%★${var?p4110:text}★%/%**
+${input?p4110}
 
-**★電撃(回避)計算例**
-ダイス計7､Lv9+全ブースト､DEX7､KRM5､バトルアックス/ラージシールド/フルプレート/ブルーリング､準備行動0回の場合…
-左側…3×7=【21】
-右側…(10×7+10×5-5+15-5+20=145÷10=15)-(0×2=0)+前シーン例最終距離7=【22】
-で回避成功｡
+${import 4132}
 
-${input?0}
 
-[ブルードラゴン戦説明へ](4101)
-[各種説明（チュートリアル）へ](401)
-[「しょうがないのー」](4105 "i2535")
-[Ｙｏｕ　ａｒｅ　ｄｅａｄ！！](4106 "i3360")
-[あばばばばば！！！（次へ）](4140)</scene>
-	<scene id="4140" enemies="m4144,m4140,m4141,m4142,m4143" se="3-29kb-shout-labo" level="107" summary="青竜4突進">
-## ★４：突進（反撃）
-**●攻撃説明**
-電撃直後の刹那に仕掛けられる、必殺の一撃。電撃と合わせて、ブルードラゴン絶対必勝の連係攻撃となる。
+[ひっさつパワーァ～チャージングサンダー～♪（次へ）](4140 "p4110:@0")
+[ひっさつパワーァ～チャージングサンダー～♪（次へ）](4141 "p4110:1&amp;!p4110:6")
+[ひっさつパワーァ～チャージングサンダー～♪（次へ）](4142 "p4110:6&amp;!p4110:11")
+[ひっさつパワーァ～チャージングサンダー～♪（次へ）](4143 "p4110:11&amp;!p4110:16")
+[ひっさつパワーァ～サンダーブレーク～♪（次へ）](4144 "p4110:16")
+[各種説明（チュートリアル）へ](401)</scene>
+	<scene id="4131" summary="青竜戦3･電撃ルールBS用" level="124">%blue%**★対ブルードラゴン戦：電撃ルール★**%/%
+**●まず1段目の式で回避判定を行う｡ダイスを振って…**
+**%red%【3(L+R)】%/%が上回ったら回避失敗｡**
+**%blue%【(DEX+KRM)÷10+(距離-準備回数×2)】%/%が上回ったら回避｡**
+**●回避に失敗した場合はさらにダイスを振って､2段目の計算式をクリックしてDMを受ける事｡**
+※電撃に対しては防御/魔法防御/盾防御/盾無回避いずれも不可｡
+※準備行動は回避判定前に2回可能だが､するほど回避は困難に｡
+※同数の場合はやり直し(ダイス振り直し)｡
+※DEX+KRMを÷10する際の小数点以下は四捨五入｡
+※【REJUVENATE】は回避判定時のみ使用可能だが､**可能回数は準備行動の残り回数分=最大2回**とする｡
+※回避＞DMの間は一切の行動が不可(蘇生系など一部例外アリ)｡
+※**重魔法【ICE STORM】の使用で超伝導により電撃を散らせて威力を軽減する事ができる｡**回避判定時に**3(L+R)を2(L+R)に**､DM判定時に**DM×1/2**にしてよいが､回避判定前に使用する事｡
+※EXPはLv表示がある計算式使用時にのみ､戦利品も同様に計算式使用時にのみ得てよいが､ともに前の式で回避したなどして計算式を使わなかった場合は得られない｡だが例外的に魔法使用によりそうなった場合は得てよい｡
+※【魔法防御不能】についてはチュートリアル【魔法その他編：特殊能力を持つ敵について】を参照｡
+${if f1407}**ゾマ｢全パーツを集めるとブルードラゴン完成じゃ！週間ブルードラゴン第1号は特別定価半額！書店で！(ﾃﾞｱ○ｽﾃｨｰﾆｯ｣**
+ウソの中に真実を混ぜるんじゃねぇ～ｗ${/if}
+${if f1204}${import 4102}${/if}
+${if f1302}${import 4103}${/if}
+${if f1407}${import 4104}${/if}
+
+
+</scene>
+	<scene id="4132" summary="青竜戦3･電撃ルールシーン用" level="124">%blue%**★対ブルードラゴン戦：電撃ルール★**%/%
+**●まず1段目の式で回避判定を行う｡ダイスを振って…**
+**%red%【3(L+R)】%/%が上回ったら回避失敗｡**
+**%blue%【(DEX+KRM)÷10+(距離-準備回数×2)】%/%が上回ったら回避｡**
+**●回避に失敗した場合はさらにダイスを振って､2段目の計算式をクリックしてDMを受ける事｡**
+※電撃に対しては防御/魔法防御/盾防御/盾無回避いずれも不可｡
+※準備行動は回避判定前に2回可能だが､するほど回避は困難に｡
+※同数の場合はやり直し(ダイス振り直し)｡
+※DEX+KRMを÷10する際の小数点以下は四捨五入｡
+※【REJUVENATE】は回避判定時のみ使用可能だが､**可能回数は準備行動の残り回数分=最大2回**とする｡
+※回避＞DMの間は一切の行動が不可(蘇生系など一部例外アリ)｡
+※**重魔法【ICE STORM】の使用で超伝導により電撃を散らせて威力を軽減する事ができる｡**回避判定時に**3(L+R)を2(L+R)に**､DM判定時に**DM×1/2**にしてよいが､回避判定前に使用する事｡
+※EXPはLv表示がある計算式使用時にのみ､戦利品も同様に計算式使用時にのみ得てよいが､ともに前の式で回避したなどして計算式を使わなかった場合は得られない｡だが例外的に魔法使用によりそうなった場合は得てよい｡
+※【魔法防御不能】についてはチュートリアル【魔法その他編：特殊能力を持つ敵について】を参照｡
+${if f1407}**ゾマ｢全パーツを集めるとブルードラゴン完成じゃ！週間ブルードラゴン第1号は特別定価半額！書店で！(ﾃﾞｱ○ｽﾃｨｰﾆｯ｣**
+ウソの中に真実を混ぜるんじゃねぇ～ｗ${/if}
+${if f1204}%blue%**★対ブルードラゴン戦：マーベル効果★**%/%
+明らかなレベルオーバーにより戦いには参加できないので､防御魔法や回復魔法に専念してもらう(攻撃を防いだりはできない)｡
+しかしそれにより…
+**●DM軽減は通常の【君のLv×3】から【君のLv×7】へ倍増｡**
+Statusウィンドウの【DM軽減】への反映を忘れずに｡
+**●回復魔法も戦闘1セット(突風～突進)につき【2回使用可能】｡**
+もちろん行動回数にはカウントせず､使用タイミングも制限無し｡${/if}
+${if f1302}%blue%**★対ブルードラゴン戦：ザシュマー効果★**%/%
+なぜかブルードラゴンは君を優先して狙うが､さすがに2人同時に相手をすると各攻撃の命中率は落ちるので…
+**●準備回数の絡む計算時に【回数を反映させなくてもよい】｡**
+つまり準備行動をしても回避判定などが不利にならない｡
+**●突進に対する【反撃はザシュマーも行う】｡**
+が､前述の通り奴は君を狙ってくるのでカウンターである事の性質上､【ザシュマーの攻撃倍率は君の1/2】とする｡なお君が反撃しなかった場合でもザシュマーは必ず攻撃する｡${/if}
+${if f1407}%blue%**★対ブルードラゴン戦：ゾマ効果★**%/%
+ゾマは今回見物を決め込んでいるので…
+**●【特に行動はしない】(それが一番助かるのだが)｡**
+**●【エリクサー(並)をエリクサー(特)と同効果で使用できる】｡**
+唯一の行動で､エリクサー(並)を所持している場合は君が死亡した時に自動で使ってくれるのだ｡${/if}
+
+
+</scene>
+	<scene id="4140" enemies="m4140,m4150" se="3-29kb-shout-labo" level="105" summary="青竜戦4･突進･0" rule="4145">## ★４：突進
+●雄叫びが電光石火の一撃を呼ぶ！！
+電撃直後の刹那に仕掛けられる、まさに必殺の一撃。
+鋼鉄をたやすく引き裂くその牙と爪が、その巨体からは信じられない${疾風|かぜ}の如き${疾|はや}さから繰り出される時、それは物理法則の限界を超えた攻撃となる。
+また高位ドラゴンの直接攻撃はナチュラルに${魔力付与|エンチャント}されているので、魔法防御も意味を成さない。
+しかし、この時をおいて奴にダメージを与えるチャンスは無い。
+命を賭けて反撃せよ！！！！
+
+**%blue%★${var?p4110:text}★%/%**
+${input?p4110}
+
+${import 4146}
+
+
+[わーるい${人間|やつら}をぶちのめす♪（次へ）](4150)
+[各種説明（チュートリアル）へ](401)</scene>
+	<scene id="4141" summary="青竜戦4･突進･1-5" level="105" enemies="m4141,m4150" rule="4145" se="3-29kb-shout-labo">## ★４：突進
+●雄叫びが電光石火の一撃を呼ぶ！！
+電撃直後の刹那に仕掛けられる、まさに必殺の一撃。
+鋼鉄をたやすく引き裂くその牙と爪が、その巨体からは信じられない${疾風|かぜ}の如き${疾|はや}さから繰り出される時、それは物理法則の限界を超えた攻撃となる。
+また高位ドラゴンの直接攻撃はナチュラルに${魔力付与|エンチャント}されているので、魔法防御も意味を成さない。
+しかし、この時をおいて奴にダメージを与えるチャンスは無い。
+命を賭けて反撃せよ！！！！
+
+**%blue%★${var?p4110:text}★%/%**
+${input?p4110}
+
+${import 4146}
+
+
+[わーるい${人間|やつら}をぶちのめす♪（次へ）](4150)
+[各種説明（チュートリアル）へ](401)</scene>
+	<scene id="4142" summary="青竜戦4･突進･6-10" level="105" enemies="m4142,m4150" rule="4145" se="3-29kb-shout-labo">## ★４：突進
+●雄叫びが電光石火の一撃を呼ぶ！！
+電撃直後の刹那に仕掛けられる、まさに必殺の一撃。
+鋼鉄をたやすく引き裂くその牙と爪が、その巨体からは信じられない${疾風|かぜ}の如き${疾|はや}さから繰り出される時、それは物理法則の限界を超えた攻撃となる。
+また高位ドラゴンの直接攻撃はナチュラルに${魔力付与|エンチャント}されているので、魔法防御も意味を成さない。
+しかし、この時をおいて奴にダメージを与えるチャンスは無い。
+命を賭けて反撃せよ！！！！
+
+**%blue%★${var?p4110:text}★%/%**
+${input?p4110}
+
+${import 4146}
+
+
+[わーるい${人間|やつら}をぶちのめす♪（次へ）](4150)
+[各種説明（チュートリアル）へ](401)</scene>
+	<scene id="4143" summary="青竜戦4･突進･11-15" level="105" enemies="m4143,m4150" rule="4145" se="3-29kb-shout-labo">## ★４：突進
+●雄叫びが電光石火の一撃を呼ぶ！！
+電撃直後の刹那に仕掛けられる、まさに必殺の一撃。
+鋼鉄をたやすく引き裂くその牙と爪が、その巨体からは信じられない${疾風|かぜ}の如き${疾|はや}さから繰り出される時、それは物理法則の限界を超えた攻撃となる。
+また高位ドラゴンの直接攻撃はナチュラルに${魔力付与|エンチャント}されているので、魔法防御も意味を成さない。
+しかし、この時をおいて奴にダメージを与えるチャンスは無い。
+命を賭けて反撃せよ！！！！
+
+**%blue%★${var?p4110:text}★%/%**
+${input?p4110}
+
+${import 4146}
+
+
+[わーるい${人間|やつら}をぶちのめす♪（次へ）](4150)
+[各種説明（チュートリアル）へ](401)</scene>
+	<scene id="4144" summary="青竜戦4･突進･16-" level="105" enemies="m4150,m4144" rule="4145" se="3-29kb-shout-labo">## ★４：突進
+●電撃直後の刹那に仕掛けられる必殺の一撃。
+電撃と合わせてブルードラゴン絶対必勝の連係攻撃となる。
 鋼鉄をたやすく引き裂くその牙と爪が、その巨体からは信じられない${疾風|かぜ}の如き${疾|はや}さから繰り出される時、それは物理法則の限界を超えた攻撃となる。また高位ドラゴンの直接攻撃はナチュラルに${魔力付与|エンチャント}されているので、魔法防御も意味を成さない。
-しかし、この時をおいて奴にＤＭを与えるチャンスは無い。
-命を賭けて反撃せよ！
+しかし、この時をおいて奴にダメージを与えるチャンスは無い。
+命を賭けて反撃せよ！！！！
 
-**●ルール説明**
-ダイスを振って出た出目で計算式に従ってＤＭを判定せよ。
-ただし【最終距離】によって使用する計算式は違う。
-その後に【最終距離】によってこちらの反撃ＤＭを算出、ブルードラゴンの耐久力から引く。ブルードラゴンの耐久力が０になったなら勝利。
-与えたＤＭで倒せなかったら【１：突風】へ戻る。
-なお電撃からの連続攻撃となるので、準備行動もREJUVENATEも不可。
-防御/盾防御（盾未装備時は回避）共に可能だが当然、防御選択時は反撃はできない。また魔法防御（PROTECT）は効果が無い。
+**%blue%★${var?p4110:text}★%/%**
+${input?p4110}
 
-※1のゾロ目は【ハズレ】として【強制回避】としてよい｡逆に6のゾロ目は【クリティカルヒット】として【強制死亡】とする("くびをはねられた！"…ではなく"まっぷたつにされた！")｡
-これらはどの距離の攻撃でも共通で防御選択時でも同様とするが､強制死亡時の反撃は攻撃を選択していた場合のみとする｡
-※長期戦になりやすいので､ブルードラゴンの耐久力はメモ欄にメモしておく事｡
-※EXP/取得物に関しては､突進の分は防御/回避にかかわらず得てよいが､本体の分はDMを与えた時のみ得る事｡
+${import 4146}
 
-**★反撃DM数値**
-●最終距離が0～2の時は…	【４】
-●最終距離が3～5の時は…	【３】
-●最終距離が6～10の時は…	【２】
-●最終距離が11～15の時は…	【１】
 
-${input?0}
+[おっれっはぁ～ブルーゥ～♪（次へ）](4150)
+[各種説明（チュートリアル）へ](401)</scene>
+	<scene id="4145" summary="青竜戦4･突進ルールBS用" level="124">%blue%**★対ブルードラゴン戦：突進ルール★**%/%
+**●通常通りダイスを振って計算式に従って受けるDMを判定せよ｡**
+**●次にそのままの出目で【距離】によってかかる倍率に従って反撃DMを設定､ブルードラゴンHPをクリックしDMを与える｡**
+※各倍率のDMになるよう倍率や回数で調整する事｡
+%blue%**★距離別反撃DM倍率★**%/%
+**・距離0：DM×5**
+**・距離1~5：DM×3**
+**・距離6~10：DM×2**
+**・距離11~15：DM×1**
+※電撃からの連続攻撃となるのでDM判定前/反撃判定前ともに一切の行動が不可(蘇生系など一部例外アリ)｡つまり電撃回避判定開始～反撃終了の間は行動不可となるが､電撃＞突進の流れはまとめて1シーン扱いとする｡
+※突進に対して防御/盾防御/盾無回避は可能だが魔法防御は不可｡また当然ながら防御選択時は反撃はできない｡
+※特例として**1のゾロ目は【ハズレ】として【強制回避】**とし､逆に**6のゾロ目は【クリティカルヒット】として【強制死亡】**とする("まっぷたつにされた！")｡これらは距離に関係無く､また防御/盾防御/盾無回避の成立も無視して強制成立するものとする｡
+※EXPはLv表示がある計算式使用時にのみ､戦利品も同様に計算式使用時にのみ得てよいが､ともに前の式で回避したなどして計算式を使わなかった場合は得られない｡だが例外的に魔法使用によりそうなった場合は得てよい｡
+※本体攻撃時のEXPはDM×1につき1回得る事｡
+${if f1407}**ゾマ｢全パーツを集めるとブルードラゴン完成じゃ！週間ブルードラゴン第1号は特別定価半額！書店で！(ﾃﾞｱ○ｽﾃｨｰﾆｯ｣**
+ウソの中に真実を混ぜるんじゃねぇ～ｗ${/if}
+${if f1204}${import 4102}${/if}
+${if f1302}${import 4103}${/if}
+${if f1407}${import 4104}${/if}
 
-[ブルードラゴン戦説明へ](4101)
-[各種説明（チュートリアル）へ](401)
-[「しょうがないのー」](4105 "i2535")
-[Ｙｏｕ　ａｒｅ　ｄｅａｄ！！](4106 "i3360")
-[まずぅーい！もう１回ぁーい！！（倒せなかった）](4110)
-[アヒャヒャヒャヒャ！${殺|や}ったぁーー！！（倒した）](4201 "f1251")
-[アヒャヒャヒャヒャ！${殺|や}ったぁーー！！（倒した）](4202 "f1204")
-[アヒャヒャヒャヒャ！${殺|や}ったぁーー！！（倒した）](4203 "f1302")
-[アヒャヒャヒャヒャ！${殺|や}ったぁーー！！（倒した）](4204 "f1407")</scene>
-	<scene id="4201" flags="f4200" bgm="@field02" se="3-25kb-pigiii" result="r4200" level="108" summary="青竜倒･単身">
+
+</scene>
+	<scene id="4146" summary="青竜戦4･突進ルールシーン用" level="124">%blue%**★対ブルードラゴン戦：突進ルール★**%/%
+**●通常通りダイスを振って計算式に従って受けるDMを判定せよ｡**
+**●次にそのままの出目で【距離】によってかかる倍率に従って反撃DMを設定､ブルードラゴンHPをクリックしDMを与える｡**
+※各倍率のDMになるよう倍率や回数で調整する事｡
+%blue%**★距離別反撃DM倍率★**%/%
+**・距離0：DM×5**
+**・距離1~5：DM×3**
+**・距離6~10：DM×2**
+**・距離11~15：DM×1**
+※電撃からの連続攻撃となるのでDM判定前/反撃判定前ともに一切の行動が不可(蘇生系など一部例外アリ)｡つまり電撃回避判定開始～反撃終了の間は行動不可となるが､電撃＞突進の流れはまとめて1シーン扱いとする｡
+※突進に対して防御/盾防御/盾無回避は可能だが魔法防御は不可｡また当然ながら防御選択時は反撃はできない｡
+※特例として**1のゾロ目は【ハズレ】として【強制回避】**とし､逆に**6のゾロ目は【クリティカルヒット】として【強制死亡】**とする("まっぷたつにされた！")｡これらは距離に関係無く､また防御/盾防御/盾無回避の成立も無視して強制成立するものとする｡
+※EXPはLv表示がある計算式使用時にのみ､戦利品も同様に計算式使用時にのみ得てよいが､ともに前の式で回避したなどして計算式を使わなかった場合は得られない｡だが例外的に魔法使用によりそうなった場合は得てよい｡
+※本体攻撃時のEXPはDM×1につき1回得る事｡
+${if f1407}**ゾマ｢全パーツを集めるとブルードラゴン完成じゃ！週間ブルードラゴン第1号は特別定価半額！書店で！(ﾃﾞｱ○ｽﾃｨｰﾆｯ｣**
+ウソの中に真実を混ぜるんじゃねぇ～ｗ${/if}
+${if f1204}%blue%**★対ブルードラゴン戦：マーベル効果★**%/%
+明らかなレベルオーバーにより戦いには参加できないので､防御魔法や回復魔法に専念してもらう(攻撃を防いだりはできない)｡
+しかしそれにより…
+**●DM軽減は通常の【君のLv×3】から【君のLv×7】へ倍増｡**
+Statusウィンドウの【DM軽減】への反映を忘れずに｡
+**●回復魔法も戦闘1セット(突風～突進)につき【2回使用可能】｡**
+もちろん行動回数にはカウントせず､使用タイミングも制限無し｡${/if}
+${if f1302}%blue%**★対ブルードラゴン戦：ザシュマー効果★**%/%
+なぜかブルードラゴンは君を優先して狙うが､さすがに2人同時に相手をすると各攻撃の命中率は落ちるので…
+**●準備回数の絡む計算時に【回数を反映させなくてもよい】｡**
+つまり準備行動をしても回避判定などが不利にならない｡
+**●突進に対する【反撃はザシュマーも行う】｡**
+が､前述の通り奴は君を狙ってくるのでカウンターである事の性質上､【ザシュマーの攻撃倍率は君の1/2】とする｡なお君が反撃しなかった場合でもザシュマーは必ず攻撃する｡${/if}
+${if f1407}%blue%**★対ブルードラゴン戦：ゾマ効果★**%/%
+ゾマは今回見物を決め込んでいるので…
+**●【特に行動はしない】(それが一番助かるのだが)｡**
+**●【エリクサー(並)をエリクサー(特)と同効果で使用できる】｡**
+唯一の行動で､エリクサー(並)を所持している場合は君が死亡した時に自動で使ってくれるのだ｡${/if}
+
+
+</scene>
+	<scene id="4150" summary="青竜戦5･撃破判定" level="106">　　
+　　
+
+[おっれっはぁ～ブルーゥ～♪ブッルッウーゥドッラーーゴッン～♪（２番へ）](4110 "!p4101:@0")
+[「はぁっ…はぁっ…くっ！」](4201 "p4101:@0&amp;f1251")
+[「はぁっ…はぁっ…うぅっ…」](4202 "p4101:@0&amp;f1204")
+[「はぁっ…はぁっ…ぐぅっ！」](4203 "p4101:@0&amp;f1302")
+[「はぁっ…はぁっ…くっ！(ﾋｮﾎ」](4204 "p4101:@0&amp;f1407")</scene>
+	<scene id="4201" flags="f4200" bgm="@field02" se="3-25kb-pigiii" result="r4200" level="107" summary="青竜倒･単身">
 ブルードラゴンは、思いの他情けない断末魔を残して朽ち果てた（ｱﾑﾙｩｰ
 
 ### 「はぁっ…はぁっ…くっ！」
@@ -13897,7 +14668,7 @@ ${input?0}
 などとアレコレ考えても仕方がない、とりあえず今は勝利の美酒に酔いしれるべく、お宝をあさらせてもらう事にしよう。
 
 [ひゃっほーい！お宝じゃーい！](4210)</scene>
-	<scene id="4202" flags="f4200" bgm="@field02" se="3-25kb-pigiii" result="r4200" level="108" summary="青竜倒･マベ">
+	<scene id="4202" flags="f4200" bgm="@field02" se="3-25kb-pigiii" result="r4200" level="107" summary="青竜倒･マベ">
 ブルードラゴンは、思いの他情けない断末魔を残して朽ち果てた（ｱﾑﾙｩｰ
 
 ### 君「はぁっ…はぁっ…くっ！」
@@ -13905,7 +14676,7 @@ ${input?0}
 いつ別の敵が襲ってくるかわからないというのに、そんな事ではいけないのだが…それほどまでにギリギリまで追い詰められた、という事だ。
 幸い、奴を恐れて他の敵は寄り付かないおかげでその心配は無いようだが…
 
-### マーベル「はぁっ…はぁっ…くっ！」
+### マーベル「はぁっ…はぁっ…うぅっ…」
 合わせるように、その場にペタンと足を閉じて座り込むマーベル。
 いや、君後ろに隠れてたダケだろ…まぁ防御魔法障壁を張って回復もしてくれたから助かったケド…
 ### マーベル「こ、今度こそ本当に…し、死ぬかと思った…」
@@ -13924,7 +14695,7 @@ ${input?0}
 マーベル「…そうですね。」
 
 [ひゃっほーい！お宝じゃーい！](4210)</scene>
-	<scene id="4203" flags="f4200" bgm="@field02" se="3-25kb-pigiii" result="r4200" level="108" summary="青竜倒･ザシュ">
+	<scene id="4203" flags="f4200" bgm="@field02" se="3-25kb-pigiii" result="r4200" level="107" summary="青竜倒･ザシュ">
 ブルードラゴンは、思いの他情けない断末魔を残して朽ち果てた（ｱﾑﾙｩｰ
 
 ### 君「はぁっ…はぁっ…くっ！」
@@ -13932,7 +14703,7 @@ ${input?0}
 いつ別の敵が襲ってくるかわからないというのに、そんな事ではいけないのだが…それほどまでにギリギリまで追い詰められた、という事だ。
 幸い、奴を恐れて他の敵は寄り付かないおかげでその心配は無いようだが…
 
-### ザシュマー「はぁっ…はぁっ…くっ！」
+### ザシュマー「はぁっ…はぁっ…ぐぅっ！」
 同時に、やはりガクリ、と膝をついてその場にしゃがみこむザシュマー。
 君と同じく、奴の激しい攻撃にさらされ続け、無理な再生を繰り返したのだろう。
 ### ザシュマー「こ、これが…ドラゴン…！」
@@ -13951,7 +14722,7 @@ ${input?0}
 なげえな、オイ！
 
 [ひゃっほーい！お宝じゃーい！](4210)</scene>
-	<scene id="4204" flags="f4200" bgm="@field02" se="3-25kb-pigiii" result="r4200" level="108" summary="青竜倒･ゾマ">
+	<scene id="4204" flags="f4200" bgm="@field02" se="3-25kb-pigiii" result="r4200" level="107" summary="青竜倒･ゾマ">
 ブルードラゴンは、思いの他情けない断末魔を残して朽ち果てた（ｱﾑﾙｩｰ
 
 ### 君「はぁっ…はぁっ…くっ！」
@@ -13959,7 +14730,7 @@ ${input?0}
 いつ別の敵が襲ってくるかわからないというのに、そんな事ではいけないのだが…それほどまでにギリギリまで追い詰められた、という事だ。
 幸い、奴を恐れて他の敵は寄り付かないおかげでその心配は無いようだが…
 
-### ゾマ「はぁっ…はぁっ…くっ！」
+### ゾマ「はぁっ…はぁっ…くっ！(ﾋｮﾎ」
 君と同時に、ガクリ、と膝をついてその場にしゃがみこむ…フリをするゾマ…
 ### ゾマ「…じゃってよー！ｗヒョホホホホーーー！！！ｗｗｗ」
 いやそりゃアンタ何もしてない…いや、こんだけ近くにいて無傷かよ…
@@ -13980,31 +14751,18 @@ ${input?0}
 君「やったーーー！！！」
 
 [ひゃっほーい！お宝じゃーい！](4210)</scene>
-	<scene id="4210" level="109" items="i1109" summary="欠片箱">
-さて、このシナリオのお宝と言えばコレだ。
+	<scene id="4210" level="108" items="i1109" summary="欠片箱" enemies="m1128,m1129,m1130,m1131,m1132,m1133,m1134" rule="1109">さて、このシナリオのお宝と言えばコレ…そう「欠片箱」だ。
+さぁ、Battle Sheetを開いてダイスを振ってとりあえずの収穫を決めたまえ。
+そしてさらにお宝をあさるのだ！
 
-**★【欠片箱】**
-欠片箱とは主にボス戦勝利後に手に入る【たくさんの七星欠片が入った箱】の事で､まぁ平たく言えばボス撃破のご褒美(ボーナス)である｡
-入手した際は以下の手順で得る欠片を決定する｡
+${import 1109}
 
-**1:ダイスを振る前に｢何の星の判定をするか｣を決めておく｡**
-
-**2:ダイスを振って出目で欠片の数を決める｡**
-**火星と決めてあって左右ダイスの合計が7なら､火星7個を入手｡**
-※プレイヤーLv×0.7(端数切捨)を最低保証数とする｡
-Lv5なら最低保証数は5×0.7=3.5≒3個で､出目の合計が2～3なら3個､4以上ならその数値の個数となる｡結果､高Lvほど安定して多く手に入る｡
-
-**3:これを全部の星7種類分繰り返して総入手数を決定する｡**
-
-**%red%【手動】%/%※欠片箱は入手したら即入手数を判定する事｡このシーンから移動すると欠片箱は消える｡また欠片の増加は手動で行う事(確定のクリックも忘れずに)｡**
-
-入手したなら、さらにお宝をあさるのだ！
 
 [まだまだあるぜぇーー！！](4221 "f1251")
 [まだまだあるぜぇーー！！](4222 "f1204")
 [まだまだあるぜぇーー！！](4223 "f1302")
 [まだまだあるぜぇーー！！](4224 "f1407")</scene>
-	<scene id="4221" items="i4221,-i1109" flags="f4221" result="r4221" level="110" summary="隼の剣">
+	<scene id="4221" items="i4221,-i1109" flags="f4221" result="r4221" level="109" summary="隼の剣">
 ガサゴソ、ガサゴソ…
 山のような金銀財宝の中には、美しい装飾の施された観賞用の武器や防具もある…その中に特殊な力を持った物が混ざってしまっている事は、そんなに珍しい事ではない…またドラゴンは好んで魔力のある物を収集する事もあるので、今回は特に期待ができるハズだ…
 
@@ -14038,7 +14796,7 @@ Lv5なら最低保証数は5×0.7=3.5≒3個で､出目の合計が2～3なら3
 これからの戦いに使えそうな目ぼしい物はもう無く、残りのお宝の回収はひと段落着いたらする事にして、君は山を後にした。
 
 [下山する](3000)</scene>
-	<scene id="4222" items="i4222,-i1109" flags="f4222" result="r4222" level="110" summary="イージスの盾">
+	<scene id="4222" items="i4222,-i1109" flags="f4222" result="r4222" level="109" summary="イージスの盾">
 ガサゴソ、ガサゴソ…
 山のような金銀財宝の中には、美しい装飾の施された観賞用の武器や防具もある…その中に特殊な力を持った物が混ざってしまっている事は、そんなに珍しい事ではない…またドラゴンは好んで魔力のある物を収集する事もあるので、今回は特に期待ができるハズだ…
 
@@ -14083,7 +14841,7 @@ ${import 4229}
 これからの戦いに使えそうな目ぼしい物はもう無く、残りのお宝の回収はひと段落着いたらする事にして、君達は山を後にした。
 
 [下山する](3000)</scene>
-	<scene id="4223" items="i4223,-i1109" flags="f4223" result="r4223" level="110" summary="リフレクス">
+	<scene id="4223" items="i4223,-i1109" flags="f4223" result="r4223" level="109" summary="リフレクス">
 ガサゴソ、ガサゴソ…
 山のような金銀財宝の中には、美しい装飾の施された観賞用の武器や防具もある…その中に特殊な力を持った物が混ざってしまっている事は、そんなに珍しい事ではない…またドラゴンは好んで魔力のある物を収集する事もあるので、今回は特に期待ができるハズだ…
 
@@ -14119,7 +14877,7 @@ ${import 4228}
 これからの戦いに使えそうな目ぼしい物はもう無く、残りのお宝の回収はひと段落着いたらする事にして、君達は山を後にした。
 
 [下山する](3000)</scene>
-	<scene id="4224" items="i4224,-i1109" flags="f4224" level="110" summary="黒輪">
+	<scene id="4224" items="i4224,-i1109" flags="f4224" level="109" summary="黒輪">
 ガサゴソ、ガサゴソ…
 山のような金銀財宝の中には、美しい装飾の施された観賞用の武器や防具もある…その中に特殊な力を持った物が混ざってしまっている事は、そんなに珍しい事ではない…またドラゴンは好んで魔力のある物を収集する事もあるので、今回は特に期待ができるハズだ…
 
@@ -14188,7 +14946,7 @@ ${import 4228}
 
 [装備する](4225)
 [装備しない](4226)</scene>
-	<scene id="4225" items="-i4224,i4225" flags="f4225" result="r4225" level="111" summary="黒輪装備">
+	<scene id="4225" items="-i4224,i4225" flags="f4225" result="r4225" level="110" summary="黒輪装備">
 
 君「…わかりました。装備します！」
 
@@ -14223,7 +14981,7 @@ ${import 4228}
 ${import 4227}
 
 [下山する](3000)</scene>
-	<scene id="4226" flags="f4226" result="r4226" level="111" summary="黒輪非装備" items="-i4224,i4226">
+	<scene id="4226" flags="f4226" result="r4226" level="110" summary="黒輪非装備" items="-i4224,i4226">
 
 君「…や、やっぱやめときます…」
 
@@ -14280,7 +15038,32 @@ ${import 4227}
 Statusウィンドウの【DM軽減】への反映を忘れずに。
 
 </scene>
-	<scene id="5000" bgm="@end02" level="53">
+	<scene id="4999" summary="第四部制作中" level="53" bgm="@battle01">
+ん？なんか看板が・・・なになに・・・
+
+##　**%blue%★第四部鋭意製作中！もうちょっと待ってね！★%/%**
+
+既存部分の修正・対応もやっと終わり・・・
+散々お待たせしましたが、**本当にここから先の続きの制作には入っています！**
+第一部～第三部も修正でかなり変わってるので、イチから遊び直してもらっても楽しんで頂けるかと。
+
+さて、ここから先の方針ですが・・・
+これまでは戦闘的な難度は高くともほぼ一本道で、戦闘を無視して遊んでる方には手応えの全くないシナリオだったかと思います。
+ですが、ここからはそれ以外の難度も少し上げていこうと思っていますので、**それなりにおつかい・フラグ立て・場所探しもしていただこうかと。**
+しかし**それを力技で押し通るのも大好き**なのでそういう手段も入れていくつもりです。
+
+早いもので第三部公開からすでに四年・・・最初の公開からは五年もの月日が流れています・・・
+にもかかわらず、続きを気にして待ってくれている方々（さすがに極少数だとは思いますが）には本当に感謝しています。
+あまりにも時間がかかり過ぎているので（素人の趣味である事も考慮すると）、「打ち切り（エター）」や「やっつけ終了（形だけ）」を危惧されている方も多いかと思いますが・・・
+安心して下さい。**「この作品をできる限りより良いものにしていく」という気持ちは、制作開始当初から全く変わっていません**（それは修正内容を見て頂ければ分かっていただけるかと思います）。
+ここから先の話も「今から」や「途中で」考えたものではなく、発表前から考えてあったもので、それをやっと今から作り出せる・・・というのが率直な感想で、またこれほど遅れてしまったのだから、**今さら急いで端折るような事はするつもりも必要も無い**と考えているので、そこらへんも**「心配ご無用！みねうちでござる！」**です。
+
+さあそんなわけで**「その名はドラゴンスレイヤー」いよいよラストに向けて進撃開始です！**
+皆々様もずずいと隅から隅までお見逃しなきように～お付き合いくださいますよう重ねてお願い申し上げまする～
+
+
+[戻る](3000)</scene>
+	<scene id="5000" bgm="@end02" level="53" summary="第三部終">
 さぁ！と意気揚々と洞窟へ向かう所悪いのだが、今回はここまでだ。
 
 「こんなに待たせてたったこんだけかよ！」と諸兄の言いたい事はよ～くわかる…しかし、（時間が）無いものは無いのだ！（開き直った
